@@ -57,7 +57,9 @@
   <string name="app_ops_categories_messaging">Pesan</string>
   <string name="app_ops_categories_media">Media</string>
   <string name="app_ops_categories_device">Perangkat</string>
+  <string name="app_ops_categories_background">Latar belakang</string>
   <string name="app_ops_categories_bootup">Lakukan but</string>
+  <string name="app_ops_categories_su">Superuser</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">lokasi yang kasar</string>
   <string name="app_ops_summaries_fine_location">lokasi yang baik</string>
@@ -122,10 +124,12 @@
   <string name="app_ops_summaries_write_external_storage">menulis penyimpanan luar</string>
   <string name="app_ops_summaries_turn_screen_on">menghidupkan layar</string>
   <string name="app_ops_summaries_get_accounts">mendapatkan akun</string>
+  <string name="app_ops_summaries_run_in_background">berjalan di latar belakang</string>
   <string name="app_ops_summaries_toggle_wifi">hidup/matikan Wi-Fi</string>
   <string name="app_ops_summaries_toggle_bluetooth">hidup/matikan bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">mulai saat boot</string>
   <string name="app_ops_summaries_toggle_nfc">hidup/matikan NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">hidup/matikan data seluler</string>
   <string name="app_ops_summaries_superuser">akses root</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Lokasi gersang</string>
@@ -191,10 +195,12 @@
   <string name="app_ops_labels_write_external_storage">Menulis penyimpanan luar</string>
   <string name="app_ops_labels_turn_screen_on">Menghidupkan layar</string>
   <string name="app_ops_labels_get_accounts">Mendapatkan akun</string>
+  <string name="app_ops_labels_run_in_background">Berjalan di latar belakang</string>
   <string name="app_ops_labels_toggle_wifi">Hidup/matikan Wi-Fi</string>
   <string name="app_ops_labels_toggle_bluetooth">Hidup/matikan bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Mulai saat boot</string>
   <string name="app_ops_labels_toggle_nfc">Hidup/matikan NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Hidup/matikan data seluler</string>
   <string name="app_ops_labels_superuser">Akses root</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Diperbolehkan</string>
@@ -214,7 +220,16 @@
   <string name="ok">Oke</string>
   <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">Penyesuaian volume suara</string>
+  <!-- Vibrator intensity -->
+  <string name="vibrator_intensity_title">Intensitas penggetar</string>
+  <string name="vibrator_intensity_dialog_warning">Nilai lebih tinggi dari %1$d%% tidak direkomendasikan</string>
+  <string name="vibrator_intensity_dialog_reset">Set ulang</string>
   <!-- Sizes for pattern lockscreen -->
+  <string name="lock_pattern_size_3">3x3</string>
+  <string name="lock_pattern_size_4">4x4</string>
+  <string name="lock_pattern_size_5">5x5</string>
+  <string name="lock_pattern_size_6">6x6</string>
+  <string name="lock_settings_picker_pattern_size_message">Pilih ukuran pola</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Tunjukkan galat pola</string>
   <!-- Whether the dots will be drawn when using the lockscreen pattern -->
@@ -227,11 +242,14 @@
   <string name="lock_directly_show_pin">Langsung tampilkan entri nomor identifikasi pribadi</string>
   <!-- Lock screen vibrate settings -->
   <string name="lockscreen_vibrate_enabled_title">Getar</string>
+  <string name="lockscreen_vibrate_enabled_head">Bergetar saat membuka</string>
   <!-- Lights settings -->
   <string name="lights_label">Lampu</string>
   <!-- Memory -->
   <string name="memory_startup_apps_title">Aplikasi yang dimulai saat boot</string>
   <!-- Advanced restart options -->
+  <string name="advanced_reboot_title">Mulai ulang lanjutan</string>
+  <string name="advanced_reboot_summary">Ketika tidak terkunci, sertakan opsi dalam menu power untuk memulai ulang ke recovery, bootloader, atau mulai ulang cepat</string>
   <!-- PIN scramble -->
   <string name="unlock_scramble_pin_layout_title">Tata letak acak</string>
   <string name="unlock_scramble_pin_layout_summary">Acak tata letak PIN saat membuka perangkat</string>
@@ -246,6 +264,7 @@
   <string name="protected_apps">Aplikasi dilindungi</string>
   <string name="protected_apps_summary">Kelola aplikasi yang tersembunyi dengan kunci aman</string>
   <string name="saving_protected_components">Menyimpan kondisi komponen\u2026</string>
+  <string name="launch_app">Luncurkan aplikasi</string>
   <string name="pa_login_username_hint">Nama pengguna (email)</string>
   <string name="pa_login_password_hint">Kata sandi</string>
   <string name="pa_login_submit_button">Masuk</string>
@@ -255,8 +274,10 @@
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">Tampilkan cuaca</string>
   <!-- title for lock screen blur preference -->
+  <string name="lockscreen_blur_enabled_title">Kaburkan layar kunci</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Mencegah bangun yang tidak disengaja</string>
+  <string name="proximity_wake_summary">Periksa sensor kedekatan sebelum memicu gerakan</string>
   <!-- High touch sensitivity -->
   <string name="high_touch_sensitivity_title">Kepekaan sentuh tinggi</string>
   <string name="high_touch_sensitivity_summary">Tingkatkan kepekaan layar sentuh sehingga dapat digunakan saat mengenakan sarung tangan</string>
@@ -264,7 +285,10 @@
   <string name="touchscreen_hovering_title">Ambang jari di layar sentuh</string>
   <string name="touchscreen_hovering_summary">Mengizinkan Anda mengambang jari di atas layar seperti menggunakan tetikus dalam peramban web, destop jarak jauh, dll</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">Pemilih pemberitahuan</string>
+  <string name="ime_switcher_notify_summary">Tampilkan pemberitahuan pilihan metode masukan</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+  <string name="notification_importance_very_low">Tidak ada gangguan layar manapun, mengintip, suara atau getaran. Menunjukkan di bagian bawah daftar pemberitahuan. Sembunyikan dari layar kunci.</string>
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Tampilkan ikon saat menggunakan stilus</string>
   <string name="stylus_icon_enabled_summary">Tampilkan ikon penunjuk ketika mengambang jari atau menggambar dengan stilus</string>
@@ -273,6 +297,7 @@
   <string name="kill_app_longpress_back_summary">Matikan aplikasi latar dengan menahan tombol kembali</string>
   <!-- Android debugging -->
   <string name="enable_adb_cm">Android debugging</string>
+  <string name="enable_adb_summary_cm">Aktifkan antarmuka Android Debug Bridge (ADB)</string>
   <!-- Android debugging notification -->
   <string name="adb_notify">Pemberitahuan debugging</string>
   <string name="adb_notify_summary">Tampilkan pemberitahuan bila USB atau jaringan debugging diaktifkan</string>
@@ -308,6 +333,7 @@
   <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">Komunikasi jarak dekat</string>
   <!-- Notification importance -->
+  <string name="tuner_full_importance_settings">Kekuatan kontrol notifikasi</string>
   <!-- CM Legal -->
   <string name="cmlicense_title">Hukum CyanogenMod</string>
   <!-- Format string for fingerprint location message -->
@@ -325,4 +351,6 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 menit</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 menit</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 menit</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Portabel Wi\u2011Fi hotspot tidak pernah berakhir</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Portabel Wi\u2011Fi hotspot akan berkahir setelah <xliff:g id="timeout">%1$s</xliff:g></string>
 </resources>
