@@ -47,6 +47,7 @@ public abstract class AppCounter extends AsyncTask<Void, Void, Integer> {
                 ParceledListSlice<ApplicationInfo> list =
                         mIpm.getInstalledApplications(PackageManager.GET_DISABLED_COMPONENTS
                                 | PackageManager.GET_DISABLED_UNTIL_USED_COMPONENTS
+                                | PackageManager.GET_META_DATA
                                 | (user.isAdmin() ? PackageManager.GET_UNINSTALLED_PACKAGES : 0),
                                 user.id);
                 for (ApplicationInfo info : list.getList()) {

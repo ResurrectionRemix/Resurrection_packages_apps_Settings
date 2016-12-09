@@ -1297,6 +1297,12 @@ public class ManageApplications extends InstrumentedFragment
                         if ((info.flags & ApplicationInfo.FLAG_UPDATED_SYSTEM_APP) != 0) {
                             return true;
                         } else if ((info.flags & ApplicationInfo.FLAG_SYSTEM) == 0) {
+                            if (info.metaData != null) {
+                                if (info.metaData.getString("Substratum_Parent") != null
+                                        || info.metaData.getString("Substratum_IconPack") != null) {
+                                    return false;
+                                }
+                            }
                             return true;
                         }
                         Intent launchIntent = new Intent(Intent.ACTION_MAIN, null)
