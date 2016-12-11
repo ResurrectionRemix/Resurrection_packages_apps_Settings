@@ -37,6 +37,8 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="root_access_adb">ADB uniquement</string>
   <string name="root_access_all">Applications et ADB</string>
   <!-- Preference link for root appops -->
+  <string name="root_appops_title">Gérer les accès root</string>
+  <string name="root_appops_summary">Visualiser et contrôler les règles root</string>
   <!-- About phone screen, CyanogenMod version -->
   <string name="mod_version">Version CyanogenMod</string>
   <string name="mod_version_default">Inconnue</string>
@@ -49,6 +51,7 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="mod_api_level_default">Inconnue</string>
   <!-- About phone screen, build date -->
   <string name="build_date">Date de compilation</string>
+  <string name="build_date_default">2015-01-01-0000</string>
   <!-- CM Updater -->
   <string name="cmupdate_settings_title">Mises à jour CyanogenMod</string>
   <!-- Names of categories of app ops tabs - extension of AOSP -->
@@ -288,7 +291,20 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="increasing_ring_min_volume_title">Volume de démarrage</string>
   <string name="increasing_ring_ramp_up_time_title">Durée de progression</string>
   <!-- Allow vibration in zen mode -->
+  <string name="zen_mode_vibration">Vibreur</string>
+  <string name="zen_mode_vibration_never">Ne pas vibrer</string>
+  <string name="zen_mode_vibration_calls_only">Vibrer uniquement pour les appels</string>
+  <string name="zen_mode_vibration_calls_and_notifications">Vibrer pour les appels et les notifications</string>
   <!-- Notification sound timeout -->
+  <string name="app_notification_sound_timeout_title">Temps minimum entre les sons de notification</string>
+  <string name="app_notification_sound_timeout_summary_template">Ne pas permettre plus d\'un son ou une vibration toutes les <xliff:g id="duration">%1$s</xliff:g></string>
+  <string name="app_notification_sound_timeout_value_none">Aucune restriction</string>
+  <string name="app_notification_sound_timeout_value_10_seconds">10 secondes</string>
+  <string name="app_notification_sound_timeout_value_30_seconds">30 secondes</string>
+  <string name="app_notification_sound_timeout_value_1_minute">1 minute</string>
+  <string name="app_notification_sound_timeout_value_5_minutes">5 minutes</string>
+  <string name="app_notification_sound_timeout_value_15_minutes">10 minutes</string>
+  <string name="app_notification_sound_timeout_value_30_minutes">30 minutes</string>
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">État de la SIM %d</string>
   <string name="sim_card_lock_settings_title">Paramètres de verrouillage de la carte SIM %d</string>
@@ -301,7 +317,12 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <!-- CM Legal -->
   <string name="cmlicense_title">Infos légales CyanogenMod</string>
   <!-- Format string for fingerprint location message -->
+  <string name="security_settings_fingerprint_enroll_find_sensor_message_cm">Localiser le capteur d’empreintes digitales sur <xliff:g id="sensor_location">%1$s </xliff:g> de votre téléphone.</string>
   <!-- Fingerprint sensor locations -->
+  <string name="security_settings_fingerprint_sensor_location_back">l\'arrière</string>
+  <string name="security_settings_fingerprint_sensor_location_front">la façade</string>
+  <string name="security_settings_fingerprint_sensor_location_left">le côté gauche</string>
+  <string name="security_settings_fingerprint_sensor_location_right">le côté droit</string>
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Autre</string>
   <!-- Wi-Fi tethering inactivity timeout -->
@@ -312,4 +333,5 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minutes</string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">Réveiller au branchement</string>
+  <!-- Heads-up -->
 </resources>
