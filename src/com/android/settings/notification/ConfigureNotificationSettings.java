@@ -27,6 +27,7 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.TwoStatePreference;
 import android.util.Log;
@@ -112,15 +113,16 @@ public class ConfigureNotificationSettings extends SettingsPreferenceFragment {
     // === Pulse notification light ===
 
     private void initPulse() {
+        final PreferenceCategory category = (PreferenceCategory) findPreference("lights");
         mNotificationPulse =
-                (TwoStatePreference) getPreferenceScreen().findPreference(KEY_NOTIFICATION_PULSE);
+                (TwoStatePreference) category.findPreference(KEY_NOTIFICATION_PULSE);
         if (mNotificationPulse == null) {
             Log.i(TAG, "Preference not found: " + KEY_NOTIFICATION_PULSE);
             return;
         }
         if (!getResources()
                 .getBoolean(com.android.internal.R.bool.config_intrusiveNotificationLed)) {
-            getPreferenceScreen().removePreference(mNotificationPulse);
+            category.removePreference(mNotificationPulse);
         } else {
             updatePulse();
             mNotificationPulse.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
