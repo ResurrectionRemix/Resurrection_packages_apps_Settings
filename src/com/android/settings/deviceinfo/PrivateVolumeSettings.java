@@ -160,8 +160,7 @@ public class PrivateVolumeSettings extends SettingsPreferenceFragment {
         mVolume = mStorageManager.findVolumeById(mVolumeId);
 
         final long sharedDataSize = mVolume.getPath().getTotalSpace();
-        boolean isInternal = VolumeInfo.ID_PRIVATE_INTERNAL.equals(mVolume.getId());
-        mTotalSize = isInternal ? getArguments().getLong(EXTRA_VOLUME_SIZE, 0) : sharedDataSize;
+        mTotalSize = getArguments().getLong(EXTRA_VOLUME_SIZE, 0);
         mSystemSize = mTotalSize - sharedDataSize;
         if (LOGV) Log.v(TAG,
                 "onCreate() mTotalSize: " + mTotalSize + " sharedDataSize: " + sharedDataSize);
