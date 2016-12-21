@@ -735,6 +735,11 @@ public class WifiSettings extends RestrictedSettingsFragment
     }
 
     private void setOffMessage() {
+        if(!isAdded()){
+            Log.i(TAG, "Fragment has not yet been added to Activity.");
+            return;
+        }
+
         if (isUiRestricted()) {
             if (!isUiRestrictedByOnlyAdmin()) {
                 addMessagePreference(R.string.wifi_empty_list_user_restricted);
