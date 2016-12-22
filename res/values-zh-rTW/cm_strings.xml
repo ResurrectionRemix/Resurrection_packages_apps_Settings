@@ -29,12 +29,14 @@
   <!-- Setting checkbox title for root access -->
   <string name="root_access">Root 權限</string>
   <string name="root_access_warning_title">允許 root 權限？</string>
-  <string name="root_access_warning_message">允許應用程式要求 root 權限是很危險的，而且可能會影響您系統的安全！</string>
+  <string name="root_access_warning_message">允許應用程式請求 root 權限是很危險的，而且可能會影響您系統的安全！</string>
   <string name="root_access_none">已停用</string>
   <string name="root_access_apps">僅限應用程式</string>
   <string name="root_access_adb">僅限 ADB</string>
   <string name="root_access_all">應用程式與 ADB</string>
   <!-- Preference link for root appops -->
+  <string name="root_appops_title">管理 root 存取權限</string>
+  <string name="root_appops_summary">查看和控制 root 規則</string>
   <!-- About phone screen, CyanogenMod version -->
   <string name="mod_version">CyanogenMod 版本</string>
   <string name="mod_version_default">未知</string>
@@ -55,7 +57,9 @@
   <string name="app_ops_categories_messaging">訊息</string>
   <string name="app_ops_categories_media">媒體</string>
   <string name="app_ops_categories_device">裝置</string>
+  <string name="app_ops_categories_background">背景</string>
   <string name="app_ops_categories_bootup">啟動時</string>
+  <string name="app_ops_categories_su">超級使用者</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">約略位置</string>
   <string name="app_ops_summaries_fine_location">精確位置</string>
@@ -88,7 +92,7 @@
   <string name="app_ops_summaries_play_audio">播放音訊</string>
   <string name="app_ops_summaries_read_clipboard">讀取剪貼簿</string>
   <string name="app_ops_summaries_modify_clipboard">修改剪貼簿</string>
-  <string name="app_ops_summaries_media_buttons">媒體按鈕</string>
+  <string name="app_ops_summaries_media_buttons">媒體鍵</string>
   <string name="app_ops_summaries_audio_focus">音訊焦點</string>
   <string name="app_ops_summaries_master_volume">主音量</string>
   <string name="app_ops_summaries_voice_volume">語音音量</string>
@@ -105,6 +109,9 @@
   <string name="app_ops_summaries_toast_window">顯示浮動通知</string>
   <string name="app_ops_summaries_project_media">媒體投放</string>
   <string name="app_ops_summaries_activate_vpn">啟用 VPN</string>
+  <string name="app_ops_summaries_write_wallpaper">設定桌布</string>
+  <string name="app_ops_summaries_assist_structure">協助結構</string>
+  <string name="app_ops_summaries_assist_screenshot">協助螢幕截圖</string>
   <string name="app_ops_summaries_read_phone_state">讀取手機狀態</string>
   <string name="app_ops_summaries_add_voicemail">新增語音郵件</string>
   <string name="app_ops_summaries_use_sip">使用 SIP</string>
@@ -117,10 +124,12 @@
   <string name="app_ops_summaries_write_external_storage">寫到外部存儲空間</string>
   <string name="app_ops_summaries_turn_screen_on">開啟螢幕</string>
   <string name="app_ops_summaries_get_accounts">取得帳戶</string>
-  <string name="app_ops_summaries_toggle_wifi">切換 Wi-Fi</string>
-  <string name="app_ops_summaries_toggle_bluetooth">切換藍芽</string>
+  <string name="app_ops_summaries_run_in_background">在背景執行</string>
+  <string name="app_ops_summaries_toggle_wifi">切換至 Wi-Fi</string>
+  <string name="app_ops_summaries_toggle_bluetooth">切換至藍牙</string>
   <string name="app_ops_summaries_start_at_boot">在開機時啟動</string>
-  <string name="app_ops_summaries_toggle_nfc">切換 NFC</string>
+  <string name="app_ops_summaries_toggle_nfc">切換至 NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">切換至行動數據</string>
   <string name="app_ops_summaries_superuser">Root 權限</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">粗略位置</string>
@@ -171,6 +180,9 @@
   <string name="app_ops_labels_toast_window">顯示 toasts 通知</string>
   <string name="app_ops_labels_project_media">媒體投放</string>
   <string name="app_ops_labels_activate_vpn">啟用 VPN</string>
+  <string name="app_ops_labels_write_wallpaper">設定桌布</string>
+  <string name="app_ops_labels_assist_structure">協助結構</string>
+  <string name="app_ops_labels_assist_screenshot">協助螢幕截圖</string>
   <string name="app_ops_labels_read_phone_state">讀取電話狀態</string>
   <string name="app_ops_labels_add_voicemail">新增語音郵件</string>
   <string name="app_ops_labels_use_sip">使用 SIP</string>
@@ -183,10 +195,12 @@
   <string name="app_ops_labels_write_external_storage">寫到外部存儲空間</string>
   <string name="app_ops_labels_turn_screen_on">開啟螢幕</string>
   <string name="app_ops_labels_get_accounts">取得帳戶</string>
-  <string name="app_ops_labels_toggle_wifi">切換 Wi-Fi</string>
-  <string name="app_ops_labels_toggle_bluetooth">切換藍芽</string>
+  <string name="app_ops_labels_run_in_background">在背景中執行</string>
+  <string name="app_ops_labels_toggle_wifi">切換至 Wi-Fi</string>
+  <string name="app_ops_labels_toggle_bluetooth">切換至藍牙</string>
   <string name="app_ops_labels_start_at_boot">在開機時啟動</string>
-  <string name="app_ops_labels_toggle_nfc">切換 NFC</string>
+  <string name="app_ops_labels_toggle_nfc">切換至 NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">切換至行動數據</string>
   <string name="app_ops_labels_superuser">Root 權限</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">允許</string>
@@ -208,22 +222,34 @@
   <string name="volume_adjust_sounds_title">音量調整指示音</string>
   <!-- Vibrator intensity -->
   <string name="vibrator_intensity_title">震動強度</string>
+  <string name="vibrator_intensity_dialog_warning">數值不建議大於 %1$d%%</string>
   <string name="vibrator_intensity_dialog_reset">重設</string>
   <!-- Sizes for pattern lockscreen -->
+  <string name="lock_pattern_size_3">3x3</string>
+  <string name="lock_pattern_size_4">4x4</string>
+  <string name="lock_pattern_size_5">5x5</string>
+  <string name="lock_pattern_size_6">6x6</string>
+  <string name="lock_settings_picker_pattern_size_message">選擇解鎖圖形大小</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">顯示解鎖圖形錯誤</string>
   <!-- Whether the dots will be drawn when using the lockscreen pattern -->
   <string name="lockpattern_settings_enable_dots_title">顯示解鎖圖形點</string>
   <!-- Whether the keyguard will directly show the password entry -->
+  <string name="lock_directly_show_password">直接顯示密碼輸入框</string>
   <!-- Whether the keyguard will directly show the pattern view -->
+  <string name="lock_directly_show_pattern">直接顯示圖形密碼輸入</string>
   <!-- Whether the keyguard will directly show the PIN entry -->
+  <string name="lock_directly_show_pin">直接顯示 PIN 碼輸入框</string>
   <!-- Lock screen vibrate settings -->
   <string name="lockscreen_vibrate_enabled_title">震動</string>
+  <string name="lockscreen_vibrate_enabled_head">解鎖時震動</string>
   <!-- Lights settings -->
   <string name="lights_label">指示燈</string>
   <!-- Memory -->
   <string name="memory_startup_apps_title">開機時啟動的應用程式</string>
   <!-- Advanced restart options -->
+  <string name="advanced_reboot_title">進階重新啟動</string>
+  <string name="advanced_reboot_summary">當解鎖後，加入重新啟動進入 Recovery 或 Bootloader 或進行軟體重新啟動的選項至電源選單</string>
   <!-- PIN scramble -->
   <string name="unlock_scramble_pin_layout_title">亂序布局</string>
   <string name="unlock_scramble_pin_layout_summary">解鎖裝置時使用亂序 PIN 布局</string>
@@ -236,67 +262,101 @@
   <string name="menu_hidden_apps_delete">重設</string>
   <string name="menu_hidden_apps_reset_lock">重設圖形鎖</string>
   <string name="protected_apps">受保護的應用程式</string>
+  <string name="protected_apps_summary">管理安全鎖下隱藏的應用程式</string>
   <string name="saving_protected_components">儲存組件狀態\u2026</string>
-  <string name="pa_login_username_hint">使用者名稱（電子郵件）</string>
+  <string name="launch_app">啟動應用程式</string>
+  <string name="pa_login_username_hint">使用者名稱 (電子郵件)</string>
   <string name="pa_login_password_hint">密碼</string>
   <string name="pa_login_submit_button">登入</string>
   <string name="pa_login_checking_password">正在檢查帳戶\u2026</string>
   <string name="pa_login_incorrect_login">登入不正確</string>
-  <string name="pa_pattern_or_fingerprint_header">必須使用圖形或指紋解鎖</string>
+  <string name="pa_pattern_or_fingerprint_header">必須使用解鎖圖形或指紋解鎖</string>
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">顯示天氣資訊</string>
   <!-- title for lock screen blur preference -->
+  <string name="lockscreen_blur_enabled_title">模糊鎖定螢幕</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">防止意外喚醒</string>
+  <string name="proximity_wake_summary">手勢觸發喚醒前檢查接近感應器</string>
   <!-- High touch sensitivity -->
-  <string name="high_touch_sensitivity_title">高觸摸靈敏度</string>
+  <string name="high_touch_sensitivity_title">高觸控靈敏度</string>
   <string name="high_touch_sensitivity_summary">增加觸控螢幕的靈敏度，因此戴著手套也可以使用手機</string>
   <!-- Touchscreen hovering -->
   <string name="touchscreen_hovering_title">懸浮操作</string>
   <string name="touchscreen_hovering_summary">允許您把手指懸停在螢幕上作為瀏覽器、遠程桌面等的滑鼠</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">選擇器通知</string>
+  <string name="ime_switcher_notify_summary">顯示輸入法選擇器通知</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+  <string name="notification_importance_very_low">無全螢幕中斷、窺視、聲音或震動。 顯示在通知清單的下方。 從鎖定螢幕中隱藏。</string>
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">使用觸控筆時顯示圖示</string>
   <string name="stylus_icon_enabled_summary">使用觸控筆漂浮或繪圖時顯示指標圖示</string>
   <!-- Kill app long-press back -->
-  <string name="kill_app_longpress_back">返回按鈕可終止應用程式</string>
+  <string name="kill_app_longpress_back">返回鍵可終止應用程式</string>
   <string name="kill_app_longpress_back_summary">長按返回鍵終止前景應用程式</string>
   <!-- Android debugging -->
-  <string name="enable_adb_cm">Android 調試</string>
+  <string name="enable_adb_cm">Android 偵錯</string>
+  <string name="enable_adb_summary_cm">啟用 Android Debug Bridge (ADB) 介面</string>
   <!-- Android debugging notification -->
   <string name="adb_notify">偵錯通知</string>
   <string name="adb_notify_summary">當啟用 USB 或 網路偵錯時顯示通知</string>
   <!-- Android debugging over network -->
   <string name="adb_over_network">網路 ADB</string>
-  <string name="adb_over_network_summary">啟用透過網絡介面 (Wi-Fi、USB 網絡) 進行 TCP/IP 偵錯。此設定會於重啟後重設</string>
-  <string name="adb_over_network_warning">警告：當啟用網路 ADB 時，您的手機將開放於所有已連接的網路！\n\n建議您已連接到信任的網路才使用此功能。\n\n您確定你想啟用此功能嗎？</string>
+  <string name="adb_over_network_summary">啟用透過網路介面 (Wi\u2011Fi、USB 網路) 進行 TCP/IP 偵錯。該設定會在重新啟動後重設</string>
+  <string name="adb_over_network_warning">警告：當啟用網路 ADB 時，您的手機將開放於所有已連線的網路！\n\n建議您已連線到信任的網路才使用此功能。\n\n您確定你想啟用此功能嗎？</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">漸強鈴聲音量</string>
   <string name="increasing_ring_min_volume_title">開始音量</string>
   <string name="increasing_ring_ramp_up_time_title">漸強時間</string>
   <!-- Allow vibration in zen mode -->
+  <string name="zen_mode_vibration">震動</string>
+  <string name="zen_mode_vibration_never">不震動</string>
+  <string name="zen_mode_vibration_calls_only">僅來電震動</string>
+  <string name="zen_mode_vibration_calls_and_notifications">通話和通知震動</string>
   <!-- Notification sound timeout -->
+  <string name="app_notification_sound_timeout_title">通知音效之間的最短時間</string>
+  <string name="app_notification_sound_timeout_summary_template">允許音效或震動每一次不超過 <xliff:g id="duration">%1$s</xliff:g></string>
+  <string name="app_notification_sound_timeout_value_none">無限制</string>
+  <string name="app_notification_sound_timeout_value_10_seconds">10 秒</string>
+  <string name="app_notification_sound_timeout_value_30_seconds">30 秒</string>
+  <string name="app_notification_sound_timeout_value_1_minute">1 分鐘</string>
+  <string name="app_notification_sound_timeout_value_5_minutes">5 分鐘</string>
+  <string name="app_notification_sound_timeout_value_15_minutes">10 分鐘</string>
+  <string name="app_notification_sound_timeout_value_30_minutes">30 分鐘</string>
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">Sim 卡 %d 狀態</string>
-  <string name="sim_card_lock_settings_title">Sim 卡 %d 鎖定設置</string>
+  <string name="sim_card_lock_settings_title">Sim 卡 %d 鎖定設定</string>
   <string name="sim_card_summary_empty">沒有插入Sim卡</string>
   <string name="sim_mobile_network_settings_category_title">行動網路設定</string>
   <string name="sim_mobile_network_settings_title">Sim 卡 %d 設定</string>
   <!-- NFC PreferenceCategory title -->
+  <string name="nfc_title_category">NFC</string>
   <!-- Notification importance -->
+  <string name="tuner_full_importance_settings">電源通知控制</string>
   <!-- CM Legal -->
   <string name="cmlicense_title">CyanogenMod 法律條款</string>
   <!-- Format string for fingerprint location message -->
+  <string name="security_settings_fingerprint_enroll_find_sensor_message_cm">在您的手機 <xliff:g id="sensor_location">%1$s</xliff:g> 找到指紋感應器。</string>
   <!-- Fingerprint sensor locations -->
+  <string name="security_settings_fingerprint_sensor_location_back">後置</string>
+  <string name="security_settings_fingerprint_sensor_location_front">前置</string>
+  <string name="security_settings_fingerprint_sensor_location_left">左側</string>
+  <string name="security_settings_fingerprint_sensor_location_right">右側</string>
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">其他</string>
   <!-- Wi-Fi tethering inactivity timeout -->
+  <string name="hotstpot_inactivity_timeout_text">Wi\u2011Fi 熱點逾時</string>
   <string name="hotstpot_inactivity_timeout_never">永不</string>
   <string name="hotstpot_inactivity_timeout_1_minute">1 分鐘</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 分鐘</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 分鐘</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">可擕式 Wi\u2011Fi 熱點永不逾時</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">可攜式 Wi\u2011Fi 熱點於 <xliff:g id="timeout">%1$s</xliff:g> 後逾時</string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">接上或移除電源時喚醒</string>
+  <string name="wake_when_plugged_or_unplugged_summary">接上或拔除電源時喚醒螢幕</string>
   <!-- Heads-up -->
+  <string name="heads_up_notifications_enabled_title">浮動通知</string>
+  <string name="heads_up_notifications_enabled_summary">在一個小的浮動視窗中顯示優先通知</string>
 </resources>
