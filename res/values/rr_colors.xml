@@ -71,8 +71,6 @@
     <color name="setup_wizard_wifi_color_dark">#89ffffff</color>
 
     <color name="divider_color">#20ffffff</color>
-
-    <color name="switchbar_background_color">@*android:color/primary_material_settings</color>
     <color name="switchbar_text_color">#ffffffff</color>
     <color name="switch_accent_color">@color/theme_accent</color>
 
@@ -127,11 +125,11 @@
     <color name="linear_color_bar_right">#ffced7db</color>
 
     <!-- External Icon Tint -->
-    <color name="external_tile_icon_tint_color">@*android:color/accent_device_default_light</color>
+    <color name="external_tile_icon_tint_color">?android:attr/colorAccent</color>
     <!-- Settings switchbar background -->
-    <color name="switchbar_background_color">@*android:color/secondary_device_default_settings</color>
+    <color name="switchbar_background_color">?android:attr/colorSecondary</color>
     <!-- settings_main_dashboard_color -->
-    <color name="settings_main_dashboard_color">@color/card_background</color>
+    <color name="settings_main_dashboard_color">@android:color/transparent</color>
     <!-- expanded_desktop_app_title_text -->
     <color name="expanded_desktop_app_title_text">#7c7c7c</color>
 
@@ -164,4 +162,7 @@
 
     <!-- Power Usage Hard colors-->
     <color name="power_usage_ab_icon_tint">@android:color/white</color>
+    <!-- Color engine -->
+    <color name="pixel_primary_color">#242424</color>
+    <color name="pixel_secondary_color">#3a3a3a</color>
 </resources>

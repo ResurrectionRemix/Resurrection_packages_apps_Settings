@@ -19,13 +19,20 @@ package com.android.settings;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityEvent;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -61,6 +68,14 @@ public abstract class PreviewSeekBarPreferenceFragment extends SettingsPreferenc
     private View mLarger;
     private View mSmaller;
 
+    private Animation mAnimation;
+    private LinearLayout mGrid;
+    private TextView mInfoText;
+
+    private int mAccentColorValue;
+    private int mPrimaryColorValue;
+    protected boolean mAccentShowing;
+
     private class onPreviewSeekBarChangeListener implements OnSeekBarChangeListener {
         private boolean mSeekByTouch;
 
@@ -93,6 +108,55 @@ public abstract class PreviewSeekBarPreferenceFragment extends SettingsPreferenc
         }
     }
 
+    private void applyColor(int value) {
+        if (mAccentShowing) {
+            Settings.Secure.putInt(getContext().getContentResolver(),
+                    Settings.Secure.THEME_ACCENT_COLOR, value);
+        } else {
+            Settings.Secure.putInt(getContext().getContentResolver(),
+                    Settings.Secure.THEME_PRIMARY_COLOR, value);
+        }
+    }
+
+    protected void switchPalette() {
+        if (mGrid != null && mAnimation != null) {
+            mGrid.startAnimation(mAnimation);
+        }
+    }
+
+    private void switchPalette(int[] colors, int colorValue) {
+        float sideMargin = getContext().getResources().getDimensionPixelSize(
+                R.dimen.theme_color_margin_side);
+        mGrid.removeAllViews();
+        if (mInfoText != null) {
+            mInfoText.setText(getInfoText(getContext(), mAccentShowing, mAccentColorValue,
+                    mPrimaryColorValue));
+        }
+        for (int i = 0; i < colors.length; i++) {
+            final int color = colors[i];
+            final int count = i;
+            final boolean selected = colorValue == i;
+            final ImageView view = new ImageView(getContext());
+            view.setImageDrawable(getContext().getDrawable(R.drawable.color_circle));
+            view.setColorFilter(color);
+            if (selected) {
+                view.setForeground(getContext().getDrawable(R.drawable.ic_check));
+                view.setForegroundGravity(Gravity.CENTER);
+            }
+            view.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    applyColor(count);
+                }
+            });
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.leftMargin = (int) sideMargin;
+            params.rightMargin = (int) sideMargin;
+            mGrid.addView(view, params);
+        }
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -103,6 +167,59 @@ public abstract class PreviewSeekBarPreferenceFragment extends SettingsPreferenc
         final View content = inflater.inflate(mActivityLayoutResId, listContainer, false);
         listContainer.addView(content);
 
+        mGrid = (LinearLayout) content.findViewById(R.id.grid_view);
+        if (mGrid != null) {
+            mAccentShowing = Settings.Secure.getInt(getContext().getContentResolver(),
+                    Settings.Secure.THEME_SETTINGS_MODE, 0) == 1;
+            mAccentColorValue = Settings.Secure.getInt(getContext().getContentResolver(),
+                    Settings.Secure.THEME_ACCENT_COLOR, 1);
+            mPrimaryColorValue = Settings.Secure.getInt(getContext().getContentResolver(),
+                    Settings.Secure.THEME_PRIMARY_COLOR, 2);
+            final int[] accentColors = getContext().getResources().getIntArray(
+                    R.array.accent_colors);
+            final int[] primaryColors = getContext().getResources().getIntArray(
+                    R.array.primary_colors);
+            if (mAccentShowing) {
+                switchPalette(accentColors, mAccentColorValue);
+                getActivity().setTitle(R.string.theme_accent_color);
+            } else {
+                switchPalette(primaryColors, mPrimaryColorValue);
+                getActivity().setTitle(R.string.theme_primary_color);
+            }
+            mAnimation = AnimationUtils.loadAnimation(getContext(),
+                    android.R.anim.fade_in);
+            mAnimation.setDuration(375);
+            mAnimation.setAnimationListener(new AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    if (!mAccentShowing) {
+                        mAccentShowing = true;
+                        switchPalette(accentColors, mAccentColorValue);
+                        getActivity().setTitle(R.string.theme_accent_color);
+                    } else {
+                        mAccentShowing = false;
+                        switchPalette(primaryColors, mPrimaryColorValue);
+                        getActivity().setTitle(R.string.theme_primary_color);
+                    }
+                    Settings.Secure.putInt(getContext().getContentResolver(),
+                            Settings.Secure.THEME_SETTINGS_MODE, mAccentShowing ? 1 : 0);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                }
+            });
+            mInfoText = (TextView) content.findViewById(R.id.info_text);
+            if (mInfoText != null) {
+                mInfoText.setText(getInfoText(getContext(), mAccentShowing, mAccentColorValue,
+                        mPrimaryColorValue));
+            }
+        }
+
         mLabel = (TextView) content.findViewById(R.id.current_label);
 
         // The maximum SeekBar value always needs to be non-zero. If there's
@@ -111,37 +228,39 @@ public abstract class PreviewSeekBarPreferenceFragment extends SettingsPreferenc
         final int max = Math.max(1, mEntries.length - 1);
 
         final LabeledSeekBar seekBar = (LabeledSeekBar) content.findViewById(R.id.seek_bar);
-        seekBar.setLabels(mEntries);
-        seekBar.setMax(max);
-        seekBar.setProgress(mInitialIndex);
-        seekBar.setOnSeekBarChangeListener(new onPreviewSeekBarChangeListener());
+        if (seekBar != null) {
+            seekBar.setLabels(mEntries);
+            seekBar.setMax(max);
+            seekBar.setProgress(mInitialIndex);
+            seekBar.setOnSeekBarChangeListener(new onPreviewSeekBarChangeListener());
 
-        mSmaller = content.findViewById(R.id.smaller);
-        mSmaller.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final int progress = seekBar.getProgress();
-                if (progress > 0) {
-                    seekBar.setProgress(progress - 1, true);
+            mSmaller = content.findViewById(R.id.smaller);
+            mSmaller.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final int progress = seekBar.getProgress();
+                    if (progress > 0) {
+                        seekBar.setProgress(progress - 1, true);
+                    }
                 }
-            }
-        });
+            });
 
-        mLarger = content.findViewById(R.id.larger);
-        mLarger.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final int progress = seekBar.getProgress();
-                if (progress < seekBar.getMax()) {
-                    seekBar.setProgress(progress + 1, true);
+            mLarger = content.findViewById(R.id.larger);
+            mLarger.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final int progress = seekBar.getProgress();
+                    if (progress < seekBar.getMax()) {
+                        seekBar.setProgress(progress + 1, true);
+                    }
                 }
-            }
-        });
+            });
 
-        if (mEntries.length == 1) {
-            // The larger and smaller buttons will be disabled when we call
-            // setPreviewLayer() later in this method.
-            seekBar.setEnabled(false);
+            if (mEntries.length == 1) {
+                // The larger and smaller buttons will be disabled when we call
+                // setPreviewLayer() later in this method.
+                seekBar.setEnabled(false);
+            }
         }
 
         final Context context = getContext();
@@ -160,14 +279,15 @@ public abstract class PreviewSeekBarPreferenceFragment extends SettingsPreferenc
         mPreviewPager.addOnPageChangeListener(mPreviewPageChangeListener);
 
         mPageIndicator = (DotsPageIndicator) content.findViewById(R.id.page_indicator);
-        if (mPreviewSampleResIds.length > 1) {
-            mPageIndicator.setViewPager(mPreviewPager);
-            mPageIndicator.setVisibility(View.VISIBLE);
-            mPageIndicator.setOnPageChangeListener(mPageIndicatorPageChangeListener);
-        } else {
-            mPageIndicator.setVisibility(View.GONE);
+        if (mPageIndicator != null) {
+            if (mPreviewSampleResIds.length > 1) {
+                mPageIndicator.setViewPager(mPreviewPager);
+                mPageIndicator.setVisibility(View.VISIBLE);
+                mPageIndicator.setOnPageChangeListener(mPageIndicatorPageChangeListener);
+            } else {
+                mPageIndicator.setVisibility(View.GONE);
+            }
         }
-
         setPreviewLayer(mInitialIndex, false);
         return root;
     }
@@ -182,10 +302,56 @@ public abstract class PreviewSeekBarPreferenceFragment extends SettingsPreferenc
      */
     protected abstract void commit();
 
+    public static String getInfoText(Context context, boolean accentShowing,
+            int accentColorValue, int primaryColorValue) {
+        if (accentShowing) {
+            switch (accentColorValue) {
+                case 1:
+                    return context.getString(R.string.green);
+                case 2:
+                    return context.getString(R.string.cyan);
+                case 3:
+                    return context.getString(R.string.blue);
+                case 4:
+                    return context.getString(R.string.yellow);
+                case 5:
+                    return context.getString(R.string.orange);
+                case 6:
+                    return context.getString(R.string.red);
+                case 7:
+                    return context.getString(R.string.pink);
+                case 8:
+                    return context.getString(R.string.purple);
+                case 9:
+                    return context.getString(R.string.grey);
+                case 0:
+                default:
+                    return context.getString(R.string.teal);
+            }
+        }
+        switch (primaryColorValue) {
+            case 3:
+                return context.getString(R.string.dark);
+            case 2:
+                return context.getString(R.string.pixel);
+            case 1:
+                return context.getString(R.string.grey);
+            case 0:
+            default:
+                return context.getString(R.string.default_string);
+        }
+    }
+
     private void setPreviewLayer(int index, boolean animate) {
-        mLabel.setText(mEntries[index]);
-        mSmaller.setEnabled(index > 0);
-        mLarger.setEnabled(index < mEntries.length - 1);
+        if (mLabel != null) {
+            mLabel.setText(mEntries[index]);
+        }
+        if (mSmaller != null) {
+            mSmaller.setEnabled(index > 0);
+        }
+        if (mLarger != null) {
+            mLarger.setEnabled(index < mEntries.length - 1);
+        }
         setPagerIndicatorContentDescription(mPreviewPager.getCurrentItem());
         mPreviewPagerAdapter.setPreviewLayer(index, mCurrentIndex,
                 mPreviewPager.getCurrentItem(), animate);
@@ -194,9 +360,11 @@ public abstract class PreviewSeekBarPreferenceFragment extends SettingsPreferenc
     }
 
     private void setPagerIndicatorContentDescription(int position) {
-        mPageIndicator.setContentDescription(
-                getPrefContext().getString(R.string.preview_page_indicator_content_description,
-                        position + 1, mPreviewSampleResIds.length));
+        if (mPageIndicator != null) {
+            mPageIndicator.setContentDescription(
+                    getPrefContext().getString(R.string.preview_page_indicator_content_description,
+                            position + 1, mPreviewSampleResIds.length));
+        }
     }
 
     private OnPageChangeListener mPreviewPageChangeListener = new OnPageChangeListener() {
