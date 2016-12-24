@@ -115,7 +115,6 @@
   <string name="rr_title_summary">#Getresurrected</string>
   <string name="rr_config_main_title">Resurrection Remix</string>
   <string name="rr_ota_fab_title">Hiển thị nút nổi OTA</string>
-  <string name="rr_ota_fab_summary">Bật/Tắt để ẩn/hiện nút nổi trong các cấu hình. Vào/Thoát mỗi khi chuyển đổi</string>
   <string name="rr_statusbar_title">Thanh trạng thái</string>
   <string name="rr_sb_gestures_title">Cử chỉ thanh trạng thái</string>
   <string name="qs_advanced_title">Nâng cao</string>
@@ -267,6 +266,7 @@
   <string name="volume_steps_7">7</string>
   <string name="volume_steps_5">5</string>
   <!-- Volume dialog timeout -->
+  <string name="volume_dialog_timeout_title">Thời gian chờ hộp thoại âm lượng</string>
   <!-- Toast Icons -->
   <string name="toast_icon_title">Biểu tượng thông báo nhanh</string>
   <string name="toast_icon_summary">Hiển thị các biểu tượng ứng dụng tương ứng với thông báo nhanh</string>
@@ -561,8 +561,11 @@
   <string name="doze_overwrite_value_summary">Cho phép ghi đè lên các giá trị mặc định với cấu hình người dùng</string>
   <string name="doze_pulse_title">Cài đặt cấu hình người dùng</string>
   <string name="doze_pulse_duration_in_title">Rõ dần</string>
+  <string name="doze_pulse_duration_in_summary"></string>
   <string name="doze_pulse_duration_visible_title">Thời gian có thể nhìn thấy</string>
+  <string name="doze_pulse_duration_visible_summary"></string>
   <string name="doze_pulse_duration_out_title">Mờ dần</string>
+  <string name="doze_pulse_duration_out_summary"></string>
   <string name="doze_trigger_pickup_title">Kích hoạt cảm biến khi cầm lên</string>
   <string name="doze_trigger_pickup_summary_on">Màn hình tự bật sáng sẽ được kích hoạt bởi cảm biến khi cầm lên</string>
   <string name="doze_trigger_pickup_summary_off">Cảm biến khi cầm lên sẽ không được sử dụng như là một kích hoạt</string>
@@ -882,12 +885,21 @@
   <string name="qs_advanced_data_summary">Bật thao tác một chạm để bật hoặc tắt dữ liệu</string>
   <!-- Hardware button navigation -->
   <string name="button_pref_title">Nút bấm</string>
+  <string name="hardware_keys_volume_keys_title">Nút âm lượng</string>
   <string name="hardware_keys_home_key_title">Phím Home</string>
   <string name="hardware_keys_menu_key_title">Nút menu</string>
   <string name="hardware_keys_assist_key_title">Nút tìm kiếm</string>
+  <string name="hardware_keys_appswitch_key_title">Nút đa nhiệm</string>
   <string name="hardware_keys_back_key_title">Phím Back</string>
+  <string name="hardware_keys_double_tap_summary">Đặt hành động khi chậm hai lần</string>
+  <string name="hardware_keys_single_tap_summary">Đặt hành động khi chạm một lần</string>
+  <string name="hardware_keys_long_press_summary">Đặt hành động khi giữ</string>
+  <string name="hardware_keys_single_tap_title">Hành động khi nhấn một lần</string>
   <string name="hardware_keys_long_press_title">Hành động bấm giữ</string>
   <string name="hardware_keys_double_tap_title">Hành động chạm hai lần</string>
+  <string name="hardware_keys_category">Phím cứng</string>
+  <string name="hardware_keys_disable_title">Vô hiệu phím cứng</string>
+  <string name="hardware_keys_power_key_title">Nút Nguồn</string>
   <string name="camera_sleep_on_release_title">Liếc màn hình</string>
   <string name="camera_sleep_on_release_summary">Nhấn nửa chừng sẽ giữ màn hình bật trong khi còn giữ nút</string>
   <string name="camera_launch_title">Khởi động máy ảnh</string>
@@ -1004,6 +1016,11 @@
   <string name="force_charge_battery_text_title">Phần trăm pin khi sạc</string>
   <string name="force_charge_battery_text_summary_on">Hiển thị phần trăm pin ngoài biểu tượng khi sạc</string>
   <string name="force_charge_battery_text_summary_off">Hiển thị phần trăm pin trong biểu tượng khi sạc</string>
+  <string name="text_charging_symbol_title">Biểu tượng sạc gần số phần trăm pin</string>
+  <string name="text_charging_symbol_dialog">Hiển thị phần trăm pin bên ngoài biểu tượng pin khi đang sạc</string>
+  <string name="text_charging_symbol_default">Đã tắt</string>
+  <string name="text_charging_symbol_flash">Hình sấm</string>
+  <string name="text_charging_symbol_tilde">Dấu ngã</string>
   <!-- Status bar - icon blacklist -->
   <string name="status_bar_icons_title">Biểu tượng thanh trạng thái</string>
   <string name="status_bar_icons_summary">Kiểm soát các biểu tượng thanh trạng thái sẽ được hiển thị</string>
@@ -1344,6 +1361,7 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Bật/tắt nhanh Bluetooth</string>
   <string name="qs_bt_easy_toggle_summary">Một chạm sẽ bật hoặc tắt Bluetooth thay vì đưa bạn đến cài đặt</string>
+  <!-- Battery Saver easy toggle -->
   <string name="qs_music_tile_track_optional_title">Ô tiêu đề bài hát</string>
   <string name="qs_music_tile_track_optional_summary">Hiển thị ô tiêu đề bài hát ô trên cài đặt nhanh</string>
   <string name="quick_settings_vibrate_title">Rung khi chạm</string>
@@ -1679,6 +1697,8 @@
   <string name="screenshot_delay_title">Độ trễ chụp màn hình</string>
   <string name="screenshot_delay_summary">Điều chỉnh thời gian khi chụp ảnh màn hình</string>
   <!--Screenshot crop and share -->
+  <string name="screenshot_crop_and_share_title">Cắt ảnh chụp màn hình &amp; chia sẻ</string>
+  <string name="screenshot_crop_and_share_summary">Hiển thỉ cửa sổ biên tập sau khi chụp màn hình để cắt, lưu, hoặc chia sẻ</string>
   <string name="heads_up_settings">Thông báo nổi</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Thông tin sạc trên màn hình khóa</string>
@@ -1709,6 +1729,7 @@
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">Phím cứng</string>
   <string name="hw_keys_summary">Bật các phím cứng</string>
+  <string name="rr_hw_keys_summary">Tùy chỉnh các nút cứng trên thiết bị của bạn như home, trở về, menu</string>
   <!-- Expanded desktop -->
   <string name="expanded_desktop_category">Mở rộng màn hình</string>
   <string name="expanded_hide_nothing">Không ẩn gì</string>
@@ -1838,5 +1859,9 @@
   <string name="qs_tile_title_visibility_summary_on">Tiêu đề ô cài đặt nhanh đã hiển thị</string>
   <string name="qs_tile_title_visibility_summary_off">Tiêu đề ô cài đặt nhanh không hiển thị</string>
   <!-- setting: show CPU info-->
-  <!-- QS Header Icons -->
+  <string name="show_cpu_info">Xem thông tin CPU</string>
+  <string name="show_cpu_info_summary">Hiển thị thông tin CPU hiện thời đè lên màn hình</string>
+  <!-- Status Bar Battery Icon Large Percentage Text -->
+  <!-- Keyboard and Input ASS methods  -->
+  <string name="attention">Chú ý</string>
 </resources>

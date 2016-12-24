@@ -76,7 +76,7 @@
   <string name="maintainers_note_title">Nota</string>
   <string name="maintainers_note_title_summary">Envie um PM para \'Varun Date\' no Hangouts contendo o link para a sua ROM se quiser o teu nome adicionado na lista de mantedores.</string>
   <!-- The Drill -->
-  <string name="rr_drill_title">Uma charge para você</string>
+  <string name="rr_drill_title">A Charge</string>
   <!-- RR Feature lists-->
   <string name="features_title">Lista de Recursos da ROM</string>
   <string name="features_title_summary">Ver recursos disponíveis da ROM</string>
@@ -115,7 +115,6 @@
   <string name="rr_title_summary">Personalizar o dispositivo</string>
   <string name="rr_config_main_title">Versão da Resurrection</string>
   <string name="rr_ota_fab_title">Mostrar botão OTA flutuante</string>
-  <string name="rr_ota_fab_summary">Habilite/desativa mostrar/ocultar botão flutuante em configurações. Entrar ou sair de uma vez quando o interruptor usado</string>
   <string name="rr_statusbar_title">Barra de Status</string>
   <string name="rr_sb_gestures_title">Gestos da barra de status</string>
   <string name="qs_advanced_title">Avançado</string>
@@ -267,6 +266,7 @@
   <string name="volume_steps_7">7</string>
   <string name="volume_steps_5">5</string>
   <!-- Volume dialog timeout -->
+  <string name="volume_dialog_timeout_title">Duração do painel de volume</string>
   <!-- Toast Icons -->
   <string name="toast_icon_title">Ícone do Toast</string>
   <string name="toast_icon_summary">Exibir o ícone do aplicativo correspondente ao balão de mensagens</string>
@@ -561,8 +561,11 @@
   <string name="doze_overwrite_value_summary">Permite a substituição do valor padrão pela configuração do usuário</string>
   <string name="doze_pulse_title">Ajuste de configurações de usuário</string>
   <string name="doze_pulse_duration_in_title">Desvanecer</string>
+  <string name="doze_pulse_duration_in_summary"></string>
   <string name="doze_pulse_duration_visible_title">Duração visível</string>
+  <string name="doze_pulse_duration_visible_summary"></string>
   <string name="doze_pulse_duration_out_title">Esmaecer</string>
+  <string name="doze_pulse_duration_out_summary"></string>
   <string name="doze_trigger_pickup_title">Ativação do gesto de pegar o dispositivo</string>
   <string name="doze_trigger_pickup_summary_on">As pulsações irão ser acionadas pelos sensores de movimento</string>
   <string name="doze_trigger_pickup_summary_off">O gesto de pegar o dispositivo não será utilizado como mecanismo de ativação</string>
@@ -882,12 +885,21 @@
   <string name="qs_advanced_data_summary">Permitir uma ação de toque para habilitar ou desabilitar dados</string>
   <!-- Hardware button navigation -->
   <string name="button_pref_title">Botões</string>
+  <string name="hardware_keys_volume_keys_title">Seletor de volume</string>
   <string name="hardware_keys_home_key_title">Botão de início</string>
   <string name="hardware_keys_menu_key_title">Botão de menu</string>
   <string name="hardware_keys_assist_key_title">Botão de pesquisa</string>
+  <string name="hardware_keys_appswitch_key_title">Botão de visão geral</string>
   <string name="hardware_keys_back_key_title">Botão de Voltar</string>
+  <string name="hardware_keys_double_tap_summary">Definir ação para toque duplo</string>
+  <string name="hardware_keys_single_tap_summary">Definir ação para toque único</string>
+  <string name="hardware_keys_long_press_summary">Definir ação para toque longo</string>
+  <string name="hardware_keys_single_tap_title">Ação para toque único</string>
   <string name="hardware_keys_long_press_title">Ação de toque longo</string>
   <string name="hardware_keys_double_tap_title">Ação de duplo toque</string>
+  <string name="hardware_keys_category">Teclas Físicas</string>
+  <string name="hardware_keys_disable_title">Desativar as teclas físicas</string>
+  <string name="hardware_keys_power_key_title">Botão liga/desliga</string>
   <string name="camera_sleep_on_release_title">Visualização de tela</string>
   <string name="camera_sleep_on_release_summary">Enquanto o botão estiver semi-pressionado, a tela permanecerá ligada</string>
   <string name="camera_launch_title">Iniciar câmera</string>
@@ -1004,6 +1016,11 @@
   <string name="force_charge_battery_text_title">Por cento de carga de bateria de StatusBar</string>
   <string name="force_charge_battery_text_summary_on">Mostra a porcentagem da bateria fora o ícone durante o carregamento</string>
   <string name="force_charge_battery_text_summary_off">Mostra a porcentagem da bateria fora o ícone durante o carregamento</string>
+  <string name="text_charging_symbol_title">Símbolo perto de texto de porcentagem de carga</string>
+  <string name="text_charging_symbol_dialog">Mostrar um símbolo perto de texto de porcentagem fora o ícone da bateria durante o carregamento</string>
+  <string name="text_charging_symbol_default">Desligado</string>
+  <string name="text_charging_symbol_flash">Flash</string>
+  <string name="text_charging_symbol_tilde">Til</string>
   <!-- Status bar - icon blacklist -->
   <string name="status_bar_icons_title">Ícones da barra de status</string>
   <string name="status_bar_icons_summary">Controle quais ícones da barra de status são mostrados</string>
@@ -1344,6 +1361,7 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Bluetooth fácil alternância</string>
   <string name="qs_bt_easy_toggle_summary">Faz com que um clique vai virar Bluetooth ligado ou desligado em vez de levá-lo para as configurações</string>
+  <!-- Battery Saver easy toggle -->
   <string name="qs_music_tile_track_optional_title">Título da faixa de música da telha</string>
   <string name="qs_music_tile_track_optional_summary">Mostrar o título da faixa de música como os QS telha título</string>
   <string name="quick_settings_vibrate_title">Vibrar ao tocar</string>
@@ -1679,6 +1697,8 @@
   <string name="screenshot_delay_title">Atraso da captura de tela</string>
   <string name="screenshot_delay_summary">Ajustar o tempo para quando uma imagem é capturada</string>
   <!--Screenshot crop and share -->
+  <string name="screenshot_crop_and_share_title">Compartilhar e colheita de Screenshot</string>
+  <string name="screenshot_crop_and_share_summary">Mostrar um editor depois de capturar uma tela para fazer algumas operações como corte, salvar ou compartilhar</string>
   <string name="heads_up_settings">Notificações pop-up</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Informação de carregamento na tela de bloqueio</string>
@@ -1709,6 +1729,7 @@
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">Teclas Físicas</string>
   <string name="hw_keys_summary">Ativar as teclas físicas</string>
+  <string name="rr_hw_keys_summary">Personalizar vários botões de hardware no dispositivo como casa, costas, menu</string>
   <!-- Expanded desktop -->
   <string name="expanded_desktop_category">Área de trabalho expandida</string>
   <string name="expanded_hide_nothing">Não ocultar nada</string>
@@ -1838,5 +1859,9 @@
   <string name="qs_tile_title_visibility_summary_on">Títulos de telhas QS são agora visíveis</string>
   <string name="qs_tile_title_visibility_summary_off">Títulos de telhas QS são agora visíveis</string>
   <!-- setting: show CPU info-->
-  <!-- QS Header Icons -->
+  <string name="show_cpu_info">Mostrar informação da CPU</string>
+  <string name="show_cpu_info_summary">Superposição de tela mostrando informações de CPU atual</string>
+  <!-- Status Bar Battery Icon Large Percentage Text -->
+  <!-- Keyboard and Input ASS methods  -->
+  <string name="attention">Atenção</string>
 </resources>

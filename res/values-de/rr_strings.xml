@@ -115,7 +115,6 @@
   <string name="rr_title_summary">#getresurrected</string>
   <string name="rr_config_main_title">Resurrection Remix</string>
   <string name="rr_ota_fab_title">Zeige die schwebende OTA Taste</string>
-  <string name="rr_ota_fab_summary">Ausschalten um FAB in der Konfiguration zu verbergen</string>
   <string name="rr_statusbar_title">Statusleiste</string>
   <string name="rr_sb_gestures_title">Statusbar Gesten</string>
   <string name="qs_advanced_title">Erweitert</string>
@@ -267,6 +266,7 @@
   <string name="volume_steps_7">7</string>
   <string name="volume_steps_5">5</string>
   <!-- Volume dialog timeout -->
+  <string name="volume_dialog_timeout_title">Timeout für Lautstärkeregler</string>
   <!-- Toast Icons -->
   <string name="toast_icon_title">Toast Icon</string>
   <string name="toast_icon_summary">Zeige das zugehörige Toast App-Symbol an</string>
@@ -561,8 +561,11 @@
   <string name="doze_overwrite_value_summary">Zulassen dass die Standardwerte mit Benutzereinstellungen überschrieben wird</string>
   <string name="doze_pulse_title">Benutzer konfigurierbare Einstellungen</string>
   <string name="doze_pulse_duration_in_title">Einblenden</string>
+  <string name="doze_pulse_duration_in_summary"></string>
   <string name="doze_pulse_duration_visible_title">Sichtbarkeitsdauer</string>
+  <string name="doze_pulse_duration_visible_summary"></string>
   <string name="doze_pulse_duration_out_title">Ausblenden</string>
+  <string name="doze_pulse_duration_out_summary"></string>
   <string name="doze_trigger_pickup_title">Hochheben-Geste als Auslöser</string>
   <string name="doze_trigger_pickup_summary_on">Pulse wird durch den Hochhebesensor ausgelöst</string>
   <string name="doze_trigger_pickup_summary_off">Hochhebe-Sensor wird nicht als Auslöser benutzt</string>
@@ -882,12 +885,21 @@
   <string name="qs_advanced_data_summary">Ermöglicht dass ein Tipp auf die Kachel die Datenverbindung aktiviert bzw deaktiviert</string>
   <!-- Hardware button navigation -->
   <string name="button_pref_title">Buttons</string>
+  <string name="hardware_keys_volume_keys_title">Lautstärketasten</string>
   <string name="hardware_keys_home_key_title">Homebutton</string>
   <string name="hardware_keys_menu_key_title">Menübutton</string>
   <string name="hardware_keys_assist_key_title">Suche</string>
-  <string name="hardware_keys_back_key_title">Zurück Taste</string>
+  <string name="hardware_keys_appswitch_key_title">Übersichts-Button</string>
+  <string name="hardware_keys_back_key_title">Zurück-Taste</string>
+  <string name="hardware_keys_double_tap_summary">Doppeltes Tippen (Aktion)</string>
+  <string name="hardware_keys_single_tap_summary">Einfaches Tippen (Aktion)</string>
+  <string name="hardware_keys_long_press_summary">Langes Drücken (Aktion)</string>
+  <string name="hardware_keys_single_tap_title">Einfaches Tippen (Aktion)</string>
   <string name="hardware_keys_long_press_title">Langes Drücken (Aktion)</string>
   <string name="hardware_keys_double_tap_title">Doppeltes Tippen (Aktion)</string>
+  <string name="hardware_keys_category">Hardwaretasten</string>
+  <string name="hardware_keys_disable_title">Hardwaretasten deaktivieren</string>
+  <string name="hardware_keys_power_key_title">Ein-/Aus-Taste</string>
   <string name="camera_sleep_on_release_title">Bilschirm-Vorschau</string>
   <string name="camera_sleep_on_release_summary">Der Bildschirm ist nur so lange an, wie der Knopf gedrückt ist</string>
   <string name="camera_launch_title">Kamera starten</string>
@@ -1004,6 +1016,11 @@
   <string name="force_charge_battery_text_title">Akkusymbol Prozentwert beim Ladevorgang</string>
   <string name="force_charge_battery_text_summary_on">Zeige den Prozentwert neben dem Icon beim Ladevorgang</string>
   <string name="force_charge_battery_text_summary_off">Zeige den Prozentwert innerhalb des Icons beim Ladevorgang</string>
+  <string name="text_charging_symbol_title">Ladesymbol neben dem Prozentwert anzeigen</string>
+  <string name="text_charging_symbol_dialog">Zeige neben dem Prozentwert ein Symbol während des Ladens an</string>
+  <string name="text_charging_symbol_default">Deaktiviert</string>
+  <string name="text_charging_symbol_flash">Blitz</string>
+  <string name="text_charging_symbol_tilde">Wellenlinie</string>
   <!-- Status bar - icon blacklist -->
   <string name="status_bar_icons_title">Statusleisten Icons</string>
   <string name="status_bar_icons_summary">Bestimmen, welche Statusleistesymbole angezeigt werden</string>
@@ -1344,6 +1361,7 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Bluetooth schnell umschalten</string>
   <string name="qs_bt_easy_toggle_summary">Dadurch kann durch einfaches Tippen auf die Kachel das Bluetooth ein- bzw ausgeschaltet werden</string>
+  <!-- Battery Saver easy toggle -->
   <string name="qs_music_tile_track_optional_title">Musik-Kachel</string>
   <string name="qs_music_tile_track_optional_summary">Zeige den Musiktitel als QS-Kachel</string>
   <string name="quick_settings_vibrate_title">Vibrieren bei Berührung</string>
@@ -1467,12 +1485,12 @@
   <string name="pulse_render_mode_fading_bars">Verblassende Blöcke</string>
   <string name="pulse_render_mode_solid_lines">Durchgezogene Linien</string>
   <string name="fling_pulse_color">Pulse-Farbe</string>
-  <string name="eos_fling_lavalamp_title">Lava-Lampe einschalten</string>
-  <string name="eos_fling_lavalamp_summary">Pulse wechselt automatisch die Farben in einem Lavalampenstil</string>
+  <string name="eos_fling_lavalamp_title">Farbwechsel aktivieren</string>
+  <string name="eos_fling_lavalamp_summary">Pulse wechselt automatisch die Farben</string>
   <string name="pulse_advanced_category">Erweitert</string>
   <string name="pulse_legacy_mode_advanced_category">Einstellungen für verblassende Blöcke</string>
   <string name="pulse_custom_fudge_factor">Vernünftiger Pegel</string>
-  <string name="lavamp_solid_speed_title">Lavalampen-Geschwindigkeit</string>
+  <string name="lavamp_solid_speed_title">Geschwindigkeit des Farbwechsels</string>
   <string name="pulse_solid_dimen_category">Einstellungen für durchgezogene Linien</string>
   <!-- Pulse config -->
   <string name="pulse_custom_dimen">Leisten-Breite</string>
@@ -1679,6 +1697,8 @@
   <string name="screenshot_delay_title">Screenshot Verzögerung</string>
   <string name="screenshot_delay_summary">Zeit einstellen, wann ein Bildschirmfoto aufgenommen wird</string>
   <!--Screenshot crop and share -->
+  <string name="screenshot_crop_and_share_title">Screenshot zuschneiden &amp; teilen</string>
+  <string name="screenshot_crop_and_share_summary">Nach der Aufnahme eines Bildschirmfotos einen Editor zum Zuschneiden, Speichern oder Teilen des Bildes anzeigen</string>
   <string name="heads_up_settings">Heads up</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Lade Information im Sperrbildschirm</string>
@@ -1709,6 +1729,7 @@
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">Hardware-Tasten</string>
   <string name="hw_keys_summary">Hardware-Tasten aktivieren</string>
+  <string name="rr_hw_keys_summary">Konfiguriere verschiedene Hardware-Tasten an deinem Smartphone, zB Home, zurück, Menü...</string>
   <!-- Expanded desktop -->
   <string name="expanded_desktop_category">Erweiterter Desktop</string>
   <string name="expanded_hide_nothing">Nichts ausblenden</string>
@@ -1838,5 +1859,9 @@
   <string name="qs_tile_title_visibility_summary_on">Kachelbeschriftung wird nun angezeigt</string>
   <string name="qs_tile_title_visibility_summary_off">Kachelbeschriftung wird nun ausgeblendet</string>
   <!-- setting: show CPU info-->
-  <!-- QS Header Icons -->
+  <string name="show_cpu_info">CPU-Info anzeigen</string>
+  <string name="show_cpu_info_summary">Bildschirm-Overlay einblenden, welches Informationen über den aktuelle CPU-Status anzeigt</string>
+  <!-- Status Bar Battery Icon Large Percentage Text -->
+  <!-- Keyboard and Input ASS methods  -->
+  <string name="attention">Achtung</string>
 </resources>
