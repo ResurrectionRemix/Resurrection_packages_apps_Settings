@@ -38,7 +38,7 @@
                  style="?android:preferenceInformationStyle"
                  android:title="@string/rr_mod_version"
                  android:summary="@string/mod_version_default"
-				 android:icon="@drawable/ic_rr_tools_tint"/>
+                 android:icon="@drawable/ic_rr_tools_tint"/>
 
 	    <!-- Build date -->
 	    <Preference android:key="build_date"
@@ -82,6 +82,13 @@
         <PreferenceScreen android:key="device_feedback"
                 android:title="@string/device_feedback">
         </PreferenceScreen>
+
+        <!-- Detailed build version -->
+        <Preference android:key="rr_build_type"
+                android:enabled="false"
+                android:shouldDisableView="false"
+                android:title="@string/rr_build_type_title"
+                android:summary="@string/rr_build_type_default"/>
 
 
         <!-- Device name -->

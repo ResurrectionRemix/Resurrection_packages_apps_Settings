@@ -66,6 +66,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String PROPERTY_SELINUX_STATUS = "ro.build.selinux";
     private static final String KEY_KERNEL_VERSION = "kernel_version";
     private static final String KEY_BUILD_NUMBER = "build_number";
+    private static final String KEY_BUILD_TYPE = "rr_build_type";
     private static final String KEY_DEVICE_MODEL = "device_model";
     private static final String KEY_DEVICE_NAME = "device_name";
     private static final String KEY_SELINUX_STATUS = "selinux_status";
@@ -134,6 +135,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
 	setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
+        findPreference(KEY_BUILD_TYPE).setEnabled(true);
+	setValueSummary(KEY_BUILD_TYPE, "rr.build.type");
 	setValueSummary(KEY_MOD_VERSION, "ro.modversion");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         setValueSummary(KEY_QGP_VERSION, PROPERTY_QGP_VERSION);
