@@ -16,8 +16,14 @@
 
 package com.android.settings.rr;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.ContentResolver;
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -30,6 +36,10 @@ import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.format.DateFormat;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -72,11 +82,22 @@ public class BlurPersonalizations extends SettingsPreferenceFragment
     public static int BLUR_MIXED_COLOR_PREFERENCE_DEFAULT = Color.GRAY;
     public static int BLUR_DARK_COLOR_PREFERENCE_DEFAULT = Color.LTGRAY;
 
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int DLG_RESET = 0;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.blur_cat);
+        createCustomView();
+        }
+
+
+    public void createCustomView() { 
         PreferenceScreen prefSet = getPreferenceScreen();
+        if (prefSet != null) {
+            prefSet.removeAll();
+        }
+        addPreferencesFromResource(R.xml.blur_cat);
 
         ContentResolver resolver = getActivity().getContentResolver();
 
@@ -88,7 +109,7 @@ public class BlurPersonalizations extends SettingsPreferenceFragment
         String hexDarkColor;
         String hexMixedColor;
 
-        mExpand = (SwitchPreference) prefSet.findPreference("blurred_status_bar_expanded_enabled_pref");
+        mExpand = (SwitchPreference) findPreference("blurred_status_bar_expanded_enabled_pref");
         mExpand.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.STATUS_BAR_EXPANDED_ENABLED_PREFERENCE_KEY, 0) == 1));
 
@@ -104,7 +125,7 @@ public class BlurPersonalizations extends SettingsPreferenceFragment
         mNotiTrans.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.TRANSLUCENT_NOTIFICATIONS_PREFERENCE_KEY, 0) == 1));*/
 
-        mQuickSett = (SwitchPreference) prefSet.findPreference("translucent_quick_settings_pref");
+        mQuickSett = (SwitchPreference) findPreference("translucent_quick_settings_pref");
         mQuickSett.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.TRANSLUCENT_QUICK_SETTINGS_PREFERENCE_KEY, 0) == 1));
 
@@ -116,7 +137,7 @@ public class BlurPersonalizations extends SettingsPreferenceFragment
         mNotSettPerc.setValue(Settings.System.getInt(resolver, Settings.System.TRANSLUCENT_NOTIFICATIONS_PRECENTAGE_PREFERENCE_KEY, 60));
         mNotSettPerc.setOnPreferenceChangeListener(this);*/
 
-        mRecentsSett = (SwitchPreference) prefSet.findPreference("blurred_recent_app_enabled_pref");
+        mRecentsSett = (SwitchPreference) findPreference("blurred_recent_app_enabled_pref");
         mRecentsSett.setChecked((Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RECENT_APPS_ENABLED_PREFERENCE_KEY, 0) == 1));
 
@@ -148,6 +169,8 @@ public class BlurPersonalizations extends SettingsPreferenceFragment
         hexMixedColor = String.format("#%08x", (0xffffffff & intMixedColor));
         mMixedBlurColor.setSummary(hexMixedColor);
         mMixedBlurColor.setNewPreviewColor(intMixedColor);
+
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -223,6 +246,24 @@ public class BlurPersonalizations extends SettingsPreferenceFragment
     }
 
     @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(R.drawable.ic_action_reset)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_RESET:
+                showDialogInner(DLG_RESET);
+                return true;
+             default:
+                return super.onContextItemSelected(item);
+        }
+  }
+
+    @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         if  (preference == mExpand) {
             boolean enabled = ((SwitchPreference)preference).isChecked();
@@ -243,5 +284,57 @@ public class BlurPersonalizations extends SettingsPreferenceFragment
         }
         return super.onPreferenceTreeClick(preference);
     }
+
+    private void showDialogInner(int id) {
+        DialogFragment newFragment = MyAlertDialogFragment.newInstance(id);
+        newFragment.setTargetFragment(this, 0);
+        newFragment.show(getFragmentManager(), "dialog " + id);
+    }
+
+    public static class MyAlertDialogFragment extends DialogFragment {
+
+        public static MyAlertDialogFragment newInstance(int id) {
+            MyAlertDialogFragment frag = new MyAlertDialogFragment();
+            Bundle args = new Bundle();
+            args.putInt("id", id);
+            frag.setArguments(args);
+            return frag;
+        }
+
+        BlurPersonalizations getOwner() {
+            return (BlurPersonalizations) getTargetFragment();
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            int id = getArguments().getInt("id");
+            switch (id) {
+                case DLG_RESET:
+                    return new AlertDialog.Builder(getActivity())
+                    .setTitle(R.string.reset)
+                    .setMessage(R.string.reset_message)
+                    .setNegativeButton(R.string.cancel, null)
+                    .setPositiveButton(R.string.dlg_ok,
+                        new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                Settings.System.BLUR_LIGHT_COLOR_PREFERENCE_KEY, BLUR_LIGHT_COLOR_PREFERENCE_DEFAULT);
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                Settings.System.BLUR_DARK_COLOR_PREFERENCE_KEY, BLUR_DARK_COLOR_PREFERENCE_DEFAULT);
+                            Settings.System.putInt(getActivity().getContentResolver(),
+                                Settings.System.BLUR_MIXED_COLOR_PREFERENCE_KEY, BLUR_MIXED_COLOR_PREFERENCE_DEFAULT);
+                            getOwner().createCustomView();
+                        }
+                    })
+                    .create();
+            }
+            throw new IllegalArgumentException("unknown id " + id);
+        }
+
+        @Override
+        public void onCancel(DialogInterface dialog) {
+
+        	}
+     };
 }
 
