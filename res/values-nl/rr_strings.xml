@@ -115,7 +115,6 @@
   <string name="rr_title_summary">#Getresurrected</string>
   <string name="rr_config_main_title">Resurrection Remix</string>
   <string name="rr_ota_fab_title">OTA zwevende knop weergeven</string>
-  <string name="rr_ota_fab_summary">In- of uitschakelen van zwevende knop in configuratie-scherm</string>
   <string name="rr_statusbar_title">Statusbalk</string>
   <string name="rr_sb_gestures_title">Status bar gebaren</string>
   <string name="qs_advanced_title">Geadvanceerd</string>
@@ -179,7 +178,7 @@
   <string name="rr_doze_summary">Inschakelen of uitschakelen ambient weergeven en aanpassen van de componenten</string>
   <string name="rr_heads_up_summary">Kies uit te schakelen of heads-up meldingen en ook hun time-outs instellen </string>
   <string name="rr_dash_board_summary">Aanpassen van de dashboard lay-out en samenvattingen</string>
-  <string name="misc_weather_settings_summary">Verschillende opties voor Cclock app aanpassen</string>
+  <string name="misc_weather_settings_summary">Verschillende opties voor de cClock app aanpassen</string>
   <string name="system_app_remover_summary">Verwijderen van systeem-apps die je niet bevalt</string>
   <string name="rr_updater_summary">Zoek naar Ota updates en ook andere links</string>
   <!-- AOKP custom system animations -->
@@ -267,15 +266,23 @@
   <string name="volume_steps_7">7</string>
   <string name="volume_steps_5">5</string>
   <!-- Volume dialog timeout -->
+  <string name="volume_dialog_timeout_title">Timeout voor het volumepaneel</string>
   <!-- Toast Icons -->
   <string name="toast_icon_title">Toast pictogram</string>
+  <string name="toast_icon_summary">Toon het app pictogram dat overeenkomt met de toast</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Bluetooth accustatus weergeven</string>
+  <string name="bluetooth_battery_summary">Toon de batterijstatus voor het momenteel aangesloten bluetooth apparaat, indien beschikbaar.</string>
   <!-- Force expanded notifications -->
+  <string name="force_expanded_notifications_title">Gebruik altijd uitgebreide meldingen</string>
+  <string name="force_expanded_notifications_summary">Enkel beschikbaar voor apps met ondersteuning van uitgebreide meldingen</string>
   <!-- Disabling immersive mode messages -->
+  <string name="disable_immersive_message_title">Schakel fullscreen meldingen uit</string>
+  <string name="disable_immersive_message_summary">Dit zal alle fullscreen meldingen verbergen</string>
   <!-- Hide Apps from Recents -->
   <string name="hide_apps_from_recents_title">Verborgen apps</string>
   <string name="hide_from_recents_add_app">App Toevoegen</string>
+  <string name="hide_apps_from_recents_summary">Selecteer de apps om uit te sluiten van het recente apps venster</string>
   <!-- About device screen, CPU and RAM info. -->
   <string name="cpu_info">CPU</string>
   <string name="mem_info">RAM</string>
@@ -284,6 +291,7 @@
   <!-- Network traffic -->
   <string name="network_traffic_title">Netwerkverkeer</string>
   <string name="show_network_traffic_state">Statusbalk verkeersmonitor</string>
+  <string name="show_network_traffic_unit">Beeldscherm</string>
   <string name="show_network_traffic_frequency">Vernieuwingsinterval</string>
   <string name="show_network_traffic_disable">Uitgeschakeld</string>
   <string name="show_network_traffic_up">Uitgaande</string>
@@ -391,12 +399,21 @@
   <string name="qs_tile_animation_interpolator_overshootInterpolator">Doorschieten</string>
   <string name="qs_tile_animation_interpolator_anticipateInterpolator">Anticiperen</string>
   <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Anticiperen en doorschieten</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Immersive Recents -->
+  <string name="immersive_recents_title">Recente fullscreen</string>
+  <string name="immersive_recents_summary">Wijzig de weergave van het recente apps scherm</string>
+  <string name="immersive_recents_dialog_title">Selecteer recente apps scherm</string>
   <string name="immersive_recents_default">Standaard</string>
   <string name="immersive_recents_fullscreen">Volledig scherm</string>
   <string name="immersive_recents_statusbar">Alleen statusbalk</string>
+  <string name="immersive_recents_navbar">Enkel navigatiebalk</string>
   <!-- Dashboard suggestions -->
+  <string name="dashboard_category">Dashboard opties</string>
   <string name="disable_suggestions_title">Suggesties uitschakelen</string>
+  <string name="disable_suggestions_summary">Schakel de suggesties uit die bovenaan het dashboard verschijnen</string>
   <string name="network_traffic_hidearrow_summary">Pijlen in verkeer indicator verbergen</string>
   <string name="network_traffic_hidearrow_title">Verberg pijlen</string>
   <string name="show_4g_title">Toon 4G</string>
@@ -405,6 +422,8 @@
   <string name="show_3g_summary">Toon 3g in plaats van Lte in signaalpictogrammen</string>
   <!-- Gesture Anywhere -->
   <string name="gestures_settings">Gebaren</string>
+  <string name="gesture_anywhere_title">Overal gebaren</string>
+  <string name="gesture_anywhere_enabled_title">Overal gebaren</string>
   <string name="gesture_anywhere_enabled_summary">Inschakelen van de functie Gesture Anywhere</string>
   <string name="gesture_anywhere_position_title">Locatie</string>
   <string name="gesture_anywhere_position_left">Linkerrand</string>
@@ -510,21 +529,81 @@
   <string name="battery_not_title">Batterij pictogram in meldingen</string>
   <string name="battery_not_summary">Batterij pictogram zal verschijnen wanneer de alles wissen knop verschijnt</string>
   <string name="battery_bar_location">Batterij balk locatie</string>
+  <string name="battery_bar_color">Kleur van de batterijbalk</string>
+  <string name="battery_bar">Batterijbalk</string>
+  <string name="battery_bar_summary">Positie van de batterijbalk en kleur aanpassen</string>
+  <string name="battery_bar_style_title">Stijl van de batterijbalk</string>
+  <string name="battery_bar_thickness_title">Dikte van de batterijbalk</string>
+  <string name="battery_bar_animate_title">Oplaad animatie</string>
+  <string name="battery_bar_animate_summary">De oplaad animatie kan leiden tot een slechte gebruikerservaring. Schakel in naar eigen goeddunken.</string>
+  <string name="battery_bar_charging_color">Oplaad kleur van de batterijbalk</string>
+  <string name="battery_bar_battery_low_color">Bijna leeg kleur van de batterijbalk</string>
+  <string name="battery_bar_style_regular">Normaal</string>
+  <string name="battery_bar_style_center_mirrored">Midden-gespiegeld</string>
+  <string name="battery_bar_style_reversed">Omgekeerd</string>
+  <string name="battery_bar_use_gradient_color">Gebruik kleurenovergang</string>
+  <string name="battery_bar_gradient_color_summary">Gebruik kleurenovergang als schaal voor het batterij niveau</string>
+  <string name="battery_bar_high_color">Hoog niveau kleur\"</string>
+  <string name="battery_bar_low_color">Laag niveau kleur\"</string>
+  <string name="battery_bar_hide">Verberg</string>
+  <string name="battery_bar_statusbar">Statusbalk</string>
+  <string name="battery_bar_navbar_top">Bovenkant van de navigatiebalk</string>
+  <string name="battery_bar_navbar_bottom">Onderkant van de navigatiebalk</string>
   <!-- Doze pulse options -->
   <string name="summary_doze_enabled">Ingeschakeld</string>
   <string name="summary_doze_disabled">Uitgeschakeld</string>
+  <string name="doze_overwrite_value_title">Overschrijf standaardinstellingen</string>
+  <string name="doze_overwrite_value_summary">Wijzigen van standaardwaarden toestaan in gebruikersinstellingen</string>
+  <string name="doze_pulse_title">Gebruikersinstellingen</string>
+  <string name="doze_pulse_duration_in_title">Invloeien</string>
+  <string name="doze_pulse_duration_in_summary"></string>
+  <string name="doze_pulse_duration_visible_title">Zichtbaar gedurende</string>
+  <string name="doze_pulse_duration_visible_summary"></string>
+  <string name="doze_pulse_duration_out_summary"></string>
+  <string name="doze_brightness_level_title">Helderheidsniveau</string>
+  <string name="onehundred_ms">100 ms</string>
+  <string name="twofifty_ms">250 ms</string>
+  <string name="fivehundred_ms_default">500 ms (standaard)</string>
+  <string name="sevenfifty_ms">750 ms</string>
+  <string name="one_second">1 s</string>
+  <string name="onehalf_second">1,5 s</string>
+  <string name="two_second">2 s</string>
+  <string name="twohalf_second">2,5 s</string>
+  <string name="three_second_default">3 s (standaard)</string>
+  <string name="threehalf_second">3,5 s</string>
+  <string name="four_second">4 s</string>
+  <string name="fourhalf_second">4,5 s</string>
+  <string name="five_second">5 s</string>
+  <string name="doze_notification_color_invert_title">Inversie van de melding</string>
+  <string name="doze_notification_color_invert_summary_off">Meldingen zullen niet omgekeerd worden. Gebruik dit voor donkere thema\'s.</string>
+  <string name="doze_notification_color_invert_summary_on">Meldingen zullen omgekeerd worden. Gebruik dit voor het licht/standaard thema.</string>
+  <string name="ambient_display_show_battery_title">Batterijstatus</string>
+  <string name="keyguard_toggle_torch_title">Aan/Uit knop lang indrukken voor zaklantaarn</string>
+  <string name="keyguard_toggle_torch_summary">Als het scherm uit is het Aan/Uit menu lang indrukken om de zaklantaarn aan te zetten</string>
   <!-- Selinux Switch -->
+  <string name="selinux_switch_title">Selinux schakelopties</string>
+  <string name="selinux_switch_summary">SELinux is een verzameling wijzigingen aan het kernel en gebruikers hulpmiddellen. Wijziging van de instelling kan ongewenste effecten hebben. Gebruiken op eigen risico</string>
   <string name="selinux_title">Selinux Modus</string>
   <string name="selinux_permissive_title">Tolerant</string>
   <string name="selinux_enforcing_title">Wordt afgedwongen</string>
   <!-- Slim DSLV -->
   <string name="shortcut_action_none">Geen</string>
+  <string name="shortcut_action_select_action_longpress">Kies de actie voor lang indrukken:</string>
+  <string name="shortcut_action_select_action">Kies de actie:</string>
+  <string name="shortcut_action_select_action_newaction">Kies een nieuwe actie:</string>
   <string name="shortcut_action_reset">Herstellen</string>
   <string name="shortcut_action_add">Toevoegen</string>
+  <string name="shortcut_action_reset_message">Alles terugzetten naar standaardwaarden?</string>
+  <string name="shortcut_action_max">Maximum aantal items bereikt</string>
   <string name="shortcut_action_warning">Waarschuwing</string>
+  <string name="shortcut_action_warning_message">Het is niet mogelijk het laatste item te verwijderen</string>
+  <string name="shortcut_action_disable_message">Uitgeschakeld\nVoeg een item toe om deze functie in te schakelen</string>
+  <string name="shortcut_image_not_valid">De gekozen app geeft geen geldig pictogram of ondersteunt geen bijsnijden van een afbeelding. Gebruik een andere app.</string>
+  <string name="shortcut_duplicate_entry">De gekozen actie kan geen twee maal toegevoegd worden</string>
   <string name="shortcut_action_help_shortcut">snelkoppeling</string>
   <string name="shortcut_action_help_button">knop</string>
   <string name="shortcut_action_help_app">app</string>
+  <string name="shortcut_action_help_icon">, tijdens het kiezen van het pictogram zal aanpassingsopties tonen</string>
   <string name="shortcuts_applications">Toepassingen</string>
   <string name="shortcuts_select_custom_app_title">Gebruik aangepaste toepassing</string>
   <string name="shortcuts_icon_picker_type">Selecteer pictogram type:</string>
@@ -542,18 +621,46 @@
   <string name="shortcuts_icon_picker_battery">Batterij</string>
   <string name="shortcuts_icon_picker_browser">Browser</string>
   <string name="shortcuts_icon_picker_calendar">Kalender</string>
+  <string name="shortcuts_icon_picker_directmessage">Direct Bericht</string>
+  <string name="shortcuts_icon_picker_drive">Drive</string>
+  <string name="shortcuts_icon_picker_dropbox">Dropbox</string>
+  <string name="shortcuts_icon_picker_email">Email</string>
+  <string name="shortcuts_icon_picker_email2">Alternatieve Email</string>
+  <string name="shortcuts_icon_picker_evernote">Evernote</string>
+  <string name="shortcuts_icon_picker_facebook">Facebook</string>
+  <string name="shortcuts_icon_picker_favorite">Favoriet</string>
+  <string name="shortcuts_icon_picker_file_browser">Bestandsbeheer</string>
+  <string name="shortcuts_icon_picker_file_browser2">Alternatief bestandsbeheer</string>
+  <string name="shortcuts_icon_picker_fitness">Fitness</string>
+  <string name="shortcuts_icon_picker_gallery">Galerij</string>
+  <string name="shortcuts_icon_picker_gears">Tandwielen</string>
+  <string name="shortcuts_icon_picker_google_small">Google</string>
+  <string name="shortcuts_icon_picker_gplus">Google+</string>
+  <string name="shortcuts_icon_picker_gtalk">Hangouts</string>
+  <string name="shortcuts_icon_picker_help">Hulp</string>
+  <string name="shortcuts_icon_picker_joystick">Joystick</string>
+  <string name="shortcuts_icon_picker_key">Sleutels/Accounts</string>
+  <string name="shortcuts_icon_picker_laptop">Laptop</string>
+  <string name="shortcuts_icon_picker_notes">Notities</string>
+  <string name="shortcuts_icon_picker_luggage">Reizen</string>
   <string name="shortcuts_icon_picker_maps">Maps</string>
+  <string name="shortcuts_icon_picker_market">Markt</string>
   <string name="shortcuts_icon_picker_movie">Films</string>
   <string name="shortcuts_icon_picker_music">Muziek</string>
   <string name="shortcuts_icon_picker_nav">Navigatie</string>
   <string name="shortcuts_icon_picker_phone">Telefoon</string>
   <string name="shortcuts_icon_picker_package">Pakket</string>
   <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
+  <string name="shortcuts_icon_picker_play">Spelen</string>
   <string name="shortcuts_icon_picker_pocket">Zak</string>
+  <string name="shortcuts_icon_picker_quicksettings">Snelle instellingen</string>
+  <string name="shortcuts_icon_picker_rss">RSS feed</string>
   <string name="shortcuts_icon_picker_sdcard">SD-Kaart</string>
   <string name="shortcuts_icon_picker_search">Zoeken</string>
+  <string name="shortcuts_icon_picker_sms">Berichten</string>
   <string name="shortcuts_icon_picker_tasks">Taken</string>
   <string name="shortcuts_icon_picker_terminal">Terminal</string>
+  <string name="shortcuts_icon_picker_transit">Doorvoer</string>
   <string name="shortcuts_icon_picker_tv">TV</string>
   <string name="shortcuts_icon_picker_twitter">Twitter</string>
   <string name="shortcuts_icon_picker_unlock">Ontgrendelen</string>
@@ -562,20 +669,40 @@
   <string name="shortcut_action_home">Beginscherm</string>
   <string name="shortcut_action_back">Terug</string>
   <string name="shortcut_action_menu">Menu</string>
+  <string name="shortcut_action_ime">Open IME schakelbord</string>
+  <string name="shortcut_action_power_menu">Aan/Uit menu</string>
   <string name="shortcut_action_recent">Laatst gebruikte</string>
   <string name="shortcut_action_power">Scherm Uit</string>
   <string name="shortcut_action_search">Zoeken in app</string>
+  <string name="shortcut_action_ring_vib">Belgeleid/Trilling</string>
+  <string name="shortcut_action_ring_silent">Belgeluid/Stil</string>
+  <string name="shortcut_action_ring_vib_silent">Belgeluid/Trilling/Stil</string>
   <string name="shortcut_action_camera">Camera</string>
   <string name="shortcut_action_media_next">Muziek - volgend nummer</string>
   <string name="shortcut_action_media_play_pause">Muziek - afspelen/pauzeren</string>
   <string name="shortcut_action_media_previous">Muziek - vorig nummer</string>
   <string name="shortcut_action_wake_device">Apparaat ontwaken</string>
+  <string name="shortcut_action_longpress">Lang indrukken:</string>
+  <string name="shortcut_action_select_action_longpress">Kies de actie voor lang indrukken:</string>
+  <string name="shortcut_action_select_action">Kies de actie:</string>
+  <string name="shortcut_action_select_action_newaction">Kies een nieuwe actie:</string>
   <string name="shortcut_action_reset">Herstellen</string>
   <string name="shortcut_action_add">Toevoegen</string>
+  <string name="shortcut_action_reset_message">Alles terugzetten naar standaardwaarden?</string>
+  <string name="shortcut_action_max">Maximum aantal items bereikt</string>
   <string name="shortcut_action_warning">Waarschuwing</string>
+  <string name="shortcut_action_warning_message">Het is niet mogelijk het laatste item te verwijderen</string>
+  <string name="shortcut_action_disable_message">Uitgeschakeld\nVoeg een item toe om deze functie in te schakelen</string>
+  <string name="shortcut_image_not_valid">De gekozen app geeft geen geldig pictogram of ondersteunt geen bijsnijden van een afbeelding. Gebruik een andere app.</string>
+  <string name="shortcut_duplicate_entry">De gekozen actie kan geen twee maal toegevoegd worden</string>
   <string name="shortcut_action_help_shortcut">snelkoppeling</string>
   <string name="shortcut_action_help_button">knop</string>
   <string name="shortcut_action_help_app">app</string>
+  <string name="shortcut_action_help_icon">, tijdens het kiezen van het pictogram zal aanpassingsopties tonen</string>
+  <string name="shortcut_action_help_main">Selecteer het Toevoegen pictogram om een %1$s toe te voegen. Zodra een %1$s toegevoegd is, zal het selecteren van de rij het doel%2$s veranderen\n\nVeeg naar links of rechts op de rij om een %1$s te verwijderen. Wijzig de plaats van een %1$s in de lijst door het anker links op- en neer te slepen.\n\n Om de wijzigingen te wissen of de standaardwaarden te herstellen, selecteer het herstel pictogram.</string>
+  <string name="shortcut_picker_icon_type_default_title">Standaard</string>
+  <string name="battery">Batterij</string>
+  <string name="bluetooth">Bluetooth</string>
   <string name="camera">Camera</string>
   <string name="chrome">Chrome</string>
   <string name="clock">Klok</string>
@@ -624,6 +751,7 @@
   <string name="googlehangouts">Google Hangouts</string>
   <string name="googlekeep">Google Keep</string>
   <string name="googleplay">Google Play</string>
+  <string name="spotifiy">Spotify</string>
   <!-- Hide Lockscreen clock & date -->
   <!-- Keyguard Statusbar Clock -->
   <!-- Fingerprint vibrate -->
@@ -657,8 +785,10 @@
   <string name="hardware_keys_double_tap_title">Actie twee keer indrukken</string>
   <string name="camera_sleep_on_release_title">Schermvoorbeeld</string>
   <string name="camera_launch_title">Camera openen</string>
+  <string name="home_answer_call_summary">Indrukken van de thuisknop zal de inkomende oproep beantwoorden</string>
   <!-- Key backlight -->
   <!-- Buttons - Enable navbar -->
+  <string name="disable_navkeys_title">Schakel de hardware knoppen uit</string>
   <!-- Navigation Bar -->
   <!-- Power menu -->
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
@@ -677,6 +807,7 @@
   <!-- Lockscreen weather -->
   <!-- Wake on Plug -->
   <!-- Quick Settings brightness slider -->
+  <string name="animation1">Recente apps sluiten</string>
   <!-- OmniSwitch -->
   <!-- Less Notification sounds -->
   <!-- Development Settings -->
@@ -694,6 +825,7 @@
   <!-- Battery saver color -->
   <!-- Status bar - double tap to sleep -->
   <!-- BT easy toggle -->
+  <!-- Battery Saver easy toggle -->
   <!-- Quick unlock -->
   <!-- Disable OS on lockscreen -->
   <!-- Circle app bar -->
@@ -730,12 +862,15 @@
   <!-- Lockscreen charging current indicator  -->
   <!-- Heads up timeout -->
   <!-- Heads up snooze -->
+  <string name="heads_up_snooze_disabled_summary">Sluimer timer is uitgeschakeld</string>
   <!-- Camera shutter sound -->
   <!-- Ability to disable hardware keys via nav bar settings -->
   <!-- Expanded desktop -->
   <!-- SlimSizer  -->
+  <string name="sizer_message_filesuccess">Profiel is aangemaakt.</string>
   <!-- RR summary text -->
   <!-- Custom summaries -->
+  <string name="sum2">Belangrijk bericht: Donald Trump verandert zijn kapsel!</string>
   <string name="sum4">Veel opties!</string>
   <string name="sum6">Wat anders?</string>
   <string name="sum7">Ik ben niet uw F1-knop</string>
@@ -751,6 +886,7 @@
   <string name="sum18">Stop spamming in de g+ gemeenschap</string>
   <string name="sum19">Volg de g+ post regels</string>
   <string name="sum20">Noobs kunnen niet naar binnen</string>
+  <string name="sum22">Belangrijk nieuws: Apple verwijdert knipperlichten uit de volgende iPhones.</string>
   <string name="sum23">Bent je nu gelukkig?</string>
   <string name="sum26">ツ</string>
   <!-- RR Settings tabs slide effects -->
@@ -785,5 +921,7 @@
   <string name="yes">JA</string>
   <!-- Scrolling Animation Controls -->
   <!-- setting: show CPU info-->
-  <!-- QS Header Icons -->
+  <!-- Status Bar Battery Icon Large Percentage Text -->
+  <!-- Keyboard and Input ASS methods  -->
+  <string name="attention">Let op</string>
 </resources>

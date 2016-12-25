@@ -25,7 +25,6 @@ import com.android.settings.rr.SeekBarPreference;
 public class TransparencySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-        private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
         private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
         private static final String PREF_QS_STROKE = "qs_stroke";
         private static final String PREF_QS_STROKE_COLOR = "qs_stroke_color";
@@ -54,14 +53,6 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
 
             PreferenceScreen prefSet = getPreferenceScreen();
             final ContentResolver resolver = getActivity().getContentResolver();
-
-            // QS shade alpha
-            mQSShadeAlpha =
-                    (SeekBarPreference) prefSet.findPreference(PREF_QS_TRANSPARENT_SHADE);
-            int qSShadeAlpha = Settings.System.getInt(resolver,
-                    Settings.System.QS_TRANSPARENT_SHADE, 255);
-            mQSShadeAlpha.setValue(qSShadeAlpha / 1);
-            mQSShadeAlpha.setOnPreferenceChangeListener(this);
 
             // QS header alpha
             /*mQSHeaderAlpha =
@@ -139,25 +130,15 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
 
         }
 
-   	 	@Override
+   	@Override
     	protected int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
-		}
+	}
 
         @Override
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             ContentResolver resolver = getActivity().getContentResolver();
-            if (preference == mQSShadeAlpha) {
-                int alpha = (Integer) newValue;
-                Settings.System.putInt(resolver,
-                        Settings.System.QS_TRANSPARENT_SHADE, alpha * 1);
-                return true;
-            /*} else if (preference == mQSHeaderAlpha) {
-                int alpha = (Integer) newValue;
-                Settings.System.putInt(resolver,
-                        Settings.System.QS_TRANSPARENT_HEADER, alpha * 1);
-                return true;*/
-            } else if (preference == mQSStroke) {
+            if (preference == mQSStroke) {
                 int qSStroke = Integer.parseInt((String) newValue);
                 int index = mQSStroke.findIndexOfValue((String) newValue);
                 Settings.System.putIntForUser(resolver, Settings.System.
@@ -209,13 +190,13 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                 mQSDashWidth.setEnabled(false);
                 mQSDashGap.setEnabled(false);
             } else if (qSStroke == 1) {
-				mQSStrokeColor.setEnabled(false);
+                mQSStrokeColor.setEnabled(false);
                 mQSStrokeThickness.setEnabled(true);
                 mQSCornerRadius.setEnabled(true);
                 mQSDashWidth.setEnabled(true);
                 mQSDashGap.setEnabled(true);
             } else {
-				mQSStrokeColor.setEnabled(true);
+                mQSStrokeColor.setEnabled(true);
                 mQSStrokeThickness.setEnabled(true);
                 mQSCornerRadius.setEnabled(true);
                 mQSDashWidth.setEnabled(true);

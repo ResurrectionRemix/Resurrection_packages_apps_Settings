@@ -115,7 +115,6 @@
   <string name="rr_title_summary">#Getresurrected</string>
   <string name="rr_config_main_title">Resurrection Remix</string>
   <string name="rr_ota_fab_title">Zobrazit plovoucí tlačítko OTA</string>
-  <string name="rr_ota_fab_summary">Povolit / Zakázat zobrazení / Skrýt plovoucí tlačítko v konfiguracích. Otevření/ukončení po přepnuti</string>
   <string name="rr_statusbar_title">Stavová lišta</string>
   <string name="rr_sb_gestures_title">Gesta stavové lišty</string>
   <string name="qs_advanced_title">Rozšířené</string>
@@ -179,7 +178,7 @@
   <string name="rr_doze_summary">Povolit nebo zakázat ambientní displej a přizpůsobit jeho možnosti</string>
   <string name="rr_heads_up_summary">Vybrat možnost zapnutí nebo vypnutí heads-up oznámení a nastavit časové limity</string>
   <string name="rr_dash_board_summary">Přizpůsobit rozložení a souhrny hlavního panelu</string>
-  <string name="misc_weather_settings_summary">Přizpůsobit různé možnosti aplikace Cclock</string>
+  <string name="misc_weather_settings_summary">Přizpůsobit různé možnosti aplikace cClock</string>
   <string name="system_app_remover_summary">Odstranit systémové aplikace, která se vám nelíbí</string>
   <string name="rr_updater_summary">Zkontrolovat aktualizace OTA a další odkazy</string>
   <!-- AOKP custom system animations -->
@@ -267,6 +266,7 @@
   <string name="volume_steps_7">7</string>
   <string name="volume_steps_5">5</string>
   <!-- Volume dialog timeout -->
+  <string name="volume_dialog_timeout_title">Časový limit panelu ovládání hlasitosti</string>
   <!-- Toast Icons -->
   <string name="toast_icon_title">Ikona Toast</string>
   <string name="toast_icon_summary">Zobrazit ikonu aplikace v oznámení Toast</string>
@@ -561,8 +561,11 @@
   <string name="doze_overwrite_value_summary">Povolit přepsat výchozí hodnoty uživatelským nastavením</string>
   <string name="doze_pulse_title">Uživatelsky konfigurovatelné nastavení</string>
   <string name="doze_pulse_duration_in_title">Postupné zesílení</string>
+  <string name="doze_pulse_duration_in_summary"></string>
   <string name="doze_pulse_duration_visible_title">Viditelné trvání</string>
+  <string name="doze_pulse_duration_visible_summary"></string>
   <string name="doze_pulse_duration_out_title">Postupné zeslabení</string>
+  <string name="doze_pulse_duration_out_summary"></string>
   <string name="doze_trigger_pickup_title">Vyberte sensor aktivace</string>
   <string name="doze_trigger_pickup_summary_on">Pulsování se spustí pomocí čidel pohybu</string>
   <string name="doze_trigger_pickup_summary_off">Senzory pohybu nebudou použity ke spuštění</string>
@@ -882,12 +885,21 @@
   <string name="qs_advanced_data_summary">Jedním klepnutím povolit nebo zakázat data</string>
   <!-- Hardware button navigation -->
   <string name="button_pref_title">Tlačítka</string>
+  <string name="hardware_keys_volume_keys_title">Probudit tlačítky</string>
   <string name="hardware_keys_home_key_title">Tlačítko Domů</string>
   <string name="hardware_keys_menu_key_title">Tlačítko Menu</string>
   <string name="hardware_keys_assist_key_title">Tlačítko Vyhledávání</string>
+  <string name="hardware_keys_appswitch_key_title">Přepínač aplikací</string>
   <string name="hardware_keys_back_key_title">Tlačítko Zpět</string>
+  <string name="hardware_keys_double_tap_summary">Nastavit akci dvojím poklepání</string>
+  <string name="hardware_keys_single_tap_summary">Nastavit akci jedním klepnutím</string>
+  <string name="hardware_keys_long_press_summary">Nastavit akci dlouhého stisku</string>
+  <string name="hardware_keys_single_tap_title">Akce jedním klepnutím</string>
   <string name="hardware_keys_long_press_title">Akce dlouhého stisku</string>
   <string name="hardware_keys_double_tap_title">Akce dvojím poklepáním</string>
+  <string name="hardware_keys_category">Hardwarová tlačítka</string>
+  <string name="hardware_keys_disable_title">Zakázat hardwarové tlačítka</string>
+  <string name="hardware_keys_power_key_title">Tlačítko napájení</string>
   <string name="camera_sleep_on_release_title">Náhled obrazovky</string>
   <string name="camera_sleep_on_release_summary">Polovičním stiskem tlačítka bude rozsvícena obrazovka pouze po dobu, po kterou je tlačítko stisknuté</string>
   <string name="camera_launch_title">Spustit fotoaparát</string>
@@ -1004,6 +1016,11 @@
   <string name="force_charge_battery_text_title">Procenta baterie ve stavové liště</string>
   <string name="force_charge_battery_text_summary_on">Zobrazit procenta baterie vedle ikony při nabíjení</string>
   <string name="force_charge_battery_text_summary_off">Zobrazit procenta baterie uvnitř ikony při nabíjení</string>
+  <string name="text_charging_symbol_title">Symbol nabíjení vedle procenta textu</string>
+  <string name="text_charging_symbol_dialog">Zobrazit symbol procenta textu vedle ikony baterie při nabíjení</string>
+  <string name="text_charging_symbol_default">Vypnuto</string>
+  <string name="text_charging_symbol_flash">Blesk</string>
+  <string name="text_charging_symbol_tilde">Vlnovka</string>
   <!-- Status bar - icon blacklist -->
   <string name="status_bar_icons_title">Ikony stavové lišty</string>
   <string name="status_bar_icons_summary">Nastavení, které ikony jsou zobrazeny na stavové liště</string>
@@ -1344,6 +1361,7 @@
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Snadné přepnutí Bluetooth</string>
   <string name="qs_bt_easy_toggle_summary">Jedním klepnutím zapnout Bluetooth namísto zapnutí v nastavení</string>
+  <!-- Battery Saver easy toggle -->
   <string name="qs_music_tile_track_optional_title">Dlaždice hudby</string>
   <string name="qs_music_tile_track_optional_summary">Zobrazit hudbu jako QS dlaždici</string>
   <string name="quick_settings_vibrate_title">Vibrovat při dotyku</string>
@@ -1679,6 +1697,8 @@
   <string name="screenshot_delay_title">Prodleva snímku obrazovky</string>
   <string name="screenshot_delay_summary">Upravit dobu, kdy je zachycen snímek obrazovky</string>
   <!--Screenshot crop and share -->
+  <string name="screenshot_crop_and_share_title">Oříznutí snímku &amp; sdílení</string>
+  <string name="screenshot_crop_and_share_summary">Zobrazit okno editoru po pořízení snímku obrazovky pro operace jako je oříznutí, uložení nebo sdílení</string>
   <string name="heads_up_settings">Plovoucí upozornění</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Informace o nabíjení na zamykací obrazovce</string>
@@ -1709,6 +1729,7 @@
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">Hardwarová tlačítka</string>
   <string name="hw_keys_summary">Povolit hardwarová tlačítka</string>
+  <string name="rr_hw_keys_summary">Přizpůsobit hardwarová tlačítka (např. domů, zpět, menu)</string>
   <!-- Expanded desktop -->
   <string name="expanded_desktop_category">Rozšířená plocha</string>
   <string name="expanded_hide_nothing">Nic neskrývat</string>
@@ -1801,7 +1822,7 @@
   <string name="lockscreen_phone_icon_color">Levé dolní tlačítko na uzamčené obrazovce</string>
   <string name="lockscreen_lock_icon_color">Ikona zámku obrazovky</string>
   <string name="lockscreen_camera_icon_color">Pravé dolní tlačítko na uzamčené obrazovce</string>
-  <string name="ls_shortcut_icon_color">Inkony na zamykací obrazovce</string>
+  <string name="ls_shortcut_icon_color">Ikony na zamykací obrazovce</string>
   <string name="lockscreen_indication_text_color">Indikace textu na obrazovce uzamčení</string>
   <string name="lockscreen_clock_color">Hodiny zamykací obrazovky</string>
   <string name="lockscreen_clock_date_color">Datum zamykací obrazovky</string>
@@ -1838,5 +1859,9 @@
   <string name="qs_tile_title_visibility_summary_on">Zobrazit názvy QS dlaždic</string>
   <string name="qs_tile_title_visibility_summary_off">Skrýt názvy QS dlaždic</string>
   <!-- setting: show CPU info-->
-  <!-- QS Header Icons -->
+  <string name="show_cpu_info">Zobrazit využití CPU</string>
+  <string name="show_cpu_info_summary">Překrytí obrazovky informacemi o aktuálním vytížení CPU</string>
+  <!-- Status Bar Battery Icon Large Percentage Text -->
+  <!-- Keyboard and Input ASS methods  -->
+  <string name="attention">Varování</string>
 </resources>
