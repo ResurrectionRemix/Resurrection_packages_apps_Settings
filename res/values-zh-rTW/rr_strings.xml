@@ -115,6 +115,7 @@
   <string name="rr_title_summary">#重新設定</string>
   <string name="rr_config_main_title">Resurrection Remix</string>
   <string name="rr_ota_fab_title">顯示 OTA 浮動按鈕</string>
+  <string name="rr_ota_fab_summary">啟用/停用配置中的浮動按鍵即可顯示/隱藏。當使用開關時，只要輸入/退出一次</string>
   <string name="rr_statusbar_title">狀態列</string>
   <string name="rr_sb_gestures_title">狀態列手勢</string>
   <string name="qs_advanced_title">進階</string>
@@ -409,7 +410,7 @@
   <string name="immersive_recents_default">預設</string>
   <string name="immersive_recents_fullscreen">全螢幕</string>
   <string name="immersive_recents_statusbar">僅顯示狀態列</string>
-  <string name="immersive_recents_navbar">僅顯示導覽列</string>
+  <string name="immersive_recents_navbar">僅顯示導航列</string>
   <!-- Dashboard suggestions -->
   <string name="dashboard_category">面板選項</string>
   <string name="disable_suggestions_title">停用建議</string>
@@ -552,8 +553,8 @@
   <string name="battery_bar_low_color">低級別的顏色\"</string>
   <string name="battery_bar_hide">隐藏</string>
   <string name="battery_bar_statusbar">狀態列</string>
-  <string name="battery_bar_navbar_top">頂端的導覽列</string>
-  <string name="battery_bar_navbar_bottom">底部的導覽列</string>
+  <string name="battery_bar_navbar_top">頂端的導航列</string>
+  <string name="battery_bar_navbar_bottom">底部的導航列</string>
   <!-- Doze pulse options -->
   <string name="summary_doze_enabled">已啟用</string>
   <string name="summary_doze_disabled">已停用</string>
@@ -875,7 +876,7 @@
   <string name="lock_clock_font_medium_italic">中斜體</string>
   <!-- Screenshot sound -->
   <string name="screenshot_sound_title">螢幕擷取音效</string>
-  <string name="navbar_settings_title">導覽列</string>
+  <string name="navbar_settings_title">導航列</string>
   <!-- kill app long press back -->
   <string name="kill_app_longpress_back">返回按鈕可終止應用程式</string>
   <string name="kill_app_longpress_back_summary">透過長按返回鍵來中止前景應用程式</string>
@@ -891,12 +892,22 @@
   <string name="hardware_keys_assist_key_title">搜尋按鈕</string>
   <string name="hardware_keys_appswitch_key_title">預覽按鍵佈局</string>
   <string name="hardware_keys_back_key_title">返回按鈕</string>
+  <string name="hardware_keys_camera_key_title">相機鍵</string>
   <string name="hardware_keys_double_tap_summary">設定輕按兩下動作</string>
   <string name="hardware_keys_single_tap_summary">設定輕按一下動作</string>
   <string name="hardware_keys_long_press_summary">設定長按動作</string>
   <string name="hardware_keys_single_tap_title">點一下動作</string>
   <string name="hardware_keys_long_press_title">長按動作</string>
   <string name="hardware_keys_double_tap_title">輕按兩下動作</string>
+  <string name="hardware_keys_action_nothing">無動作</string>
+  <string name="hardware_keys_action_menu">開啟/關閉選單</string>
+  <string name="hardware_keys_action_app_switch">最近使用應用程式切換器</string>
+  <string name="hardware_keys_action_search">搜尋助理</string>
+  <string name="hardware_keys_action_voice_search">語音搜尋</string>
+  <string name="hardware_keys_action_in_app_search">應用程式內搜尋</string>
+  <string name="hardware_keys_action_launch_camera">啟動相機</string>
+  <string name="hardware_keys_action_sleep">關閉螢幕</string>
+  <string name="hardware_keys_action_last_app">最後一個應用程式</string>
   <string name="hardware_keys_category">實體按鍵</string>
   <string name="hardware_keys_disable_title">停用硬體鍵</string>
   <string name="hardware_keys_power_key_title">電源按鈕</string>
@@ -935,7 +946,7 @@
   <string name="navigation_bar_category">導航列</string>
   <string name="navigation_bar_title">按鈕與配置</string>
   <string name="navigation_bar_left_title">左撇子模式</string>
-  <string name="navigation_bar_left_summary">橫向模式下將導覽列置於螢幕左側</string>
+  <string name="navigation_bar_left_summary">橫向模式下將導航列置於螢幕左側</string>
   <string name="navigation_bar_arrow_keys_title">輸入時顯示方向鍵</string>
   <string name="navigation_bar_arrow_keys_summary">輸入時顯示游標鍵。取代輸入法切換器。</string>
   <string name="navigation_bar_recents_title">多工按鈕長按動作</string>
@@ -1335,9 +1346,10 @@
   <string name="qs_rows_portrait_title">行 (縱向)</string>
   <string name="qs_rows_landscape_title">行 (橫向)</string>
   <string name="qs_columns_title">欄</string>
+  <string name="qs_small_tiles_title">小的快速設定磁磚</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">警告色</string>
-  <string name="battery_saver_color_summary">在省電模式啟動時，啟用橙色的狀態和導覽列</string>
+  <string name="battery_saver_color_summary">在省電模式啟動時，啟用橙色的狀態和導航列</string>
   <string name="network_traffic_color_style">顏色樣式</string>
   <string name="network_traffic_color_reset">重設顏色</string>
   <string name="network_traffic_color_reset_message">將流量監測器顏色重設為預設顏色？</string>
@@ -1362,6 +1374,8 @@
   <string name="qs_bt_easy_toggle_title">藍牙輕鬆切換</string>
   <string name="qs_bt_easy_toggle_summary">設定使點選即可開啟或關閉藍牙 ，而不是開啟設定介面</string>
   <!-- Battery Saver easy toggle -->
+  <string name="qs_battery_easy_toggle_title">電池瓷磚容易切換</string>
+  <string name="qs_battery_easy_toggle_summary">設定使按一下即可開啟或關閉電池保護程式 ，而不是開啟設定介面</string>
   <string name="qs_music_tile_track_optional_title">音樂瓷磚曲目標題</string>
   <string name="qs_music_tile_track_optional_summary">將音樂曲目標題顯示為快速設定瓷磚標題</string>
   <string name="quick_settings_vibrate_title">觸碰時震動</string>
@@ -1393,20 +1407,20 @@
   <string name="voicemail_breath_title">語音留言通知呼吸效果</string>
   <string name="voicemail_breath_summary">位於狀態列的語音留言通知將會擁有呼吸效果</string>
   <!-- Navigation Bar -->
-  <string name="navigation_category">導覽 </string>
+  <string name="navigation_category">導航</string>
   <string name="navbar_interface_title"> 介面</string>
-  <string name="navbar_size">導覽列大小</string>
+  <string name="navbar_size">列大小</string>
   <string name="navbar_mode">導航模式</string>
-  <string name="navbar_visibility">啟用導覽列</string>
+  <string name="navbar_visibility">啟用導航列</string>
   <string name="navigationbar_settings_title">導航列</string>
-  <string name="navigationbar_settings_summary">自訂導覽列樣式和行為</string>
+  <string name="navigationbar_settings_summary">自訂導航列樣式和行為</string>
   <string name="navbar_general_title">進階</string>
   <string name="navigation_bar_left_title">左撇子模式</string>
-  <string name="navigation_bar_left_summary">橫向模式下將導覽列置於螢幕左側</string>
+  <string name="navigation_bar_left_summary">橫向模式下將導航列置於螢幕左側</string>
   <string name="info_pref_note_title">注意</string>
   <string name="smartbar_interface">智慧列</string>
-  <string name="navbar_tint_switch">導覽列按鈕顏色</string>
-  <string name="navbar_button_color">導覽列按鈕</string>
+  <string name="navbar_tint_switch">導航列按鈕顏色</string>
+  <string name="navbar_button_color">導航列按鈕</string>
   <string name="icon_pack_picker_dialog_title">圖示包</string>
   <string name="invalid_icon_from_uri">無法從內容提供者載入圖像</string>
   <string name="picker_activities">活動</string>
@@ -1478,9 +1492,9 @@
   <string name="pulse_help_policy_notice_title">關於「律動」</string>
   <string name="pulse_help_policy_notice_summary">「律動」是一個會在音樂播放時顯示的欄型智慧音樂視覺效果。使用裝置喇叭時，「律動」在一些音訊來源下可能無法運作。</string>
   <string name="pulse_settings">律動</string>
-  <string name="pulse_settings_summary">導覽列音樂視覺化效果</string>
+  <string name="pulse_settings_summary">導航列音樂視覺化效果</string>
   <string name="fling_show_pulse_title">顯示「律動」</string>
-  <string name="fling_show_pulse_summary">顯示在導覽列上的音樂視覺化效果</string>
+  <string name="fling_show_pulse_summary">顯示在導航列上的音樂視覺化效果</string>
   <string name="pulse_render_mode_title">渲染模式</string>
   <string name="pulse_render_mode_fading_bars">漸層方塊</string>
   <string name="pulse_render_mode_solid_lines">實心線條</string>
@@ -1498,7 +1512,7 @@
   <string name="pulse_filled_block_size">方塊大小</string>
   <string name="pulse_empty_block_size">方塊間距</string>
   <!-- Navbar height -->
-  <string name="navigation_bar_size_title">導覽列大小</string>
+  <string name="navigation_bar_size_title">列大小</string>
   <string name="portrait_title">縱向高度</string>
   <string name="land_vert_title">橫向寬度</string>
   <string name="land_hor_title">橫向高度</string>
@@ -1533,7 +1547,7 @@
   <string name="smartbar_config_backup_error_toast">儲存「智慧列」設定檔時發生錯誤</string>
   <string name="smartbar_config_restore_error_toast">還原「智慧列」設定檔時發生錯誤</string>
   <string name="navbar_buttons_alpha_title">按鈕的透明度</string>
-  <string name="rr_navbar_settings">導覽列</string>
+  <string name="rr_navbar_settings">導航列</string>
   <!--Custom logos-->
   <string name="rr_custom_logo_summary">在狀態列中選擇各種自訂標誌/圖示</string>
   <string name="sb_custom_logos">自訂標誌</string>
@@ -1621,7 +1635,7 @@
   <string name="reset_paranoid">Resurrection</string>
   <string name="reset_android">Android</string>
   <string name="pa_piecontrol_settings_summary">自訂扇形目標、 樣式、 大小和顏色</string>
-  <string name="pa_pie_control_title">扇形按鈕</string>
+  <string name="pa_pie_control_title">扇形控制</string>
   <string name="pa_pie_control_enable_title">啟用扇形控制</string>
   <string name="pa_pie_targets_title">Pie 目標</string>
   <string name="pa_pie_style_title">扇形樣式</string>
@@ -1734,7 +1748,7 @@
   <string name="expanded_desktop_category">延伸桌面</string>
   <string name="expanded_hide_nothing">不隱藏</string>
   <string name="expanded_hide_status">隱藏狀態列</string>
-  <string name="expanded_hide_navigation">隱藏導覽列</string>
+  <string name="expanded_hide_navigation">隱藏導航列</string>
   <string name="expanded_hide_both">兩者都隱藏</string>
   <string name="expanded_nothing_to_show">若要為特定的應用程式設定延伸狀態，請關閉「全部延伸」的選項</string>
   <string name="expanded_desktop_state">延伸狀態</string>
@@ -1862,6 +1876,22 @@
   <string name="show_cpu_info">顯示處理器資訊</string>
   <string name="show_cpu_info_summary">目前的處理器資訊覆蓋在螢幕上</string>
   <!-- Status Bar Battery Icon Large Percentage Text -->
+  <string name="battery_large_text">大電池圖示百分比</string>
+  <string name="battery_large_text_summary_on">大文字顯示</string>
+  <string name="battery_large_text_summary_off">正常文字顯示</string>
+  <string name="nav_bar_dynamic_title">動態導航列顏色</string>
+  <string name="nav_bar_dynamic_summary">啟用停用此切換導航適應應用程式主暗顏色。重新啟動您所需的應用程式即可看到效果</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">注意</string>
+  <string name="title_keyboard_input">輸入選項</string>
+  <string name="disable_fullscreen_keyboard_title">停用全螢幕鍵盤</string>
+  <string name="disable_fullscreen_keyboard_summary">橫向螢幕時鍵盤不會覆蓋整個螢幕</string>
+  <string name="keyboard_rotation_toggle_title">自動旋轉鍵盤</string>
+  <string name="keyboard_rotation_toggle_summary">鍵盤顯示時強制開啟自動旋轉</string>
+  <string name="keyboard_rotation_timeout_title">自動旋轉逾時</string>
+  <string name="keyboard_rotation_timeout_summary">鍵盤隱藏後 <xliff:g id="rotate_timeout">%1$s</xliff:g> 秒停用自動旋轉感應器</string>
+  <string name="keyboard_rotation_dialog">當鍵盤顯示時，此功能強制自動旋轉暫時開啟，若已經啟用了自動旋轉，將不會發生任何作用。</string>
+  <string name="show_enter_key_title">顯示輸入鍵</string>
+  <string name="show_enter_key_summary">強制鍵盤顯示輸入鍵而不是表情符號鍵</string>
+  <!-- XOSP Blur personalizations -->
 </resources>
