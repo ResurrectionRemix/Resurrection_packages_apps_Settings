@@ -115,6 +115,7 @@
   <string name="rr_title_summary">#Getresurrected</string>
   <string name="rr_config_main_title">Resurrection Remix</string>
   <string name="rr_ota_fab_title">Lebegő akciógomb megjelenítése</string>
+  <string name="rr_ota_fab_summary">A Testreszabás menüpont lebegő akciógombjának engedélyezése/tiltása</string>
   <string name="rr_statusbar_title">Állapotsor</string>
   <string name="rr_sb_gestures_title">Állapotsor gesztusok</string>
   <string name="qs_advanced_title">Haladó</string>
@@ -270,6 +271,8 @@
   <!-- Toast Icons -->
   <string name="toast_icon_title">Buborékszöveg ikon</string>
   <string name="toast_icon_summary">A buborékszöveghez tartozó alkalmazás ikonjának megjelenítése</string>
+  <string name="toast_text_color">Buborékszöveg színe</string>
+  <string name="toast_icon_color">Buborékszöveg ikon színe</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Bluetooth akkumulátor állapotának megjelenítése</string>
   <string name="bluetooth_battery_summary">A csatlakoztatott bluetooth eszköz akkumulátor állapotának megjelenítése, ha rendelkezésre áll.</string>
@@ -900,7 +903,7 @@
   <string name="hardware_keys_double_tap_title">Dupla érintési művelet</string>
   <string name="hardware_keys_action_nothing">Nincs művelet</string>
   <string name="hardware_keys_action_menu">Menü megnyitása/bezárása</string>
-  <string name="hardware_keys_action_app_switch">Alkalmazás előzmények</string>
+  <string name="hardware_keys_action_app_switch">Alkalmazáselőzmények</string>
   <string name="hardware_keys_action_search">Keresési segéd</string>
   <string name="hardware_keys_action_voice_search">Hangalapú keresés</string>
   <string name="hardware_keys_action_in_app_search">Alkalmazáson belüli keresés</string>
@@ -1016,6 +1019,7 @@
   <string name="status_bar_battery_style_circle">Kör</string>
   <string name="status_bar_battery_style_text">Szöveg</string>
   <string name="status_bar_battery_style_hidden">Rejtett</string>
+  <string name="status_bar_battery_style_solid">Szilárd</string>
   <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">Akkumulátor százalék</string>
   <string name="status_bar_battery_percentage_default">Rejtett</string>
@@ -1373,7 +1377,8 @@
   <string name="qs_bt_easy_toggle_title">Bluetooth gyorskapcsoló</string>
   <string name="qs_bt_easy_toggle_summary">Engedélyezi, hogy egy megnyomás ki/be kapcsolja a Bluetooth-t ahelyett, hogy a beállításaiba vinne</string>
   <!-- Battery Saver easy toggle -->
-  <string name="qs_battery_easy_toggle_title">Akkumulátor csempe könnyű váltás</string>
+  <string name="qs_battery_easy_toggle_title">Akkumulátor csempe gyorskapcsoló</string>
+  <string name="qs_battery_easy_toggle_summary">Engedélyezi, hogy egy megnyomás ki/be kapcsolja az akkumulátorkímélőt ahelyett, hogy a beállításaiba vinne</string>
   <string name="qs_music_tile_track_optional_title">Zene csempe - szám címe</string>
   <string name="qs_music_tile_track_optional_summary">Zeneszám nevének megjelenítése a gyorsbeállítás csempe címeként</string>
   <string name="quick_settings_vibrate_title">Érintéskor rezeg</string>
@@ -1877,6 +1882,8 @@
   <string name="battery_large_text">Nagy akkumulátor ikon százalék</string>
   <string name="battery_large_text_summary_on">Nagy szöveg jelenik meg</string>
   <string name="battery_large_text_summary_off">Normál szöveg jelenik meg</string>
+  <string name="nav_bar_dynamic_title">Dinamikus navigációs sáv szín</string>
+  <string name="nav_bar_dynamic_summary">Engedélyezze ahhoz, hogy a navigációs sáv felvegye az alkalmazás sötét fő színét (általában az állapotsáv színe is ez). Szükséges lehet az alkalmazások újraindítása a változtatás életbe lépéséhez</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Figyelem</string>
   <string name="title_keyboard_input">Beviteli beállítások</string>
@@ -1890,4 +1897,26 @@
   <string name="show_enter_key_title">Enter gomb megjelenítése</string>
   <string name="show_enter_key_summary">A billentyűzet kényszerítése az Enter gomb mutatására a hangulatjelek helyett</string>
   <!-- XOSP Blur personalizations -->
+  <string name="settings_blur_cat">Elmosódás beállításai</string>
+  <string name="blurred_status_bar_expanded_enabled_pref">Állapotsor hátterének homályosítása</string>
+  <string name="blurred_status_bar_expanded_enabled_pref_summary">Háttér homályosítása, ha lehúzza az állapotsávot</string>
+  <string name="translucent_notifications_pref">Áttetsző értesítések</string>
+  <string name="translucent_notifications_pref_summary">Értesítések hátterét áttetszőnek állítja be</string>
+  <string name="translucent_quick_settings_pref">Átlátszó kiterjesztett állapotsor</string>
+  <string name="translucent_quick_settings_pref_summary">Gyorsbeállítások hátterének átlátszóvá tétele</string>
+  <string name="transluency_level_universal">Áttetszőségi szint</string>
+  <string name="blurred_recent_app_enabled_pref">Homályos alkalmazáselőzmények</string>
+  <string name="blurred_recent_app_enabled_pref_summary">Előzmények hátterének elmosása</string>
+  <string name="blur_light_color">Világos színszűrő</string>
+  <string name="blur_dark_color">Sötét színszűrő</string>
+  <string name="blur_mixed_color">Kevert színszűrő</string>
+  <string name="blur_colors_notice">Mit csinálnak ezek a színek?</string>
+  <string name="blur_notifications_cat">Értesítések</string>
+  <string name="blur_notices_cat">Értesítések</string>
+  <string name="blurred_scale_summary">Homályosított kép minősége</string>
+  <string name="blurred_radius_summary">Homályosítás nagysága</string>
+  <string name="blur_cat_notice">Megjegyzés</string>
+  <string name="blur_cat_notice_summary">A homályosítás testreszabása le van tiltva a képernyőzáron. Csak az áttetsző értesítések vannak engedélyezve!</string>
+  <string name="rr_build_type_title">Építés típusa</string>
+  <string name="rr_build_type_default">Nem hivatalos</string>
 </resources>
