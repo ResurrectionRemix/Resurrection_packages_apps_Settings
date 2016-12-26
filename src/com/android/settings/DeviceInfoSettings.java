@@ -133,12 +133,12 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setValueSummary(KEY_EQUIPMENT_ID, PROPERTY_EQUIPMENT_ID);
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
-	setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
+        setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
-        findPreference(KEY_BUILD_TYPE).setEnabled(true);
-	setValueSummary(KEY_BUILD_TYPE, "rr.build.type");
-	setValueSummary(KEY_MOD_VERSION, "ro.modversion");
+        setValueSummary(KEY_BUILD_TYPE, "rr.build.type");
+        setValueSummary(KEY_MOD_VERSION, "ro.modversion");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
+        findPreference(KEY_BUILD_TYPE).setEnabled(true);
         setValueSummary(KEY_QGP_VERSION, PROPERTY_QGP_VERSION);
         // Remove QGP Version if property is not present
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_QGP_VERSION,
@@ -332,6 +332,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                         + "queryIntentActivities() returns empty" );
                 return true;
             }
+        } else if (preference.getKey().equals(KEY_BUILD_TYPE)) {
+            sendFeedback();
         } else if (preference.getKey().equals(KEY_DEVICE_FEEDBACK)) {
             sendFeedback();
         } else if(preference.getKey().equals(KEY_SYSTEM_UPDATE_SETTINGS)) {
