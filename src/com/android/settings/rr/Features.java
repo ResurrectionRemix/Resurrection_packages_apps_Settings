@@ -24,21 +24,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
-
+import android.support.v7.preference.ListPreference;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceScreen;
 import com.android.settings.R;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ResurrectionFeatures extends Fragment {
+public class Features extends Fragment {
     private static final String FEATURES_PATH = "/system/etc/RR/Features.txt";
+    
+    public static final String TAG = "features";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
         InputStreamReader inputReader = null;
         String text = null;
+
 
         try {
             StringBuilder data = new StringBuilder();
@@ -69,4 +76,5 @@ public class ResurrectionFeatures extends Fragment {
 
         return scrollView;
     }
+
 }

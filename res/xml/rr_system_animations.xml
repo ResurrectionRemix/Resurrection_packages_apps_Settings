@@ -20,54 +20,72 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/system_animations">
 
-
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="disable_transition_animations"
+        android:title="@string/disable_animations"
+        android:summary="@string/disable_animations_summary"
+        android:disableDependentsState="true"
+        android:defaultValue="false" />
+        
          <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
              android:key="animation_no_override"
              android:title="@string/title_animation_no_override"
-             android:summary="@string/summary_animation_no_override" />
+             android:summary="@string/summary_animation_no_override"
+             android:dependency="disable_transition_animations" />
  
          <ListPreference
              android:key="activity_open"
+             android:dependency="disable_transition_animations"
              android:title="@string/activity_open_title" />
  
          <ListPreference
              android:key="activity_close"
+             android:dependency="disable_transition_animations"
              android:title="@string/activity_close_title" />
  
          <ListPreference
              android:key="task_open"
+             android:dependency="disable_transition_animations"
              android:title="@string/task_open_title" />
 
  		 <ListPreference
             android:key="task_open_behind"
+            android:dependency="disable_transition_animations"
             android:title="@string/task_open_behind_title" />
 
          <ListPreference
              android:key="task_close"
+             android:dependency="disable_transition_animations"
              android:title="@string/task_close_title" />
  
          <ListPreference
              android:key="task_move_to_front"
+             android:dependency="disable_transition_animations"
              android:title="@string/task_move_to_front_title" />
  
          <ListPreference
              android:key="task_move_to_back"
+             android:dependency="disable_transition_animations"
              android:title="@string/task_move_to_back_title" />
  
          <ListPreference
              android:key="wallpaper_open"
+             android:dependency="disable_transition_animations"
              android:title="@string/wallpaper_open_title" />
  
          <ListPreference
              android:key="wallpaper_close"
+             android:dependency="disable_transition_animations"
              android:title="@string/wallpaper_close_title" />
  
          <ListPreference
              android:key="wallpaper_intra_open"
+             android:dependency="disable_transition_animations"
              android:title="@string/wallpaper_intra_open_title" />
  
          <ListPreference
              android:key="wallpaper_intra_close"
+             android:dependency="disable_transition_animations"
              android:title="@string/wallpaper_intra_close_title" />
 
        <PreferenceCategory
@@ -79,6 +97,7 @@
             android:title="@string/listview_animation_title"
             android:entries="@array/listview_animation_entries"
             android:entryValues="@array/listview_animation_values"
+            android:dependency="disable_transition_animations"
             android:defaultValue="0" />
 
         <ListPreference
@@ -87,6 +106,7 @@
             android:title="@string/listview_interpolator_title"
             android:entries="@array/listview_interpolator_entries"
             android:entryValues="@array/listview_interpolator_values"
+            android:dependency="disable_transition_animations"
             android:defaultValue="0" />
 
        <ListPreference
@@ -95,6 +115,7 @@
       	   android:title="@string/pref_scrollingcache_title"
       	   android:summary="@string/pref_scrollingcache_summary"
       	   android:entries="@array/entries_scrollingcache"
+      	   android:dependency="disable_transition_animations"
       	   android:entryValues="@array/values_scrollingcache" />
 
       </PreferenceCategory>

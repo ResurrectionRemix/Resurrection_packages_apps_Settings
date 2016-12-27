@@ -139,6 +139,8 @@ import com.android.settingslib.drawer.Tile;
 import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.MainSettingsLayout;
 import com.android.settings.rr.About;
+import com.android.settings.rr.ChangeLog;
+import com.android.settings.rr.Features;
 import com.android.settings.rr.navbar.FlingSettings;
 import com.android.settings.rr.navbar.NavbarSettings;
 import com.android.settings.rr.navbar.SmartbarSettings;
@@ -383,6 +385,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             MainSettingsLayout.class.getName(),
             AmbientSettings.class.getName(),
             About.class.getName(),
+            ChangeLog.class.getName(),
+            Features.class.getName(),
             NavbarSettings.class.getName(),
             FlingSettings.class.getName(),
             SmartbarSettings.class.getName(),

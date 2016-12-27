@@ -62,8 +62,8 @@ public class BatterySettings extends SettingsPreferenceFragment implements
 
 
 
-    private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 4;
-    private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 6;
+    private static final int STATUS_BAR_BATTERY_STYLE_HIDDEN = 3;
+    private static final int STATUS_BAR_BATTERY_STYLE_TEXT = 5;
 
     private ListPreference mStatusBarBattery;
     private ListPreference mStatusBarBatteryShowPercent;
