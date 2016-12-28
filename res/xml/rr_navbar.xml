@@ -59,23 +59,26 @@
            <com.android.settings.rr.SeekBarPreference
                 android:key="navbar_height_portrait"
                 android:title="@string/portrait_title"
-                settings:max="135"
+                settings:maximum="135"
                 settings:minimum="65"
-                settings:unitsLeft="%" />
+                settings:units="%" 
+                android:persistent="false"/>
 
            <com.android.settings.rr.SeekBarPreference
                 android:key="navbar_height_landscape"
                 android:title="@string/land_hor_title"
-                settings:max="135"
+                settings:maximum="135"
                 settings:minimum="65"
-                settings:units="%" />
+                settings:units="%"
+                android:persistent="false"/>
 
            <com.android.settings.rr.SeekBarPreference
                 android:key="navbar_width"
                 android:title="@string/land_vert_title"
-                settings:max="135"
+                settings:maximum="135"
                 settings:minimum="65"
-                settings:units="%" />
+                settings:units="%" 
+                android:persistent="false"/>
         <PreferenceScreen
             android:key="pulse_settings"
             android:title="@string/pulse_settings"
