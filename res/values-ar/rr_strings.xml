@@ -142,6 +142,9 @@
   <string name="activity_open_title">حركة فتح النشاط</string>
   <string name="activity_close_title">حركة إغلاق النشاط</string>
   <string name="task_open_title">حركة فتح المهام</string>
+  <string name="wallpaper_open_title">حركة فتح الخلفية</string>
+  <string name="wallpaper_close_title">حركة إغلاق الخلفية</string>
+  <string name="animation_duration_title">مدة الرسوم المتحركة</string>
   <string name="animation_duration_default">الإفتراضي</string>
   <!-- Toast Animation -->
   <string name="toast_none_animation">لا شيء</string>
@@ -157,6 +160,7 @@
   <string name="listview_off">افتراضي</string>
   <string name="listview_wave_left">موجة (يسار)</string>
   <string name="listview_wave_right">موجة (يمين)</string>
+  <string name="listview_scale">مقاس</string>
   <string name="listview_stack_top">تكدس (أعلى)</string>
   <string name="listview_stack_bottom">تكدس (أسفل)</string>
   <string name="listview_unfold">توسيع</string>
@@ -166,12 +170,23 @@
   <string name="listview_decelerate_interpolator">تباطىء</string>
   <string name="listview_accelerate_decelerate_interpolator">التسارع والتباطىء</string>
   <string name="listview_anticipate_interpolator">توقع</string>
+  <string name="listview_bounce_interpolator">ارتداد</string>
   <!-- Disable animations -->
   <!-- Option to enable/disable scrolling cache -->
   <string name="pref_scrollingcache_title">ذاكرة التخزين المؤقت للتمرير</string>
   <string name="pref_scrollingcache_summary">ذاكرة التخزين المؤقت للتمرير تحسن أداء التمرير على حساب الذاكرة</string>
   <!-- Volume Steps -->
+  <string name="volume_steps_title">درجات الصوت</string>
+  <string name="volume_steps_alarm_title">خطوات الصوت: المنبه</string>
+  <string name="volume_steps_reset">إعادة ضبط</string>
+  <string name="volume_steps_60">60</string>
+  <string name="volume_steps_45">45</string>
+  <string name="volume_steps_30">30</string>
+  <string name="volume_steps_15">15</string>
+  <string name="volume_steps_7">7</string>
+  <string name="volume_steps_5">5</string>
   <!-- Volume dialog timeout -->
+  <string name="volume_dialog_timeout_title">مهلة نافذة الصوت</string>
   <!-- Toast Icons -->
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">إظهار حالة بطارية البلوتوث</string>
@@ -203,63 +218,337 @@
   <string name="show_network_traffic_1500">1500 م.ث</string>
   <string name="show_network_traffic_2000">2000 م.ث</string>
   <!-- Statusbar RR logo -->
+  <string name="status_bar_rr_logo_title">تمكين الشعار</string>
+  <string name="status_bar_rr_logo_summary">تمكين إظهار شعار RR في شريط الحالة</string>
   <!-- Color picker -->
+  <string name="color_picker_fragment_title">منتقي الألوان</string>
+  <string name="apply_color_title">تطبيق اللون</string>
+  <string name="edit_hex_title">قيمة Hex</string>
+  <string name="palette_title">أخرى</string>
+  <string name="palette_rgb_title">RGB</string>
+  <string name="reset_color_title">إعادة ضبط</string>
+  <string name="reset_android_title">افتراضي Android</string>
+  <string name="reset_title">افتراضي Resurrection</string>
+  <string name="reset_theme_default_title">افتراضي السمة</string>
+  <string name="favorites_title">المفضلة</string>
+  <string name="hide_favorites_title">إخفاء المفضلة</string>
+  <string name="show_favorites_title">إظهار المفضلة</string>
+  <string name="hide_help_title">إخفاء التعليمات</string>
+  <string name="show_help_title">إظهار التعليمات</string>
+  <string name="empty_title">فارغ</string>
   <!-- Help screen -->
+  <string name="color_picker_help_screen_title">تعليمات ملتقط الألوان</string>
   <string name="color_picker_help_ab_title">شريط الإجراءات:</string>
+  <string name="color_picker_help_ab_back_title">زر الرجوع:</string>
+  <string name="color_picker_help_ab_name_title">العنوان:</string>
+  <string name="color_picker_help_ab_name_summary">إظهار العنوان فقط، لا وظائف إضافية</string>
+  <string name="color_picker_help_ab_color_apply_title">معاينة اللون وتطبيق اللون:</string>
+  <string name="color_picker_help_ab_hex_title">قيمة Hex:</string>
+  <string name="color_picker_help_ab_menu_title">زر القائمة:</string>
+  <string name="color_picker_help_ab_menu_reset_title">إعادة ضبط:</string>
+  <string name="color_picker_help_ab_menu_reset_summary">يتم إرجاع اللون الجديد إلى اللون المتعلق الافتراضي لـ Android، Resurrection Remix أو السمة دون تطبيق اللون الجديد.</string>
+  <string name="color_picker_help_ab_menu_favorites_title">إخفاء/إظهار المفضلة:</string>
+  <string name="color_picker_help_ab_menu_favorites_summary">إظهار/إخفاء المفضلة. \nإخفاء المفضلة لن يقوم بإعادة تعيين ألوان المفضلة.</string>
+  <string name="color_picker_help_ab_menu_help_title">إظهار/إخفاء التعليمات:</string>
+  <string name="color_picker_help_ab_menu_help_summary">إظهار/إخفاء شاشة التعليمات هذه.</string>
+  <string name="color_picker_help_colors_title">الألوان:</string>
+  <string name="color_picker_help_picker_view_title">لوحة الألوان:</string>
+  <string name="color_picker_help_color_buttons_title">أزرار اللون:</string>
+  <string name="color_picker_help_favorites_title">المفضلة:</string>
+  <string name="color_picker_help_do_not_show_title">لا تظهر مرة أخرى</string>
+  <string name="color_picker_help_button_ok_title">حسنا</string>
   <!-- Color picker end -->
   <!-- Power menu Animations  -->
+  <string name="powermenu">قائمة زر التشغيل</string>
+  <string name="power_menu_animation_title">حركة قائمة زر التشغيل</string>
+  <string name="power_menu_animation_summary">تغيير حركة الدخول والخروج لقائمة زر التشغيل</string>
+  <string name="power_menu_animation_dialog_title">اختر حركة قائمة زر التشغيل</string>
+  <string name="power_menu_animation_bottom">أسفل</string>
+  <string name="power_menu_animation_top">أعلى</string>
+  <string name="power_menu_animation_rotate">التدوير</string>
+  <string name="power_menu_animation_rotate">التدوير</string>
+  <string name="power_menu_animation_xylon">الطيران</string>
+  <string name="power_menu_animation_slide">انزلاق</string>
+  <string name="power_menu_animation_turn">ترحيل الصفحات</string>
+  <string name="power_menu_animation_fly">توهج</string>
   <string name="power_menu_animation_card">ثلاثي الأبعاد</string>
+  <string name="rr_qs_title">الإعدادات السريعة</string>
+  <string name="rr_battery_title">البطارية</string>
+  <string name="rr_qs_animation">الرسوم المتحركة السريعة</string>
+  <string name="rr_navbar_title">شريط التنقل</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tile_animation_style_title">نمط الرسوم المتحركة</string>
+  <string name="qs_tile_animation_duration_title">مدة الرسوم المتحركة</string>
+  <string name="qs_tile_animation_style_off">بلا رسوم متحركة</string>
+  <string name="qs_tile_animation_style_flip">انقلاب</string>
+  <string name="qs_tile_animation_style_rotate">تدوير</string>
+  <string name="qs_tile_animation_duration_low">منخفض</string>
+  <string name="qs_tile_animation_duration_default">افتراضي</string>
+  <string name="qs_tile_animation_duration_fast">سريع</string>
+  <string name="qs_tile_animation_duration_superfast">سريع جدا</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">خطي</string>
   <string name="qs_tile_animation_interpolator_accelerateInterpolator">تسارع</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">تباطىء</string>
   <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">تسارع التباطىء</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">ارتداد</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">الانحسار</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">توقع</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">توقع الانحسار</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Immersive Recents -->
+  <string name="immersive_recents_default">الافتراضي</string>
+  <string name="immersive_recents_fullscreen">ملء الشاشة</string>
+  <string name="immersive_recents_statusbar">شريط الحالة فقط</string>
+  <string name="immersive_recents_navbar">شريط التنقل فقط</string>
   <!-- Dashboard suggestions -->
+  <string name="dashboard_category">خيارات اللوحة الرئيسية</string>
+  <string name="disable_suggestions_title">تعطيل الاقتراحات</string>
+  <string name="disable_suggestions_summary">تعطيل الاقتراحات التي تظهر أعلى اللوحة الرئيسية</string>
+  <string name="network_traffic_hidearrow_title">إخفاء الأسهم</string>
+  <string name="show_4g_title">إظهار 4G</string>
+  <string name="show_4g_summary">إظهار 4g بدلا من LTE في أيقونات الإشارة</string>
+  <string name="show_3g_title">إظهار 3G</string>
+  <string name="show_3g_summary">إظهار 3G بدلا من H+ في أيقونات الإشارة</string>
   <!-- Gesture Anywhere -->
+  <string name="gestures_settings">الإيماءات</string>
+  <string name="gesture_anywhere_title">الإيماء في أي مكان</string>
+  <string name="gesture_anywhere_enabled_title">الإيماء في أي مكان</string>
+  <string name="gesture_anywhere_enabled_summary">تمكين ميزة الإيماء في أي مكان</string>
+  <string name="gesture_anywhere_position_title">المكان</string>
+  <string name="gesture_anywhere_position_left">الحافة اليسرى</string>
+  <string name="gesture_anywhere_position_right">الحافة اليمنى</string>
+  <string name="gesture_anywhere_gestures_title">الإيماءات</string>
   <string name="gesture_anywhere_gestures_summary">إضافة، إزالة وتعديل الإيماءات</string>
   <!-- Label, button used to add a gesture -->
   <string name="ga_button_add">إضافة إيماءة</string>
   <!-- Label, button used to reload all gestures -->
+  <string name="ga_button_reload">إعادة تحميل</string>
   <!-- Label, button used to cancel the operation of adding a gesture -->
+  <string name="ga_button_discard">حذف</string>
   <!-- Label, button used to save a gesture newly created -->
+  <string name="ga_button_done">تم</string>
   <!-- Label, prompt asking the user to enter the name of the gesture -->
+  <string name="ga_prompt_gesture_name">الاسم</string>
   <!-- Error message, informs the user he needs to enter a name before saving a gesture -->
+  <string name="ga_error_missing_name">يجب عليك إدخال اسم</string>
   <!-- success message, tells the user where the gesture was saved -->
+  <string name="ga_save_success">تم حفظ الإيماءة خلال %s</string>
   <!-- Buttons in Rename gesture dialog box -->
+  <string name="ga_rename_action">حسنا</string>
   <!-- Buttons in Rename gesture dialog box -->
+  <string name="ga_cancel_action">إلغاء</string>
   <!-- Message displayed when the user opens the gestures settings screen -->
+  <string name="ga_gestures_loading">تحميل الإيماءات...</string>
   <!-- Message displayed when the user has no gestures -->
+  <string name="ga_gestures_empty">لا توجد إيماءات</string>
   <!-- Title of the screen used to view/manage gestures -->
+  <string name="ga_gestures_activity">الإيماءات</string>
   <!-- Noun, menu item used to edit a gesture -->
+  <string name="ga_gestures_edit">تحرير</string>
   <!-- Noun, menu item used to remove a gesture -->
+  <string name="ga_gestures_delete">حذف</string>
   <!-- Message displayed when a gesture is successfully deleted -->
+  <string name="ga_gestures_delete_success">تم حذف الإيماءات</string>
   <!-- Title of dialog box -->
+  <string name="ga_gestures_rename_title">إعادة تسمية الإيماءة</string>
   <!-- Label of gesture name field in Rename gesture dialog box -->
+  <string name="ga_gestures_rename_label">اسم الإيماءة</string>
   <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
+  <string name="ga_gestures_error_loading">تعذر تحميل %s. تأكد أن لديك مساحة تخزين كافية.</string>
+  <string name="trigger_category">منطقة التفعيل</string>
   <string name="picker_activities">النشاطات</string>
+  <string name="ga_0">0px</string>
+  <string name="ga_1">1px</string>
+  <string name="ga_5">5px</string>
+  <string name="ga_10">10px</string>
+  <string name="ga_15">15px</string>
+  <string name="ga_25">25px</string>
+  <string name="ga_30">30px</string>
+  <string name="ga_35">35px</string>
+  <string name="ga_45">45px</string>
+  <string name="ga_50">50px</string>
+  <string name="ga_55">55px</string>
+  <string name="ga_65">65px</string>
+  <string name="ga_70">70px</string>
+  <string name="ga_75">75px</string>
+  <string name="ga_80">80px</string>
+  <string name="ga_85">85px</string>
+  <string name="ga_90">90px</string>
+  <string name="ga_95">95px</string>
+  <string name="ga_100">100px</string>
   <!--Power menu on Secure Lockscreen -->
   <!-- CM Lockscreen shortcuts -->
   <!-- Battery Bar -->
+  <string name="battery_bar_animate_summary">قد تؤدي الرسوم التحركة للشحن إلى أداء سيء. أنت حر في تمكينها.</string>
+  <string name="battery_bar_charging_color">لون شريط البطارية عند الشحن</string>
+  <string name="battery_bar_battery_low_color">لون شريط البطارية المنخفضة</string>
+  <string name="battery_bar_style_regular">عادي</string>
+  <string name="battery_bar_style_reversed">عكس</string>
+  <string name="battery_bar_use_gradient_color">استخدام التدرج اللوني</string>
+  <string name="battery_bar_gradient_color_summary">استخدام التدرج اللوني كمقياس لمستوى البطارية</string>
+  <string name="battery_bar_high_color">لون المستوى العالي\"</string>
+  <string name="battery_bar_low_color">لون المستوى المنخفض\"</string>
+  <string name="battery_bar_hide">إخفاء</string>
+  <string name="battery_bar_statusbar">شريط الحالة</string>
+  <string name="battery_bar_navbar_top">أعلى شريط التنقل</string>
+  <string name="battery_bar_navbar_bottom">أسفل شريط التنقل</string>
   <!-- Doze pulse options -->
+  <string name="summary_doze_enabled">مفعل</string>
+  <string name="summary_doze_disabled">معطل</string>
+  <string name="doze_overwrite_value_title">استبدال الافتراضية</string>
+  <string name="doze_overwrite_value_summary">السماح بتجاوز القيم الافتراضية بتكوين المستخدم</string>
+  <string name="doze_pulse_title">إعدادات المستخدم القابلة للتكوين</string>
+  <string name="doze_pulse_duration_in_title">ظهور تدريجي</string>
   <string name="doze_pulse_duration_in_summary"></string>
+  <string name="doze_pulse_duration_visible_title">مدة الرؤية</string>
   <string name="doze_pulse_duration_visible_summary"></string>
+  <string name="doze_pulse_duration_out_title">تلاشي</string>
   <string name="doze_pulse_duration_out_summary"></string>
+  <string name="doze_brightness_level_title">مستوى السطوع</string>
   <string name="onehundred_ms">100 م.ث</string>
   <string name="twofifty_ms">250 م.ث</string>
   <string name="fivehundred_ms_default">500 م.ث (افتراضي)</string>
   <string name="sevenfifty_ms">750 م.ث</string>
   <string name="one_second">1 ث</string>
+  <string name="onehalf_second">1.5 ث</string>
   <string name="two_second">2 ث</string>
+  <string name="twohalf_second">2.5 ث</string>
   <string name="three_second_default">3 ث (افتراضي)</string>
   <string name="threehalf_second">3.5 ث</string>
   <string name="four_second">4 ث</string>
   <string name="fourhalf_second">4.5 ث</string>
   <string name="five_second">5 ث</string>
+  <string name="ambient_display_show_battery_title">حالة البطارية</string>
   <!-- Selinux Switch -->
+  <string name="selinux_title">وضع Selinux</string>
   <!-- Slim DSLV -->
+  <string name="shortcut_action_none">لا شيء</string>
+  <string name="shortcut_action_longpress">الضغط المطول:</string>
+  <string name="shortcut_action_select_action_longpress">اختيار إجراء الضغط المطول:</string>
+  <string name="shortcut_action_select_action">اختر الإجراء:</string>
+  <string name="shortcut_action_select_action_newaction">اختر الإجراء الجديد:</string>
+  <string name="shortcut_action_reset">إعادة ضبط</string>
   <string name="shortcut_action_add">إضافة</string>
+  <string name="shortcut_action_reset_message">إعادة تعيين كل المدحلات للافتراضي؟</string>
+  <string name="shortcut_action_max">تم الوصول إلى الحجم الأقصى من الإدخالات</string>
+  <string name="shortcut_action_warning">تحذير</string>
+  <string name="shortcut_action_warning_message">ليس من الممكن حذف الإدخال الأخير</string>
+  <string name="shortcut_action_disable_message">معطل\nأضف إدخالا لتمكين هذه الميزة</string>
+  <string name="shortcut_duplicate_entry">لا يمكن إضافة الإجراء الذي تم اختياره مرتين</string>
+  <string name="shortcut_action_help_shortcut">‮اختصار</string>
+  <string name="shortcut_action_help_button">زر</string>
+  <string name="shortcut_action_help_app">تطبيق</string>
+  <string name="shortcuts_applications">تطبيقات</string>
+  <string name="shortcuts_select_custom_app_title">حدد تطبيق مخصص</string>
+  <string name="shortcuts_icon_picker_type">حدد نوع الرمز:</string>
+  <string name="shortcuts_icon_default">الافتراضي</string>
+  <string name="shortcuts_icon_presets">أيقونات النظام</string>
+  <string name="shortcuts_icon_custom">معرض الصور</string>
+  <string name="shortcuts_icon_picker_choose_icon_title">اختر رمز</string>
+  <string name="lockscreen_shortcuts_category">اختصارات</string>
   <!-- Lockscreen shortcuts -->
+  <string name="lockscreen_shortcuts_title">اختصارات علوية</string>
+  <string name="lockscreen_shortcuts_summary">تغيير الاختصارات التي تحت ساعة شاشة القفل</string>
+  <string name="lockscreen_shortcuts_double_tap">لمستين</string>
+  <string name="lockscreen_shorcuts_longpress_title">ضغط مطول</string>
+  <string name="lockscreen_shorcuts_longpress_summary">الضغط لمدة طويلة لفتح تطبيقات من الاختصارات</string>
+  <string name="shortcuts_icon_picker_alarm">تنبيه</string>
+  <string name="shortcuts_icon_picker_battery">البطارية</string>
+  <string name="shortcuts_icon_picker_browser">المستعرض</string>
+  <string name="shortcuts_icon_picker_calendar">التقويم</string>
+  <string name="shortcuts_icon_picker_camera">الكاميرا</string>
+  <string name="shortcuts_icon_picker_cloud">السحابة</string>
+  <string name="shortcuts_icon_picker_contact">جهة اتصال</string>
+  <string name="shortcuts_icon_picker_directdial">اتصال مباشر</string>
+  <string name="shortcuts_icon_picker_phone">الهاتف</string>
+  <string name="shortcuts_icon_picker_package">الحزمة</string>
+  <string name="shortcuts_icon_picker_quicksettings">الإعدادات السريعة</string>
+  <string name="shortcuts_icon_picker_rss">تغذية RSS</string>
+  <string name="shortcuts_icon_picker_sdcard">ذاكرة SD</string>
+  <string name="shortcuts_icon_picker_search">بحث</string>
+  <string name="shortcuts_icon_picker_sms">المراسلة</string>
+  <string name="shortcuts_icon_picker_tasks">المهام</string>
+  <string name="shortcuts_icon_picker_terminal">الطرفية</string>
+  <string name="shortcuts_icon_picker_tv">تلفاز</string>
+  <string name="shortcuts_icon_picker_twitter">تويتر</string>
+  <string name="shortcuts_icon_picker_unlock">إلغاء التأمين</string>
+  <string name="shortcut_action_none">لا شيء</string>
+  <string name="shortcut_action_app">تطبيق مخصص</string>
+  <string name="shortcut_action_home">الواجهة الرئيسية</string>
+  <string name="shortcut_action_back">عودة</string>
+  <string name="shortcut_action_menu">القائمة</string>
+  <string name="shortcut_action_ime">فتح مبدل IME</string>
+  <string name="shortcut_action_power_menu">قائمة زر التشغيل</string>
+  <string name="shortcut_action_recent">الأحدث</string>
+  <string name="shortcut_action_power">الشاشة مطفئة</string>
+  <string name="shortcut_action_search">البحث في التطبيق</string>
+  <string name="shortcut_action_ring_silent">رنة/صامت</string>
+  <string name="shortcut_action_ring_vib_silent">رنين/اهتزاز/صامت</string>
+  <string name="shortcut_action_camera">الكاميرا</string>
+  <string name="shortcut_action_media_next">الموسيقى - الأغنية التالية</string>
+  <string name="shortcut_action_media_play_pause">الموسيقى - تشغيل/إيقاف مؤقت</string>
+  <string name="shortcut_action_media_previous">الموسيقى - الأغنية السابقة</string>
+  <string name="shortcut_action_wake_device">إيقاض الجهاز</string>
+  <string name="shortcut_action_longpress">ضغط مطول:</string>
+  <string name="shortcut_action_select_action_longpress">اختيار إجراء الضغط المطول:</string>
+  <string name="shortcut_action_select_action">اختر الإجراء:</string>
+  <string name="shortcut_action_select_action_newaction">اختر الإجراء الجديد:</string>
+  <string name="shortcut_action_reset">إعادة ضبط</string>
   <string name="shortcut_action_add">إضافة</string>
+  <string name="shortcut_action_reset_message">إعادة تعيين كل المدحلات للافتراضي؟</string>
+  <string name="shortcut_action_max">تم الوصول إلى الحجم الأقصى من الإدخالات</string>
+  <string name="shortcut_action_warning">تحذير</string>
+  <string name="shortcut_action_warning_message">ليس من الممكن حذف الإدخال الأخير</string>
+  <string name="shortcut_action_disable_message">معطل\nأضف إدخالا لتمكين هذه الميزة</string>
+  <string name="shortcut_duplicate_entry">لا يمكن إضافة الإجراء الذي تم اختياره مرتين</string>
+  <string name="shortcut_action_help_shortcut">‮اختصار</string>
+  <string name="shortcut_action_help_button">زر</string>
+  <string name="shortcut_action_help_app">تطبيق</string>
   <string name="shortcut_picker_activities_title">النشاطات</string>
+  <string name="firefox">فايرفوكس</string>
+  <string name="googlebuzz">Google buzz</string>
+  <string name="googledocs">مستندات Google</string>
+  <string name="googlewallet">محفظة Google</string>
+  <string name="line">سطر</string>
+  <string name="rootexplorer">مستكشف Root</string>
+  <string name="teamviewer">Teamviewer</string>
+  <string name="totalcommander">Total commander</string>
+  <string name="weather">الطقس</string>
+  <string name="golocker">Go locker</string>
+  <string name="googletalk">Google talk</string>
+  <string name="gosms">Go sms</string>
+  <string name="meebo">Meebo</string>
+  <string name="maps2">Maps2</string>
+  <string name="memorycleaner">منظف الذاكرة</string>
+  <string name="navigation">الملاحة</string>
+  <string name="shazam">Shazam</string>
+  <string name="trash">المهملات</string>
+  <string name="games">ألعاب</string>
+  <string name="gmail">Gmail</string>
+  <string name="docs">مستندات</string>
+  <string name="googledrive">Google Drive</string>
+  <string name="googleearth">Google earth</string>
+  <string name="googlehangouts">Google hangouts</string>
+  <string name="googlekeep">Google keep</string>
+  <string name="googleplay">متجر جوجل بلاي</string>
+  <string name="googletranslate">ترجمة جوجل</string>
+  <string name="google">جوجل</string>
+  <string name="googleplus">Google plus</string>
+  <string name="imdb">imdb</string>
+  <string name="instagram">إنستغرام</string>
+  <string name="lastfm">Lastfm</string>
+  <string name="maps">الخرائط</string>
+  <string name="messages">الرسائل</string>
+  <string name="music">الموسيقى</string>
+  <string name="mxplayer">Mxplayer</string>
+  <string name="notepad">رسالة مباشرة</string>
+  <string name="opera">Opera</string>
+  <string name="paypal">Paypal</string>
+  <string name="phone">الهاتف</string>
+  <string name="picasa">Picasa</string>
+  <string name="pictures2">Pictures2</string>
   <!-- Hide Lockscreen clock & date -->
   <!-- Keyguard Statusbar Clock -->
   <!-- Fingerprint vibrate -->

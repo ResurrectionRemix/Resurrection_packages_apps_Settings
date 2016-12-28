@@ -114,6 +114,8 @@
   <string name="rr_title">Configurações</string>
   <string name="rr_title_summary">#Getresurrected</string>
   <string name="rr_config_main_title">Resurrection Remix</string>
+  <string name="rr_ota_fab_title">Mostrar botão flutuante</string>
+  <string name="rr_ota_fab_summary">Ativa/desativa a apresentação ou não do botão flutuante nas configurações. Enter/Sair quando usado</string>
   <string name="rr_statusbar_title">Barra de estado</string>
   <string name="rr_sb_gestures_title">Gestos de barra de estado</string>
   <string name="qs_advanced_title">Avançado</string>
@@ -269,6 +271,8 @@
   <!-- Toast Icons -->
   <string name="toast_icon_title">Ícone toast</string>
   <string name="toast_icon_summary">Mostra o ícone da aplicação correspondente com o toast</string>
+  <string name="toast_text_color">Cor do texto do popup</string>
+  <string name="toast_icon_color">Cor do ícone do popup</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Mostrar o estado da bateria do Bluetooth</string>
   <string name="bluetooth_battery_summary">Mostra o estado da bateria do dispositivo bluetooth ligado no momento, se disponível.</string>
@@ -471,7 +475,12 @@
   <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
   <string name="ga_gestures_error_loading">Não foi possível carregar %s. Verifique se tem armazenamento disponível.</string>
   <string name="trigger_category">Região do gatilho</string>
+  <string name="trigger_width_title">Largura do gatilho</string>
+  <string name="trigger_width_summary">Ajustar a largura da área do gatilho</string>
+  <string name="trigger_top_title">Posição do gatilho</string>
+  <string name="trigger_top_summary">Ajustar a posição vertical da área do gatilho</string>
   <string name="trigger_bottom_title">Altura do gatilho</string>
+  <string name="trigger_bottom_summary">Ajustar a altura da zona do gatilho</string>
   <string name="picker_activities">Actividades</string>
   <string name="select_custom_app_title">Selecionar aplicação personalizada</string>
   <string name="select_custom_activity_title">Selecionar atividade personalizada</string>
@@ -1325,6 +1334,11 @@
   <string name="qs_stroke_disabled">Desativado</string>
   <string name="qs_stroke_accent">Cor do acento</string>
   <string name="qs_stroke_custom">Cor personalizada</string>
+  <string name="qs_stroke_color_title">Cor da sombra do traçado das QS</string>
+  <string name="qs_stroke_thickness_title">Espessura da sombra do traçado QS</string>
+  <string name="qs_corner_radius_title">Raio do canto da sombra QS</string>
+  <string name="qs_dash_width_title">Largura do traço do traçado da QS</string>
+  <string name="qs_dash_gap_title">Lacuna do traçado da QS</string>
   <string name="qs_tile_layout">Esquema de mosaicos</string>
   <string name="rr_qs_layout">Layout</string>
   <!-- QS settings -->
@@ -1335,6 +1349,7 @@
   <string name="qs_rows_portrait_title">Linhas (retrato)</string>
   <string name="qs_rows_landscape_title">Linhas (paisagem)</string>
   <string name="qs_columns_title">Colunas</string>
+  <string name="qs_small_tiles_title">Configurações rápidas pequenas</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Cor de aviso</string>
   <string name="battery_saver_color_summary">Ativa barras de estado e navegação laranja quando o modo de poupança de bateria é ativado</string>
@@ -1362,6 +1377,10 @@
   <string name="qs_bt_easy_toggle_title">Alternar Bluetooth</string>
   <string name="qs_bt_easy_toggle_summary">Faz com que com um clique ligue/desligue o Bluetooth em vez de levá-lo para as configurações</string>
   <!-- Battery Saver easy toggle -->
+  <string name="qs_battery_easy_toggle_title">Alternador fácil da bateria</string>
+  <string name="qs_battery_easy_toggle_summary">Faz com que com um clique, liga ou desliga o protetor de bateria em vez de ir às configurações</string>
+  <string name="qs_music_tile_track_optional_title">Título da faixa de música</string>
+  <string name="qs_music_tile_track_optional_summary">Mostrar o título da faixa de música nas configurações rápidas</string>
   <string name="quick_settings_vibrate_title">Vibrar ao tocar</string>
   <string name="quick_settings_vibrate_summary">Vibrar ao tocar as telas</string>
   <!-- Quick unlock -->
@@ -1376,12 +1395,20 @@
   <string name="app_circle_bar_summary">Mostrar lançador circular de aplicações depois de tocar no lado direito do ecrã</string>
   <string name="app_circle_bar_included_apps_title">Aplicações incluídas</string>
   <string name="app_circle_bar_included_apps_summary">Aplicações mostradas na aplicação barra circular</string>
+  <string name="trigger_width_title">Largura do gatilho</string>
+  <string name="trigger_width_summary">Ajustar a largura da área do gatilho</string>
+  <string name="trigger_top_title">Posição do gatilho</string>
+  <string name="trigger_top_summary">Ajustar a posição vertical da área do gatilho</string>
   <string name="trigger_bottom_title">Altura do gatilho</string>
+  <string name="trigger_bottom_summary">Ajustar a altura da zona do gatilho</string>
   <!-- Breathing Notifications -->
   <string name="breathing_notifications_title">Efeito de respiração em notificações</string>
   <string name="sms_breath_title">Efeito de respiração em SMS</string>
+  <string name="sms_breath_summary">Dá um efeito de respiração às notificações de sms na barra de estado</string>
   <string name="missed_call_breath_title">Efeito de respiração em chamadas perdidas</string>
+  <string name="missed_call_breath_summary">Dá um efeito de respiração às notificações de chamadas perdidas na barra de estado</string>
   <string name="voicemail_breath_title">Efeito de respiração no correio de voz</string>
+  <string name="voicemail_breath_summary">Dá um efeito de respiração às notificações de correio de voz na barra de estado</string>
   <!-- Navigation Bar -->
   <string name="navigation_category">Navegação</string>
   <string name="navbar_interface_title">Interface</string>
@@ -1433,6 +1460,12 @@
   <string name="fling_long_left_press">Pressão longo à esquerda</string>
   <string name="long_swipe_portrait_title">Retrato</string>
   <string name="long_swipe_landscape_title">Paisagem</string>
+  <string name="portrait_right_swipe_title">Deslizar retrato à direita</string>
+  <string name="portrait_left_swipe_title">Deslizar retrato à esquerda</string>
+  <string name="landscape_right_swipe_title">Deslizar panorama à direita</string>
+  <string name="landscape_left_swipe_title">Deslizar panorama à esquerda</string>
+  <string name="vertical_up_swipe_title">Deslizar verticalmente para cima</string>
+  <string name="vertical_down_swipe_title">Deslizar verticalmente para baixo</string>
   <string name="up_swipe_title">Deslizar para cima</string>
   <string name="down_swipe_title">Deslizar para baixo</string>
   <string name="long_swipe_reset">Restaurar</string>
@@ -1440,6 +1473,7 @@
   <string name="fling_long_swipe_title">Limite do deslize longo</string>
   <string name="fling_long_swipe_summary">Afinar os limiares da pressão longa baseada numa percentagem de largura ou altura da interface Fling</string>
   <string name="fling_trails_enable_title">Ativar rasto dos gestos</string>
+  <string name="fling_trails_enable_summary">Mostrar o rasto do deslize dos gestos</string>
   <string name="fling_trails_color_title">Cor dos rastos</string>
   <string name="fling_trails_width_title">Largura do rasto</string>
   <string name="fling_appearance">Aparência</string>
@@ -1468,10 +1502,12 @@
   <string name="pulse_render_mode_fading_bars">Blocos de desvanecimento</string>
   <string name="pulse_render_mode_solid_lines">Linhas sólidas</string>
   <string name="fling_pulse_color">Cor do pulse</string>
+  <string name="eos_fling_lavalamp_title">Acender a lâmpada de Lava</string>
   <string name="eos_fling_lavalamp_summary">Animar o Pulse com uma mistura de cor suave com um estilo de lâmpada lava</string>
   <string name="pulse_advanced_category">Avançado</string>
   <string name="pulse_legacy_mode_advanced_category">Definições do modo de blocos de desvanecimento</string>
   <string name="pulse_custom_fudge_factor">Nível de sanidade</string>
+  <string name="lavamp_solid_speed_title">Velocidade de lâmpada de lava</string>
   <string name="pulse_solid_dimen_category">Configurações do modo de linhas sólidas</string>
   <!-- Pulse config -->
   <string name="pulse_custom_dimen">Largura máxima</string>
@@ -1587,7 +1623,10 @@
   <string name="carrier_label_hide_label_title">Esconder notificações</string>
   <string name="carrier_label_number_of_notification_icons_title">Numero máximo de ícones antes de ocultar</string>
   <!-- Status Bar Ticker -->
+  <string name="ticker_screen_title">Rodapé de notificação</string>
+  <string name="ticker_title">Rodapé da barra de estado</string>
   <string name="ticker_screen_summary">Personalizar o estilo do relógio na barra de estado</string>
+  <string name="ticker_summary">Ativar o rodapé antigo da barra de estado</string>
   <string name="ticker_restore_defaults_title">Restaurar predefinições</string>
   <string name="text_title">Texto</string>
   <string name="icon_title">Ícone</string>
@@ -1663,13 +1702,20 @@
   <string name="pa_pie_always_right_summary">Pie será sempre mostrado à direita quando em paisagem</string>
   <!-- Heads up switch -->
   <string name="heads_up_switch_title">Pop-up</string>
+  <string name="heads_up_switch_summary">Troca o heads up globalmente, não por app.</string>
+  <string name="lockscreen_pin_ripple_title">Agitar pin do ecrã de bloqueio</string>
+  <string name="lockscreen_pin_ripple_summary">Desabilitar para remover o efeito de ondulação ao inserir números pin</string>
   <!-- Optional screenshot type -->
   <string name="screenshot_type_title">Tipo de captura de ecrã</string>
   <string name="screenshot_type_fullscreen">Tirar captura de todo o ecrã</string>
+  <string name="screenshot_type_partial">Arraste a seleção na área que deseja uma captura de ecrã</string>
   <!-- Screenshot delay -->
   <string name="screenshot_options_category">Opções de captura de ecrã</string>
   <string name="screenshot_delay_title">Atraso da captura de ecrã</string>
+  <string name="screenshot_delay_summary">Ajustar o tempo para a captura de ecrã</string>
   <!--Screenshot crop and share -->
+  <string name="screenshot_crop_and_share_title">Captura de ecrã cortar &amp; partilhar</string>
+  <string name="screenshot_crop_and_share_summary">Mostra uma janela de edição após uma captura de ecrã para fazer algumas operações como cortar, guardar ou partilhar</string>
   <string name="heads_up_settings">Pop-up</string>
   <!-- Lockscreen charging current indicator  -->
   <string name="lockscreen_charging_current_title">Info de carregamento do ecrã de bloqueio</string>
@@ -1685,6 +1731,8 @@
   <string name="heads_up_time_out_10sec">10 Segundos</string>
   <!-- Heads up snooze -->
   <string name="heads_up_snooze_title">Temporizador</string>
+  <string name="heads_up_snooze_summary_one_minute">Deslizar para cima sobre a notificação pára o heads-up dessa aplicação durante 1 minuto</string>
+  <string name="heads_up_snooze_summary">Deslizar para cima sobre a notificação pára o heads-up dessa aplicação durante <xliff:g id="number">%d </xliff:g> minutos</string>
   <string name="heads_up_snooze_disabled_summary">Temporizador desligado</string>
   <string name="heads_up_snooze_1min">1 minuto</string>
   <string name="heads_up_snooze_3min">3 minutos</string>
@@ -1737,6 +1785,7 @@
   <string name="custom_summary_explain">Inserir uma nova etiqueta. Deixa em branco para reverter para o nome padrão.</string>
   <!-- Custom summaries -->
   <string name="custom_summary_randomize_title">Resumo aleatório</string>
+  <string name="custom_summary_randomize_explain">Serão selecionados aleatoriamente resumos pré-escritos que mudam sempre que iniciar a app Definições.\nIsto sobreescreve qualquer resumo personalizado.</string>
   <string name="sum1">Verificou todos os ajustes?</string>
   <string name="sum2">Notícia de última hora: Donald trump muda seu estilo de cabelo!</string>
   <string name="sum3">Você tocou 100k vezes.</string>
@@ -1833,18 +1882,50 @@
   <string name="battery_large_text">Percentagem do ícone de bateria grande</string>
   <string name="battery_large_text_summary_on">Texto grande apresentado</string>
   <string name="battery_large_text_summary_off">Texto normal apresentado</string>
-  <string name="nav_bar_dynamic_title">Cor dinâmica da navbar</string>
+  <string name="nav_bar_dynamic_summary">Ativa desativa este botão para a navbar se adaptar à cor escura das apps. Reinicie a app desejada para ver o efeito</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Atenção</string>
   <string name="title_keyboard_input">Opções de entrada</string>
   <string name="disable_fullscreen_keyboard_title">Desativar o teclado em ecrã completo</string>
+  <string name="disable_fullscreen_keyboard_summary">O teclado em modo paisagem nunca ocupa o ecrã inteiro</string>
+  <string name="keyboard_rotation_toggle_title">Rotação automática do teclado</string>
+  <string name="keyboard_rotation_toggle_summary">Forçar rotação automática quando o teclado é mostrado</string>
   <string name="keyboard_rotation_timeout_title">Tempo limite rotação automática</string>
+  <string name="keyboard_rotation_timeout_summary">Desativa o sensor de auto-rotação <xliff:g id="rotate_timeout">%1$s</xliff:g> segundos após o teclado ser oculto</string>
+  <string name="keyboard_rotation_dialog">Esta funcionalidade força a ativação da rotação automática temporariamente enquanto o teclado é mostrado.  Não tem efeito quando a rotação automática já está ativada.</string>
   <string name="show_enter_key_title">Mostrar tecla Enter</string>
+  <string name="show_enter_key_summary">Forçar teclado a apresentar enter em vez da tecla emoticon</string>
   <!-- XOSP Blur personalizations -->
+  <string name="settings_blur_cat">Personalização da Transparência</string>
+  <string name="settings_blur_sum">Definições da transparência do fundo do System UI</string>
+  <string name="blurred_status_bar_expanded_enabled_pref">Transparência do fundo da barra de estado</string>
+  <string name="blurred_status_bar_expanded_enabled_pref_summary">Fundo transparente quando puxa para baixo a barra de estado</string>
+  <string name="translucent_notifications_pref">Notificações translúcidas</string>
   <string name="translucent_notifications_pref_summary">Define o plano de fundo das notificações translúcidas</string>
+  <string name="translucent_quick_settings_pref">Barra de estado expandida transparente</string>
+  <string name="translucent_quick_settings_pref_summary">Fazer o fundo das configurações rápidas transparente</string>
+  <string name="transluency_level_universal">Nível de transparência</string>
+  <string name="blurred_recent_app_enabled_pref">Transparência das apps recentes</string>
+  <string name="blurred_recent_app_enabled_pref_summary">Fundo transparente da atividade das apps recentes</string>
+  <string name="blur_light_color">Filtro da cor da imagem claro</string>
+  <string name="blur_dark_color">Filtro da cor da imagem escuro</string>
+  <string name="blur_mixed_color">Filtro da cor da imagem misto</string>
+  <string name="blur_notice">Sobre a funcionalidade transparência</string>
+  <string name="blur_notice_summary">As personalizações de transparência estão desativadas durante a vista keyguard. Apenas as notificações translucidas estão ativadas!</string>
   <string name="blur_colors_notice">O que fazem estas cores?</string>
+  <string name="blur_colors_notice_summary">Estas cores são as usadas para a transparência do fundo. Em vez do normal cinzento, pode escolher as cores que desejar. \n Existem três filtros de cores, um usado para fundos claros, outro para fundos escuros e outro para fundos mistos. \n Então como funcionam estas cores? \n Simples, como indicado no titulo, o filtro claro é usado em fundos claros, o filtro escuro em fundos escuros e o filtro misto em fundos nem muito claros nem muito escuros. \n estas cores são usadas para ambos os fundos transparentes: Barra de estado e Apps recentes </string>
+  <string name="blur_expstatus_cat">Barra de estado expandida </string>
+  <string name="blur_notifications_cat">Notificações</string>
+  <string name="blur_qs_cat">Configurações rápidas</string>
+  <string name="blur_recents_cat">Aplicações recentes</string>
+  <string name="blur_colors_cat">Filtros de cor transparente</string>
   <string name="blur_notices_cat">Avisos</string>
+  <string name="blurred_scale">Escala de transparência</string>
+  <string name="blurred_scale_summary">Qualidade da imagem transparente</string>
+  <string name="blurred_radius">Raio da transparência</string>
+  <string name="blurred_radius_summary">Quantidade de transparência</string>
   <string name="blur_cat_notice">Aviso</string>
+  <string name="blur_cat_notice_summary">As personalizações de transparência estão desativadas durante a vista keyguard. Apenas as notificações translucidas estão ativadas!</string>
   <string name="rr_build_type_title">Tipo de compilação</string>
   <string name="rr_build_type_default">Não oficial</string>
 </resources>
