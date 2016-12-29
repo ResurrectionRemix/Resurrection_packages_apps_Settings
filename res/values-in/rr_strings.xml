@@ -120,9 +120,12 @@
   <string name="rr_sb_gestures_title">Gerakan status bar</string>
   <string name="qs_advanced_title">Lanjutan</string>
   <string name="rr_notification_panel_title">Panel</string>
+  <string name="rr_tuner">SystemUI tuner</string>
+  <string name="rr_tuner_summary">Bagian dari penyesuaian awal</string>
   <string name="rr_battery">Baterai</string>
   <string name="rr_sb_icons">Ikon sistem</string>
   <string name="rr_sb_battery">Status bar</string>
+  <string name="notification_drawer_title">Drawer pemberitahuan</string>
   <string name="recents_settings_title">Baru-baru ini</string>
   <string name="recents_ui_title">UI Umum</string>
   <string name="animation_title">Animasi</string>
@@ -132,6 +135,7 @@
   <string name="rr_dash_board_title">Dasbor</string>
   <string name="system_animations">Animasi sistem</string>
   <string name="toast">Notifikasi</string>
+  <string name="listview">ListView</string>
   <string name="icons">Ikon</string>
   <string name="general">Umum</string>
   <string name="ka_title">Kinerja</string>
@@ -141,6 +145,7 @@
   <string name="sb_custom_logos_summary">Aktifkan atau Nonaktifkan icon acak di statusbar. Sesuaikan Elemen dan Posisi</string>
   <string name="rr_battery_summary">Sesuaikan Battery elements di statusbar dan sesuaikan juga batterybar</string>
   <string name="rr_sb_icons_summary">Aktifkan atau Nonaktifkan Ikon yang anda pilih di statusbar</string>
+  <string name="ticker_screen_summary">Menyesuaikan gaya ticker di statusbar</string>
   <string name="status_bar_temperature_summary">Mengaktifkan atau menonaktifkan suhu di statusbar dan menyesuaikan gaya </string>
   <string name="network_traffic_summary">Mengaktifkan atau menonaktifkan monitor lalu lintas jaringan di statusbar dan menyesuaikan dengan gaya, aktivitas ambang dan bacaan</string>
   <string name="carrier_summary">Mengaktifkan atau menonaktifkan label operator di statusbar dan menyesuaikan gaya </string>
@@ -200,6 +205,7 @@
   <string name="listview_bounce_interpolator">Memantul</string>
   <!-- Disable animations -->
   <!-- Option to enable/disable scrolling cache -->
+  <string name="pref_scrollingcache_force_disable">Menonaktifkan paksa</string>
   <!-- Volume Steps -->
   <string name="volume_steps_reset">Setel ulang</string>
   <string name="volume_steps_60">60</string>
@@ -211,6 +217,7 @@
   <!-- Volume dialog timeout -->
   <string name="volume_dialog_timeout_title">Batas waktu dialog volume</string>
   <!-- Toast Icons -->
+  <string name="toast_text_color">Warna text pemberithuan</string>
   <string name="toast_icon_color">Warna ikon nofitikasi toast</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Menampilkan status baterai bluetooth</string>
@@ -226,17 +233,74 @@
   <string name="mem_info">RAM</string>
   <string name="systemui_recents_mem_display_title">Tampilkan bilah memori</string>
   <!-- Network traffic -->
+  <string name="network_traffic_title">Lalu lintas jaringan</string>
+  <string name="show_network_traffic_state">Status bar lalu lintas data</string>
+  <string name="show_network_traffic_unit">Unit layar</string>
+  <string name="show_network_traffic_frequency">Selang waktu pembaruan</string>
   <string name="show_network_traffic_disable">Dinonaktifkan</string>
+  <string name="show_network_traffic_up">Keluar</string>
+  <string name="show_network_traffic_down">Masuk</string>
+  <string name="show_network_traffic_all">Keluar dan masuk</string>
+  <string name="show_network_traffic_bit">Bit per Detik</string>
+  <string name="show_network_traffic_byte">Byte per Detik</string>
+  <string name="show_network_traffic_500">500 ms</string>
+  <string name="show_network_traffic_1000">1000 ms</string>
+  <string name="show_network_traffic_1500">1500 ms</string>
+  <string name="show_network_traffic_2000">2000 ms</string>
   <string name="network_traffic_autohide">Sembunyikan otomatis</string>
   <string name="network_traffic_autohide_summary">sembunyikan monitor lalu lintas saat tidak ada aktifitas</string>
+  <string name="network_traffic_autohide_threshold">Ambang tidak aktif</string>
   <!-- Statusbar RR logo -->
+  <string name="status_bar_rr_logo_title">Mengaktifkan logo</string>
+  <string name="status_bar_rr_logo_summary">Mengaktifkan logo RR di status bar</string>
   <!-- Color picker -->
+  <string name="color_picker_fragment_title">Pemilih Warna</string>
+  <string name="apply_color_title">Menerapkan warna</string>
+  <string name="edit_hex_title">Nilai HEX</string>
+  <string name="palette_title">Lain-lain</string>
+  <string name="palette_material_title">Bahan</string>
+  <string name="palette_rgb_title">RGB</string>
+  <string name="reset_color_title">Setel ulang</string>
+  <string name="reset_android_title">Android awal</string>
+  <string name="reset_title">Resurrection awal</string>
+  <string name="reset_theme_default_title">Tema awal</string>
+  <string name="favorites_title">Kesukaan</string>
+  <string name="hide_favorites_title">Sembunyikan kesukaan</string>
+  <string name="show_favorites_title">Tampilkan kesukaan</string>
+  <string name="hide_help_title">Menyembunyikan bantuan</string>
+  <string name="show_help_title">Tampilkan bantuan</string>
+  <string name="empty_title">Kosong</string>
   <!-- Help screen -->
+  <string name="color_picker_help_screen_title">Bantuan pilih warna</string>
+  <string name="color_picker_help_ab_title">Bilah Aksi:</string>
+  <string name="color_picker_help_ab_back_title">Tombol kembali:</string>
+  <string name="color_picker_help_ab_name_title">Judul:</string>
   <!-- Color picker end -->
   <!-- Power menu Animations  -->
+  <string name="rr_qs_pulldown">Pull-down cepat</string>
+  <string name="rr_navbar_title">Bar Navigasi</string>
+  <string name="rr_toast_title">Notifikasi</string>
+  <string name="rr_pm_animations_title">Menu daya</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tile_animation_style_title">Gaya animasi</string>
+  <string name="qs_tile_animation_duration_title">Durasi Animasi</string>
+  <string name="qs_tile_animation_style_off">Tidak ada animasi</string>
+  <string name="qs_tile_animation_style_flip">Balik</string>
+  <string name="qs_tile_animation_style_rotate">Putar posisi</string>
+  <string name="qs_tile_animation_duration_low">Rendah</string>
+  <string name="qs_tile_animation_duration_default">Standar</string>
+  <string name="qs_tile_animation_duration_fast">Cepat</string>
+  <string name="qs_tile_animation_duration_superfast">Sangat Cepat</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Mempercepat</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Memperlambat</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Mempercepat memperlambat</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Memantul</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Melampaui</string>
+  <string name="qs_set_animation_style">%1$s</string>
   <!-- Immersive Recents -->
   <!-- Dashboard suggestions -->
+  <string name="show_4g_title">Tampilkan 4G</string>
+  <string name="show_4g_summary">Tampilkan 4g bukan LTE di ikon sinyal</string>
   <!-- Gesture Anywhere -->
   <!-- Label, button used to add a gesture -->
   <!-- Label, button used to reload all gestures -->
@@ -329,6 +393,7 @@
   <!--Custom logos-->
   <!-- Carrier label -->
   <!-- Status Bar Ticker -->
+  <string name="ticker_screen_summary">Menyesuaikan gaya ticker di statusbar</string>
   <!-- Superuser indicator on status bar -->
   <!-- PA Pie control -->
   <!-- Heads up switch -->
