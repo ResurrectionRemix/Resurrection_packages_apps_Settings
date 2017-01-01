@@ -16,10 +16,25 @@
   -->
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android" >
     <shortcut
+        android:shortcutId="manifest-shortcut-configurations"
+        android:icon="@drawable/rr_conf_sc"
+        android:shortcutShortLabel="@string/rr_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.Settings$MainSettingsLayoutActivity" />
+    </shortcut>
+    <shortcut
         android:shortcutId="manifest-shortcut-wifi"
         android:icon="@drawable/ic_shortcut_wireless"
         android:shortcutShortLabel="@string/wifi_settings" >
         <intent android:action="android.settings.WIFI_SETTINGS" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="manifest-shortcut-battery"
+        android:icon="@drawable/ic_shortcut_battery"
+        android:shortcutShortLabel="@string/power_usage_summary_title" >
+        <intent android:action="android.intent.action.POWER_USAGE_SUMMARY" />
     </shortcut>
     <shortcut
         android:shortcutId="manifest-shortcut-data-usage"
@@ -29,11 +44,5 @@
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.android.settings"
             android:targetClass="com.android.settings.Settings$DataUsageSummaryActivity" />
-    </shortcut>
-    <shortcut
-        android:shortcutId="manifest-shortcut-battery"
-        android:icon="@drawable/ic_shortcut_battery"
-        android:shortcutShortLabel="@string/power_usage_summary_title" >
-        <intent android:action="android.intent.action.POWER_USAGE_SUMMARY" />
     </shortcut>
 </shortcuts>
