@@ -36,4 +36,13 @@
         android:shortcutShortLabel="@string/power_usage_summary_title" >
         <intent android:action="android.intent.action.POWER_USAGE_SUMMARY" />
     </shortcut>
+    <shortcut
+        android:shortcutId="manifest-shortcut-configurations"
+        android:icon="@drawable/ic_rr_tools_tint"
+        android:shortcutShortLabel="@string/rr_title">
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.settings"
+            android:targetClass="com.android.settings.Settings$MainSettingsLayoutActivity" />
+    </shortcut>
 </shortcuts>
