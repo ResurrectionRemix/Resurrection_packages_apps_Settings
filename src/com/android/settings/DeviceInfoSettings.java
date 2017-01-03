@@ -67,6 +67,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_KERNEL_VERSION = "kernel_version";
     private static final String KEY_BUILD_NUMBER = "build_number";
     private static final String KEY_BUILD_TYPE = "rr_build_type";
+    private static final String KEY_MAINTAINER = "rr_maintainer";
     private static final String KEY_DEVICE_MODEL = "device_model";
     private static final String KEY_DEVICE_NAME = "device_name";
     private static final String KEY_SELINUX_STATUS = "selinux_status";
@@ -136,9 +137,16 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         setValueSummary(KEY_BUILD_TYPE, "rr.build.type");
+        setValueSummary(KEY_MAINTAINER, "ro.build.user");
         setValueSummary(KEY_MOD_VERSION, "ro.modversion");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         findPreference(KEY_BUILD_TYPE).setEnabled(true);
+        findPreference(KEY_MAINTAINER).setEnabled(true);
+
+        String buildtype = SystemProperties.get("rr.build.type","unofficial");
+        if (buildtype.equalsIgnoreCase("unofficial")) {
+        removePreference(KEY_MAINTAINER);
+        }
         setValueSummary(KEY_QGP_VERSION, PROPERTY_QGP_VERSION);
         // Remove QGP Version if property is not present
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_QGP_VERSION,
