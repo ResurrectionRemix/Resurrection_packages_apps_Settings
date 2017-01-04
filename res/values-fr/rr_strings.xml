@@ -114,6 +114,8 @@
   <string name="rr_title">Paramètres</string>
   <string name="rr_title_summary">#Getresurrected</string>
   <string name="rr_config_main_title">Resurrection Remix</string>
+  <string name="rr_ota_fab_title">Afficher le bouton flottant</string>
+  <string name="rr_ota_fab_summary">Activer/désactiver pour afficher/masquer le bouton flottant dans des configurations. Entrer/sortir une fois lorsque le commutateur utilisé</string>
   <string name="rr_statusbar_title">Barre d\'état</string>
   <string name="rr_sb_gestures_title">Gestes sur la barre d\'état</string>
   <string name="qs_advanced_title">Options avancées</string>
@@ -1181,9 +1183,6 @@
   <string name="weather_hide_panel_custom_summary">Le panneau de météo sera masqué quand les notifications visibles atteignent le nombre choisi de notifications</string>
   <string name="weather_hide_panel_never_summary">Le panneau de météo ne sera pas masqué</string>
   <string name="weather_number_of_notifications_title">Nombre de notifications</string>
-  <!-- Wake on Plug -->
-  <string name="wake_when_plugged_or_unplugged_title">Réveiller au branchement</string>
-  <string name="wake_when_plugged_or_unplugged_summary">Allumer l\'écran lorsque l\'appareil est connecté à une source d\'alimentation</string>
   <!-- Quick Settings brightness slider -->
   <string name="qs_brightness_slider_title">Curseur de luminosité</string>
   <string name="qs_brightness_slider_summary">Afficher le curseur de luminosité</string>
@@ -1716,6 +1715,8 @@
   <string name="screenshot_crop_and_share_summary">Afficher une fenêtre d\'édition après avoir pris une capture d\'écran permettant d\'effectuer certaines opérations comme le recadrage, la sauvegarde ou le partage de celle-ci</string>
   <string name="heads_up_settings">Notifications flottantes</string>
   <!-- Lockscreen battery info indicator  -->
+  <string name="lockscreen_battery_info_title">Info batterie sur l\'écran de verrouillage</string>
+  <string name="lockscreen_battery_info_summary">Affichage de la tension de charge maximale et de la température de la batterie sur l\'écran de verrouillage pendant le chargement</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Délai dépassé</string>
   <string name="heads_up_time_out_summary">Affichage des notifications pendant <xliff:g id="number">%d</xliff:g> secondes</string>
@@ -1878,6 +1879,7 @@
   <string name="battery_large_text">Grande icône de batterie en pourcentages</string>
   <string name="battery_large_text_summary_on">Grand texte affiché</string>
   <string name="battery_large_text_summary_off">Texte normal affiché</string>
+  <string name="nav_bar_dynamic_title">Couleur dynamique de la barre de navigation</string>
   <string name="nav_bar_dynamic_summary">Activer/ désactiver ce bouton pour adapter la barre de navigation à la couleur foncée primaire apps. Redémarrage de l\'application nécessaire pour voir l’effet</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Attention</string>
@@ -1892,20 +1894,39 @@
   <string name="show_enter_key_title">Voir la touche saisie</string>
   <string name="show_enter_key_summary">Forcer le clavier à afficher la touche Retour à la ligne plutôt que la touche Émoticônes</string>
   <!-- XOSP Blur personalizations -->
+  <string name="settings_blur_cat">Personnalisations des flous</string>
+  <string name="settings_blur_sum">Paramètres flou d’arrière-plan pour le système UI</string>
+  <string name="blurred_status_bar_expanded_enabled_pref">Arrière-plan flou de la barre de statut</string>
   <string name="blurred_status_bar_expanded_enabled_pref_summary">Flouter l’arrière-plan lorsque vous tirez la barre d\'état vers le bas</string>
+  <string name="translucent_notifications_pref">Notifications transparentes</string>
   <string name="translucent_notifications_pref_summary">Définir l’arrière-plan des notifications transparentes</string>
+  <string name="translucent_quick_settings_pref">Barre d\'état étendue transparente</string>
   <string name="translucent_quick_settings_pref_summary">Rendre le fond des réglages rapides transparent</string>
   <string name="transluency_level_universal">Niveau de transparence</string>
+  <string name="blurred_recent_app_enabled_pref">Applications récentes floues</string>
+  <string name="blurred_recent_app_enabled_pref_summary">Flouter l’arrière-plan des applications récentes</string>
   <string name="blur_light_color">Filtre couleur, éclaircir</string>
   <string name="blur_dark_color">Filtre couleur sombre de l\'image</string>
   <string name="blur_mixed_color">Filtre image, mixer</string>
+  <string name="blur_notice">À propos de la fonction flou</string>
+  <string name="blur_notice_summary">Le floutage personnalisé est désactivé durant l\'affichage du clavier ! Seules les Notifications transparentes sont activées !</string>
   <string name="blur_colors_notice">Que font ces couleurs ?</string>
+  <string name="blur_colors_notice_summary">Ces couleurs sont celles qui teintent le fond flouté. Au lieu du Gris par défaut, vous pouvez maintenant choisir les couleurs que vous souhaitez. \nIl y a trois filtres de couleur : l\'un est utilisé pour les fonds clairs, l\'autre pour les fonds foncés et le dernier pour les fonds mixtes. \nAlors, comment fonctionnent ces couleurs? \n C\'est simple, comme le précisent les titres, le filtre éclaircir sera utilisé pour les fonds plus clairs, le filtre assombrir pour les fonds plus foncés et le filtre mixte pour les fonds ni trop sombres ni trop clairs. \nCes couleurs sont utilisées à la fois pour les fonds floutés de la barre de statut et pour les applications récentes </string>
+  <string name="blur_expstatus_cat">Barre d\'état étendue </string>
   <string name="blur_notifications_cat">Notifications</string>
+  <string name="blur_qs_cat">Paramètres rapides</string>
+  <string name="blur_recents_cat">Applications récentes</string>
+  <string name="blur_colors_cat">Couleur des filtres flou</string>
   <string name="blur_notices_cat">Notes</string>
+  <string name="blurred_scale">Échelle de flou</string>
   <string name="blurred_scale_summary">Qualité du flou d’image</string>
+  <string name="blurred_radius">Rayon du flou</string>
   <string name="blurred_radius_summary">Quantité de flou</string>
   <string name="blur_cat_notice">Avertissement</string>
   <string name="blur_cat_notice_summary">Le floutage personnalisé est désactivé durant le mode de verrouillage du clavier ! Seules les Notifications transparentes sont activées !</string>
   <string name="rr_build_type_title">Type de compilation</string>
   <string name="rr_build_type_default">Non officiel</string>
+  <!-- QS Header Icons -->
+  <!-- Center Date + Time in header -->
+  <!-- Settings drawer switch -->
 </resources>

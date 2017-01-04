@@ -114,6 +114,8 @@
   <string name="rr_title">Podešavanja</string>
   <string name="rr_title_summary">#GetResurrected</string>
   <string name="rr_config_main_title">Resurrection Remix</string>
+  <string name="rr_ota_fab_title">Prikaži plutajući gumb</string>
+  <string name="rr_ota_fab_summary">Omogućite/onemogućite za prikazivanje/skrivanje plutajućeg gumba u podešavanjima. Kada upotrijebite ovu postavku jednom uđite/izađite iz podešavanja.</string>
   <string name="rr_statusbar_title">Statusna traka</string>
   <string name="rr_sb_gestures_title">Geste statusne trake</string>
   <string name="qs_advanced_title">Napredno</string>
@@ -186,6 +188,17 @@
   <string name="activity_open_title">Animacija otvaranja aktivnosti</string>
   <string name="activity_close_title">Animacija zatvaranja aktivnosti</string>
   <string name="task_open_title">Animacija otvaranja zadatka</string>
+  <string name="task_open_behind_title">Stražnja animacija otvaranja zadatka</string>
+  <string name="task_close_title">Animacija zatvaranja zadatka</string>
+  <string name="task_move_to_front_title">Animacija premještanja ispred</string>
+  <string name="task_move_to_back_title">Animacija premještanja natrag</string>
+  <string name="wallpaper_open_title">Animacija otvaranja pozadine</string>
+  <string name="wallpaper_close_title">Animacija zatvaranja pozadine</string>
+  <string name="wallpaper_intra_open_title">Animacija unutarnjeg otvaranja pozadine</string>
+  <string name="wallpaper_intra_close_title">Animacija unutarnjeg zatvaranja pozadine</string>
+  <string name="animation_duration_title">Trajanje animacije</string>
+  <string name="title_animation_no_override">Spriječi nadjačavanja aplikacija</string>
+  <string name="summary_animation_no_override">Sprječava aplikacije od nadjačavanja animacija.</string>
   <string name="animation_duration_default">Zadana</string>
   <!-- Toast Animation -->
   <string name="toast_animation_title">Animacija tosta</string>
@@ -254,9 +267,12 @@
   <string name="volume_steps_7">7</string>
   <string name="volume_steps_5">5</string>
   <!-- Volume dialog timeout -->
+  <string name="volume_dialog_timeout_title">Istek ploče za glasnoću</string>
   <!-- Toast Icons -->
   <string name="toast_icon_title">Ikona na tostu</string>
   <string name="toast_icon_summary">Prikazuje ikonu aplikacije koja odgovara tost obavijesti.</string>
+  <string name="toast_text_color">Boja teksta na tostu</string>
+  <string name="toast_icon_color">Boja ikone tosta</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Prikaži Bluetooth status baterije</string>
   <string name="bluetooth_battery_summary">Prikazuje status baterije trenutno povezanog uređaja Bluetoothom ako je to dostupno.</string>
@@ -299,6 +315,14 @@
   <!-- Color picker -->
   <string name="color_picker_fragment_title">Odabir boje</string>
   <string name="apply_color_title">Primijeni boju</string>
+  <string name="edit_hex_title">HEX vrijednost</string>
+  <string name="palette_title">Ostalo</string>
+  <string name="palette_material_title">Materijalne boje</string>
+  <string name="palette_rgb_title">RGB</string>
+  <string name="reset_color_title">Poništi</string>
+  <string name="reset_android_title">Zadane postavke Androida</string>
+  <string name="reset_title">Zadana Resurrection</string>
+  <string name="reset_theme_default_title">Zadana tema</string>
   <string name="favorites_title">Favoriti</string>
   <string name="hide_favorites_title">Sakrij favorite</string>
   <string name="show_favorites_title">Prikaži favorite</string>
@@ -309,7 +333,27 @@
   <string name="color_picker_help_screen_title">Pomoć za odabir boje</string>
   <string name="color_picker_help_ab_title">Traka radnji:</string>
   <string name="color_picker_help_ab_back_title">Tipka za vraćanje natrag:</string>
+  <string name="color_picker_help_ab_back_summary">Zatvorite odabir boja bez primjenjivanja nove boje (otkažite).\nTo ima isti učinak kao pritisak gumba za povratak natrag na navigacijskoj traci.</string>
   <string name="color_picker_help_ab_name_title">Naslov:</string>
+  <string name="color_picker_help_ab_name_summary">Prikazuje samo naslov, bez dodatnih funkcija</string>
+  <string name="color_picker_help_ab_color_apply_title">Pregled i primjena boje:</string>
+  <string name="color_picker_help_ab_color_apply_summary">Pregled boje uvijek je vidljiv.\nAko nova boja nije jednaka staroj, pregled boje proširit će se da bi se primijenila nova boja.</string>
+  <string name="color_picker_help_ab_hex_title">HEX vrijednost:</string>
+  <string name="color_picker_help_ab_hex_summary">Prikazuje polje za unos HEX vrijednosti.\nHEX vrijednosti moraju biti u HEX formatu boje:\n\"#aarrggbb\", (\"alpha\" (prozirnost), \"crvena\", \"zelena\" i \"plava\").\nGumb za povratak natrag zatvara polje za unos HEX vrijednosti bez postavljanja HEX vrijednosti.\nGumb za primjenu postavlja  HEX vrijednost kao novu boju bez primjene nove boje.</string>
+  <string name="color_picker_help_ab_menu_title">Tipka izbornika:</string>
+  <string name="color_picker_help_ab_menu_reset_title">Poništi:</string>
+  <string name="color_picker_help_ab_menu_reset_summary">Vraća novu boju na zadanu Androidovu, Resurrection Remix ili boju vezanu uz temu bez primjene nove boje.</string>
+  <string name="color_picker_help_ab_menu_favorites_title">Prikaži/sakrij favorite:</string>
+  <string name="color_picker_help_ab_menu_favorites_summary">Prikazuje/skriva favorite.\nSkrivanje favorita neće poništiti omiljene boje.</string>
+  <string name="color_picker_help_ab_menu_help_title">Prikaži/sakrij pomoć:</string>
+  <string name="color_picker_help_ab_menu_help_summary">Prikazuje/skriva ovaj zaslon pomoći.</string>
+  <string name="color_picker_help_colors_title">Boje:</string>
+  <string name="color_picker_help_picker_view_title">Ploča boje:</string>
+  <string name="color_picker_help_picker_view_summary">Izaberite boju da biste postavili novu boju bez primjene nove boje.\nRaspon boje može se promijeniti s pomoću klizača na desnoj strani.</string>
+  <string name="color_picker_help_color_buttons_title">Gumbi boje:</string>
+  <string name="color_picker_help_favorites_title">Favoriti:</string>
+  <string name="color_picker_help_favorites_summary">Favoriti su po zadanome prazni.\nNova se boja može spremiti kao omiljena bilo kada dugim pritiskom (nova boja zamijenit će favorit koji nije prazan).\nObičan dodir postavlja omiljenu boju kao novu boju, bez primjene nove boje.</string>
+  <string name="color_picker_help_palette_title">Paleta:\n(Resurrection Remix, materijalne boje i RGB)</string>
   <string name="color_picker_help_palette_summary">Sve boje palete imaju dugotrajnu vrijednost.\nDodir postavlja boju palete kao novu boju bez primjenjivanja nove boje.</string>
   <string name="color_picker_help_do_not_show_title">Ne prikazuj ponovno</string>
   <string name="color_picker_help_button_ok_title">U redu</string>
@@ -326,6 +370,7 @@
   <string name="power_menu_animation_rotate">Rotacija</string>
   <string name="power_menu_animation_xylon">Let</string>
   <string name="power_menu_animation_slide">Klizanje</string>
+  <string name="power_menu_animation_turn">Otvaranje knjige</string>
   <string name="power_menu_animation_fly">Sjaj</string>
   <string name="power_menu_animation_card">3D</string>
   <string name="power_menu_animation_translucent_top">Prozirnost (vrh)</string>
@@ -404,15 +449,25 @@
   <!-- Label, prompt asking the user to enter the name of the gesture -->
   <string name="ga_prompt_gesture_name">Naziv</string>
   <!-- Error message, informs the user he needs to enter a name before saving a gesture -->
+  <string name="ga_error_missing_name">Morate unijeti naziv.</string>
   <!-- success message, tells the user where the gesture was saved -->
+  <string name="ga_save_success">Gesta je spremljena u %s</string>
   <!-- Buttons in Rename gesture dialog box -->
+  <string name="ga_rename_action">U redu</string>
   <!-- Buttons in Rename gesture dialog box -->
+  <string name="ga_cancel_action">Odustani</string>
   <!-- Message displayed when the user opens the gestures settings screen -->
+  <string name="ga_gestures_loading">Učitavanje gesti...</string>
   <!-- Message displayed when the user has no gestures -->
+  <string name="ga_gestures_empty">Nema gesti</string>
   <!-- Title of the screen used to view/manage gestures -->
+  <string name="ga_gestures_activity">Geste</string>
   <!-- Noun, menu item used to edit a gesture -->
+  <string name="ga_gestures_edit">Uredi</string>
   <!-- Noun, menu item used to remove a gesture -->
+  <string name="ga_gestures_delete">Izbriši</string>
   <!-- Message displayed when a gesture is successfully deleted -->
+  <string name="ga_gestures_delete_success">Gesta je izbrisana</string>
   <!-- Title of dialog box -->
   <string name="ga_gestures_rename_title">Preimenuj gestu</string>
   <!-- Label of gesture name field in Rename gesture dialog box -->
@@ -420,6 +475,15 @@
   <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
   <string name="ga_gestures_error_loading">Nije moguće učitati %s. Provjerite imate li dostupan prostor za pohranu.</string>
   <string name="trigger_category">Područje okidača</string>
+  <string name="trigger_width_title">Širina okidača</string>
+  <string name="trigger_width_summary">Prilagodite širinu područja okidača</string>
+  <string name="trigger_top_title">Položaj okidača</string>
+  <string name="trigger_top_summary">Prilagodite okomiti položaj područja okidača</string>
+  <string name="trigger_bottom_title">Visina okidača</string>
+  <string name="trigger_bottom_summary">Prilagodite visinu područja okidača</string>
+  <string name="picker_activities">Aktivnosti</string>
+  <string name="select_custom_app_title">Odabir prilagođene aplikacije</string>
+  <string name="select_custom_activity_title">Odabir prilgođene aktivnosti</string>
   <string name="ga_0">0px</string>
   <string name="ga_1">1px</string>
   <string name="ga_5">5px</string>
@@ -472,10 +536,49 @@
   <string name="battery_not_title">Ikona baterije u obavijestima</string>
   <string name="battery_not_summary">Ikona baterije pojavit će se tamo gdje se pojavljuje gumb za čišćenje svih aplikacija.</string>
   <string name="battery_bar_location">Lokacija baterijske trake</string>
+  <string name="battery_bar_color">Boja baterijske trake</string>
+  <string name="battery_bar">Baterijska traka</string>
+  <string name="battery_bar_summary">Pozicija baterijske trake i prilagodba boje</string>
+  <string name="battery_bar_style_title">Stil baterijske trake</string>
+  <string name="battery_bar_thickness_title">Debljina baterijske trake</string>
+  <string name="battery_bar_animate_title">Animacija punjenja</string>
+  <string name="battery_bar_animate_summary">Animacija punjenja može dovesti do lošeg korisničkog iskustva. Omogućite na vlastitu odgovornost.</string>
+  <string name="battery_bar_charging_color">Boja tijekom punjenja</string>
+  <string name="battery_bar_battery_low_color">Boja kad je baterija slaba</string>
+  <string name="battery_bar_style_regular">Obično</string>
+  <string name="battery_bar_style_center_mirrored">Prema središtu</string>
+  <string name="battery_bar_style_reversed">Obrnuto</string>
+  <string name="battery_bar_use_gradient_color">Upotrijebi prijelaznu boju</string>
+  <string name="battery_bar_gradient_color_summary">Upotrijebite prijelaznu boju kao ljestvicu za razinu baterije</string>
+  <string name="battery_bar_high_color">Boja visoke razine</string>
+  <string name="battery_bar_low_color">Boja niske razine</string>
+  <string name="battery_bar_hide">Sakrij</string>
+  <string name="battery_bar_statusbar">Statusna traka</string>
+  <string name="battery_bar_navbar_top">Vrh navigacijske trake</string>
+  <string name="battery_bar_navbar_bottom">Dno navigacijske trake</string>
   <!-- Doze pulse options -->
+  <string name="summary_doze_enabled">Omogućeno</string>
+  <string name="summary_doze_disabled">Onemogućeno</string>
+  <string name="doze_overwrite_value_title">Nadjačaj zadane vrijednosti</string>
+  <string name="doze_overwrite_value_summary">Dopustite nadjačavanje zadanih vrijednosti korisničkim konfiguracijama</string>
+  <string name="doze_pulse_title">Podesive korisničke postavke</string>
+  <string name="doze_pulse_duration_in_title">Izblijeđenje</string>
   <string name="doze_pulse_duration_in_summary"></string>
+  <string name="doze_pulse_duration_visible_title">Vidljivo trajanje</string>
   <string name="doze_pulse_duration_visible_summary"></string>
+  <string name="doze_pulse_duration_out_title">Odblijeđenje</string>
   <string name="doze_pulse_duration_out_summary"></string>
+  <string name="doze_trigger_pickup_title">Okidač podizanja uređaja</string>
+  <string name="doze_trigger_pickup_summary_on">Senzor podizanja uređaja aktivirat će puls</string>
+  <string name="doze_trigger_pickup_summary_off">Senzor podizanja uređaja neće aktivirati puls</string>
+  <string name="doze_trigger_notification_title">Okidač obavijesti</string>
+  <string name="doze_trigger_notification_summary_on">Obavijesti će aktivirati puls</string>
+  <string name="doze_trigger_notification_summary_off">Obavijesti neće aktivirati puls</string>
+  <string name="doze_brightness_level_title">Razina svjetlosti</string>
+  <string name="onehundred_ms">100 ms</string>
+  <string name="twofifty_ms">250 ms</string>
+  <string name="fivehundred_ms_default">500 ms (zadano)</string>
+  <string name="sevenfifty_ms">750 ms</string>
   <string name="one_second">1 s</string>
   <string name="onehalf_second">1,5 s</string>
   <string name="two_second">2 s</string>
@@ -499,6 +602,7 @@
   <string name="selinux_permissive_title">Omogućeno</string>
   <string name="selinux_enforcing_title">Provođenje</string>
   <!-- Slim DSLV -->
+  <string name="shortcut_action_none">Nema</string>
   <string name="shortcut_action_longpress">Dugi pritisak:</string>
   <string name="shortcut_action_select_action_longpress">Odaberite radnju za dugi dodir:</string>
   <string name="shortcut_action_select_action">Odaberite radnju:</string>
@@ -517,6 +621,8 @@
   <string name="shortcut_action_help_app">aplikacija</string>
   <string name="shortcut_action_help_icon">, dok će odabir ikone prikazati mogućnosti prilagodbe.</string>
   <string name="shortcut_action_help_main">Da biste dodali %1$s, odaberite ikonu \"Dodaj\". Po odabiru %1$s, odabir stupca će promijeniti cilj%2$s\n\nDa biste odstranili %1$s, odgurnite taj stupac ulijevo ili udesno. Promijenite položaj %1$s na popisu dugim dodirom na simbol sidra s lijeve strane i gurnite ga uspravno u željeni položaj.\n\nBrisanje ili vraćanje na prvotne postavke: izaberite ikonu za poništavanje.</string>
+  <string name="shortcut_action_help_delete_last_entry">Uklanjanje svake %1$s na popisu će u potpunosti onemogućiti značajku.</string>
+  <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Uklanjanje svake %1$s s popisa će u potpunosti onemogućiti drugi sloj pite.</string>
   <string name="shortcuts_applications">Aplikacije</string>
   <string name="shortcuts_select_custom_app_title">Odabir prilagođene aplikacije</string>
   <string name="shortcuts_icon_picker_type">Odaberite vrstu ikone:</string>
@@ -548,7 +654,57 @@
   <string name="shortcuts_icon_picker_drive">Disk</string>
   <string name="shortcuts_icon_picker_dropbox">Dropbox</string>
   <string name="shortcuts_icon_picker_email">E-pošta</string>
+  <string name="shortcuts_icon_picker_email2">Alternativa za e-poštu</string>
+  <string name="shortcuts_icon_picker_evernote">Evernote</string>
+  <string name="shortcuts_icon_picker_facebook">Facebook</string>
+  <string name="shortcuts_icon_picker_favorite">Favoriti</string>
+  <string name="shortcuts_icon_picker_file_browser">Preglednik datoteka</string>
+  <string name="shortcuts_icon_picker_file_browser2">Alternativa za preglednik datoteka</string>
+  <string name="shortcuts_icon_picker_fitness">Fitness</string>
+  <string name="shortcuts_icon_picker_gallery">Galerija</string>
+  <string name="shortcuts_icon_picker_gears">Zupčanici</string>
+  <string name="shortcuts_icon_picker_google_small">Google</string>
+  <string name="shortcuts_icon_picker_gplus">Google Plus</string>
+  <string name="shortcuts_icon_picker_gtalk">Hangouts</string>
+  <string name="shortcuts_icon_picker_help">Pomoć</string>
+  <string name="shortcuts_icon_picker_joystick">Igraća palica</string>
+  <string name="shortcuts_icon_picker_key">Ključevi/računi</string>
+  <string name="shortcuts_icon_picker_laptop">Laptop</string>
+  <string name="shortcuts_icon_picker_notes">Bilješke</string>
+  <string name="shortcuts_icon_picker_luggage">Putovanje</string>
+  <string name="shortcuts_icon_picker_maps">Karte</string>
+  <string name="shortcuts_icon_picker_market">Trgovina</string>
+  <string name="shortcuts_icon_picker_movie">Filmovi</string>
+  <string name="shortcuts_icon_picker_music">Glazba</string>
+  <string name="shortcuts_icon_picker_nav">Navigacija</string>
+  <string name="shortcuts_icon_picker_phone">Telefon</string>
+  <string name="shortcuts_icon_picker_package">Paket</string>
+  <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
+  <string name="shortcuts_icon_picker_play">Reproduciraj</string>
+  <string name="shortcuts_icon_picker_pocket">Džep</string>
   <string name="shortcuts_icon_picker_quicksettings">Brze postavke</string>
+  <string name="shortcuts_icon_picker_rss">RSS izvor</string>
+  <string name="shortcuts_icon_picker_sdcard">SD kartica</string>
+  <string name="shortcuts_icon_picker_search">Pretraživanje</string>
+  <string name="shortcuts_icon_picker_sms">Poruke</string>
+  <string name="shortcuts_icon_picker_tasks">Zadatci</string>
+  <string name="shortcuts_icon_picker_terminal">Naredbeni redak</string>
+  <string name="shortcuts_icon_picker_transit">Prijevoz</string>
+  <string name="shortcuts_icon_picker_tv">Televizor</string>
+  <string name="shortcuts_icon_picker_twitter">Twitter</string>
+  <string name="shortcuts_icon_picker_unlock">Otključavanje</string>
+  <string name="shortcut_action_none">Nema</string>
+  <string name="shortcut_action_app">Prilagođena aplikacija</string>
+  <string name="shortcut_action_home">Početna</string>
+  <string name="shortcut_action_back">Natrag</string>
+  <string name="shortcut_action_menu">Izbornik</string>
+  <string name="shortcut_action_ime">Otvori prebacivač tipkovnice</string>
+  <string name="shortcut_action_power_menu">Izbornik napajanja</string>
+  <string name="shortcut_action_recent">Nedavne apl.</string>
+  <string name="shortcut_action_power">Isključi zaslon</string>
+  <string name="shortcut_action_search">Pretraživanje u aplikaciji</string>
+  <string name="shortcut_action_ring_vib">Zvono/vibracija</string>
+  <string name="shortcut_action_ring_silent">Zvono/utišano</string>
   <string name="shortcut_action_ring_vib_silent">Zvono/vibracija/utišano</string>
   <string name="shortcut_action_camera">Fotoaparat</string>
   <string name="shortcut_action_media_next">Glazba - sljedeća pjesma</string>
@@ -572,6 +728,11 @@
   <string name="shortcut_action_help_button">gumb</string>
   <string name="shortcut_action_help_app">aplikacija</string>
   <string name="shortcut_action_help_icon">, dok će odabir ikone prikazati mogućnosti prilagodbe.</string>
+  <string name="shortcut_action_help_main">Da biste dodali %1$s, odaberite \"Dodaj ikonu\". Kad %1$s bude dodan/a, odabir stupca će promijeniti cilj%2$s\n\nDa biste uklonili %1$s, odgurnite taj stupac ulijevo ili udesno. Za premjestiti %1$s, promijenite vertikalni položaj sidra na lijevoj strani.\n\nBrisanje ili vraćanje na prvotne postavke: izaberite opciju poništavanja.</string>
+  <string name="shortcut_action_help_delete_last_entry">Uklanjanje svake %1$s na popisu će u potpunosti onemogućiti značajku.</string>
+  <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Uklanjanje svake %1$s s popisa će u potpunosti onemogućiti drugi sloj pite.</string>
+  <string name="shortcut_picker_choose_longpress_action">Odaberite radnju za dugi dodir:</string>
+  <string name="shortcut_picker_choose_new_action">Odaberite novu radnju:</string>
   <string name="shortcut_picker_applications_title">Aplikacije</string>
   <string name="shortcut_picker_activities_title">Aktivnosti</string>
   <string name="shortcut_picker_select_app_title">Odaberite aplikaciju:</string>
@@ -638,38 +799,306 @@
   <string name="hide_lockscreen_clock_title">Prikaži sat na zaključanom zaslonu</string>
   <!-- Keyguard Statusbar Clock -->
   <!-- Fingerprint vibrate -->
+  <string name="fprint_sucess_vib_summary">Vibracija pri uspješnoj provjeri otiska prsta</string>
   <!-- QuickSettings haptic feedback -->
+  <string name="quick_settings_vibrate_title">Vibriracija na dodir</string>
+  <string name="quick_settings_vibrate_summary">Vibracija pri dodiru pločica brzih postavki</string>
   <!-- Lock Clock Fonts -->
+  <string name="lock_clock_font_title">Opcije fonta</string>
+  <string name="lock_clock_font_summary">Primijenite zadani font sata na zaslonu zaključavanja.</string>
+  <string name="lockdate_font_size_title">Veličina fonta datuma</string>
+  <string name="lockclock_font_size_title">Veličina fonta sata</string>
+  <string name="lock_date_font_summary">Prilagodite font datuma</string>
+  <string name="lock_date_font_title">Datum</string>
+  <string name="lock_clock_font_dialog_title">Odaberite font sata na zaključanom zaslonu</string>
+  <string name="lock_clock_font_stock">Normalno (zadano)</string>
+  <string name="lock_clock_font_bold">Podebljan</string>
+  <string name="lock_clock_font_light">Svijetlo</string>
+  <string name="lock_clock_font_italic">Kurziv</string>
+  <string name="lock_clock_font_bold_italic">Podebljani kurziv</string>
+  <string name="lock_clock_font_light_italic">Svijetli kurziv</string>
+  <string name="lock_clock_font_thin_italic">Tanki kurziv</string>
+  <string name="lock_clock_font_thin">Tanak</string>
+  <string name="lock_clock_font_condensed_normal">Stisnuti</string>
+  <string name="lock_clock_font_condensed_italic">Stisnuti kurziv</string>
+  <string name="lock_clock_font_condensed_bold">Stisnuti podebljani</string>
+  <string name="lock_clock_font_condensed_bold_italic">Stisnuti podebljani kurziv</string>
+  <string name="lock_clock_font_medium_normal">Srednji</string>
+  <string name="lock_clock_font_medium_italic">Srednji kurziv</string>
   <!-- Screenshot sound -->
+  <string name="screenshot_sound_title">Zvuk snimke zaslona</string>
+  <string name="navbar_settings_title">Navigacijska traka</string>
   <!-- kill app long press back -->
+  <string name="kill_app_longpress_back">Zatvaranje gumbom za natrag</string>
+  <string name="kill_app_longpress_back_summary">Dugo držanje tipke za unazad prisilno zatvara aplikaciju u upotrebi</string>
+  <string name="long_press_kill_delay">Kašnjenje zatvaranja aplikacije</string>
   <!-- Advanced data tile -->
+  <string name="qs_advanced_data_title">Napredna pločica o podatcima</string>
+  <string name="qs_advanced_data_summary">Omogućuje radnju od jednog dodira za omogućavanje ili onemogućavanje podataka.</string>
   <!-- Hardware button navigation -->
+  <string name="button_pref_title">Gumbi</string>
+  <string name="hardware_keys_volume_keys_title">Tipke za glasnoću</string>
+  <string name="hardware_keys_home_key_title">Tipka za početni zaslon</string>
+  <string name="hardware_keys_menu_key_title">Tipka izbornika</string>
+  <string name="hardware_keys_assist_key_title">Tipka za pretraživanje</string>
+  <string name="hardware_keys_appswitch_key_title">Gumb za pregled</string>
+  <string name="hardware_keys_back_key_title">Tipka za vraćanje natrag</string>
+  <string name="hardware_keys_camera_key_title">Tipka za fotoaparat</string>
+  <string name="hardware_keys_double_tap_summary">Postavite radnju dvostrukog dodira</string>
+  <string name="hardware_keys_single_tap_summary">Postavite radnju jednog dodira</string>
+  <string name="hardware_keys_long_press_summary">Postavite radnju dugog pritiska</string>
+  <string name="hardware_keys_single_tap_title">Radnja jednog dodira</string>
+  <string name="hardware_keys_long_press_title">Radnja dugog pritiska</string>
+  <string name="hardware_keys_double_tap_title">Radnja dvostrukog dodira</string>
+  <string name="hardware_keys_action_nothing">Bez radnje</string>
+  <string name="hardware_keys_action_menu">Otvori/zatvori izbornik</string>
+  <string name="hardware_keys_action_app_switch">Prebacivanje nedavnih aplikacija</string>
+  <string name="hardware_keys_action_search">Pomoćnik u pretraživanju</string>
+  <string name="hardware_keys_action_voice_search">Glasovno pretraživanje</string>
+  <string name="hardware_keys_action_in_app_search">Pretraživanje u aplikaciji</string>
+  <string name="hardware_keys_action_launch_camera">Pokreni fotoaparat</string>
+  <string name="hardware_keys_action_sleep">Isključi zaslon</string>
+  <string name="hardware_keys_action_last_app">Zadnja aplikacija</string>
+  <string name="hardware_keys_category">Hardverske tipke</string>
+  <string name="hardware_keys_disable_title">Omogući hardverske tipke</string>
+  <string name="hardware_keys_power_key_title">Gumb napajanja</string>
+  <string name="camera_sleep_on_release_title">Virenje preko zaslona</string>
+  <string name="camera_sleep_on_release_summary">Polovični pritisak će zadržati zaslon uključenim samo dok držite pritisnut gumb</string>
+  <string name="camera_launch_title">Pokreni fotoaparat</string>
+  <string name="camera_launch_summary">Dugi pritisak i otpuštanje pokrenut će fotoaparat</string>
+  <string name="volbtn_music_controls_title">Kontrola reprodukcije</string>
+  <string name="volbtn_music_controls_summary">Kad je zaslon isključen, dugi pritisak gumba za glasnoću prebacivat će pjesme.</string>
+  <string name="volbtn_cursor_control_title">Kontrola pokazivača tipkovnice</string>
+  <string name="volbtn_cursor_control_off">Onemogućeno</string>
+  <string name="volbtn_cursor_control_on">Glasnoća gore/dolje pomiče pokazivač ulijevo/udesno</string>
+  <string name="volbtn_cursor_control_on_reverse">Glasnoća gore/dolje pomiče pokazivač udesno/ulijevo</string>
+  <string name="power_end_call_title">Završi poziv</string>
+  <string name="power_end_call_summary">Pritisak gumba napajanja prekinut će trenutni poziv</string>
+  <string name="swap_volume_buttons_title">Obrni gumbe glasnoće</string>
+  <string name="swap_volume_buttons_summary">Obrnut će gumbe za glasnoću kad je zaslon okrenut na drugu stranu</string>
+  <string name="button_wake_title">Probudi uređaj</string>
+  <string name="home_answer_call_title">Odgovori na poziv</string>
+  <string name="home_answer_call_summary">Pritisak početnog gumba odgovorit će na trenutni dolazni poziv</string>
   <!-- Key backlight -->
+  <string name="button_backlight_title">Pozadinsko osvjetljenje</string>
+  <string name="button_backlight_enabled">Osvjetljenje gumba</string>
+  <string name="keyboard_backlight_enabled">Osvjetljenje tipkovnice</string>
+  <string name="button_backlight_seekbar_title">Svjetlina gumba</string>
+  <string name="keyboard_backlight_seekbar_title">Svjetlina tipkovnice</string>
+  <string name="backlight_timeout_title">Vremenski istek osvjetljenja</string>
+  <string name="backlight_timeout_unlimited">Ne isključuj</string>
+  <string name="backlight_summary_disabled">Onemogućeno</string>
+  <string name="backlight_summary_enabled_with_timeout">Omogućeno na <xliff:g id="timeout">%s</xliff:g></string>
+  <string name="backlight_summary_enabled">Omogućeno</string>
   <!-- Buttons - Enable navbar -->
+  <string name="disable_navkeys_title">Onemogući hardverske tipke</string>
+  <string name="disable_navkeys_summary">Omogućite/onemogućite hardverske tipke na uređajima koji podržavaju hardverske tipke</string>
   <!-- Navigation Bar -->
+  <string name="navigation_bar_category">Navigacijska traka</string>
+  <string name="navigation_bar_title">Gumbi i izgled</string>
+  <string name="navigation_bar_left_title">Način rada lijevom rukom</string>
+  <string name="navigation_bar_left_summary">Stavlja navigacijsku traku na lijevu stranu zaslona u pejsažnom načinu rada</string>
+  <string name="navigation_bar_arrow_keys_title">Prikaži strelice tijekom upisivanja</string>
+  <string name="navigation_bar_arrow_keys_summary">Prikazivat će lijeve i desne kursorske tipke tijekom unosa teksta. Zamjenjuje zadani prebacivač tipkovnica.</string>
+  <string name="navigation_bar_recents_title">Radnja dugog pritiska nedavnih apl.</string>
   <!-- Power menu -->
+  <string name="power_menu_title">Izbornik napajanja</string>
+  <string name="power_menu_reboot_title">Izbornik ponovnog pokretanja</string>
+  <string name="power_menu_screenshot_title">Snimka zaslona</string>
+  <string name="power_menu_airplane_title">Zrakoplovni način</string>
+  <string name="power_menu_users_title">Prebacivanje korisnika</string>
+  <string name="power_menu_settings_title">Prečac postavki</string>
+  <string name="power_menu_lockdown_title">Zaključavanje uređaja</string>
+  <string name="power_menu_bug_report_title">Prijava greški</string>
+  <string name="power_menu_sound_title">Ploča glasnoće</string>
+  <string name="power_menu_screenrecord_title">Snimanje zaslona</string>
+  <string name="power_menu_torch">Svjetiljka</string>
+  <string name="power_menu_onthego_title">Način rada u pokretu</string>
+  <string name="power_menu_bug_report_disabled">izvještavanje o greškama onemogućeno je u razvojnim postavkama.</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <!-- Media art -->
   <!-- Lockscreen notif count -->
   <!-- Volume settings - Volume adjustment sound -->
   <!-- Status bar -->
   <!-- Status bar - Clock -->
+  <string name="status_bar_clock_style_title">Stil sata</string>
+  <string name="status_bar_clock_style_right">Desno</string>
+  <string name="status_bar_clock_style_left">Lijevo</string>
+  <string name="status_bar_clock_style_center">Sredina</string>
+  <string name="status_bar_clock_style_hidden">Skriveno</string>
+  <string name="status_bar_am_pm_title">AM/PM stil</string>
+  <string name="status_bar_am_pm_info">Omogućeno je 24-satno vrijeme</string>
+  <string name="status_bar_am_pm_normal">Normalno</string>
+  <string name="status_bar_am_pm_small">Malo</string>
+  <string name="status_bar_am_pm_hidden">Skriveno</string>
   <!-- Status bar - Battery -->
   <!-- Status bar - Battery percentage -->
+  <string name="text_charging_symbol_tilde">Tilda</string>
   <!-- Status bar - icon blacklist -->
+  <string name="status_bar_icons_title">Ikone statusne trake</string>
+  <string name="status_bar_icons_summary">Odaberite koje se ikone prikazuju u statusnoj traci</string>
   <!-- Smart pulldown-->
+  <string name="smart_pulldown_title">Pametno povlačenje</string>
+  <string name="smart_pulldown_summary">Otvara brze postavke kad imate %1$s obavijesti</string>
+  <string name="smart_pulldown_none_summary">Otvara brze postavke kad nemate obavijesti</string>
+  <string name="smart_pulldown_off">Isključeno</string>
+  <string name="smart_pulldown_none">Nema obavijesti</string>
+  <string name="smart_pulldown_dismissable">Nema uklonjivih</string>
+  <string name="smart_pulldown_ongoing">Nema trenutnih</string>
   <!-- Clock and date immersive recents-->
+  <string name="recents_full_screen_clock_title">Prikaži sat</string>
+  <string name="recents_full_screen_clock_summary">Prikazuje sat na vrhu dok ste u cijelom zaslonu</string>
+  <string name="recents_full_screen_date_title">Prikaži datum</string>
+  <string name="recents_full_screen_date_summary">Prikazuje datum na vrhu dok ste u cijelom zaslonu</string>
   <!--Clock & Date Category-->
+  <string name="clock_settings_title">Postavke sata</string>
+  <string name="status_bar_clock_category">Sat</string>
+  <string name="status_bar_date_title">Datum</string>
+  <string name="status_bar_clock_style_title">Stil sata</string>
+  <string name="status_bar_clock_style_right">Desno</string>
+  <string name="status_bar_clock_style_left">Lijevo</string>
+  <string name="status_bar_clock_style_center">Sredina</string>
+  <string name="status_bar_clock_style_hidden">Skriveno</string>
+  <string name="status_bar_clock_style_title">Stil sata</string>
+  <string name="status_bar_clock_style_right">Desno</string>
+  <string name="status_bar_clock_style_left">Lijevo</string>
+  <string name="status_bar_clock_style_center">Sredina</string>
+  <string name="status_bar_clock_style_hidden">Skriveno</string>
+  <string name="clock_date_position">Položaj datuma</string>
+  <string name="clock_date_right">Desno od sata</string>
+  <string name="clock_date_left">Lijevo od sata</string>
+  <string name="status_bar_am_pm_title">AM/PM stil</string>
+  <string name="status_bar_am_pm_info">Omogućeno je 24-satno vrijeme</string>
+  <string name="status_bar_am_pm_normal">Normalno</string>
+  <string name="status_bar_am_pm_small">Malo</string>
+  <string name="status_bar_am_pm_hidden">Skriveno</string>
+  <string name="status_bar_date_none">Skriveno (zadano)</string>
+  <string name="status_bar_date_small">Mali</string>
+  <string name="status_bar_date_normal">Normalan</string>
+  <string name="status_bar_date_format_title">Format datuma</string>
+  <string name="status_bar_date_style">Stil datuma</string>
+  <string name="status_bar_date_style_normal">Normalan</string>
+  <string name="status_bar_date_style_lowercase">Mala slova</string>
+  <string name="status_bar_date_style_uppercase">Velika slova</string>
+  <string name="status_bar_date_format_custom">Prilagođeni java format</string>
+  <string name="status_bar_date_string_edittext_title">Mora biti u obliku datuma npr. MM.DD.GG</string>
+  <string name="status_bar_date_string_edittext_summary">Unesite niz znakova</string>
+  <string name="clock_category">Sat </string>
+  <string name="clock_custom">Prilagodbe sata</string>
+  <string name="clock_font_style_title">Font</string>
+  <string name="clock_font_normal">Normalan</string>
+  <string name="clock_font_italic">Kurziv</string>
+  <string name="clock_font_bold">Podebljan</string>
+  <string name="clock_font_bold_italic">Podebljani kurziv</string>
+  <string name="clock_font_light">Svjetlo</string>
+  <string name="clock_font_light_italic">Svijetli kurziv</string>
   <!-- Status bar temperature -->
+  <string name="status_bar_weather_font_black">Crn</string>
+  <string name="status_bar_weather_font_black_italic">Crni kurziv</string>
+  <string name="status_bar_weather_font_dancingscript">DancingScript</string>
+  <string name="status_bar_weather_font_dancingscript_bold">Podebljani DancingScript</string>
+  <string name="status_bar_weather_font_comingsoon">ComingSoon</string>
+  <string name="status_bar_weather_font_notoserif">Normalni NotoSerif</string>
+  <string name="status_bar_weather_font_notoserif_italic">Kurzivni NotoSerif</string>
+  <string name="status_bar_weather_font_notoserif_bold">Podebljani NotoSerif</string>
+  <string name="status_bar_weather_font_notoserif_bold_italic">Podebljani kurzivni NotoSerif</string>
+  <string name="weather_settings_title">Vrijeme</string>
   <!-- Lockscreen weather -->
-  <!-- Wake on Plug -->
-  <string name="wake_when_plugged_or_unplugged_title">Buđenje pri ukopčavanju</string>
-  <string name="wake_when_plugged_or_unplugged_summary">Omogućite ili onemogućite uključivanje zaslona kad spojite ili odspojite punjač.</string>
+  <string name="lockscreen_weather_title">Vrijeme</string>
+  <string name="lock_screen_weather_settings_title">Opcije vremena</string>
+  <string name="weather_show_weather_title">Prikaži vrijeme</string>
+  <string name="weather_show_weather_summary">Omogućite za prikaz informacija o vremenskoj prognozi</string>
+  <string name="weather_show_location_title">Prikaži lokaciju</string>
+  <string name="weather_show_location_summary">Omogućite za prikaz lokacije</string>
+  <string name="weather_show_timestamp_title">Prikaži vremensku oznaku</string>
+  <string name="weather_show_timestamp_summary">Omogućite za prikaz vremenske oznake</string>
+  <string name="weather_condition_icon_title">Ikona uvjeta</string>
+  <string name="weather_condition_icon_dlg_title">Odaberite ikonu za prikaz vremenskih uvjeta</string>
+  <string name="weather_condition_icon_monochrome_title">Crno-bijela</string>
+  <string name="weather_condition_icon_colored_title">Obojena</string>
+  <string name="weather_condition_icon_vclouds_title">VClouds</string>
+  <string name="icons_title">Ikone</string>
+  <string name="position_right_title">Desno</string>
+  <string name="position_centered_title">Sredina</string>
+  <string name="hidden_title">Skriveno</string>
+  <string name="weather_cat_notifications_title">Obavijesti</string>
+  <string name="weather_hide_panel_title">Sakrij vremensku ploču</string>
+  <string name="weather_hide_panel_dlg_title">Odaberite kada bi se vremenska ploča trebala sakriti</string>
+  <string name="weather_hide_panel_auto_title">Automatski</string>
+  <string name="weather_hide_panel_custom_title">Prilagođeno</string>
+  <string name="weather_hide_panel_never_title">Nikad</string>
+  <string name="weather_hide_panel_auto_summary">Vremenska će se ploča sakriti kada vidljive obavijesti dosegnu najveći dopušteni broj obavijesti na zaslonu zaključavanja.</string>
+  <string name="weather_hide_panel_custom_summary">Vremenska će se ploča sakriti kada vidljive obavijesti dosegnu odabrani broj obavijesti.</string>
+  <string name="weather_hide_panel_never_summary">Vremenska se ploča neće skrivati</string>
+  <string name="weather_number_of_notifications_title">Broj obavijesti</string>
   <!-- Quick Settings brightness slider -->
+  <string name="qs_brightness_slider_title">Klizač svjetline</string>
+  <string name="qs_brightness_slider_summary">Prikaži klizač svjetline na ploči brzih obavijesti</string>
+  <string name="brightness_icon_title">Ikona svjetline </string>
+  <string name="brightness_icon_summary">Prikaži ikonu svjetline na lijevoj strani klizača svjetline koja ja prilagoditi automatsku svjetlinu</string>
+  <string name="show_clear_all_recents_button_title">Gumb za čišćenje svih aplikacija</string>
+  <string name="show_clear_all_recents_button_summary">Prikaz gumba za čišćenje svih aplikacija</string>
+  <string name="recents_clear_all_location_title">Lokacija gumba za čišćenje</string>
+  <string name="recents_clear_all_location_top_right">Gore desno</string>
+  <string name="recents_clear_all_location_top_left">Gore lijevo</string>
+  <string name="recents_clear_all_location_top_center">Gore u sredini</string>
+  <string name="recents_clear_all_location_bottom_right">Dolje desno</string>
+  <string name="recents_clear_all_location_bottom_left">Dolje lijevo</string>
+  <string name="recents_clear_all_location_bottom_center">Dolje u sredini</string>
+  <string name="button20">Arhiva </string>
+  <string name="button21">Baza podataka i plus</string>
+  <string name="button22">Strelice koje se sužavaju</string>
+  <string name="button23">Google</string>
+  <string name="button24">Baza podataka i minus </string>
+  <string name="button25">Sekvencijalna kocka</string>
+  <string name="button26">Brojač vremena</string>
+  <string name="button27">Resurrection</string>
+  <string name="button28">Zadano na Androidu</string>
+  <string name="button29">Resurrection Lollipop</string>
+  <string name="button30">Android N</string>
+  <string name="animation0">Okretanje </string>
+  <string name="animation1">Izlazak iz nedavnih apl.</string>
+  <string name="animation2">Proziran izlazak </string>
+  <string name="animation3">Vrpca prozirnog izlaska</string>
+  <string name="animation4">Izlazak tosta</string>
+  <string name="animation5">Klizanje prema dolje </string>
+  <string name="animation6">Xylon izlazak </string>
+  <string name="animation7">Honami izlazak tosta</string>
+  <string name="animation8">Klizanje udesno </string>
+  <string name="animation9">Izlazak tosta</string>
+  <string name="animation10">Sporo blijeđenje </string>
+  <string name="animation11">Klizanje ulijevo</string>
+  <string name="animation12">Blijeđenje</string>
+  <string name="animation13">Brzo blijeđenje </string>
+  <string name="animation14">Klizanje prema gore </string>
+  <string name="animation15">Brzo okretanje</string>
   <!-- OmniSwitch -->
+  <string name="omniswitch_category">OmniSwitch</string>
+  <string name="recents_use_omniswitch_title">Upotrebljavaj za nedavne apl.</string>
+  <string name="recents_use_omniswitch_summary">Upotrebljavajte OmniSwitch umjesto zadanog pregleda nedavnih aplikacija</string>
+  <string name="omniswitch_start_settings_title">Postavke</string>
+  <string name="omniswitch_start_settings_summary">Otvorite postavke OmniSwitcha</string>
+  <string name="omniswitch_first_time_title">Informacije</string>
+  <string name="omniswitch_first_time_message">Provjerite jeste li omogućili OmniSwitch. Možete to učiniti s pomoću gumba \"Postavke\" ispod.</string>
+  <string name="omniswitch_settings_title">OmniSwitch</string>
   <!-- Less Notification sounds -->
+  <string name="notifications_category_title">Obavijesti</string>
+  <string name="less_notification_sounds_title">Rjeđi zvukovi obavijesti</string>
+  <string name="less_notification_sounds_summary">Ograničite zvukove obavijesti svake aplikacije da se reproduciraju samo jednom u postavljenom vremenskom razdoblju.</string>
+  <string name="less_notification_sounds_default">Zadano ponašanje</string>
+  <string name="less_notification_sounds_3s">3 sekunde</string>
+  <string name="less_notification_sounds_5s">5 sekundi</string>
+  <string name="less_notification_sounds_10s">10 sekundi</string>
+  <string name="less_notification_sounds_15s">15 sekundi</string>
+  <string name="less_notification_sounds_30s">30 sekundi</string>
+  <string name="less_notification_sounds_45s">45 sekundi</string>
+  <string name="less_notification_sounds_1m">1 minuta</string>
+  <string name="less_notification_sounds_2m">2 minute</string>
+  <string name="less_notification_sounds_5m">5 minuta</string>
   <!-- Development Settings -->
   <!-- ADB always notify -->
+  <string name="adb_always_notify">Uvijek obavještavaj o ispravljanju grešaka</string>
+  <string name="adb_always_notify_summary">Uvijek prikazuj obavijest kad je USB ispravljanje grešaka omogućeno, čak i kad niste povezani</string>
   <string name="rr_trans_title">Ploča obavijesti</string>
   <!-- QS shade transparency -->
   <!-- QS header transparency -->
@@ -687,30 +1116,187 @@
   <string name="rr_config_n">Nougat</string>
   <string name="rr_config_mm">Klasičan</string>
   <!-- Status bar - double tap to sleep -->
+  <string name="qs_wifi_easy_toggle_title">Jednostavan prekidač Wi-Fi-ja</string>
+  <string name="qs_wifi_easy_toggle_summary">Jedan će pritisak uključiti ili isključiti Wi-Fi umjesto da vas odvede u postavke</string>
   <!-- BT easy toggle -->
+  <string name="qs_bt_easy_toggle_title">Jednostavan prekidač Bluetootha</string>
+  <string name="qs_bt_easy_toggle_summary">Jedan će pritisak uključiti ili isključiti Bluetooth umjesto da vas odvede u postavke</string>
   <!-- Battery Saver easy toggle -->
+  <string name="qs_battery_easy_toggle_title">Jednostavan prekidač pločice baterije</string>
+  <string name="qs_battery_easy_toggle_summary">Jedan će pritisak uključiti ili isključiti uštedu baterije umjesto da vas odvede u postavke</string>
+  <string name="qs_music_tile_track_optional_title">Naslov pjesme na pločici glazbe</string>
+  <string name="qs_music_tile_track_optional_summary">Prikazuje naslov pjesme kao naslov pločice brzih postavki</string>
+  <string name="quick_settings_vibrate_title">Vibriracija na dodir</string>
+  <string name="quick_settings_vibrate_summary">Vibracija pri dodiru pločica</string>
   <!-- Quick unlock -->
+  <string name="unlock_quick_unlock_control_title">Brzo otključavanje</string>
+  <string name="unlock_quick_unlock_control_summary">Automatski otključava uređaj kad unesete ispravan PIN ili lozinku</string>
   <!-- Disable OS on lockscreen -->
+  <string name="block_on_secure_keyguard_title">Onemogući brze postavke</string>
+  <string name="block_on_secure_keyguard_summary">Onemogućava brze postavke na osiguranom zaključanom zaslonu</string>
   <!-- Circle app bar -->
+  <string name="category_app_circle_bar_title">Pokretač aplikacija</string>
+  <string name="app_circle_bar_title">Kružna traka aplikacija</string>
+  <string name="app_circle_bar_summary">Prikazuje kružni pokretač aplikacija nakon dodira desne strane zaslona</string>
+  <string name="app_circle_bar_included_apps_title">Uključene aplikacije</string>
+  <string name="app_circle_bar_included_apps_summary">Aplikacije će se prikazivati u kružnoj traci aplikacija</string>
+  <string name="trigger_width_title">Širina okidača</string>
+  <string name="trigger_width_summary">Prilagodite širinu područja okidača</string>
+  <string name="trigger_top_title">Položaj okidača</string>
+  <string name="trigger_top_summary">Prilagodite okomiti položaj područja okidača</string>
+  <string name="trigger_bottom_title">Visina okidača</string>
+  <string name="trigger_bottom_summary">Prilagodite visinu područja okidača</string>
   <!-- Breathing Notifications -->
+  <string name="breathing_notifications_title">Disajuće obavijesti</string>
+  <string name="sms_breath_title">Disajuće SMS poruke</string>
+  <string name="sms_breath_summary">Obavijesti o SMS porukama imat će disajući efekt u traci stanja</string>
+  <string name="missed_call_breath_title">Disajući propušten poziv</string>
+  <string name="missed_call_breath_summary">Obavijesti o propuštenom pozivu imat će disajući efekt u traci stanja.</string>
+  <string name="voicemail_breath_title">Disajuća govorna pošta</string>
+  <string name="voicemail_breath_summary">Obavijesti o govornoj pošti imat će disajući efekt u traci stanja.</string>
   <!-- Navigation Bar -->
+  <string name="navigation_category">Navigacija</string>
   <string name="navbar_interface_title">Sučelje</string>
+  <string name="navbar_size">Veličina trake</string>
+  <string name="navbar_mode">Način navigacije</string>
+  <string name="navbar_visibility">Omogući navigacijsku traku</string>
+  <string name="navigationbar_settings_title">Navigacijska traka</string>
+  <string name="navigationbar_settings_summary">Prilagodite stil i ponašanje navigacijske trake</string>
+  <string name="navbar_general_title">Napredno</string>
+  <string name="navigation_bar_left_title">Način rada lijevom rukom</string>
+  <string name="navigation_bar_left_summary">Stavlja navigacijsku traku na lijevu stranu zaslona u pejsažnom načinu rada</string>
+  <string name="info_pref_note_title">Napomena</string>
+  <string name="smartbar_interface">Pametna traka</string>
+  <string name="navbar_tint_switch">Boja navigacijskih gumba</string>
+  <string name="navbar_button_color">Gumbi navigacijske trake</string>
+  <string name="icon_pack_picker_dialog_title">Paketi ikona</string>
+  <string name="invalid_icon_from_uri">Nije moguće učitati slike od pružatelja sadržaja</string>
+  <string name="picker_activities">Aktivnosti</string>
+  <string name="select_custom_app_title">Odabir prilagođene aplikacije</string>
+  <string name="select_custom_activity_title">Odabir prilgođene aktivnosti</string>
   <string name="default_string">Zadano</string>
   <string name="reset">Ponovno postavi</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
   <!-- Fling -->
+  <string name="fling_logo_custom_logo_reset_title">Vrati zadanu ikonu logotipa</string>
+  <string name="fling_show_ripple_title">Prikaži mreškanje</string>
+  <string name="fling_show_ripple_summary">Prikazuje mreškanje pri dodiru trake</string>
+  <string name="fling_ripple_color">Boja mreškanja</string>
+  <string name="fling_longpress_timeout_label_left">Manje kašnjenje</string>
+  <string name="fling_longpress_timeout_label_right">Veće kašnjenje</string>
+  <string name="fling_longpress_title">Kašnjenje dugog pritiska</string>
+  <string name="fling_longpress_summary">Povećajte ili smanjite vrijeme koje je potrebno za dugi pritisak</string>
   <!-- Pulse navigation bar music visualizer -->
+  <string name="pulse_help_policy_notice_title">O pulsu</string>
+  <string name="pulse_help_policy_notice_summary">Puls je genijalan grafički ekvalizator zvuka koji se prikazuje na navigacijskoj traci kada se reproducira glazba. Puls ne radi s nekim izvorima zvuka prilikom slušanja na zvučniku uređaja.</string>
+  <string name="pulse_settings">Puls</string>
+  <string name="pulse_settings_summary">Grafički ekvalizator na navigacijskoj traci</string>
+  <string name="fling_show_pulse_title">Prikaži puls</string>
+  <string name="fling_show_pulse_summary">Grafički ekvalizator na navigacijskoj traci</string>
+  <string name="pulse_render_mode_title">Način renderiranja</string>
+  <string name="pulse_render_mode_fading_bars">Blokovi koji blijede</string>
+  <string name="pulse_render_mode_solid_lines">Pune crte</string>
+  <string name="fling_pulse_color">Boja pulsa</string>
+  <string name="eos_fling_lavalamp_title">Uključi lava svjetiljku</string>
+  <string name="eos_fling_lavalamp_summary">Puls animira glatko stapanje boje u stilu lava svjetiljke.</string>
+  <string name="pulse_advanced_category">Napredno</string>
+  <string name="pulse_legacy_mode_advanced_category">Postavke načina blokova koji blijede</string>
+  <string name="pulse_custom_fudge_factor">Razina snage</string>
+  <string name="lavamp_solid_speed_title">Brzina lava lampe</string>
+  <string name="pulse_solid_dimen_category">Postavke načina punih crta</string>
   <!-- Pulse config -->
+  <string name="pulse_custom_dimen">Širina trake</string>
+  <string name="pulse_custom_div">Razmak trake</string>
+  <string name="pulse_filled_block_size">Veličina bloka</string>
+  <string name="pulse_empty_block_size">Razmak između blokova</string>
   <!-- Navbar height -->
+  <string name="navigation_bar_size_title">Veličina trake</string>
+  <string name="portrait_title">Visina u portretu</string>
+  <string name="land_vert_title">Širina u pejzažu</string>
+  <string name="land_hor_title">Visina u pejzažu</string>
+  <string name="positive_done">Gotovo</string>
   <!-- SmartBar -->
+  <string name="smartbar_category">Pametna traka</string>
+  <string name="smartbar_settings_title">Postavke navigacijske trake</string>
+  <string name="smartbar_editor_title">Uključi/isključi uređivač gumba</string>
+  <string name="smartbar_editor_summary">Umjereno pritisnite i povucite za promjenu položaja. Pritisnite i držite za prikaz izbornika za uređivanje. Položaj gumba može se promijeniti dok se prikazuje izbornik.</string>
+  <string name="smartbar_context_menu_position_title">Položaj kontekstualnih gumba</string>
+  <string name="smartbar_context_menu_position_summary">Postavite položaj kontekstualnih gumba kao što su gumbi za izbornik ili odabir tipkovnice.</string>
+  <string name="smartbar_right">Desno</string>
+  <string name="smartbar_left">Lijevo</string>
+  <string name="smartbar_button_animation_title">Animacija dodira gumba</string>
+  <string name="smartbar_button_animation_summary">Postavite stil animacije pri pritisku primarnih gumba</string>
+  <string name="smartbar_button_animation_ripple">Mreškanje</string>
+  <string name="smartbar_button_animation_spring">Odskakanje</string>
+  <string name="smartbar_factory_reset_title">Vrati na zadano</string>
+  <string name="smartbar_factory_reset_confirm">Jeste li sigurni da želite vratiti pametnu traku na zadane postavke?</string>
+  <string name="smartbar_ime_action_title">Radnje načina unosa</string>
+  <string name="smartbar_ime_action_summary">Postavite koji će se gumbi prikazivati kad se prikazuje zaslonska tipkovnica</string>
   <!--Custom logos-->
+  <string name="logo28">Bug droid</string>
+  <string name="logo29">Motociklist</string>
+  <string name="logo30">Lizalica</string>
+  <string name="logo31">Smajlić kakice</string>
+  <string name="logo32">Graf mjehurića</string>
+  <string name="logo33">Google</string>
+  <string name="logo34">Riba</string>
+  <string name="logo35">Spol: muško</string>
+  <string name="logo36">Spol: žensko</string>
+  <string name="logo37">Mrkli mrak</string>
+  <string name="logo38">Resurrection original</string>
+  <string name="logo39">Resurrection polovica</string>
+  <string name="logo40">Resurrection bez zvona</string>
+  <string name="logo41">Pauk 1</string>
+  <string name="logo42">Pauk 2</string>
+  <string name="logo43">Orioles</string>
   <!-- Carrier label -->
+  <string name="carrier_title">Naziv operatera</string>
+  <string name="carrier_options_summary">Prilagodite naziv operatera</string>
+  <string name="custom_carrier_label_title">Prilagođeni naziv operatera</string>
+  <string name="custom_carrier_label_explain">Unesite novi naziv. Ostavite prazno za povratak na zadani naziv.</string>
+  <string name="custom_carrier_label_notset">Prilagođeni naziv trenutno nije postavljen</string>
+  <string name="show_carrier_title">Naziv operatera</string>
+  <string name="show_carrier_disabled">Onemogućeno</string>
+  <string name="show_carrier_keyguard">Samo na zaključanom zaslonu</string>
+  <string name="show_carrier_statusbar">Samo statusna traka</string>
+  <string name="show_carrier_both">Zaključani zaslon i statusna traka</string>
+  <string name="show_carrier_enabled">Zaključani zaslon i statusna traka</string>
+  <string name="status_bar_carrier_color">Boja naziva operatera</string>
+  <string name="status_bar_carrier_size">Veličina teksta naziva operatera</string>
+  <string name="status_bar_carrier_font_style_title">Font naziva operatera</string>
+  <string name="number_of_notifications_title">Broj obavijesti</string>
+  <string name="carrier_label_hide_label_title">Sakrij pri obavijestima</string>
+  <string name="carrier_label_number_of_notification_icons_title">Maksimalan broj ikona prije skrivanja</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_title">Ticker obavijesti</string>
+  <string name="ticker_title">Ticker statusne trake</string>
   <string name="ticker_screen_summary">Prilagodite stil tickera u statusnoj traci</string>
+  <string name="ticker_summary">Omogućite stari ticker statusne trake</string>
+  <string name="ticker_restore_defaults_title">Vrati zadano</string>
+  <string name="text_title">Tekst</string>
+  <string name="icon_title">Ikona</string>
+  <string name="colors_title">Boje</string>
   <!-- Superuser indicator on status bar -->
+  <string name="show_su_indicator_title">Pokazivač superusera</string>
+  <string name="show_su_indicator_summary">Prikazuje pokazivač superusera u statusnoj traci kad je aktivna sesija</string>
   <!-- PA Pie control -->
+  <string name="reset_paranoid">Resurrection</string>
+  <string name="reset_android">Android</string>
+  <string name="pa_piecontrol_settings_summary">Prilagodite prekidače, stil, veličinu i boju pite</string>
+  <string name="pa_pie_control_title">Kontrola pitom</string>
+  <string name="pa_pie_control_enable_title">Omogući kontrolu pitom</string>
+  <string name="pa_pie_targets_title">Prekidači pite</string>
+  <string name="pa_pie_style_title">Stil pite</string>
+  <string name="pa_pie_menu_title">Uvijek prikazuj gumb izbornika</string>
+  <string name="pa_pie_chevron_title">Chevron boja</string>
+  <string name="pa_pie_juice_title">Boja baterijskoj soka</string>
+  <string name="pa_pie_button_color">Boja gumba</string>
+  <string name="pa_pie_button_color_title">Boja gumba</string>
+  <string name="pa_pie_always_right_title">Pita uvijek na desnoj strani</string>
+  <string name="pa_pie_always_right_summary">Pita će se u pejzažu uvijek prikazivati na desnoj strani</string>
   <!-- Heads up switch -->
+  <string name="heads_up_switch_title">Plutajuće obavijesti</string>
+  <string name="heads_up_switch_summary">Općenito omogućite plutajuće obavijesti, ne po aplikaciji.</string>
   <string name="lockscreen_pin_ripple_title">Efekt mreškanja pri unosu PIN-a</string>
   <string name="lockscreen_pin_ripple_summary">Onemogućite da biste uklonili efekt mreškanja kad unosite brojeve PIN-a.</string>
   <!-- Optional screenshot type -->
@@ -718,29 +1304,131 @@
   <string name="screenshot_type_fullscreen">Snimi cijeli zaslon</string>
   <string name="screenshot_type_partial">Odaberite točno dio zaslona koji želite snimiti</string>
   <!-- Screenshot delay -->
+  <string name="screenshot_options_category">Opcije snimke zaslona</string>
+  <string name="screenshot_delay_title">Kašnjenje snimke zaslona</string>
+  <string name="screenshot_delay_summary">Prilagodite vrijeme snimke zaslona</string>
   <!--Screenshot crop and share -->
+  <string name="screenshot_crop_and_share_title">Obrezivanje i dijeljenje snimke zaslona</string>
+  <string name="screenshot_crop_and_share_summary">Prikazuje prozor uređivača nakon što snimite zaslon kako biste mogli nešto napraviti s tom slikom, poput obrezivanja, spremanja ili dijeljenja.</string>
+  <string name="heads_up_settings">Plutajuće obavijesti</string>
   <!-- Lockscreen battery info indicator  -->
+  <string name="lockscreen_battery_info_title">Informacije o bateriji na zaklj. zaslonu</string>
+  <string name="lockscreen_battery_info_summary">Prikazuje maksimalni i trenutni napon punjača i temperaturu baterije na zaključanom zaslonu tijekom punjenja.</string>
   <!-- Heads up timeout -->
+  <string name="heads_up_time_out_title">Istek</string>
+  <string name="heads_up_time_out_summary">Obavijesti koje vire preko zaslona prikazivat će se <xliff:g id="number">%d</xliff:g> s.</string>
+  <string name="heads_up_time_out_2sec">2 sekunde</string>
+  <string name="heads_up_time_out_4sec">4 sekunde</string>
+  <string name="heads_up_time_out_5sec">5 sekundi</string>
+  <string name="heads_up_time_out_6sec">6 sekundi</string>
+  <string name="heads_up_time_out_8sec">8 sekundi</string>
+  <string name="heads_up_time_out_10sec">10 sekundi</string>
   <!-- Heads up snooze -->
+  <string name="heads_up_snooze_title">Vrijeme odgode</string>
+  <string name="heads_up_snooze_summary_one_minute">Prelazak prstom preko plutajuće obavijesti odgodit će takve obavijesti te aplikacije na 1 minutu.</string>
+  <string name="heads_up_snooze_summary">Prelazak prstom preko plutajuće obavijesti odgodit će takve obavijesti te aplikacije na <xliff:g id="number">%d</xliff:g> min.</string>
+  <string name="heads_up_snooze_disabled_summary">Odgoda je onemogućena</string>
+  <string name="heads_up_snooze_1min">1 minuta</string>
+  <string name="heads_up_snooze_3min">3 minute</string>
+  <string name="heads_up_snooze_5min">5 minuta</string>
+  <string name="heads_up_snooze_10min">10 minuta</string>
+  <string name="heads_up_snooze_15min">15 minuta</string>
+  <string name="heads_up_snooze_20min">20 minuta</string>
   <!-- Camera shutter sound -->
+  <string name="camera_sounds_title">Zvuk okidača fotoaparata</string>
+  <string name="camera_sounds_summary">Onemogućavanje ovog možda neće funkcionirati s aplikacijama fotoaparata treće strane ili u HDR+ načinu.</string>
   <!-- Ability to disable hardware keys via nav bar settings -->
+  <string name="hw_keys_title">Hardverske tipke</string>
+  <string name="hw_keys_summary">Omogućite hardverske tipke</string>
+  <string name="rr_hw_keys_summary">Prilagodite različite hardverske tipke na svom uređaju poput početne tipke, tipke za vraćanje natrag i tipke izbornika.</string>
   <!-- Expanded desktop -->
   <string name="expanded_desktop_category">Proširena radna površina</string>
   <string name="expanded_hide_nothing">Ne sakrivaj ništa</string>
   <string name="expanded_hide_status">Sakrij statusnu traku</string>
   <string name="expanded_hide_navigation">Sakrij navigacijsku traku</string>
   <string name="expanded_hide_both">Sakrij oboje</string>
+  <string name="expanded_nothing_to_show">Da biste dodali prilagođene postavke za svaku aplikaciju za prošireno stanje, isključite \"Omogućeno za sve\".</string>
+  <string name="expanded_desktop_state">Prošireno stanje</string>
   <string name="expanded_enabled_for_all">Omogućeno za sve</string>
+  <string name="expanded_user_configurable">Korisnički podesivo</string>
+  <string name="expanded_desktop_style">Stil proširene radne površine</string>
+  <string name="expanded_desktop_style_description">Odaberite zadani stil proširene radne površine</string>
+  <string name="expanded_desktop_title">Opcije proširene radne površine</string>
   <!-- SlimSizer  -->
+  <string name="listsystem">popis</string>
+  <string name="sizer_title">Brisanje aplikacija</string>
+  <string name="caution">Oprez!</string>
+  <string name="sizer_message_startup">Ovaj vam alat omogućuje brisanje aplikacija sustava. Koristite se njime s oprezom i brišite samo aplikacije za koje znate da ih je sigurno ukloniti.</string>
+  <string name="cancel">Odustani</string>
+  <string name="sizer_message_delete">Jeste li sigurni da želite izbrisati ovu aplikaciju?</string>
+  <string name="btn_delete">Odmah izbriši odabrane aplikacije!</string>
+  <string name="delete_progress_title">Brisanje</string>
+  <string name="delete_progress">Odabrane se datoteke brišu...</string>
+  <string name="delete_success">Izbrisano</string>
+  <string name="delete_fail">Brisanje nije moguće</string>
+  <string name="btn_profile">Profil</string>
+  <string name="sizer_message_sdnowrite">Pisanje po SD kartici nije moguće.</string>
+  <string name="sizer_message_sdnoread">Čitanje s SD kartice nije moguće.</string>
+  <string name="sizer_message_filesuccess">Profil je stvoren.</string>
+  <string name="sizer_message_filefail">Stvaranje profila nije uspjelo.</string>
+  <string name="sizer_message_noselect">Ništa nije odabrano.</string>
+  <string name="system_app_remover">Brisanje aplikacija sustava</string>
   <!-- RR summary text -->
+  <string name="rr_settings_summary_title">Prilagođeni tekst sažetka u aplikaciji postavki</string>
+  <string name="custom_summary_title">Prilagođeni RR sažetak</string>
+  <string name="custom_summary_explain">Unesite novi sažetak. Ostavite prazno za povratak na zadani tekst.</string>
   <!-- Custom summaries -->
+  <string name="custom_summary_randomize_title">Nasumični sažetak</string>
+  <string name="custom_summary_randomize_explain">Unaprijed napisani sažetci nasumično će se odabrati i promijeniti svaki put kad uđete u aplikaciju Postavke.\nOvo nadjačava bilo koji postavljen prilagođeni sažetak.</string>
+  <string name="sum1">Jeste li provjerili sva ugađanja?</string>
+  <string name="sum2">Izvanredne vijesti: Donald Trump promijenio je frizuru!</string>
+  <string name="sum3">Dodirnuli ste 100 tisuća puta.</string>
+  <string name="sum4">Puno opcija!</string>
+  <string name="sum5">Dodirnite me sada!</string>
+  <string name="sum6">Što još?</string>
+  <string name="sum7">Ja nisam tvoj F1 gumb</string>
+  <string name="sum8">Ne želite propustiti ovo sr***!</string>
+  <string name="sum9">Dobro došli u RR</string>
+  <string name="sum10">Nemojte me preskočiti!</string>
+  <string name="sum11">Jeste završili svoju zadaću? ツ</string>
+  <string name="sum12">Bok, ja sam vaš novi pomoćnik</string>
+  <string name="sum13">Ne zezajte se s ovim sučeljem!</string>
+  <string name="sum14">A što ste očekivali?</string>
+  <string name="sum15">Samo za profiće.</string>
+  <string name="sum16">Je l\' vam dosadno? Okej, sad me dodirnite!</string>
+  <string name="sum17">Bravo! Osvojili ste dodatnu značajku</string>
+  <string name="sum18">Prestanite spamati u G+ zajednici</string>
+  <string name="sum19">Slijedite G+ pravila o postanju</string>
+  <string name="sum20">Noobovima ulaz zabranjen!</string>
+  <string name="sum21">#Gotresurrected</string>
+  <string name="sum22">Izvanredne vijesti: Apple će maknuti bljeskalice na sljedećim iPhoneima.</string>
   <!-- RR Settings tabs slide effects -->
   <!-- Three-fingers-swipe to screenshot -->
   <!-- Lockscreen Colors -->
+  <string name="icons_title">Ikone</string>
+  <string name="text_title">Tekst</string>
   <!-- Scrolling Animation Controls -->
+  <string name="animation_fling_velocity_title">Brzina pomicanja</string>
+  <string name="animation_scroll_friction_title">Trenje prilikom klizanja</string>
+  <string name="animation_overscroll_distance_title">Razmak pretjeranog klizanja</string>
+  <string name="animation_overfling_distance_title">Udaljenost prekomjernog pomicanja</string>
+  <string name="animation_duration_summary">Postavite trajanje</string>
+  <string name="animation_no_scroll_title">Prilagođeni modifikatori pomicanja</string>
+  <string name="animation_no_scroll_summary_on">Omogućeno</string>
+  <string name="animation_no_scroll_summary_off">Onemogućeno</string>
+  <string name="scroll_disclaimer_summary">Napomena: većinu aplikacija treba ponovo pokrenuti kako bi vrijednosti stupile na snagu</string>
+  <string name="animation_settings_reset_message">Vratiti sve animacije na zadane?</string>
+  <string name="qs_tile_title_visibility_title">Naslovi pločica brzih postavki</string>
+  <string name="qs_tile_title_visibility_summary_on">Naslovi pločica brzih postavki sad su vidljivi</string>
+  <string name="qs_tile_title_visibility_summary_off">Naslovi pločica brzih postavki sad su nestali</string>
   <!-- setting: show CPU info-->
+  <string name="show_cpu_info">Prikaži informacije o CPU-u</string>
+  <string name="show_cpu_info_summary">Prekrivanje zaslona uz prikaz trenutnih informacija o procesoru</string>
   <!-- Status Bar Battery Icon Large Percentage Text -->
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Pažnja</string>
   <!-- XOSP Blur personalizations -->
+  <!-- QS Header Icons -->
+  <!-- Center Date + Time in header -->
+  <!-- Settings drawer switch -->
 </resources>

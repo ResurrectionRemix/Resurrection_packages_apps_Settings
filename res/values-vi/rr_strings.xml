@@ -114,6 +114,8 @@
   <string name="rr_title">Tùy chỉnh</string>
   <string name="rr_title_summary">#Getresurrected</string>
   <string name="rr_config_main_title">Resurrection Remix</string>
+  <string name="rr_ota_fab_title">Hiển thị nút nổi</string>
+  <string name="rr_ota_fab_summary">Bật/Tắt để ẩn/hiện nút nổi trong các tùy chỉnh. Vào/Thoát mỗi khi chuyển đổi đã sử dụng</string>
   <string name="rr_statusbar_title">Thanh trạng thái</string>
   <string name="rr_sb_gestures_title">Cử chỉ thanh trạng thái</string>
   <string name="qs_advanced_title">Nâng cao</string>
@@ -269,6 +271,8 @@
   <!-- Toast Icons -->
   <string name="toast_icon_title">Biểu tượng thông báo nhanh</string>
   <string name="toast_icon_summary">Hiển thị các biểu tượng ứng dụng tương ứng với thông báo nhanh</string>
+  <string name="toast_text_color">Màu văn bản thông báo nhanh</string>
+  <string name="toast_icon_color">Màu biểu tượng thông báo nhanh</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Hiện tình trạng pin Bluetooth</string>
   <string name="bluetooth_battery_summary">Hiển thị tình trạng pin cho các thiết bị bluetooth hiện tại đã kết nối, nếu có sẵn.</string>
@@ -890,12 +894,22 @@
   <string name="hardware_keys_assist_key_title">Nút tìm kiếm</string>
   <string name="hardware_keys_appswitch_key_title">Nút đa nhiệm</string>
   <string name="hardware_keys_back_key_title">Phím Back</string>
+  <string name="hardware_keys_camera_key_title">Nút Camera</string>
   <string name="hardware_keys_double_tap_summary">Đặt hành động khi chậm hai lần</string>
   <string name="hardware_keys_single_tap_summary">Đặt hành động khi chạm một lần</string>
   <string name="hardware_keys_long_press_summary">Đặt hành động khi giữ</string>
   <string name="hardware_keys_single_tap_title">Hành động khi nhấn một lần</string>
   <string name="hardware_keys_long_press_title">Hành động bấm giữ</string>
   <string name="hardware_keys_double_tap_title">Hành động chạm hai lần</string>
+  <string name="hardware_keys_action_nothing">Không hành động</string>
+  <string name="hardware_keys_action_menu">Mở/đóng trình đơn</string>
+  <string name="hardware_keys_action_app_switch">Chuyển đổi các ứng dụng gần đây</string>
+  <string name="hardware_keys_action_search">Trợ lý tìm kiếm</string>
+  <string name="hardware_keys_action_voice_search">Tìm kiếm bằng giọng nói</string>
+  <string name="hardware_keys_action_in_app_search">Tìm kiếm trong ứng dụng</string>
+  <string name="hardware_keys_action_launch_camera">Khởi động máy ảnh</string>
+  <string name="hardware_keys_action_sleep">Tắt màn hình</string>
+  <string name="hardware_keys_action_last_app">Ứng dụng cuối</string>
   <string name="hardware_keys_category">Phím cứng</string>
   <string name="hardware_keys_disable_title">Vô hiệu phím cứng</string>
   <string name="hardware_keys_power_key_title">Nút Nguồn</string>
@@ -1005,6 +1019,7 @@
   <string name="status_bar_battery_style_circle">Vòng tròn</string>
   <string name="status_bar_battery_style_text">Chữ</string>
   <string name="status_bar_battery_style_hidden">Ẩn</string>
+  <string name="status_bar_battery_style_solid">Khối</string>
   <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">Phần trăm pin</string>
   <string name="status_bar_battery_percentage_default">Ẩn</string>
@@ -1168,9 +1183,6 @@
   <string name="weather_hide_panel_custom_summary">Bảng thời tiết sẽ được ẩn khi các thông báo hiển thị đạt đến số thông báo được chọn</string>
   <string name="weather_hide_panel_never_summary">Bảng thời tiết sẽ không được ẩn</string>
   <string name="weather_number_of_notifications_title">Số lượng thông báo</string>
-  <!-- Wake on Plug -->
-  <string name="wake_when_plugged_or_unplugged_title">Bật màn hình khi cắm sạc</string>
-  <string name="wake_when_plugged_or_unplugged_summary">Bật màn hình khi kết nối hoặc ngắt kết nối một nguồn điện</string>
   <!-- Quick Settings brightness slider -->
   <string name="qs_brightness_slider_title">Thanh trượt độ sáng</string>
   <string name="qs_brightness_slider_summary">Hiển thị thanh trượt độ sáng trong bảng cài đặt nhanh</string>
@@ -1334,6 +1346,7 @@
   <string name="qs_rows_portrait_title">Hàng (màn hình dọc)</string>
   <string name="qs_rows_landscape_title">Hàng (màn hình ngang)</string>
   <string name="qs_columns_title">Cột</string>
+  <string name="qs_small_tiles_title">Các ô nhỏ cài đặt nhanh</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Màu cảnh báo</string>
   <string name="battery_saver_color_summary">Cho phép thanh trạng thái và điều hướng chuyển màu cam khi tiết kiệm pin được bật</string>
@@ -1361,6 +1374,8 @@
   <string name="qs_bt_easy_toggle_title">Bật/tắt nhanh Bluetooth</string>
   <string name="qs_bt_easy_toggle_summary">Một chạm sẽ bật hoặc tắt Bluetooth thay vì đưa bạn đến cài đặt</string>
   <!-- Battery Saver easy toggle -->
+  <string name="qs_battery_easy_toggle_title">Ô bật/tắt nhanh chế độ pin</string>
+  <string name="qs_battery_easy_toggle_summary">Thao tác một chạm sẽ bật hoặc tắt trình tiết kiệm pin thay vì vào các cài cài đặt</string>
   <string name="qs_music_tile_track_optional_title">Ô tiêu đề bài hát</string>
   <string name="qs_music_tile_track_optional_summary">Hiển thị ô tiêu đề bài hát ô trên cài đặt nhanh</string>
   <string name="quick_settings_vibrate_title">Rung khi chạm</string>
@@ -1700,6 +1715,8 @@
   <string name="screenshot_crop_and_share_summary">Hiển thỉ cửa sổ biên tập sau khi chụp màn hình để cắt, lưu, hoặc chia sẻ</string>
   <string name="heads_up_settings">Thông báo nổi</string>
   <!-- Lockscreen battery info indicator  -->
+  <string name="lockscreen_battery_info_title">Thông tin pin trên màn hình khóa</string>
+  <string name="lockscreen_battery_info_summary">Hiển thị điện áp bộ sạc tối đa hiện tại đã ước tính và nhiệt độ pin trên màn hình khóa trong khi sạc</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Thời gian chờ</string>
   <string name="heads_up_time_out_summary">Thông báo nổi sẽ hiển thị trong <xliff:g id="number">%d</xliff:g> giây</string>
@@ -1859,7 +1876,57 @@
   <string name="show_cpu_info">Xem thông tin CPU</string>
   <string name="show_cpu_info_summary">Hiển thị thông tin CPU hiện thời đè lên màn hình</string>
   <!-- Status Bar Battery Icon Large Percentage Text -->
+  <string name="battery_large_text">Làm lớn biểu tượng tỷ lệ phần trăm pin</string>
+  <string name="battery_large_text_summary_on">Văn bản lớn đã hiển thị</string>
+  <string name="battery_large_text_summary_off">Văn bản bình thường đã hiển thị</string>
+  <string name="nav_bar_dynamic_title">Màu sắc thanh điều hướng</string>
+  <string name="nav_bar_dynamic_summary">Bật tắt chuyển đổi này để thanh điều hướng thay đổi cho hợp với các ứng dụng có màu chính tối. Khởi động lại ứng dụng bạn muốn áp dụng để xem hiệu ứng</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Chú ý</string>
+  <string name="title_keyboard_input">Tùy chọn đầu vào</string>
+  <string name="disable_fullscreen_keyboard_title">Tắt bàn phím toàn màn hình</string>
+  <string name="disable_fullscreen_keyboard_summary">Bàn phím nằm ngang sẽ không chiếm toàn màn hình</string>
+  <string name="keyboard_rotation_toggle_title">Tự động xoay bàn phím</string>
+  <string name="keyboard_rotation_toggle_summary">Buộc tự động xoay khi bàn phím được hiển thị</string>
+  <string name="keyboard_rotation_timeout_title">Thời gian chờ tự động xoay</string>
+  <string name="keyboard_rotation_timeout_summary">Tắt cảm biến xoay <xliff:g id="rotate_timeout">%1$s</xliff:g> giây sau khi bàn phím bị ẩn đi</string>
+  <string name="keyboard_rotation_dialog">Chức năng này buộc tự động xoay bật tạm thời trong khi bàn phím được hiển thị. Nó không có tác dụng khi tự động xoay màn hình đã được bật từ trước.</string>
+  <string name="show_enter_key_title">Hiển thị phím enter</string>
+  <string name="show_enter_key_summary">Buộc bàn phím hiển thị phím Enter thay vì phím biểu tượng cảm xúc</string>
   <!-- XOSP Blur personalizations -->
+  <string name="settings_blur_cat">Cá nhân hóa hiệu ứng mờ</string>
+  <string name="settings_blur_sum">Cài đặt nền mờ cho UI hệ thống</string>
+  <string name="blurred_status_bar_expanded_enabled_pref">Mờ nền thanh trạng thái</string>
+  <string name="blurred_status_bar_expanded_enabled_pref_summary">Làm mờ nền khi bạn kéo xuống thanh trạng thái</string>
+  <string name="translucent_notifications_pref">Làm mờ thông báo</string>
+  <string name="translucent_notifications_pref_summary">Làm mờ nền các thông báo</string>
+  <string name="translucent_quick_settings_pref">Thanh trạng thái mở rộng trong suốt</string>
+  <string name="translucent_quick_settings_pref_summary">Làm nền cài đặt nhanh trong suốt</string>
+  <string name="transluency_level_universal">Mức độ mờ</string>
+  <string name="blurred_recent_app_enabled_pref">Làm mờ các ứng dụng gần đây</string>
+  <string name="blurred_recent_app_enabled_pref_summary">Làm mờ nền hoạt động các ứng dụng gần đây</string>
+  <string name="blur_light_color">Bộ lọc màu hình ảnh sáng</string>
+  <string name="blur_dark_color">Bộ lọc màu hình ảnh tối</string>
+  <string name="blur_mixed_color">Bộ lọc màu hình ảnh hỗn hợp</string>
+  <string name="blur_notice">Về tính năng mờ</string>
+  <string name="blur_notice_summary">Các hiệu ứng mờ bị tắt trong khi xem màn hình khóa phím. Chỉ các thông báo mờ được bật!</string>
+  <string name="blur_colors_notice">Các màu này để làm gì?</string>
+  <string name="blur_colors_notice_summary">Các màu này là các pha màu nền mờ. Thay vì màu xám bình thường, bây giờ bạn có thể chọn màu sắc theo cách bạn thích. \n Có ba bộ lọc màu: Một sử dụng cho nền sáng, một sử dụng cho nền tối và một sử dụng cho nền sáng/tối, \n Vậy làm thế nào để các màu này làm việc?? \n Đơn giản, giống như các tên đã nói, bộ lọc sáng sẽ được sử dụng cho nền sáng hơn, Bộ lộc tối cho nền tối hơn và một bộ lọc hỗn hợp sẽ được sử dụng cho nền không quá tối nhưng không quá sáng. \n Các màu này được sử dụng cho nền mờ: Thanh trạng thái và các ứng dụng gần đây </string>
+  <string name="blur_expstatus_cat">Thanh trạng thái mở rộng </string>
+  <string name="blur_notifications_cat">Thông báo</string>
+  <string name="blur_qs_cat">Cài đặt nhanh</string>
+  <string name="blur_recents_cat">Các ứng dụng gần đây</string>
+  <string name="blur_colors_cat">Bộ lọc màu mờ</string>
+  <string name="blur_notices_cat">Chú ý</string>
+  <string name="blurred_scale">Tỉ lệ làm mờ</string>
+  <string name="blurred_scale_summary">Chất lượng hình ảnh mờ</string>
+  <string name="blurred_radius">Phạm vi mờ</string>
+  <string name="blurred_radius_summary">Số lượng làm mờ</string>
+  <string name="blur_cat_notice">Chú ý</string>
+  <string name="blur_cat_notice_summary">Các hiệu ứng mờ bị tắt trong khi xem màn hình khóa phím! Chỉ các thông báo mờ được bật!</string>
+  <string name="rr_build_type_title">Loại bản dựng</string>
+  <string name="rr_build_type_default">Không chính thức</string>
+  <!-- QS Header Icons -->
+  <!-- Center Date + Time in header -->
+  <!-- Settings drawer switch -->
 </resources>
