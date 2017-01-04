@@ -31,6 +31,13 @@
             	android:entryValues="@array/rr_config_style_values" />
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+                android:key="show_settings_drawer"
+                android:title="@string/show_settings_drawer_title"
+                android:summaryOn="@string/show_settings_drawer_enabled"
+                android:summaryOff="@string/show_settings_drawer_disabled"
+                android:defaultValue="true" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="disable_suggestions"
                 android:title="@string/disable_suggestions_title"
                 android:summary="@string/disable_suggestions_summary"
