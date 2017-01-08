@@ -26,6 +26,7 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.TextAppearanceSpan;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -100,8 +101,16 @@ public class SwitchBar extends LinearLayout implements CompoundButton.OnCheckedC
         final TypedArray a = context.obtainStyledAttributes(attrs, XML_ATTRIBUTES);
         int switchBarMarginStart = (int) a.getDimension(0, 0);
         int switchBarMarginEnd = (int) a.getDimension(1, 0);
-        int switchBarBackgroundColor = (int) a.getColor(2, 0);
         a.recycle();
+
+        TypedValue backgroundColorValue = new TypedValue();
+        mContext.getResources().getValue(R.color.switchbar_background_color,
+                backgroundColorValue, true);
+        if (backgroundColorValue.type == TypedValue.TYPE_ATTRIBUTE) {
+            context.getTheme().resolveAttribute(backgroundColorValue.data,
+                    backgroundColorValue, true);
+        }
+        int switchBarBackgroundColor = backgroundColorValue.data;
 
         mTextView = (TextView) findViewById(R.id.switch_text);
         mTextView.setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
