@@ -256,7 +256,10 @@ public class ExpandedDesktop extends SettingsPreferenceFragment
 
     @Override
     public void onRebuildComplete(ArrayList<ApplicationsState.AppEntry> entries) {
-        rebuild();
+        if (entries != null) {
+            handleAppEntries(entries);
+            mAllPackagesAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override
