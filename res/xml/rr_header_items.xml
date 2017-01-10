@@ -23,6 +23,29 @@
      <PreferenceCategory
         android:title="@string/qs_header_items_title">
 
+         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="status_bar_custom_header"
+            android:title="@string/status_bar_custom_header_title"
+            android:summary="@string/status_bar_custom_header_summary"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="daylight_header_pack"
+            android:title="@string/daylight_header_pack_title"
+            android:persistent="false"
+            android:dependency="status_bar_custom_header" />
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="status_bar_custom_header_shadow"
+            android:title="@string/status_bar_custom_header_shadow_title"
+            android:summary="@string/status_bar_custom_header_shadow_summary"
+            settings:maximum="100"
+            settings:minimum="0"
+            settings:units="@string/unit_percent"
+            settings:defaultVal="0"
+            android:persistent="false"
+            android:dependency="status_bar_custom_header" />
+
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="qs_settings_icon_toggle"
             android:title="@string/qs_settings_icon_title"
