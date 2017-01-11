@@ -29,16 +29,24 @@ import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
+import com.android.settings.SettingsPreferenceFragment;
+
 import com.android.settings.R;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.logging.MetricsLogger;
 
-public class Features extends Fragment {
+public class Features extends SettingsPreferenceFragment {
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.RESURRECTED;
+    }
+
     private static final String FEATURES_PATH = "/system/etc/RR/Features.txt";
-    
-    public static final String TAG = "features";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

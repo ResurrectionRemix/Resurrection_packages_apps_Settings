@@ -42,11 +42,16 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ChangeLog extends Fragment {
+public class ChangeLog extends SettingsPreferenceFragment {
+
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.RESURRECTED;
+    }
+
     private static final String CHANGELOG_PATH = "/system/etc/RR/Changelog.txt";
 
-    public static final String TAG = "changelog";
-    
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {

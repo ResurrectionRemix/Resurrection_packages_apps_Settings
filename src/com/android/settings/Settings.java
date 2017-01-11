@@ -54,8 +54,6 @@ public class Settings extends SettingsActivity {
     public static class NightDisplaySettingsActivity extends SettingsActivity { /* empty */ }
     public static class DeviceInfoSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ApplicationSettingsActivity extends SettingsActivity { /* empty */ }
-    public static class ChangeLog extends SettingsActivity { /* empty */ }
-    public static class Features extends SettingsActivity { /* empty */ }
     public static class About extends SettingsActivity { /* empty */ }
     public static class AboutSettingsActivity extends SettingsActivity { /* empty */ }
     public static class ManageApplicationsActivity extends SettingsActivity { /* empty */ }
