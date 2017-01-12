@@ -45,7 +45,7 @@
   <string name="github_xenon92">https://github.com/xenon92</string>
   <string name="github_t4n017">https://github.com/t4n017</string>
   <string name="rr">Əlaqələr</string>
-  <string name="rr_website_title">Vebsayt</string>
+  <string name="rr_website_title">Veb-səhifə</string>
   <string name="rr_website_summary">Resurrection Rom haqqında daha çox məlumat əldə edin</string>
   <string name="rr_forum_title">Forum</string>
   <string name="rr_forum_summary">Resurrection foruma üzv olun</string>
@@ -124,6 +124,7 @@
   <string name="notification_drawer_title">Bildiriş qutusu</string>
   <string name="recents_settings_title">Son İstifadə Edilənlər</string>
   <string name="recents_ui_title">Ümumi Sistem İnterfeysi</string>
+  <string name="animation_title">Animasiyalar</string>
   <string name="button_settings">Düymələr</string>
   <string name="rr_misc_title">Digərləri</string>
   <string name="rr_ui_title">İnterfeys</string>
@@ -137,7 +138,14 @@
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">Vəziyyət çubuğunun saat və tarixinin müxtəlif elementlərini özəlləşdirin</string>
   <string name="status_bar_logo_summary">Vəziyyət çubuğundakı təsadüfi ikonları aktivləşdirin və ya deaktivləşdirin. Element və mövqeyini özəlləşdirin</string>
+  <string name="system_app_remover_summary">Xoşlamadığın sistem proqramlarını sil</string>
   <!-- AOKP custom system animations -->
+  <string name="animation_title">Animasiyalar</string>
+  <string name="system_animation_title">Sistem animasiyaları</string>
+  <string name="activity_open_title">Açma animasiyası</string>
+  <string name="activity_close_title">Bağlama animasiyası</string>
+  <string name="task_move_to_front_title">İrəli getmə animasiyası</string>
+  <string name="task_move_to_back_title">Geriyə getmə animasiyası</string>
   <string name="wallpaper_close_title">Divar kağızı bağlama animasiyası</string>
   <string name="wallpaper_intra_open_title">Divar kağızları arasında açma animasiyası</string>
   <string name="wallpaper_intra_close_title">Divar kağızları arasında bağlama animasiyası</string>
@@ -194,6 +202,9 @@
   <string name="pref_scrollingcache_force_enable">Aktivləşdirməyə məcbur et</string>
   <string name="pref_scrollingcache_default_enable">Varsayılan olaraq aktivləşdir</string>
   <!-- Volume Steps -->
+  <string name="volume_steps_notification_title">Səs səviyyəsi: Bildiriş</string>
+  <string name="volume_steps_system_title">Səs səviyyəsi: Sistem</string>
+  <string name="volume_steps_voice_call_title">Səs səviyyəsi: Zəng səsi</string>
   <string name="volume_steps_60">60</string>
   <string name="volume_steps_45">45</string>
   <string name="volume_steps_30">30</string>
@@ -206,15 +217,29 @@
   <!-- Force expanded notifications -->
   <!-- Disabling immersive mode messages -->
   <!-- Hide Apps from Recents -->
+  <string name="hide_apps_from_recents_title">Gizlədilmiş tətbiqlər</string>
+  <string name="hide_from_recents_add_app">Tətbiq əlavə et</string>
   <!-- About device screen, CPU and RAM info. -->
+  <string name="cpu_info">Prosessor</string>
   <string name="mem_info">RAM</string>
   <!-- Network traffic -->
+  <string name="show_network_traffic_frequency">İntervalı yenilə</string>
+  <string name="show_network_traffic_up">Gedən</string>
+  <string name="show_network_traffic_down">Gələn</string>
+  <string name="show_network_traffic_all">Gedən və gələn</string>
+  <string name="show_network_traffic_bit">Bit/saniyə</string>
+  <string name="show_network_traffic_byte">Bayt/saniyə</string>
   <string name="show_network_traffic_500">500 ms</string>
   <string name="show_network_traffic_1000">1000 ms</string>
   <string name="show_network_traffic_1500">1500 ms</string>
   <string name="show_network_traffic_2000">2000 ms</string>
   <!-- Statusbar RR logo -->
+  <string name="status_bar_rr_logo_title">Logonu göstər</string>
+  <string name="status_bar_rr_logo_summary">Durum çubuğunda RR logosunu göstər</string>
   <!-- Color picker -->
+  <string name="apply_color_title">Rəng tətbiq et</string>
+  <string name="palette_title">Başqaları</string>
+  <string name="reset_color_title">Yenidən başla</string>
   <string name="reset_android_title">Android varsayılan</string>
   <string name="reset_title">Resurrection varsayılan</string>
   <string name="reset_theme_default_title">Tema varsayılanı</string>
@@ -269,11 +294,13 @@
   <string name="power_menu_animation_fly">Parıltı</string>
   <string name="power_menu_animation_card">3D</string>
   <string name="power_menu_animation_translucent_top">Şəffaf (üst)</string>
+  <string name="rr_battery_title">Batereya</string>
   <!-- Tiles animation style  -->
   <string name="qs_set_animation_style">%1$s</string>
   <string name="qs_set_animation_duration">%1$s</string>
   <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Immersive Recents -->
+  <string name="immersive_recents_fullscreen">Bütöv ekran</string>
   <!-- Dashboard suggestions -->
   <!-- Gesture Anywhere -->
   <string name="gesture_anywhere_enabled_title">Hər Yerdə Hərəkət</string>
