@@ -104,6 +104,12 @@
             android:icon="@drawable/rr_alarmblocker_icon"
             android:fragment="com.android.settings.rr.AlarmBlocker" />
 
+        <PreferenceScreen
+            android:key="screenstate_category"
+            android:title="@string/screen_state_toggles_title"
+            android:icon="@drawable/rr_suspend_icon"
+            android:fragment="com.android.settings.rr.ScreenStateToggles" />
+
        <!-- System APP Remover -->
        <PreferenceScreen
             android:id="@+id/system_app_remover"

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/screen_state_toggles_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <SwitchPreference
+        android:key="screen_state_toggles_enable_key"
+        android:title="@string/screen_state_toggles_enable_title"
+        android:summary="@string/screen_state_toggles_enable_summary"
+        android:defaultValue="false"/>
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="screen_state_off_delay"
+        android:title="@string/screen_state_off_delay_title"
+        android:summary="@string/screen_state_off_delay_summary"
+        android:max="180"
+        settings:min="0"
+        settings:units="s"
+        android:persistent="false"
+        android:dependency="screen_state_toggles_enable_key"/>
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="screen_state_on_delay"
+        android:title="@string/screen_state_on_delay_title"
+        android:summary="@string/screen_state_on_delay_summary"
+        android:max="180"
+        settings:min="0"
+        settings:units="s"
+        android:persistent="false"
+        android:dependency="screen_state_toggles_enable_key"/>
+
+    <PreferenceCategory
+        android:key="screen_state_toggles_mobile_key"
+        android:title="@string/screen_state_toggles_mobile_title">
+
+            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="screen_state_toggles_twog"
+            android:title="@string/screen_state_toggles_twog"
+            android:summary="@string/screen_state_toggles_twog_summary"
+            android:defaultValue="false"/>
+
+            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="screen_state_toggles_mobile_data"
+            android:title="@string/screen_state_toggles_mobile_data"
+            android:summary="@string/screen_state_toggles_mobile_data_summary"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="screen_state_toggles_location_key"
+        android:title="@string/screen_state_toggles_location_title">
+
+            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="screen_state_toggles_gps"
+            android:title="@string/screen_state_toggles_gps"
+            android:summary="@string/screen_state_toggles_gps_summary"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+</PreferenceScreen>
