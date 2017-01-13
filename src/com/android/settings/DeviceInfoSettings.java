@@ -258,7 +258,8 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
-        if (preference.getKey().equals(KEY_FIRMWARE_VERSION)) {
+        if (preference.getKey().equals(KEY_FIRMWARE_VERSION)
+                || preference.getKey().equals(KEY_MOD_VERSION)) {
             System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
             mHits[mHits.length-1] = SystemClock.uptimeMillis();
             if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
@@ -272,6 +273,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 }
 
                 Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.putExtra("is_lineage", preference.getKey().equals(KEY_MOD_VERSION));
                 intent.setClassName("android",
                         com.android.internal.app.PlatLogoActivity.class.getName());
                 try {
@@ -350,20 +352,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             PersistableBundle b = configManager.getConfig();
             if (b != null && b.getBoolean(CarrierConfigManager.KEY_CI_ACTION_ON_SYS_UPDATE_BOOL)) {
                 ciActionOnSysUpdate(b);
-            }
-        } else if (preference.getKey().equals(KEY_MOD_VERSION)) {
-            System.arraycopy(mHits, 1, mHits, 0, mHits.length-1);
-            mHits[mHits.length-1] = SystemClock.uptimeMillis();
-            if (mHits[0] >= (SystemClock.uptimeMillis()-500)) {
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.putExtra("is_cm", true);
-                intent.setClassName("android",
-                        com.android.internal.app.PlatLogoActivity.class.getName());
-                try {
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
-                }
             }
         }
         return super.onPreferenceTreeClick(preference);
