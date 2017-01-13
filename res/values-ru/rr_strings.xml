@@ -569,10 +569,10 @@
   <string name="doze_pulse_duration_visible_summary"></string>
   <string name="doze_pulse_duration_out_title">Затухание</string>
   <string name="doze_pulse_duration_out_summary"></string>
-  <string name="doze_trigger_pickup_title">Взятие устройства в руку</string>
+  <string name="doze_trigger_pickup_title">Триггер датчика движения</string>
   <string name="doze_trigger_pickup_summary_on">Пульсация экрана при запрете спящего режима будет переключаться датчиком подбора</string>
   <string name="doze_trigger_pickup_summary_off">Уведомления не будут использованы для запуска</string>
-  <string name="doze_trigger_notification_title">Получение уведомления</string>
+  <string name="doze_trigger_notification_title">Триггер уведомлений</string>
   <string name="doze_trigger_notification_summary_on">Doze включится при получении уведомления</string>
   <string name="doze_trigger_notification_summary_off">Уведомления не будут вызывать включение doze</string>
   <string name="doze_brightness_level_title">Уровень яркости</string>
@@ -641,7 +641,7 @@
   <string name="lockscreen_shortcuts_single_tap">Одиночное нажатие</string>
   <string name="lockscreen_shortcuts_double_tap">Двойное нажатие</string>
   <string name="lockscreen_shorcuts_longpress_title">Долгое нажатие</string>
-  <string name="lockscreen_shorcuts_longpress_summary">Долгое нажатие откроет выбранные ярлыки экрана блокировки</string>
+  <string name="lockscreen_shorcuts_longpress_summary">Долгое нажатие для открытия приложений с помощью ярлыков</string>
   <string name="shortcuts_icon_picker_alarm">Будильник</string>
   <string name="shortcuts_icon_picker_andy">Andy</string>
   <string name="shortcuts_icon_picker_battery">Батарея</string>
@@ -1286,7 +1286,7 @@
   <!-- Less Notification sounds -->
   <string name="notifications_category_title">Уведомления</string>
   <string name="less_notification_sounds_title">Менее частые звуки уведомлений</string>
-  <string name="less_notification_sounds_summary">Ограничить звуки уведомлений: каждое приложение воспроизводит звук один раз в заданный временной отрезок</string>
+  <string name="less_notification_sounds_summary">Ограничить звук уведомления каждого приложения, чтобы он звучал только один раз за выбраный период времени</string>
   <string name="less_notification_sounds_default">По умолчанию</string>
   <string name="less_notification_sounds_3s">3 секунды</string>
   <string name="less_notification_sounds_5s">5 секунд</string>
@@ -1476,13 +1476,13 @@
   <string name="fling_appearance">Вид</string>
   <string name="fling_show_logo_title">Показывать логотип Fling</string>
   <string name="fling_animate_logo_title">Анимация логотипа</string>
-  <string name="fling_animate_logo_summary">Анимированный логотип при нажатиях</string>
+  <string name="fling_animate_logo_summary">Логотип анимируется при нажатии</string>
   <string name="fling_logo_color">Цвет логотипа</string>
   <string name="fling_logo_custom_logo_pick_title">Пользовательский значок логотипа</string>
   <string name="fling_logo_custom_logo_image_pick_title">Пользовательская картинка логотипа</string>
   <string name="fling_logo_custom_logo_reset_title">Сбросить значок логотипа</string>
   <string name="fling_show_ripple_title">Показать пульсацию</string>
-  <string name="fling_show_ripple_summary">Эффект пульсаций при нажатиях</string>
+  <string name="fling_show_ripple_summary">Эффект пульсации при нажатиях</string>
   <string name="fling_ripple_color">Цвет пульсации</string>
   <string name="fling_longpress_timeout_label_left">Меньшая задержка</string>
   <string name="fling_longpress_timeout_label_right">Большая задержка</string>
@@ -1508,7 +1508,7 @@
   <string name="pulse_solid_dimen_category">Настройки режима сплошных линий</string>
   <!-- Pulse config -->
   <string name="pulse_custom_dimen">Ширина панели</string>
-  <string name="pulse_custom_div">Интервал</string>
+  <string name="pulse_custom_div">Расстояние между панелями</string>
   <string name="pulse_filled_block_size">Размер блоков</string>
   <string name="pulse_empty_block_size">Расстояние между блоками</string>
   <!-- Navbar height -->
@@ -1531,7 +1531,7 @@
   <string name="smartbar_button_animation_ripple">Пульсация</string>
   <string name="smartbar_button_animation_spring">Отпружинивание</string>
   <string name="smartbar_factory_reset_title">Сбросить к настройкам по умолчанию</string>
-  <string name="smartbar_factory_reset_confirm">Вы уверены, что хотите вернуть настройки в первоначальное состояние?</string>
+  <string name="smartbar_factory_reset_confirm">Вы уверены что вы хотите сбросить настройки SmartBar к настройкам по умолчанию?</string>
   <string name="smartbar_ime_action_title">Действия при вводе</string>
   <string name="smartbar_ime_action_summary">Выберите, какие кнопки отображать, когда отображается наэкранная клавиатура</string>
   <string name="smartbar_ime_action_none">Нет</string>
@@ -1621,7 +1621,7 @@
   <string name="carrier_label_number_of_notification_icons_title">Максимальное количество значков перед скрытием</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_title">Текст уведомлений</string>
-  <string name="ticker_title">Уведомления в строке состояния</string>
+  <string name="ticker_title">Старый вид уведомлений в строке состояния</string>
   <string name="ticker_screen_summary">Настроить стиль бегущих уведомлений в строке состояния</string>
   <string name="ticker_summary">Включить отображение уведомлений в строке состояния как в старых версиях Android</string>
   <string name="ticker_restore_defaults_title">Восстановить значения по умолчанию</string>
@@ -1717,7 +1717,7 @@
   <string name="heads_up_settings">Всплывающие уведомления</string>
   <!-- Lockscreen battery info indicator  -->
   <string name="lockscreen_battery_info_title">Информация о батарее на экране блокировки</string>
-  <string name="lockscreen_battery_info_summary">Показывать макс. напряжение и температуру аккумулятора на экране блокировки во время зарядки</string>
+  <string name="lockscreen_battery_info_summary">Показывать примерное максимальное текущее напряжение и температуру аккумулятора на экране блокировки во время зарядки</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Длительность</string>
   <string name="heads_up_time_out_summary">Уведомление будет показываться <xliff:g id="number">%d</xliff:g> секунд(ы)</string>
@@ -1731,7 +1731,7 @@
   <string name="heads_up_snooze_title">Таймер переноса</string>
   <string name="heads_up_snooze_summary_one_minute">Жест вверх скроет уведомление от приложения на одну минуту</string>
   <string name="heads_up_snooze_summary">Жест вверх по всплывающему уведомлению скроет его на <xliff:g id="number">%d</xliff:g> минут</string>
-  <string name="heads_up_snooze_disabled_summary">Таймер переноса отключен</string>
+  <string name="heads_up_snooze_disabled_summary">Таймер режима \"Не беспокоить\" отключен</string>
   <string name="heads_up_snooze_1min">1 минута</string>
   <string name="heads_up_snooze_3min">3 минуты</string>
   <string name="heads_up_snooze_5min">5 минут</string>
@@ -1824,7 +1824,7 @@
   <string name="effect_rotate_down">Поворот вниз</string>
   <string name="effect_rotate_up">Поворот вверх</string>
   <string name="effect_scale_in_out">Вылет</string>
-  <string name="effect_stack">Друг на друга</string>
+  <string name="effect_stack">Стек</string>
   <string name="effect_tablet">Планшетный</string>
   <string name="effect_zoom_in">Приблизить</string>
   <string name="effect_zoom_out_slide">Уменьшение слайдом</string>
@@ -1860,16 +1860,16 @@
   <!-- Scrolling Animation Controls -->
   <string name="scrolling_title">Модификаторы прокрутки</string>
   <string name="scrolling_summary">Просмотр и изменение анимаций прокрутки</string>
-  <string name="animation_fling_velocity_title">Скорость броска</string>
+  <string name="animation_fling_velocity_title">Скорость Fling</string>
   <string name="animation_scroll_friction_title">Интенсивность прокрутки</string>
-  <string name="animation_overscroll_distance_title">Расстояние перепрокрутки</string>
+  <string name="animation_overscroll_distance_title">Расстояние перепрокручивания</string>
   <string name="animation_overfling_distance_title">Расстояние отскока</string>
   <string name="animation_duration_summary">Установить длительность</string>
   <string name="animation_no_scroll_title">Настраиваемые модификаторы прокрутки</string>
   <string name="animation_no_scroll_summary_on">Включено</string>
-  <string name="animation_no_scroll_summary_off">Выключить</string>
+  <string name="animation_no_scroll_summary_off">Выключено</string>
   <string name="scroll_disclaimer_summary">Примечание: Большинство приложений необходимо перезапустить, чтобы пользовательские значения вступили в силу</string>
-  <string name="animation_settings_reset_message">Восстановить настройки анимаций по умолчанию?</string>
+  <string name="animation_settings_reset_message">Сбросить все настройки анимаций к значениям по умлолчанию?</string>
   <string name="qs_tile_title_visibility_title">Названия плиток быстрых настроек</string>
   <string name="qs_tile_title_visibility_summary_on">Названия плиток быстрых настроек теперь видны</string>
   <string name="qs_tile_title_visibility_summary_off">Названия плиток быстрых настроек теперь не видны</string>
@@ -1881,7 +1881,7 @@
   <string name="battery_large_text_summary_on">Отображается большой текст</string>
   <string name="battery_large_text_summary_off">Отображается нормальный текст</string>
   <string name="nav_bar_dynamic_title">Динамический цвет панели навигации</string>
-  <string name="nav_bar_dynamic_summary">Включите выключите этот переключатель для навигационного бара,чтобы адаптировать к стандартному черному цвету.Перезапустите желаемое приложение,чтобы увидеть эффект</string>
+  <string name="nav_bar_dynamic_summary">Включите/выключите этот переключатель для панели навигации, чтобы адаптировать панель к стандартному черному цвету. Перезапустите желаемое приложение, чтобы увидеть эффект</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Внимание</string>
   <string name="title_keyboard_input">Параметры ввода</string>
@@ -1890,7 +1890,7 @@
   <string name="keyboard_rotation_toggle_title">Автоповорот клавиатуры</string>
   <string name="keyboard_rotation_toggle_summary">Принудительный поворот экрана, когда показывается клавиатура</string>
   <string name="keyboard_rotation_timeout_title">Тайм-аут автоповорота</string>
-  <string name="keyboard_rotation_timeout_summary">Отключить сенсор автоповорота после <xliff:g id="rotate_timeout">%1$s</xliff:g> секунд, как клавиатура скрыта</string>
+  <string name="keyboard_rotation_timeout_summary">Отключить сенсор автоповорота, спустя <xliff:g id="rotate_timeout">%1$s</xliff:g> секунд, после скрытия клавиатуры</string>
   <string name="keyboard_rotation_dialog">Эта функция принудительно включает автоповорот во время отображения клавиатуры и не имеет эффекта, когда автоповорот уже включен.</string>
   <string name="show_enter_key_title">Показывать кнопку ввода</string>
   <string name="show_enter_key_summary">Принудительно показывать кнопку ввода вместо кнопки смайликов</string>
@@ -1898,9 +1898,9 @@
   <string name="settings_blur_cat">Настройки размытия</string>
   <string name="settings_blur_sum">Размытие фона системного интерфейса</string>
   <string name="blurred_status_bar_expanded_enabled_pref">Размытие фона строки состояния</string>
-  <string name="blurred_status_bar_expanded_enabled_pref_summary">Размывать фон, когда вы тяните вниз строку состояния</string>
+  <string name="blurred_status_bar_expanded_enabled_pref_summary">Размытие фона при отпускании вниз строки состояния</string>
   <string name="translucent_notifications_pref">Прозрачные уведомления</string>
-  <string name="translucent_notifications_pref_summary">Сделать фон уведомлений прозрачным</string>
+  <string name="translucent_notifications_pref_summary">Установить полупрозрачный фон для уведомлений</string>
   <string name="translucent_quick_settings_pref">Прозрачная расширенная строка состояния</string>
   <string name="translucent_quick_settings_pref_summary">Сделать фон панели быстрых настроек прозрачным</string>
   <string name="transluency_level_universal">Уровень прозрачности</string>
@@ -1938,16 +1938,16 @@
   <string name="qs_edit_title">Значок редактирования быстрых настроек</string>
   <string name="qs_edit_summary">Выключить плитку значка редактирования в заголовке</string>
   <string name="qs_multiuser_switch_title">Переключатель пользователей</string>
-  <string name="qs_multiuser_switch_summary">Выключить переключатель смены-пользователя в заголовке</string>
+  <string name="qs_multiuser_switch_summary">Выключить переключатель для смены пользователя в заголовке</string>
   <string name="qs_expand_indicator_title">Индикатор расширения</string>
   <string name="qs_expand_indicator_summary">Выключить индикатор расширения в заголовке</string>
   <!-- Center Date + Time in header -->
   <string name="qs_date_time_center_title">Дата и время по центру</string>
-  <string name="qs_date_time_center_summary">Требуется отключить одну или более иконок</string>
+  <string name="qs_date_time_center_summary">Требуется отключить один или больше значков</string>
   <!-- Settings drawer switch -->
-  <string name="show_settings_drawer_title">Показывать боковое меню с настройками</string>
-  <string name="show_settings_drawer_enabled">Боковое меню с настройками включено</string>
-  <string name="show_settings_drawer_disabled">Боковое меню с настройками выключено</string>
+  <string name="show_settings_drawer_title">Показывать боковое меню настроек</string>
+  <string name="show_settings_drawer_enabled">Боковое меню настроек включено</string>
+  <string name="show_settings_drawer_disabled">Боковое меню настроек выключено</string>
   <!-- Custom LCD density -->
   <string name="custom_density_settings">Пользовательская плотность пикселей дисплея</string>
   <string name="custom_density_summary"><xliff:g name="count" example="520">%d</xliff:g> Плотность пикселей</string>
