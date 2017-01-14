@@ -23,11 +23,17 @@
      <PreferenceCategory
         android:title="@string/qs_header_items_title">
 
-         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="status_bar_custom_header"
             android:title="@string/status_bar_custom_header_title"
             android:summary="@string/status_bar_custom_header_summary"
             android:defaultValue="false" />
+
+       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="enable_task_manager"
+        android:title="@string/enable_task_manager_title"
+        android:summary="@string/enable_task_manager_summary" />
+
 
         <ListPreference
             android:key="daylight_header_pack"
