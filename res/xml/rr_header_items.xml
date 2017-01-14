@@ -34,12 +34,31 @@
         android:title="@string/enable_task_manager_title"
         android:summary="@string/enable_task_manager_summary" />
 
+         <ListPreference
+            android:key="custom_header_provider"
+            android:title="@string/custom_header_provider_title"
+            android:persistent="false"
+            android:entries="@array/custom_header_provider_entries"
+            android:entryValues="@array/custom_header_provider_values"
+            android:dependency="status_bar_custom_header" />
 
+        <!-- TODO should be dependent ot provider type == daylight -->
         <ListPreference
             android:key="daylight_header_pack"
             android:title="@string/daylight_header_pack_title"
             android:persistent="false"
             android:dependency="status_bar_custom_header" />
+
+        <PreferenceScreen
+            android:key="custom_header_browse"
+            android:title="@string/custom_header_browse_title"
+            android:summary="@string/custom_header_browse_summary"
+            android:dependency="status_bar_custom_header"
+            android:persistent="false" >
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="org.omnirom.omnistyle"
+                    android:targetClass="org.omnirom.omnistyle.BrowseHeaderActivity" />
+        </PreferenceScreen>
 
         <com.android.settings.rr.SeekBarPreference
             android:key="status_bar_custom_header_shadow"
