@@ -45,6 +45,7 @@ public class PrivateVolumeFormat extends InstrumentedFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         final StorageManager storage = getActivity().getSystemService(StorageManager.class);
         final String volumeId = getArguments().getString(VolumeInfo.EXTRA_VOLUME_ID);
         mVolume = storage.findVolumeById(volumeId);
