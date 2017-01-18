@@ -32,11 +32,18 @@
             android:summary="@string/qs_advanced_data_summary"
             android:defaultValue="false" />
 
+        <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+            android:key="qs_show_brightness"
+            android:title="@string/show_brightness"
+            android:summaryOn="@string/qs_brightness_slider_on"
+            android:summaryOff="@string/qs_brightness_slider_off"
+            android:defaultValue="true" />
+
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-       		android:key="qs_show_brightness_icon"
-        	android:title="@string/brightness_icon_title"
-        	android:summary="@string/brightness_icon_summary"
-        	android:defaultValue="false"/>
+            android:key="qs_show_brightness_icon"
+            android:title="@string/brightness_icon_title"
+            android:summary="@string/brightness_icon_summary"
+            android:defaultValue="false"/>
 
         <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
             android:key="qs_wifi_easy_toggle"
