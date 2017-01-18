@@ -38,6 +38,12 @@
                 android:icon="@drawable/ic_audio_ring"
                 android:title="@string/ring_volume_option_title" />
 
+        <!-- Notification volume -->
+        <com.android.settings.notification.VolumeSeekBarPreference
+                android:key="notification_volume"
+                android:icon="@*android:drawable/ic_audio_ring_notif"
+                android:title="@string/notification_volume_option_title" />
+
         <!-- Increasing ring -->
         <cyanogenmod.preference.CMSystemSettingSwitchPreference
                 android:key="increasing_ring"
@@ -48,12 +54,6 @@
                 android:key="increasing_ring_volume"
                 android:icon="@drawable/ring_notif_increasing"
                 android:dependency="increasing_ring" />
-
-        <!-- Notification volume -->
-        <com.android.settings.notification.VolumeSeekBarPreference
-                android:key="notification_volume"
-                android:icon="@*android:drawable/ic_audio_ring_notif"
-                android:title="@string/notification_volume_option_title" />
 
         <!-- Also vibrate for calls -->
         <SwitchPreference
