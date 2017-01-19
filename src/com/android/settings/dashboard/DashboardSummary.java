@@ -18,8 +18,13 @@ package com.android.settings.dashboard;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.UserHandle;
+import android.provider.Settings;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,7 +35,6 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.settings.InstrumentedFragment;
 import com.android.settings.R;
-import com.android.settings.Settings;
 import com.android.settings.SettingsActivity;
 import com.android.settings.dashboard.conditional.Condition;
 import com.android.settings.dashboard.conditional.ConditionAdapterUtils;
@@ -53,12 +57,12 @@ public class DashboardSummary extends InstrumentedFragment
     private static final String TAG = "DashboardSummary";
 
     public static final String[] INITIAL_ITEMS = new String[] {
-            Settings.WifiSettingsActivity.class.getName(),
-            Settings.BluetoothSettingsActivity.class.getName(),
-            Settings.DataUsageSummaryActivity.class.getName(),
-            Settings.PowerUsageSummaryActivity.class.getName(),
-            Settings.ManageApplicationsActivity.class.getName(),
-            Settings.StorageSettingsActivity.class.getName(),
+            com.android.settings.Settings.WifiSettingsActivity.class.getName(),
+            com.android.settings.Settings.BluetoothSettingsActivity.class.getName(),
+            com.android.settings.Settings.DataUsageSummaryActivity.class.getName(),
+            com.android.settings.Settings.PowerUsageSummaryActivity.class.getName(),
+            com.android.settings.Settings.ManageApplicationsActivity.class.getName(),
+            com.android.settings.Settings.StorageSettingsActivity.class.getName(),
     };
 
     private static final String SUGGESTIONS = "suggestions";
@@ -72,10 +76,12 @@ public class DashboardSummary extends InstrumentedFragment
     private SummaryLoader mSummaryLoader;
     private ConditionManager mConditionManager;
     private SuggestionParser mSuggestionParser;
-    private LinearLayoutManager mLayoutManager;
+    private GridLayoutManager mLayoutManager;
     private SuggestionsChecks mSuggestionsChecks;
     private ArrayList<String> mSuggestionsShownLogged;
     private ArrayList<String> mSuggestionsHiddenLogged;
+
+    public static int mNumColumns;
 
     @Override
     protected int getMetricsCategory() {
@@ -106,6 +112,9 @@ public class DashboardSummary extends InstrumentedFragment
         }
         if (DEBUG_TIMING) Log.d(TAG, "onCreate took " + (System.currentTimeMillis() - startTime)
                 + " ms");
+
+        final Resources res = context.getResources();
+        mNumColumns = res.getInteger(R.integer.dashboard_num_columns);
     }
 
     @Override
@@ -128,6 +137,7 @@ public class DashboardSummary extends InstrumentedFragment
         }
         if (DEBUG_TIMING) Log.d(TAG, "onStart took " + (System.currentTimeMillis() - startTime)
                 + " ms");
+        updateSettings();
     }
 
     @Override
@@ -191,7 +201,13 @@ public class DashboardSummary extends InstrumentedFragment
     public void onViewCreated(View view, Bundle bundle) {
         long startTime = System.currentTimeMillis();
         mDashboard = (FocusRecyclerView) view.findViewById(R.id.dashboard_container);
-        mLayoutManager = new LinearLayoutManager(getContext());
+        mLayoutManager = new GridLayoutManager(getContext(), mNumColumns);
+        mLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                return mAdapter.isPositionFullSpan(position) ? mNumColumns : 1;
+            }
+        });
         mLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         if (bundle != null) {
             int scrollPosition = bundle.getInt(EXTRA_SCROLL_POSITION);
@@ -206,6 +222,7 @@ public class DashboardSummary extends InstrumentedFragment
         mDashboard.setAdapter(mAdapter);
         mSummaryLoader.setAdapter(mAdapter);
         ConditionAdapterUtils.addDismiss(mDashboard);
+        updateSettings();
         if (DEBUG_TIMING) Log.d(TAG, "onViewCreated took "
                 + (System.currentTimeMillis() - startTime) + " ms");
         rebuildUI();
@@ -223,6 +240,7 @@ public class DashboardSummary extends InstrumentedFragment
 
     @Override
     public void onCategoriesChanged() {
+        updateSettings();
         rebuildUI();
     }
 
@@ -265,5 +283,40 @@ public class DashboardSummary extends InstrumentedFragment
                     ((SettingsActivity) activity).getDashboardCategories();
             mAdapter.setCategoriesAndSuggestions(categories, tiles);
         }
+    }
+
+    private void updateSettings() {
+        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
+        int numColumns = isPrimary ? getDashboardNumColumns() : mNumColumns;
+
+        if (numColumns == 1) {
+            mNumColumns = 1;
+        }
+        if (numColumns == 2) {
+            mNumColumns = 2;
+        }
+        if (numColumns == 3) {
+            mNumColumns = 3;
+        }
+
+        boolean isLandscape = getResources().getConfiguration().orientation
+                == Configuration.ORIENTATION_LANDSCAPE;
+        // always show one column more in landscape
+        mNumColumns = isLandscape ? numColumns + 1 : numColumns;
+        mLayoutManager.setSpanCount(mNumColumns);
+        mAdapter.setNumColumns(mNumColumns);
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        updateSettings();
+    }
+
+    private int getDashboardNumColumns() {
+        final Context context = getContext();
+        return Settings.System.getInt(context.getContentResolver(),
+                Settings.System.DASHBOARD_COLUMNS, mNumColumns);
     }
 }
