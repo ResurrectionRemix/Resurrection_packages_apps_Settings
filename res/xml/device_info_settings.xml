@@ -16,6 +16,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:cm="http://schemas.android.com/apk/res/cyanogenmod.platform"
+        xmlns:rr="http://schemas.android.com/apk/res/com.android.settings"
         xmlns:settings="http://schemas.android.com/apk/res-auto"
         android:title="@string/about_settings">
 
@@ -34,17 +35,24 @@
                     android:targetClass="@string/additional_system_update_menu" />
         </PreferenceScreen-->
 
-         <Preference android:key="mod_version"
-                 style="?android:preferenceInformationStyle"
-                 android:title="@string/rr_mod_version"
-                 android:summary="@string/mod_version_default"
-                 android:icon="@drawable/ic_rr_tools_tint"/>
+        <Preference android:key="mod_version"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/rr_mod_version"
+                android:summary="@string/mod_version_default"
+                android:icon="@drawable/ic_rr_tools_tint"/>
 
-	    <!-- Build date -->
-	    <Preference android:key="build_date"
-			    style="?android:preferenceInformationStyle"
-				android:title="@string/build_date"
-				android:summary="@string/device_info_default" />
+        <!-- About Resurrection -->        
+        <PreferenceScreen
+                android:key="about_rom"
+                android:fragment="com.android.settings.rr.About"
+                android:title="@string/about_rr_settings"
+                android:summary="@string/about_r0m_summary" />
+        
+        <!-- Build date -->
+        <Preference android:key="build_date"
+                style="?android:preferenceInformationStyle"
+                android:title="@string/build_date"
+                android:summary="@string/device_info_default" />
 
         <!-- Device status - launches activity -->
         <PreferenceScreen android:key="status_info"
@@ -158,7 +166,7 @@
                 android:enabled="false"
                 android:shouldDisableView="false"
                 android:title="@string/mbn_version"
-				android:summary="@string/device_info_default"/>
+                android:summary="@string/device_info_default"/>
 
         <!-- Device Kernel version -->
         <com.android.settings.DividerPreference
@@ -195,7 +203,7 @@
         <Preference android:key="qgp_version"
                 style="?android:preferenceInformationStyle"
                 android:title="@string/qgp_version"
-		android:summary="@string/device_info_default"/>
+                android:summary="@string/device_info_default"/>
 
         <!-- SELinux status information -->
         <com.android.settings.DividerPreference

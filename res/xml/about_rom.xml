@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 The Resurrection Remix Project
+
+<!-- Copyright (C) 2017 The Resurrection Remix Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,141 +14,159 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen
-	xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:resurrection="http://schemas.android.com/apk/res/com.android.settings"
-	xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-	android:title="@string/about_rr_settings">
+        <PreferenceScreen
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:resurrection="http://schemas.android.com/apk/res/com.android.settings"
+            xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+            android:title="@string/about_rr_settings">
                 
- 	<PreferenceCategory
-		android:key="links"
-		android:title="@string/rr"> 
+        <PreferenceCategory
+            android:key="links"
+            android:title="@string/rr"> 
 
         <!-- Change Log -->
-    <PreferenceScreen 
-        android:key="changelog"
-        android:title="@string/changelog_title"
-        android:summary="@string/changelog_title_summary"
-        android:fragment="com.android.settings.rr.ChangeLog" />
+        <PreferenceScreen 
+            android:key="changelog"
+            android:title="@string/changelog_title"
+            android:icon="@drawable/rr_changelog_icon"
+            android:summary="@string/changelog_title_summary"
+            android:fragment="com.android.settings.rr.ChangeLog" />
 
         <!-- Features -->
-    <PreferenceScreen 
-        android:key="features"
-        android:title="@string/features_title"
-        android:summary="@string/features_title_summary"
-        android:fragment="com.android.settings.rr.Features" />
+        <PreferenceScreen 
+            android:key="features"
+            android:title="@string/features_title"
+            android:icon="@drawable/rr_features_icon"
+            android:summary="@string/features_title_summary"
+            android:fragment="com.android.settings.rr.Features" />
 
         <!-- Share RR ROM -->
-         <Preference
-             android:key="share"
-             android:title="@string/share_rr"
-             android:summary="@string/share_rr_summary" />
-
-
+        <Preference
+            android:key="share"
+            android:icon="@drawable/rr_share_icon"
+            android:title="@string/share_rr"
+            android:summary="@string/share_rr_summary" />
 
        <!-- Logcat or GTFO -->
-	<PreferenceScreen
+        <PreferenceScreen
             android:key="drill"
+            android:icon="@drawable/rr_drill_icon"
             android:fragment="com.android.settings.rr.rrdrill"
             android:title="@string/rr_drill_title"
+            android:summary="@string/drill_summary"
             />
              
-		<Preference
-			android:key="rr_website"
-			android:title="@string/rr_website_title"
-			android:summary="@string/rr_website_summary" />
-			
-		<Preference
-			android:key="rr_forum"
-			android:title="@string/rr_forum_title"
-			android:summary="@string/rr_forum_summary" />
+        <Preference
+            android:key="rr_website"
+            android:icon="@drawable/rr_web_icon"
+            android:title="@string/rr_website_title"
+            android:summary="@string/rr_website_summary" />
 
-		<Preference
-			android:key="rr_source"
-			android:title="@string/rr_source_title"
-			android:summary="@string/rr_source_summary" />
+        <Preference
+            android:key="rr_forum"
+            android:icon="@drawable/rr_forum_icon"
+            android:title="@string/rr_forum_title"
+            android:summary="@string/rr_forum_summary" />
+
+        <Preference
+            android:key="rr_source"
+            android:icon="@drawable/rr_source_icon"
+            android:title="@string/rr_source_title"
+            android:summary="@string/rr_source_summary" />
 
 
-		<Preference
-			android:key="rr_facebook"
-			android:title="@string/rr_facebook_title"
-			android:summary="@string/rr_facebook_summary" />
-			
-		<Preference
-			android:key="rr_google_plus"
-			android:title="@string/rr_google_plus_title"
-			android:summary="@string/rr_google_plus_summary" />
-			
-		<Preference
-			android:key="rr_donate"
-			android:title="@string/rr_donate"
-			android:summary="@string/rr_donate_summary" />
+        <Preference
+            android:key="rr_facebook"
+            android:icon="@drawable/rr_fb_icon"
+            android:title="@string/rr_facebook_title"
+            android:summary="@string/rr_facebook_summary" />
+
+        <Preference
+            android:key="rr_google_plus"
+            android:icon="@drawable/rr_gplus_icon"
+            android:title="@string/rr_google_plus_title"
+            android:summary="@string/rr_google_plus_summary" />
+
+        <Preference
+            android:key="rr_donate"
+            android:icon="@drawable/rr_donate_icon"
+            android:title="@string/rr_donate"
+            android:summary="@string/rr_donate_summary" />
                 			
-</PreferenceCategory>
-				
-	<PreferenceCategory
-		android:key="maintainer_categorie"
-		android:title="@string/maintainer_categorie_title">
-					
- 	   <PreferenceScreen
-        android:key="maintainers"
-        android:fragment="com.android.settings.rr.DeviceMaintainersFragment"
-        android:summary="@string/device_maintainers_title_summary"
-        android:title="@string/device_maintainers_title" />
+        </PreferenceCategory>
+
+        <PreferenceCategory
+            android:key="maintainer_categorie"
+            android:title="@string/maintainer_categorie_title">
+
+        <PreferenceScreen
+            android:key="maintainers"
+            android:icon="@drawable/rr_maintainers_icon"
+            android:fragment="com.android.settings.rr.DeviceMaintainersFragment"
+            android:summary="@string/device_maintainers_title_summary"
+            android:title="@string/device_maintainers_title" />
                  	
-	</PreferenceCategory>
+        </PreferenceCategory>
 
-	<PreferenceCategory
-		android:key="devs"
-		android:title="@string/dev_categorie_title">
+        <PreferenceCategory
+            android:key="devs"
+            android:title="@string/dev_categorie_title">
 
-		<com.android.settings.widgets.DeveloperPreference
+        <com.android.settings.widgets.DeveloperPreference
             android:title="Altan KRK"
+            android:icon="@drawable/rr_dev_one_icon"
+            android:summary="@string/altan_summary"
             resurrection:nameDev="Altan KRK"
             resurrection:gplusHandle="AltanKRK"
             resurrection:donateLink="@string/github_westcrip"
             resurrection:emailDev="korukaltan@gmail.com"/>
 
-</PreferenceCategory> 
+        </PreferenceCategory> 
 
-	<PreferenceCategory
-		android:key="dev_categorie_two"
-		android:title="@string/dev_categorie_title">
+        <PreferenceCategory
+            android:key="dev_categorie_two"
+            android:title="@string/dev_categorie_title">
 
-		<com.android.settings.widgets.DeveloperPreference
+        <com.android.settings.widgets.DeveloperPreference
             android:title="Varun Date"
+            android:icon="@drawable/rr_dev_two_icon"
+            android:summary="@string/varun_summary"
             resurrection:nameDev="Varun Date"
             resurrection:gplusHandle="varund7726"
             resurrection:donateLink="@string/github_varund7726"
             resurrection:emailDev="date.varun123@gmail.com"/>
 
-</PreferenceCategory> 
+       </PreferenceCategory> 
 
-	<PreferenceCategory
-		android:key="dev_categorie_three"
-		android:title="@string/dev_categorie_title">
+       <PreferenceCategory
+            android:key="dev_categorie_three"
+            android:title="@string/dev_categorie_title">
 
-		<com.android.settings.widgets.DeveloperPreference
+       <com.android.settings.widgets.DeveloperPreference
             android:title="Akhil Narang"
+            android:icon="@drawable/rr_dev_three_icon"
+            android:summary="@string/akhil_summary"
             resurrection:nameDev="Akhil Narang"
             resurrection:gplusHandle="AkhilNarang"
             resurrection:donateLink="@string/github_akhilnarang"
             resurrection:emailDev="akhilnarang.1999@gmail.com"/>
 
-</PreferenceCategory> 
+       </PreferenceCategory> 
 
-	<PreferenceCategory
-		android:key="dev_categorie_four"
-		android:title="@string/dev_categorie_title">
+       <PreferenceCategory
+            android:key="dev_categorie_four"
+            android:title="@string/dev_categorie_title">
 
-		<com.android.settings.widgets.DeveloperPreference
+       <com.android.settings.widgets.DeveloperPreference
             android:title="Brian Koluch"
+            android:icon="@drawable/rr_dev_four_icon"
+            android:summary="@string/brian_summary"
             resurrection:nameDev="Brian Koluch"
             resurrection:gplusHandle="BrianKoluch"
             resurrection:donateLink="@string/github_bdogg718k"
             resurrection:emailDev="bdogg718k@gmail.com"/>
 
 
-</PreferenceCategory>             
+    </PreferenceCategory>             
 
 </PreferenceScreen>
