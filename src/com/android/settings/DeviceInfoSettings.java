@@ -85,7 +85,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String PROPERTY_MBN_VERSION = "persist.mbn.version";
     private static final String FILENAME_PROC_MEMINFO = "/proc/meminfo";
     private static final String FILENAME_PROC_CPUINFO = "/proc/cpuinfo";
-    private static final String KEY_DEVICE_CPU = "device_cpu";
+    private static final String KEY_DEVICE_CPU = "rr_device_cpu";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
     private static final String KEY_QGP_VERSION = "qgp_version";
     private static final String PROPERTY_QGP_VERSION = "persist.qgp.version";
@@ -139,11 +139,13 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setValueSummary(KEY_BUILD_TYPE, "rr.build.type");
         setValueSummary(KEY_MAINTAINER, "ro.build.user");
         setValueSummary(KEY_DEVICE_NAME, "ro.rr.device");
+        setValueSummary(KEY_DEVICE_CPU, "ro.product.cpu.abi");
         setValueSummary(KEY_MOD_VERSION, "ro.modversion");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         findPreference(KEY_BUILD_TYPE).setEnabled(true);
         findPreference(KEY_MAINTAINER).setEnabled(true);
         findPreference(KEY_DEVICE_NAME).setEnabled(true);
+        findPreference(KEY_DEVICE_CPU).setEnabled(true);
 
         String buildtype = SystemProperties.get("rr.build.type","unofficial");
         if (buildtype.equalsIgnoreCase("unofficial")) {
@@ -171,14 +173,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SELINUX_STATUS,
                 PROPERTY_SELINUX_STATUS);
 
-	String cpuInfo = getCPUInfo();
         String memInfo = getMemInfo();
-
-        if (cpuInfo != null) {
-            setStringSummary(KEY_DEVICE_CPU, cpuInfo);
-        } else {
-            getPreferenceScreen().removePreference(findPreference(KEY_DEVICE_CPU));
-        }
 
         if (memInfo != null) {
             setStringSummary(KEY_DEVICE_MEMORY, memInfo);
