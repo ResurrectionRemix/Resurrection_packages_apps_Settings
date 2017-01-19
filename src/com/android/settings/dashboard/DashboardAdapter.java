@@ -24,6 +24,7 @@ import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.ArrayMap;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
@@ -31,6 +32,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.internal.logging.MetricsLogger;
@@ -86,6 +88,9 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
 
     private Condition mExpandedCondition = null;
     private SuggestionParser mSuggestionParser;
+
+    private int mNumColumns = 1;
+    private boolean mHideSummary;
 
     public DashboardAdapter(Context context, SuggestionParser parser, Bundle savedInstanceState,
                 List<Condition> conditions) {
@@ -359,17 +364,18 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     private void onBindTile(DashboardItemHolder holder, Tile tile) {
         holder.icon.setImageDrawable(mCache.getIcon(tile.icon));
         holder.title.setText(tile.title);
-        if (!TextUtils.isEmpty(tile.summary)) {
-           if ((Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.REMOVE_TILE_SUMMARY, 0) == 1)) {
-                holder.summary.setVisibility(View.GONE);
-            } else {
-                holder.summary.setText(tile.summary);
-                holder.summary.setVisibility(View.VISIBLE);
-            }
+        boolean mHideSummary  = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.REMOVE_TILE_SUMMARY, 0) == 1;
+        if (!TextUtils.isEmpty(tile.summary) && !mHideSummary) {
+            holder.summary.setText(tile.summary);
+            holder.summary.setVisibility(View.VISIBLE);
         } else {
             holder.summary.setVisibility(View.GONE);
         }
+        int minHeight = mContext.getResources().getDimensionPixelSize(mHideSummary ?
+                R.dimen.dashboard_category_height :
+                R.dimen.dashboard_tile_minimum_height);
+        holder.itemView.setMinimumHeight(minHeight);
     }
 
     private void onBindCategory(DashboardItemHolder holder, DashboardCategory category) {
@@ -463,6 +469,18 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         }
         outState.putBoolean(STATE_IS_SHOWING_ALL, mIsShowingAll);
         outState.putInt(STATE_SUGGESTION_MODE, mSuggestionMode);
+    }
+
+    public boolean isPositionFullSpan(int position) {
+        return mTypes.get(position) != R.layout.dashboard_tile;
+    }
+
+    public void setNumColumns(int numColumns) {
+        mNumColumns = numColumns;
+    }
+
+    public void setHideSummary(boolean hideSummary) {
+        mHideSummary = hideSummary;
     }
 
     private static class IconCache {

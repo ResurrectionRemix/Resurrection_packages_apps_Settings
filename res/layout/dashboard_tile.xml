@@ -13,6 +13,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+<!--android:minHeight="@dimen/dashboard_tile_minimum_height"-->
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,7 +22,6 @@
     android:layout_height="wrap_content"
     android:background="@drawable/selectable_card"
     android:gravity="center_vertical"
-    android:minHeight="@dimen/dashboard_tile_minimum_height"
     android:clickable="true"
     android:focusable="true">
 
@@ -41,7 +41,7 @@
         <TextView android:id="@android:id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:singleLine="true"
+            android:maxLines="2"
             android:textAppearance="@style/TextAppearance.TileTitle"
             android:ellipsize="marquee"
             android:fadingEdge="horizontal" />
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.Small"
             android:textColor="?android:attr/textColorSecondary"
-            android:maxLines="1"
+            android:maxLines="2"
             android:ellipsize="end"
             android:paddingEnd="@dimen/dashboard_tile_image_margin_start" />
 
