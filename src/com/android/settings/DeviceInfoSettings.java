@@ -69,7 +69,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String KEY_BUILD_TYPE = "rr_build_type";
     private static final String KEY_MAINTAINER = "rr_maintainer";
     private static final String KEY_DEVICE_MODEL = "device_model";
-    private static final String KEY_DEVICE_NAME = "device_name";
+    private static final String KEY_DEVICE_NAME = "rr_device_name";
     private static final String KEY_SELINUX_STATUS = "selinux_status";
     private static final String KEY_BASEBAND_VERSION = "baseband_version";
     private static final String KEY_FIRMWARE_VERSION = "firmware_version";
@@ -138,10 +138,12 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         findPreference(KEY_BUILD_NUMBER).setEnabled(true);
         setValueSummary(KEY_BUILD_TYPE, "rr.build.type");
         setValueSummary(KEY_MAINTAINER, "ro.build.user");
+        setValueSummary(KEY_DEVICE_NAME, "ro.rr.device");
         setValueSummary(KEY_MOD_VERSION, "ro.modversion");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         findPreference(KEY_BUILD_TYPE).setEnabled(true);
         findPreference(KEY_MAINTAINER).setEnabled(true);
+        findPreference(KEY_DEVICE_NAME).setEnabled(true);
 
         String buildtype = SystemProperties.get("rr.build.type","unofficial");
         if (buildtype.equalsIgnoreCase("unofficial")) {
@@ -164,9 +166,6 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
             String status = getResources().getString(R.string.selinux_status_permissive);
             setStringSummary(KEY_SELINUX_STATUS, status);
         }
-
-        setStringSummary(KEY_DEVICE_NAME, Build.PRODUCT);
-        removePreferenceIfBoolFalse(KEY_DEVICE_NAME, R.bool.config_displayDeviceName);
 
         // Remove selinux information if property is not present
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_SELINUX_STATUS,
