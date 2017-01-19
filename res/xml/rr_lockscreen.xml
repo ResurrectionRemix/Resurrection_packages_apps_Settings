@@ -16,31 +16,32 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_lockscreen_title" >
 
-   		<PreferenceScreen
-       	 android:key="rr_ls_gesture"
+        <PreferenceScreen
+         android:key="rr_ls_gesture"
          android:title="@string/rr_ls_gestures"
          android:fragment="com.android.settings.rr.LockScreenGesture"
          android:summary="@string/rr_ls_gesture_summary"
-		 android:icon="@drawable/rr_ls_gestures_icon"/>
+         android:icon="@drawable/rr_ls_gestures_icon"/>
 
-   		<PreferenceScreen
-       	 android:key="rr_ls_ui"
+        <PreferenceScreen
+         android:key="rr_ls_ui"
          android:title="@string/rr_ls_ui"
          android:fragment="com.android.settings.rr.LockScreenUI"
          android:summary="@string/rr_ls_ui_summary"
-		 android:icon="@drawable/rr_ls_ui_icon" />
+         android:icon="@drawable/rr_ls_ui_icon" />
 
         <PreferenceScreen
-       	 android:key="lockscreen_colors"
-       	 android:title="@string/lockscreen_colors"
-       	 android:fragment="com.android.settings.rr.LockscreenColors"
+         android:key="lockscreen_colors"
+         android:title="@string/lockscreen_colors"
+         android:summary="@string/lockscreen_colors_summary"
+         android:fragment="com.android.settings.rr.LockscreenColors"
          android:icon="@drawable/rr_ls_colors_icon" />
 
 
          <PreferenceScreen
-            android:title="@string/lockscreen_targets_message"
-			android:icon="@drawable/rr_bottom_shortcuts_icon"
-            android:summary="@string/lockscreen_targets_summary" >
+         android:title="@string/lockscreen_targets_message"
+         android:icon="@drawable/rr_bottom_shortcuts_icon"
+         android:summary="@string/lockscreen_targets_summary" >
             <intent
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.cm.LockscreenShortcutsActivity" />
@@ -51,28 +52,28 @@
                  android:key="lockscreen_shortcuts"
                  android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
                  android:summary="@string/lockscreen_shortcuts_summary"
-				 android:icon="@drawable/rr_ls_shortcuts_icon"
+                 android:icon="@drawable/rr_ls_shortcuts_icon"
                  android:title="@string/lockscreen_shortcuts_title">
              <extra android:name="actionMode" android:value="4" />
              <extra android:name="maxAllowedActions" android:value="20" />
              <extra android:name="disableLongpress" android:value="true" />
              <extra android:name="useAppPickerOnly" android:value="true" />
              <extra android:name="fragment" android:value="com.android.settings.slim.fragments.LockscreenShortcutFragment" />
-	  </PreferenceScreen>
+        </PreferenceScreen>
 
-   		<PreferenceScreen
+       <PreferenceScreen
         android:key="lockscreen_weather"
-		android:icon="@drawable/rr_weather_main_icon"
+        android:icon="@drawable/rr_weather_main_icon"
         android:title="@string/lock_screen_weather_settings_title"
         android:summary="@string/lockscreen_weather_summary"
         android:fragment="com.android.settings.rr.LockScreenWeatherSettings" />
 
-   		<PreferenceScreen
-       	 android:key="rr_ls_security"
-		 android:icon="@drawable/rr_security_icon"
-         android:title="@string/rr_ls_security"
-         android:summary="@string/rr_ls_security_summary"
-         android:fragment="com.android.settings.rr.LockScreenSecurity" />
+       <PreferenceScreen
+        android:key="rr_ls_security"
+        android:icon="@drawable/rr_security_icon"
+        android:title="@string/rr_ls_security"
+        android:summary="@string/rr_ls_security_summary"
+        android:fragment="com.android.settings.rr.LockScreenSecurity" />
 
 </PreferenceScreen>
 

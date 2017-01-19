@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2016 RR
+<!-- Copyright (c) 2017, The Resurrection Remix Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -26,50 +26,13 @@
             android:key="selinux_switch"
             android:title="@string/selinux_switch_title"
             android:summary="@string/selinux_switch_summary"
-	    android:icon="@drawable/rr_selinux_icon"
+            android:icon="@drawable/rr_selinux_icon"
             android:selectable="false"/>
 
     <SwitchPreference
             android:key="selinux"
             android:title="@string/selinux_title"
             android:defaultValue="false" />
-
-        <!-- Wakelock blocker -->
-        <PreferenceScreen
-            android:key="wakelock_blocker"
-            android:fragment="com.android.settings.rr.WakelockBlockerFragment"
-            android:title="@string/wakelock_blocker_title"
-            android:icon="@drawable/rr_wakelockblocker_icon"
-            />
-
-    <!-- Weather Settings -->
-    <Preference
-           android:id="@+id/weather_settings"
-           android:title="@string/weather_settings_title_cclock"
-           android:summary="@string/misc_weather_settings_summary"
-           android:icon="@drawable/rr_cclock_icon">
-          <intent
-                 android:action="android.intent.action.MAIN"
-                 android:targetPackage="com.cyanogenmod.lockclock"
-                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
-        </Preference>
-        <!-- Updater -->
-        <PreferenceScreen
-                android:key="update_settings"
-                android:title="@string/updater_title"
-                android:summary="@string/rr_updater_summary"
-                android:icon="@drawable/rr_ota_icon">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.resurrection.ota"
-                    android:targetClass="com.resurrection.ota.MainActivity" />
-	  </PreferenceScreen>
-    <!-- System APP Remover -->
-    <PreferenceScreen
-            android:id="@+id/system_app_remover"
-            android:title="@string/system_app_remover"
-            android:icon="@drawable/rr_system_app_remover_icon"
-            android:summary="@string/system_app_remover_summary"
-            android:fragment="com.android.settings.rr.fragments.SystemappRemover" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="fingerprint_success_vib"
@@ -93,6 +56,44 @@
             android:icon="@drawable/rr_fab_enable"
             android:defaultValue="true" />
 
+        <!-- Weather Settings -->
+        <Preference
+            android:id="@+id/weather_settings"
+            android:title="@string/weather_settings_title_cclock"
+            android:summary="@string/misc_weather_settings_summary"
+            android:icon="@drawable/rr_cclock_icon">
+          <intent
+                 android:action="android.intent.action.MAIN"
+                 android:targetPackage="com.cyanogenmod.lockclock"
+                 android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
+        </Preference>
 
+        <!-- Updater -->
+        <PreferenceScreen
+            android:key="update_settings"
+            android:title="@string/updater_title"
+            android:summary="@string/rr_updater_summary"
+            android:icon="@drawable/rr_ota_icon">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.resurrection.ota"
+                    android:targetClass="com.resurrection.ota.MainActivity" />
+       </PreferenceScreen>
+
+        <!-- Wakelock blocker -->
+        <PreferenceScreen
+            android:key="wakelock_blocker"
+            android:fragment="com.android.settings.rr.WakelockBlockerFragment"
+            android:title="@string/wakelock_blocker_title"
+            android:summary="@string/wakelock_blocker_summary"
+            android:icon="@drawable/rr_wakelockblocker_icon"
+            />
+
+       <!-- System APP Remover -->
+       <PreferenceScreen
+            android:id="@+id/system_app_remover"
+            android:title="@string/system_app_remover"
+            android:icon="@drawable/rr_system_app_remover_icon"
+            android:summary="@string/system_app_remover_summary"
+            android:fragment="com.android.settings.rr.fragments.SystemappRemover" />
 
 </PreferenceScreen>
