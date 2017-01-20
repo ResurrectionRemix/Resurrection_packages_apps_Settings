@@ -113,10 +113,10 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                     Settings.System.RR_CONFIG_STYLE, 0);
         if (which == 1) {
         mTabs.setVisibility(View.GONE);
-        mFab5.setTitle("Toggle tabs layout");
+        mFab5.setTitle(getString(R.string.fab_layout_toggle));
         } else if (which == 0) {
         mTabs.setVisibility(View.VISIBLE);
-        mFab5.setTitle("Toggle classic layout");
+        mFab5.setTitle(getString(R.string.fab_layout_update));
         }
 
         boolean isShowing =   Settings.System.getInt(resolver,
