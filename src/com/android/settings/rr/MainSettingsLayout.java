@@ -142,15 +142,15 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              @Override
              public void onClick(View v) {
              AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-             alertDialog.setTitle("Reset Settings");
-             alertDialog.setMessage("Reset all RR configurations to default values?");
+             alertDialog.setTitle(getString(R.string.rr_reset_settings));
+             alertDialog.setMessage(getString(R.string.rr_reset_message));
 
-             alertDialog.setButton("Yes", new DialogInterface.OnClickListener() {
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
                          public void onClick(DialogInterface dialog, int which) {
                          stockitems();
                          }
                     });
-             alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,"Cancel", new DialogInterface.OnClickListener() {
+             alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cencel), new DialogInterface.OnClickListener() {
                          public void onClick(DialogInterface dialog, int which) {
                          return;
                          }
