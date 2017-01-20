@@ -150,7 +150,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                          stockitems();
                          }
                     });
-             alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cencel), new DialogInterface.OnClickListener() {
+             alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
                          public void onClick(DialogInterface dialog, int which) {
                          return;
                          }
