@@ -368,6 +368,12 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
             } else {
                 holder.summary.setText(tile.summary);
                 holder.summary.setVisibility(View.VISIBLE);
+                if (Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.DASHBOARD_SUMMARY_DOUBLE_LINES, 0) == 1) {
+                    holder.summary.setSingleLine(false);
+                } else {
+                    holder.summary.setSingleLine(true);
+                }
             }
         } else {
             holder.summary.setVisibility(View.GONE);
