@@ -17,9 +17,14 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:key="gesture_settings_screen"
     android:title="@string/gesture_preference_title">
+
+    <org.lineageos.internal.lineageparts.LineagePartsPreference
+        android:key="touchscreen_gesture_settings"
+        lineage:requiresFeature="lineagehardware:FEATURE_TOUCHSCREEN_GESTURES" />
 
     <Preference
         android:key="gesture_assist_input_summary"
