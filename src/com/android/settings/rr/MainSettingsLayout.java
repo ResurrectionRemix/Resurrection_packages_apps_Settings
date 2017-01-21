@@ -134,7 +134,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mFab2.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-             CMDProcessor.runSuCommand("pkill -f com.android.systemui");
+             Helpers.showSystemUIrestartDialog(getActivity());
              }
         });
 

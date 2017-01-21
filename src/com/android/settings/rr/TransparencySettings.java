@@ -46,7 +46,7 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
         private SeekBarPreference mQSDashWidth;
         private SeekBarPreference mQSDashGap;
         //private SeekBarPreference mNotificationsAlpha;
-        static final int DEFAULT_QS_STROKE_COLOR = 0xFF80CBC4;
+        static final int DEFAULT_QS_STROKE_COLOR = 0x4285F4;
 
     	@Override
     	public void onCreate(Bundle savedInstanceState) {
@@ -81,7 +81,7 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
             mQSStrokeColor.setOnPreferenceChangeListener(this);
             int qSIntColor = Settings.System.getInt(resolver,
                     Settings.System.QS_STROKE_COLOR, DEFAULT_QS_STROKE_COLOR);
-            String qSHexColor = String.format("#%08x", (0xFF80CBC4 & qSIntColor));
+            String qSHexColor = String.format("#%08x", (0x4285F4 & qSIntColor));
             mQSStrokeColor.setSummary(qSHexColor);
             mQSStrokeColor.setNewPreviewColor(qSIntColor);
 
