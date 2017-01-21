@@ -18,6 +18,9 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 
 import com.android.settings.R;
+import com.android.settings.util.CMDProcessor;
+import com.android.settings.util.Helpers;
+import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.android.settings.rr.SeekBarPreference;
@@ -145,6 +148,9 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                         QS_STROKE, qSStroke, UserHandle.USER_CURRENT);
                 mQSStroke.setSummary(mQSStroke.getEntries()[index]);
                 QSSettingsDisabler(qSStroke);
+                if (index == 0) {
+                    Helpers.showSystemUIrestartDialog(getActivity());
+                }
                 return true;
             } else if (preference == mQSStrokeColor) {
                 String hex = ColorPickerPreference.convertToARGB(
