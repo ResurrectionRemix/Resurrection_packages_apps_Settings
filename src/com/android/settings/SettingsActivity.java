@@ -249,7 +249,7 @@ public class SettingsActivity extends SettingsDrawerActivity
 
     private static final String ACTION_TIMER_SWITCH = "qualcomm.intent.action.TIMER_SWITCH";
 
-    public static final String KEY_HIDE_SUMMARY = "hide_summary";
+    public static final String KEY_HIDE_SUMMARY = "remove_tile_summary";
     public static final String KEY_COLUMNS_COUNT = "columns_count";
     public static final String APP_PREFERENCES_NAME = "app_settings";
 
@@ -1294,18 +1294,6 @@ public class SettingsActivity extends SettingsDrawerActivity
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (super.onOptionsItemSelected(item)) {
-            return true;
-        }
-        if (mDisplayHomeAsUpEnabled && item.getItemId() == android.R.id.home) {
-            finish();
-            return true;
-        }
-        return false;
-    }
-
-    @Override
     public boolean onMenuItemActionExpand(MenuItem item) {
         if (item.getItemId() == mSearchMenuItem.getItemId()) {
             switchToSearchResultsFragmentIfNeeded();
@@ -1414,7 +1402,14 @@ public class SettingsActivity extends SettingsDrawerActivity
                 mAppPreferences.edit().putBoolean(KEY_HIDE_SUMMARY, !hideSummary).commit();
                 return true;
         }
-        return super.onOptionsItemSelected(item);
+        if (super.onOptionsItemSelected(item)) {
+            return true;
+        }
+        if (mDisplayHomeAsUpEnabled && item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return false;
     }
 
     @Override
