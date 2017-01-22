@@ -286,8 +286,9 @@ public class DashboardSummary extends InstrumentedFragment
     }
 
     private void updateSettings() {
-        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int numColumns = isPrimary ? getDashboardNumColumns() : mNumColumns;
+        boolean isPortrait = getResources().getConfiguration().orientation
+                == Configuration.ORIENTATION_PORTRAIT;
+        int numColumns = isPortrait ? getPortraitNumColumns() : mNumColumns;
 
         if (numColumns == 1) {
             mNumColumns = 1;
@@ -301,8 +302,24 @@ public class DashboardSummary extends InstrumentedFragment
 
         boolean isLandscape = getResources().getConfiguration().orientation
                 == Configuration.ORIENTATION_LANDSCAPE;
-        // always show one column more in landscape
-        mNumColumns = isLandscape ? numColumns + 1 : numColumns;
+        int landscapeColumns = isLandscape ? getLandscapeNumColumns() : mNumColumns;
+
+        if (landscapeColumns == 1) {
+            mNumColumns = 1;
+        }
+        if (landscapeColumns == 2) {
+            mNumColumns = 2;
+        }
+        if (landscapeColumns == 3) {
+            mNumColumns = 3;
+        }
+        if (landscapeColumns == 4) {
+            mNumColumns = 4;
+        }
+        if (landscapeColumns == 5) {
+            mNumColumns = 5;
+        }
+
         mLayoutManager.setSpanCount(mNumColumns);
         mAdapter.setNumColumns(mNumColumns);
         mAdapter.notifyDataSetChanged();
@@ -314,9 +331,15 @@ public class DashboardSummary extends InstrumentedFragment
         updateSettings();
     }
 
-    private int getDashboardNumColumns() {
+    private int getPortraitNumColumns() {
         final Context context = getContext();
         return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.DASHBOARD_COLUMNS, mNumColumns);
+                Settings.System.DASHBOARD_PORTRAIT_COLUMNS, mNumColumns);
+    }
+
+    private int getLandscapeNumColumns() {
+        final Context context = getContext();
+        return Settings.System.getInt(context.getContentResolver(),
+                Settings.System.DASHBOARD_LANDSCAPE_COLUMNS, mNumColumns);
     }
 }

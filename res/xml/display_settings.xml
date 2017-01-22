@@ -145,45 +145,4 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
-            android:key="dashboard_category"
-            android:title="@string/dashboard_category">
-
-        <com.android.settings.preference.SystemSettingSwitchPreference
-                android:key="disable_dashboard_suggestions"
-                android:title="@string/disable_suggestions_title"
-                android:summary="@string/disable_suggestions_summary"
-                android:defaultValue="false" />
-
-        <com.android.settings.preference.SystemSettingSwitchPreference
-                android:key="disable_dashboard_conditions"
-                android:title="@string/dashboard_conditions_title"
-                android:summaryOn="@string/summary_dashboard_conditions_enabled"
-                android:summaryOff="@string/summary_dashboard_conditions_disabled"
-                android:defaultValue="true" />
-
-        <com.android.settings.preference.SystemSettingSwitchPreference
-                android:key="remove_tile_summary"
-                android:title="@string/remove_tile_summaries_title"
-                android:summary="@string/remove_tile_summaries_summary"
-                android:defaultValue="false" />
-
-        <com.android.settings.preference.SystemSettingSwitchPreference
-                android:key="dashboard_summary_double_lines"
-                android:title="@string/dashboard_summary_double_lines_title"
-                android:summaryOn="@string/dashboard_summary_double_lines_summary_on"
-                android:summaryOff="@string/dashboard_summary_double_lines_summary_off"
-                android:defaultValue="false" />
-
-        <ListPreference
-                android:key="dashboard_columns"
-                android:title="@string/dashboard_columns_title"
-                android:dialogTitle="@string/dashboard_columns_dialog_title"
-                android:entries="@array/dashboard_columns_entries"
-                android:entryValues="@array/dashboard_columns_values"
-                android:summary="@string/dashboard_columns_summary"
-                android:persistent="false" />
-
-    </PreferenceCategory>
-
 </PreferenceScreen>
