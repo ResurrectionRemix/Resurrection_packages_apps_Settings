@@ -51,7 +51,6 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="mod_api_level_default">Inconnue</string>
   <!-- About phone screen, build date -->
   <string name="build_date">Date de compilation</string>
-  <string name="build_date_default">2015-01-01-0000</string>
   <!-- CM Updater -->
   <string name="cmupdate_settings_title">Mises à jour CyanogenMod</string>
   <!-- Names of categories of app ops tabs - extension of AOSP -->
@@ -61,6 +60,7 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="app_ops_categories_media">Média</string>
   <string name="app_ops_categories_device">Appareil</string>
   <string name="app_ops_categories_bootup">Démarrage</string>
+  <string name="app_ops_categories_su">Accès root</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">localisation approximative</string>
   <string name="app_ops_summaries_fine_location">localisation précise</string>
@@ -105,7 +105,6 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="app_ops_summaries_keep_awake">maintenir activé</string>
   <string name="app_ops_summaries_monitor_location">surveiller la position</string>
   <string name="app_ops_summaries_monitor_high_power_location">surveiller la position (à puissance élevée)</string>
-  <string name="app_ops_summaries_get_usage_stats">voir les stats d\'utilisation</string>
   <string name="app_ops_summaries_mute_unmute_microphone">activer/désactiver le microphone</string>
   <string name="app_ops_summaries_toast_window">afficher les toasts</string>
   <string name="app_ops_summaries_project_media">projeter média</string>
@@ -129,6 +128,7 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="app_ops_summaries_toggle_bluetooth">activer/désactiver le Bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">démarrer au lancement</string>
   <string name="app_ops_summaries_toggle_nfc">activer/désactiver le NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">activer/désactiver les données mobiles</string>
   <string name="app_ops_summaries_superuser">accès root</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Position approximative</string>
@@ -198,6 +198,7 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="app_ops_labels_toggle_bluetooth">Activer/désactiver le Bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Démarrer au lancement</string>
   <string name="app_ops_labels_toggle_nfc">Activer/désactiver le NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Activer/désactiver les données mobiles</string>
   <string name="app_ops_labels_superuser">Accès root</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Autorisé</string>
@@ -270,6 +271,8 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="touchscreen_hovering_title">Survol de l\'écran tactile</string>
   <string name="touchscreen_hovering_summary">Permet de survoler l\'écran comme avec une souris dans les navigateurs web, les bureaux à distance, etc.</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">Icône du sélecteur</string>
+  <string name="ime_switcher_notify_summary">Afficher l\'icône du sélecteur de mode de saisie</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Afficher l\'icône lors de l\'utilisation du stylet</string>
@@ -333,8 +336,19 @@ Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'a
   <string name="hotstpot_inactivity_timeout_1_minute">1 minute</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 minutes</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minutes</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Délai de réponse du point d\'accès Wi\u2011Fi n\'expirera jamais</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Le délai de réponse du point d\'accès Wi\u2011Fi portable expirera après <xliff:g id="timeout">%1$s </xliff:g></string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">Réveiller au branchement</string>
-  <string name="wake_when_plugged_or_unplugged_summary">Allumer l\'écran lorsque l\'appareil est branché ou débranché d\'une source d\'alimentation</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Allumer l\'écran lors du branchement ou du débranchement d\'une source d\'alimentation</string>
   <!-- Heads-up -->
+  <!-- Encryption password -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Lier le volume de la sonnerie et des notifications</string>
+  <!-- Launch music player when headset is connected -->
 </resources>

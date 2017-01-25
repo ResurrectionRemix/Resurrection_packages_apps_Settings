@@ -57,6 +57,7 @@
   <string name="app_ops_categories_media">মিডিয়া</string>
   <string name="app_ops_categories_device">ডিভাইচ</string>
   <string name="app_ops_categories_bootup">বুটআপ</string>
+  <string name="app_ops_categories_su">ৰুট প্ৰৱেশ কৰক</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">কোআৰ্চ অৱস্থান</string>
   <string name="app_ops_summaries_fine_location">ফাইন অৱস্থান</string>
@@ -101,7 +102,6 @@
   <string name="app_ops_summaries_keep_awake">জাগ্ৰত ৰাখক</string>
   <string name="app_ops_summaries_monitor_location">নিৰীক্ষণ স্থান</string>
   <string name="app_ops_summaries_monitor_high_power_location">উচ্চ শক্তিৰ স্থান নিৰীক্ষণ কৰক</string>
-  <string name="app_ops_summaries_get_usage_stats">ইউজেজ অৱস্থা প্ৰাপ্ত কৰক</string>
   <string name="app_ops_summaries_mute_unmute_microphone">মাইক্ৰ\'ফোন মিউট/আনমিউট কৰক</string>
   <string name="app_ops_summaries_toast_window">টোষ্ট প্ৰদৰ্শন কৰক</string>
   <string name="app_ops_summaries_project_media">প্ৰজেক্ট মিডিয়া</string>
@@ -125,6 +125,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">Bluetooth টগল কৰক</string>
   <string name="app_ops_summaries_start_at_boot">এটা বুট আৰম্ভ কৰক</string>
   <string name="app_ops_summaries_toggle_nfc">NFC টগল কৰা</string>
+  <string name="app_ops_summaries_toggle_mobile_data">ম\'বাইল ডাটা টগল কৰা</string>
   <string name="app_ops_summaries_superuser">ৰুট প্ৰৱেশ কৰক</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">কোআৰ্চ অৱস্থান</string>
@@ -194,6 +195,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Bluetooth টগল কৰক</string>
   <string name="app_ops_labels_start_at_boot">এটা বুট আৰম্ভ কৰক</string>
   <string name="app_ops_labels_toggle_nfc">NFC টগল কৰক</string>
+  <string name="app_ops_labels_toggle_mobile_data">ম\'বাইল ডাটা টগল কৰক</string>
   <string name="app_ops_labels_superuser">ৰুট প্ৰৱেশ কৰক</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">অনুমতি দিয়া হল।</string>
@@ -265,6 +267,8 @@
   <string name="touchscreen_hovering_title">টাচ্চস্ক্ৰীণ ভাসমান কৰাৰ</string>
   <string name="touchscreen_hovering_summary">আপোনাক স্ক্ৰীণৰ ওপৰত ৱেব ব্ৰাউজাৰ, ৰিম\'ট ডেস্কটপ আদিৰ দৰে মাউচ ভাসমান কৰাৰ অনুমতি দিয়ে</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">নিৰ্বাচক আইকন</string>
+  <string name="ime_switcher_notify_summary">নিৰ্বাচক আইকনৰ ইনপুট পদ্ধতি প্ৰদৰ্শন কৰক</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">ষ্টাইলাচ ব্যৱহাৰ কৰা সময়ত আইকন প্ৰদৰ্শন কৰক</string>
@@ -310,7 +314,19 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 মিনিট</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 মিনিট</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 মিনিট</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">প’ৰ্টেবল ৱাই\u2011ফাই হটস্পট কেতিয়াও টাইমআউট নহয়</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">প’ৰ্টেবল ৱাই\u2011ফাই হটস্পট <xliff:g id="timeout">%1$s</xliff:g> পিছত টাইমআউট হ\'ব</string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">প্লাগ কৰিলে ৱেক কৰক</string>
+  <string name="wake_when_plugged_or_unplugged_summary">পাৱাৰ উৎসৰ সৈতে সংযোগ কৰিলে বা সংযোগহীন কৰিলে স্ক্ৰীণ অন কৰক</string>
   <!-- Heads-up -->
+  <!-- Encryption password -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">ৰিংটোন আৰু অধিসূচনা ভলিউম লিংক কৰক</string>
+  <!-- Launch music player when headset is connected -->
 </resources>

@@ -57,6 +57,7 @@
   <string name="app_ops_categories_media">Ortam</string>
   <string name="app_ops_categories_device">Cihaz</string>
   <string name="app_ops_categories_bootup">Açılış</string>
+  <string name="app_ops_categories_su">Root erişimi</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">kaba konum</string>
   <string name="app_ops_summaries_fine_location">kesin konum</string>
@@ -101,7 +102,6 @@
   <string name="app_ops_summaries_keep_awake">uyanık tut</string>
   <string name="app_ops_summaries_monitor_location">konumu izle</string>
   <string name="app_ops_summaries_monitor_high_power_location">yüksek güç konumu izle</string>
-  <string name="app_ops_summaries_get_usage_stats">kullanım istatistiklerini al</string>
   <string name="app_ops_summaries_mute_unmute_microphone">mikrofonu aç/kapa</string>
   <string name="app_ops_summaries_toast_window">bildirim göster</string>
   <string name="app_ops_summaries_project_media">ortamı yansıt</string>
@@ -125,6 +125,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">Bluetooth\'u açıp kapat</string>
   <string name="app_ops_summaries_start_at_boot">açılışta başlat</string>
   <string name="app_ops_summaries_toggle_nfc">NFC\'yi aç/kapa</string>
+  <string name="app_ops_summaries_toggle_mobile_data">hücresel veriye geçiş</string>
   <string name="app_ops_summaries_superuser">root erişimi</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Yaklaşık konum</string>
@@ -194,6 +195,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Bluetooth\'u aç/kapa</string>
   <string name="app_ops_labels_start_at_boot">Açılışta başlat</string>
   <string name="app_ops_labels_toggle_nfc">NFC\'yi aç/kapa</string>
+  <string name="app_ops_labels_toggle_mobile_data">Hücresel veriye geçiş</string>
   <string name="app_ops_labels_superuser">Root erişimi</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">İzin verildi</string>
@@ -266,6 +268,8 @@
   <string name="touchscreen_hovering_title">Dokunmatik ekrana dokunmadan gezinme</string>
   <string name="touchscreen_hovering_summary">Ekrana dokunmadan parmağınızı yakınlaştırarak bir fare kullanıyormuş gibi web tarayıcılarında, uzak masaüstlerinde, vb. dolaşmanızı sağlar</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">Seçici simgesi</string>
+  <string name="ime_switcher_notify_summary">Giriş yöntemi seçici simgesini görüntüle</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Kalem kullanırken simge göster</string>
@@ -311,7 +315,19 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 dakika</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 dakika</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 dakika</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Taşınabilir Wi\u2011Fi bağlantı noktası zaman aşımı yok</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Taşınabilir kablosuz hotspot bağlantı noktası zaman aşımı <xliff:g id="timeout">%1$s </xliff:g> sn sonra</string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">Takıp çıkarmada uyan</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Bir güç kaynağına bağlanırken ya da bağlantısını keserken ekranı aç</string>
   <!-- Heads-up -->
+  <!-- Encryption password -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Zil sesi ile bildirim sesi düzeyini bağla</string>
+  <!-- Launch music player when headset is connected -->
 </resources>

@@ -61,6 +61,7 @@
   <string name="app_ops_categories_media">وسائط</string>
   <string name="app_ops_categories_device">الجهاز</string>
   <string name="app_ops_categories_bootup">إعادة تحميل</string>
+  <string name="app_ops_categories_su">الوصول إلى الجذر</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">موقع خشن</string>
   <string name="app_ops_summaries_fine_location">موقع جيد</string>
@@ -105,7 +106,6 @@
   <string name="app_ops_summaries_keep_awake">البقاء بحالة انتباه</string>
   <string name="app_ops_summaries_monitor_location">مراقبة الموقع</string>
   <string name="app_ops_summaries_monitor_high_power_location">رصد موقع عالي الطاقة</string>
-  <string name="app_ops_summaries_get_usage_stats">الحصول على إحصائيات الاستخدام</string>
   <string name="app_ops_summaries_mute_unmute_microphone">كتم/إلغاء كتم الميكروفون</string>
   <string name="app_ops_summaries_toast_window">عرض الرسائل الإشعارية</string>
   <string name="app_ops_summaries_project_media">وسائط المشروع</string>
@@ -129,6 +129,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">تبديل بلوتوث</string>
   <string name="app_ops_summaries_start_at_boot">بدء تشغيل في التمهيد</string>
   <string name="app_ops_summaries_toggle_nfc">تبديل NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">تبديل البيانات الخلوية</string>
   <string name="app_ops_summaries_superuser">الوصول إلى الجذر</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">موقع خشن</string>
@@ -198,6 +199,7 @@
   <string name="app_ops_labels_toggle_bluetooth">تبديل بلوتوث</string>
   <string name="app_ops_labels_start_at_boot">بدء تشغيل في التمهيد</string>
   <string name="app_ops_labels_toggle_nfc">تبديل NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">تبديل البيانات الخلوية</string>
   <string name="app_ops_labels_superuser">صلاحيات الجذر</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">مسموح به</string>
@@ -270,6 +272,8 @@
   <string name="touchscreen_hovering_title">المرور فوق الشاشة اللمسية</string>
   <string name="touchscreen_hovering_summary">يسمح لك بالمرور فوق الشاشة مثل الماوس في مستعرضات الويب، أو سطح المكتب عن بُعد، إلخ</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">رمز التحديد</string>
+  <string name="ime_switcher_notify_summary">عرض رمز تحديد طريقة الإدخال </string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">إظهار الرمز عند استخدام القلم</string>
@@ -315,7 +319,19 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 دقيقة</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 دقائق</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 دقائق</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">لن تنتهي مهلة Wi\u2011Fi الحث الساخن المتنقل أبداً</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">سوف تنتهي مهلة الحث الساخن المتنقل Wi\u2011Fi بعد <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">الإيقاظ عند التوصيل</string>
+  <string name="wake_when_plugged_or_unplugged_summary">تشغيل الشاشة عند الاتصال أو قطع الاتصال بمصدر الطاقة</string>
   <!-- Heads-up -->
+  <!-- Encryption password -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">ربط حجم صوت النغمة وصوت الإشعارات</string>
+  <!-- Launch music player when headset is connected -->
 </resources>

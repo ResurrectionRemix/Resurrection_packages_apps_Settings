@@ -58,7 +58,9 @@
   <string name="app_ops_categories_messaging">Üzenetküldés</string>
   <string name="app_ops_categories_media">Média</string>
   <string name="app_ops_categories_device">Eszköz</string>
+  <string name="app_ops_categories_background">Háttérkép</string>
   <string name="app_ops_categories_bootup">Indításkor</string>
+  <string name="app_ops_categories_su">Rendszergazda hozzáférés</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">pontatlan hely</string>
   <string name="app_ops_summaries_fine_location">pontos hely</string>
@@ -103,7 +105,6 @@
   <string name="app_ops_summaries_keep_awake">ébren tartás</string>
   <string name="app_ops_summaries_monitor_location">helymeghatározás</string>
   <string name="app_ops_summaries_monitor_high_power_location">helymeghatározás nagy pontossággal</string>
-  <string name="app_ops_summaries_get_usage_stats">használati statisztikák lekérése</string>
   <string name="app_ops_summaries_mute_unmute_microphone">mikrofon aktiválása/deaktiválása</string>
   <string name="app_ops_summaries_toast_window">buborékszövegek megjelenítése</string>
   <string name="app_ops_summaries_project_media">média vetítése</string>
@@ -127,6 +128,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">bluetooth kapcsolása</string>
   <string name="app_ops_summaries_start_at_boot">indítás rendszerbetöltéskor</string>
   <string name="app_ops_summaries_toggle_nfc">NFC kapcsolása</string>
+  <string name="app_ops_summaries_toggle_mobile_data">mobilnet váltása</string>
   <string name="app_ops_summaries_superuser">rendszergazdai hozzáférés</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Pontatlan hely</string>
@@ -196,6 +198,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Bluetooth kapcsolása</string>
   <string name="app_ops_labels_start_at_boot">Indítás rendszerbetöltéskor</string>
   <string name="app_ops_labels_toggle_nfc">NFC kapcsolása</string>
+  <string name="app_ops_labels_toggle_mobile_data">Mobilnet váltása</string>
   <string name="app_ops_labels_superuser">Rendszergazda hozzáférés</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Engedélyezett</string>
@@ -217,6 +220,7 @@
   <string name="volume_adjust_sounds_title">Hangerő állítási hangok</string>
   <!-- Vibrator intensity -->
   <string name="vibrator_intensity_title">Rezgés erőssége</string>
+  <string name="vibrator_intensity_dialog_warning">Nem ajánlott %1$d%% feletti értékre állítani</string>
   <string name="vibrator_intensity_dialog_reset">Visszaállítás</string>
   <!-- Sizes for pattern lockscreen -->
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
@@ -231,11 +235,14 @@
   <string name="lock_directly_show_pin">Közvetlen PIN megadás megjelenítése</string>
   <!-- Lock screen vibrate settings -->
   <string name="lockscreen_vibrate_enabled_title">Rezgés</string>
+  <string name="lockscreen_vibrate_enabled_head">Feloldáskor rezeg</string>
   <!-- Lights settings -->
   <string name="lights_label">Fények</string>
   <!-- Memory -->
   <string name="memory_startup_apps_title">Rendszerindításkor indult alkalmazások</string>
   <!-- Advanced restart options -->
+  <string name="advanced_reboot_title">Speciális újraindítás</string>
+  <string name="advanced_reboot_summary">Feloldott képernyő esetén, a kikapcsoló menüben a recovery, bootloader, vagy a lágy újraindítás módok megjelenítése</string>
   <!-- PIN scramble -->
   <string name="unlock_scramble_pin_layout_title">Szoros elrendezés</string>
   <string name="unlock_scramble_pin_layout_summary">PIN szoros elrendezése az eszköz feloldásakor</string>
@@ -250,6 +257,7 @@
   <string name="protected_apps">Védett alkalmazások</string>
   <string name="protected_apps_summary">A biztonsági zár mögötti rejtett alkalmazások kezelése</string>
   <string name="saving_protected_components">Összetevő állapotának mentése\u2026</string>
+  <string name="launch_app">Alkalmazás indítása</string>
   <string name="pa_login_username_hint">Felhasználónév (e-mail)</string>
   <string name="pa_login_password_hint">Jelszó</string>
   <string name="pa_login_submit_button">Bejelentkezés</string>
@@ -259,6 +267,7 @@
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">Időjárás megjelenítése</string>
   <!-- title for lock screen blur preference -->
+  <string name="lockscreen_blur_enabled_title">Háttér életlenítés</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Véletlen ébresztés megakadályozása</string>
   <!-- High touch sensitivity -->
@@ -268,7 +277,10 @@
   <string name="touchscreen_hovering_title">Lebegő érintés</string>
   <string name="touchscreen_hovering_summary">Engedélyezi a lebegéssel való vezérlést, mint egy egérrel a böngészőknél, távoli asztaloknál, stb.</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">Választó ikon</string>
+  <string name="ime_switcher_notify_summary">Beviteli mód választó ikon megjelenítése</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+  <string name="notification_importance_very_low">Nem szakítja meg a teljes képernyőt, nincs felugró értesítés, hang vagy rezgés. A megjelenítés az értesítési lista alján történik. Elrejtés a lezárási képernyőről.</string>
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Ikon megjelenítése toll használatakor</string>
   <string name="stylus_icon_enabled_summary">Toll használatakor megjelenít egy ikont az értesítési sávon</string>
@@ -277,6 +289,7 @@
   <string name="kill_app_longpress_back_summary">Alkalmazás bezárása nyomva tartott vissza gombbal</string>
   <!-- Android debugging -->
   <string name="enable_adb_cm">Android hibakeresés</string>
+  <string name="enable_adb_summary_cm">Android Debug Bridge (adb) interfész engedélyezés</string>
   <!-- Android debugging notification -->
   <string name="adb_notify">Hibakeresési értesítés</string>
   <string name="adb_notify_summary">Értesítés megjelenítése, amikor az USB vagy hálózati hibakereső engedélyezve van</string>
@@ -331,7 +344,24 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 perc</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 perc</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 perc</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Hordozható Wi\u2011Fi hotspot időkorlát nélkül</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Hordozható Wi\u2011Fi hotspot időkorlát: <xliff:g id="timeout">%1$s</xliff:g> után</string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">Felébredés töltő csatlakoztatásakor</string>
+  <string name="wake_when_plugged_or_unplugged_summary">A képernyő bekapcsolása a töltő csatlakoztatása/eltávolítása után</string>
   <!-- Heads-up -->
+  <string name="heads_up_notifications_enabled_title">Lebegő értesítés</string>
+  <!-- Encryption password -->
+  <string name="crypt_keeper_change_password_title">Titkosítási jelszó módosítása</string>
+  <string name="crypt_keeper_change_password_summary">Eszköz titkosításhoz használt jelszó módosítása</string>
+  <string name="crypt_keeper_choose_your_password_header">Titkosítási jelszó beállítása</string>
+  <string name="crypt_keeper_replace_password_title">Titkosítási jelszó módosítása</string>
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Csengő és értesítési hangok összekötése</string>
+  <!-- Launch music player when headset is connected -->
 </resources>

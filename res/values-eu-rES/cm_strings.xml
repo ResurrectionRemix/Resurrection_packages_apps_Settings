@@ -60,7 +60,7 @@
   <string name="app_ops_categories_device">Gailua</string>
   <string name="app_ops_categories_background">Bigarren planoa</string>
   <string name="app_ops_categories_bootup">Abioa</string>
-  <string name="app_ops_categories_su">Supererabiltzailea</string>
+  <string name="app_ops_categories_su">Root sarbidea</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">gutxi gora beherako kokalekua</string>
   <string name="app_ops_summaries_fine_location">kokaleku zehatza</string>
@@ -105,7 +105,6 @@
   <string name="app_ops_summaries_keep_awake">esna mantendu</string>
   <string name="app_ops_summaries_monitor_location">kokalekua monitorizatu</string>
   <string name="app_ops_summaries_monitor_high_power_location">energia askoko kokalekua monitorizatu</string>
-  <string name="app_ops_summaries_get_usage_stats">erabilera estatistikak eskuratu</string>
   <string name="app_ops_summaries_mute_unmute_microphone">mikrofonoa mututu/desmututu</string>
   <string name="app_ops_summaries_toast_window">laster-leihoak bistaratu</string>
   <string name="app_ops_summaries_project_media">multimedia proiektatu</string>
@@ -130,7 +129,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">bluetooth txandakatu</string>
   <string name="app_ops_summaries_start_at_boot">abioan hasi</string>
   <string name="app_ops_summaries_toggle_nfc">NFC txandakatu</string>
-  <string name="app_ops_summaries_toggle_mobile_data">datu mugikorrak txandakatu</string>
+  <string name="app_ops_summaries_toggle_mobile_data">txandakatu datu mugikorrak</string>
   <string name="app_ops_summaries_superuser">root sarbidea</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Gutxi gora beherako kokalekua</string>
@@ -201,7 +200,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Bluetooth txandakatu</string>
   <string name="app_ops_labels_start_at_boot">Abioan hasi</string>
   <string name="app_ops_labels_toggle_nfc">NFC txandakatu</string>
-  <string name="app_ops_labels_toggle_mobile_data">Datu mugikorrak txandakatu</string>
+  <string name="app_ops_labels_toggle_mobile_data">Txandakatu datu mugikorrak</string>
   <string name="app_ops_labels_superuser">Root sarbidea</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Baimenduta</string>
@@ -226,10 +225,6 @@
   <string name="vibrator_intensity_dialog_warning">%1$d%% baino handiagoak diren balioak ez dira gomendatzen</string>
   <string name="vibrator_intensity_dialog_reset">Leheneratu</string>
   <!-- Sizes for pattern lockscreen -->
-  <string name="lock_pattern_size_3">3x3</string>
-  <string name="lock_pattern_size_4">4x4</string>
-  <string name="lock_pattern_size_5">5x5</string>
-  <string name="lock_pattern_size_6">6x6</string>
   <string name="lock_settings_picker_pattern_size_message">Aukeratu ereduaren tamaina</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Erakutsi eredu errorea</string>
@@ -275,7 +270,7 @@
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">Bistaratu eguraldia</string>
   <!-- title for lock screen blur preference -->
-  <string name="lockscreen_blur_enabled_title">Lausotu blokeo-pantaila</string>
+  <string name="lockscreen_blur_enabled_title">Lausotu atzealtea</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Ekidin ustekabeko esnatzea</string>
   <string name="proximity_wake_summary">Egiaztatu hurbiltasun sentsorea keinuen bidez eragindako esnatzeen aurretik</string>
@@ -286,8 +281,8 @@
   <string name="touchscreen_hovering_title">Pantailaren gainetik pasatu</string>
   <string name="touchscreen_hovering_summary">Sagua bailitzan pantailaren gainetik pasatzea ahalbidetzen dizu, nabigatzaileetan, urruneko mahaigainetan, eta abar</string>
   <!-- Whether to display IME switcher notifcation -->
-  <string name="ime_switcher_notify">Hautatzailea jakinarazpenetan</string>
-  <string name="ime_switcher_notify_summary">Bistaratu sarrera metodoa hautatzeko jakinarazpena</string>
+  <string name="ime_switcher_notify">Hautaketa ikonoa</string>
+  <string name="ime_switcher_notify_summary">Bistaratu sarrera metodoa hautatzeko ikonoa</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <string name="notification_importance_very_low">Pantaila osoko eten, ikuspegi azkar, soinu edo bibraziorik ez. Erakutsi jakinarazpen zerrendaren behealdean. Ezkutatu blokeo-pantailatik.</string>
   <!-- Stylus Icon -->
@@ -354,12 +349,21 @@
   <string name="hotstpot_inactivity_timeout_1_minute">minutu bat</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 minutu</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minutu</string>
-  <string name="hotstpot_inactivity_timeout_never_summary_text">Wi\u2011Fi gune eramangarria denbora mugarik gabe</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Wi\u2011Fi gune eramangarriak ez du denbora mugarik</string>
   <string name="hotstpot_inactivity_timeout_summary_text">Wi\u2011Fi gune eramangarriaren denbora muga: <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">Esnatu kargadorearekin</string>
-  <string name="wake_when_plugged_or_unplugged_summary">Esnatu pantaila kargadorea konektatu edo deskonektatzean</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Piztu pantaila kargadorea konektatu edo deskonektatzean</string>
   <!-- Heads-up -->
   <string name="heads_up_notifications_enabled_title">Jakinarazpen flotatzaileak</string>
   <string name="heads_up_notifications_enabled_summary">Bistaratu lehentasunezko jakinarazpenak leiho flotatzaile txiki batean</string>
+  <!-- Encryption password -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Lotu dei doinuaren eta jakinarazpenen bolumenak</string>
+  <!-- Launch music player when headset is connected -->
 </resources>

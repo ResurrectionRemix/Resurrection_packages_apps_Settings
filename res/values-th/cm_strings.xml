@@ -56,6 +56,7 @@
   <string name="app_ops_categories_media">สื่อ</string>
   <string name="app_ops_categories_device">อุปกรณ์</string>
   <string name="app_ops_categories_bootup">เปิดเครื่อง</string>
+  <string name="app_ops_categories_su">สิทธิผู้ดูแลระบบ</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">พิกัดที่ตั้งหยาบ</string>
   <string name="app_ops_summaries_fine_location">พิกัดที่ตั้งละเอียด</string>
@@ -100,7 +101,6 @@
   <string name="app_ops_summaries_keep_awake">เปิดจอค้าง</string>
   <string name="app_ops_summaries_monitor_location">ตรวจสอบตำแหน่งที่ตั้ง</string>
   <string name="app_ops_summaries_monitor_high_power_location">ตรวจสอบพิกัดที่ตั้งพลังงานสูง</string>
-  <string name="app_ops_summaries_get_usage_stats">ดูสถิติการใช้งาน</string>
   <string name="app_ops_summaries_mute_unmute_microphone">เปิด/ปิด ไมโครโฟน</string>
   <string name="app_ops_summaries_toast_window">แสดงกล่องข้อความ</string>
   <string name="app_ops_summaries_project_media">สื่อโครงการ</string>
@@ -124,6 +124,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">สลับบลูทูธ</string>
   <string name="app_ops_summaries_start_at_boot">เริ่มต้นเมื่อบูต</string>
   <string name="app_ops_summaries_toggle_nfc">สลับ NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">สลับข้อมูลโทรศัพท์มือถือ</string>
   <string name="app_ops_summaries_superuser">สิทธิผู้ดูแลระบบ</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">พิกัดที่ตั้งหยาบ</string>
@@ -193,6 +194,7 @@
   <string name="app_ops_labels_toggle_bluetooth">สลับบลูทูธ</string>
   <string name="app_ops_labels_start_at_boot">เริ่มต้นเมื่อบูต</string>
   <string name="app_ops_labels_toggle_nfc">สลับ NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">สลับข้อมูลโทรศัพท์มือถือ</string>
   <string name="app_ops_labels_superuser">สิทธิผู้ดูแลระบบ</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">อนุญาต</string>
@@ -265,6 +267,8 @@
   <string name="touchscreen_hovering_title">วางนิ้วเหนือจอ</string>
   <string name="touchscreen_hovering_summary">อนุญาตให้คุณสามารถวางนิ้วเหนือจอเหมือนการวางเม้าส์เหนือปุ่มในคอมพิวเตอร์</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">ไอคอนตัวเลือก</string>
+  <string name="ime_switcher_notify_summary">แสดงไอคอนตัวเลือกวิธีป้อนข้อมูล</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">แสดงไอคอนเมื่อใช้งานปากกาสไตลัส</string>
@@ -310,7 +314,19 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 นาที</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 นาที</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 นาที</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">สัญญาณ Wi\u2011Fi แบบพกพาจะไม่หมดเวลา</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">สัญญาณ Wi\u2011Fi แบบพกพาจะหมดเวลาหลังจาก <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">ตื่นเมื่อเสียบปลั๊ก</string>
+  <string name="wake_when_plugged_or_unplugged_summary">เปิดหน้าจอเมื่อเชื่อมต่อหรือตัดการเชื่อมต่อกับแหล่งจ่ายไฟ</string>
   <!-- Heads-up -->
+  <!-- Encryption password -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">เชื่อมต่อความดังเสียงเรียกเข้า&amp; เสียงแจ้งเตือน</string>
+  <!-- Launch music player when headset is connected -->
 </resources>

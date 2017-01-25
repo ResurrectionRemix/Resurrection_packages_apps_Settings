@@ -59,7 +59,9 @@
   <string name="app_ops_categories_messaging">Поруке</string>
   <string name="app_ops_categories_media">Медија</string>
   <string name="app_ops_categories_device">Уређај</string>
+  <string name="app_ops_categories_background">Позадина</string>
   <string name="app_ops_categories_bootup">Покретање система</string>
+  <string name="app_ops_categories_su">Root приступ</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">груба локација</string>
   <string name="app_ops_summaries_fine_location">фина локација</string>
@@ -104,7 +106,7 @@
   <string name="app_ops_summaries_keep_awake">остани будан</string>
   <string name="app_ops_summaries_monitor_location">праћење локације</string>
   <string name="app_ops_summaries_monitor_high_power_location">високо напајање локације монитора</string>
-  <string name="app_ops_summaries_get_usage_stats">добиј статистику коришћења</string>
+  <string name="app_ops_summaries_get_usage_stats">добиј статистику коришћења апликације</string>
   <string name="app_ops_summaries_mute_unmute_microphone">укључи/искључи микрофон</string>
   <string name="app_ops_summaries_toast_window">прикажи искачућу поруку</string>
   <string name="app_ops_summaries_project_media">пројектовање медија</string>
@@ -124,10 +126,12 @@
   <string name="app_ops_summaries_write_external_storage">пиши у спољно складиште</string>
   <string name="app_ops_summaries_turn_screen_on">Укључи екран</string>
   <string name="app_ops_summaries_get_accounts">добави налоге</string>
+  <string name="app_ops_summaries_run_in_background">пokreni u pozadini</string>
   <string name="app_ops_summaries_toggle_wifi">Укључи Wi-Fi</string>
   <string name="app_ops_summaries_toggle_bluetooth">укључи bleutooth</string>
   <string name="app_ops_summaries_start_at_boot">старт при покретању</string>
   <string name="app_ops_summaries_toggle_nfc">укључи NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">укључи/искључи мобилне податке</string>
   <string name="app_ops_summaries_superuser">рoot приступ</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Груба локација</string>
@@ -193,10 +197,12 @@
   <string name="app_ops_labels_write_external_storage">Пиши у спољно складиште</string>
   <string name="app_ops_labels_turn_screen_on">Укључи екран</string>
   <string name="app_ops_labels_get_accounts">Добави налоге</string>
+  <string name="app_ops_labels_run_in_background">Pokreni u pozadini</string>
   <string name="app_ops_labels_toggle_wifi">Укључи Wi-Fi</string>
   <string name="app_ops_labels_toggle_bluetooth">Укључи bleutooth</string>
   <string name="app_ops_labels_start_at_boot">Старт при покретању</string>
   <string name="app_ops_labels_toggle_nfc">Укључи NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Укључи/искључи мобилне податке</string>
   <string name="app_ops_labels_superuser">Root приступ</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Дозвољено</string>
@@ -232,11 +238,14 @@
   <string name="lock_directly_show_pin">Директно приказивање PIN уноса</string>
   <!-- Lock screen vibrate settings -->
   <string name="lockscreen_vibrate_enabled_title">Вибрација</string>
+  <string name="lockscreen_vibrate_enabled_head">Вибрирај при откључавању</string>
   <!-- Lights settings -->
   <string name="lights_label">Светла</string>
   <!-- Memory -->
   <string name="memory_startup_apps_title">Aplikacije pokrenute pri startu</string>
   <!-- Advanced restart options -->
+  <string name="advanced_reboot_title">Напредни рестарт</string>
+  <string name="advanced_reboot_summary">Када је телефон откључан, обухвати опције у менију напајања за рестартовање у опоравак, bootloader или обави рестартовање интерфејса</string>
   <!-- PIN scramble -->
   <string name="unlock_scramble_pin_layout_title">Насумичан распоред</string>
   <string name="unlock_scramble_pin_layout_summary">Насумичан PIN распоред при откључавању уређаја</string>
@@ -251,6 +260,7 @@
   <string name="protected_apps">Заштићене апликације</string>
   <string name="protected_apps_summary">Управљај која је апликација сакривена иза сигурносног закључавања</string>
   <string name="saving_protected_components">Чување компонената\u2026</string>
+  <string name="launch_app">Покрени апликацију</string>
   <string name="pa_login_username_hint">Корисничко име (e-пошта)</string>
   <string name="pa_login_password_hint">Лозинка</string>
   <string name="pa_login_submit_button">Пријави се</string>
@@ -260,8 +270,10 @@
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">Прикажи време</string>
   <!-- title for lock screen blur preference -->
+  <string name="lockscreen_blur_enabled_title">Замућење позадине</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Спречи случајно буђење</string>
+  <string name="proximity_wake_summary">Провери сензор близине пре примене геста буђења</string>
   <!-- High touch sensitivity -->
   <string name="high_touch_sensitivity_title">Висока додирна осетљивост</string>
   <string name="high_touch_sensitivity_summary">Повећај осетљивост екрана тако да се може користити док се носе рукавице</string>
@@ -269,7 +281,10 @@
   <string name="touchscreen_hovering_title">Лебдење екраном</string>
   <string name="touchscreen_hovering_summary">Дозвољава ти да лебдиш екраном као миш у веб претраживачу, удаљеном десктопу, итд</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">Селектор икона</string>
+  <string name="ime_switcher_notify_summary">Прикажи улазни метод селектора икона</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+  <string name="notification_importance_very_low">Без прекида режима целог екрана, завиривања, звука или вибрације. Приказују се у дну листе обавештења. Сакриј на закључаном екрану.</string>
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Прикажи икону када користим оловку</string>
   <string name="stylus_icon_enabled_summary">Прикажи икону курсора када лебдим или цртам помоћу оловке</string>
@@ -278,6 +293,7 @@
   <string name="kill_app_longpress_back_summary">Затвори предњу апликацију дугим притиском на дугме за назад</string>
   <!-- Android debugging -->
   <string name="enable_adb_cm">Android отклањање грешака</string>
+  <string name="enable_adb_summary_cm">Омогући Android Debug Bridge (ADB) интерфејс</string>
   <!-- Android debugging notification -->
   <string name="adb_notify">Обавештење отклањања грешака</string>
   <string name="adb_notify_summary">Прикажи обавештење када је USB или мрежно отклањање грешака омогућено</string>
@@ -292,7 +308,20 @@
   <string name="increasing_ring_min_volume_title">Стартна гласноћа</string>
   <string name="increasing_ring_ramp_up_time_title">Време појачавања</string>
   <!-- Allow vibration in zen mode -->
+  <string name="zen_mode_vibration">Вибрација</string>
+  <string name="zen_mode_vibration_never">Без вибрације</string>
+  <string name="zen_mode_vibration_calls_only">Вибрирај само за позиве</string>
+  <string name="zen_mode_vibration_calls_and_notifications">Вибрирај за позиве и поруке</string>
   <!-- Notification sound timeout -->
+  <string name="app_notification_sound_timeout_title">Минимални период између звукова поруке</string>
+  <string name="app_notification_sound_timeout_summary_template">Дозволи звукове или вибрацију не више од једном сваких <xliff:g id="duration">%1$s</xliff:g></string>
+  <string name="app_notification_sound_timeout_value_none">Без ograničenja</string>
+  <string name="app_notification_sound_timeout_value_10_seconds">10 секунди</string>
+  <string name="app_notification_sound_timeout_value_30_seconds">30 секунди</string>
+  <string name="app_notification_sound_timeout_value_1_minute">1 минут</string>
+  <string name="app_notification_sound_timeout_value_5_minutes">5 минута</string>
+  <string name="app_notification_sound_timeout_value_15_minutes">10 минута</string>
+  <string name="app_notification_sound_timeout_value_30_minutes">30 минута</string>
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d статус</string>
   <string name="sim_card_lock_settings_title">SIM %d подешавање закључавања</string>
@@ -302,6 +331,7 @@
   <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
   <!-- Notification importance -->
+  <string name="tuner_full_importance_settings">Напредне контроле за обавештења</string>
   <!-- CM Legal -->
   <string name="cmlicense_title">CyanogenMod лиценца</string>
   <!-- Format string for fingerprint location message -->
@@ -319,7 +349,30 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 минут</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 минута</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 минута</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Преносни Wi\u2011Fi hotspot нема временско ограничење</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Преносни Wi\u2011Fi hotspot ће истећи после <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">Пробуди на утикачу</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Укључи екран код повезивања или искључивања са извора напајања</string>
   <!-- Heads-up -->
+  <string name="heads_up_notifications_enabled_title">Искачуће поруке</string>
+  <string name="heads_up_notifications_enabled_summary">Прикажи приоритетна обавештења и малом лебдећем прозору</string>
+  <!-- Encryption password -->
+  <string name="crypt_keeper_change_password_title">Промени шифровану лозинку</string>
+  <string name="crypt_keeper_change_password_summary">Промени лозинку која се користи за шифровање уређаја</string>
+  <string name="crypt_keeper_choose_your_password_header">Постави шифровану лозинку</string>
+  <string name="crypt_keeper_replace_password_title">Промени шифровану лозинку</string>
+  <string name="crypt_keeper_replace_password_summary">Уклони одвојену шифровану лозинку</string>
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <string name="data_usage_app_restrict_all_wifi_title">Онемогући све Wi\u2011Fi приступе подацима</string>
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <string name="data_usage_app_restrict_all_wifi_summary">Спречи свако коришћење података преко Wi\u2011Fi мрежа</string>
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Веза тона звона &amp; јачине обавештења</string>
+  <!-- Launch music player when headset is connected -->
+  <string name="headset_connect_player_title">Покрени музичку апликацију</string>
+  <string name="headset_connect_player_summary">Покрени подразумевану музичку апликацију када су слушалице повезане</string>
 </resources>

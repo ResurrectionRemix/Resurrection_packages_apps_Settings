@@ -59,7 +59,7 @@
   <string name="app_ops_categories_device">设备</string>
   <string name="app_ops_categories_background">后台运行</string>
   <string name="app_ops_categories_bootup">启动时</string>
-  <string name="app_ops_categories_su">超级用户</string>
+  <string name="app_ops_categories_su">Root 授权</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">粗略位置</string>
   <string name="app_ops_summaries_fine_location">准确位置</string>
@@ -104,7 +104,7 @@
   <string name="app_ops_summaries_keep_awake">保持唤醒状态</string>
   <string name="app_ops_summaries_monitor_location">监控位置</string>
   <string name="app_ops_summaries_monitor_high_power_location">监控高电耗位置</string>
-  <string name="app_ops_summaries_get_usage_stats">获得使用统计</string>
+  <string name="app_ops_summaries_get_usage_stats">获取应用使用情况统计</string>
   <string name="app_ops_summaries_mute_unmute_microphone">麦克风静音 / 取消静音</string>
   <string name="app_ops_summaries_toast_window">显示提示信息</string>
   <string name="app_ops_summaries_project_media">放映媒体</string>
@@ -121,7 +121,7 @@
   <string name="app_ops_summaries_read_cell_broadcasts">读取小区广播</string>
   <string name="app_ops_summaries_mock_location">模拟位置</string>
   <string name="app_ops_summaries_read_external_storage">读取外部存储</string>
-  <string name="app_ops_summaries_write_external_storage">写入外部存储器</string>
+  <string name="app_ops_summaries_write_external_storage">写入外部存储</string>
   <string name="app_ops_summaries_turn_screen_on">点亮屏幕</string>
   <string name="app_ops_summaries_get_accounts">获得帐户</string>
   <string name="app_ops_summaries_run_in_background">在后台运行</string>
@@ -192,7 +192,7 @@
   <string name="app_ops_labels_read_cell_broadcasts">读取小区广播</string>
   <string name="app_ops_labels_mock_location">模拟位置</string>
   <string name="app_ops_labels_read_external_storage">读取外部存储</string>
-  <string name="app_ops_labels_write_external_storage">写入外部存储器</string>
+  <string name="app_ops_labels_write_external_storage">写入外部存储</string>
   <string name="app_ops_labels_turn_screen_on">点亮屏幕</string>
   <string name="app_ops_labels_get_accounts">获得帐户</string>
   <string name="app_ops_labels_run_in_background">在后台运行</string>
@@ -225,10 +225,6 @@
   <string name="vibrator_intensity_dialog_warning">不建议大于 %1$d%% 的值</string>
   <string name="vibrator_intensity_dialog_reset">重置</string>
   <!-- Sizes for pattern lockscreen -->
-  <string name="lock_pattern_size_3">3x3</string>
-  <string name="lock_pattern_size_4">4x4</string>
-  <string name="lock_pattern_size_5">5x5</string>
-  <string name="lock_pattern_size_6">6x6</string>
   <string name="lock_settings_picker_pattern_size_message">选择图案大小</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">显示图案错误</string>
@@ -274,7 +270,7 @@
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">显示天气</string>
   <!-- title for lock screen blur preference -->
-  <string name="lockscreen_blur_enabled_title">模糊锁屏</string>
+  <string name="lockscreen_blur_enabled_title">模糊背景</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">防止意外唤醒</string>
   <string name="proximity_wake_summary">经由手势唤醒前先检查距离传感器</string>
@@ -283,10 +279,10 @@
   <string name="high_touch_sensitivity_summary">增加触摸屏的灵敏度，以便在戴手套时使用</string>
   <!-- Touchscreen hovering -->
   <string name="touchscreen_hovering_title">悬空操作</string>
-  <string name="touchscreen_hovering_summary">允许您把手指悬停在屏幕上作为浏览器、远程桌面等的鼠标指针</string>
+  <string name="touchscreen_hovering_summary">允许您将手指悬停在屏幕上作为浏览器、远程桌面等处的鼠标指针</string>
   <!-- Whether to display IME switcher notifcation -->
-  <string name="ime_switcher_notify">选择器通知图标</string>
-  <string name="ime_switcher_notify_summary">显示输入法选择器通知图标</string>
+  <string name="ime_switcher_notify">选择器图标</string>
+  <string name="ime_switcher_notify_summary">显示输入法选择器图标</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <string name="notification_importance_very_low">不允许全屏时打扰、显示速览、发出声音或振动。显示在通知列表底部。在锁屏界面中隐藏。</string>
   <!-- Stylus Icon -->
@@ -297,13 +293,13 @@
   <string name="kill_app_longpress_back_summary">长按返回键终止前台应用</string>
   <!-- Android debugging -->
   <string name="enable_adb_cm">Android 调试</string>
-  <string name="enable_adb_summary_cm">启用 Android Debug Bridge (ADB) 界面</string>
+  <string name="enable_adb_summary_cm">启用 Android Debug Bridge (ADB) 接口</string>
   <!-- Android debugging notification -->
   <string name="adb_notify">调试通知</string>
   <string name="adb_notify_summary">已开启 USB 或网络调试通知</string>
   <!-- Android debugging over network -->
   <string name="adb_over_network">网络 ADB 调试</string>
-  <string name="adb_over_network_summary">通过网络接口 (Wi\u2011Fi，USB 网络) 启用 TCP/IP 调试。该设置重启后失效</string>
+  <string name="adb_over_network_summary">启用通过网络接口（Wi\u2011Fi、USB 网络）的 TCP/IP 调试。该设置重启后失效</string>
   <string name="adb_over_network_warning">警告：当网络 ADB 调试启用时，您的设备将在所有已连接的网络上接收指令！\n\n请只在您信任的网络中启用此功能。\n\n您真的要开启这个功能吗？</string>
   <!-- Hostname setting -->
   <string name="device_hostname">设备网络名</string>
@@ -353,12 +349,34 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 分钟</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 分钟</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 分钟</string>
-  <string name="hotstpot_inactivity_timeout_never_summary_text">移动 Wi\u2011Fi 热点永不超时</string>
-  <string name="hotstpot_inactivity_timeout_summary_text">移动 Wi\u2011Fi 热点将会于 <xliff:g id="timeout">%1$s</xliff:g> 后超时</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">移动 Wi\u2011Fi 热点将永不超时</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">移动 Wi\u2011Fi 热点将于 <xliff:g id="timeout">%1$s</xliff:g> 后超时</string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">连接或移除电源时唤醒</string>
-  <string name="wake_when_plugged_or_unplugged_summary">连接或断开电源时唤醒屏幕</string>
+  <string name="wake_when_plugged_or_unplugged_summary">连接或断开电源时点亮屏幕</string>
   <!-- Heads-up -->
   <string name="heads_up_notifications_enabled_title">浮动通知</string>
   <string name="heads_up_notifications_enabled_summary">在一个小的浮动窗口中显示优先通知</string>
+  <!-- Encryption password -->
+  <string name="crypt_keeper_change_password_title">更改加密密码</string>
+  <string name="crypt_keeper_change_password_summary">更改用于设备加密的密码</string>
+  <string name="crypt_keeper_choose_your_password_header">设置加密密码</string>
+  <string name="crypt_keeper_replace_password_title">更换加密密码</string>
+  <string name="crypt_keeper_replace_password_summary">删除独立加密密码</string>
+  <!-- Per-app data restrictions -->
+  <string name="data_usage_app_restrict_data_category_title">移动数据访问</string>
+  <string name="data_usage_app_restrict_wifi_category_title">Wi\u2011Fi 数据访问</string>
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <string name="data_usage_app_restrict_all_data_title">禁用所有移动数据访问</string>
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <string name="data_usage_app_restrict_all_data_summary">阻止任何通过移动网络的数据访问</string>
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <string name="data_usage_app_restrict_all_wifi_title">禁用所有 Wi\u2011Fi 数据访问</string>
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <string name="data_usage_app_restrict_all_wifi_summary">阻止任何通过 Wi\u2011Fi 的数据访问</string>
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">链接铃声和通知的音量</string>
+  <!-- Launch music player when headset is connected -->
+  <string name="headset_connect_player_title">启动音乐播放器</string>
+  <string name="headset_connect_player_summary">插入耳机时启动默认音乐播放器</string>
 </resources>

@@ -57,6 +57,7 @@
   <string name="app_ops_categories_media">ମିଡିଆ</string>
   <string name="app_ops_categories_device">ଡିଭାଇସ୍</string>
   <string name="app_ops_categories_bootup">ବୁଟ୍‍ଅପ୍‍ କରନ୍ତୁ</string>
+  <string name="app_ops_categories_su">ରୁଟ୍‍ ଆକ୍‍ସେସ୍‍</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">ଅସମତଳ ଅବସ୍ଥାନ</string>
   <string name="app_ops_summaries_fine_location">ସ୍ଵଚ୍ଛ ଅବସ୍ଥାନ</string>
@@ -101,7 +102,6 @@
   <string name="app_ops_summaries_keep_awake">ସଜାଗ ରଖନ୍ତୁ</string>
   <string name="app_ops_summaries_monitor_location">ଅବସ୍ଥାନ ମନିଟର୍</string>
   <string name="app_ops_summaries_monitor_high_power_location">ଉଚ୍ଚ ପାୱାର ଅବସ୍ଥାନ ମନିଟର୍ କରନ୍ତୁ</string>
-  <string name="app_ops_summaries_get_usage_stats">ବ୍ୟବହାର ପରିସଂଖ୍ୟାନ ପ୍ରାପ୍ତ କରନ୍ତୁ</string>
   <string name="app_ops_summaries_mute_unmute_microphone">ମାଇକ୍ରୋଫୋନ୍ ମ୍ୟୁଟ୍/ଅନମ୍ୟୁଟ୍ କରନ୍ତୁ</string>
   <string name="app_ops_summaries_toast_window">ଟୋଷ୍ଟ ଡିସ୍‍ପ୍ଲେ କରନ୍ତୁ</string>
   <string name="app_ops_summaries_project_media">ପ୍ରୋଜେକ୍ଟ ମିଡିଆ</string>
@@ -125,6 +125,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">ବ୍ଲୁଟୁଥ୍‍ ଟୋଗଲ୍‍ କରନ୍ତୁ</string>
   <string name="app_ops_summaries_start_at_boot">ବୁଟ୍‍ ସମୟରେ ଆରଂଭ କରନ୍ତୁ</string>
   <string name="app_ops_summaries_toggle_nfc">NFC ଟୋଗଲ୍‍ କରନ୍ତୁ</string>
+  <string name="app_ops_summaries_toggle_mobile_data">ମୋବାଇଲ୍‍ ଡାଟା ଟୋଗଲ୍‍ କରନ୍ତୁ</string>
   <string name="app_ops_summaries_superuser">ରୁଟ୍‍ ଆକ୍‍ସେସ୍‍</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">ଅସମତଳ ଅବସ୍ଥାନ</string>
@@ -194,6 +195,7 @@
   <string name="app_ops_labels_toggle_bluetooth">ବ୍ଲୁଟୁଥ୍‍ ଟୋଗଲ୍‍ କରନ୍ତୁ</string>
   <string name="app_ops_labels_start_at_boot">ବୁଟ୍‍ ସମୟରେ ଆରଂଭ କ୍ରନ୍ତୁ</string>
   <string name="app_ops_labels_toggle_nfc">NFC ଟୋଗଲ୍‍ କରନ୍ତୁ</string>
+  <string name="app_ops_labels_toggle_mobile_data">ମୋବାଇଲ୍‍ ଡାଟା ଟୋଗଲ୍‍ କରନ୍ତୁ</string>
   <string name="app_ops_labels_superuser">ରୁଟ୍‍ ଆକ୍‍ସେସ୍‍</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">ଅନୁମୋଦିତ ହୋଇଛି</string>
@@ -265,6 +267,8 @@
   <string name="touchscreen_hovering_title">ଟଚ୍‍ସ୍କ୍ରିନ୍‍ ହୋଭରିଂ</string>
   <string name="touchscreen_hovering_summary">ୱେବ୍‍ ବ୍ରାଉଜର୍‍, ରିମୋ‍ ଡେସ୍କଟପ୍ ଇତ୍ୟା୍ଦି‍ରେ ମାଉସ୍‍ ଭଳି ଆପଣଙ୍କୁ ସ୍କ୍ରିନ୍‍ରେ ହୋଭର୍‍ ପାଇଁ ଅନୁମତି ଦିଅ</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">ଆଇକନ୍‍ ଚୟନ</string>
+  <string name="ime_switcher_notify_summary">ଇନ୍‍ପୁଟ୍‍ ପଧତି ସିଲେକ୍ଟର ଆଇକନ୍‍ ଡିସ୍‍ପ୍ଲେ କରନ୍ତୁ</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">ଷ୍ଟାଇଲସ୍‍ ବ୍ୟବହାର କରିବା ସମ୍ୟ୍ରେ ଆଇକନ୍‍ ଦେଖାନ୍ରୁ</string>
@@ -310,7 +314,19 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 ମିନିଟ୍‌</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 ମିନିଟ୍</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 ମିନିଟ୍</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">ପୋର୍ଟେବୁଲ୍ Wi\u2011Fi ହଟସ୍ପଟ୍ ନେଭର ଟାଇମ ଆଉଟ୍</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">ପୋର୍ଟେବୁଲ୍ Wi\u2011Fi ହଟସ୍ପଟ୍ ନେଭର ଟାଇମ ଆଉଟ୍ ଆଫଟର୍ <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">ପ୍ଲଗ୍‍କୁ ଉଠାନ୍ତୁ</string>
+  <string name="wake_when_plugged_or_unplugged_summary">ଏକ ପାୱାର୍‍ ଉତ୍ସ ସଂଯୋଗ ବା ବିଛିନ୍ନ କରିବା ସମୟରେ ସ୍କ୍ରିନ୍‍ ଅନ୍‍ କରନ୍ତୁ</string>
   <!-- Heads-up -->
+  <!-- Encryption password -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">ରିଙ୍ଗ୍‍ଟୋନ୍‍ ଓ ନୋଟିଫିକେସନ୍‍ଽ ଭୋଲ୍ୟୁମ୍‍ଗୁଡିକୁ ଲିଙ୍କ୍‍ କରନ୍ତୁ</string>
+  <!-- Launch music player when headset is connected -->
 </resources>

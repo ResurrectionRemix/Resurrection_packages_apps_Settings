@@ -57,6 +57,7 @@
   <string name="app_ops_categories_media">മീഡിയ</string>
   <string name="app_ops_categories_device">ഉപകരണം</string>
   <string name="app_ops_categories_bootup">ബൂട്ടപ്പ്</string>
+  <string name="app_ops_categories_su">റൂട്ട് പ്രവേശനം</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">പരുപരുത്ത സ്ഥലം</string>
   <string name="app_ops_summaries_fine_location">നല്ല സ്ഥാനം</string>
@@ -101,7 +102,6 @@
   <string name="app_ops_summaries_keep_awake">സജീവമായി തുടരുക</string>
   <string name="app_ops_summaries_monitor_location">മോണിറ്റർ സ്ഥാനം</string>
   <string name="app_ops_summaries_monitor_high_power_location">ഉയർന്ന പവർ സ്ഥാനം നിരീക്ഷിക്കുക</string>
-  <string name="app_ops_summaries_get_usage_stats">ഉപയോഗ സ്ഥിതിവിവരക്കണക്കുകൾ ലഭ്യമാക്കുക</string>
   <string name="app_ops_summaries_mute_unmute_microphone">മൈക്രോഫോൺ നിശ്ശബ്ദമാക്കുക / ശബ്ദമുള്ളതാക്കൂ ചെയ്യുക</string>
   <string name="app_ops_summaries_toast_window">ടോസ്റ്റുകൾ പ്രദര്‍ശനം ചെയ്യുക</string>
   <string name="app_ops_summaries_project_media">പ്രോജക്റ്റ് മീഡിയ</string>
@@ -125,6 +125,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">ടോഗിൾ Bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">ബൂട്ടില്‍ അരംഭിക്കുക</string>
   <string name="app_ops_summaries_toggle_nfc">NFC ടോഗിൾ</string>
+  <string name="app_ops_summaries_toggle_mobile_data">ടോഗിൾ മൊബൈൽ ഡാറ്റ</string>
   <string name="app_ops_summaries_superuser">റൂട്ട് പ്രവേശനം</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">പരുപരുത്ത സ്ഥലം</string>
@@ -194,6 +195,7 @@
   <string name="app_ops_labels_toggle_bluetooth">ടോഗിള് Bluetooth</string>
   <string name="app_ops_labels_start_at_boot">ബൂട്ടില്‍ അരംഭിക്കുക</string>
   <string name="app_ops_labels_toggle_nfc">NFC ടോഗിൾ</string>
+  <string name="app_ops_labels_toggle_mobile_data">മൊബൈൽ ഡാറ്റ ടോഗിൾ</string>
   <string name="app_ops_labels_superuser">റൂട്ട് പ്രവേശനം</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">അനുവദനീയമായ</string>
@@ -265,6 +267,8 @@
   <string name="touchscreen_hovering_title">ടച്ച്സ്ക്രീൻ ഹോവറിംഗ്</string>
   <string name="touchscreen_hovering_summary">വെബ് ബ്രൌസറുകള്‍, റിമോട്ട് ഡെസ്ക്ടോപ്പുകള്‍ തുടങ്ങിയവയിലെ മൌസ് എന്നപോലെ സ്ക്രീന്‍ ഹോവര്‍ ചെയ്യാന്‍ നിങ്ങളെ അനുവദിക്കുന്നു.</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">ഐക്കൺ സെലക്ടർ</string>
+  <string name="ime_switcher_notify_summary">ഇൻപുട്ട് മെത്തേഡ് സെലക്ടർ ഐക്കൺ ദൃശ്യമാക്കുക</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">സ്റ്റൈലസ് ഉപയോഗിക്കുമ്പോൾ ഐക്കൺ ദൃശ്യമാക്കുക</string>
@@ -310,7 +314,19 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 മിനിറ്റ്</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 മിനിറ്റ്</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 മിനിറ്റ്</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">പോർട്ടബിൾ Wi\u2011Fi ഒരിക്കലും കാലഹരണപ്പെടില്ല</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">പോർട്ടബിൾ Wi\u2011Fi ഹോട്ട്സ്പോട്ട് കാലഹരണപെടും ഇതിനു ശേഷം <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">വേക്ക് ഓൺ പ്ലഗ്</string>
+  <string name="wake_when_plugged_or_unplugged_summary">ഒരു ഊര്‍ജ്ജ സ്രോതസ്സില്‍ ബന്ധിപ്പിക്കുമ്പോള്‍ അല്ലെങ്കില്‍ വിച്ഛേദിക്കുമ്പോൾ സ്ക്രീന്‍ ഓണ്‍ ചെയ്യുക</string>
   <!-- Heads-up -->
+  <!-- Encryption password -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">ലിങ്ക് റിംഗ്ടോൺ &amp; അറിയിപ്പ് വോളിയം</string>
+  <!-- Launch music player when headset is connected -->
 </resources>

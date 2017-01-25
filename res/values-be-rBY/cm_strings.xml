@@ -49,7 +49,6 @@
   <string name="mod_api_level_default">Невядома</string>
   <!-- About phone screen, build date -->
   <string name="build_date">Дата зборкі</string>
-  <string name="build_date_default">2015-01-01-0000</string>
   <!-- CM Updater -->
   <string name="cmupdate_settings_title">Абнаўленні сістэмы</string>
   <!-- Names of categories of app ops tabs - extension of AOSP -->
@@ -105,7 +104,6 @@
   <string name="app_ops_summaries_keep_awake">актыўны рэжым</string>
   <string name="app_ops_summaries_monitor_location">асочванне месцазнаходжання</string>
   <string name="app_ops_summaries_monitor_high_power_location">асочванне высокадакладнага месцазнаходжання</string>
-  <string name="app_ops_summaries_get_usage_stats">атрымаць статыстыку выкарыстання</string>
   <string name="app_ops_summaries_mute_unmute_microphone">вымыкаць/далучаць мікрафон</string>
   <string name="app_ops_summaries_toast_window">адлюстроўваць усплывальныя паведамленні</string>
   <string name="app_ops_summaries_project_media">трансляцыя кантэнту</string>
@@ -130,6 +128,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">пераключыць bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">запуск падчас загрузкі</string>
   <string name="app_ops_summaries_toggle_nfc">пераключыць NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">пераключыць стан сотавай сеткі</string>
   <string name="app_ops_summaries_superuser">суперкарыстальнік</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Прыблізнае месцазнаходжанне</string>
@@ -200,7 +199,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Пераключыць bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Запуск падчас загрузкі</string>
   <string name="app_ops_labels_toggle_nfc">Пераключыць NFC</string>
-  <string name="app_ops_labels_toggle_mobile_data">Пераключыць стан мабільнага сеціва</string>
+  <string name="app_ops_labels_toggle_mobile_data">пераключыць стан сотавай сеткі</string>
   <string name="app_ops_labels_superuser">Рэжым суперкарыстальніка</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Дазваляць</string>
@@ -225,10 +224,6 @@
   <string name="vibrator_intensity_dialog_warning">Не раю выкарыстоўваць звыш %1$d%%</string>
   <string name="vibrator_intensity_dialog_reset">Скід</string>
   <!-- Sizes for pattern lockscreen -->
-  <string name="lock_pattern_size_3">3x3</string>
-  <string name="lock_pattern_size_4">4x4</string>
-  <string name="lock_pattern_size_5">5x5</string>
-  <string name="lock_pattern_size_6">6x6</string>
   <string name="lock_settings_picker_pattern_size_message">Абяры памер графічнага ключа</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Паказваць няправільны ўвод</string>
@@ -280,6 +275,8 @@
   <string name="touchscreen_hovering_title">Навядзенне пальца</string>
   <string name="touchscreen_hovering_summary">Распазнаваць набліжэнне пальца да экрана для падзей навядзення курсора ў браўзары ці іншых дадатках</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">Значок выбару метаду ўводу</string>
+  <string name="ime_switcher_notify_summary">Адлюстроўваць пераключальнік метаду ўводу пры адкрыцці тэкставых палёў</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Курсор пры выкарыстанні сцілуса</string>
@@ -324,7 +321,19 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 хвіліна</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 хвілін</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 хвілін</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Не адключаць ніколі Wi\u2011Fi</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Адключыць праз <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">Улучэнне пры зарадцы</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Улучаць экран пры падлучэнні ці адключэнні крыніцы сілкавання</string>
   <!-- Heads-up -->
+  <!-- Encryption password -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Звязаць гучнасць рынгтону &amp; паведамленняў</string>
+  <!-- Launch music player when headset is connected -->
 </resources>

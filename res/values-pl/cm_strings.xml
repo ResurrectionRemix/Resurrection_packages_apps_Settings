@@ -17,11 +17,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-  <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> krok od włączenia opcji programistycznych.</item>
-    <item quantity="few">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> kroki od włączenia opcji programistycznych.</item>
-    <item quantity="other">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> kroków od włączenia opcji programistycznych.</item>
-  </plurals>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">Aktywowałeś opcje programistyczne!</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
@@ -61,6 +56,7 @@
   <string name="app_ops_categories_device">Urządzenie</string>
   <string name="app_ops_categories_background">Tło</string>
   <string name="app_ops_categories_bootup">Rozruch</string>
+  <string name="app_ops_categories_su">Dostęp do roota</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">Przybliżona lokalizacja</string>
   <string name="app_ops_summaries_fine_location">Dokładna lokalizacja</string>
@@ -105,7 +101,6 @@
   <string name="app_ops_summaries_keep_awake">Nie usypiaj</string>
   <string name="app_ops_summaries_monitor_location">Monitorowanie lokalizacji</string>
   <string name="app_ops_summaries_monitor_high_power_location">Monitorowanie lokalizacji z pełną mocą</string>
-  <string name="app_ops_summaries_get_usage_stats">pobieranie statystyk używania</string>
   <string name="app_ops_summaries_mute_unmute_microphone">wyciszanie/włączanie mikrofonu</string>
   <string name="app_ops_summaries_toast_window">wyświetla wyskakujące powiadomienia</string>
   <string name="app_ops_summaries_project_media">projekcja mediów</string>
@@ -129,6 +124,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">przełączanie Bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">uruchom na starcie</string>
   <string name="app_ops_summaries_toggle_nfc">przełączanie NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">przełączanie transmisji danych</string>
   <string name="app_ops_summaries_superuser">dostęp do roota</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Przybliżona lokalizacja</string>
@@ -198,6 +194,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Przełączanie bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Uruchom na starcie</string>
   <string name="app_ops_labels_toggle_nfc">Przełączanie NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Przełączanie transmisji danych</string>
   <string name="app_ops_labels_superuser">Dostęp do roota</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Zezwolono</string>
@@ -219,12 +216,8 @@
   <string name="volume_adjust_sounds_title">Dźwięk regulacji głośności</string>
   <!-- Vibrator intensity -->
   <string name="vibrator_intensity_title">Siła wibracji</string>
-  <string name="vibrator_intensity_dialog_reset">Przywróć domyślne</string>
+  <string name="vibrator_intensity_dialog_reset">Reset</string>
   <!-- Sizes for pattern lockscreen -->
-  <string name="lock_pattern_size_3">3x3</string>
-  <string name="lock_pattern_size_4">4x4</string>
-  <string name="lock_pattern_size_5">5x5</string>
-  <string name="lock_pattern_size_6">6x6</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Pokazuj błędny wzór</string>
   <!-- Whether the dots will be drawn when using the lockscreen pattern -->
@@ -268,7 +261,7 @@
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">Pokaż pogodę</string>
   <!-- title for lock screen blur preference -->
-  <string name="lockscreen_blur_enabled_title">Rozmycie ekranu blokady</string>
+  <string name="lockscreen_blur_enabled_title">Rozmycie tła</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Zapobiega przypadkowemu wybudzeniu</string>
   <!-- High touch sensitivity -->
@@ -278,7 +271,8 @@
   <string name="touchscreen_hovering_title">Wskazywanie ekranu dotykowego</string>
   <string name="touchscreen_hovering_summary">Pozwala na wskazywanie na ekranie jak myszką w przeglądarce internetowej, pulpicie zdalnym itd.</string>
   <!-- Whether to display IME switcher notifcation -->
-  <string name="ime_switcher_notify">Wybór powiadomień</string>
+  <string name="ime_switcher_notify">Ikona selektora</string>
+  <string name="ime_switcher_notify_summary">Wyświetl ikonę selektora metody wprowadzania</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Pokaż ikonę podczas używania rysika</string>
@@ -336,7 +330,19 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 min</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 min</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 min</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Przenośny hotspot Wi\u2011Fi nie przejdzie w stan bezczynności</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Przenośny hotspot Wi\u2011Fi przejdzie w stan bezczynności po <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">Wybudź przy podłączaniu</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Włącz ekran podczas podłączania i odłączania od źródła zasilania</string>
   <!-- Heads-up -->
+  <!-- Encryption password -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Połącz głośność dzwonka &amp; powiadomień</string>
+  <!-- Launch music player when headset is connected -->
 </resources>

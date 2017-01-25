@@ -59,7 +59,7 @@
   <string name="app_ops_categories_device">Perangkat</string>
   <string name="app_ops_categories_background">Latar belakang</string>
   <string name="app_ops_categories_bootup">Lakukan but</string>
-  <string name="app_ops_categories_su">Superuser</string>
+  <string name="app_ops_categories_su">Akses root</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">lokasi yang kasar</string>
   <string name="app_ops_summaries_fine_location">lokasi yang baik</string>
@@ -104,7 +104,6 @@
   <string name="app_ops_summaries_keep_awake">tetap terjaga</string>
   <string name="app_ops_summaries_monitor_location">memantau lokasi</string>
   <string name="app_ops_summaries_monitor_high_power_location">memantau lokasi daya tinggi</string>
-  <string name="app_ops_summaries_get_usage_stats">dapatkan statistik penggunaan</string>
   <string name="app_ops_summaries_mute_unmute_microphone">bungkam/bunyikan mikrofon</string>
   <string name="app_ops_summaries_toast_window">tampilkan toast</string>
   <string name="app_ops_summaries_project_media">proyek media</string>
@@ -129,7 +128,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">hidup/matikan bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">mulai saat boot</string>
   <string name="app_ops_summaries_toggle_nfc">hidup/matikan NFC</string>
-  <string name="app_ops_summaries_toggle_mobile_data">hidup/matikan data seluler</string>
+  <string name="app_ops_summaries_toggle_mobile_data">hidup/matikan data selular</string>
   <string name="app_ops_summaries_superuser">akses root</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Lokasi gersang</string>
@@ -223,12 +222,8 @@
   <!-- Vibrator intensity -->
   <string name="vibrator_intensity_title">Intensitas penggetar</string>
   <string name="vibrator_intensity_dialog_warning">Nilai lebih tinggi dari %1$d%% tidak direkomendasikan</string>
-  <string name="vibrator_intensity_dialog_reset">Set ulang</string>
+  <string name="vibrator_intensity_dialog_reset">Atur kembali</string>
   <!-- Sizes for pattern lockscreen -->
-  <string name="lock_pattern_size_3">3x3</string>
-  <string name="lock_pattern_size_4">4x4</string>
-  <string name="lock_pattern_size_5">5x5</string>
-  <string name="lock_pattern_size_6">6x6</string>
   <string name="lock_settings_picker_pattern_size_message">Pilih ukuran pola</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Tunjukkan galat pola</string>
@@ -274,7 +269,7 @@
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">Tampilkan cuaca</string>
   <!-- title for lock screen blur preference -->
-  <string name="lockscreen_blur_enabled_title">Kaburkan layar kunci</string>
+  <string name="lockscreen_blur_enabled_title">Latar belakang kabur</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Mencegah bangun yang tidak disengaja</string>
   <string name="proximity_wake_summary">Periksa sensor kedekatan sebelum memicu gerakan</string>
@@ -285,8 +280,8 @@
   <string name="touchscreen_hovering_title">Ambang jari di layar sentuh</string>
   <string name="touchscreen_hovering_summary">Mengizinkan Anda mengambang jari di atas layar seperti menggunakan tetikus dalam peramban web, destop jarak jauh, dll</string>
   <!-- Whether to display IME switcher notifcation -->
-  <string name="ime_switcher_notify">Pemilih pemberitahuan</string>
-  <string name="ime_switcher_notify_summary">Tampilkan pemberitahuan pilihan metode masukan</string>
+  <string name="ime_switcher_notify">Ikon pemilih</string>
+  <string name="ime_switcher_notify_summary">Tampilkan ikon metode pemilih masukan</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <string name="notification_importance_very_low">Tidak ada gangguan layar manapun, mengintip, suara atau getaran. Menunjukkan di bagian bawah daftar pemberitahuan. Sembunyikan dari layar kunci.</string>
   <!-- Stylus Icon -->
@@ -353,12 +348,21 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 menit</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 menit</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 menit</string>
-  <string name="hotstpot_inactivity_timeout_never_summary_text">Portabel Wi\u2011Fi hotspot tidak pernah berakhir</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Portabel HosWi\u2011Fi hostspot tidak pernah berakhir</string>
   <string name="hotstpot_inactivity_timeout_summary_text">Portabel Wi\u2011Fi hotspot akan berkahir setelah <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">Bangun saat pengisi daya di pasang</string>
-  <string name="wake_when_plugged_or_unplugged_summary">Aktifkan layar ketika menghubungkan atau melepaskan pengisi daya</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Aktifkan layar ketika menghubungkan atau melepaskan sumber daya</string>
   <!-- Heads-up -->
   <string name="heads_up_notifications_enabled_title">Notifikasi mengambang</string>
   <string name="heads_up_notifications_enabled_summary">Menampilkan pemberitahuan prioritas dalam jendela kecil yang mengambang</string>
+  <!-- Encryption password -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Hubungkan volume nada dering &amp; pemberitahuan</string>
+  <!-- Launch music player when headset is connected -->
 </resources>

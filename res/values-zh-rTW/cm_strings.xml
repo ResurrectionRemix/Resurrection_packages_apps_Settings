@@ -18,7 +18,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
-    <item quantity="other">剩下 <xliff:g id="step_count">%1$d</xliff:g> 個步驟啟用開發人員選項。</item>
+    <item quantity="other">您僅需完成剩餘的 <xliff:g id="step_count">%1$d</xliff:g> 個步驟啟用開發人員選項。</item>
   </plurals>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">您已啟用開發人員選項。</string>
@@ -28,7 +28,7 @@
   <string name="development_tools_title">開發工具</string>
   <!-- Setting checkbox title for root access -->
   <string name="root_access">Root 權限</string>
-  <string name="root_access_warning_title">是否允許 root 權限？</string>
+  <string name="root_access_warning_title">允許 root 權限？</string>
   <string name="root_access_warning_message">允許應用程式請求 root 權限是很危險的，而且可能會影響您系統的安全！</string>
   <string name="root_access_none">已停用</string>
   <string name="root_access_apps">僅限應用程式</string>
@@ -54,12 +54,12 @@
   <!-- Names of categories of app ops tabs - extension of AOSP -->
   <string name="app_ops_categories_location">位置</string>
   <string name="app_ops_categories_personal">個人</string>
-  <string name="app_ops_categories_messaging">訊息</string>
+  <string name="app_ops_categories_messaging">簡訊</string>
   <string name="app_ops_categories_media">媒體</string>
   <string name="app_ops_categories_device">裝置</string>
   <string name="app_ops_categories_background">背景</string>
   <string name="app_ops_categories_bootup">啟動時</string>
-  <string name="app_ops_categories_su">超級使用者</string>
+  <string name="app_ops_categories_su">Root 權限</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">約略位置</string>
   <string name="app_ops_summaries_fine_location">精確位置</string>
@@ -80,12 +80,12 @@
   <string name="app_ops_summaries_receive_sms">接收簡訊</string>
   <string name="app_ops_summaries_receive_emergency_sms">接收緊急簡訊</string>
   <string name="app_ops_summaries_receive_mms">接收多媒體簡訊</string>
-  <string name="app_ops_summaries_receive_wap_push">接收 WAP PUSH 簡訊</string>
+  <string name="app_ops_summaries_receive_wap_push">接收 WAP 推送</string>
   <string name="app_ops_summaries_send_sms">傳送簡訊</string>
   <string name="app_ops_summaries_read_icc_sms">讀取 ICC 簡訊</string>
   <string name="app_ops_summaries_write_icc_sms">撰寫 ICC 簡訊</string>
   <string name="app_ops_summaries_modify_settings">修改設定</string>
-  <string name="app_ops_summaries_draw_on_top">在最上層繪圖</string>
+  <string name="app_ops_summaries_draw_on_top">在最上層繪製</string>
   <string name="app_ops_summaries_access_notifications">存取通知</string>
   <string name="app_ops_summaries_camera">相機</string>
   <string name="app_ops_summaries_record_audio">錄音</string>
@@ -101,18 +101,18 @@
   <string name="app_ops_summaries_alarm_volume">鬧鐘音量</string>
   <string name="app_ops_summaries_notification_volume">通知音量</string>
   <string name="app_ops_summaries_bluetooth_volume">藍牙音量</string>
-  <string name="app_ops_summaries_keep_awake">停用休眠</string>
+  <string name="app_ops_summaries_keep_awake">保持清醒</string>
   <string name="app_ops_summaries_monitor_location">監控位置</string>
   <string name="app_ops_summaries_monitor_high_power_location">監控高耗電定位功能</string>
-  <string name="app_ops_summaries_get_usage_stats">取得使用統計</string>
+  <string name="app_ops_summaries_get_usage_stats">取得應用程式的使用狀況統計</string>
   <string name="app_ops_summaries_mute_unmute_microphone">將麥克風靜音/解除靜音</string>
-  <string name="app_ops_summaries_toast_window">顯示浮動通知</string>
-  <string name="app_ops_summaries_project_media">媒體投放</string>
+  <string name="app_ops_summaries_toast_window">顯示提示通知</string>
+  <string name="app_ops_summaries_project_media">放映媒體</string>
   <string name="app_ops_summaries_activate_vpn">啟用 VPN</string>
   <string name="app_ops_summaries_write_wallpaper">設定桌布</string>
   <string name="app_ops_summaries_assist_structure">協助結構</string>
-  <string name="app_ops_summaries_assist_screenshot">協助螢幕截圖</string>
-  <string name="app_ops_summaries_read_phone_state">讀取手機狀態</string>
+  <string name="app_ops_summaries_assist_screenshot">協助螢幕擷取</string>
+  <string name="app_ops_summaries_read_phone_state">讀取電話狀態</string>
   <string name="app_ops_summaries_add_voicemail">新增語音信箱</string>
   <string name="app_ops_summaries_use_sip">使用 SIP</string>
   <string name="app_ops_summaries_make_call">撥打電話</string>
@@ -143,8 +143,8 @@
   <string name="app_ops_labels_read_calendar">讀取日曆</string>
   <string name="app_ops_labels_modify_calendar">修改日曆</string>
   <string name="app_ops_labels_wifi_scan">Wi-Fi 掃瞄</string>
-  <string name="app_ops_labels_notification">通知/Toast</string>
-  <string name="app_ops_labels_cell_scan">基站掃瞄</string>
+  <string name="app_ops_labels_notification">通知/提示</string>
+  <string name="app_ops_labels_cell_scan">基地台掃瞄</string>
   <string name="app_ops_labels_call_phone">撥打電話</string>
   <string name="app_ops_labels_read_sms">讀取簡訊</string>
   <string name="app_ops_labels_write_sms">撰寫簡訊</string>
@@ -154,16 +154,16 @@
   <string name="app_ops_labels_receive_wap_push">接收 WAP 推送</string>
   <string name="app_ops_labels_send_sms">傳送簡訊</string>
   <string name="app_ops_labels_read_icc_sms">讀取 ICC 簡訊</string>
-  <string name="app_ops_labels_write_icc_sms">撰寫 ICC 短訊</string>
+  <string name="app_ops_labels_write_icc_sms">撰寫 ICC 簡訊</string>
   <string name="app_ops_labels_modify_settings">修改設定</string>
-  <string name="app_ops_labels_draw_on_top">在最上層繪圖</string>
+  <string name="app_ops_labels_draw_on_top">在最上層繪製</string>
   <string name="app_ops_labels_access_notifications">存取通知</string>
   <string name="app_ops_labels_camera">相機</string>
   <string name="app_ops_labels_record_audio">錄音</string>
   <string name="app_ops_labels_play_audio">播放音訊</string>
   <string name="app_ops_labels_read_clipboard">讀取剪貼簿</string>
   <string name="app_ops_labels_modify_clipboard">修改剪貼簿</string>
-  <string name="app_ops_labels_media_buttons">媒體按鈕</string>
+  <string name="app_ops_labels_media_buttons">媒體鍵</string>
   <string name="app_ops_labels_audio_focus">音訊焦點</string>
   <string name="app_ops_labels_master_volume">主音量</string>
   <string name="app_ops_labels_voice_volume">語音音量</string>
@@ -172,17 +172,17 @@
   <string name="app_ops_labels_alarm_volume">鬧鐘音量</string>
   <string name="app_ops_labels_notification_volume">通知音量</string>
   <string name="app_ops_labels_bluetooth_volume">藍牙音量</string>
-  <string name="app_ops_labels_keep_awake">停用休眠</string>
+  <string name="app_ops_labels_keep_awake">保持清醒</string>
   <string name="app_ops_labels_monitor_location">監控位置</string>
   <string name="app_ops_labels_monitor_high_power_location">監控高耗電定位功能</string>
   <string name="app_ops_labels_get_usage_stats">取得使用統計</string>
   <string name="app_ops_labels_mute_unmute_microphone">將麥克風靜音/解除靜音</string>
-  <string name="app_ops_labels_toast_window">顯示 toasts 通知</string>
-  <string name="app_ops_labels_project_media">媒體投放</string>
+  <string name="app_ops_labels_toast_window">顯示提示通知</string>
+  <string name="app_ops_labels_project_media">放映媒體</string>
   <string name="app_ops_labels_activate_vpn">啟用 VPN</string>
   <string name="app_ops_labels_write_wallpaper">設定桌布</string>
   <string name="app_ops_labels_assist_structure">協助結構</string>
-  <string name="app_ops_labels_assist_screenshot">協助螢幕截圖</string>
+  <string name="app_ops_labels_assist_screenshot">協助螢幕擷取</string>
   <string name="app_ops_labels_read_phone_state">讀取電話狀態</string>
   <string name="app_ops_labels_add_voicemail">新增語音郵件</string>
   <string name="app_ops_labels_use_sip">使用 SIP</string>
@@ -225,19 +225,15 @@
   <string name="vibrator_intensity_dialog_warning">數值不建議大於 %1$d%%</string>
   <string name="vibrator_intensity_dialog_reset">重設</string>
   <!-- Sizes for pattern lockscreen -->
-  <string name="lock_pattern_size_3">3x3</string>
-  <string name="lock_pattern_size_4">4x4</string>
-  <string name="lock_pattern_size_5">5x5</string>
-  <string name="lock_pattern_size_6">6x6</string>
-  <string name="lock_settings_picker_pattern_size_message">選擇解鎖圖形大小</string>
+  <string name="lock_settings_picker_pattern_size_message">選擇解鎖圖案大小</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
-  <string name="lockpattern_settings_enable_error_path_title">顯示解鎖圖形錯誤</string>
+  <string name="lockpattern_settings_enable_error_path_title">顯示解鎖圖案錯誤</string>
   <!-- Whether the dots will be drawn when using the lockscreen pattern -->
-  <string name="lockpattern_settings_enable_dots_title">顯示解鎖圖形點</string>
+  <string name="lockpattern_settings_enable_dots_title">顯示解鎖圖案節點</string>
   <!-- Whether the keyguard will directly show the password entry -->
   <string name="lock_directly_show_password">直接顯示密碼輸入框</string>
   <!-- Whether the keyguard will directly show the pattern view -->
-  <string name="lock_directly_show_pattern">直接顯示圖形密碼輸入</string>
+  <string name="lock_directly_show_pattern">直接顯示圖案密碼輸入</string>
   <!-- Whether the keyguard will directly show the PIN entry -->
   <string name="lock_directly_show_pin">直接顯示 PIN 碼輸入框</string>
   <!-- Lock screen vibrate settings -->
@@ -251,16 +247,16 @@
   <string name="advanced_reboot_title">進階重新啟動</string>
   <string name="advanced_reboot_summary">當解鎖後，加入重新啟動進入 Recovery、Bootloader 或進行軟體重新啟動的選項至電源選單</string>
   <!-- PIN scramble -->
-  <string name="unlock_scramble_pin_layout_title">亂序布局</string>
-  <string name="unlock_scramble_pin_layout_summary">解鎖裝置時使用亂序 PIN 碼布局</string>
+  <string name="unlock_scramble_pin_layout_title">亂序佈局</string>
+  <string name="unlock_scramble_pin_layout_summary">解鎖裝置時使用亂序 PIN 碼佈局</string>
   <!-- lock screen visualizer -->
   <string name="lockscreen_visualizer_title">顯示音樂視覺效果</string>
   <!-- Protected apps lockpattern reset button -->
-  <string name="lockpattern_reset_button">重設圖形</string>
-  <string name="lockpattern_settings_reset_summary">輸入主電子郵件帳戶和相關的密碼重設圖形鎖</string>
+  <string name="lockpattern_reset_button">重設圖案</string>
+  <string name="lockpattern_settings_reset_summary">輸入主電子郵件帳戶和相關的密碼重設圖案鎖</string>
   <!-- Protected Apps -->
   <string name="menu_hidden_apps_delete">重設</string>
-  <string name="menu_hidden_apps_reset_lock">重設圖形鎖</string>
+  <string name="menu_hidden_apps_reset_lock">重設圖案鎖</string>
   <string name="protected_apps">受保護的應用程式</string>
   <string name="protected_apps_summary">管理安全鎖下隱藏的應用程式</string>
   <string name="saving_protected_components">正在儲存元件狀態\u2026</string>
@@ -270,11 +266,11 @@
   <string name="pa_login_submit_button">登入</string>
   <string name="pa_login_checking_password">正在檢查帳戶\u2026</string>
   <string name="pa_login_incorrect_login">登入不正確</string>
-  <string name="pa_pattern_or_fingerprint_header">必須使用解鎖圖形或指紋解鎖</string>
+  <string name="pa_pattern_or_fingerprint_header">必須使用解鎖圖案或指紋解鎖</string>
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">顯示天氣資訊</string>
   <!-- title for lock screen blur preference -->
-  <string name="lockscreen_blur_enabled_title">模糊鎖定螢幕</string>
+  <string name="lockscreen_blur_enabled_title">模糊背景</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">防止意外喚醒</string>
   <string name="proximity_wake_summary">手勢觸發喚醒前檢查接近感應器</string>
@@ -285,10 +281,10 @@
   <string name="touchscreen_hovering_title">懸浮操作</string>
   <string name="touchscreen_hovering_summary">允許您把手指懸停在螢幕上作為瀏覽器、遠程桌面等的滑鼠</string>
   <!-- Whether to display IME switcher notifcation -->
-  <string name="ime_switcher_notify">選擇器通知</string>
-  <string name="ime_switcher_notify_summary">顯示輸入法選擇器通知</string>
+  <string name="ime_switcher_notify">輸入法選擇工具圖示</string>
+  <string name="ime_switcher_notify_summary">顯示輸入法選擇工具圖示</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
-  <string name="notification_importance_very_low">無全螢幕中斷、窺視、聲音或震動。 顯示在通知清單的下方。 從鎖定螢幕中隱藏。</string>
+  <string name="notification_importance_very_low">無全螢幕中斷、窺視、聲音或震動。 顯示在通知清單的下方。 從鎖定畫面中隱藏。</string>
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">使用觸控筆時顯示圖示</string>
   <string name="stylus_icon_enabled_summary">使用觸控筆漂浮或繪圖時顯示指標圖示</string>
@@ -304,7 +300,7 @@
   <!-- Android debugging over network -->
   <string name="adb_over_network">網路 ADB</string>
   <string name="adb_over_network_summary">啟用透過網路介面 (Wi\u2011Fi、USB 網路) 進行 TCP/IP 偵錯。該設定會在重新啟動後重設</string>
-  <string name="adb_over_network_warning">警告：當啟用網路 ADB 時，您的手機將開放於所有已連線的網路！\n\n建議您已連線到信任的網路才使用此功能。\n\n您確定你想啟用此功能嗎？</string>
+  <string name="adb_over_network_warning">警告：當啟用網路 ADB 時，您的手機將開放於所有已連線的網路！\n\n建議您已連線到信任的網路才使用此功能。\n\n您確定您想啟用此功能嗎？</string>
   <!-- Hostname setting -->
   <string name="device_hostname">裝置主機名稱</string>
   <!-- Increasing ring tone volume -->
@@ -329,7 +325,7 @@
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">Sim 卡 %d 狀態</string>
   <string name="sim_card_lock_settings_title">Sim 卡 %d 鎖定設定</string>
-  <string name="sim_card_summary_empty">沒有插入Sim卡</string>
+  <string name="sim_card_summary_empty">SIM 卡尚未插入</string>
   <string name="sim_mobile_network_settings_category_title">行動網路設定</string>
   <string name="sim_mobile_network_settings_title">Sim 卡 %d 設定</string>
   <!-- NFC PreferenceCategory title -->
@@ -353,12 +349,34 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 分鐘</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 分鐘</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 分鐘</string>
-  <string name="hotstpot_inactivity_timeout_never_summary_text">可擕式 Wi\u2011Fi 熱點永不逾時</string>
-  <string name="hotstpot_inactivity_timeout_summary_text">可攜式 Wi\u2011Fi 熱點於 <xliff:g id="timeout">%1$s</xliff:g> 後逾時</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">可攜式 Wi\u2011Fi 熱點將永不逾時</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">可攜式 Wi\u2011Fi 熱點將於 <xliff:g id="timeout">%1$s</xliff:g> 後逾時</string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">接上或移除電源時喚醒</string>
-  <string name="wake_when_plugged_or_unplugged_summary">接上或拔除電源時喚醒螢幕</string>
+  <string name="wake_when_plugged_or_unplugged_summary">接上或拔除電源時開啟螢幕</string>
   <!-- Heads-up -->
   <string name="heads_up_notifications_enabled_title">浮動通知</string>
   <string name="heads_up_notifications_enabled_summary">在一個小的浮動視窗中顯示優先通知</string>
+  <!-- Encryption password -->
+  <string name="crypt_keeper_change_password_title">變更加密密碼</string>
+  <string name="crypt_keeper_change_password_summary">變更用於裝置加密的密碼</string>
+  <string name="crypt_keeper_choose_your_password_header">設定加密密碼</string>
+  <string name="crypt_keeper_replace_password_title">替換加密密碼</string>
+  <string name="crypt_keeper_replace_password_summary">移除單獨的加密密碼</string>
+  <!-- Per-app data restrictions -->
+  <string name="data_usage_app_restrict_data_category_title">行動數據存取</string>
+  <string name="data_usage_app_restrict_wifi_category_title">Wi\u2011Fi 數據存取</string>
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <string name="data_usage_app_restrict_all_data_title">停用所有行動數據存取</string>
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <string name="data_usage_app_restrict_all_data_summary">防止任何透過行動網路使用數據存取</string>
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <string name="data_usage_app_restrict_all_wifi_title">停用所有 Wi\u2011Fi 數據存取</string>
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <string name="data_usage_app_restrict_all_wifi_summary">防止任何透過 Wi\u2011Fi 網路使用數據存取</string>
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">同步鈴聲和通知音量</string>
+  <!-- Launch music player when headset is connected -->
+  <string name="headset_connect_player_title">啟動音樂應用程式</string>
+  <string name="headset_connect_player_summary">插入耳機時啟動預設音樂應用程式</string>
 </resources>

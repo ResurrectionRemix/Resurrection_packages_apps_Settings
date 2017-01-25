@@ -57,6 +57,7 @@
   <string name="app_ops_categories_media">ಮಾಧ್ಯಮ</string>
   <string name="app_ops_categories_device">ಸಾಧನ</string>
   <string name="app_ops_categories_bootup">ಬೂಟಪ್</string>
+  <string name="app_ops_categories_su">ರೂಟ್ ಪ್ರವೇಶ</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">ಕಳಪೆ ಸ್ಥಳ</string>
   <string name="app_ops_summaries_fine_location">ಉತ್ತಮ ಸ್ಥಳ</string>
@@ -101,7 +102,6 @@
   <string name="app_ops_summaries_keep_awake">ಎಚ್ಚರವಾಗಿಡು</string>
   <string name="app_ops_summaries_monitor_location">ಸ್ಥಳವನ್ನು ಪರಿವೀಕ್ಷಿಸು</string>
   <string name="app_ops_summaries_monitor_high_power_location">ಅಧಿಕ ಪವರ್ ಸ್ಥಳವನ್ನು ಪರಿವೀಕ್ಷಿಸು</string>
-  <string name="app_ops_summaries_get_usage_stats">ಬಳಕೆಯ ಅಂಕಿಅಂಶ ಪಡೆ</string>
   <string name="app_ops_summaries_mute_unmute_microphone">ಧ್ವನಿಗ್ರಾಹಕವನ್ನು ಮೌನ/ಅಮೌನಿಸು</string>
   <string name="app_ops_summaries_toast_window">ಟೋಸ್ಟ್ ಗಳನ್ನು ಪ್ರದರ್ಶಿಸು</string>
   <string name="app_ops_summaries_project_media">ಮಾಧ್ಯಮವನ್ನು ಪ್ರೊಜೆಕ್ಟ್ ಮಾಡು</string>
@@ -125,6 +125,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">ಬ್ಲೂಟೂತ್ ಟಾಗಲ್ ಮಾಡು</string>
   <string name="app_ops_summaries_start_at_boot">ಬೂಟ್ ಆರಂಭಿಸು</string>
   <string name="app_ops_summaries_toggle_nfc">NFC ಟಾಗಲ್ ಮಾಡು</string>
+  <string name="app_ops_summaries_toggle_mobile_data">ಮೊಬೈಲ್ ಡಾಟಾ ಟಾಗಲ್ ಮಾಡು</string>
   <string name="app_ops_summaries_superuser">ರೂಟ್ ಪ್ರವೇಶ</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">ಒರಟಾದ ಸ್ಥಳ</string>
@@ -194,6 +195,7 @@
   <string name="app_ops_labels_toggle_bluetooth">ಬ್ಲೂಟೂತ್ ಟಾಗಲ್ ಮಾಡು</string>
   <string name="app_ops_labels_start_at_boot">ಬೂಟ್ ಆರಂಭಿಸು</string>
   <string name="app_ops_labels_toggle_nfc">NFC ಟಾಗಲ್ ಮಾಡು</string>
+  <string name="app_ops_labels_toggle_mobile_data">ಮೊಬೈಲ್ ಡಾಟಾ ಟಾಗಲ್ ಮಾಡು</string>
   <string name="app_ops_labels_superuser">ರೂಟ್ ಪ್ರವೇಶ</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">ಅನುಮತಿಸಿದೆ</string>
@@ -265,6 +267,8 @@
   <string name="touchscreen_hovering_title">ಸ್ಪರ್ಶಪರದೆ ಹರಿದಾಡುವಿಕೆ</string>
   <string name="touchscreen_hovering_summary">ವೆಬ್ ಬ್ರೌಸರ್ಸ್, ರಿಮೋಟ್ ಡೆಸ್ಕ್ ಟಾಪ್ಸ್, ಇತರೆಗಳಲ್ಲಿ ಮೌಸ್‍ನ ಹಾಗೆ ಪರದೆಯನ್ನು ಹರಿದಾಡಲು ನಿಮಗೆ ಅನುವುಮಾಡುತ್ತದೆ</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">ಆಯ್ಕೆಮಾಡುವ ಐಕಾನ್</string>
+  <string name="ime_switcher_notify_summary">ಇನ್ಪುಟ್ ವಿಧಾನ ಆಯ್ಕೆಮಾಡುವ ಐಕಾನ್ ಪ್ರದರ್ಶಿಸು</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">ಸ್ಟೈಲಸ್ ಉಪಯೋಗಿಸುವಾಗ ಐಕಾನ್ ಪ್ರದರ್ಶಿಸು</string>
@@ -310,7 +314,19 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 ನಿಮಿಷ</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 ನಿಮಿಷಗಳು</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minutes</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Portable Wi\u2011Fi hotspot will never timeout</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Portable Wi\u2011Fi hotspot will timeout after <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Wake on plug -->
   <string name="wake_when_plugged_or_unplugged_title">ಪ್ಲಗ್‍ಮಾಡಿದಾಗ ಎಚ್ಚರವಾಗು</string>
+  <string name="wake_when_plugged_or_unplugged_summary">ವಿದ್ಯುತ್ ಮೂಲವನ್ನು ಸಂಪರ್ಕಿಸಿದಾಗ ಅಥವಾ ಅಸಂಪರ್ಕಿಸಿದಾಗ ಪರದೆಯನ್ನು ಆನ್ ಮಾಡು</string>
   <!-- Heads-up -->
+  <!-- Encryption password -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">ರಿಂಗ್‍ಟೋನ್ &amp; ಅಧಿಸೂಚನೆ ವಾಲ್ಯೂಂ ಜೋಡಿಸು</string>
+  <!-- Launch music player when headset is connected -->
 </resources>
