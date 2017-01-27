@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="rr_mod_version">RR-OS sürümü</string>
   <string name="build_date">Sürüm tarihi</string>
   <string name="mod_version_default">Varsayılan</string>
   <!-- General -->
@@ -30,6 +31,8 @@
   <string name="reset">Sıfırla</string>
   <string name="restart_systemui">Kullanıcı Arayüzünü Yeniden Başlat</string>
   <!-- About RR -->
+  <string name="about_rr_settings">Hakkında</string>
+  <string name="about_rr">Hakkında</string>
   <string name="about_rr_summary">\@null</string>
   <string name="about_r0m_summary">Resurrection Remix OS hakkında herşey</string>
   <string name="rr_donate">Geliştirme için Bağış</string>
@@ -52,6 +55,7 @@
   <string name="rr_google_plus_title">Google+</string>
   <string name="rr_google_plus_summary">Google+ topluluğu</string>
   <string name="maintainer_categorie_title">Resmi Cihazlar</string>
+  <string name="title_about">Hakkında</string>
   <string name="dev_categorie_title">Geliştirici Etiketi</string>
   <string name="rr_lockscreen_title">Kilit Ekranı</string>
   <string name="rr_ls_gestures">Kilit Ekranı Hareketleri</string>
@@ -59,9 +63,11 @@
   <string name="rr_ls_security">Güvenlik</string>
   <string name="updater_title">Güncellemeler</string>
   <string name="altan_summary">● Kurucu \n● Proje lideri \n● Baş geliştiricisi \n● UX tasarımcısı \n● Sorumlu</string>
+  <string name="varun_summary">● Baş geliştirici \n● UX tasarımcı \n● Sorumlu</string>
   <string name="akhil_summary">● Geliştirici \n● Sorumlu \n● Javascript ustası</string>
   <string name="brian_summary">● Geliştirici \n● Sorumlu</string>
   <string name="device_maintainers_title">Cihazlar ve Sorumluları</string>
+  <string name="device_maintainers_title_summary">Cihazlar ve resmi RR-OS sorumluları listesi</string>
   <string name="maintainers_note_title">Not</string>
   <string name="maintainers_note_title_summary">Eğer adınızı Cihaz Sorumluları listesine eklemek istiyorsanız ROM Konusu bağlantısı içeren bir Özel Mesajı Hangouts\'tan \'Varun Date\' e gönderin.</string>
   <!-- The Drill -->
@@ -69,6 +75,7 @@
   <string name="drill_summary">Logcat ya da GTFO</string>
   <!-- RR Feature lists-->
   <string name="features_title">Özellikler</string>
+  <string name="features_title_summary">Kullanılabilir özellikleri görüntüleyin</string>
   <string name="features_loading">Liste yükleniyor ...</string>
   <string name="features_error">Liste yüklenemiyor</string>
   <string name="features_unknown">Bilinmeyen</string>
@@ -76,6 +83,7 @@
   <string name="rr_volume_title">Ses paneli</string>
   <string name="rr_power_title">Güç iletişimi</string>
   <!-- Share RR ROM -->
+  <string name="share_rr">Paylaş</string>
   <string name="share_rr_summary">İnsanlar Resurrection Remix OS kullandığını bilsinler</string>
   <string name="share_message">Resurrection Remix OS dene! https://plus.google.com/communities/109352646351468373340</string>
   <string name="share_chooser_title">Resurrection Remix OS\'i aracılığı ile paylaş..</string>
@@ -90,14 +98,17 @@
   <string name="fab_updates">Güncellemeler</string>
   <string name="fab_restartui">Kullanıcı Arayüzünü Yeniden Başlat</string>
   <string name="fab_reset">Sıfırla</string>
+  <string name="fab_about">RR-OS Hakkında</string>
   <string name="fab_layout">Güncelleştirme düzeni</string>
   <string name="fab_layout_update">Marshmallow düzenini değiştir</string>
   <string name="fab_layout_toggle">Nougat düzenini değiştir</string>
   <string name="rr_reset_message">Tüm yapılandırmaları varsayılan değerlere sıfırlansın mı?</string>
   <string name="rr_reset_settings">Ayarları sıfırla</string>
   <string name="rr_reset_yes">Evet</string>
+  <string name="rr_reset_cancel">İptal</string>
   <string name="rr_category_title">Kişiselleştirme</string>
   <string name="rr_title">Kişiselleştirme</string>
+  <string name="rr_config_main_title">RR-OS</string>
   <string name="rr_ota_fab_title">Yüzen düğmeyi göster</string>
   <string name="rr_ota_fab_summary">Yapılandırmalarda yüzen düğmeyi göstermek/gizlemek için Etkinleştir/Devre Dışı Bırak. Anahtar kullanıldığında bir kez Gir/Çık</string>
   <string name="rr_statusbar_title">Durum çubuğu</string>
@@ -295,6 +306,7 @@
   <string name="network_traffic_autohide_threshold">Hareketsizlik eşiği</string>
   <!-- Statusbar RR logo -->
   <string name="status_bar_rr_logo_title">Logo etkin</string>
+  <string name="status_bar_rr_logo_summary">Durum çubuğunda RR-OS logosunu etkinleştir</string>
   <!-- Color picker -->
   <string name="color_picker_fragment_title">Renk seçici</string>
   <string name="apply_color_title">Renkleri Uygula</string>
@@ -547,11 +559,8 @@
   <string name="doze_overwrite_value_summary">Varsayılan değerleri kullanıcı yapılandırması ile geçersiz kılmaya izin ver</string>
   <string name="doze_pulse_title">Kullanıcı yapılandırılabilir ayarlar</string>
   <string name="doze_pulse_duration_in_title">Aydınlat</string>
-  <string name="doze_pulse_duration_in_summary"></string>
   <string name="doze_pulse_duration_visible_title">Görünürlük süresi</string>
-  <string name="doze_pulse_duration_visible_summary"></string>
   <string name="doze_pulse_duration_out_title">Solma</string>
-  <string name="doze_pulse_duration_out_summary"></string>
   <string name="doze_trigger_pickup_title">Ele alma hareketi tetikleyici</string>
   <string name="doze_trigger_pickup_summary_on">Cihazı elinize aldığınızda hareket sensörleri ortam ekranı modunda yanmayı tetikler</string>
   <string name="doze_trigger_pickup_summary_off">Ele alındığında hareket sensörü tetikleme mekanizması olarak kullanılmayacak</string>
@@ -1965,7 +1974,6 @@ Sadece yarı saydam bildirimler etkinleştirildi!</string>
   <string name="task_manager_kill_button_1">Dairesel</string>
   <string name="task_manager_kill_button_2">Metin</string>
   <string name="task_manager_kill_button_3">Klasik</string>
-  <!-- SystemUI restart prompt -->
   <!-- Wakelock blocker -->
   <string name="wakelock_blocker_title">Uyandırma kilidi engelleyici</string>
   <string name="wakelock_blocker_summary">Sistem uyandırma kilitlerini engelle</string>
@@ -1980,5 +1988,9 @@ Sadece yarı saydam bildirimler etkinleştirildi!</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Tek el modu</string>
   <string name="one_handed_mode_summary">Tek elle kullanılan modu etkinleştirmek için gezinti çubuğunda hızlıca kaydırmaya izin verir</string>
-  <!-- Dashboard columns -->
+  <!-- SystemUI restart prompt -->
+  <string name="systemui_restart_title">UYARI</string>
+  <string name="systemui_restart_message">Seçilen ayarın doğru uygulanabilmesi için SystemUI yeniden başlatılacaktır.</string>
+  <string name="restarting_ui">Yeniden Başlatılıyor\u2026</string>
+  <string name="print_restart">Yeniden Başlat</string>
 </resources>

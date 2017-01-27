@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="rr_mod_version">Verze RR-OS</string>
   <string name="build_date">Datum sestavení</string>
   <string name="mod_version_default">Výchozí</string>
   <!-- General -->
@@ -30,6 +31,8 @@
   <string name="reset">Reset</string>
   <string name="restart_systemui">Restartovat UI</string>
   <!-- About RR -->
+  <string name="about_rr_settings">Informace</string>
+  <string name="about_rr">Informace</string>
   <string name="about_rr_summary">\@null</string>
   <string name="about_r0m_summary">Vše o Resurrection Remix OS</string>
   <string name="rr_donate">Přispějte na vývoj</string>
@@ -52,6 +55,7 @@
   <string name="rr_google_plus_title">Google+</string>
   <string name="rr_google_plus_summary">Komunita Google+</string>
   <string name="maintainer_categorie_title">Oficiální zařízení</string>
+  <string name="title_about">Informace</string>
   <string name="dev_categorie_title">Štítek vývojáře</string>
   <string name="rr_lockscreen_title">Zamykací obrazovka</string>
   <string name="rr_ls_gestures">Gesta</string>
@@ -59,9 +63,11 @@
   <string name="rr_ls_security">Zabezpečení</string>
   <string name="updater_title">Aktualizace</string>
   <string name="altan_summary">● Zakladatel \n● Vedoucí projektu \n● Hlavní vývojář \n● UX designer \n● Správce</string>
+  <string name="varun_summary">● Hlavní vývojář \n● UX designer \n● Správce</string>
   <string name="akhil_summary">● Vývojář \n● Správce \n● Javascript master</string>
   <string name="brian_summary">● Vývojář \n● Správce</string>
   <string name="device_maintainers_title">Zařízení a správci</string>
+  <string name="device_maintainers_title_summary">Seznam zařízení a jejich oficiální správci RR-OS</string>
   <string name="maintainers_note_title">Poznámka</string>
   <string name="maintainers_note_title_summary">Pokud chcete, aby vaše jméno bylo uvedeno v seznamu správců zařízení, pošlete zprávu přes Hangouts adresovanou \"Varun Date\" která obsahuje odkaz na vaši ROM.</string>
   <!-- The Drill -->
@@ -69,6 +75,7 @@
   <string name="drill_summary">Logcat nebo GTFO</string>
   <!-- RR Feature lists-->
   <string name="features_title">Funkce</string>
+  <string name="features_title_summary">Zobrazit dostupné funkce</string>
   <string name="features_loading">Načítám list ...</string>
   <string name="features_error">Nelze načíst seznam</string>
   <string name="features_unknown">Neznámé</string>
@@ -76,6 +83,7 @@
   <string name="rr_volume_title">Panel hlasitosti</string>
   <string name="rr_power_title">Power menu</string>
   <!-- Share RR ROM -->
+  <string name="share_rr">Sdílet</string>
   <string name="share_rr_summary">Dejte vědět ostatním, že používáte Resurrection Remix OS</string>
   <string name="share_message">Zkuste Resurrection Remix OS! https://plus.Google.com/communities/109352646351468373340</string>
   <string name="share_chooser_title">Sdílet Resurrection Remix OS přes..</string>
@@ -90,14 +98,17 @@
   <string name="fab_updates">Aktualizace</string>
   <string name="fab_restartui">Restartovat UI</string>
   <string name="fab_reset">Výchozí</string>
+  <string name="fab_about">Vše o RR-OS</string>
   <string name="fab_layout">Aktualizace rozlozeni</string>
   <string name="fab_layout_update">Přepnout na Marshmallow vzhled</string>
   <string name="fab_layout_toggle">Přepnout na Nougat vzhled</string>
   <string name="rr_reset_message">Obnovit všechny konfigurace na výchozí hodnoty?</string>
   <string name="rr_reset_settings">Obnovit nastavení</string>
   <string name="rr_reset_yes">Ano</string>
+  <string name="rr_reset_cancel">Zrušit</string>
   <string name="rr_category_title">Přizpůsobení</string>
   <string name="rr_title">Konfigurace</string>
+  <string name="rr_config_main_title">RR-OS</string>
   <string name="rr_ota_fab_title">Zobrazit plovoucí tlačítko</string>
   <string name="rr_ota_fab_summary">Povolit / Zakázat zobrazení / Skrýt plovoucí tlačítko v konfiguracích. Otevření/ukončení po přepnuti</string>
   <string name="rr_statusbar_title">Stavová lišta</string>
@@ -142,6 +153,7 @@
   <string name="recents_clear_all_summary">Nahradit původní tlačítko \"Vymazat vše\" plovoucím tlačítkem a přizpůsobit jeho pozici</string>
   <string name="omniswitch_summary">Přepnout do Omni-nedávných, pokud je aktuální rozložení příliš nudné</string>
   <string name="rr_qs_animation_summary">Povolit nebo zakázat animace klepnutím na QS dlaždice a upravit je</string>
+  <string name="rr_qs_pulldown_summary">Nastavení rychlého rozbalovacího panelu</string>
   <string name="qs_tile_layout_summary">Přizpůsobit rozložení dlaždic rychlého nastavení</string>
   <string name="qs_advanced_summary">Různé přizpůsobení rychlého nastavení</string>
   <string name="rr_ls_gesture_summary">Zvolit různá gesta na zamykací obrazovce</string>
@@ -294,6 +306,7 @@
   <string name="network_traffic_autohide_threshold">Práh nečinnosti</string>
   <!-- Statusbar RR logo -->
   <string name="status_bar_rr_logo_title">Povolit logo</string>
+  <string name="status_bar_rr_logo_summary">Povolení zobrazení loga RR-OS ve stavové liště</string>
   <!-- Color picker -->
   <string name="color_picker_fragment_title">Výběr barvy</string>
   <string name="apply_color_title">Použít barvu</string>
@@ -546,11 +559,8 @@
   <string name="doze_overwrite_value_summary">Povolit přepsat výchozí hodnoty uživatelským nastavením</string>
   <string name="doze_pulse_title">Uživatelsky konfigurovatelné nastavení</string>
   <string name="doze_pulse_duration_in_title">Postupné zesílení</string>
-  <string name="doze_pulse_duration_in_summary"></string>
   <string name="doze_pulse_duration_visible_title">Viditelné trvání</string>
-  <string name="doze_pulse_duration_visible_summary"></string>
   <string name="doze_pulse_duration_out_title">Postupné zeslabení</string>
-  <string name="doze_pulse_duration_out_summary"></string>
   <string name="doze_trigger_pickup_title">Vyberte sensor aktivace</string>
   <string name="doze_trigger_pickup_summary_on">Pulsování se spustí pomocí čidel pohybu</string>
   <string name="doze_trigger_pickup_summary_off">Senzory pohybu nebudou použity ke spuštění</string>
@@ -1955,12 +1965,13 @@
   <string name="enable_task_manager_summary">Povolit/zakázat akce pro tlačítko správce úloh v oblasti rozšířeného stavového řádku</string>
   <string name="task_manager_kill_button">Tlačítko Ukončit ůlohu</string>
   <string name="task_manager_left_button_title">Tlačítko oznámení</string>
+  <string name="task_manager_left_button_summary">Povolit/zakázat tlačítko pro mazání oznámení ve správci úloh</string>
   <string name="task_manager_right_button_title">Tlačítko služby</string>
+  <string name="task_manager_right_button_summary">Povolit/zakázat tlačítko pro přístup ke spuštěným úlohám ve správci úloh</string>
   <string name="task_manager_kill_button_default">Výchozí</string>
   <string name="task_manager_kill_button_1">Kruhové</string>
   <string name="task_manager_kill_button_2">Text</string>
-  <string name="task_manager_kill_button_3">Výchozí</string>
-  <!-- SystemUI restart prompt -->
+  <string name="task_manager_kill_button_3">Klasické</string>
   <!-- Wakelock blocker -->
   <string name="wakelock_blocker_title">Blokování wakelocků</string>
   <string name="wakelock_blocker_summary">Blokovat systémové wakelocky</string>
@@ -1971,7 +1982,13 @@
   <string name="wakelock_blocker_warning">Blokováním wakelocků můžete způsobit nestabilitu, pády nebo ztrátu dat</string>
   <!-- DUI Double Tap to Sleep -->
   <string name="smartbar_doubletap_sleep_title">Dvojím klepnutím uspat</string>
+  <string name="smartbar_doubletap_sleep_summary">Dvojím poklepáním na prázdné místo stavové lišty vypnete obrazovku</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Režim jedné ruky</string>
-  <!-- Dashboard columns -->
+  <string name="one_handed_mode_summary">Umožnit zapnutí režimu jednou rukou posunutím přes navigační lištu</string>
+  <!-- SystemUI restart prompt -->
+  <string name="systemui_restart_title">VAROVÁNÍ</string>
+  <string name="systemui_restart_message">Systém se restartuje, aby se správně aplikovalo vybrané nastavení.</string>
+  <string name="restarting_ui">Restartování UI\u2026</string>
+  <string name="print_restart">Restartovat</string>
 </resources>

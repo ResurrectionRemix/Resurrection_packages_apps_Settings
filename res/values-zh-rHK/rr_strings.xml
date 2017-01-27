@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="rr_mod_version">RR-OS 版本</string>
   <string name="build_date">版本日期</string>
   <string name="mod_version_default">預設</string>
   <!-- General -->
@@ -30,6 +31,8 @@
   <string name="reset">重設</string>
   <string name="restart_systemui">重啟 UI</string>
   <!-- About RR -->
+  <string name="about_rr_settings">關於</string>
+  <string name="about_rr">關於</string>
   <string name="about_rr_summary">\@null</string>
   <string name="about_r0m_summary">關於 Resurrection Remix OS 的一切</string>
   <string name="rr_donate">捐款協助開發</string>
@@ -52,6 +55,7 @@
   <string name="rr_google_plus_title">Google+</string>
   <string name="rr_google_plus_summary">Google+ 社區</string>
   <string name="maintainer_categorie_title">官方的裝置</string>
+  <string name="title_about">關於</string>
   <string name="dev_categorie_title">開發人員選單</string>
   <string name="rr_lockscreen_title">鎖定畫面</string>
   <string name="rr_ls_gestures">手勢操作</string>
@@ -59,9 +63,11 @@
   <string name="rr_ls_security">安全性</string>
   <string name="updater_title">更新</string>
   <string name="altan_summary">● 創始人 \n● 專案的領導者 \n● 主要開發者 \n● UX 設計師 \n● 維護者</string>
+  <string name="varun_summary">● 主要開發者 \n● 使用者體驗設計師 \n● 維護者</string>
   <string name="akhil_summary">● 開發者 \n● 維護者 \n● Javascript master</string>
   <string name="brian_summary">● 開發者 \n● 維護者</string>
   <string name="device_maintainers_title">裝置和維護人員</string>
+  <string name="device_maintainers_title_summary">列出裝置及該裝置的官方 RR-OS 的維護人員</string>
   <string name="maintainers_note_title">注意</string>
   <string name="maintainers_note_title_summary">如果你想你的名字能加到裝置維護人員名單，請在Hangout向Varun Date私信你的ROM thread鏈結</string>
   <!-- The Drill -->
@@ -69,6 +75,7 @@
   <string name="drill_summary">Logcat 或 GTFO</string>
   <!-- RR Feature lists-->
   <string name="features_title">功能</string>
+  <string name="features_title_summary">檢視可用的功能</string>
   <string name="features_loading">正在載入清單...</string>
   <string name="features_error">無法載入清單</string>
   <string name="features_unknown">不明</string>
@@ -76,6 +83,7 @@
   <string name="rr_volume_title">音量面板</string>
   <string name="rr_power_title">電源對話方塊</string>
   <!-- Share RR ROM -->
+  <string name="share_rr">分享</string>
   <string name="share_rr_summary">讓人們知道您正在使用 Resurrection Remix OS</string>
   <string name="share_message">試用 Resurrection Remix ROM! https://plus.google.com/communities/109352646351468373340</string>
   <string name="share_chooser_title">分享Resurrection Remix...</string>
@@ -90,14 +98,17 @@
   <string name="fab_updates">更新</string>
   <string name="fab_restartui">重啟 UI</string>
   <string name="fab_reset">重設</string>
+  <string name="fab_about">關於 RR-OS</string>
   <string name="fab_layout">更新佈局</string>
   <string name="fab_layout_update">切換 marshmallow 佈局</string>
   <string name="fab_layout_toggle">切換 nougat 佈局</string>
   <string name="rr_reset_message">重置所有配置為預設值嗎？</string>
   <string name="rr_reset_settings">重置設置</string>
   <string name="rr_reset_yes">是</string>
+  <string name="rr_reset_cancel">取消</string>
   <string name="rr_category_title">個人化</string>
   <string name="rr_title">配置</string>
+  <string name="rr_config_main_title">RR-OS</string>
   <string name="rr_ota_fab_title">顯示浮動按鈕</string>
   <string name="rr_ota_fab_summary">啟用/停用配置中的浮動按鍵即可顯示/隱藏。當使用開關時，只要輸入/退出一次</string>
   <string name="rr_statusbar_title">狀態列</string>
@@ -295,6 +306,7 @@
   <string name="network_traffic_autohide_threshold">活動監測門檻</string>
   <!-- Statusbar RR logo -->
   <string name="status_bar_rr_logo_title">啟用標誌</string>
+  <string name="status_bar_rr_logo_summary">在狀態列上要啟用顯示 RR-OS 的標誌</string>
   <!-- Color picker -->
   <string name="color_picker_fragment_title">色彩選擇器</string>
   <string name="apply_color_title">套用顏色</string>
@@ -547,11 +559,8 @@
   <string name="doze_overwrite_value_summary">允許以使用者配置覆蓋預設值</string>
   <string name="doze_pulse_title">使用者可配置的設置</string>
   <string name="doze_pulse_duration_in_title">淡入</string>
-  <string name="doze_pulse_duration_in_summary"></string>
   <string name="doze_pulse_duration_visible_title">可見的持續時間</string>
-  <string name="doze_pulse_duration_visible_summary"></string>
   <string name="doze_pulse_duration_out_title">淡出</string>
-  <string name="doze_pulse_duration_out_summary"></string>
   <string name="doze_trigger_pickup_title">感應器觸發</string>
   <string name="doze_trigger_pickup_summary_on">當手勢被拿起時將觸發自動顯示</string>
   <string name="doze_trigger_pickup_summary_off">拿起感應器不會用做觸發器</string>
@@ -1963,7 +1972,6 @@
   <string name="task_manager_kill_button_1">圓形</string>
   <string name="task_manager_kill_button_2">文字</string>
   <string name="task_manager_kill_button_3">標準</string>
-  <!-- SystemUI restart prompt -->
   <!-- Wakelock blocker -->
   <string name="wakelock_blocker_title">喚醒攔截器</string>
   <string name="wakelock_blocker_summary">攔截系統喚醒</string>
@@ -1978,5 +1986,9 @@
   <!--One handed mode -->
   <string name="one_handed_mode_title">單手模式</string>
   <string name="one_handed_mode_summary">允許在導覽列上滑動以啟用單手模式</string>
-  <!-- Dashboard columns -->
+  <!-- SystemUI restart prompt -->
+  <string name="systemui_restart_title">警告</string>
+  <string name="systemui_restart_message">將重新啟動使用者介面，以便可以正確套用所選設定。</string>
+  <string name="restarting_ui">正在重新啟動使用者介面\u2026</string>
+  <string name="print_restart">重新啟動</string>
 </resources>
