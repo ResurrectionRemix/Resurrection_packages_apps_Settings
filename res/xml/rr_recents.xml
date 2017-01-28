@@ -69,4 +69,26 @@
             android:summary="@string/omniswitch_summary"/>
 
 
+    <PreferenceCategory
+        android:key="slim_recents"
+        android:title="@string/slim_recents_title">
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="use_slim_recents"
+            android:title="@string/use_slim_recents_title"
+            android:summary="@string/use_slim_recents_summary"
+            android:defaultValue="false" />
+
+        <Preference
+            android:key="slim_recent_panel"
+            android:title="@string/slim_recents_settings_title"
+            android:summary="@string/slim_recents_settings_summary"
+			android:icon="@drawable/rr_slim_recents_icon"
+            android:dependency="use_slim_recents"
+            android:fragment="com.android.settings.rr.SlimRecentPanel" />
+
+    </PreferenceCategory>
+
+
+
 </PreferenceScreen>
