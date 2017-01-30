@@ -50,6 +50,8 @@ import com.android.internal.app.NightDisplayController;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.view.RotationPolicy;
+import com.android.settings.accessibility.ToggleFontSizePreferenceFragment;
+import com.android.settings.dashboard.DashboardSummary;
 import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -92,9 +94,11 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
     private static final String KEY_WALLPAPER = "wallpaper";
     private static final String KEY_VR_DISPLAY_PREF = "vr_display_pref";
 
-    private TimeoutListPreference mScreenTimeoutPreference;
     private ListPreference mNightModePreference;
+
+    private Preference mFontSizePref;
     private Preference mScreenSaverPreference;
+
     private SwitchPreference mLiftToWakePreference;
     private SwitchPreference mTapToWakePreference;
     private SwitchPreference mAutoBrightnessPreference;
@@ -102,6 +106,8 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
     private SwitchPreference mProximityCheckOnWakePreference;
     private SwitchPreference mWakeWhenPluggedOrUnplugged;
+
+    private TimeoutListPreference mScreenTimeoutPreference;
 
     @Override
     protected int getMetricsCategory() {
@@ -259,6 +265,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             mNightModePreference.setValue(String.valueOf(currentNightMode));
             mNightModePreference.setOnPreferenceChangeListener(this);
         }
+
     }
 
     private static boolean allowAllRotations(Context context) {
