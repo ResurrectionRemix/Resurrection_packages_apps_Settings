@@ -36,6 +36,7 @@ import com.android.settings.accounts.ManagedProfileSettings;
 import com.android.settings.applications.AppAndNotificationDashboardFragment;
 import com.android.settings.applications.ProcessStatsSummary;
 import com.android.settings.applications.ProcessStatsUi;
+import com.android.settings.applications.RunningServices;
 import com.android.settings.applications.UsageAccessDetails;
 import com.android.settings.applications.appinfo.AppInfoDashboardFragment;
 import com.android.settings.applications.appinfo.DrawOverlayDetails;
@@ -295,6 +296,7 @@ public class SettingsGateway {
             MobileNetworkListFragment.class.getName(),
             GlobalActionsPanelSettings.class.getName(),
             GamingMode.class.getName(),
+            RunningServices.class.getName(),
             About.class.getName(),
             HeadsUp.class.getName(),
             ColorSettings.class.getName(),
@@ -353,5 +355,6 @@ public class SettingsGateway {
             Settings.SmartPixelsActivity.class.getName(),
             Settings.AccentColorSettingsActivity.class.getName(),
             Settings.GestureAnywhereSettingsActivity.class.getName(),
+            Settings.DevRunningServicesActivity.class.getName(),
     };
 }

@@ -171,6 +171,21 @@
     <PreferenceCategory
         android:title="@string/recents_ui_title">
 
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_running_services_toggle"
+        android:icon="@drawable/rr_dashboard_icon"
+        android:title="@string/qs_running_services_title"
+        android:summary="@string/qs_running_services_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="setting_button_toggle"
+        android:title="@string/qs_settings_button_title"
+        android:icon="@drawable/rr_system_icon"
+        android:summary="@string/qs_settings_button_summary"
+        android:defaultValue="false" />
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="show_qs_clock"
         android:icon="@drawable/rr_clock_icon"
