@@ -30,6 +30,7 @@
   <string name="attention">Atenção</string>
   <string name="reset">Redefinir</string>
   <string name="restart_systemui">Reiniciar SystemUI</string>
+  <!-- Themes -->
   <!-- About RR -->
   <string name="about_rr_settings">Sobre</string>
   <string name="about_rr">Sobre</string>
@@ -108,6 +109,7 @@
   <string name="rr_reset_cancel">Cancelar</string>
   <string name="rr_category_title">Personalização</string>
   <string name="rr_title">Configurações</string>
+  <string name="rr_title_summary">Personalizar o dispositivo</string>
   <string name="rr_config_main_title">Resurrection Remix OS</string>
   <string name="rr_ota_fab_title">Mostrar botão flutuante</string>
   <string name="rr_ota_fab_summary">Ativa/desativar para mostrar ou não o botão flutuante nas configurações. (Reinicie o aplicativo para fazer efeito)</string>
@@ -140,7 +142,7 @@
   <string name="sb_custom_logos_summary">Habilitar ou desabilitar ícones aleatórios na barra de status. Personalize seus elementos e posição</string>
   <string name="rr_battery_summary">Personalizar elementos da bateria na barra de status e também personalizar a barra da bateria</string>
   <string name="rr_sb_icons_summary">Ativar ou desativar os ícones de sua escolha na barra de status</string>
-  <string name="ticker_screen_summary">Personalizar o estilo do relógio na barra de status</string>
+  <string name="ticker_screen_summary">Personalizar o estilo do ticker na barra de status</string>
   <string name="status_bar_temperature_summary">Ativar ou desativar a temperatura na barra de status e personalizar o seu estilo </string>
   <string name="network_traffic_summary">Ativar ou desativar monitor de tráfego de rede na barra de status e personalizar o seu estilo</string>
   <string name="carrier_summary">Ativar ou desativar o texto da operadora na barra de status e personalizar o seu estilo </string>
@@ -177,6 +179,8 @@
   <string name="misc_weather_settings_summary">Personalizar várias opções do aplicativo Cclock</string>
   <string name="system_app_remover_summary">Remover aplicativos de sistema desnecessários</string>
   <string name="rr_updater_summary">Verificar se há atualizações para a Resurrection Remix</string>
+  <!-- Manage applications: show substratum overlays -->
+  <!-- Manage applications: show substratum icon overlays -->
   <!-- AOKP custom system animations -->
   <string name="animation_title">Animações</string>
   <string name="system_animation_title">Animações do Sistema</string>
@@ -408,15 +412,6 @@
   <string name="immersive_recents_fullscreen">Tela cheia</string>
   <string name="immersive_recents_statusbar">Apenas Barra de status</string>
   <string name="immersive_recents_navbar">Apenas Barra de navegação</string>
-  <!-- Dashboard suggestions -->
-  <string name="dashboard_category">Configurações do painel de controle</string>
-  <string name="disable_suggestions_title">Desativar sugestões</string>
-  <string name="disable_suggestions_summary">Desativar as sugestões que aparecem no topo do painel de controle</string>
-  <string name="remove_tile_summaries_title">Remover resumo das configurações rápidas</string>
-  <string name="remove_tile_summaries_summary">Remover os resumos que são exibidos debaixo do título das configurações rápidas</string>
-  <string name="dashboard_conditions_title">Condições de painel</string>
-  <string name="summary_dashboard_conditions_enabled">Condições do painel estão habilitadas</string>
-  <string name="summary_dashboard_conditions_disabled">Condições do painel estão desativadas</string>
   <string name="network_traffic_hidearrow_summary">Esconder as setas dos indicadores de tráfego</string>
   <string name="network_traffic_hidearrow_title">Esconder as setas</string>
   <string name="show_4g_title">Mostrar 4G</string>
@@ -1092,7 +1087,7 @@
   <string name="clock_font_condensed_light">Condensado Leve</string>
   <string name="clock_font_condensed_light_italic">Roboto Condensado Itálico Fino</string>
   <string name="clock_font_condensed_bold">Roboto Negrito Condensado</string>
-  <string name="clock_font_condensed_bold_italic">Roboto Condensado Itálico fino</string>
+  <string name="clock_font_condensed_bold_italic">Roboto Condensado Itálico Negrito</string>
   <string name="clock_font_medium">Médio</string>
   <string name="clock_font_medium_italic">Roboto Itálico Médio</string>
   <string name="clock_font_black">Preto</string>
@@ -1491,13 +1486,15 @@
   <string name="pulse_render_mode_fading_bars">Blocos de desvanecimento</string>
   <string name="pulse_render_mode_solid_lines">Linhas sólidas</string>
   <string name="fling_pulse_color">Cor do Pulse</string>
-  <string name="eos_fling_lavalamp_title">Acender a Lava de Cores</string>
+  <string name="eos_fling_lavalamp_title">Ligar a Lâmpada de Lava</string>
   <string name="eos_fling_lavalamp_summary">Animar o Pulse com uma mistura de cor suave com um estilo de lâmpada Lava</string>
   <string name="pulse_advanced_category">Avançado</string>
   <string name="pulse_legacy_mode_advanced_category">Configurações do modo de blocos desvanecentes</string>
   <string name="pulse_custom_fudge_factor">Visualizador do Nível de sanidade</string>
-  <string name="lavamp_solid_speed_title">Velocidade da animação LavaLamp</string>
+  <string name="lavamp_solid_speed_title">Velocidade da Lâmpada de Lava</string>
   <string name="pulse_solid_dimen_category">Personalização das linhas sólidas</string>
+  <string name="fling_lavalamp_color_from">Cor inicial da Lâmpada de Lava</string>
+  <string name="fling_lavalamp_color_to">Cor final da Lâmpada de Lava</string>
   <!-- Pulse config -->
   <string name="pulse_custom_dimen">Largura da Barra Pulse</string>
   <string name="pulse_custom_div">Espaçamento da Barra Pulse</string>
@@ -1614,7 +1611,7 @@
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_title">Ticker de notificação</string>
   <string name="ticker_title">Ticker da barra de status</string>
-  <string name="ticker_screen_summary">Personalizar o estilo do relógio na barra de status</string>
+  <string name="ticker_screen_summary">Personalizar o estilo do ticker na barra de status</string>
   <string name="ticker_summary">Ativar o ticker antigo da barra de status</string>
   <string name="ticker_restore_defaults_title">Restaurar Padrões</string>
   <string name="text_title">Texto</string>
@@ -1991,4 +1988,9 @@ Densidade atual: <xliff:g name="count" example="520">%d</xliff:g> dpi</string>
   <string name="systemui_restart_message">A SystemUI será reiniciada para que as alterações tenham efeito.</string>
   <string name="restarting_ui">Reiniciando UI\u2026</string>
   <string name="print_restart">Reiniciar</string>
+  <!-- Dashboard options -->
+  <string name="dashboard_category">Configurações do painel de controle</string>
+  <string name="summary_dashboard_conditions_enabled">Condições do painel estão habilitadas</string>
+  <string name="summary_dashboard_conditions_disabled">Condições do painel estão desativadas</string>
+  <!-- Dashboard columns -->
 </resources>
