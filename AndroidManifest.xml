@@ -979,21 +979,21 @@
 
         <activity android:name="Settings$ThemesActivity"
                 android:label="@string/themes_title"
-                android:icon="@drawable/ic_settings_themes"
+                android:icon="@drawable/rr_themes"
                 android:taskAffinity="" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.android.settings.SHORTCUT" />
             </intent-filter>
-            <intent-filter android:priority="4">
+            <intent-filter android:priority="1">
                 <action android:name="com.android.settings.action.SETTINGS" />
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
-                android:value="com.android.settings.category.rr" />
+                android:value="com.android.settings.category.device" />
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.Themes" />
             <meta-data android:name="com.android.settings.summary"
-                android:resource="@string/themes_dashboard_summary" />
+                android:resource="@string/themes_summary" />
         </activity>
 
         <activity android:name="Settings$DisplaySettingsActivity"
