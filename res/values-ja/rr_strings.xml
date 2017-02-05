@@ -30,7 +30,6 @@
   <string name="attention">注意</string>
   <string name="reset">リセット</string>
   <string name="restart_systemui">システムUIの再起動</string>
-  <!-- Themes -->
   <!-- About RR -->
   <string name="about_rr_settings">説明</string>
   <string name="about_rr">説明</string>
@@ -109,6 +108,7 @@
   <string name="rr_reset_cancel">キャンセル</string>
   <string name="rr_category_title">個人設定</string>
   <string name="rr_title">高度な設定</string>
+  <string name="rr_title_summary">様々 なカスタマイズ</string>
   <string name="rr_config_main_title">RR-OS</string>
   <string name="rr_ota_fab_title">自由配置のボタンの表示</string>
   <string name="rr_ota_fab_summary">高度な設定内のフローティングボタンを有効 / 無効にします
@@ -180,7 +180,13 @@
   <string name="system_app_remover_summary">不要なシステムアプリを削除します。</string>
   <string name="rr_updater_summary">OTAアップデートと関連リンクをチェックする</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">下地のオーバーレイ</string>
+  <string name="menu_show_substratum">オーバーレイを表示</string>
+  <string name="menu_hide_substratum">オーバーレイを非表示</string>
   <!-- Manage applications: show substratum icon overlays -->
+  <string name="filter_substratum_icons">下地アイコンをオーバーレイ</string>
+  <string name="menu_show_substratum_icons">オーバーレイアイコンを表示します。</string>
+  <string name="menu_hide_substratum_icons">オーバーレイアイコンを非表示</string>
   <!-- AOKP custom system animations -->
   <string name="animation_title">アニメーション</string>
   <string name="system_animation_title">システムアニメーション</string>
@@ -1493,6 +1499,8 @@
   <string name="pulse_custom_fudge_factor">ビジュアライザーの感度</string>
   <string name="lavamp_solid_speed_title">ラーヴァランプモードのアニメーション速度</string>
   <string name="pulse_solid_dimen_category">ソリッドラインの設定</string>
+  <string name="fling_lavalamp_color_from">溶岩ランプの開始色</string>
+  <string name="fling_lavalamp_color_to">溶岩ランプの終了色</string>
   <!-- Pulse config -->
   <string name="pulse_custom_dimen">バーの幅</string>
   <string name="pulse_custom_div">バーの間隔</string>
@@ -1868,7 +1876,6 @@
   <string name="battery_large_text_summary_on">大きなテキストを表示</string>
   <string name="battery_large_text_summary_off">通常のテキストを表示</string>
   <string name="nav_bar_dynamic_title">ダイナミックナビゲーション バーの色</string>
-  <string name="nav_bar_dynamic_summary">有効/無効　自動的にナビゲーションバーに現在のアプリケーションの色をピックアップする。このオプションを有効にするには、アプリケーションの再起動が必要。</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">注意</string>
   <string name="title_keyboard_input">入力オプション</string>
@@ -1975,6 +1982,7 @@
   <string name="wakelock_blocker_reload">再ロード</string>
   <string name="wakelock_blocker_warning_title">注意して進めてください</string>
   <string name="wakelock_blocker_warning">ウェイクロックのブロックは端末が不安定、クラッシュやデータ損失などが発生する可能性があります</string>
+  <!-- Alarm blocker -->
   <!-- DUI Double Tap to Sleep -->
   <string name="smartbar_doubletap_sleep_title">ダブルタップでスリープ</string>
   <string name="smartbar_doubletap_sleep_summary">ナビゲーション バーの空の領域をダブルタップすると画面オフにする</string>
@@ -1988,7 +1996,27 @@
   <string name="print_restart">再起動</string>
   <!-- Dashboard options -->
   <string name="dashboard_category">ダッシュボード設定</string>
+  <string name="dashboard_suggestions_title">候補</string>
+  <string name="summary_dashboard_suggestions_enabled">ダッシュボードの候補の表示が有効になります</string>
+  <string name="summary_dashboard_suggestions_disabled">ダッシュボードの候補の表示が無効になります</string>
+  <string name="remove_tile_summaries_title">概要</string>
+  <string name="remove_tile_summaries_summary_enabled">ダッシュボードの概要の表示が有効になります</string>
+  <string name="remove_tile_summaries_summary_disabled">ダッシュボードの概要の表示が無効になります</string>
+  <string name="dashboard_conditions_title">条件</string>
   <string name="summary_dashboard_conditions_enabled">ダッシュボードの状態の表示が有効になります</string>
   <string name="summary_dashboard_conditions_disabled">ダッシュボードの状態の表示が無効になります</string>
+  <string name="dashboard_columns_portrait_title">列 (縦向き時)</string>
+  <string name="dashboard_columns_landscape_title">列 (横向き時)</string>
   <!-- Dashboard columns -->
+  <string name="dashboard_columns_title">ダッシュボードのカラム数</string>
+  <string name="dashboard_columns_summary">ダッシュボードに表示するカラム数を変更します</string>
+  <string name="dashboard_columns_dialog_title">ダッシュボードのカラム数を選択してください</string>
+  <string name="dashboard_columns_default">1 つ (2 つの風景)</string>
+  <string name="dashboard_columns_two">2 つ (3 つの風景)</string>
+  <string name="dashboard_columns_three">3 つ (4 つの風景)</string>
+  <string name="dashboard_summary_double_lines_title">ダッシュ ボードの概要ライン</string>
+  <string name="dashboard_summary_double_lines_summary_on">多くのラインでダッシュ ボードのタイルの要約を表示します。</string>
+  <string name="dashboard_summary_double_lines_summary_off">1 ラインでダッシュ ボードのタイルの要約を表示します。</string>
+  <!-- Themes settings -->
+  <string name="themes_title">テーマ</string>
 </resources>

@@ -30,9 +30,6 @@
   <string name="attention">Perhatian</string>
   <string name="reset">Ulang</string>
   <string name="restart_systemui">Mulai ulang UI</string>
-  <!-- Themes -->
-  <string name="themes_title">Tema</string>
-  <string name="themes_dashboard_summary">Kelola tema Anda</string>
   <!-- About RR -->
   <string name="about_rr_settings">Tentang</string>
   <string name="about_rr">Tentang</string>
@@ -180,7 +177,7 @@
   <string name="rr_dash_board_summary">Menyesuaikan tata letak dasbor dan ringkasan</string>
   <string name="misc_weather_settings_summary">Menyesuaikan berbagai pilihan untuk aplikasi Cclock</string>
   <string name="system_app_remover_summary">Hapus aplikasi sistem yang tidak diperlukan</string>
-  <string name="rr_updater_summary">Periksa untuk update OTA dan link lainnya</string>
+  <string name="rr_updater_summary">Periksa untuk pembaruan OTA dan tautan lainnya</string>
   <!-- Manage applications: show substratum overlays -->
   <!-- Manage applications: show substratum icon overlays -->
   <!-- AOKP custom system animations -->
@@ -472,6 +469,8 @@
   <string name="trigger_bottom_title">Tinggi pemicu</string>
   <string name="trigger_bottom_summary">Menyesuaikan tinggi daerah pemicu</string>
   <string name="picker_activities">Aktivitas</string>
+  <string name="select_custom_app_title">Pilih aplikasi khusus</string>
+  <string name="select_custom_activity_title">Pilih aktivitas khusus</string>
   <string name="profile_applist_title">Aplikasi</string>
   <string name="ga_0">0px</string>
   <string name="ga_1">1px</string>
@@ -583,6 +582,7 @@
   <string name="selinux_switch_title">Opsi pindah SELinux</string>
   <string name="selinux_switch_summary">SELinux adalah seperangkat modifikasi kernel dan alat-alat ruang pengguna. Mengubah mode dapat menyebabkan efek yang tidak diinginkan. Gunakan dengan resiko Anda sendiri</string>
   <string name="selinux_title">Mode Selinux</string>
+  <string name="selinux_permissive_title">Tidak wajib</string>
   <string name="selinux_enforcing_title">Wajib</string>
   <!-- Slim DSLV -->
   <string name="shortcut_action_none">Tidak ada</string>
@@ -627,9 +627,12 @@
   <string name="shortcuts_icon_picker_browser">Perambaan</string>
   <string name="shortcuts_icon_picker_calendar">Kalender</string>
   <string name="shortcuts_icon_picker_camera">Kamera</string>
+  <string name="shortcuts_icon_picker_cloud">Cloud</string>
   <string name="shortcuts_icon_picker_contact">Kontak</string>
   <string name="shortcuts_icon_picker_directdial">Panggilan langsung</string>
   <string name="shortcuts_icon_picker_directmessage">Pesan langsung</string>
+  <string name="shortcuts_icon_picker_drive">Drive</string>
+  <string name="shortcuts_icon_picker_dropbox">Dropbox</string>
   <string name="shortcuts_icon_picker_email">Email</string>
   <string name="shortcuts_icon_picker_email2">Email alternatif</string>
   <string name="shortcuts_icon_picker_evernote">Evernote</string>
@@ -730,13 +733,49 @@
   <string name="camera">Kamera</string>
   <string name="chrome">Chrome</string>
   <string name="clock">Jam</string>
+  <string name="cnn">Cnn</string>
+  <string name="deezer2">Deezer2</string>
+  <string name="deezer">Deezer</string>
+  <string name="dolphin2">Dolphin</string>
   <string name="downloads">Unduhan</string>
   <string name="dropbox">Dropbox</string>
   <string name="ebay">Ebay</string>
   <string name="email">Email</string>
   <string name="evernote">Evernote</string>
   <string name="explorer">Penjelajah</string>
+  <string name="falcon">Falcon</string>
   <string name="fb">Facebook</string>
+  <string name="flipboard">Flipboard</string>
+  <string name="foursquare">Foursquare</string>
+  <string name="firefox">Firefox</string>
+  <string name="googlebuzz">Google buzz</string>
+  <string name="googledocs">Google docs</string>
+  <string name="googlewallet">Google wallet</string>
+  <string name="line">Line</string>
+  <string name="mic">Mic</string>
+  <string name="rootexplorer">Root Explorer</string>
+  <string name="sim">Sim</string>
+  <string name="weather">Cuaca</string>
+  <string name="golocker">Go locker</string>
+  <string name="googletalk">Google Talk</string>
+  <string name="gosms">Go sms</string>
+  <string name="meebo">Meebo</string>
+  <string name="maps2">Maps2</string>
+  <string name="navigation">Navigasi</string>
+  <string name="pulse">Pulse</string>
+  <string name="shazam">Shazam</string>
+  <string name="swiftkey">Swiftkey</string>
+  <string name="tmobile">Tmobile</string>
+  <string name="trash">Sampah</string>
+  <string name="games">Permainan</string>
+  <string name="gmail">Gmail</string>
+  <string name="googledrive">Google Drive</string>
+  <string name="googleearth">Google earth</string>
+  <string name="googlehangouts">Google hangouts</string>
+  <string name="googlekeep">Google keep</string>
+  <string name="googleplay">Google play</string>
+  <string name="googletranslate">Google Terjemahan</string>
+  <string name="google">Google</string>
   <string name="googleplus">Google Plus</string>
   <string name="imdb">imdb</string>
   <string name="instagram">instagram</string>
@@ -811,6 +850,7 @@
   <string name="hardware_keys_home_key_title">Tombol home</string>
   <string name="hardware_keys_menu_key_title">Tombol menu</string>
   <string name="hardware_keys_assist_key_title">Tombol pencarian</string>
+  <string name="hardware_keys_appswitch_key_title">Tampilan tombol</string>
   <string name="hardware_keys_back_key_title">Tombol kembali</string>
   <string name="hardware_keys_camera_key_title">Tombol kamera</string>
   <string name="hardware_keys_double_tap_summary">Atur tindakan dua kali tekan</string>
@@ -823,6 +863,7 @@
   <string name="hardware_keys_action_menu">Buka/tutup menu</string>
   <string name="hardware_keys_action_search">Asisten pencarian</string>
   <string name="hardware_keys_action_voice_search">Pencarian suara</string>
+  <string name="hardware_keys_action_in_app_search">Pencarian di dalam aplikasi</string>
   <string name="hardware_keys_action_launch_camera">Buka kamera</string>
   <string name="hardware_keys_action_sleep">Matikan layar</string>
   <string name="hardware_keys_action_last_app">Aplikasi terakhir</string>
@@ -830,18 +871,24 @@
   <string name="hardware_keys_disable_title">Nonaktifkan tombol fisik</string>
   <string name="hardware_keys_power_key_title">Tombol power</string>
   <string name="camera_launch_title">Buka kamera</string>
+  <string name="camera_launch_summary">Tekan lama dan lepas akan meluncurkan kamera</string>
   <string name="volbtn_music_controls_title">Kontrol pemutaran</string>
+  <string name="volbtn_music_controls_summary">Ketika layar dimatikan, menekan dan menahan tombol volume akan mencari trek musik</string>
   <string name="volbtn_cursor_control_title">Kendali kursor papan ketik</string>
   <string name="volbtn_cursor_control_off">Dimatikan</string>
   <string name="power_end_call_title">Akhiri panggilan</string>
   <string name="power_end_call_summary">Menekan tombol power akan mengakhiri panggilan aktif</string>
+  <string name="swap_volume_buttons_title">Reorientasi</string>
+  <string name="swap_volume_buttons_summary">Tukar fungsi tombol volume ketika layar diputar</string>
   <string name="button_wake_title">Bangunkan perangkat</string>
   <string name="home_answer_call_title">Menjawab panggilan</string>
   <string name="home_answer_call_summary">Menekan tombol home akan menjawab panggilan masuk saat ini</string>
   <!-- Key backlight -->
   <string name="button_backlight_title">Lampu latar</string>
   <string name="button_backlight_enabled">Cahaya tombol</string>
+  <string name="button_backlight_seekbar_title">Kecerahan tombol</string>
   <string name="keyboard_backlight_seekbar_title">Kecerahan papan ketik</string>
+  <string name="backlight_timeout_title">Waktu habis iluminasi</string>
   <string name="backlight_timeout_unlimited">Jangan matikan</string>
   <string name="backlight_summary_disabled">Dimatikan</string>
   <string name="backlight_summary_enabled_with_timeout">Diaktifkan untuk <xliff:g id="timeout">%s</xliff:g></string>
@@ -852,6 +899,8 @@
   <!-- Navigation Bar -->
   <string name="navigation_bar_category">Bar navigasi</string>
   <string name="navigation_bar_title">Tombol dan tata letak</string>
+  <string name="navigation_bar_left_title">Mode tangan kiri</string>
+  <string name="navigation_bar_left_summary">Tempatkan navigasi bar di sebelah kiri layar saat mode mendatar</string>
   <string name="navigation_bar_arrow_keys_title">Tampilkan tombol panah saat mengetik</string>
   <string name="navigation_bar_arrow_keys_summary">Tampilkan tombol kursor kiri dan kanan saat mengetik. Menggantikan pengubah IME.</string>
   <!-- Power menu -->
@@ -860,6 +909,7 @@
   <string name="power_menu_screenshot_title">Tangkapan layar</string>
   <string name="power_menu_airplane_title">Mode terbang</string>
   <string name="power_menu_users_title">Beralih pengguna</string>
+  <string name="power_menu_settings_title">Pintasan pengaturan</string>
   <string name="power_menu_bug_report_title">Laporan bug</string>
   <string name="power_menu_sound_title">Panel suara</string>
   <string name="power_menu_screenrecord_title">Rekam layar</string>
@@ -983,9 +1033,14 @@
   <string name="clock_custom">Kostumisasi jam</string>
   <string name="clock_font_style_title">Font</string>
   <string name="clock_font_normal">Normal</string>
+  <string name="clock_font_condensed">Condensed</string>
+  <string name="clock_font_dancingscript">DancingScript</string>
+  <string name="clock_font_comingsoon">ComingSoon</string>
+  <string name="clock_font_notoserif">NotoSerif Normal</string>
   <string name="clock_font_size_title">Ukuran font</string>
   <string name="status_bar_clock_seconds_title">Tampilkan detik</string>
   <!-- Status bar temperature -->
+  <string name="weather_settings_title_cclock">Pengaturan jam dan widget</string>
   <string name="settings_title_cclock">Pengaturan cuaca</string>
   <string name="weather_category">Pengaturan cuaca</string>
   <string name="status_bar_temperature_title">Suhu cuaca</string>
@@ -1000,6 +1055,10 @@
   <string name="status_bar_weather_size_title">Ukuran font</string>
   <string name="status_bar_weather_font_style_title">Font</string>
   <string name="status_bar_weather_font_normal">Normal</string>
+  <string name="status_bar_weather_font_condensed">Condensed</string>
+  <string name="status_bar_weather_font_dancingscript">DancingScript</string>
+  <string name="status_bar_weather_font_comingsoon">ComingSoon</string>
+  <string name="status_bar_weather_font_notoserif">NotoSerif Normal</string>
   <string name="weather_settings_title">Cuaca</string>
   <!-- Lockscreen weather -->
   <string name="lockscreen_weather_title">Cuaca</string>
@@ -1014,6 +1073,7 @@
   <string name="weather_condition_icon_dlg_title">Pilih ikon untuk menampilkan kondisi cuaca</string>
   <string name="weather_condition_icon_monochrome_title">Monokrom</string>
   <string name="weather_condition_icon_colored_title">Berwarna</string>
+  <string name="weather_condition_icon_vclouds_title">VClouds</string>
   <string name="icons_title">Ikon</string>
   <string name="position_right_title">Kanan</string>
   <string name="position_centered_title">Tengah</string>
@@ -1052,6 +1112,9 @@
   <string name="recents_styles_1">Gaya</string>
   <string name="recents_colors">Gaya</string>
   <string name="recents_style_2">Warna</string>
+  <string name="pin_button_color">Tombol penyemat layar </string>
+  <string name="mw_button_color">Tombol multi-jendela</string>
+  <string name="tv_app_text_color">Teks deskripsi aplikasi</string>
   <string name="mem_text_color">Text bar memori</string>
   <string name="clear_button_color">Bersihkan semua</string>
   <string name="recents_rotate_fab_summary">Mengaktifkan / menonaktifkan rotasi tombol hapus semua</string>
@@ -1066,15 +1129,24 @@
   <string name="button7">Cat </string>
   <string name="button8">Garis horizontal</string>
   <string name="button9">Kotak centang melingkar </string>
+  <string name="button11">Zzzzz</string>
   <string name="button12">Mata tertutup</string>
   <string name="button13">Tombol Suka</string>
   <string name="button16">Garis-garis panah kiri </string>
   <string name="button20">Arsip </string>
+  <string name="button23">Google</string>
+  <string name="button26">Penghitung Waktu</string>
+  <string name="button27">Resurrection</string>
+  <string name="button30">Android N</string>
+  <string name="animation0">Rotasi </string>
+  <string name="animation15">Rotasi cepat</string>
   <!-- OmniSwitch -->
+  <string name="omniswitch_category">Omni switch</string>
   <string name="omniswitch_start_settings_title">Pengaturan</string>
   <string name="omniswitch_start_settings_summary">Buka pengaturan OmniSwitch</string>
   <string name="omniswitch_first_time_title">Informasi</string>
   <string name="omniswitch_first_time_message">Pastikan Anda telah mengaktifkan omni switch. Anda dapat melakukan ini dengan menggunakan pengaturan di bawah ini</string>
+  <string name="omniswitch_settings_title">Omni switch</string>
   <!-- Less Notification sounds -->
   <string name="notifications_category_title">Pemberitahuan</string>
   <string name="less_notification_sounds_3s">3 detik</string>
@@ -1088,6 +1160,7 @@
   <string name="less_notification_sounds_5m">5 menit</string>
   <!-- Development Settings -->
   <!-- ADB always notify -->
+  <string name="adb_always_notify_summary">Selalu menampilkan pemberitahuan bila debug diaktifkan, meskipun tidak terhubung</string>
   <string name="rr_trans_title">Panel pemberitahuan</string>
   <string name="power">Daya</string>
   <!-- QS shade transparency -->
@@ -1129,6 +1202,7 @@
   <string name="status_bar_logo_position_left">Kiri</string>
   <string name="status_bar_logo_position_center">Tengah</string>
   <string name="rr_config_style_title">Gaya konfigurasi</string>
+  <string name="rr_config_n">Nougat</string>
   <string name="rr_config_mm">Klasik</string>
   <!-- Status bar - double tap to sleep -->
   <string name="status_bar_double_tap_to_sleep_title">Ketuk dua kali untuk tidur</string>
@@ -1158,12 +1232,19 @@
   <string name="navbar_mode">Mode navigasi</string>
   <string name="navbar_visibility">Aktifkan bar navigasi</string>
   <string name="navigationbar_settings_title">Bar navigasi</string>
+  <string name="navigationbar_settings_summary">Kostumisasi gaya navigasi dan perilaku</string>
   <string name="navbar_general_title">Lanjutan</string>
+  <string name="navigation_bar_left_title">Mode tangan kiri</string>
+  <string name="navigation_bar_left_summary">Tempatkan navigasi bar di sebelah kiri layar saat mode mendatar</string>
+  <string name="info_pref_note_title">Catatan</string>
+  <string name="smartbar_interface">SmartBar</string>
   <string name="navbar_tint_switch">Warna tombol navigasi</string>
   <string name="navbar_button_color">Tombol bar navigasi</string>
   <string name="icon_pack_picker_dialog_title">Paket ikon</string>
   <string name="invalid_icon_from_uri">Tidak dapat memuat gambar dari penyedia konten</string>
   <string name="picker_activities">Aktivitas</string>
+  <string name="select_custom_app_title">Pilih aplikasi khusus</string>
+  <string name="select_custom_activity_title">Pilih aktivitas khusus</string>
   <string name="profile_applist_title">Aplikasi</string>
   <string name="default_string">Default</string>
   <string name="reset">Ulang</string>
@@ -1171,6 +1252,7 @@
   <string name="choose_action_title">Pilih tindakan</string>
   <string name="action_entry_default_action">Pengaturan standar</string>
   <string name="action_entry_select_app">Pilih aplikasi</string>
+  <string name="action_entry_custom_action">Pilih tindakan khusus</string>
   <!-- Fling -->
   <string name="fling_settings">Pengaturan \'Fling\'</string>
   <string name="fling_interface">\'Fling\'</string>
@@ -1178,6 +1260,9 @@
   <string name="fling_back_home_policy">/\'Back/\' dan /\'Home/\' diperlukan untuk mengatur setiap saat. Untuk mengubah tugas /\'Back/\' dan /\'Home/\', tetapkan tugas yang diinginkan terlebih dulu</string>
   <string name="fling_def_summary">Tidak ada tindakan diatur</string>
   <string name="long_swipe_portrait_title">Potret</string>
+  <string name="long_swipe_landscape_title">Mendatar</string>
+  <string name="up_swipe_title">Usap atas</string>
+  <string name="down_swipe_title">Usap bawah</string>
   <string name="long_swipe_reset">Setel ulang</string>
   <string name="fling_advanced">Lanjutan</string>
   <string name="fling_appearance">Tampilan</string>
@@ -1243,12 +1328,17 @@
   <string name="custom_logo_color">Warna</string>
   <string name="custom_logo_position">Posisi</string>
   <string name="logo0">Resurrection murni</string>
+  <string name="logo10">Emoji</string>
+  <string name="logo33">Google</string>
   <!-- Carrier label -->
+  <string name="show_carrier_disabled">Dimatikan</string>
   <string name="show_carrier_keyguard">Kunci layar saja</string>
   <string name="show_carrier_statusbar">Hanya status bar</string>
   <string name="show_carrier_both">Status bar &amp; kunci layar</string>
   <string name="show_carrier_enabled">Status bar &amp; kunci layar</string>
   <string name="number_of_notifications_title">Jumlah pemberitahuan</string>
+  <string name="carrier_label_hide_label_title">Menyembunyikan pemberitahuan</string>
+  <string name="carrier_label_number_of_notification_icons_title">Max jumlah ikon sebelum bersembunyi</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_summary">Menyesuaikan gaya ticker di statusbar</string>
   <string name="ticker_restore_defaults_title">Kembalikan ke awal</string>
@@ -1259,10 +1349,14 @@
   <string name="show_su_indicator_title">Indikator superuser</string>
   <string name="show_su_indicator_summary">Tampilkan indikator superuser di status bar ketika sesi aktif</string>
   <!-- PA Pie control -->
+  <string name="reset_paranoid">Resurrection</string>
+  <string name="reset_android">Android</string>
+  <string name="pa_pie_menu_title">Selalu menunjukkan tombol menu</string>
   <string name="pa_pie_size_small">Kecil</string>
   <string name="pa_pie_size_large">Besar</string>
   <string name="pa_pie_size_gigantic">Raksasa</string>
   <string name="pa_pie_size_monster">Monster</string>
+  <string name="pa_pie_mode_default">Standar</string>
   <string name="pa_pie_gravity_bottom">Bawah</string>
   <string name="pa_pie_gravity_right">Kanan</string>
   <string name="pa_pie_gravity_left">Kiri</string>
@@ -1275,13 +1369,21 @@
   <string name="pa_pie_gap_small">Kecil</string>
   <string name="pa_pie_gap_big">Besar (standar)</string>
   <string name="pa_pie_gap_huge">Sangat Besar</string>
+  <string name="pa_pie_mode_quick">Cepat</string>
+  <string name="pa_pie_mode_default">Standar</string>
+  <string name="pa_pie_mode_slow">Lambat</string>
   <string name="pa_pie_lastapp_title">Aplikasi terakhir</string>
   <string name="pa_pie_notifications_title">Pemberitahuan</string>
+  <string name="pa_pie_settings_panel_title">Panel Pengaturan Cepat</string>
   <string name="pa_pie_screenshot_title">Tangkapan layar</string>
   <string name="pa_pie_background_title">Warna latar belakang</string>
+  <string name="pa_pie_select_title">Pilihan warna</string>
+  <string name="pa_pie_status_title">Status warna</string>
   <string name="pa_pie_button_color">Warna tombol</string>
   <string name="pa_pie_button_color_title">Warna tombol</string>
   <!-- Heads up switch -->
+  <string name="heads_up_switch_title">Heads up</string>
+  <string name="heads_up_switch_summary">Toogle Heads up secara global, bukan per aplikasi.</string>
   <string name="lockscreen_pin_ripple_title">Riak pin kunci layar</string>
   <!-- Optional screenshot type -->
   <string name="screenshot_type_title">Jenis tangkapan layar</string>
@@ -1292,6 +1394,7 @@
   <string name="screenshot_delay_title">Penundaan tangkapan layar</string>
   <!--Screenshot crop and share -->
   <string name="screenshot_crop_and_share_title">Potong &amp; bagikan tangkapan layar</string>
+  <string name="heads_up_settings">Heads up</string>
   <!-- Lockscreen battery info indicator  -->
   <string name="lockscreen_battery_info_title">Info baterai pada kunci layar</string>
   <!-- Heads up timeout -->
@@ -1320,6 +1423,8 @@
   <string name="expanded_hide_status">Sembunyikan status bar</string>
   <string name="expanded_hide_navigation">Sembunyikan bar navigasi</string>
   <string name="expanded_hide_both">Sembunyikan keduanya</string>
+  <string name="expanded_enabled_for_all">Diaktifkan untuk semua</string>
+  <string name="expanded_user_configurable">Dapat dikonfigurasi pengguna</string>
   <!-- SlimSizer  -->
   <string name="listsystem">daftar</string>
   <string name="sizer_title">Penghapus aplikasi</string>
@@ -1334,6 +1439,7 @@
   <string name="btn_profile">Profil</string>
   <string name="sizer_message_sdnowrite">Tidak dapat menulis ke SD Card.</string>
   <string name="sizer_message_sdnoread">Tidak bisa membaca SD Card.</string>
+  <string name="sizer_message_filesuccess">Profil dibuat.</string>
   <string name="sizer_message_filefail">Gagal membuat profil.</string>
   <string name="sizer_message_noselect">Tidak ada yang dipilih.</string>
   <string name="system_app_remover">Penghapus aplikasi sistem</string>
@@ -1342,7 +1448,17 @@
   <string name="custom_summary_title">Kostum ringkasan RR</string>
   <string name="custom_summary_explain">Silahkan masukkan ringkasan baru. Biarkan kosong untuk menggunakan ringkasan bawaan.</string>
   <!-- Custom summaries -->
+  <string name="custom_summary_randomize_title">Ringkasan acak</string>
+  <string name="sum2">Breaking News: Donald trump merubah gaya rambutnya!</string>
+  <string name="sum3">Sudah Anda ketuk 100k kali.</string>
+  <string name="sum4">Banyak pilihan!</string>
+  <string name="sum5">Ketuk saya sekarang!</string>
+  <string name="sum6">Apa lagi?</string>
+  <string name="sum7">Aku bukan tombol F1 Anda</string>
   <string name="sum9">Selamat datang di RR</string>
+  <string name="sum15">Hanya untuk pengguna pro.</string>
+  <string name="sum16">Apakah Anda bosan? OK tekan saya sekarang!</string>
+  <string name="sum17">Bagus! Anda mendapatkan bonus fitur</string>
   <string name="sum19">Ikuti aturan posting g+</string>
   <string name="sum20">Pemula tidak bisa masuk</string>
   <string name="sum23">Apakah Anda sekarang bahagia?</string>
@@ -1350,6 +1466,8 @@
   <!-- RR Settings tabs slide effects -->
   <string name="tabs_effect_title">Efek transisi tab konfigurasi</string>
   <string name="effect_default">Standar</string>
+  <string name="effect_zoom_in">Memperbesar</string>
+  <string name="effect_zoom_out">Memperkecil</string>
   <!-- Three-fingers-swipe to screenshot -->
   <string name="three_finger_gesture">Gerakan tiga jari</string>
   <string name="three_finger_gesture_summary">Gesekkan tiga jari untuk mengambil tangkapan layar</string>
@@ -1401,6 +1519,9 @@
   <string name="blurred_status_bar_expanded_enabled_pref">Latar belakang status bar Blur</string>
   <string name="blurred_status_bar_expanded_enabled_pref_summary">Latar belakang Blur ketika Anda menarik turun status bar</string>
   <string name="transluency_level_universal">Tingkat transparansi</string>
+  <string name="blurred_recent_app_enabled_pref_summary">Kaburkan latar belakang aktivitas aplikasi terakhir</string>
+  <string name="blur_light_color">Filter warna gambar terang</string>
+  <string name="blur_dark_color">Filter warna gambar gelap</string>
   <string name="blur_notice">Tentang fitur Blur</string>
   <string name="blur_notice_summary">Personalisasi Blur dinonaktifkan selama tampilan kunci layar! Hanya transparan pemberitahuan yang diaktifkan!</string>
   <string name="blur_colors_notice">Apa yang dilakukan warna-warna ini?</string>
@@ -1419,7 +1540,11 @@
   <string name="rr_maintainer_title">Pengelola</string>
   <string name="rr_maintainer_default">Tidak diketahui</string>
   <!-- brightness slider -->
+  <string name="show_brightness">Slider kecerahan</string>
+  <string name="qs_brightness_slider_on">Slider diaktifkan</string>
+  <string name="qs_brightness_slider_off">Slider dinonaktifkan</string>
   <!-- QS Header Icons -->
+  <string name="rr_header_title">Header</string>
   <string name="rr_header_summary">Menyesuaikan berbagai elemen pada /\'header/\'</string>
   <string name="qs_settings_icon_title">Pintasan pengaturan</string>
   <string name="qs_edit_title">Ikon edit</string>
@@ -1430,12 +1555,15 @@
   <string name="show_settings_drawer_enabled">Laci pengaturan diaktifkan</string>
   <string name="show_settings_drawer_disabled">Laci pengaturan dinonaktifkan</string>
   <!-- Custom LCD density -->
+  <string name="custom_density_settings">Kostum kerapatan piksel LCD</string>
   <!-- Header images -->
   <string name="static_header_provider_title">Statis</string>
   <string name="daylight_header_provider_title">Dinamis</string>
   <!-- Task Manager -->
+  <string name="enable_task_manager_title">Manajer Tugas</string>
   <string name="task_manager_kill_button">Tombol matikan tugas</string>
   <string name="task_manager_left_button_title">Tombol pemberitahuan</string>
+  <string name="task_manager_right_button_title">Tombol layanan</string>
   <string name="task_manager_kill_button_default">Standar</string>
   <string name="task_manager_kill_button_2">Teks</string>
   <string name="task_manager_kill_button_3">Klasik</string>
@@ -1447,6 +1575,7 @@
   <string name="wakelock_blocker_reload">Muat ulang</string>
   <string name="wakelock_blocker_warning_title">Lanjutkan dengan hati-hati</string>
   <string name="wakelock_blocker_warning">Memblokir wakelocks berpotensi menyebabkan ketidakstabilan, crash atau kehilangan data</string>
+  <!-- Alarm blocker -->
   <!-- DUI Double Tap to Sleep -->
   <string name="smartbar_doubletap_sleep_title">Ketuk dua kali untuk tidur</string>
   <string name="smartbar_doubletap_sleep_summary">Ketuk dua kali pada area kosong navbar untuk mematikan layar</string>
@@ -1460,7 +1589,15 @@
   <string name="print_restart">Mulai ulang</string>
   <!-- Dashboard options -->
   <string name="dashboard_category">Opsi Dasbor</string>
+  <string name="dashboard_suggestions_title">Saran</string>
+  <string name="remove_tile_summaries_title">Ringkasan</string>
+  <string name="dashboard_conditions_title">Kondisi</string>
   <string name="summary_dashboard_conditions_enabled">Kondisi dasbor diaktifkan</string>
   <string name="summary_dashboard_conditions_disabled">Dasbor kondisi dinonaktifkan</string>
+  <string name="dashboard_columns_portrait_title">Kolom (potret)</string>
+  <string name="dashboard_columns_landscape_title">Kolom (mendatar)</string>
   <!-- Dashboard columns -->
+  <string name="dashboard_columns_three">Tiga (empat mendatar)</string>
+  <!-- Themes settings -->
+  <string name="themes_title">Tema</string>
 </resources>
