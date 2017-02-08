@@ -177,9 +177,9 @@ public class AppOpsDetails extends InstrumentedFragment {
                         entry.getTimeText(res, true));
 
                 Spinner sp = (Spinner) view.findViewById(R.id.spinnerWidget);
-                sp.setVisibility(View.INVISIBLE);
+                sp.setVisibility(View.GONE);
                 Switch sw = (Switch) view.findViewById(R.id.switchWidget);
-                sw.setVisibility(View.INVISIBLE);
+                sw.setVisibility(View.GONE);
 
                 final int switchOp = AppOpsManager.opToSwitch(firstOp.getOp());
                 int mode = mAppOps.checkOp(switchOp, entry.getPackageOps().getUid(),
