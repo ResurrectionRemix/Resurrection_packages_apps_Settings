@@ -353,6 +353,15 @@
             <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
                 android:value="true" />
         </activity>
+         <activity
+            android:name="com.android.settings.rr.SubActivity"
+            android:theme="@style/PreferenceTheme">
+        </activity>
+        <activity
+            android:name="com.android.settings.rr.SlimRecentAppSidebarActivity"
+            android:theme="@style/PreferenceTheme"
+            android:label="@string/recent_app_sidebar_title">
+        </activity>
 
         <activity android:name=".Settings$WifiInfoActivity"
                 android:theme="@style/Theme.SubSettingsDialogWhenLarge"

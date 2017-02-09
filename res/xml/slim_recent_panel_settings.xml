@@ -76,4 +76,28 @@
             defaultColor="#00ffffff"
             alphaSliderEnabled="true" />
 
+        <PreferenceCategory
+            android:title="@string/recent_app_sidebar_title">
+
+            <com.lordclockan.aicpextras.preferences.SystemSettingSwitchPreference
+                android:key="use_recent_app_sidebar"
+                android:title="@string/use_recent_app_sidebar_title"
+                android:summary="@string/use_recent_app_sidebar_summary"
+                android:defaultValue="true" />
+
+            <Preference
+                    android:key="recent_app_sidebar_content"
+                    android:title="@string/recent_app_sidebar_content_title"
+                    android:summary="@string/recent_app_sidebar_content_summary"
+                    android:dependency="use_recent_app_sidebar" />
+                <!-- TODO
+                    android:fragment="com.android.settings.slim.dslv.ActionListViewSettings"
+                <extra android:name="actionMode" android:value="7" />
+                <extra android:name="maxAllowedActions" android:value="-1" />
+                <extra android:name="useAppPickerOnly" android:value="true" />
+                <extra android:name="fragment" android:value="com.lordclockan.aicpextras.RecentAppSidebarFragment" />
+                -->
+
+        </PreferenceCategory>
+
 </PreferenceScreen>
