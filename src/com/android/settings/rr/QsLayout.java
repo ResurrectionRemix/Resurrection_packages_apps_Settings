@@ -37,12 +37,10 @@ public class QsLayout extends SettingsPreferenceFragment implements
     private static final String PREF_COLUMNS = "qs_layout_columns";
     private static final String PREF_ROWS_PORTRAIT = "qs_rows_portrait";
     private static final String PREF_ROWS_LANDSCAPE = "qs_rows_landscape";
-    private static final String PREF_SYSUI_QQS_COUNT = "sysui_qqs_count_key";
 
     private SeekBarPreference mQsColumns;
     private SeekBarPreference mRowsPortrait;
     private SeekBarPreference mRowsLandscape;
-    private SeekBarPreference mSysuiQqsCount;
     protected Context mContext;
     protected ContentResolver mContentRes;
 
@@ -84,13 +82,6 @@ public class QsLayout extends SettingsPreferenceFragment implements
         mRowsLandscape.setValue(rowsLandscape / 1);
         mRowsLandscape.setOnPreferenceChangeListener(this);
 
- 
-        mSysuiQqsCount = (SeekBarPreference) findPreference(PREF_SYSUI_QQS_COUNT);
-        int SysuiQqsCount = Settings.Secure.getInt(getContentResolver(),
-                Settings.Secure.QQS_COUNT, 6);
-        mSysuiQqsCount.setValue(SysuiQqsCount / 1);
-        mSysuiQqsCount.setOnPreferenceChangeListener(this);
-
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
@@ -113,12 +104,7 @@ public class QsLayout extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.QS_ROWS_LANDSCAPE, rowsLandscape * 1);
             return true;
-        } else if (preference == mSysuiQqsCount) {
-            int SysuiQqsCount = (Integer) objValue;
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.QQS_COUNT, SysuiQqsCount * 1);
-             return true;
-         } 
+        } 
         return false;
     }
 }

@@ -48,14 +48,12 @@
         settings:units=""
         android:persistent="false" />
 
-    <com.android.settings.rr.SeekBarPreference
-        android:key="sysui_qqs_count_key"
-        android:title="@string/qs_small_tiles_title"
-        settings:maximum="8"
-        settings:minimum="3"
-        settings:units=""
-        android:persistent="false" />
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_quickbar_scroll_enabled"
+        android:title="@string/qqs_scroll_title"
+        android:summary="@string/qqs_scroll_summary"
+        android:defaultValue="false"/>
 
-</PreferenceCategory>
+ </PreferenceCategory>
 
 </PreferenceScreen>
