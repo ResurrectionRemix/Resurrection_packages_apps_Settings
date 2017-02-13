@@ -86,6 +86,7 @@
   <string name="share_rr">Sdílet</string>
   <string name="share_rr_summary">Dejte vědět ostatním, že používáte Resurrection Remix OS</string>
   <string name="share_message">Zkuste Resurrection Remix OS! https://plus.Google.com/communities/109352646351468373340</string>
+  <string name="share_chooser_title">Sdílet Resurrection Remix OS přes...</string>
   <!-- RR Changelog-->
   <string name="changelog_title">Protokol změn</string>
   <string name="changelog_title_summary">Zobrazit nedávné změny v ROM</string>
@@ -136,14 +137,22 @@
   <string name="ka_title">Výkon</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">Přizpůsobit různé prvky stavové lišty, hodiny a datum</string>
+  <string name="status_bar_logo_summary">Povolit nebo zakázat Resurrection logo ve stavové liště. Přizpůsobit barvu a pozici</string>
+  <string name="sb_custom_logos_summary">Povolit nebo zakázat ikony ve stavové liště. Přizpůsobit jejich prvky a pozici</string>
   <string name="rr_battery_summary">Přizpůsobit prvky baterie ve stavové liště a také přizpůsobit batterybar</string>
+  <string name="rr_sb_icons_summary">Povolit nebo zakázat ikony vašeho výběru ve stavové liště</string>
   <string name="ticker_screen_summary">Upravit styl telegrafu ve stavové liště</string>
   <string name="status_bar_temperature_summary">Povolit nebo zakázat teplotu ve stavové liště a přizpůsobit styl </string>
   <string name="network_traffic_summary">Povolit nebo zakázat síťový provoz ve stavové liště, přizpůsobit jeho styl a aktivitu</string>
   <string name="carrier_summary">Povolit nebo zakázat operátora ve stavové liště a přizpůsobit jeho styl </string>
   <string name="rr_sb_gestures_summary">Povolit nebo zakázat gesta používaná ve stavové liště</string>
   <string name="breathing_notifications_summary">Dát dýchající efekt oznámením jako jsou SMS, zmeškaný hovor a hlasová pošta</string>
+  <string name="rr_trans_summary">Přizpůsobit různé prvky v oznamovací oblasti jako je průhlednost a ohraničení</string>
+  <string name="rr_volume_summary">Přizpůsobit různé prvky v panelu hlasitosti jako je průhlednost a ohraničení</string>
+  <string name="rr_power_summary">Přizpůsobit průhlednost a sytost menu tlačítka Power</string>
+  <string name="rr_recents_ui_summary">Přizpůsobit různé prvky v panelu nedávných jako je ukazatel paměti, pohlcující nedávné atd.</string>
   <string name="recents_clear_all_summary">Nahradit původní tlačítko \"Vymazat vše\" plovoucím tlačítkem a přizpůsobit jeho pozici</string>
+  <string name="omniswitch_summary">Použít Omni-nedávné namísto výchozího zobrazení nedávných aplikací</string>
   <string name="rr_qs_animation_summary">Povolit nebo zakázat animace klepnutím na QS dlaždice a upravit je</string>
   <string name="rr_qs_pulldown_summary">Nastavení rychlého rozbalovacího panelu</string>
   <string name="qs_tile_layout_summary">Přizpůsobit rozložení dlaždic rychlého nastavení</string>
@@ -153,8 +162,11 @@
   <string name="lockscreen_targets_summary">Vlastní nastavení zástupců vpravo a vlevo na zamykací obrazovce</string>
   <string name="lockscreen_weather_summary">Přizpůsobit rozvržení počasí na zamykací obrazovce</string>
   <string name="rr_ls_security_summary">Povolit nebo zakázat různé bezpečnostní funkce poskytované pro uzamčení</string>
+  <string name="gesture_anywhere_summary">Kreslit gesta pro spuštění zvolené aktivity</string>
   <string name="app_sidebar_summary">Použít boční lišty pro ukládání aplikací a aktivit, které lze rychle a s lehkostí zahájit</string>
   <string name="app_circle_bar_summary">Použít kruhový spouštěč pro ukládání aplikací a aktivit, které chcete rychle a s lehkostí zahájit</string>
+  <string name="pa_pie_control_summary">Přejeďte od okraje k aktivaci/deaktivaci kruhového spouštěče, který se skládá ze zkratek a ovládacích navigačních prvků</string>
+  <string name="rr_navbar_summary">Povolit nebo zakázat kontextová tlačítka a přizpůsobit je</string>
   <string name="rr_power_summary">Přizpůsobit různé možnosti k zobrazení v nabídce tlačítka \"Power\"</string>
   <string name="system_animations_summary">Vlastní animace každého okna v systému</string>
   <string name="rr_power_anim_summary">Povolit nebo zakázat animace v nabídce napájení a vybrat ze seznamu animací</string>
@@ -163,6 +175,7 @@
   <string name="rr_doze_summary">Povolit nebo zakázat ambientní displej a přizpůsobit jeho možnosti</string>
   <string name="rr_heads_up_summary">Vybrat možnost zapnutí nebo vypnutí heads-up oznámení a nastavit časové limity</string>
   <string name="rr_dash_board_summary">Přizpůsobit rozložení a souhrny hlavního panelu</string>
+  <string name="misc_weather_settings_summary">Přizpůsobit různé možnosti aplikace cClock</string>
   <string name="system_app_remover_summary">Odebrání nepotřebných systémových aplikací</string>
   <string name="rr_updater_summary">Zkontrolovat aktualizace OTA a další odkazy</string>
   <!-- Manage applications: show substratum overlays -->
@@ -281,6 +294,7 @@
   <string name="cpu_info">CPU</string>
   <string name="mem_info">Paměť RAM</string>
   <string name="systemui_recents_mem_display_title">Zobrazit ukazatel paměti</string>
+  <string name="systemui_recents_mem_display_summary">Povolit nebo zakázat ukazatel paměti v zobrazení nedávných aplikací</string>
   <!-- Network traffic -->
   <string name="network_traffic_title">Síťový provoz</string>
   <string name="show_network_traffic_state">Zobrazení síťového provozu na stavové liště</string>
@@ -576,6 +590,7 @@
   <string name="keyguard_toggle_torch_summary">Dlouhým stiskem tlačítka napájení spustit svítilnu při vypnuté obrazovce</string>
   <!-- Selinux Switch -->
   <string name="selinux_switch_title">Možnosti přepínače SELinux</string>
+  <string name="selinux_switch_summary">SELinux je soubor změn na linuxovém jádře a způsob přidělování zdrojů pro danou aplikaci. Změna režimu může způsobit nežádoucí chování. Použití je na vlastní nebezpečí.</string>
   <string name="selinux_title">SELinux režim</string>
   <string name="selinux_permissive_title">Mírné</string>
   <string name="selinux_enforcing_title">Vynucené</string>
@@ -919,6 +934,7 @@
   <string name="backlight_summary_enabled_with_timeout">Povolit pro <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Zapnuto</string>
   <!-- Buttons - Enable navbar -->
+  <string name="disable_navkeys_title">Zakázat hardwarové tlačítka</string>
   <string name="disable_navkeys_summary">Povolit/zakázat hardwarová tlačítka na zařízeních, které podporují hw klíče</string>
   <!-- Navigation Bar -->
   <string name="navigation_bar_category">Navigační lišta</string>
@@ -941,6 +957,7 @@
   <string name="power_menu_screenrecord_title">Videozáznam obrazovky</string>
   <string name="power_menu_torch">Svítilna</string>
   <string name="power_menu_onthego_title">Režim On-The-Go</string>
+  <string name="power_menu_emergency_title">Nouzové tlačítko</string>
   <string name="power_menu_bug_report_disabled">Hlášení chyb je zakázáno ve vývojářském nastavení</string>
   <string name="dt2l_camera_category">DT2L možnosti fotoaparátu</string>
   <string name="dt2l_camera_vib_title">Nastavit vibrace při spuštění</string>
@@ -1344,10 +1361,13 @@
   <string name="status_bar_double_tap_to_sleep_title">Dvojím klepnutím uspat</string>
   <string name="status_bar_double_tap_to_sleep_summary">Dvakrát klepnout na stavovou lištu pro vypntí displeje</string>
   <string name="qs_wifi_easy_toggle_title">Snadné přepnutí WiFi</string>
+  <string name="qs_wifi_easy_toggle_summary">Jedním klepnutím zapnout WiFi namísto zapnutí v nastavení</string>
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Snadné přepnutí Bluetooth</string>
+  <string name="qs_bt_easy_toggle_summary">Jedním klepnutím zapnout Bluetooth namísto zapnutí v nastavení</string>
   <!-- Battery Saver easy toggle -->
   <string name="qs_battery_easy_toggle_title">Snadné přepnutí dlaždice baterie</string>
+  <string name="qs_battery_easy_toggle_summary">Jedním klepnutím zapnout spořič baterie namísto zapnutí v nastavení</string>
   <string name="qs_music_tile_track_optional_title">Dlaždice hudby</string>
   <string name="qs_music_tile_track_optional_summary">Zobrazit hudbu jako QS dlaždici</string>
   <string name="quick_settings_vibrate_title">Vibrovat při dotyku</string>
@@ -1614,6 +1634,7 @@
   <string name="pa_pie_targets_title">Pie cíle</string>
   <string name="pa_pie_style_title">Pie styl</string>
   <string name="pa_pie_menu_title">Vždy zobrazovat tlačítko menu</string>
+  <string name="pa_pie_menu_summary">Tlačítku menu bude vždy zobrazeno, i když je i není třeba</string>
   <string name="pa_pie_size_title">Pie velikost</string>
   <string name="pa_pie_size_summary">Definovat velikost ovládacích prvků Pie</string>
   <string name="pa_pie_size_small">Malé</string>
@@ -1716,6 +1737,7 @@
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">Hardwarová tlačítka</string>
   <string name="hw_keys_summary">Povolit hardwarová tlačítka</string>
+  <string name="rr_hw_keys_summary">Přizpůsobit hardwarová tlačítka (např. domů, zpět, menu)</string>
   <!-- Expanded desktop -->
   <string name="expanded_desktop_category">Rozšířená plocha</string>
   <string name="expanded_hide_nothing">Nic neskrývat</string>
@@ -1815,6 +1837,7 @@
   <string name="lockscreen_clock_date_color">Datum zamykací obrazovky</string>
   <string name="lockscreen_colors_reset_title">Obnovit barvy na zamykací obrazovce</string>
   <string name="lockscreen_colors_reset_message">Jste si jisti, že chcete obnovit tyto barvy na výchozí hodnoty?</string>
+  <string name="lockscreen_colors_title">Vlastní nastavení hodin</string>
   <string name="lockscreen_owner_info_color">Informace o vlastníkovi</string>
   <string name="lockscreen_alarm_color">Budík</string>
   <string name="icons_title">Ikony</string>
@@ -1852,6 +1875,7 @@
   <string name="battery_large_text_summary_on">Zobrazit velký text</string>
   <string name="battery_large_text_summary_off">Zobrazit normální text</string>
   <string name="nav_bar_dynamic_title">Barva dynamické navigační lišty</string>
+  <string name="nav_bar_dynamic_summary">Povolit / zakázat tento přepínač k zobrazení tmavé barvy aplikace ve stavové liště. Spusťte požadovanou aplikace k zobrazení efektu</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Varování</string>
   <string name="title_keyboard_input">Možnosti vstupu</string>
@@ -1880,7 +1904,9 @@
   <string name="blur_dark_color">Tmavý barevný filtr pozadí</string>
   <string name="blur_mixed_color">Smíšený barevný filtr pozadí</string>
   <string name="blur_notice">O funkci rozostření</string>
+  <string name="blur_notice_summary">Přizpůsobení rozostření je zakázáno při zobrazení klávesnice. Je povoleno pouze průsvitné oznámení!</string>
   <string name="blur_colors_notice">Co dělají tyto barvy?</string>
+  <string name="blur_colors_notice_summary">Tyto barvy tónují pozadí. Namísto normální šedé můžete nyní zvolit barvy jak se vám líbí. \n Jsou tři barevné filtry: jeden pro světlé pozadí, jeden pro tmavé pozadí a jeden pro světlé/tmavé pozadí. \n Jak fungují tyto barvy?? \n Světlý filtr bude použit pro světlejší pozadí, tmavý pro tmavé pozadí a kombinovaný filtr se používá na světlé/tmavé pozadí. \n Tyto barvy se používají pro rozostření pozadí stavové lišty a nedávné aplikací </string>
   <string name="blur_expstatus_cat">Rozšířená stavová lišta </string>
   <string name="blur_notifications_cat">Oznámení</string>
   <string name="blur_qs_cat">Rychlé nastavení</string>
@@ -1888,9 +1914,11 @@
   <string name="blur_colors_cat">Barevné filtry rozostření</string>
   <string name="blur_notices_cat">Oznámení</string>
   <string name="blurred_scale">Stupnice rozostření</string>
+  <string name="blurred_scale_summary">Kvalita rozostření obrazu</string>
   <string name="blurred_radius">Rádius rozostření</string>
   <string name="blurred_radius_summary">Míra rozostření</string>
   <string name="blur_cat_notice">Upozornění</string>
+  <string name="blur_cat_notice_summary">Přizpůsobení rozostření je zakázáno při zobrazení klávesnice. Je povoleno pouze průsvitné oznámení!</string>
   <string name="rr_build_type_title">Typ sestavení</string>
   <string name="rr_build_type_default">Neoficiální</string>
   <string name="rr_maintainer_title">Správce</string>
@@ -1953,13 +1981,16 @@
   <string name="wakelock_list_header">Dostupné wakelocky</string>
   <string name="wakelock_blocker_reload">Znovu načíst</string>
   <string name="wakelock_blocker_warning_title">Postupujte s opatrností</string>
+  <string name="wakelock_blocker_warning">Blokováním wakelocků můžete způsobit nestabilitu, pády nebo ztrátu dat</string>
   <!-- Alarm blocker -->
   <string name="alarm_blocker">Blokátor alarmů</string>
   <string name="alarm_blocker_title">Povolit</string>
+  <string name="alarm_blocker_summary">Blokovat alarmy při vypnuté obrazovce</string>
   <string name="alarm_blocker_save">Uložit</string>
   <string name="alarm_list_header">Dostupné alarmy</string>
   <string name="alarm_blocker_reload">Znovu načíst</string>
   <string name="alarm_blocker_warning_title">Postupujte s opatrností</string>
+  <string name="alarm_blocker_warning">Blokováním alarmů můžete způsobit nestabilitu, pády nebo ztrátu dat.</string>
   <!-- DUI Double Tap to Sleep -->
   <string name="smartbar_doubletap_sleep_title">Dvojím klepnutím uspat</string>
   <string name="smartbar_doubletap_sleep_summary">Dvojím poklepáním na prázdné místo stavové lišty vypnete obrazovku</string>
@@ -1993,9 +2024,31 @@
   <string name="dashboard_columns_three">Tři (čtyři na šířku)</string>
   <string name="dashboard_summary_double_lines_title">Řádky shrnutí hlavního panelu</string>
   <string name="dashboard_summary_double_lines_summary_on">Zobrazit shrnutí hlavního panelu ve více řadách</string>
+  <string name="dashboard_summary_double_lines_summary_off">Zobrazit shrnutí hlavního panelu v jedné řadě</string>
   <!-- Themes settings -->
   <string name="themes_title">Motivy vzhledu</string>
   <string name="themes_summary">Služba Správce překrytí</string>
   <!-- Slim Recent panel -->
+  <string name="slim_recents_title">Slim přepínač aplikací</string>
+  <string name="use_slim_recents_title">Použít Slim přepínač aplikací</string>
+  <string name="use_slim_recents_summary">Použít Slim přepínač aplikací namísto systémového</string>
+  <string name="slim_recents_settings_title">Nastavení Slim nedávných aplikací</string>
+  <string name="slim_recents_settings_summary">Zobrazit nastavení pro Slim nedávné aplikace</string>
+  <string name="recent_panel_category">Slim panel nedávných aplikací</string>
+  <string name="show_running_tasks_title">Zobrazit pouze běžící aplikace</string>
+  <string name="recents_max_apps_title">Maximální počet povolených aplikací</string>
+  <string name="recent_panel_scale_title">Velikost</string>
+  <string name="recent_panel_expanded_mode_title">Rozšířený režim</string>
+  <string name="recent_panel_expanded_mode_summary">Režim rozšířeného náhledu nedávných aplikací</string>
+  <string name="recent_panel_expanded_mode_auto">Automaticky (výchozí)</string>
+  <string name="recent_panel_expanded_mode_always">Vždy</string>
+  <string name="recent_panel_expanded_mode_never">Nikdy</string>
+  <string name="recent_panel_show_topmost_title">Zobrazit aktuální úlohu</string>
+  <string name="recent_panel_show_topmost_summary">Nevylučovat aktuální v seznamu nedávných aplikací</string>
+  <string name="recent_panel_bg_color_title">Barva pozadí panelu</string>
+  <string name="recent_card_bg_color_title">Barva pozadí karty</string>
+  <string name="recent_card_text_color_title">Barva textu karty</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
+  <string name="recent_panel_lefty_mode_title">Zobrazit na levém okraji</string>
+  <string name="recent_panel_lefty_mode_summary">Zobrazit panel nedávných aplikací na levém okraji</string>
 </resources>
