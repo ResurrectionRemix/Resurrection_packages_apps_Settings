@@ -86,6 +86,7 @@
   <string name="share_rr">Teilen</string>
   <string name="share_rr_summary">Teilen Sie Leuten mit, dass Sie Resurrection Remix OS benutzen</string>
   <string name="share_message">Teste Resurrection Remix OS! https://plus.google.com/communities/109352646351468373340</string>
+  <string name="share_chooser_title">Teile Resurrection Remix OS über...</string>
   <!-- RR Changelog-->
   <string name="changelog_title">Änderungsprotokoll</string>
   <string name="changelog_title_summary">Zeige die letzten Änderungen der ROM</string>
@@ -136,14 +137,22 @@
   <string name="ka_title">Leistung</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">Uhr und Datum in der Statusleiste anpassen</string>
+  <string name="status_bar_logo_summary">Aktivieren oder Deaktivieren des Resurrection-Logos in der Statusleiste. Anpassen der Farbe und Position</string>
+  <string name="sb_custom_logos_summary">Aktivieren oder Deaktivieren der Symbole in der Statusleiste. Anpassen ihrer Inhalte und Position</string>
   <string name="rr_battery_summary">Akkuanzeige in Statusbar anpassen</string>
+  <string name="rr_sb_icons_summary">Aktivieren oder Deaktivieren der Symbole Ihrer Wahl in der Statusleiste</string>
   <string name="ticker_screen_summary">Passen Sie den Ticker-Stil in der Statusbar an</string>
   <string name="status_bar_temperature_summary">Aktivieren oder deaktivieren Sie die Temperatur in der Statusbar und passen Sie den Stil an </string>
   <string name="network_traffic_summary">Datenverkehr und dessen Stil, Schwellenwert und Anzeigewerte in der Statusleiste an- oder ausschalten</string>
   <string name="carrier_summary">Aktiviere oder Deaktiviere die Netzbetreiber-Anzeige in der Statusleiste und passe ihren Stil an </string>
   <string name="rr_sb_gestures_summary">Aktivieren oder Deaktivieren der Gesten auf der Statusleiste</string>
   <string name="breathing_notifications_summary">Pulsierender Effekt für Benachrichtigungen wie SMS, verpasste Anrufe und Voice Mails</string>
+  <string name="rr_trans_summary">Anpassen verschiedener Elemente in der Benachrichtigungsleiste wie z. B. Transparenz und Kontur</string>
+  <string name="rr_volume_summary">Anpassen verschiedener Elemente im Lautstärkedialog wie Transparenz und Kontur</string>
+  <string name="rr_power_summary">Anpassen von Helligkeit und Transparenz im Power-Menü</string>
+  <string name="rr_recents_ui_summary">Anpassen verschiedener Elemente im Bedienfeld \"Letzte Apps\" wie z.B. RAM-Leiste, ausführliche Informationen, etc.</string>
   <string name="recents_clear_all_summary">Ersetze die ursprüngliche \"Alle löschen\" Schaltfläche durch einen schwebenden Action Button</string>
+  <string name="omniswitch_summary">Ersetzen des Standard-Letzte-Apps-Menüs mit Omni-recents</string>
   <string name="rr_qs_animation_summary">Animationen beim Antippen der Schnelleinstellungen aktivieren/deaktivieren sowie anpassen</string>
   <string name="rr_qs_pulldown_summary">Einstellungen für Schnelles Aufklappen anpassen</string>
   <string name="qs_tile_layout_summary">Darstellung der Schnelleinstellung anpassen</string>
@@ -153,8 +162,11 @@
   <string name="lockscreen_targets_summary">Passen Sie die unten linke und unten rechte Verknüpfungen zu Ihrer Wahl auf dem Sperrbildschirm an</string>
   <string name="lockscreen_weather_summary">Passen Sie die Wetter-Layout im Sperrbildschirm an</string>
   <string name="rr_ls_security_summary">Aktivieren Sie oder deaktivieren Sie diverse Sicherheitsfeatures für den Sperrbildschirm</string>
+  <string name="gesture_anywhere_summary">Zeichnen Sie Ihre Gesten, um eine bevorzugte Aktivität zu starten</string>
   <string name="app_sidebar_summary">Eine Seitenleiste für Apps und Aktivitäten, die du leicht und schnell starten kannst, nutzen</string>
   <string name="app_circle_bar_summary">Nutze ein kreisförmiges Interface für Apps und Aktivitäten</string>
+  <string name="pa_pie_control_summary">Wische vom Rand aus um ein kreisförmiges Interface mit coolen Verknüpfungen und Navigationssteuerelementen ein- oder auszublenden</string>
+  <string name="rr_navbar_summary">Aktivieren oder Deaktivieren der Softkeys und Anpassen derer</string>
   <string name="rr_power_summary">Passen Sie verschiedene Optionen im Dialogfeld \"Power Menü\" an</string>
   <string name="system_animations_summary">Passen Sie einzelne Animationen für jedes Fenster im System an</string>
   <string name="rr_power_anim_summary">Aktivieren Sie oder deaktivieren Sie Animationen im Power-Menü und wählen Sie auch aus einer Liste von Animationen</string>
@@ -163,6 +175,7 @@
   <string name="rr_doze_summary">Aktivieren oder deaktivieren Sie das Inaktivitätsdisplay und passen Sie seine Bestandteile an.</string>
   <string name="rr_heads_up_summary">Heads Up Benachrichtigungen aktivieren oder deaktivieren und die Anzeigedauer festlegen</string>
   <string name="rr_dash_board_summary">Startseite der Einstellungen anpassen</string>
+  <string name="misc_weather_settings_summary">Anpassen verschiedener Optionen der Uhr-App</string>
   <string name="system_app_remover_summary">Unnötige System-Apps entfernen</string>
   <string name="rr_updater_summary">Nach OTA-Updates und anderen Links suchen</string>
   <!-- Manage applications: show substratum overlays -->
@@ -281,6 +294,7 @@
   <string name="cpu_info">CPU</string>
   <string name="mem_info">RAM</string>
   <string name="systemui_recents_mem_display_title">Arbeitsspeicher anzeigen</string>
+  <string name="systemui_recents_mem_display_summary">Aktivieren oder Deaktivieren der RAM-Leiste in der \"Letzte Apps\"-Ansicht</string>
   <!-- Network traffic -->
   <string name="network_traffic_title">Netzwerkverkehr</string>
   <string name="show_network_traffic_state">Netzwerkmonitor in der Statusleiste</string>
@@ -576,6 +590,7 @@
   <string name="keyguard_toggle_torch_summary">Taschenlampe bei ausgeschaltetem Display durch langes Drücken der Power-Taste aktivieren</string>
   <!-- Selinux Switch -->
   <string name="selinux_switch_title">Selinux-Optionen</string>
+  <string name="selinux_switch_summary">SELinux ist eine Sammlung von Kernel-Modifikationstools und Sicherheitsrichtlinien. Das Ändern dieser Einstellung kann ungewünschte Ereignisse hervorrufen. Benutzung auf eigene Gefahr.</string>
   <string name="selinux_title">SeLinux-Modus</string>
   <string name="selinux_permissive_title">Moderat</string>
   <string name="selinux_enforcing_title">Strikt</string>
@@ -919,6 +934,7 @@
   <string name="backlight_summary_enabled_with_timeout">Für <xliff:g id="timeout">%s</xliff:g> aktiviert</string>
   <string name="backlight_summary_enabled">Aktiviert</string>
   <!-- Buttons - Enable navbar -->
+  <string name="disable_navkeys_title">Hardwaretasten deaktivieren</string>
   <string name="disable_navkeys_summary">Aktiveren/Deaktivieren der Hardwaretasten falls das Gerät HW-Tasten besitzt</string>
   <!-- Navigation Bar -->
   <string name="navigation_bar_category">Navigationsleiste</string>
@@ -941,6 +957,7 @@
   <string name="power_menu_screenrecord_title">Bildschirmaufnahme</string>
   <string name="power_menu_torch">Taschenlampe</string>
   <string name="power_menu_onthego_title">On-The-Go Modus</string>
+  <string name="power_menu_emergency_title">Notruftaste</string>
   <string name="power_menu_bug_report_disabled">Fehlerberichte senden ist in den Entwickleroptionen deaktiviert</string>
   <string name="dt2l_camera_category">DT2L Kamera Optionen</string>
   <string name="dt2l_camera_vib_title">Start-Vibration anpassen</string>
@@ -1322,6 +1339,8 @@
   <string name="qs_rows_portrait_title">Zeilen (Hochformat)</string>
   <string name="qs_rows_landscape_title">Zeilen (Querformat)</string>
   <string name="qs_columns_title">Spalten</string>
+  <string name="qqs_scroll_title">Kleine QS-Kacheln scrollen</string>
+  <string name="qqs_scroll_summary">Scrollen durch kleine QS-Kacheln erlauben</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Warnungsfarbe</string>
   <string name="battery_saver_color_summary">Aktiviere orangene Status-/Navigationsleiste bei aktiviertem Energiesparmodus</string>
@@ -1344,10 +1363,13 @@
   <string name="status_bar_double_tap_to_sleep_title">Ruhezustand durch doppeltes Tippen</string>
   <string name="status_bar_double_tap_to_sleep_summary">Doppelt auf die Statusleiste tippen, um das Display auzuschalten</string>
   <string name="qs_wifi_easy_toggle_title">WiFi schnell umschalten</string>
+  <string name="qs_wifi_easy_toggle_summary">Ein Tippen aktiviert/deaktiviert WLAN, anstatt die Einstellungen zu öffnen</string>
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">Bluetooth schnell umschalten</string>
+  <string name="qs_bt_easy_toggle_summary">Ein Tippen aktiviert/deaktiviert Bluetooth, anstatt die Einstellungen zu öffnen</string>
   <!-- Battery Saver easy toggle -->
   <string name="qs_battery_easy_toggle_title">Batterie-Kachel einfaches umschalten</string>
+  <string name="qs_battery_easy_toggle_summary">Ein Tippen aktiviert/deaktiviert den Energiesparmodus, anstatt die Einstellungen zu öffnen</string>
   <string name="qs_music_tile_track_optional_title">Musik-Kachel</string>
   <string name="qs_music_tile_track_optional_summary">Zeige den Musiktitel als QS-Kachel</string>
   <string name="quick_settings_vibrate_title">Vibrieren bei Berührung</string>
@@ -1614,6 +1636,7 @@
   <string name="pa_pie_targets_title">Pie Schaltflächen</string>
   <string name="pa_pie_style_title">Pie-Stil</string>
   <string name="pa_pie_menu_title">Menü-Taste immer anzeigen</string>
+  <string name="pa_pie_menu_summary">Die Menü-Taste immer angezeigen, auch wenn sie nicht benötigt wird</string>
   <string name="pa_pie_size_title">Pie Größe</string>
   <string name="pa_pie_size_summary">Steuerelementegröße für das Pie-Menü festlegen</string>
   <string name="pa_pie_size_small">Klein</string>
@@ -1716,6 +1739,7 @@
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">Hardware-Tasten</string>
   <string name="hw_keys_summary">Hardware-Tasten aktivieren</string>
+  <string name="rr_hw_keys_summary">Konfigurieren verschiedener Hardware-Tasten, z.B. Home, zurück oder Menü</string>
   <!-- Expanded desktop -->
   <string name="expanded_desktop_category">Erweiterter Desktop</string>
   <string name="expanded_hide_nothing">Nichts ausblenden</string>
@@ -1815,6 +1839,7 @@
   <string name="lockscreen_clock_date_color">Sperrbildschirm Datum</string>
   <string name="lockscreen_colors_reset_title">Sperrbildschirm-Farben zurücksetzen</string>
   <string name="lockscreen_colors_reset_message">Sind Sie sicher, dass Sie die Farben auf den Standard zurücksetzen möchten?</string>
+  <string name="lockscreen_colors_title">Farbanpassungen</string>
   <string name="lockscreen_owner_info_color">Sperrbildschirmnachricht</string>
   <string name="lockscreen_alarm_color">Wecker</string>
   <string name="icons_title">Symbole</string>
@@ -1852,6 +1877,7 @@
   <string name="battery_large_text_summary_on">Großes Textfeld</string>
   <string name="battery_large_text_summary_off">Normaler Text angezeigt</string>
   <string name="nav_bar_dynamic_title">Dynamische Navigationsleistenfarbe</string>
+  <string name="nav_bar_dynamic_summary">Aktivieren Sie diesen Schalter, damit die Farbe der Navigationsleiste der primären App-Farbe folgt. Starten Sie Ihre gewünschte App, um die Wirkung zu sehen</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Achtung</string>
   <string name="title_keyboard_input">Eingabe-Optionen</string>
@@ -1880,7 +1906,9 @@
   <string name="blur_dark_color">Dunkles Bild Farbfilter</string>
   <string name="blur_mixed_color">Gemischter Bildfarbfilter </string>
   <string name="blur_notice">Über Unschärfe-Funktion</string>
+  <string name="blur_notice_summary">Unschärfepersonalisierungen sind während der Tastensperre deaktiviert! Nur durchscheinende Benachrichtigungen sind aktiviert!</string>
   <string name="blur_colors_notice">Was machen diese Farben?</string>
+  <string name="blur_colors_notice_summary">Diese Farben sind dazu, dem Hintergrund Unschärfe zu verleihen. Statt des normalen Graus können Sie nun Farben nach Ihren Wünschen auswählen. \n Es gibt drei Farbfilter: Einen für helle Hintergründe, eine für dunkle Hintergründe und eine für helle / dunkle Hintergründe. \n Wie arbeiten diese Farben? \n Einfache, wie der Titel schon sagen, wird der helle Filter für hellere Hintergründe verwendet, dunkler Filter für dunklen Hintergründe und der gemischte Filter wird für Hintergründe verwendet, die weder zu hell noch zu dunkel sind. \n Diese Farben werden für beide BlurBackgrounds verwendet: Status Bar und kürzlich geschlossene Apps </string>
   <string name="blur_expstatus_cat">Erweiterte Statusbar </string>
   <string name="blur_notifications_cat">Benachrichtigungen</string>
   <string name="blur_qs_cat">Schnelleinstellungen</string>
@@ -1888,9 +1916,11 @@
   <string name="blur_colors_cat">Unschärfe-Farbfilter</string>
   <string name="blur_notices_cat">Hinweise</string>
   <string name="blurred_scale">Unschärfeintensität</string>
+  <string name="blurred_scale_summary">Qualität des unscharfen Bildes</string>
   <string name="blurred_radius">Unschärfe Radius</string>
   <string name="blurred_radius_summary">Stärke der Unschärfe</string>
   <string name="blur_cat_notice">Hinweis</string>
+  <string name="blur_cat_notice_summary">Unschärfe Anpassungen sind während der Tastensperre deaktiviert! Nur lichtdurchlässige Benachrichtigungen aktiviert sind!</string>
   <string name="rr_build_type_title">Build-Typ</string>
   <string name="rr_build_type_default">Inoffiziell</string>
   <string name="rr_maintainer_title">Entwickler</string>
@@ -1953,13 +1983,16 @@
   <string name="wakelock_list_header">Vorhandene Wakelocks</string>
   <string name="wakelock_blocker_reload">Neu Laden</string>
   <string name="wakelock_blocker_warning_title">Mit Vorsicht fortfahren</string>
+  <string name="wakelock_blocker_warning">Blockierte Wakelocks können zu, Instabilität, Abstürzen oder Datenverlust führen</string>
   <!-- Alarm blocker -->
   <string name="alarm_blocker">Alarm-blocker</string>
   <string name="alarm_blocker_title">Aktiviert</string>
+  <string name="alarm_blocker_summary">Alarme bei abgeschalteten Bildschirm blockieren</string>
   <string name="alarm_blocker_save">Speichern</string>
   <string name="alarm_list_header">Verfügbaren Alarme</string>
   <string name="alarm_blocker_reload">Erneut laden</string>
   <string name="alarm_blocker_warning_title">Mit Vorsicht fortfahren</string>
+  <string name="alarm_blocker_warning">Blockierte Alarme haben die Möglichkeit Instabilität, Abstürzte und Datenverlust zu verursachen.</string>
   <!-- DUI Double Tap to Sleep -->
   <string name="smartbar_doubletap_sleep_title">Standby durch doppeltes Tippen</string>
   <string name="smartbar_doubletap_sleep_summary">Bildschirm durch doppeltes Tippen auf leere Bereiche innerhalb der Navigationsleiste ausschalten</string>
@@ -1993,9 +2026,31 @@
   <string name="dashboard_columns_three">Drei (vier Querformat)</string>
   <string name="dashboard_summary_double_lines_title">Dashboard Zusammenfassungs Linien</string>
   <string name="dashboard_summary_double_lines_summary_on">Zeige Dashboard Kachel Zusammenfassung in mehreren Zeilen</string>
+  <string name="dashboard_summary_double_lines_summary_off">Zeige Dashboard Kachel Zusammenfassung in einer Zeile</string>
   <!-- Themes settings -->
   <string name="themes_title">Themen</string>
   <string name="themes_summary">Overlay-Management-Dienst</string>
   <!-- Slim Recent panel -->
+  <string name="slim_recents_title">Slim \"Letzte Apps\"</string>
+  <string name="use_slim_recents_title">Benutze schlanke \"Letzte Apps\"</string>
+  <string name="use_slim_recents_summary">Verwenden Sie schlanke \"Letzte Apps\" anstelle der Standardansicht</string>
+  <string name="slim_recents_settings_title">Schlanke \"Letzte Apps\"-Einstellungen</string>
+  <string name="slim_recents_settings_summary">Anzeigen der Einstellungen für schlanke \"Letzte Apps\"</string>
+  <string name="recent_panel_category">Schlankes \"Letzte Apps\"-Panel</string>
+  <string name="show_running_tasks_title">Nur laufende Apps anzeigen</string>
+  <string name="recents_max_apps_title">Maximal erlaubte Apps</string>
+  <string name="recent_panel_scale_title">Größe</string>
+  <string name="recent_panel_expanded_mode_title">Erweiterter Modus</string>
+  <string name="recent_panel_expanded_mode_summary">Geöffnete Apps im erweiterten Ansichtsmodus</string>
+  <string name="recent_panel_expanded_mode_auto">Automatisch (Standard)</string>
+  <string name="recent_panel_expanded_mode_always">Immer</string>
+  <string name="recent_panel_expanded_mode_never">Nie</string>
+  <string name="recent_panel_show_topmost_title">Vordergrund-App anzeigen</string>
+  <string name="recent_panel_show_topmost_summary">Bei der Listenansicht die im Vordergrund geöffnete App nicht verstecken</string>
+  <string name="recent_panel_bg_color_title">Hintergrund der Schaltfläche</string>
+  <string name="recent_card_bg_color_title">Hintergrundfarbe der Karte</string>
+  <string name="recent_card_text_color_title">Textfarbe der Karte</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
+  <string name="recent_panel_lefty_mode_title">Am linken Bildschirmrand anzeigen</string>
+  <string name="recent_panel_lefty_mode_summary">Zeige das \"Letzte Apps\" Panel an der linken Kante</string>
 </resources>

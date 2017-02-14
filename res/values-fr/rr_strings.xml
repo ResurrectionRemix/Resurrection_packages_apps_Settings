@@ -149,6 +149,7 @@
   <string name="breathing_notifications_summary">Clignotement des notifications lors des Sms, appels manqués et des messages sur votre messagerie</string>
   <string name="rr_trans_summary">Personnaliser différents éléments du tiroir de notification comme la transparence et le contour</string>
   <string name="rr_volume_summary">Personnaliser les différents éléments de la boîte de dialogue du volume comme la transparence et le contour</string>
+  <string name="rr_power_summary">Personnaliser l\'opacité et la transparence de l’interface du menu</string>
   <string name="recents_clear_all_summary">Remplacer le bouton standard \"Tout effacer\" par un bouton flottant et personnaliser sa position</string>
   <string name="rr_qs_animation_summary">Activer ou désactiver l\'animation lorsque vous appuyez sur les réglages rapides et les ajuster</string>
   <string name="rr_qs_pulldown_summary">Ajuster les réglages de menu du panneau déroulant</string>
@@ -1628,6 +1629,7 @@
   <string name="pa_pie_targets_title">Cibles de l\'arc</string>
   <string name="pa_pie_style_title">Style de l\'arc</string>
   <string name="pa_pie_menu_title">Toujours afficher le bouton de menu</string>
+  <string name="pa_pie_menu_summary">Toujours afficher le bouton de menu, même si elle est pas nécessaire</string>
   <string name="pa_pie_size_title">Taille de l\'arc</string>
   <string name="pa_pie_size_summary">Définir la taille des contrôles en arc</string>
   <string name="pa_pie_size_small">Petit</string>
@@ -1730,6 +1732,7 @@
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">Boutons physiques</string>
   <string name="hw_keys_summary">Activer les boutons physiques</string>
+  <string name="rr_hw_keys_summary">Personnaliser les différents boutons physiques de votre appareil comme l\'Accueil, retour et menu</string>
   <!-- Expanded desktop -->
   <string name="expanded_desktop_category">Bureau étendu</string>
   <string name="expanded_hide_nothing">Ne rien masquer</string>
@@ -1829,6 +1832,7 @@
   <string name="lockscreen_clock_date_color">Date sur l\'écran de verrouillage</string>
   <string name="lockscreen_colors_reset_title">Réinitialiser les couleurs de l\'écran de verrouillage</string>
   <string name="lockscreen_colors_reset_message">Êtes-vous sûr de vouloir réinitialiser les couleurs par défaut ?</string>
+  <string name="lockscreen_colors_title">Personnalisation des couleurs</string>
   <string name="lockscreen_owner_info_color">Informations du propriétaire</string>
   <string name="lockscreen_alarm_color">Alarme</string>
   <string name="icons_title">Icônes</string>
@@ -1866,6 +1870,7 @@
   <string name="battery_large_text_summary_on">Grand texte affiché</string>
   <string name="battery_large_text_summary_off">Texte normal affiché</string>
   <string name="nav_bar_dynamic_title">Couleur dynamique de la barre de navigation</string>
+  <string name="nav_bar_dynamic_summary">Cocher ou décocher cette option pour que la barre de navigation s\'adapte au thème sombre de l\'application. Redémarrer l\'application pour visualiser les changements</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Attention</string>
   <string name="title_keyboard_input">Options de saisie</string>
@@ -1894,7 +1899,9 @@
   <string name="blur_dark_color">Filtre couleur sombre de l\'image</string>
   <string name="blur_mixed_color">Filtre image, mixer</string>
   <string name="blur_notice">À propos de la fonction flou</string>
+  <string name="blur_notice_summary">Le floutage personnalisé est désactivé durant l\'affichage du clavier ! Seules les Notifications transparentes sont activées !</string>
   <string name="blur_colors_notice">Que font ces couleurs ?</string>
+  <string name="blur_colors_notice_summary">Ces couleurs sont celles qui teintent le fond flouté. Au lieu du gris par défaut, vous pouvez maintenant choisir les couleurs que vous souhaitez. \n Il y a trois filtres de couleur : l\'un est utilisé pour les fonds clairs, l\'autre pour les fonds foncés et le dernier pour les fonds mixtes. \n Alors, comment fonctionnent ces couleurs ? \n C\'est simple, comme le précisent les intitulés, le filtre éclaircir sera utilisé pour les fonds plus clairs, le filtre assombrir pour les fonds plus foncés et le filtre mixte pour les fonds ni trop sombres ni trop clairs. \n Ces couleurs sont utilisées à la fois pour les fonds floutés de la barre de statut et des applications récentes </string>
   <string name="blur_expstatus_cat">Barre d\'état étendue </string>
   <string name="blur_notifications_cat">Notifications</string>
   <string name="blur_qs_cat">Paramètres rapides</string>
@@ -1902,9 +1909,11 @@
   <string name="blur_colors_cat">Couleur des filtres flou</string>
   <string name="blur_notices_cat">Notes</string>
   <string name="blurred_scale">Échelle de flou</string>
+  <string name="blurred_scale_summary">Qualité du flou d’image</string>
   <string name="blurred_radius">Rayon du flou</string>
   <string name="blurred_radius_summary">Quantité de flou</string>
   <string name="blur_cat_notice">Avertissement</string>
+  <string name="blur_cat_notice_summary">Le floutage personnalisé est désactivé durant le mode de verrouillage du clavier ! Seules les Notifications transparentes sont activées !</string>
   <string name="rr_build_type_title">Type de compilation</string>
   <string name="rr_build_type_default">Non officiel</string>
   <string name="rr_maintainer_title">Mainteneur</string>
@@ -1967,13 +1976,16 @@
   <string name="wakelock_list_header">Wakelocks disponibles</string>
   <string name="wakelock_blocker_reload">Recharger</string>
   <string name="wakelock_blocker_warning_title">Procéder avec prudence</string>
+  <string name="wakelock_blocker_warning">Le blocage Wakelocks peut potentiellement causer des instabilités, des bogues, des pertes de données</string>
   <!-- Alarm blocker -->
   <string name="alarm_blocker">Verrouillage d\'alarme</string>
   <string name="alarm_blocker_title">Activé</string>
+  <string name="alarm_blocker_summary">Bloquer les alertes et notifications lorsque l\'écran est éteint</string>
   <string name="alarm_blocker_save">Enregistrer</string>
   <string name="alarm_list_header">Alarmes disponibles</string>
   <string name="alarm_blocker_reload">Recharger</string>
   <string name="alarm_blocker_warning_title">Procédez avec prudence</string>
+  <string name="alarm_blocker_warning">Le blocage des alertes et notifications peut potentiellement causer des instabilités, des bogues, des pertes de données.</string>
   <!-- DUI Double Tap to Sleep -->
   <string name="smartbar_doubletap_sleep_title">Double tap pour veille</string>
   <string name="smartbar_doubletap_sleep_summary">Double tap sur les zones vides de la barre de navigation pour éteindre l’écran</string>
@@ -2007,9 +2019,25 @@
   <string name="dashboard_columns_three">Trois (quatre horizontal)</string>
   <string name="dashboard_summary_double_lines_title">Résumé du tableau de bord</string>
   <string name="dashboard_summary_double_lines_summary_on">Afficher les résumés de tuile du tableau de bord sur plusieurs lignes</string>
+  <string name="dashboard_summary_double_lines_summary_off">Afficher les intitulés du tableau de bord sur une lignes</string>
   <!-- Themes settings -->
   <string name="themes_title">Thèmes</string>
   <string name="themes_summary">Service de gestion Overlay</string>
   <!-- Slim Recent panel -->
+  <string name="show_running_tasks_title">Afficher uniquement les applications en cours d\'exécution</string>
+  <string name="recents_max_apps_title">Nombre maximal d\'applications autorisées</string>
+  <string name="recent_panel_scale_title">Taille</string>
+  <string name="recent_panel_expanded_mode_title">Mode étendu</string>
+  <string name="recent_panel_expanded_mode_summary">Mode de prévisualisation étendu des tâches récentes</string>
+  <string name="recent_panel_expanded_mode_auto">Automatique (par défaut)</string>
+  <string name="recent_panel_expanded_mode_always">Toujours</string>
+  <string name="recent_panel_expanded_mode_never">Jamais</string>
+  <string name="recent_panel_show_topmost_title">Afficher la tâche en cours</string>
+  <string name="recent_panel_show_topmost_summary">Ne pas exclure la tâche au premier plan dans la vue récente</string>
+  <string name="recent_panel_bg_color_title">Couleur d\'arrière-plan du panneau</string>
+  <string name="recent_card_bg_color_title">Couleur d\'arrière-plan de la carte</string>
+  <string name="recent_card_text_color_title">Couleur du texte de la carte</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
+  <string name="recent_panel_lefty_mode_title">Afficher sur le bord gauche</string>
+  <string name="recent_panel_lefty_mode_summary">Afficher le panneau des applications récentes sur le bord gauche</string>
 </resources>

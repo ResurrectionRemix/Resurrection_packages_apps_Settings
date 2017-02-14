@@ -147,6 +147,7 @@
   <string name="carrier_summary">Włącz, wyłącz i dostosuj nazwę operatora na pasku statusu</string>
   <string name="rr_sb_gestures_summary">Włącz lub wyłącz gesty na pasku statusu</string>
   <string name="breathing_notifications_summary">Dodaj efekt oddychania do powiadomień, takich jak sms, nieodebrane połączenia czy poczta głosowa</string>
+  <string name="rr_trans_summary">Dostosuj różne elementy paska powiadomień takie jak przezroczystość i wypełnienie</string>
   <string name="recents_clear_all_summary">Zastąp przycisk czyszczenia niestandardowym pływającym przyciskiem i dostosuj go</string>
   <string name="rr_qs_animation_summary">Włącz lub wyłącz animację dotyku szybkich skrótów oraz dostosuj je</string>
   <string name="rr_qs_pulldown_summary">Dostosuj ustawienia rozwiętego szybkiego panelu</string>
@@ -167,6 +168,7 @@
   <string name="rr_doze_summary">Włącz, wyłącz i dostosuj Ambient Display</string>
   <string name="rr_heads_up_summary">Włącz, wyłącz i dostosuj wyskakujące powiadomienia</string>
   <string name="rr_dash_board_summary">Ustaw wygląd ekranu ustawień</string>
+  <string name="misc_weather_settings_summary">Dostosuj opcje aplikacji Cclock</string>
   <string name="system_app_remover_summary">Usuń niepotrzebne aplikacje systemowe</string>
   <string name="rr_updater_summary">Sprawdź aktualizacje OTA i inne linki</string>
   <!-- Manage applications: show substratum overlays -->
@@ -285,6 +287,7 @@
   <string name="cpu_info">Procesor</string>
   <string name="mem_info">Pamięć RAM</string>
   <string name="systemui_recents_mem_display_title">Pokaż pasek pamięci</string>
+  <string name="systemui_recents_mem_display_summary">Włącz lub wyłącz pasek RAM w ostatnich aplikacjach</string>
   <!-- Network traffic -->
   <string name="network_traffic_title">Monitor ruchu sieciowego</string>
   <string name="show_network_traffic_state">Wskaźnik ruchu sieciowego na pasku stanu</string>
@@ -580,6 +583,7 @@
   <string name="keyguard_toggle_torch_summary">Długie przytrzymanie przycisku zasilania przy wyłączonym ekranie włączy latarkę</string>
   <!-- Selinux Switch -->
   <string name="selinux_switch_title">Opcje Selinux</string>
+  <string name="selinux_switch_summary">SELinux to zestaw modyfikacji jądra i narzędzi przestrzeni użytkownika. Zmiana trybu może spowodować niepożądane działania. Używasz tylko na własne ryzyko.</string>
   <string name="selinux_title">Tryb SELinux</string>
   <string name="selinux_permissive_title">Pobłażliwy</string>
   <string name="selinux_enforcing_title">Restrykcyjny</string>
@@ -923,6 +927,7 @@
   <string name="backlight_summary_enabled_with_timeout">Włączone przez <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">Włączono</string>
   <!-- Buttons - Enable navbar -->
+  <string name="disable_navkeys_title">Wyłącz klawisze sprzętowe</string>
   <string name="disable_navkeys_summary">Włącz/Wyłącz przyciski sprzętowe na urządzeniach, które obsługują przyciski sprzętowe</string>
   <!-- Navigation Bar -->
   <string name="navigation_bar_category">Pasek nawigacji</string>
@@ -945,6 +950,7 @@
   <string name="power_menu_screenrecord_title">Nagrywanie Ekranu</string>
   <string name="power_menu_torch">Latarka</string>
   <string name="power_menu_onthego_title">Tryb \"W ruchu\"</string>
+  <string name="power_menu_emergency_title">Przycisk połączenia alarmowego</string>
   <string name="power_menu_bug_report_disabled">Raportowanie błędów jest wyłączone w opcjach programistycznych</string>
   <string name="dt2l_camera_category">Opcje aparatu DT2L</string>
   <string name="dt2l_camera_vib_title">Dostosuj wibracje uruchamiania</string>
@@ -1326,6 +1332,8 @@
   <string name="qs_rows_portrait_title">Wiersze (pion)</string>
   <string name="qs_rows_landscape_title">Wiersze (poziom)</string>
   <string name="qs_columns_title">Kolumny</string>
+  <string name="qqs_scroll_title">Przewiń małe kafelki Szybkich Ustawień</string>
+  <string name="qqs_scroll_summary">Zezwól na przewijanie przez małe kafelki Szybkich Ustawień</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Kolor ostrzeżenia</string>
   <string name="battery_saver_color_summary">Włącz pomarańczowy pasek stanu i nawigacyjny kiedy uruchomione jest oszczędzanie baterii</string>
@@ -1892,6 +1900,7 @@
   <string name="blur_colors_cat">Filtry rozmycia koloru</string>
   <string name="blur_notices_cat">Powiadomienia</string>
   <string name="blurred_scale">Stopień rozmycia</string>
+  <string name="blurred_scale_summary">Jakość rozmytego obrazu</string>
   <string name="blurred_radius">Promień rozmycia</string>
   <string name="blurred_radius_summary">Ilość rozmycia</string>
   <string name="blur_cat_notice">Powiadomienie</string>
@@ -1960,10 +1969,12 @@
   <!-- Alarm blocker -->
   <string name="alarm_blocker">Blokada alarmów</string>
   <string name="alarm_blocker_title">Włącz</string>
+  <string name="alarm_blocker_summary">Blokuj alarmy, kiedy ekran jest wyłączony</string>
   <string name="alarm_blocker_save">Zapisz</string>
   <string name="alarm_list_header">Dostępne alarmy</string>
   <string name="alarm_blocker_reload">Odśwież</string>
   <string name="alarm_blocker_warning_title">Postępuj ostrożnie</string>
+  <string name="alarm_blocker_warning">Blokowanie alarmów może w znacznym stopniu prowadzić do niestabilności, wyłączeń lub utraty danych.</string>
   <!-- DUI Double Tap to Sleep -->
   <string name="smartbar_doubletap_sleep_title">Stuknij dwukrotnie aby uśpić</string>
   <string name="smartbar_doubletap_sleep_summary">Dotknij dwukrotnie na pusty obszar paska nawigacyjnego, aby wyłączyć ekran</string>
@@ -2001,5 +2012,14 @@
   <string name="themes_title">Motywy</string>
   <string name="themes_summary">Usługa menedżera nakładek</string>
   <!-- Slim Recent panel -->
+  <string name="recent_panel_scale_title">Rozmiar</string>
+  <string name="recent_panel_expanded_mode_title">Tryb rozszerzony</string>
+  <string name="recent_panel_expanded_mode_auto">Automatycznie (domyślnie)</string>
+  <string name="recent_panel_expanded_mode_always">Zawsze</string>
+  <string name="recent_panel_expanded_mode_never">Nigdy</string>
+  <string name="recent_panel_bg_color_title">Kolor tła panelu</string>
+  <string name="recent_card_bg_color_title">Kolor tła karty</string>
+  <string name="recent_card_text_color_title">Kolor tekstu kart</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
+  <string name="recent_panel_lefty_mode_title">Pokaż na lewej krawędzi ekranu</string>
 </resources>

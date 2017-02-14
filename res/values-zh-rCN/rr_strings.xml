@@ -86,6 +86,7 @@
   <string name="share_rr">推荐给好友</string>
   <string name="share_rr_summary">分享 Resurrection Remix OS 给其他人</string>
   <string name="share_message">试用 Resurrection Remix ROM! https://plus.google.com/communities/109352646351468373340</string>
+  <string name="share_chooser_title">分享Resurrection Remix OS</string>
   <!-- RR Changelog-->
   <string name="changelog_title">更新日志</string>
   <string name="changelog_title_summary">显示Rom最近的修改</string>
@@ -136,14 +137,22 @@
   <string name="ka_title">性能</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">自定义状态栏中时钟与日期样式</string>
+  <string name="status_bar_logo_summary">Resurrection标志选项</string>
+  <string name="sb_custom_logos_summary">自定义状态栏图标</string>
   <string name="rr_battery_summary">自定义状态栏中电池图标及电池栏样式</string>
+  <string name="rr_sb_icons_summary">启用或者禁用状态栏图标</string>
   <string name="ticker_screen_summary">自定义通知栏播放通知的样式</string>
   <string name="status_bar_temperature_summary">启用/禁用状态栏气温并修改样式 </string>
   <string name="network_traffic_summary">启用/禁用状态栏网速监控并修改样式</string>
   <string name="carrier_summary">启用/禁用状态栏运营商标签并自定义样式 </string>
   <string name="rr_sb_gestures_summary">启用/禁用状态栏手势</string>
   <string name="breathing_notifications_summary">当有通知时，例如短信、未接来电或者语音邮件等，状态栏将会展示呼吸效果</string>
+  <string name="rr_trans_summary">自定义通知面板各种元素，例如透明和边缘</string>
+  <string name="rr_volume_summary">自定义音量面板各种元素，例如透明和边缘</string>
+  <string name="rr_power_summary">电源菜单选项</string>
+  <string name="rr_recents_ui_summary">界面自定义</string>
   <string name="recents_clear_all_summary">把最近任务中的“全部清除”更改为可改变位置的浮动按钮</string>
+  <string name="omniswitch_summary">用Omni最近任务替换原生最近任务</string>
   <string name="rr_qs_animation_summary">自定义在快速设置中的动画</string>
   <string name="rr_qs_pulldown_summary">调整快捷下拉菜单设置</string>
   <string name="qs_tile_layout_summary">自定义快速设置磁贴布局</string>
@@ -153,8 +162,11 @@
   <string name="lockscreen_targets_summary">锁屏快捷方式</string>
   <string name="lockscreen_weather_summary">锁屏天气</string>
   <string name="rr_ls_security_summary">屏幕锁定安全性</string>
+  <string name="gesture_anywhere_summary">自定义手势操作</string>
   <string name="app_sidebar_summary">在侧边栏添加应用或者活动以便于快捷启动</string>
   <string name="app_circle_bar_summary">在触摸屏幕右侧后显示环形应用启动器</string>
+  <string name="pa_pie_control_summary">启用屏幕边缘滑动导航组件</string>
+  <string name="rr_navbar_summary">虚拟按键设置</string>
   <string name="rr_power_summary">电源菜单选项</string>
   <string name="system_animations_summary">自定义窗口动画</string>
   <string name="rr_power_anim_summary">电源菜单动画</string>
@@ -163,6 +175,7 @@
   <string name="rr_doze_summary">主动显示及相关选项</string>
   <string name="rr_heads_up_summary">浮动通知及相关选项</string>
   <string name="rr_dash_board_summary">自定义ResurrectionRemix设置布局和摘要</string>
+  <string name="misc_weather_settings_summary">自定义cLock的各种选项</string>
   <string name="system_app_remover_summary">删除不必要的系统应用</string>
   <string name="rr_updater_summary">检查 OTA 更新和其他链接</string>
   <!-- Manage applications: show substratum overlays -->
@@ -281,6 +294,7 @@
   <string name="cpu_info">处理器</string>
   <string name="mem_info">运行内存</string>
   <string name="systemui_recents_mem_display_title">显示内存栏</string>
+  <string name="systemui_recents_mem_display_summary">启用或禁用在最近任务中的内存栏</string>
   <!-- Network traffic -->
   <string name="network_traffic_title">网速显示</string>
   <string name="show_network_traffic_state">状态栏显示当前网速</string>
@@ -576,6 +590,7 @@
   <string name="keyguard_toggle_torch_summary">关闭屏幕时长按电源键以启用手电筒</string>
   <!-- Selinux Switch -->
   <string name="selinux_switch_title">Selinux开关选项</string>
+  <string name="selinux_switch_summary">SELinux是一组修改内核和用户空间的工具。改变模式可能会导致不必要的效果。请自行承担风险。</string>
   <string name="selinux_title">Selinux 模式</string>
   <string name="selinux_permissive_title">许可</string>
   <string name="selinux_enforcing_title">执行中</string>
@@ -919,6 +934,7 @@
   <string name="backlight_summary_enabled_with_timeout">保持背光灯 <xliff:g id="timeout">%s</xliff:g></string>
   <string name="backlight_summary_enabled">启用</string>
   <!-- Buttons - Enable navbar -->
+  <string name="disable_navkeys_title">禁用实体键</string>
   <string name="disable_navkeys_summary">在支持软键的设备上启用/禁用硬件按钮</string>
   <!-- Navigation Bar -->
   <string name="navigation_bar_category">导航栏</string>
@@ -941,6 +957,7 @@
   <string name="power_menu_screenrecord_title">屏幕录像</string>
   <string name="power_menu_torch">手电筒</string>
   <string name="power_menu_onthego_title">行走模式 (On-The-go)</string>
+  <string name="power_menu_emergency_title">紧急呼叫按钮</string>
   <string name="power_menu_bug_report_disabled">开发者选项中已禁用错误报告</string>
   <string name="dt2l_camera_category">DT2L 摄像机选项</string>
   <string name="dt2l_camera_vib_title">调整启动器的振动</string>
@@ -1322,6 +1339,8 @@
   <string name="qs_rows_portrait_title">行 （纵向）</string>
   <string name="qs_rows_landscape_title">行 （横向）</string>
   <string name="qs_columns_title">列</string>
+  <string name="qqs_scroll_title">滚动小型快速设置瓷贴</string>
+  <string name="qqs_scroll_summary">允许滚动小型快速设置瓷贴</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">警告颜色</string>
   <string name="battery_saver_color_summary">在节电模式启用时显示橙色的状态栏和导航栏</string>
@@ -1344,10 +1363,13 @@
   <string name="status_bar_double_tap_to_sleep_title">双击休眠</string>
   <string name="status_bar_double_tap_to_sleep_summary">双击状态栏来关闭屏幕</string>
   <string name="qs_wifi_easy_toggle_title">WiFi 快捷切换键</string>
+  <string name="qs_wifi_easy_toggle_summary">点击即可开启或关闭 WiFi ，而不是打开设置界面</string>
   <!-- BT easy toggle -->
   <string name="qs_bt_easy_toggle_title">蓝牙快捷切换键</string>
+  <string name="qs_bt_easy_toggle_summary">点击即可开启或关闭蓝牙 ，而不是打开设置界面</string>
   <!-- Battery Saver easy toggle -->
   <string name="qs_battery_easy_toggle_title">一键切换省电模式</string>
+  <string name="qs_battery_easy_toggle_summary">点击电池磁块不打开设置直接切换至省电模式</string>
   <string name="qs_music_tile_track_optional_title">音乐磁贴</string>
   <string name="qs_music_tile_track_optional_summary">在快捷设置中显示音乐磁贴</string>
   <string name="quick_settings_vibrate_title">触摸时使用振动反馈</string>
@@ -1614,6 +1636,7 @@
   <string name="pa_pie_targets_title">Pie对象</string>
   <string name="pa_pie_style_title">Pie风格</string>
   <string name="pa_pie_menu_title">总是显示菜单按钮</string>
+  <string name="pa_pie_menu_summary">即便不需要菜单键也始终显示菜单按钮</string>
   <string name="pa_pie_size_title">Pie大小</string>
   <string name="pa_pie_size_summary">定义Pie控件大小</string>
   <string name="pa_pie_size_small">小</string>
@@ -1716,6 +1739,7 @@
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">实体按键</string>
   <string name="hw_keys_summary">启用实体按键</string>
+  <string name="rr_hw_keys_summary">自定义实体按键操作</string>
   <!-- Expanded desktop -->
   <string name="expanded_desktop_category">扩展桌面</string>
   <string name="expanded_hide_nothing">不隐藏</string>
@@ -1815,6 +1839,7 @@
   <string name="lockscreen_clock_date_color">锁屏界面日期</string>
   <string name="lockscreen_colors_reset_title">重置锁屏界面颜色</string>
   <string name="lockscreen_colors_reset_message">您确定要重置这些颜色为默认值？</string>
+  <string name="lockscreen_colors_title">颜色自定义</string>
   <string name="lockscreen_owner_info_color">机主信息</string>
   <string name="lockscreen_alarm_color">闹钟</string>
   <string name="icons_title">图标</string>
@@ -1852,6 +1877,7 @@
   <string name="battery_large_text_summary_on">大文本显示</string>
   <string name="battery_large_text_summary_off">正常文本显示</string>
   <string name="nav_bar_dynamic_title">动态导航栏颜色</string>
+  <string name="nav_bar_dynamic_summary">启用此项将自动拾取当前应用主颜色给导航栏，重启后应用生效</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">注意</string>
   <string name="title_keyboard_input">输入选项</string>
@@ -1880,7 +1906,9 @@
   <string name="blur_dark_color">暗色图片滤镜</string>
   <string name="blur_mixed_color">混合图片滤镜</string>
   <string name="blur_notice">请注意！</string>
+  <string name="blur_notice_summary">模糊设置将在锁屏状态下禁用 ！仅半透明通知可用！</string>
   <string name="blur_colors_notice">如何使用这些颜色？</string>
+  <string name="blur_colors_notice_summary">这些颜色是从模糊背景中取到的颜色而不是普通的灰色。你现在可以选择你喜欢的颜色。\n我们提供了三个滤镜：一个用于浅色背景，一个用于深色背景，一个用于中等亮度背景。 \n那么这些颜色是如何工作的？ \n简单，如标题所示，浅色滤镜将用于较浅的背景，深色滤镜用于深色背景，混合滤镜将用于不太暗也不太亮的背景。 \n设置的颜色将用于两个界面：状态栏及最近任务。 </string>
   <string name="blur_expstatus_cat">拓展状态栏 </string>
   <string name="blur_notifications_cat">通知</string>
   <string name="blur_qs_cat">快速设置</string>
@@ -1888,9 +1916,11 @@
   <string name="blur_colors_cat">模糊滤镜</string>
   <string name="blur_notices_cat">公告</string>
   <string name="blurred_scale">模糊级别</string>
+  <string name="blurred_scale_summary">图像模糊度</string>
   <string name="blurred_radius">模糊半径：</string>
   <string name="blurred_radius_summary">模糊量</string>
   <string name="blur_cat_notice">提示</string>
+  <string name="blur_cat_notice_summary">模糊设置在使用输入法期间被禁用 ！仅启用半透明通知 ！</string>
   <string name="rr_build_type_title">构建类型</string>
   <string name="rr_build_type_default">非官方版</string>
   <string name="rr_maintainer_title">维护者</string>
@@ -1953,13 +1983,16 @@
   <string name="wakelock_list_header">可用唤醒</string>
   <string name="wakelock_blocker_reload">重新加载</string>
   <string name="wakelock_blocker_warning_title">谨慎操作</string>
+  <string name="wakelock_blocker_warning">拦截唤醒锁可能导致系统不稳定、崩溃或甚至数据丢失！</string>
   <!-- Alarm blocker -->
   <string name="alarm_blocker">警报禁用</string>
   <string name="alarm_blocker_title">启用</string>
+  <string name="alarm_blocker_summary">在屏幕关闭时禁用警报</string>
   <string name="alarm_blocker_save">保存</string>
   <string name="alarm_list_header">可用警报</string>
   <string name="alarm_blocker_reload">重新加载</string>
   <string name="alarm_blocker_warning_title">谨慎操作</string>
+  <string name="alarm_blocker_warning">拦截警报可能导致系统不稳定、崩溃或数据丢失。</string>
   <!-- DUI Double Tap to Sleep -->
   <string name="smartbar_doubletap_sleep_title">双击睡眠</string>
   <string name="smartbar_doubletap_sleep_summary">双击导航栏的空白区域以关闭屏幕</string>
@@ -1993,9 +2026,31 @@
   <string name="dashboard_columns_three">三（四横排）</string>
   <string name="dashboard_summary_double_lines_title">面板摘要行</string>
   <string name="dashboard_summary_double_lines_summary_on">多行显示面板摘要</string>
+  <string name="dashboard_summary_double_lines_summary_off">多行显示面板摘要</string>
   <!-- Themes settings -->
   <string name="themes_title">主题</string>
   <string name="themes_summary">叠加层管理服务</string>
   <!-- Slim Recent panel -->
+  <string name="slim_recents_title">Slim最近任务</string>
+  <string name="use_slim_recents_title">使用Slim最近任务</string>
+  <string name="use_slim_recents_summary">使用Slim最近任务而不是默认近期应用视图</string>
+  <string name="slim_recents_settings_title">Slim最近任务设置</string>
+  <string name="slim_recents_settings_summary">查看Slim最近任务的设置</string>
+  <string name="recent_panel_category">Slim最近任务面板</string>
+  <string name="show_running_tasks_title">仅显示正在运行的应用</string>
+  <string name="recents_max_apps_title">最大允许应用数量</string>
+  <string name="recent_panel_scale_title">大小</string>
+  <string name="recent_panel_expanded_mode_title">扩展模式</string>
+  <string name="recent_panel_expanded_mode_summary">最近任务扩展预览模式</string>
+  <string name="recent_panel_expanded_mode_auto">自动(默认)</string>
+  <string name="recent_panel_expanded_mode_always">始终</string>
+  <string name="recent_panel_expanded_mode_never">从不</string>
+  <string name="recent_panel_show_topmost_title">显示前台任务</string>
+  <string name="recent_panel_show_topmost_summary">在最近任务列表中不排除前台应用</string>
+  <string name="recent_panel_bg_color_title">面板背景颜色</string>
+  <string name="recent_card_bg_color_title">卡的背景颜色</string>
+  <string name="recent_card_text_color_title">卡的文本颜色</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
+  <string name="recent_panel_lefty_mode_title">显示在左侧边缘</string>
+  <string name="recent_panel_lefty_mode_summary">在左侧边缘显示最近任务</string>
 </resources>

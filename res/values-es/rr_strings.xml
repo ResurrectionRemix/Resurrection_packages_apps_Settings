@@ -1879,6 +1879,7 @@ Esta configuración sobrescribirá cualquier resumen personalizado anterior.</st
   <string name="battery_large_text_summary_on">Texto mostrado grande</string>
   <string name="battery_large_text_summary_off">Texto mostrado normal</string>
   <string name="nav_bar_dynamic_title">Color de barra de navegación dinámico</string>
+  <string name="nav_bar_dynamic_summary">Active o desactive esta opción para colorear la barra de navegación del color oscuro principal de la aplicación. Reinicie para visualizar los cambios</string>
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Atención</string>
   <string name="title_keyboard_input">Opciones de Entrada</string>
@@ -1907,7 +1908,9 @@ Esta configuración sobrescribirá cualquier resumen personalizado anterior.</st
   <string name="blur_dark_color">Filtro de color de imagen oscura</string>
   <string name="blur_mixed_color">Filtro de color de imagen mixto</string>
   <string name="blur_notice">Acerca de la función desenfoque</string>
+  <string name="blur_notice_summary">¡Las personalizaciones del desenfoque están desactivadas en la pantalla de bloqueo! ¡Solo están activas las notificaciones translúcidas!</string>
   <string name="blur_colors_notice">¿Qué hacen estos colores?</string>
+  <string name="blur_colors_notice_summary">Estos son los colores que tintan el fondo desenfocado. En vez del gris normal, ahora puedes elegir los colores de la forma que quieras. \n Hay tres filtros de colores: uno se usa para fondos claros, otro para fondos oscuros y otro más para fondos claros y oscuros. \n ¿¿Pero entonces cómo se usan los colores?? \n Fácil, como indica el título, el filtro claro se usará para fondos claros, el filtro oscuro para fondos oscuros y el filtro mixto para fondos no muy claros pero tampoco muy oscuros. \n Estos colores se usan para ambos tipos de desenfoque de fondo: el de la barra de estado y el de las aplicaciones recientes </string>
   <string name="blur_expstatus_cat">Barra de estado expandida</string>
   <string name="blur_notifications_cat">Notificaciones</string>
   <string name="blur_qs_cat">Configuración rápida</string>
@@ -1915,9 +1918,11 @@ Esta configuración sobrescribirá cualquier resumen personalizado anterior.</st
   <string name="blur_colors_cat">Desenfoque de filtros de color</string>
   <string name="blur_notices_cat">Que hay de nuevo</string>
   <string name="blurred_scale">Escala de desenfoque</string>
+  <string name="blurred_scale_summary">Calidad de imágenes difuminadas</string>
   <string name="blurred_radius">Radio de desenfoque</string>
   <string name="blurred_radius_summary">Cantidad de desenfoque</string>
   <string name="blur_cat_notice">Noticia</string>
+  <string name="blur_cat_notice_summary">¡Las personalizaciones del desenfoque están desactivadas en la pantalla de bloqueo! ¡Solo se activarán las notificaciones translúcidas!</string>
   <string name="rr_build_type_title">Tipo de build</string>
   <string name="rr_build_type_default">No Oficial</string>
   <string name="rr_maintainer_title">Mantenedor</string>
@@ -1980,13 +1985,16 @@ Esta configuración sobrescribirá cualquier resumen personalizado anterior.</st
   <string name="wakelock_list_header">Wakelocks disponibles</string>
   <string name="wakelock_blocker_reload">Recargar</string>
   <string name="wakelock_blocker_warning_title">Proceder con precaución</string>
+  <string name="wakelock_blocker_warning">Bloquear wakelocks pueden causar la inestabilidad, cierres inesperados o pérdida de datos</string>
   <!-- Alarm blocker -->
   <string name="alarm_blocker">Bloqueador de alarma</string>
   <string name="alarm_blocker_title">Activar</string>
+  <string name="alarm_blocker_summary">Bloquear alarmas mientras la pantala esté apagada</string>
   <string name="alarm_blocker_save">Guardar</string>
   <string name="alarm_list_header">Alarmas disponibles</string>
   <string name="alarm_blocker_reload">Recargar</string>
   <string name="alarm_blocker_warning_title">Proceda con precaución</string>
+  <string name="alarm_blocker_warning">Bloquear alarmas puede causar inestabilidad, cierres forzados o pérdida de datos.</string>
   <!-- DUI Double Tap to Sleep -->
   <string name="smartbar_doubletap_sleep_title">Doble toque para dormir</string>
   <string name="smartbar_doubletap_sleep_summary">Doble toque en las áreas vacías de la barra de navegación para apagar la pantalla</string>
@@ -2020,9 +2028,31 @@ Esta configuración sobrescribirá cualquier resumen personalizado anterior.</st
   <string name="dashboard_columns_three">Tres (cuatro en apaisado)</string>
   <string name="dashboard_summary_double_lines_title">Líneas del resentimiento del panel</string>
   <string name="dashboard_summary_double_lines_summary_on">Muestra el resumen en más líneas en el panel</string>
+  <string name="dashboard_summary_double_lines_summary_off">Muestra el resumen en una sola línea en el panel</string>
   <!-- Themes settings -->
   <string name="themes_title">Temas</string>
   <string name="themes_summary">Servico de administración de capas</string>
   <!-- Slim Recent panel -->
+  <string name="slim_recents_title">Slim recents</string>
+  <string name="use_slim_recents_title">Usar Slim Recents</string>
+  <string name="use_slim_recents_summary">Usar slim recents en lugar de la vista predeterminada de recientes</string>
+  <string name="slim_recents_settings_title">Ajustes de slim recents</string>
+  <string name="slim_recents_settings_summary">Ver la configuración de slim recents</string>
+  <string name="recent_panel_category">Panel de aplicaciones slim recents</string>
+  <string name="show_running_tasks_title">Solo mostrar aplicaciones en ejecución</string>
+  <string name="recents_max_apps_title">Máximo de aplicaciones permitidas</string>
+  <string name="recent_panel_scale_title">Tamaño</string>
+  <string name="recent_panel_expanded_mode_title">Modo expandido</string>
+  <string name="recent_panel_expanded_mode_summary">Previsualizar los procesos recientes en modo expandido</string>
+  <string name="recent_panel_expanded_mode_auto">Automático (predeterminado)</string>
+  <string name="recent_panel_expanded_mode_always">Siempre</string>
+  <string name="recent_panel_expanded_mode_never">Nunca</string>
+  <string name="recent_panel_show_topmost_title">Mostrar aplicación en uso</string>
+  <string name="recent_panel_show_topmost_summary">No incluir la aplicación actual en la vista de aplicaciones recientes</string>
+  <string name="recent_panel_bg_color_title">Color de fondo del panel</string>
+  <string name="recent_card_bg_color_title">Color de fondo de la tarjeta</string>
+  <string name="recent_card_text_color_title">Color de texto de la tarjeta</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
+  <string name="recent_panel_lefty_mode_title">Mostrar en el borde izquierdo</string>
+  <string name="recent_panel_lefty_mode_summary">Mostrar aplicaciones recientes en el borde izquierdo</string>
 </resources>
