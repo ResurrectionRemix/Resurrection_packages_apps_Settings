@@ -161,6 +161,7 @@
   <string name="gesture_anywhere_summary">Desenați gesturile dvs pentru a lansa o activitate preferată</string>
   <string name="app_sidebar_summary">Utilizaţi o bara laterală pentru a stoca aplicațiile şi activităţile dvs. care pot fi lansate rapid cu ușurință</string>
   <string name="app_circle_bar_summary">Utilizaţi o bară laterală circulară pentru a stoca aplicaţiile şi activităţile dvs. rapide</string>
+  <string name="pa_pie_control_summary">Deplasați degetul din margine pentru a activa/dezactiva o placinta care constă din scurtături mișto şi comenzi de navigare</string>
   <string name="rr_navbar_summary">Activați sau dezactivați taste programabile şi personalizațile</string>
   <string name="rr_power_summary">Personaliza diverse opţiuni în dialogul meniului putere</string>
   <string name="system_animations_summary">Personalizați animaţiile din fiecare fereastră în sistem</string>
@@ -191,8 +192,25 @@
   <string name="task_close_title">Sarcină închide animația</string>
   <string name="task_move_to_front_title">Mutați la animația frontală</string>
   <string name="task_move_to_back_title">Mutați la animația spate</string>
+  <string name="animation_duration_title">Durata Animaţiei</string>
+  <string name="title_animation_no_override">Preveniți suprascrierea aplicației</string>
+  <string name="summary_animation_no_override">Preveniți aplicațiile să suprascrie tranzițiile</string>
+  <string name="animation_duration_default">Implicit</string>
   <!-- Toast Animation -->
+  <string name="toast_none_animation">Fără</string>
+  <string name="toast_default_animation">Implicit</string>
+  <string name="toast_fade_animation">Diminuează</string>
+  <string name="toast_Xylon_animation">Xylon</string>
+  <string name="toast_Toko_animation">Toko</string>
+  <string name="toast_Tn_animation">Tn</string>
+  <string name="toast_Honami_animation">Honami</string>
+  <string name="toast_FastFade_animation">Disipare rapidă</string>
+  <string name="toast_GrowFade_animation">Disipare mărită</string>
+  <string name="toast_Translucent_animation">Transparent</string>
   <!-- ListView animation -->
+  <string name="listview_animation_title">Animație ListView</string>
+  <string name="listview_off">Implicit</string>
+  <string name="listview_alpha">Alfa</string>
   <string name="listview_scale">Scară</string>
   <string name="listview_stack_top">Stivă (Sus)</string>
   <string name="listview_stack_bottom">Stivă (Jos)</string>
@@ -208,8 +226,17 @@
   <string name="listview_anticipate_interpolator">Anticipă</string>
   <string name="listview_overshoot_interpolator">Depăşit</string>
   <!-- Disable animations -->
+  <string name="disable_animations">Dezactivare animații</string>
+  <string name="disable_animations_summary">Dezactivează animaţii de tranziţie, cum ar fi atunci ca lansarea unei aplicații</string>
   <!-- Option to enable/disable scrolling cache -->
+  <string name="pref_scrollingcache_force_enable">Forțează activarea</string>
+  <string name="pref_scrollingcache_default_enable">Activare Implicit</string>
+  <string name="pref_scrollingcache_default_disable">Dezactivare Implicit</string>
+  <string name="pref_scrollingcache_force_disable">Forțează dezactivarea</string>
   <!-- Volume Steps -->
+  <string name="volume_steps_title">Trepte Volum</string>
+  <string name="volume_steps_alarm_title">Treaptă volmum: Alarmă</string>
+  <string name="volume_steps_dtmf_title">Treaptă volmum: DTMF</string>
   <string name="volume_steps_music_title">Pași volum: Muzică</string>
   <string name="volume_steps_notification_title">Pași volum: Notificații</string>
   <string name="volume_steps_ring_title">Pași volum: Alarmă</string>
@@ -234,10 +261,22 @@
   <string name="bluetooth_battery_summary">Arată starea baterie pentru dispozitivul bluetooth conectat, dacă este disponibil.</string>
   <!-- Force expanded notifications -->
   <string name="force_expanded_notifications_title">Forţează notificări extinse</string>
+  <string name="force_expanded_notifications_summary">Disponibil doar pentru aplicaţii care acceptă notificări extinse</string>
   <!-- Disabling immersive mode messages -->
   <!-- Hide Apps from Recents -->
+  <string name="hide_apps_from_recents_title">Aplicații ascunse</string>
+  <string name="hide_from_recents_add_app">Adăugați aplicaţie</string>
+  <string name="hide_apps_from_recents_summary">Alegeți care aplicații să fie excluse din panoul recente</string>
   <!-- About device screen, CPU and RAM info. -->
+  <string name="cpu_info">Procesor</string>
+  <string name="mem_info">RAM</string>
+  <string name="systemui_recents_mem_display_title">Afișează bara de memorie</string>
+  <string name="systemui_recents_mem_display_summary">Activează sau dezactivează bara RAM în vizualizarea aplicațiilor recente</string>
   <!-- Network traffic -->
+  <string name="network_traffic_title">Trafic Rețea</string>
+  <string name="show_network_traffic_unit">Unitate de afișare</string>
+  <string name="show_network_traffic_frequency">Interval de actualizare</string>
+  <string name="show_network_traffic_disable">Dezactivat</string>
   <string name="show_network_traffic_up">de Ieşire</string>
   <string name="show_network_traffic_down">de Intrare</string>
   <string name="show_network_traffic_all">de Ieșire și de Intrare</string>
@@ -255,6 +294,8 @@
   <string name="status_bar_rr_logo_summary">Permite afișarea RR-OS logo-ul pe bara de stare</string>
   <!-- Color picker -->
   <string name="color_picker_fragment_title">Selecție culoare</string>
+  <string name="apply_color_title">Aplică culoarea</string>
+  <string name="edit_hex_title">Valoarea HEX</string>
   <string name="palette_title">Altele</string>
   <string name="palette_material_title">Material</string>
   <string name="palette_rgb_title">RGB</string>
@@ -270,6 +311,14 @@
   <string name="empty_title">Gol</string>
   <!-- Help screen -->
   <string name="color_picker_help_screen_title">Ajutor selector de culoare</string>
+  <string name="color_picker_help_ab_title">Bara de acţiune:</string>
+  <string name="color_picker_help_ab_back_title">Buton înapoi:</string>
+  <string name="color_picker_help_ab_name_title">Titlu:</string>
+  <string name="color_picker_help_ab_name_summary">Arată doar titlul, fără funcții suplimentare</string>
+  <string name="color_picker_help_ab_color_apply_title">Previzualizare culoare și aplicare culoare:</string>
+  <string name="color_picker_help_ab_hex_title">Valoare Hex:</string>
+  <string name="color_picker_help_ab_menu_title">Buton Meniu:</string>
+  <string name="color_picker_help_ab_menu_reset_title">Resetați:</string>
   <string name="color_picker_help_ab_menu_favorites_title">Arată/ascunde favorite:</string>
   <string name="color_picker_help_ab_menu_help_title">Arată/ascunde ajutor:</string>
   <string name="color_picker_help_ab_menu_help_summary">Arată/ascunde acest ecran de ajutor.</string>
@@ -283,12 +332,29 @@
   <!-- Power menu Animations  -->
   <string name="powermenu">Meniu pornire</string>
   <string name="power_menu_animation_title">Putere meniu animație</string>
+  <string name="power_menu_animation_aosp">AOSP (implicit)</string>
   <string name="power_menu_animation_bottom">Jos</string>
   <string name="power_menu_animation_top">Sus</string>
   <string name="power_menu_animation_rotate">Rotaţie</string>
   <string name="power_menu_animation_rotate">Rotaţie</string>
   <string name="power_menu_animation_xylon">Zbor</string>
+  <string name="power_menu_animation_slide">Glisează</string>
+  <string name="power_menu_animation_turn">Paginat</string>
+  <string name="power_menu_animation_fly">Strălucit</string>
+  <string name="power_menu_animation_card">3D</string>
+  <string name="power_menu_animation_translucent_top">Translucid (sus)</string>
+  <string name="power_menu_animation_translucent_bottom">Translucid (jos)</string>
+  <string name="rr_qs_title">Setări rapide</string>
+  <string name="rr_battery_title">Baterie</string>
+  <string name="rr_qs_animation">Animații</string>
+  <string name="rr_qs_pulldown">Derulare rapidă în jos</string>
+  <string name="rr_navbar_title">Bară de navigare</string>
+  <string name="rr_pm_animations_title">Meniu pornire</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tile_animation_style_title">Stil animație</string>
+  <string name="qs_tile_animation_duration_title">Durata Animaţiei</string>
+  <string name="qs_tile_animation_style_off">Fără animaţie</string>
+  <string name="qs_tile_animation_style_flip">Inversează</string>
   <string name="qs_tile_animation_style_rotate">Rotiţi</string>
   <string name="qs_tile_animation_duration_low">Scăzut</string>
   <string name="qs_tile_animation_duration_default">Implicit</string>
@@ -298,7 +364,9 @@
   <string name="qs_tile_animation_interpolator_accelerateInterpolator">Accelerat</string>
   <string name="qs_tile_animation_interpolator_decelerateInterpolator">Decelerat</string>
   <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Accelerat decelerat</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Depăşit</string>
   <string name="qs_tile_animation_interpolator_anticipateInterpolator">Anticipă</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Anticipează depăşiri</string>
   <string name="qs_set_animation_style">%1$s</string>
   <string name="qs_set_animation_duration">%1$s</string>
   <string name="qs_set_animation_interpolator">%1$s</string>
@@ -350,20 +418,85 @@
   <!-- Noun, menu item used to edit a gesture -->
   <string name="ga_gestures_edit">Editează</string>
   <!-- Noun, menu item used to remove a gesture -->
+  <string name="ga_gestures_delete">Ştergeți</string>
   <!-- Message displayed when a gesture is successfully deleted -->
+  <string name="ga_gestures_delete_success">Gest şters</string>
   <!-- Title of dialog box -->
+  <string name="ga_gestures_rename_title">Redenumiţi gest</string>
   <!-- Label of gesture name field in Rename gesture dialog box -->
+  <string name="ga_gestures_rename_label">Nume gest</string>
   <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
+  <string name="trigger_category">Regiunea de declanşare</string>
+  <string name="ga_0">0px</string>
+  <string name="ga_1">1px</string>
+  <string name="ga_5">5px</string>
+  <string name="ga_10">10px</string>
+  <string name="ga_15">15px</string>
+  <string name="ga_20">20px</string>
+  <string name="ga_25">25px</string>
+  <string name="ga_30">30px</string>
+  <string name="ga_35">35px</string>
+  <string name="ga_40">40px</string>
+  <string name="ga_45">45px</string>
+  <string name="ga_50">50px</string>
+  <string name="ga_55">55px</string>
   <string name="ga_60">60px</string>
+  <string name="ga_65">65px</string>
+  <string name="ga_70">70px</string>
+  <string name="ga_75">75px</string>
+  <string name="ga_80">80px</string>
+  <string name="ga_85">85px</string>
+  <string name="ga_90">90px</string>
+  <string name="ga_95">95px</string>
+  <string name="ga_100">100px</string>
+  <string name="ga_4">4px</string>
+  <string name="ga_8">8px</string>
+  <string name="ga_12">12px</string>
+  <string name="ga_16">16px</string>
+  <string name="ga_20">20px</string>
+  <string name="ga_24">24px</string>
+  <string name="ga_28">28px</string>
+  <string name="ga_32">32px</string>
+  <string name="ga_36">36px</string>
+  <string name="ga_40">40px</string>
+  <string name="ga_44">44px</string>
+  <string name="ga_48">48px</string>
+  <string name="ga_52">52px</string>
   <string name="ga_56">56px</string>
   <string name="ga_60">60px</string>
   <string name="ga_64">64px</string>
   <string name="ga_68">68px</string>
   <string name="entries">Intrări</string>
   <!--Power menu on Secure Lockscreen -->
+  <string name="lockscreen_enable_power_menu_title">Afișează minimul de putere pe ecranul de blocare</string>
+  <string name="lockscreen_enable_power_menu_summary">Această opţiune va dezactiva meniul de putere doar pe ecrane de blocare securizate</string>
   <!-- CM Lockscreen shortcuts -->
   <!-- Battery Bar -->
+  <string name="battery_bar_thickness_title">Grosimea bariei bateriei</string>
+  <string name="battery_bar_animate_title">Animaţie la încărcare</string>
+  <string name="battery_bar_animate_summary">Animaţia de încărcare poate duce la o experienţă de utilizator slabă. Activați la propria discreție.</string>
+  <string name="battery_bar_charging_color">Culoarea barei de baterie când se încarcă</string>
+  <string name="battery_bar_battery_low_color">Culoarea barei baterie la baterie slabă</string>
+  <string name="battery_bar_style_regular">Obișnuit</string>
+  <string name="battery_bar_style_center_mirrored">Centrat-oglindă</string>
+  <string name="battery_bar_style_reversed">Inversat</string>
+  <string name="battery_bar_use_gradient_color">Utilizare culoare gradient</string>
+  <string name="battery_bar_gradient_color_summary">Utilizare culoare gradient ca o scară pentru nivelul bateriei</string>
+  <string name="battery_bar_high_color">Culoare nivel înalt\"</string>
+  <string name="battery_bar_low_color">Culoare nivel scăzut\"</string>
+  <string name="battery_bar_hide">Ascunde</string>
+  <string name="battery_bar_statusbar">Bară de stare</string>
+  <string name="battery_bar_navbar_top">Partea de sus a barei de navigare</string>
+  <string name="battery_bar_navbar_bottom">Partea de jos a barei de navigare</string>
   <!-- Doze pulse options -->
+  <string name="summary_doze_enabled">Activat</string>
+  <string name="summary_doze_disabled">Dezactivat</string>
+  <string name="doze_overwrite_value_title">Suprascrie setări implicite</string>
+  <string name="doze_overwrite_value_summary">Permite suprascriere valorile implicite cu configurare utilizator</string>
+  <string name="doze_pulse_title">Setări configurabile de utilizator</string>
+  <string name="doze_pulse_duration_in_title">Atenuare graduală</string>
+  <string name="doze_pulse_duration_visible_title">Durata vizibilitate</string>
+  <string name="doze_pulse_duration_out_title">Dispariţie graduală</string>
   <string name="onehundred_ms">100 ms</string>
   <string name="twohalf_second">2.5 s</string>
   <string name="three_second_default">3 s (implicit)</string>
