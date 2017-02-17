@@ -84,6 +84,7 @@ public class ImeiInformation extends SettingsPreferenceFragment {
                 if (phone.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE) {
                     // Show ICC ID and IMEI for LTE device
                     setSummaryText(KEY_ICC_ID, phone.getIccSerialNumber());
+                    setSummaryText(KEY_IMEI, phone.getImei());
                     setSummaryTextAsDigit(KEY_IMEI, phone.getImei());
                     setSummaryTextAsDigit(KEY_IMEI_SV, phone.getDeviceSvn());
                 } else {
@@ -101,6 +102,8 @@ public class ImeiInformation extends SettingsPreferenceFragment {
                 } else {
                     removePreferenceFromScreen(KEY_ICC_ID);
                 }
+                setSummaryText(KEY_IMEI, phone.getImei());
+                setSummaryText(KEY_IMEI_SV, phone.getDeviceSvn());
                 setSummaryTextAsDigit(KEY_IMEI, phone.getImei());
                 setSummaryTextAsDigit(KEY_IMEI_SV, phone.getDeviceSvn());
                 // device is not CDMA, do not display CDMA features

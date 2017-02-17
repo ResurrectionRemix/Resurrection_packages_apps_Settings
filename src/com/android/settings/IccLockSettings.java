@@ -219,6 +219,8 @@ public class IccLockSettings extends SettingsPreferenceFragment
     }
 
     private void updatePreferences() {
+        if (mPinDialog == null || mPinToggle == null)
+            return;
         if (mPhone != null) {
             if (mPhone.getIccCard().getState() != State.READY) {
                 // if SIM State is NOT READY, it is not possible to interact with UICC app

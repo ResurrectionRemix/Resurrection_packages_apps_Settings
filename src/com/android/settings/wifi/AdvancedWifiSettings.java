@@ -52,8 +52,6 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
     private static final String KEY_WPS_PIN = "wps_pin_entry";
 
     // Wifi extension requirement
-    private static final String KEY_CURRENT_GATEWAY = "current_gateway";
-    private static final String KEY_CURRENT_NETMASK = "current_netmask";
     private static final int WIFI_HS2_ENABLED = 1;
     private static final int WIFI_HS2_DISABLED = 0;
 
@@ -369,13 +367,13 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
     }
 
     private boolean isAutoConnectEnabled() {
-        return Settings.System.getInt(getActivity().getContentResolver(),
+        return Settings.Global.getInt(getActivity().getContentResolver(),
                 WIFI_AUTO_CONNECT_TYPE, AUTO_CONNECT_ENABLED) == AUTO_CONNECT_ENABLED;
     }
 
     private void setAutoConnectTypeEnabled(boolean enable) {
         final int defaultValue = enable ? AUTO_CONNECT_ENABLED : AUTO_CONNECT_DISABLE;
-        Settings.System.putInt(getActivity().getContentResolver(),
+        Settings.Global.putInt(getActivity().getContentResolver(),
                 WIFI_AUTO_CONNECT_TYPE, defaultValue);
     }
 

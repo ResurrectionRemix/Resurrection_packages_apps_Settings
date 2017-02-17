@@ -158,6 +158,13 @@ public class BillingCycleSettings extends DataUsageBase implements
                 setPolicyLimitBytes(LIMIT_DISABLED);
             }
             return true;
+        } else if (mEnableDataTimeRange == preference) {
+            boolean enabled = (Boolean) newValue;
+            mShowDataUsage = !mShowDataUsage;
+            SharedPreferences prefs = getActivity().getSharedPreferences(PREF_FILE,
+                    Context.MODE_PRIVATE);
+            prefs.edit().putBoolean(PREF_SHOW_DATA_USAGE, mShowDataUsage).apply();
+            return true;
         } else if (mEnableDataWarning == preference) {
             boolean enabled = (Boolean) newValue;
             if (enabled) {
@@ -165,13 +172,6 @@ public class BillingCycleSettings extends DataUsageBase implements
             } else {
                 setPolicyWarningBytes(WARNING_DISABLED);
             }
-            return true;
-        } else if (mEnableDataTimeRange == preference) {
-            boolean enabled = (Boolean) newValue;
-            mShowDataUsage = !mShowDataUsage;
-            SharedPreferences prefs = getActivity().getSharedPreferences(PREF_FILE,
-                    Context.MODE_PRIVATE);
-            prefs.edit().putBoolean(PREF_SHOW_DATA_USAGE, mShowDataUsage).apply();
             return true;
         }
         return false;

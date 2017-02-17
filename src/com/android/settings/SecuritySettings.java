@@ -119,6 +119,8 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
     private static final String KEY_REPLACE_ENCRYPTION_PASSWORD = "crypt_keeper_replace_password";
+    private static final int PASSWORD_VISIBLE = 1;
+    private static final int PASSWORD_INVISIBLE = 0;
 
     // These switch preferences need special handling since they're not all stored in Settings.
     private static final String SWITCH_PREFERENCE_KEYS[] = {
@@ -631,13 +633,22 @@ public class SecuritySettings extends SettingsPreferenceFragment
         updateUnificationPreference();
 
         if (mShowPassword != null) {
-            mShowPassword.setChecked(Settings.System.getInt(getContentResolver(),
-                    Settings.System.TEXT_SHOW_PASSWORD, 1) != 0);
+            mShowPassword.setChecked(isPasswordVisible());
         }
 
         if (mResetCredentials != null && !mResetCredentials.isDisabledByAdmin()) {
             mResetCredentials.setEnabled(!mKeyStore.isEmpty());
         }
+    }
+
+    private boolean isPasswordVisible() {
+        int defaultValue = PASSWORD_VISIBLE ;
+        if (getResources().getBoolean(
+                R.bool.config_regional_security_show_password_enable)) {
+            defaultValue = PASSWORD_INVISIBLE ;
+        }
+        return Settings.System.getInt(getContentResolver(),
+                        Settings.System.TEXT_SHOW_PASSWORD, defaultValue) != 0 ;
     }
 
     private void updateUnificationPreference() {

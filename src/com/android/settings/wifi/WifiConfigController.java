@@ -980,7 +980,10 @@ public class WifiConfigController implements TextWatcher,
             case WIFI_EAP_METHOD_SIM:
             case WIFI_EAP_METHOD_AKA:
             case WIFI_EAP_METHOD_AKA_PRIME:
-                WifiConfiguration config = mAccessPoint.getConfig();
+                WifiConfiguration config = null;
+                if (mAccessPoint != null) {
+                    config = mAccessPoint.getConfig();
+                }
                 ArrayAdapter<String> eapSimAdapter = new ArrayAdapter<String>(
                          mContext, android.R.layout.simple_spinner_item,
                          mSimDisplayNames.toArray(new String[mSimDisplayNames.size()])

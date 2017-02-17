@@ -633,7 +633,7 @@ public class WifiSettings extends RestrictedSettingsFragment
      * the strength of network and the security for it.
      */
     @Override
-    public void onAccessPointsChanged() {
+    public synchronized void onAccessPointsChanged() {
         // Safeguard from some delayed event handling
         if (getActivity() == null) return;
         if (isUiRestricted()) {

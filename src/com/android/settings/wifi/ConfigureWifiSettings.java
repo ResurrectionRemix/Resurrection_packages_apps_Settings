@@ -19,6 +19,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.DhcpInfo;
 import android.content.res.Resources;
 import android.net.NetworkScoreManager;
 import android.net.NetworkScorerAppManager;
@@ -32,6 +33,7 @@ import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.text.TextUtils;
+import android.text.format.Formatter;
 import android.util.Log;
 import android.widget.Toast;
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -54,6 +56,10 @@ public class ConfigureWifiSettings extends SettingsPreferenceFragment
     private static final String KEY_SLEEP_POLICY = "sleep_policy";
     private static final String KEY_CELLULAR_FALLBACK = "wifi_cellular_data_fallback";
     private static final String KEY_WIFI_ASSISTANT = "wifi_assistant";
+
+    // Wifi extension requirement
+    private static final String KEY_CURRENT_GATEWAY = "current_gateway";
+    private static final String KEY_CURRENT_NETMASK = "current_netmask";
 
     private WifiManager mWifiManager;
     private NetworkScoreManager mNetworkScoreManager;
@@ -257,6 +263,36 @@ public class ConfigureWifiSettings extends SettingsPreferenceFragment
         wifiIpAddressPref.setSummary(ipAddress == null ?
                 context.getString(R.string.status_unavailable) : ipAddress);
         wifiIpAddressPref.setSelectable(false);
+
+        // Wifi extension requirement
+        Preference wifiGatewayPref = findPreference(KEY_CURRENT_GATEWAY);
+        String gateway = null;
+        Preference wifiNetmaskPref = findPreference(KEY_CURRENT_NETMASK);
+        String netmask = null;
+        if (getResources().getBoolean(R.bool.config_netinfo)) {
+            DhcpInfo dhcpInfo = mWifiManager.getDhcpInfo();
+            if (wifiInfo != null) {
+                if (dhcpInfo != null) {
+                    gateway = Formatter.formatIpAddress(dhcpInfo.gateway);
+                    netmask = Formatter.formatIpAddress(dhcpInfo.netmask);
+                }
+            }
+            if (wifiGatewayPref != null) {
+                wifiGatewayPref.setSummary((gateway == null || dhcpInfo.gateway == 0) ?
+                        getString(R.string.status_unavailable) : gateway);
+            }
+            if (wifiNetmaskPref != null) {
+                wifiNetmaskPref.setSummary((netmask == null || dhcpInfo.netmask == 0) ?
+                        getString(R.string.status_unavailable) : netmask);
+            }
+        } else {
+            if (wifiGatewayPref != null) {
+                getPreferenceScreen().removePreference(wifiGatewayPref);
+            }
+            if (wifiNetmaskPref != null) {
+                getPreferenceScreen().removePreference(wifiNetmaskPref);
+            }
+        }
     }
 
     private void initWifiAssistantPreference(

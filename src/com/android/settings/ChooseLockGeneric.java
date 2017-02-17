@@ -57,9 +57,9 @@ import android.widget.TextView;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.settings.utils.SettingsDividerItemDecoration;
 import com.android.settings.fingerprint.FingerprintEnrollBase;
 import com.android.settings.fingerprint.FingerprintEnrollFindSensor;
-import com.android.settings.utils.SettingsDividerItemDecoration;
 import com.android.settingslib.RestrictedLockUtils;
 import com.android.settingslib.RestrictedPreference;
 import com.android.setupwizardlib.GlifPreferenceLayout;
@@ -163,6 +163,7 @@ public class ChooseLockGeneric extends SettingsActivity {
             mKeyStore = KeyStore.getInstance();
             mChooseLockSettingsHelper = new ChooseLockSettingsHelper(this.getActivity());
             mLockPatternUtils = new LockPatternUtils(getActivity());
+
             mLockPatternUtils.sanitizePassword();
             mIsSetNewPassword = ACTION_SET_NEW_PARENT_PROFILE_PASSWORD.equals(chooseLockAction)
                     || ACTION_SET_NEW_PASSWORD.equals(chooseLockAction);

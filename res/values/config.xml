@@ -41,8 +41,6 @@
     <!-- When true enable color temperature setting. -->
     <bool name="config_enableColorTemperature">true</bool>
 
-    <bool name="config_video_call_datausage_enable">false</bool>
-
     <!-- carrier tethering default ssid and password begin -->
     <bool name="use_empty_password_default">false</bool>
     <bool name="hotspot_default_ssid_with_imei_enable">false</bool>
@@ -64,6 +62,14 @@
     <bool name="config_regional_usb_tethering_quick_start_enable">false</bool>
     <bool name="config_regional_hotspot_tether_help_enable">false</bool>
 
+    <!-- Config to enable/disable wifi call notification -->
+    <bool name="config_regional_wifi_calling_notificaion_enable">false</bool>
+    <bool name="wifi_call_enhanced_setting">false</bool>
+
+    <bool name="tethering_need_show_activated">false</bool>
+    <bool name="config_regional_security_show_password_enable">false</bool>
+    <bool name="config_hotspot_need_show_activated_dialog">false</bool>
+
     <!-- Fully-qualified class name for the implementation of the FeatureFactory to be instantiated. -->
     <string name="config_featureFactory" translatable="false">com.android.settings.overlay.FeatureFactoryImpl</string>
 
@@ -81,6 +87,11 @@
     <!-- When true enable gesture setting. -->
     <bool name="config_gesture_settings_enabled">false</bool>
 
+    <bool name="config_video_call_datausage_enable">false</bool>
+
+    <!-- If the Storage Manager settings are enabled. -->
+    <bool name="config_storage_manager_settings_enabled">false</bool>
+
     <!-- Display ro.product.name above Device model -->
     <bool name="config_displayDeviceName">false</bool>
 
@@ -95,4 +106,6 @@
     <!-- If the Storage Manager settings are enabled. -->
     <bool name="config_storage_manager_settings_enabled">true</bool>
 
+    <!-- Does the device allow updating the recovery. -->
+    <bool name="config_enableRecoveryUpdater">true</bool>
 </resources>

@@ -450,6 +450,7 @@
         <activity android:name="Settings$BluetoothSettingsActivity"
                 android:label="@string/bluetooth_settings_title"
                 android:icon="@drawable/ic_settings_bluetooth"
+                android:configChanges="orientation|keyboardHidden|screenSize"
                 android:taskAffinity="">
             <intent-filter android:priority="1">
                 <action android:name="android.settings.BLUETOOTH_SETTINGS" />
@@ -547,7 +548,6 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.wifi.p2p.WifiP2pSettings" />
         </activity>
-
 
         <activity android:name="Settings$VpnSettingsActivity"
                 android:label="@string/vpn_settings_title"
@@ -1804,8 +1804,8 @@
         <activity android:name="ChooseLockGeneric"
             android:label="@string/lockpassword_choose_lock_generic_header"
             android:excludeFromRecents="true"
-            android:exported="false"
-            android:theme="@style/SetupWizardTheme.Light" />
+            android:theme="@style/SetupWizardTheme.Light"
+            android:exported="false" />
 
         <activity android:name=".password.SetNewPasswordActivity"
             android:theme="@android:style/Theme.NoDisplay"
@@ -2039,7 +2039,8 @@
                 android:permission="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
         <activity android:name="Settings$ApnEditorActivity"
-                android:label="@string/apn_edit">
+                android:label="@string/apn_edit"
+                android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="android.intent.action.EDIT" />
@@ -3423,7 +3424,6 @@
             android:theme="@android:style/Theme.NoDisplay"
             android:permission="android.permission.DUMP"
             android:enabled="@bool/config_has_help" />
-
         <!-- This is the longest AndroidManifest.xml ever. -->
         <receiver
             android:name=".cyanogenmod.ProtectedAppsReceiver"

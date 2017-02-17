@@ -23,15 +23,14 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v7-cardview \
 	android-support-design \
     jsr305 \
-    settings-logtags
-
-LOCAL_STATIC_JAVA_LIBRARIES += \
+    settings-logtags \
     org.cyanogenmod.platform.internal
 
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := \
-        $(call all-java-files-under, src)
+        $(call all-java-files-under, src) \
+        src/com/android/settings/EventLogTags.logtags
 
 LOCAL_JAVA_LIBRARIES += org.apache.http.legacy
 

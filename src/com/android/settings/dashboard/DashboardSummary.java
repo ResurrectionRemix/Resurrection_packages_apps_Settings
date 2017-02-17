@@ -135,6 +135,13 @@ public class DashboardSummary extends InstrumentedFragment
                 MetricsLogger.visible(getContext(), c.getMetricsConstant());
             }
         }
+
+        if (mAdapter.getSuggestions() != null) {
+            for (Tile suggestion : mAdapter.getSuggestions()) {
+                MetricsLogger.action(getContext(), MetricsEvent.ACTION_SHOW_SETTINGS_SUGGESTION,
+                        DashboardAdapter.getSuggestionIdentifier(getContext(), suggestion));
+            }
+        }
         if (DEBUG_TIMING) Log.d(TAG, "onStart took " + (System.currentTimeMillis() - startTime)
                 + " ms");
         updateSettings();
