@@ -9,6 +9,17 @@
         android:selectable="false" />
                
    <PreferenceCategory
+        android:id="@+id/device_category_hp"
+        android:title="@string/device_category_hp_title" >
+	
+	<Preference
+        android:id="@+id/device_tenderloin"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_tenderloin_summary"
+        android:selectable="false" 
+        android:title="@string/device_tenderloin" />
+	
+  <PreferenceCategory
         android:id="@+id/device_category_lg"
         android:title="@string/device_category_lg_title" >
         
@@ -25,7 +36,9 @@
         android:summary="@string/device_g5_summary"
         android:selectable="false" 
         android:title="@string/device_g5" />
-		
+		<PreferenceCategory
+        android:id="@+id/device_category_lenovo"
+        android:title="@string/device_category_lenovo_title" >
     <Preference
         android:id="@+id/device_g5_tmo"
         android:icon="@drawable/phone_tint"
@@ -268,11 +281,19 @@
         android:title="@string/device_category_samsung_title" >
 
      <Preference
+        android:id="@+id/device_manta"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_manta_summary"
+        android:selectable="false" 
+        android:title="@string/device_manta" />
+	    
+     <Preference
         android:id="@+id/device_maguro"
         android:icon="@drawable/phone_tint"
         android:summary="@string/device_maguro_summary"
         android:selectable="false" 
-        android:title="@string/device_maguro" />        
+        android:title="@string/device_maguro" />     
+	    
     <Preference
         android:id="@+id/device_i9300"
         android:icon="@drawable/phone_tint"
