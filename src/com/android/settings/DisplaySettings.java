@@ -148,7 +148,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             removePreference(KEY_NIGHT_DISPLAY);
         }
 
-        if (isLiftToWakeAvailable(activity)) {
             mLiftToWakePreference = (SwitchPreference) findPreference(KEY_LIFT_TO_WAKE);
             if (mLiftToWakePreference != null) {
                 if (isLiftToWakeAvailable(activity)) {
@@ -157,7 +156,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     displayPrefs.removePreference(mLiftToWakePreference);
                 }
             }
-        }
 
             mTapToWakePreference = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
             if (mTapToWakePreference != null) {
