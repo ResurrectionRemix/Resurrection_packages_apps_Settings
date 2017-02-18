@@ -123,12 +123,12 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.display_settings);
 
         PreferenceCategory displayPrefs = (PreferenceCategory)
-                findPreference(KEY_CATEGORY_DISPLAY);
+        findPreference(KEY_CATEGORY_DISPLAY);
 
         mScreenSaverPreference = findPreference(KEY_SCREEN_SAVER);
-        if (mScreenSaverPreference != null
-                && getResources().getBoolean(
-                        com.android.internal.R.bool.config_dreamsSupported) == false) {
+        if (mScreenSaverPreference != null &&
+            getResources().getBoolean(
+                com.android.internal.R.bool.config_dreamsSupported) == false) {
             getPreferenceScreen().removePreference(mScreenSaverPreference);
         }
 
@@ -144,11 +144,10 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                 }
             }
 
-        if (!NightDisplayController.isAvailable(activity)) {
-            removePreference(KEY_NIGHT_DISPLAY);
-        }
+            if (!NightDisplayController.isAvailable(activity)) {
+                removePreference(KEY_NIGHT_DISPLAY);
+            }
 
-        if (isLiftToWakeAvailable(activity)) {
             mLiftToWakePreference = (SwitchPreference) findPreference(KEY_LIFT_TO_WAKE);
             if (mLiftToWakePreference != null) {
                 if (isLiftToWakeAvailable(activity)) {
@@ -157,7 +156,6 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     displayPrefs.removePreference(mLiftToWakePreference);
                 }
             }
-        }
 
             mTapToWakePreference = (SwitchPreference) findPreference(KEY_TAP_TO_WAKE);
             if (mTapToWakePreference != null) {
@@ -178,7 +176,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
             }
 
             DropDownPreference rotatePreference =
-                    (DropDownPreference) findPreference(KEY_AUTO_ROTATE);
+                (DropDownPreference) findPreference(KEY_AUTO_ROTATE);
             if (rotatePreference != null) {
                 if (RotationPolicy.isRotationLockToggleVisible(activity)) {
                     int rotateLockedResourceId;
@@ -188,28 +186,31 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                     if (allowAllRotations(activity)) {
                         rotateLockedResourceId = R.string.display_auto_rotate_stay_in_current;
                     } else {
-                        if (RotationPolicy.getRotationLockOrientation(activity)
-                                == Configuration.ORIENTATION_PORTRAIT) {
+                        if (RotationPolicy.getRotationLockOrientation(activity) ==
+                            Configuration.ORIENTATION_PORTRAIT) {
                             rotateLockedResourceId =
-                                    R.string.display_auto_rotate_stay_in_portrait;
+                                R.string.display_auto_rotate_stay_in_portrait;
                         } else {
                             rotateLockedResourceId =
-                                    R.string.display_auto_rotate_stay_in_landscape;
+                                R.string.display_auto_rotate_stay_in_landscape;
                         }
                     }
                     rotatePreference.setEntries(new CharSequence[] {
-                            activity.getString(R.string.display_auto_rotate_rotate),
+                        activity.getString(R.string.display_auto_rotate_rotate),
                             activity.getString(rotateLockedResourceId),
                     });
-                    rotatePreference.setEntryValues(new CharSequence[] { "0", "1" });
+                    rotatePreference.setEntryValues(new CharSequence[] {
+                        "0",
+                        "1"
+                    });
                     rotatePreference.setValueIndex(RotationPolicy.isRotationLocked(activity) ?
-                            1 : 0);
+                        1 : 0);
                     rotatePreference.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
                         @Override
                         public boolean onPreferenceChange(Preference preference, Object newValue) {
                             final boolean locked = Integer.parseInt((String) newValue) != 0;
                             MetricsLogger.action(getActivity(), MetricsEvent.ACTION_ROTATION_LOCK,
-                                    locked);
+                                locked);
                             RotationPolicy.setRotationLock(activity, locked);
                             return true;
                         }
@@ -221,21 +222,25 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
 
 
             DropDownPreference vrDisplayPref =
-                    (DropDownPreference) findPreference(KEY_VR_DISPLAY_PREF);
+                (DropDownPreference) findPreference(KEY_VR_DISPLAY_PREF);
             if (vrDisplayPref != null) {
                 if (isVrDisplayModeAvailable(activity)) {
                     vrDisplayPref.setEntries(new CharSequence[] {
-                            activity.getString(R.string.display_vr_pref_low_persistence),
+                        activity.getString(R.string.display_vr_pref_low_persistence),
                             activity.getString(R.string.display_vr_pref_off),
                     });
-                    vrDisplayPref.setEntryValues(new CharSequence[] { "0", "1" });
+                    vrDisplayPref.setEntryValues(new CharSequence[] {
+                        "0",
+                        "1"
+                    });
 
                     final Context c = activity;
                     int currentUser = ActivityManager.getCurrentUser();
                     int current = Settings.Secure.getIntForUser(c.getContentResolver(),
-                                    Settings.Secure.VR_DISPLAY_MODE,
-                                    /*default*/Settings.Secure.VR_DISPLAY_MODE_LOW_PERSISTENCE,
-                                    currentUser);
+                        Settings.Secure.VR_DISPLAY_MODE,
+                        /*default*/
+                        Settings.Secure.VR_DISPLAY_MODE_LOW_PERSISTENCE,
+                        currentUser);
                     vrDisplayPref.setValueIndex(current);
                     vrDisplayPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
                         @Override
@@ -246,7 +251,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
                                     Settings.Secure.VR_DISPLAY_MODE,
                                     i, u)) {
                                 Log.e(TAG, "Could not change setting for " +
-                                        Settings.Secure.VR_DISPLAY_MODE);
+                                    Settings.Secure.VR_DISPLAY_MODE);
                             }
                             return true;
                         }
@@ -260,7 +265,7 @@ public class DisplaySettings extends SettingsPreferenceFragment implements
         mNightModePreference = (ListPreference) findPreference(KEY_NIGHT_MODE);
         if (mNightModePreference != null) {
             final UiModeManager uiManager = (UiModeManager) getSystemService(
-                    Context.UI_MODE_SERVICE);
+                Context.UI_MODE_SERVICE);
             final int currentNightMode = uiManager.getNightMode();
             mNightModePreference.setValue(String.valueOf(currentNightMode));
             mNightModePreference.setOnPreferenceChangeListener(this);
