@@ -79,6 +79,7 @@ public class LockScreenSecurity extends SettingsPreferenceFragment implements
 
         mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
         if (!mFingerprintManager.isHardwareDetected()){
+            prefScreen.removePreference(mFpKeystore);
         } else {
         mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
                 Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
@@ -91,6 +92,8 @@ public class LockScreenSecurity extends SettingsPreferenceFragment implements
             mEmergencyButton.setChecked((Settings.System.getInt(resolver,
                 Settings.System.SHOW_EMERGENCY_BUTTON, 1) == 1));
             mEmergencyButton.setOnPreferenceChangeListener(this);
+        } else {
+            prefScreen.removePreference(mEmergencyButton);
         }
 		
         mMaxKeyguardNotifConfig = (SeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
