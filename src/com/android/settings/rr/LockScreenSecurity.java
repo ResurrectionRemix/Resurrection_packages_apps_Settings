@@ -89,13 +89,9 @@ public class LockScreenSecurity extends SettingsPreferenceFragment implements
 
 
         mEmergencyButton = (SwitchPreference) findPreference(PREF_SHOW_EMERGENCY_BUTTON);
-        if (lockPatternUtils.isSecure(MY_USER_ID)) {
-            mEmergencyButton.setChecked((Settings.System.getInt(resolver,
+        mEmergencyButton.setChecked((Settings.System.getInt(resolver,
                 Settings.System.SHOW_EMERGENCY_BUTTON, 1) == 1));
-            mEmergencyButton.setOnPreferenceChangeListener(this);
-        } else {
-            getPreferenceScreen().removePreference(mEmergencyButton);
-        }
+        mEmergencyButton.setOnPreferenceChangeListener(this);
 		
         mMaxKeyguardNotifConfig = (SeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
         int kgconf = Settings.System.getInt(getContentResolver(),
