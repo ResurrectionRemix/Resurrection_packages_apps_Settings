@@ -119,7 +119,15 @@
         android:key="pulse_2"
         android:title="@string/pulse_solid_dimen_category" >
 
-        <com.android.settings.rr.SeekBarPreference
+        <com.android.settings.rr.SeekBarPreferece
+            android:key="pulse_solid_units_count"
+            android:title="@string/pulse_solid_units_count"
+            settings:maximum="128"
+            settings:interval="16"
+            settings:minimum="32"
+            android:dependency="pulse_2"/>
+
+        <com.android.settings.rr.SeekBarPrefere
             android:key="pulse_solid_fudge_factor"
             android:title="@string/pulse_custom_fudge_factor"
             settings:maximum="7"
