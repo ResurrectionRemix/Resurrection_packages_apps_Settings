@@ -801,13 +801,13 @@ public final class Utils extends com.android.settingslib.Utils {
      * Returns if need show the account with the given account type.
      */
     public static boolean showAccount(Context context, String accountType) {
-        String[] showAccounts = context.getResources().getStringArray(R.array.show_account_list);
-        if (showAccounts == null || showAccounts.length == 0) return false;
+        String[] hideAccounts = context.getResources().getStringArray(R.array.hide_account_list);
+        if (hideAccounts == null || hideAccounts.length == 0) return true;
 
-        for (String account : showAccounts) {
-            if (account.equals(accountType)) return true;
+        for (String account : hideAccounts) {
+            if (account.equals(accountType)) return false;
         }
-        return false;
+        return true;
     }
 
     /**
