@@ -88,6 +88,15 @@
             android:icon="@drawable/rr_wakelockblocker_icon"
             />
 
+        <!-- Wakelock blocker -->
+        <PreferenceScreen
+            android:key="rr_sound"
+            android:title="@string/rr_sound_title"
+            android:summary="@string/rr_sound_summary"
+            android:fragment="com.android.settings.rr.SoundFragment"
+            android:icon="@drawable/rr_sound_icon"
+            />
+
         <Preference
             android:id="@+id/alarm_blocker"
             android:title="@string/alarm_blocker"
