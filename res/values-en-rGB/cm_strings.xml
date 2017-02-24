@@ -17,10 +17,19 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from enabling development settings.</item>
+    <item quantity="other">You are now <xliff:g id="step_count">%1$d</xliff:g> steps away from enabling development settings.</item>
+  </plurals>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
+  <string name="show_dev_on_cm">You have enabled development settings!</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+  <string name="show_dev_already_cm">No need, you have already enabled development settings.</string>
   <!-- Launch Dev Tools -->
+  <string name="development_tools_title">Development tools</string>
   <!-- Setting checkbox title for root access -->
+  <string name="root_access">Root access</string>
+  <string name="root_access_warning_message">Allowing apps to request root access is very dangerous and could compromise the security of your system!</string>
   <!-- Preference link for root appops -->
   <!-- About phone screen, CyanogenMod version -->
   <!-- About phone screen, Device model -->
@@ -39,6 +48,7 @@
   <!-- Volume settings - Volume adjustment sound -->
   <!-- Vibrator intensity -->
   <!-- Sizes for pattern lockscreen -->
+  <string name="lock_settings_picker_pattern_size_message">Choose a pattern size</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <!-- Whether the dots will be drawn when using the lockscreen pattern -->
   <!-- Whether the keyguard will directly show the password entry -->
@@ -50,6 +60,7 @@
   <!-- Advanced restart options -->
   <!-- PIN scramble -->
   <!-- lock screen visualizer -->
+  <string name="lockscreen_visualizer_title">Display music visualiser</string>
   <!-- Protected apps lockpattern reset button -->
   <!-- Protected Apps -->
   <!-- title for lock screen weather preference -->
