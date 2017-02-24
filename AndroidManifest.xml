@@ -1283,6 +1283,24 @@
                 android:value="true" />
         </activity>
 
+        <!-- Provide direct entry into Dev settings - Running Services -->
+        <activity android:name="Settings$DevRunningServicesActivity"
+                android:label="@string/runningservices_settings_title"
+                android:excludeFromRecents="true"
+                android:taskAffinity="com.android.settings"
+                android:parentActivityName="Settings">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.MONKEY" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.applications.RunningServices" />
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED"
+                android:value="true" />
+        </activity>
+
         <!-- Provide direct entry into manage apps showing storage usage of apps. -->
         <activity android:name="Settings$StorageUseActivity"
                 android:label="@string/storageuse_settings_title"
