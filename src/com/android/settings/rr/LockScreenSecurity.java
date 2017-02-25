@@ -58,19 +58,22 @@ public class LockScreenSecurity extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
+        final ContentResolver resolver = getActivity().getContentResolver();
 
         addPreferencesFromResource(R.xml.rr_ls_security);
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
 
         mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
-        if (!mFingerprintManager.isHardwareDetected()){
-            prefScreen.removePreference(mFpKeystore);
-        } else {
-        mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
-        mFpKeystore.setOnPreferenceChangeListener(this);
+        if (mFpKeystore !=null) {
+            if (!mFingerprintManager.isHardwareDetected()){
+            getPreferenceScreen().removePreference(mFpKeystore);
+            } else {
+            mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
+                        Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
+            mFpKeystore.setOnPreferenceChangeListener(this);
+            }
         }
 		
         mMaxKeyguardNotifConfig = (SeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
