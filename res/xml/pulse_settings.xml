@@ -119,14 +119,14 @@
         android:key="pulse_2"
         android:title="@string/pulse_solid_dimen_category" >
 
-        <com.android.settings.rr.SeekBarPreferece
+        <com.android.settings.rr.SeekBarPreference
             android:key="pulse_solid_units_opacity"
             android:title="@string/pulse_solid_units_opacity"
             settings:maximum="255"
             settings:minimum="0"
             android:dependency="pulse_2"/>
 
-        <com.android.settings.rr.SeekBarPreferece
+        <com.android.settings.rr.SeekBarPreference
             android:key="pulse_solid_units_count"
             android:title="@string/pulse_solid_units_count"
             settings:maximum="128"
@@ -134,7 +134,7 @@
             settings:minimum="32"
             android:dependency="pulse_2"/>
 
-        <com.android.settings.rr.SeekBarPrefere
+        <com.android.settings.rr.SeekBarPreference
             android:key="pulse_solid_fudge_factor"
             android:title="@string/pulse_custom_fudge_factor"
             settings:maximum="7"
