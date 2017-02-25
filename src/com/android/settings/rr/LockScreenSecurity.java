@@ -58,7 +58,6 @@ public class LockScreenSecurity extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
         final ContentResolver resolver = getActivity().getContentResolver();
 
         addPreferencesFromResource(R.xml.rr_ls_security);
