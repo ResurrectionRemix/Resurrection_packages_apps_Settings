@@ -68,6 +68,7 @@ public class LockScreenSecurity extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        final PreferenceScreen prefScreen = getPreferenceScreen();
         final LockPatternUtils lockPatternUtils = new LockPatternUtils(getActivity());
         final ContentResolver resolver = getActivity().getContentResolver();
 
@@ -77,14 +78,12 @@ public class LockScreenSecurity extends SettingsPreferenceFragment implements
 
 
         mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
-        if (mFpKeystore !=null) {
-            if (!mFingerprintManager.isHardwareDetected()){
-            getPreferenceScreen().removePreference(mFpKeystore);
-            } else {
-            mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
-                        Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
-            mFpKeystore.setOnPreferenceChangeListener(this);
-            }
+        if (!mFingerprintManager.isHardwareDetected()){
+            prefScreen.removePreference(mFpKeystore);
+        } else {
+        mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
+                Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
+        mFpKeystore.setOnPreferenceChangeListener(this);
         }
 
 
@@ -94,7 +93,7 @@ public class LockScreenSecurity extends SettingsPreferenceFragment implements
                 Settings.System.SHOW_EMERGENCY_BUTTON, 1) == 1));
             mEmergencyButton.setOnPreferenceChangeListener(this);
         } else {
-            getPreferenceScreen().removePreference(mEmergencyButton);
+            prefScreen.removePreference(mEmergencyButton);
         }
 		
         mMaxKeyguardNotifConfig = (SeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
