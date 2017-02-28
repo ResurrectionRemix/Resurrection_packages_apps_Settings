@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.graphics.PorterDuff;
 import android.os.storage.StorageManager;
 import android.os.storage.VolumeInfo;
 import android.support.v7.preference.Preference;
@@ -94,6 +95,7 @@ public class StorageVolumePreference extends Preference {
 
         icon.mutate();
         icon.setTint(mColor);
+        icon.setTintMode(PorterDuff.Mode.SRC_ATOP);
         setIcon(icon);
 
         if (volume.getType() == VolumeInfo.TYPE_PUBLIC
