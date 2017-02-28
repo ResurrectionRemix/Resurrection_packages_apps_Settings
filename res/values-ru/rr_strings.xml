@@ -28,6 +28,7 @@
   <string name="help">Помощь</string>
   <string name="reset_message">Сбросить все параметры на значения по умолчанию?</string>
   <string name="attention">Внимание</string>
+  <string name="reset">Сбросить</string>
   <string name="restart_systemui">Перезапустить пользовательский интерфейс</string>
   <!-- About RR -->
   <string name="about_rr_settings">О прошивке</string>
@@ -186,6 +187,7 @@
   <string name="menu_show_substratum_icons">Показывать слои для значков</string>
   <string name="menu_hide_substratum_icons">Скрыть слои для значков</string>
   <!-- AOKP custom system animations -->
+  <string name="animation_title">Анимации</string>
   <string name="system_animation_title">Системные анимации</string>
   <string name="activity_open_title">Анимация открытия активити</string>
   <string name="activity_close_title">Анимация закрытия активности</string>
@@ -369,6 +371,7 @@
   <string name="power_menu_animation_bottom">Низ</string>
   <string name="power_menu_animation_top">Верх</string>
   <string name="power_menu_animation_rotate">Поворот</string>
+  <string name="power_menu_animation_rotate">Ориентация</string>
   <string name="power_menu_animation_xylon">Xylon</string>
   <string name="power_menu_animation_slide">Слайд</string>
   <string name="power_menu_animation_turn">Постраничный</string>
@@ -503,14 +506,17 @@
   <string name="ga_8">8px</string>
   <string name="ga_12">12px</string>
   <string name="ga_16">16px</string>
+  <string name="ga_20">20px</string>
   <string name="ga_24">24px</string>
   <string name="ga_28">28px</string>
   <string name="ga_32">32px</string>
   <string name="ga_36">36px</string>
+  <string name="ga_40">40px</string>
   <string name="ga_44">44px</string>
   <string name="ga_48">48px</string>
   <string name="ga_52">52px</string>
   <string name="ga_56">56px</string>
+  <string name="ga_60">60px</string>
   <string name="ga_64">64px</string>
   <string name="ga_68">68px</string>
   <string name="entries">Записи</string>
@@ -680,6 +686,7 @@
   <string name="shortcuts_icon_picker_tv">ТВ</string>
   <string name="shortcuts_icon_picker_twitter">Twitter</string>
   <string name="shortcuts_icon_picker_unlock">Разблокировка</string>
+  <string name="shortcut_action_none">Пусто</string>
   <string name="shortcut_action_app">Пользовательское приложение</string>
   <string name="shortcut_action_home">Домой</string>
   <string name="shortcut_action_back">Назад</string>
@@ -698,7 +705,25 @@
   <string name="shortcut_action_media_previous">Музыка - предыдущий трек</string>
   <string name="shortcut_action_wake_device">Пробуждать устройство</string>
   <string name="shortcut_action_longpress">Долгое нажатие:</string>
+  <string name="shortcut_action_select_action_longpress">Выберите действие для долгого нажатия:</string>
+  <string name="shortcut_action_select_action">Выберите действие:</string>
+  <string name="shortcut_action_select_action_newaction">Выберите новое действие:</string>
+  <string name="shortcut_action_reset">Сбросить</string>
+  <string name="shortcut_action_add">Добавить</string>
+  <string name="shortcut_action_reset_message">Сбросить все записи к значениям по умолчанию?</string>
+  <string name="shortcut_action_max">Достигнуто максимальное количество записей</string>
+  <string name="shortcut_action_warning">Предупреждение</string>
+  <string name="shortcut_action_warning_message">Невозможно удалить последнюю запись</string>
+  <string name="shortcut_action_disable_message">Выключено\nДобавьте запись для включения этой функции</string>
+  <string name="shortcut_image_not_valid">Выбранное приложение не возвращает допустимый значок или не поддерживает кадрирование изображения. Используйте другое приложение.</string>
+  <string name="shortcut_duplicate_entry">Выбранное действие не может быть добавлено дважды</string>
+  <string name="shortcut_action_help_shortcut">Ярлык</string>
+  <string name="shortcut_action_help_button">Кнопка</string>
+  <string name="shortcut_action_help_app">Приложение</string>
+  <string name="shortcut_action_help_icon">, в процессе выбора значка будут показаны расширенные настройки</string>
   <string name="shortcut_action_help_main">Чтобы добавить %1$s, нажмите значок \"Добавить\". Когда %1$s добавлено, выбором ряда можно изменить цель%2$s\n\nЧтобы удалить %1$s, сдвиньте ряд по горизонтали. Изменить порядок %1$s в списке можно вертикальным перетаскиванием якоря слева.\n\nЧтобы сбросить все к значениям по умолчанию, нажмите значок \"Сбросить\".</string>
+  <string name="shortcut_action_help_delete_last_entry">Удаление каждого %1$s в списке отключит функцию.</string>
+  <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Удаление каждого %1$s в списке отключит второй слой PIE.</string>
   <string name="shortcut_picker_choose_longpress_action">Выберите действие для долгого нажатия:</string>
   <string name="shortcut_picker_choose_new_action">Выберите новое действие:</string>
   <string name="shortcut_picker_reassign_action">Переназначить действие:</string>
@@ -1023,9 +1048,24 @@
   <string name="clock_settings_title">Настройки часов</string>
   <string name="status_bar_clock_category">Часы</string>
   <string name="status_bar_date_title">Дата</string>
+  <string name="status_bar_clock_style_title">Стиль часов</string>
+  <string name="status_bar_clock_style_right">Справа</string>
+  <string name="status_bar_clock_style_left">Слева</string>
+  <string name="status_bar_clock_style_center">По центру</string>
+  <string name="status_bar_clock_style_hidden">Скрыть</string>
+  <string name="status_bar_clock_style_title">Стиль часов</string>
+  <string name="status_bar_clock_style_right">Справа</string>
+  <string name="status_bar_clock_style_left">Слева</string>
+  <string name="status_bar_clock_style_center">По центру</string>
+  <string name="status_bar_clock_style_hidden">Скрыть</string>
   <string name="clock_date_position">Расположение даты</string>
   <string name="clock_date_right">Справа от часов</string>
   <string name="clock_date_left">Слева от часов</string>
+  <string name="status_bar_am_pm_title">Стиль AM/PM</string>
+  <string name="status_bar_am_pm_info">Включен 24-часовой формат времени</string>
+  <string name="status_bar_am_pm_normal">Нормальные</string>
+  <string name="status_bar_am_pm_small">Маленькие</string>
+  <string name="status_bar_am_pm_hidden">Скрыть</string>
   <string name="status_bar_date_none">Не отображать (по умолчанию)</string>
   <string name="status_bar_date_small">Маленькая</string>
   <string name="status_bar_date_normal">Нормальная</string>
@@ -1299,12 +1339,14 @@
   <string name="qs_rows_portrait_title">Строки (портрет)</string>
   <string name="qs_rows_landscape_title">Строки (ландшафт)</string>
   <string name="qs_columns_title">Колонки</string>
+  <string name="qs_small_tiles_title">Маленькие плитки панели быстрых настроек</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Цветовое оповещение</string>
   <string name="battery_saver_color_summary">Окрасить строку состояния и панель навигации в оранжевый цвет, когда активирован режим энергосбережения</string>
   <string name="network_traffic_color_style">Цвет индикатора</string>
   <string name="network_traffic_color_reset">Сбросить цвет</string>
   <string name="network_traffic_color_reset_message">Вернуть цвет индикатора трафика к цвету по умолчанию?</string>
+  <string name="status_bar_weather_color_title">Цвет температуры</string>
   <string name="status_bar_rr_logo_color">Цвет логотипа</string>
   <string name="status_bar_logo">Логотип Resurrection</string>
   <string name="status_bar_logo_title">Логотип RR</string>
@@ -1329,6 +1371,7 @@
   <string name="qs_battery_easy_toggle_summary">Включение или выключение режима энергосбережения одиночным нажатием на плитку вместо перехода в настройки</string>
   <string name="qs_music_tile_track_optional_title">Название композиции заглавной дорожки</string>
   <string name="qs_music_tile_track_optional_summary">Показать название музыкальной дорожки как заглавной</string>
+  <string name="quick_settings_vibrate_title">Вибрировать при касании</string>
   <string name="quick_settings_vibrate_summary">Вибрировать при касании плиток быстрых настроек</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Быстрая разблокировка</string>
@@ -1342,6 +1385,12 @@
   <string name="app_circle_bar_summary">Показать круговую панель приложений после прикосновения к правому краю экрана</string>
   <string name="app_circle_bar_included_apps_title">Включенные приложения</string>
   <string name="app_circle_bar_included_apps_summary">Приложения будут отображены в круговой панели приложений</string>
+  <string name="trigger_width_title">Ширина области вызова</string>
+  <string name="trigger_width_summary">Установить ширину области вызова</string>
+  <string name="trigger_top_title">Расположение области вызова</string>
+  <string name="trigger_top_summary">Установить вертикальное расположение области вызова</string>
+  <string name="trigger_bottom_title">Высота области вызова</string>
+  <string name="trigger_bottom_summary">Установить высоту области вызова</string>
   <!-- Breathing Notifications -->
   <string name="breathing_notifications_title">\"Живые\" уведомления</string>
   <string name="sms_breath_title">\"Живые\" СМС</string>
@@ -1359,12 +1408,20 @@
   <string name="navigationbar_settings_title">Панель навигации</string>
   <string name="navigationbar_settings_summary">Настроить стиль и поведение панели навигации</string>
   <string name="navbar_general_title">Расширенные настройки</string>
+  <string name="navigation_bar_left_title">Режим левши</string>
+  <string name="navigation_bar_left_summary">Помещать панель навигации в левую сторону при ландшафтной ориентации</string>
   <string name="info_pref_note_title">Примечание</string>
   <string name="smartbar_interface">SmartBar</string>
   <string name="navbar_tint_switch">Оттенок кнопок в панели навигации</string>
   <string name="navbar_button_color">Кнопки панели навигации</string>
   <string name="icon_pack_picker_dialog_title">Наборы значков</string>
   <string name="invalid_icon_from_uri">Не удается загрузить изображения от контент-провайдера</string>
+  <string name="picker_activities">Активити</string>
+  <string name="select_custom_app_title">Выбрать пользовательское приложение</string>
+  <string name="select_custom_activity_title">Выберать пользовательское активити</string>
+  <string name="profile_applist_title">Приложения</string>
+  <string name="default_string">По умолчанию</string>
+  <string name="reset">Сбросить</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
   <string name="choose_action_title">Выберите действие</string>
   <string name="action_entry_default_action">Настройки по умолчанию</string>
@@ -1996,5 +2053,7 @@
   <string name="recent_panel_lefty_mode_title">Показывать с левого края</string>
   <string name="recent_panel_lefty_mode_summary">Показывать панель приложений с левого края</string>
   <!-- Fingerprint unlock keystore -->
-  <!-- Emergency button -->
+  <string name="fp_unlock_keystore_title">Разблокировка по сканеру отпечатка пальца</string>
+  <string name="fp_unlock_keystore_summary">Разблокировка по сканеру отпечатка пальца после перезагрузки без ввода ПИН-кода/Пароля/Графического ключа\nПримечание: используйте на свой страх и риск!</string>
+  <!-- Wired headset ringtone audio focus -->
 </resources>

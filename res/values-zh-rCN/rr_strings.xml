@@ -28,6 +28,7 @@
   <string name="help">帮助</string>
   <string name="reset_message">重置所有条目为默认值？</string>
   <string name="attention">注意</string>
+  <string name="reset">重置</string>
   <string name="restart_systemui">重启界面</string>
   <!-- About RR -->
   <string name="about_rr_settings">关于</string>
@@ -152,9 +153,9 @@
   <string name="rr_recents_ui_summary">界面自定义</string>
   <string name="recents_clear_all_summary">把最近任务中的“全部清除”更改为可改变位置的浮动按钮</string>
   <string name="omniswitch_summary">用Omni最近任务替换原生最近任务</string>
-  <string name="rr_qs_animation_summary">自定义在快速设置中的动画</string>
+  <string name="rr_qs_animation_summary">启用或禁用点击快速设置瓷块及定制它们时的动画</string>
   <string name="rr_qs_pulldown_summary">调整快捷下拉菜单设置</string>
-  <string name="qs_tile_layout_summary">自定义快速设置磁贴布局</string>
+  <string name="qs_tile_layout_summary">自定义快速设置瓷块布局</string>
   <string name="qs_advanced_summary">杂项</string>
   <string name="rr_ls_gesture_summary">锁屏相关的手势操作</string>
   <string name="rr_ls_ui_summary">自定义锁屏界面</string>
@@ -186,6 +187,7 @@
   <string name="menu_show_substratum_icons">显示图标叠加层</string>
   <string name="menu_hide_substratum_icons">隐藏图标叠加层</string>
   <!-- AOKP custom system animations -->
+  <string name="animation_title">动画</string>
   <string name="system_animation_title">系统动画</string>
   <string name="activity_open_title">打开应用内活动动画</string>
   <string name="activity_close_title">关闭应用内活动动画</string>
@@ -369,6 +371,7 @@
   <string name="power_menu_animation_bottom">下方</string>
   <string name="power_menu_animation_top">上方</string>
   <string name="power_menu_animation_rotate">旋转</string>
+  <string name="power_menu_animation_rotate">旋转</string>
   <string name="power_menu_animation_xylon">飞行</string>
   <string name="power_menu_animation_slide">滑动</string>
   <string name="power_menu_animation_turn">分页</string>
@@ -384,10 +387,10 @@
   <string name="rr_toast_title">提示</string>
   <string name="rr_pm_animations_title">电源菜单</string>
   <!-- Tiles animation style  -->
-  <string name="qs_tiles">快速设置</string>
+  <string name="qs_tiles">快速设置瓷块</string>
   <string name="qs_tile_animation_style_title">动画风格</string>
   <string name="qs_tile_animation_duration_title">动画时长</string>
-  <string name="qs_tile_animation_interpolator_title">缓动函数</string>
+  <string name="qs_tile_animation_interpolator_title">瓷块动画插值器</string>
   <string name="qs_tile_animation_style_off">无动画</string>
   <string name="qs_tile_animation_style_flip">翻转</string>
   <string name="qs_tile_animation_style_rotate">旋转</string>
@@ -503,14 +506,17 @@
   <string name="ga_8">8px</string>
   <string name="ga_12">12px</string>
   <string name="ga_16">16px</string>
+  <string name="ga_20">20px</string>
   <string name="ga_24">24px</string>
   <string name="ga_28">28px</string>
   <string name="ga_32">32px</string>
   <string name="ga_36">36px</string>
+  <string name="ga_40">40px</string>
   <string name="ga_44">44px</string>
   <string name="ga_48">48px</string>
   <string name="ga_52">52px</string>
   <string name="ga_56">56px</string>
+  <string name="ga_60">60px</string>
   <string name="ga_64">64px</string>
   <string name="ga_68">68px</string>
   <string name="entries">条目</string>
@@ -680,6 +686,7 @@
   <string name="shortcuts_icon_picker_tv">电视</string>
   <string name="shortcuts_icon_picker_twitter">推特（Twitter）</string>
   <string name="shortcuts_icon_picker_unlock">解锁</string>
+  <string name="shortcut_action_none">无</string>
   <string name="shortcut_action_app">自定义应用程序</string>
   <string name="shortcut_action_home">主屏幕</string>
   <string name="shortcut_action_back">返回</string>
@@ -698,7 +705,25 @@
   <string name="shortcut_action_media_previous">音乐-上一首</string>
   <string name="shortcut_action_wake_device">唤醒设备</string>
   <string name="shortcut_action_longpress">长按:</string>
+  <string name="shortcut_action_select_action_longpress">选择长按操作：</string>
+  <string name="shortcut_action_select_action">选择操作：</string>
+  <string name="shortcut_action_select_action_newaction">选择新操作：</string>
+  <string name="shortcut_action_reset">重置</string>
+  <string name="shortcut_action_add">添加</string>
+  <string name="shortcut_action_reset_message">重置所有项为默认？</string>
+  <string name="shortcut_action_max">已达到最大输入条目</string>
+  <string name="shortcut_action_warning">警告</string>
+  <string name="shortcut_action_warning_message">不能删除最后一项</string>
+  <string name="shortcut_action_disable_message">已禁用\n添加一项以启用这个功能</string>
+  <string name="shortcut_image_not_valid">所选择的应用程序没有返回一个有效的图标或不支持图像的裁剪。使用其他应用程序。</string>
+  <string name="shortcut_duplicate_entry">所选的动作不能被添加两次</string>
+  <string name="shortcut_action_help_shortcut">快捷方式</string>
+  <string name="shortcut_action_help_button">按钮</string>
+  <string name="shortcut_action_help_app">应用</string>
+  <string name="shortcut_action_help_icon">，在选择图标时，会打开自定义选项</string>
   <string name="shortcut_action_help_main">点击添加图标以添加 %1$s，一旦一个 %1$s 被添加，点击该行可以改变目标。%2$s\n\n水平向左/向右划动以移除一个 %1$s。在列表中垂直拖动左侧的固定点以重新排序 %1$s 。\n\n点击重置图标以清除数据或恢复默认值。</string>
+  <string name="shortcut_action_help_delete_last_entry">删除列表中的所有 %1$s 将完全禁用该功能。</string>
+  <string name="shortcut_action_help_pie_second_layer_delete_last_entry">删除列表中的所有 %1$s 将完全禁用第二层PIE菜单。</string>
   <string name="shortcut_picker_choose_longpress_action">选择长按操作:</string>
   <string name="shortcut_picker_choose_new_action">选择新的操作:</string>
   <string name="shortcut_picker_reassign_action">动作重新分配</string>
@@ -820,7 +845,7 @@
   <string name="fprint_sucess_vib_summary">验证指纹身份成功时振动</string>
   <!-- QuickSettings haptic feedback -->
   <string name="quick_settings_vibrate_title">触摸时使用振动反馈</string>
-  <string name="quick_settings_vibrate_summary">触摸瓷贴时振动</string>
+  <string name="quick_settings_vibrate_summary">触摸快速设置瓷块时振动</string>
   <!-- Lock Clock Fonts -->
   <string name="lock_clock_font_title">字体选项</string>
   <string name="lock_clock_font_summary">更改锁屏时钟部件的默认字体</string>
@@ -922,7 +947,7 @@
   <!-- Power menu -->
   <string name="power_menu_title">电源菜单</string>
   <string name="power_menu_reboot_title">重启菜单</string>
-  <string name="power_menu_screenshot_title">截屏</string>
+  <string name="power_menu_screenshot_title">屏幕截图</string>
   <string name="power_menu_airplane_title">飞行模式</string>
   <string name="power_menu_users_title">用户切换</string>
   <string name="power_menu_settings_title">设置快捷方式</string>
@@ -1023,9 +1048,24 @@
   <string name="clock_settings_title">时钟设置</string>
   <string name="status_bar_clock_category">时钟</string>
   <string name="status_bar_date_title">日期</string>
+  <string name="status_bar_clock_style_title">时钟样式</string>
+  <string name="status_bar_clock_style_right">右侧</string>
+  <string name="status_bar_clock_style_left">左侧</string>
+  <string name="status_bar_clock_style_center">居中</string>
+  <string name="status_bar_clock_style_hidden">隐藏</string>
+  <string name="status_bar_clock_style_title">时钟样式</string>
+  <string name="status_bar_clock_style_right">右侧</string>
+  <string name="status_bar_clock_style_left">左侧</string>
+  <string name="status_bar_clock_style_center">居中</string>
+  <string name="status_bar_clock_style_hidden">隐藏</string>
   <string name="clock_date_position">日期位置</string>
   <string name="clock_date_right">时间右侧</string>
   <string name="clock_date_left">时间左侧</string>
+  <string name="status_bar_am_pm_title">上午 / 下午样式</string>
+  <string name="status_bar_am_pm_info">24小时制已启用</string>
+  <string name="status_bar_am_pm_normal">正常</string>
+  <string name="status_bar_am_pm_small">小型</string>
+  <string name="status_bar_am_pm_hidden">隐藏</string>
   <string name="status_bar_date_none">隐藏 (默认)</string>
   <string name="status_bar_date_small">小</string>
   <string name="status_bar_date_normal">正常</string>
@@ -1295,16 +1335,18 @@
   <string name="status_bar_expanded_qs_settings">布局：</string>
   <string name="status_bar_expanded_qs_settings_summary">选择行数和列数</string>
   <!-- Quick settings tiles columns and rows config -->
-  <string name="qs_layout_category">快速设置面板布局</string>
+  <string name="qs_layout_category">快速设置瓷块布局</string>
   <string name="qs_rows_portrait_title">行 （纵向）</string>
   <string name="qs_rows_landscape_title">行 （横向）</string>
   <string name="qs_columns_title">列</string>
+  <string name="qs_small_tiles_title">小快速设置瓷块</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">警告颜色</string>
   <string name="battery_saver_color_summary">在节电模式启用时显示橙色的状态栏和导航栏</string>
   <string name="network_traffic_color_style">颜色样式</string>
   <string name="network_traffic_color_reset">重置颜色</string>
   <string name="network_traffic_color_reset_message">是否将网速指示的颜色重置为默认？</string>
+  <string name="status_bar_weather_color_title">温度颜色</string>
   <string name="status_bar_rr_logo_color">Logo 颜色</string>
   <string name="status_bar_logo">Resurrection Logo</string>
   <string name="status_bar_logo_title">品牌 Logo</string>
@@ -1329,7 +1371,8 @@
   <string name="qs_battery_easy_toggle_summary">点击电池磁块不打开设置直接切换至省电模式</string>
   <string name="qs_music_tile_track_optional_title">音乐磁贴</string>
   <string name="qs_music_tile_track_optional_summary">在快捷设置中显示音乐磁贴</string>
-  <string name="quick_settings_vibrate_summary">触摸瓷贴时振动</string>
+  <string name="quick_settings_vibrate_title">触摸时使用振动反馈</string>
+  <string name="quick_settings_vibrate_summary">触摸瓷块时振动</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">快速解锁</string>
   <string name="unlock_quick_unlock_control_summary">当输入正确的 PIN 码或密码后自动解锁</string>
@@ -1342,6 +1385,12 @@
   <string name="app_circle_bar_summary">在触摸屏幕右侧后显示环形应用启动器</string>
   <string name="app_circle_bar_included_apps_title">包含的应用</string>
   <string name="app_circle_bar_included_apps_summary">应用将显示在环形应用栏</string>
+  <string name="trigger_width_title">触发区域宽度</string>
+  <string name="trigger_width_summary">调整触发区域的宽度</string>
+  <string name="trigger_top_title">触发区域位置</string>
+  <string name="trigger_top_summary">调整触发区域的纵向位置</string>
+  <string name="trigger_bottom_title">触发区域高度</string>
+  <string name="trigger_bottom_summary">调整触发区域的高度</string>
   <!-- Breathing Notifications -->
   <string name="breathing_notifications_title">呼吸式通知</string>
   <string name="sms_breath_title">呼吸式短信通知</string>
@@ -1359,12 +1408,20 @@
   <string name="navigationbar_settings_title">导航栏</string>
   <string name="navigationbar_settings_summary">自定义导航样式和行为</string>
   <string name="navbar_general_title">高级</string>
+  <string name="navigation_bar_left_title">左手模式</string>
+  <string name="navigation_bar_left_summary">横屏时在屏幕左侧显示虚拟键</string>
   <string name="info_pref_note_title">备注</string>
   <string name="smartbar_interface">智能通知栏</string>
   <string name="navbar_tint_switch">导航按钮淡色</string>
   <string name="navbar_button_color">导航栏按钮</string>
   <string name="icon_pack_picker_dialog_title">图标包</string>
   <string name="invalid_icon_from_uri">无法从内容提供器中加载图像</string>
+  <string name="picker_activities">活动</string>
+  <string name="select_custom_app_title">选择自定义应用</string>
+  <string name="select_custom_activity_title">选择自定义活动</string>
+  <string name="profile_applist_title">应用程序</string>
+  <string name="default_string">默认</string>
+  <string name="reset">重置</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
   <string name="choose_action_title">选择操作</string>
   <string name="action_entry_default_action">默认设置</string>
@@ -1621,7 +1678,7 @@
   <string name="pa_pie_settings_panel_title">快速设置面板</string>
   <string name="pa_pie_settings_panel_summary">启用快速设置扩展面板按钮</string>
   <string name="pa_pie_screenshot_title">屏幕截图</string>
-  <string name="pa_pie_screenshot_summary">启用截屏按钮</string>
+  <string name="pa_pie_screenshot_summary">启用屏幕截图按钮</string>
   <string name="pa_pie_color_title">手势颜色设置</string>
   <string name="pa_pie_color_style_title">手势颜色样式</string>
   <string name="pa_pie_background_title">背景颜色</string>
@@ -1641,16 +1698,16 @@
   <string name="lockscreen_pin_ripple_title">输入锁屏密码波纹动画</string>
   <string name="lockscreen_pin_ripple_summary">在输入Pin的时候显示按键的波纹</string>
   <!-- Optional screenshot type -->
-  <string name="screenshot_type_title">截屏类型</string>
+  <string name="screenshot_type_title">屏幕截图类型</string>
   <string name="screenshot_type_fullscreen">全屏截图</string>
-  <string name="screenshot_type_partial">拖动以选定屏幕快照的区域</string>
+  <string name="screenshot_type_partial">拖动选定屏幕截图的区域</string>
   <!-- Screenshot delay -->
-  <string name="screenshot_options_category">屏幕快照选项</string>
+  <string name="screenshot_options_category">屏幕截图选项</string>
   <string name="screenshot_delay_title">屏幕截图延迟</string>
-  <string name="screenshot_delay_summary">调整抓图的时间</string>
+  <string name="screenshot_delay_summary">调整屏幕截图前的延迟时间</string>
   <!--Screenshot crop and share -->
-  <string name="screenshot_crop_and_share_title">裁剪截图 &amp; 分享</string>
-  <string name="screenshot_crop_and_share_summary">在截取屏幕以后显示编辑窗口，以便于进行裁剪、保存或分享操作</string>
+  <string name="screenshot_crop_and_share_title">截图裁剪与分享</string>
+  <string name="screenshot_crop_and_share_summary">在屏幕截图后显示编辑窗口，以便进行裁剪、保存或分享操作</string>
   <string name="heads_up_settings">浮动通知</string>
   <!-- Lockscreen battery info indicator  -->
   <string name="lockscreen_battery_info_title">锁屏电池信息</string>
@@ -1768,7 +1825,7 @@
   <string name="effect_zoom_out">缩小</string>
   <!-- Three-fingers-swipe to screenshot -->
   <string name="three_finger_gesture">三指滑动手势</string>
-  <string name="three_finger_gesture_summary">滑动三指截屏</string>
+  <string name="three_finger_gesture_summary">三指下滑截屏</string>
   <!-- Lockscreen Colors -->
   <string name="lockscreen_colors">自定义颜色</string>
   <string name="lockscreen_colors_summary">高级颜色选项</string>
@@ -1809,8 +1866,8 @@
   <string name="scroll_disclaimer_summary">注意：大多数应用的自定义值需要重新启动后才能生效</string>
   <string name="animation_settings_reset_message">重置所有的动画设置为默认值吗？</string>
   <string name="qs_tile_title_visibility_title">快捷设置磁贴</string>
-  <string name="qs_tile_title_visibility_summary_on">快捷设置磁贴可见</string>
-  <string name="qs_tile_title_visibility_summary_off">快捷设置磁贴不可见</string>
+  <string name="qs_tile_title_visibility_summary_on">快捷设置瓷块现在可见</string>
+  <string name="qs_tile_title_visibility_summary_off">快捷设置瓷块现在隐藏</string>
   <!-- setting: show CPU info-->
   <string name="show_cpu_info">显示CPU信息</string>
   <string name="show_cpu_info_summary">屏幕叠加显示当前CPU信息</string>
@@ -1996,5 +2053,7 @@
   <string name="recent_panel_lefty_mode_title">显示在左侧边缘</string>
   <string name="recent_panel_lefty_mode_summary">在左侧边缘显示最近任务</string>
   <!-- Fingerprint unlock keystore -->
-  <!-- Emergency button -->
+  <string name="fp_unlock_keystore_title">指纹解锁</string>
+  <string name="fp_unlock_keystore_summary">在重启后用指纹解锁设备，无须 PIN/密码/图案\n注意：请注意风险！</string>
+  <!-- Wired headset ringtone audio focus -->
 </resources>

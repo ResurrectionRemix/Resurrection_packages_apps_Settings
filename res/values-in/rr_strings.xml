@@ -28,6 +28,7 @@
   <string name="help">Bantuan</string>
   <string name="reset_message">Ulang semua ke Awal?</string>
   <string name="attention">Perhatian</string>
+  <string name="reset">Atur ulang</string>
   <string name="restart_systemui">Mulai ulang UI</string>
   <!-- About RR -->
   <string name="about_rr_settings">Tentang</string>
@@ -146,6 +147,7 @@
   <string name="carrier_summary">Mengaktifkan atau menonaktifkan label operator di statusbar dan menyesuaikan gaya </string>
   <string name="rr_sb_gestures_summary">Mengaktifkan atau menonaktifkan gesture yang digunakan pada statusbar</string>
   <string name="breathing_notifications_summary">Berikan efek nafas pada pemberitahuan seperti sms, panggilan tak terjawab, dan pesan suara</string>
+  <string name="rr_trans_summary">Sesuaikan berbagai komponen seperti transparansi dan garis tepi papan notifikasi</string>
   <string name="rr_recents_ui_summary">Menyesuaikan berbagai elemen di panel Recent seperti bar memori, immersive Recent, dll.</string>
   <string name="recents_clear_all_summary">Mengganti tombol bersih semua yang asli dengan tombol mengambang yang asli dan sesuaikan posisinya</string>
   <string name="omniswitch_summary">Mengganti Recent bawaan dengan Omni Recent</string>
@@ -182,6 +184,7 @@
   <string name="menu_show_substratum_icons">Tampilkan ikon overlay</string>
   <string name="menu_hide_substratum_icons">Sembunyikan ikon overlay</string>
   <!-- AOKP custom system animations -->
+  <string name="animation_title">Animasi</string>
   <string name="system_animation_title">Animasi Sistem</string>
   <string name="activity_open_title">Animasi membuka Activity</string>
   <string name="activity_close_title">Animasi menutup Activity</string>
@@ -365,6 +368,7 @@
   <string name="power_menu_animation_bottom">Bawah</string>
   <string name="power_menu_animation_top">Atas</string>
   <string name="power_menu_animation_rotate">Rotasi</string>
+  <string name="power_menu_animation_rotate">Rotasi</string>
   <string name="power_menu_animation_xylon">Terbang</string>
   <string name="power_menu_animation_slide">Geser</string>
   <string name="power_menu_animation_turn">Halaman</string>
@@ -499,14 +503,17 @@
   <string name="ga_8">8px</string>
   <string name="ga_12">12px</string>
   <string name="ga_16">16px</string>
+  <string name="ga_20">20px</string>
   <string name="ga_24">24px</string>
   <string name="ga_28">28px</string>
   <string name="ga_32">32px</string>
   <string name="ga_36">36px</string>
+  <string name="ga_40">40px</string>
   <string name="ga_44">44px</string>
   <string name="ga_48">48px</string>
   <string name="ga_52">52px</string>
   <string name="ga_56">56px</string>
+  <string name="ga_60">60px</string>
   <string name="ga_64">64px</string>
   <string name="ga_68">68px</string>
   <string name="entries">Entri</string>
@@ -671,6 +678,7 @@
   <string name="shortcuts_icon_picker_tv">TV</string>
   <string name="shortcuts_icon_picker_twitter">Twitter</string>
   <string name="shortcuts_icon_picker_unlock">Buka</string>
+  <string name="shortcut_action_none">Tidak ada</string>
   <string name="shortcut_action_app">Aplikasi kustom</string>
   <string name="shortcut_action_home">Halaman utama</string>
   <string name="shortcut_action_back">Kembali</string>
@@ -689,6 +697,21 @@
   <string name="shortcut_action_media_previous">Musik - track sebelumnya</string>
   <string name="shortcut_action_wake_device">Bangunkan perangkat</string>
   <string name="shortcut_action_longpress">Tekan lama:</string>
+  <string name="shortcut_action_select_action_longpress">Pilih tindakan tekan lama:</string>
+  <string name="shortcut_action_select_action">Pilih tindakan:</string>
+  <string name="shortcut_action_select_action_newaction">Pilih tindakan baru:</string>
+  <string name="shortcut_action_reset">Atur ulang</string>
+  <string name="shortcut_action_add">Tambah</string>
+  <string name="shortcut_action_reset_message">Atur ulang semua entri ke standar?</string>
+  <string name="shortcut_action_max">Ukuran maksimum entri telah tercapai</string>
+  <string name="shortcut_action_warning">Peringatan</string>
+  <string name="shortcut_action_warning_message">Hal ini tidak mungkin untuk menghapus entri terakhir</string>
+  <string name="shortcut_action_disable_message">Dinonaktifkan\nTambahkan entri untuk mengaktifkan fitur ini</string>
+  <string name="shortcut_image_not_valid">Aplikasi yang dipilih tidak mengembalikan ikon valid atau tidak mendukung memotong gambar. Gunakan aplikasi lain.</string>
+  <string name="shortcut_duplicate_entry">Pilihan tindakan tidak dapat ditambahkan dua kali</string>
+  <string name="shortcut_action_help_shortcut">pintasan</string>
+  <string name="shortcut_action_help_button">tombol</string>
+  <string name="shortcut_action_help_app">aplikasi</string>
   <string name="shortcut_picker_choose_longpress_action">Pilih tindakan tekan lama:</string>
   <string name="shortcut_picker_choose_new_action">Pilih tindakan baru:</string>
   <string name="shortcut_picker_reassign_action">Menetapkan kembali Aksi:</string>
@@ -988,9 +1011,24 @@
   <string name="clock_settings_title">Pengaturan jam</string>
   <string name="status_bar_clock_category">Jam</string>
   <string name="status_bar_date_title">Tanggal</string>
+  <string name="status_bar_clock_style_title">Gaya jam</string>
+  <string name="status_bar_clock_style_right">Kanan</string>
+  <string name="status_bar_clock_style_left">Kiri</string>
+  <string name="status_bar_clock_style_center">Tengah</string>
+  <string name="status_bar_clock_style_hidden">Tersembunyi</string>
+  <string name="status_bar_clock_style_title">Gaya jam</string>
+  <string name="status_bar_clock_style_right">Kanan</string>
+  <string name="status_bar_clock_style_left">Kiri</string>
+  <string name="status_bar_clock_style_center">Tengah</string>
+  <string name="status_bar_clock_style_hidden">Tersembunyi</string>
   <string name="clock_date_position">Posisi tanggal</string>
   <string name="clock_date_right">Kanan dari jam</string>
   <string name="clock_date_left">Kiri dari jam</string>
+  <string name="status_bar_am_pm_title">Gaya AM/PM</string>
+  <string name="status_bar_am_pm_info">Waktu 24-jam diaktifkan</string>
+  <string name="status_bar_am_pm_normal">Normal</string>
+  <string name="status_bar_am_pm_small">Kecil</string>
+  <string name="status_bar_am_pm_hidden">Tersembunyi</string>
   <string name="status_bar_date_none">Tersembunyi (standar)</string>
   <string name="status_bar_date_small">Kecil</string>
   <string name="status_bar_date_normal">Normal</string>
@@ -1187,6 +1225,7 @@
   <string name="network_traffic_color_style">Gaya warna</string>
   <string name="network_traffic_color_reset">Setel ulang warna</string>
   <string name="network_traffic_color_reset_message">Setel ulang warna lalu lintas jaringan ke standar?</string>
+  <string name="status_bar_weather_color_title">Warna suhu</string>
   <string name="status_bar_rr_logo_color">Warna logo</string>
   <string name="status_bar_logo">Logo Resurrection</string>
   <string name="status_bar_logo_title">Logo merek</string>
@@ -1208,6 +1247,7 @@
   <string name="qs_battery_easy_toggle_title">Hidup/matikan ubin baterai mudah</string>
   <string name="qs_music_tile_track_optional_title">Ubin musik judul trek</string>
   <string name="qs_music_tile_track_optional_summary">Tampilkan judul trek musik pada seperti judul QS ubin</string>
+  <string name="quick_settings_vibrate_title">Bergetar saat disentuh</string>
   <string name="quick_settings_vibrate_summary">Bergetar ketika menyentuh ubin</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Buka cepat</string>
@@ -1231,12 +1271,20 @@
   <string name="navigationbar_settings_title">Bar navigasi</string>
   <string name="navigationbar_settings_summary">Kostumisasi gaya navigasi dan perilaku</string>
   <string name="navbar_general_title">Lanjutan</string>
+  <string name="navigation_bar_left_title">Mode tangan kiri</string>
+  <string name="navigation_bar_left_summary">Tempatkan navigasi bar di sebelah kiri layar saat mode mendatar</string>
   <string name="info_pref_note_title">Catatan</string>
   <string name="smartbar_interface">SmartBar</string>
   <string name="navbar_tint_switch">Warna tombol navigasi</string>
   <string name="navbar_button_color">Tombol bar navigasi</string>
   <string name="icon_pack_picker_dialog_title">Paket ikon</string>
   <string name="invalid_icon_from_uri">Tidak dapat memuat gambar dari penyedia konten</string>
+  <string name="picker_activities">Aktivitas</string>
+  <string name="select_custom_app_title">Pilih aplikasi khusus</string>
+  <string name="select_custom_activity_title">Pilih aktivitas khusus</string>
+  <string name="profile_applist_title">Aplikasi</string>
+  <string name="default_string">Standar</string>
+  <string name="reset">Atur ulang</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
   <string name="choose_action_title">Pilih tindakan</string>
   <string name="action_entry_default_action">Pengaturan standar</string>
@@ -1657,6 +1705,7 @@
   <string name="blur_light_color">Filter warna gambar terang</string>
   <string name="blur_dark_color">Filter warna gambar gelap</string>
   <string name="blur_notice">Tentang fitur Blur</string>
+  <string name="blur_notice_summary">Personalisasi Blur dinonaktifkan selama tampilan kunci layar! Hanya transparan pemberitahuan yang diaktifkan!</string>
   <string name="blur_colors_notice">Apa yang dilakukan warna-warna ini?</string>
   <string name="blur_expstatus_cat">Status bar diperluas </string>
   <string name="blur_notifications_cat">Pemberitahuan</string>
@@ -1669,6 +1718,7 @@
   <string name="blurred_radius">Radius Blur</string>
   <string name="blurred_radius_summary">Kuantitas Blur</string>
   <string name="blur_cat_notice">Pemberitahuan</string>
+  <string name="blur_cat_notice_summary">Personalisasi Blur dinonaktifkan selama tampilan kunci layar! Hanya transparan pemberitahuan yang diaktifkan!</string>
   <string name="rr_build_type_title">Tipe pembuatan</string>
   <string name="rr_build_type_default">Tidak resmi</string>
   <string name="rr_maintainer_title">Pengelola</string>
@@ -1786,5 +1836,5 @@
   <string name="recent_panel_lefty_mode_title">Tampilkan di tepi kiri</string>
   <string name="recent_panel_lefty_mode_summary">Tampilkan panel aplikasi terkini di tepi kiri</string>
   <!-- Fingerprint unlock keystore -->
-  <!-- Emergency button -->
+  <!-- Wired headset ringtone audio focus -->
 </resources>

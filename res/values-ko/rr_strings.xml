@@ -20,12 +20,15 @@
   <string name="mod_version_default">기본</string>
   <!-- General -->
   <string name="ok">확인</string>
+  <string name="reset">초기화</string>
+  <string name="default_string">기본값</string>
   <string name="add">추가</string>
   <string name="enabled">활성화</string>
   <string name="choose_app">애플리케이션 선택</string>
   <string name="help">도움</string>
   <string name="reset_message">모든 항목을 기본값으로 다시 설정하시겠습니까?</string>
   <string name="attention">주의</string>
+  <string name="reset">초기화</string>
   <string name="restart_systemui">UI 다시 시작</string>
   <!-- About RR -->
   <string name="about_rr_settings">정보</string>
@@ -60,11 +63,16 @@
   <string name="rr_ls_security">보안</string>
   <string name="updater_title">업데이트</string>
   <string name="altan_summary">● 설립자 \n● 프로젝트 리더 \n● 해드 개발자 \n● UX 디자이너 \n● 관리자</string>
+  <string name="varun_summary">● 주요 개발자 \n● UX 디자이너 \n● 관리자</string>
+  <string name="akhil_summary">● 개발자 \n● 관리자 \n● Javascript 책임자</string>
+  <string name="brian_summary">● 개발자 \n● 관리자</string>
   <string name="device_maintainers_title">기기 및 메인테이너</string>
   <string name="device_maintainers_title_summary">기기 목록 및 기기 공식 RR-OS 관리자</string>
   <string name="maintainers_note_title">참고</string>
   <string name="maintainers_note_title_summary">기기 메인테이너 목록에 이름을 추가하려면 행아웃을 통해 \'Varun Date\'에게 당신의 ROM 스레드 링크를 포함하여 PM을 보내주세요.</string>
   <!-- The Drill -->
+  <string name="rr_drill_title">The Drill</string>
+  <string name="drill_summary">Logcat or GTFO</string>
   <!-- RR Feature lists-->
   <string name="features_title">기능</string>
   <string name="features_title_summary">사용 가능한 기능 보기</string>
@@ -73,12 +81,15 @@
   <string name="features_unknown">알 수 없음</string>
   <string name="features_version">1.0</string>
   <string name="rr_volume_title">볼륨 패널</string>
+  <string name="rr_power_title">전원 메뉴 상자</string>
   <!-- Share RR ROM -->
   <string name="share_rr">공유하기</string>
   <string name="share_rr_summary">다른 사람들에게 너가 RR-OS를 사용하는 것을 알리기</string>
+  <string name="share_message">Resurrection Remix OS를 사용해보세요! https://plus.google.com/communities/109352646351468373340</string>
   <string name="share_chooser_title">Resurrection Remix 공유하기..</string>
   <!-- RR Changelog-->
   <string name="changelog_title">변경 사항</string>
+  <string name="changelog_title_summary">ROM의 최근 변경 사항 보기</string>
   <string name="changelog_loading">변경 사항 불러오는 중...</string>
   <string name="changelog_error">변경 사항을 불러올 수 없습니다.</string>
   <string name="changelog_unknown">알 수 없음</string>
@@ -96,9 +107,11 @@
   <string name="rr_reset_yes">예</string>
   <string name="rr_reset_cancel">취소</string>
   <string name="rr_category_title">개인화</string>
-  <string name="rr_title">환경설정</string>
+  <string name="rr_title">환경 설정</string>
   <string name="rr_title_summary">다양한 커스터마이징</string>
   <string name="rr_config_main_title">RR-OS</string>
+  <string name="rr_ota_fab_title">플로팅 버튼 보이기</string>
+  <string name="rr_ota_fab_summary">환경 설정에서 플로팅 버튼의 표시 유무를 설정합니다. 설정 메뉴를 재시작하면 반영됩니다.</string>
   <string name="rr_statusbar_title">상태 표시줄</string>
   <string name="rr_sb_gestures_title">상태 표시줄 제스처</string>
   <string name="qs_advanced_title">고급 설정</string>
@@ -110,6 +123,7 @@
   <string name="notification_drawer_title">알림 서랍</string>
   <string name="recents_settings_title">최근 앱</string>
   <string name="recents_ui_title">일반 UI</string>
+  <string name="animation_title">애니메이션</string>
   <string name="button_settings">버튼</string>
   <string name="rr_misc_title">기타</string>
   <string name="rr_ui_title"> 인터페이스</string>
@@ -121,10 +135,56 @@
   <string name="general">기본 설정</string>
   <string name="ka_title">성능</string>
   <!--RR Configurations Summaries-->
+  <string name="clock_custom_summary">상태 표시줄의 시계와 날짜 구성요소를 수정합니다</string>
+  <string name="status_bar_logo_summary">상태 표시줄에 RR 로고 사용 유무와 색, 위치를 설정합니다</string>
+  <string name="sb_custom_logos_summary">상태 표시줄에 표시할 아이콘과 구성요소, 위치를 설정합니다</string>
+  <string name="rr_battery_summary">상태 표시줄의 배터리 아이콘 구성요소와 배터리바를 설정합니다</string>
+  <string name="rr_sb_icons_summary">상태 표시줄에 사용자 지정 아이콘 사용 유무를 설정합니다</string>
+  <string name="ticker_screen_summary">상태 표시줄에 자막 알림을 표시합니다</string>
+  <string name="status_bar_temperature_summary">상태 표시줄에 온도 표시 유무와 스타일을 설정합니다</string>
+  <string name="network_traffic_summary">상태 표시줄에 네트워크 트래픽 모니터 표시 유무와 구성요소를 설정합니다</string>
+  <string name="carrier_summary">상태 표시줄에 통신사 문구 표시 유무와 스타일을 설정합니다</string>
   <string name="rr_sb_gestures_summary">상태바 제스처 기능 활성화/비활성화</string>
+  <string name="breathing_notifications_summary">문자, 부재중 전화와 음성 메일 알림에 깜박임 효과를 활성화 합니다</string>
+  <string name="rr_trans_summary">알림 서랍의 다양한 구성요소를 설정합니다</string>
+  <string name="rr_volume_summary">볼륨 조절 메뉴의 다양한 구성요소를 설정합니다</string>
   <string name="rr_power_summary">전원 메뉴 인터페이스의 밝기와 투명도 설정</string>
+  <string name="rr_recents_ui_summary">메모리 사용량, 전체화면 보기와 같은 최근 실행 화면의 구성요소를 설정합니다</string>
+  <string name="recents_clear_all_summary">기본 모두 지우기 버튼을 플로팅 버튼으로 교체하고 버튼의 위치를 설정합니다</string>
+  <string name="omniswitch_summary">기존의 최근 실행 화면을 Omni 최근 실행 화면으로 교체합니다</string>
+  <string name="rr_qs_animation_summary">빠른 설정 타일의 애니메이션 사용 유무와 종류를 설정합니다</string>
+  <string name="rr_qs_pulldown_summary">빠른 설정 패널의 내리기 설정을 조정합니다</string>
+  <string name="qs_tile_layout_summary">빠른 설정 타일의 레이아웃을 변경합니다</string>
+  <string name="qs_advanced_summary">기타 빠른 설정 구성요소를 변경합니다</string>
+  <string name="rr_ls_gesture_summary">잠금 화면에서 사용할 제스처를 선택합니다</string>
+  <string name="rr_ls_ui_summary">잠금 화면에 표시될 다양한 구성요소를 설정합니다</string>
+  <string name="lockscreen_targets_summary">잠금 화면 하단의 좌우 바로가기를 변경합니다</string>
+  <string name="lockscreen_weather_summary">잠금 화면의 날씨 알림을 설정합니다</string>
+  <string name="rr_ls_security_summary">잠금 화면에 사용할 보안 기능을 설정합니다</string>
+  <string name="gesture_anywhere_summary">제스처를 그려서 사용자 지정 액티비티를 실행합니다</string>
+  <string name="app_sidebar_summary">사이드 바를 사용하여 앱과 액티비티를 빠르게 실행합니다</string>
+  <string name="app_circle_bar_summary">원형 사이드 바를 사용하여 앱과 액티비티를 실행합니다</string>
+  <string name="pa_pie_control_summary">화면 가장자리를 스와이프하여 바로가기와 내비게이션 버튼을 사용할 수 있는 Pie를 사용합니다</string>
+  <string name="rr_navbar_summary">내비게이션 버튼 사용 유무와 구성요소를 설정합니다</string>
+  <string name="rr_power_summary">전원 메뉴 상자에 표시될 구성요소를 설정합니다</string>
+  <string name="system_animations_summary">시스템의 각 창에서 사용될 애니메이션을 설정합니다</string>
+  <string name="rr_power_anim_summary">전원 메뉴의 애니메이션 사용 유무와 종류를 설정합니다</string>
+  <string name="rr_toast_summary">토스트 팝업 알림의 애니메이션과 아이콘을 설정합니다</string>
+  <string name="rr_expanded_desktop_summary">각 앱의 확장 데스크톱 모드 사용 유무를 설정합니다</string>
+  <string name="rr_doze_summary">절전 모드 자동 해제 기능의 사용 유무와 구성요소를 설정합니다</string>
+  <string name="rr_heads_up_summary">헤드업 알림의 사용 유무와 표시 시간을 설정합니다</string>
+  <string name="rr_dash_board_summary">대시보드 레이아웃과 내용을 설정합니다</string>
+  <string name="misc_weather_settings_summary">시계 앱의 구성요소를 설정합니다</string>
+  <string name="system_app_remover_summary">불필요한 시스템 애플리케이션을 삭제합니다</string>
+  <string name="rr_updater_summary">OTA 업데이트와 기타 링크를 확인합니다</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Substratum 오버레이</string>
+  <string name="menu_show_substratum">오버레이 보이기</string>
+  <string name="menu_hide_substratum">오버레이 숨기기</string>
   <!-- Manage applications: show substratum icon overlays -->
+  <string name="filter_substratum_icons">Substratum 아이콘 오버레이</string>
+  <string name="menu_show_substratum_icons">아이콘 오버레이 보이기</string>
+  <string name="menu_hide_substratum_icons">아이콘 오버레이 숨기기</string>
   <!-- AOKP custom system animations -->
   <!-- Toast Animation -->
   <string name="toast_none_animation">없음</string>
@@ -142,7 +202,18 @@
   <!-- ListView interpolator -->
   <!-- Disable animations -->
   <!-- Option to enable/disable scrolling cache -->
+  <string name="pref_scrollingcache_default_disable">기본 비활성화</string>
+  <string name="pref_scrollingcache_force_disable">강제 비활성화</string>
   <!-- Volume Steps -->
+  <string name="volume_steps_title">불륨 단계</string>
+  <string name="volume_steps_alarm_title">볼륨 단계: 알람</string>
+  <string name="volume_steps_dtmf_title">볼륨 단계: DTMF</string>
+  <string name="volume_steps_music_title">볼륨 단계: 미디어</string>
+  <string name="volume_steps_notification_title">볼륨 단계: 알림</string>
+  <string name="volume_steps_ring_title">볼륨 단계: 벨소리</string>
+  <string name="volume_steps_system_title">볼륨 단계: 시스템</string>
+  <string name="volume_steps_voice_call_title">볼륨 단계: 음성 통화</string>
+  <string name="volume_steps_reset">초기화</string>
   <string name="volume_steps_60">60</string>
   <string name="volume_steps_45">45</string>
   <string name="volume_steps_30">30</string>
@@ -150,13 +221,29 @@
   <string name="volume_steps_7">7</string>
   <string name="volume_steps_5">5</string>
   <!-- Volume dialog timeout -->
+  <string name="volume_dialog_timeout_title">볼륨 메뉴 시간 제한</string>
   <!-- Toast Icons -->
+  <string name="toast_icon_title">토스트 아이콘</string>
+  <string name="toast_icon_summary">토스트 알림을 보낸 앱의 아이콘을 같이 표시합니다</string>
+  <string name="toast_text_color">토스트 알림 글자 색상</string>
+  <string name="toast_icon_color">토스트 알림 아이콘 색상</string>
   <!-- Bluetooth status -->
+  <string name="bluetooth_battery_title">블루투스 배터리 상태 표시</string>
+  <string name="bluetooth_battery_summary">현재 연결된 블루투스 장치에 대한 배터리 상태를 표시합니다</string>
   <!-- Force expanded notifications -->
+  <string name="force_expanded_notifications_title">알림 강제 확장</string>
+  <string name="force_expanded_notifications_summary">확장된 알림을 지원하는 앱에서만 사용할 수 있습니다</string>
   <!-- Disabling immersive mode messages -->
+  <string name="disable_immersive_message_title">전체 화면 모드 메시지 사용 안 함</string>
+  <string name="disable_immersive_message_summary">모든 전체 화면 모드 메시지를 표시하지 않습니다</string>
   <!-- Hide Apps from Recents -->
+  <string name="hide_apps_from_recents_title">숨겨진 앱</string>
+  <string name="hide_from_recents_add_app">앱 추가</string>
+  <string name="hide_apps_from_recents_summary">최근 실행 화면에서 표시하지 않을 앱을 선택합니다</string>
   <!-- About device screen, CPU and RAM info. -->
   <string name="cpu_info">CPU</string>
+  <string name="mem_info">RAM</string>
+  <string name="systemui_recents_mem_display_title">메모리 사용량 표시</string>
   <!-- Network traffic -->
   <!-- Statusbar RR logo -->
   <!-- Color picker -->
@@ -264,6 +351,7 @@
   <!--Custom logos-->
   <!-- Carrier label -->
   <!-- Status Bar Ticker -->
+  <string name="ticker_screen_summary">상태 표시줄에 자막 알림을 표시합니다</string>
   <!-- Superuser indicator on status bar -->
   <!-- PA Pie control -->
   <!-- Heads up switch -->
@@ -306,5 +394,5 @@
   <!-- Slim Recent panel -->
   <!-- ATTENTION: RTL languages need to replace left with right -->
   <!-- Fingerprint unlock keystore -->
-  <!-- Emergency button -->
+  <!-- Wired headset ringtone audio focus -->
 </resources>

@@ -28,6 +28,7 @@
   <string name="help">Aiuto</string>
   <string name="reset_message">Ripristinare tutti i valori a quelli predefiniti?</string>
   <string name="attention">Attenzione</string>
+  <string name="reset">Ripritina</string>
   <string name="restart_systemui">Riavvia UI</string>
   <!-- About RR -->
   <string name="about_rr_settings">Informazioni</string>
@@ -186,6 +187,7 @@
   <string name="menu_show_substratum_icons">Mostra icona overlay</string>
   <string name="menu_hide_substratum_icons">Nascondi icona overlay</string>
   <!-- AOKP custom system animations -->
+  <string name="animation_title">Animazioni</string>
   <string name="system_animation_title">Animazioni di sistema</string>
   <string name="activity_open_title">Animazione apertura attività</string>
   <string name="activity_close_title">Animazione chiusura attività</string>
@@ -369,6 +371,7 @@
   <string name="power_menu_animation_bottom">Dal basso</string>
   <string name="power_menu_animation_top">Dall\'alto</string>
   <string name="power_menu_animation_rotate">Rotazione</string>
+  <string name="power_menu_animation_rotate">Rotazione</string>
   <string name="power_menu_animation_xylon">Volante</string>
   <string name="power_menu_animation_slide">Diapositiva</string>
   <string name="power_menu_animation_turn">Paginatura</string>
@@ -503,14 +506,17 @@
   <string name="ga_8">8px</string>
   <string name="ga_12">12px</string>
   <string name="ga_16">16px</string>
+  <string name="ga_20">20px</string>
   <string name="ga_24">24px</string>
   <string name="ga_28">28px</string>
   <string name="ga_32">32px</string>
   <string name="ga_36">36px</string>
+  <string name="ga_40">40px</string>
   <string name="ga_44">44px</string>
   <string name="ga_48">48px</string>
   <string name="ga_52">52px</string>
   <string name="ga_56">56px</string>
+  <string name="ga_60">60px</string>
   <string name="ga_64">64px</string>
   <string name="ga_68">68px</string>
   <string name="entries">Voci</string>
@@ -680,6 +686,7 @@
   <string name="shortcuts_icon_picker_tv">TV</string>
   <string name="shortcuts_icon_picker_twitter">Twitter</string>
   <string name="shortcuts_icon_picker_unlock">Sblocca</string>
+  <string name="shortcut_action_none">Nessuna</string>
   <string name="shortcut_action_app">App personalizzata</string>
   <string name="shortcut_action_home">Home</string>
   <string name="shortcut_action_back">Indietro</string>
@@ -698,7 +705,25 @@
   <string name="shortcut_action_media_previous">Musica - traccia precedente</string>
   <string name="shortcut_action_wake_device">Risveglia dispositivo</string>
   <string name="shortcut_action_longpress">Pressione prolungata:</string>
+  <string name="shortcut_action_select_action_longpress">Scegli azione pressione prolungata:</string>
+  <string name="shortcut_action_select_action">Scegli azione:</string>
+  <string name="shortcut_action_select_action_newaction">Scegli nuova azione:</string>
+  <string name="shortcut_action_reset">Ripritina</string>
+  <string name="shortcut_action_add">Aggiungi</string>
+  <string name="shortcut_action_reset_message">Ripristinare tutti i valori a quelli predefiniti?</string>
+  <string name="shortcut_action_max">La dimensione del numero massimo di voci è stata raggiunta</string>
+  <string name="shortcut_action_warning">Attenzione</string>
+  <string name="shortcut_action_warning_message">Non è possibile eliminare l\'ultima voce</string>
+  <string name="shortcut_action_disable_message">Disabilitato\nAggiungi una voce per abilitare questa funzionalità</string>
+  <string name="shortcut_image_not_valid">L\'applicazione scelta non restituisce un\'icona valida o non supporta il ritaglio immagine. Usa un\'altra applicazione.</string>
+  <string name="shortcut_duplicate_entry">L\'azione scelta non può essere aggiunta due volte</string>
+  <string name="shortcut_action_help_shortcut">scorciatoia</string>
+  <string name="shortcut_action_help_button">pulsante</string>
+  <string name="shortcut_action_help_app">applicazione</string>
+  <string name="shortcut_action_help_icon">, mentre selezioni l\'icona, si apriranno le opzioni di personalizzazione</string>
   <string name="shortcut_action_help_main">Per aggiungere un %1$s, selezionare l\'icona Aggiungi. Dopo che un %1$s è stato aggiunto, seleziona la riga per cambiare l\'obiettivo %2$s\n\nPer rimuovere un %1$s, trascina orizzontalmente la riga. Riordina un %1$s nella lista trascinando verticalmente il punto di ancoraggio a sinistra.\n\nPer ripulire o resettare a default, seleziona l\'icona Reimposta.</string>
+  <string name="shortcut_action_help_delete_last_entry">Rimuovere ogni %1$s nell\'elenco disabiliterà completamente la fuzione.</string>
+  <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Rimuovere ogni %1$s nell\'elenco disabiliterà il secondo stato del pie.</string>
   <string name="shortcut_picker_choose_longpress_action">Scegli azione pressione prolungata:</string>
   <string name="shortcut_picker_choose_new_action">Scegli nuova azione:</string>
   <string name="shortcut_picker_reassign_action">Riassegnare l\'azione:</string>
@@ -1015,7 +1040,7 @@
   <string name="smart_pulldown_dismissable">Non removibili</string>
   <string name="smart_pulldown_ongoing">Non in corso</string>
   <!-- Clock and date immersive recents-->
-  <string name="recents_full_screen_clock_title">Mostra l\'orologio</string>
+  <string name="recents_full_screen_clock_title">Mostra orologio</string>
   <string name="recents_full_screen_clock_summary">Mostra l\'orologio in alto a schermo intero</string>
   <string name="recents_full_screen_date_title">Mostra data</string>
   <string name="recents_full_screen_date_summary">Mostra la data in alto a schermo intero</string>
@@ -1023,9 +1048,24 @@
   <string name="clock_settings_title">Impostazioni orologio</string>
   <string name="status_bar_clock_category">Orologio</string>
   <string name="status_bar_date_title">Data</string>
+  <string name="status_bar_clock_style_title">Stile orologio</string>
+  <string name="status_bar_clock_style_right">Destra</string>
+  <string name="status_bar_clock_style_left">Sinistra</string>
+  <string name="status_bar_clock_style_center">Centro</string>
+  <string name="status_bar_clock_style_hidden">Nascosto</string>
+  <string name="status_bar_clock_style_title">Stile orologio</string>
+  <string name="status_bar_clock_style_right">Destra</string>
+  <string name="status_bar_clock_style_left">Sinistra</string>
+  <string name="status_bar_clock_style_center">Centro</string>
+  <string name="status_bar_clock_style_hidden">Nascosto</string>
   <string name="clock_date_position">Posizione della data</string>
   <string name="clock_date_right">A destra dell\'ora</string>
   <string name="clock_date_left">A sinistra dell\'ora</string>
+  <string name="status_bar_am_pm_title">Stile AM/PM</string>
+  <string name="status_bar_am_pm_info">Formato 24 ore attivo</string>
+  <string name="status_bar_am_pm_normal">Normale</string>
+  <string name="status_bar_am_pm_small">Piccolo</string>
+  <string name="status_bar_am_pm_hidden">Nascosto</string>
   <string name="status_bar_date_none">Nascosta (predefinito)</string>
   <string name="status_bar_date_small">Piccola</string>
   <string name="status_bar_date_normal">Normale</string>
@@ -1299,12 +1339,14 @@
   <string name="qs_rows_portrait_title">Righe (verticale)</string>
   <string name="qs_rows_landscape_title">Righe (orizzontale)</string>
   <string name="qs_columns_title">Colonne</string>
+  <string name="qs_small_tiles_title">Tile impostazioni rapide piccoli</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Colore avviso</string>
   <string name="battery_saver_color_summary">Colora di arancione la barra di stato e di navigazione quando viene attivato il risparmio batteria</string>
   <string name="network_traffic_color_style">Stile colore</string>
   <string name="network_traffic_color_reset">Ripristina colore</string>
   <string name="network_traffic_color_reset_message">Ripristinare il colore predefinito del traffico di rete?</string>
+  <string name="status_bar_weather_color_title">Colore temperatura</string>
   <string name="status_bar_rr_logo_color">Colore del logo</string>
   <string name="status_bar_logo">Logo Resurrection</string>
   <string name="status_bar_logo_title">Logo RR</string>
@@ -1329,6 +1371,7 @@
   <string name="qs_battery_easy_toggle_summary">Un solo click per attivare o disattivare il Battery Saver invece di andare alle impostazioni</string>
   <string name="qs_music_tile_track_optional_title">Titolo brano musicale nel tile</string>
   <string name="qs_music_tile_track_optional_summary">Visualizza il titolo del brano musicale come titolo del tile delle impostazioni rapide</string>
+  <string name="quick_settings_vibrate_title">Vibra al tocco</string>
   <string name="quick_settings_vibrate_summary">Vibra quando vengono toccati i tile</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Sblocco veloce</string>
@@ -1342,6 +1385,12 @@
   <string name="app_circle_bar_summary">Mostra circle app launcher dopo aver toccato il bordo destro dello schermo</string>
   <string name="app_circle_bar_included_apps_title">Applicazioni incluse</string>
   <string name="app_circle_bar_included_apps_summary">Applicazioni che verranno mostrate nell\'app circle bar</string>
+  <string name="trigger_width_title">Larghezza area attivazione</string>
+  <string name="trigger_width_summary">Regola la larghezza dell\'area di attivazione</string>
+  <string name="trigger_top_title">Posizione area attivazione</string>
+  <string name="trigger_top_summary">Regola la posizione verticale dell\'area di attivazione</string>
+  <string name="trigger_bottom_title">Altezza area attivazione</string>
+  <string name="trigger_bottom_summary">Regola l\'altezza dell\'area di attivazione</string>
   <!-- Breathing Notifications -->
   <string name="breathing_notifications_title">Notifiche lampeggianti</string>
   <string name="sms_breath_title">SMS lampeggianti</string>
@@ -1359,12 +1408,20 @@
   <string name="navigationbar_settings_title">Barra di navigazione</string>
   <string name="navigationbar_settings_summary">Personalizza stile e comportamento navigazione</string>
   <string name="navbar_general_title">Avanzate</string>
+  <string name="navigation_bar_left_title">Modalità mancino</string>
+  <string name="navigation_bar_left_summary">Posiziona la barra di navigazione sul lato sinistro dello schermo in modalità orizzontale</string>
   <string name="info_pref_note_title">Note</string>
   <string name="smartbar_interface">SmartBar</string>
   <string name="navbar_tint_switch">Colora i pulsanti di navigazione</string>
   <string name="navbar_button_color">Pulsanti barra di navigazione</string>
   <string name="icon_pack_picker_dialog_title">Pacchetti icone</string>
   <string name="invalid_icon_from_uri">Impossibile caricare l\'immagine dal provider di contenuti</string>
+  <string name="picker_activities">Attività</string>
+  <string name="select_custom_app_title">Seleziona app personalizzata</string>
+  <string name="select_custom_activity_title">Seleziona attività personalizzata</string>
+  <string name="profile_applist_title">Applicazioni</string>
+  <string name="default_string">Predefinita</string>
+  <string name="reset">Ripritina</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
   <string name="choose_action_title">Scegli azione</string>
   <string name="action_entry_default_action">Impostazioni predefinite</string>
@@ -1996,5 +2053,7 @@
   <string name="recent_panel_lefty_mode_title">Mostra sul bordo sinistro</string>
   <string name="recent_panel_lefty_mode_summary">Mostra il pannello delle app recenti sul lato sinistro</string>
   <!-- Fingerprint unlock keystore -->
-  <!-- Emergency button -->
+  <string name="fp_unlock_keystore_title">Sblocco ID</string>
+  <string name="fp_unlock_keystore_summary">Sblocca il dispositivo con l\'impronta digitale dopo il riavvio senza PIN/Password/Sequenza\nNota: a proprio rischio!</string>
+  <!-- Wired headset ringtone audio focus -->
 </resources>
