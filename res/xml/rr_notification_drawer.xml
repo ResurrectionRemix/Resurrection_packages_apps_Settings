@@ -61,16 +61,12 @@
         android:icon="@drawable/rr_power_icon"
        />
 
-      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="force_expanded_notifications"
-        android:title="@string/force_expanded_notifications_title"
-        android:summary="@string/force_expanded_notifications_summary" />
-
-
-      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="disable_immersive_message"
-        android:title="@string/disable_immersive_message_title"
-        android:summary="@string/disable_immersive_message_summary"
-        android:persistent="false" />
+      <PreferenceScreen
+        android:key="rr_notif"
+        android:fragment="com.android.settings.rr.NotificationSettings"
+        android:title="@string/rr_notif_settings_title"
+        android:summary="@string/rr_notif_settings_summary"
+        android:icon="@drawable/rr_notifications_settings_icon"
+       />
 
 </PreferenceScreen>
