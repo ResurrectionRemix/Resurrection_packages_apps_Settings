@@ -72,6 +72,12 @@
                 android:summary="@string/lockscreen_battery_info_summary" 
                 android:defaultValue="false" />
 
+    	<com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+                android:key="lockscreen_hide_status_bar"
+                android:title="@string/lockscreen_hide_status_bar_title"
+                android:summary="@string/lockscreen_hide_status_bar_summary"
+                android:defaultValue="false" />
+
     	<com.android.settings.rr.SeekBarPreference
                 android:key="lockclock_font_size"
                 android:title="@string/lockclock_font_size_title"
@@ -93,9 +99,9 @@
                 android:dependency="hide_lockscreen_date" />
 
     	<PreferenceScreen
-       		android:key="lock_clock_fonts"
-            	android:title="@string/lock_clock_font_title"
+                android:key="lock_clock_fonts"
+                android:title="@string/lock_clock_font_title"
                 android:summary="@string/lock_clock_font_summary"
-            	android:fragment="com.android.settings.rr.fragments.LockClockFonts" />
+                android:fragment="com.android.settings.rr.fragments.LockClockFonts" />
 
 </PreferenceScreen>
