@@ -13,19 +13,25 @@
 */
 package com.android.settings.rr;
 
-import android.os.Bundle;
-
-import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.database.Cursor;
+import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.database.ContentObserver;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Bundle;
 import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -44,6 +50,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.android.internal.util.rr.PackageUtils;
 
 public class HeaderSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -119,6 +127,7 @@ public class HeaderSettings extends SettingsPreferenceFragment implements
 
             mHeaderBrowse = (PreferenceScreen) findPreference(CUSTOM_HEADER_BROWSE);
             mHeaderBrowse.setEnabled(isBrowseHeaderAvailable());
+
  
     }
 
@@ -145,7 +154,7 @@ public class HeaderSettings extends SettingsPreferenceFragment implements
                 int valueIndex = mHeaderProvider.findIndexOfValue(value);
                 mHeaderProvider.setSummary(mHeaderProvider.getEntries()[valueIndex]);
                 mDaylightHeaderPack.setEnabled(value.equals(mDaylightHeaderProvider));
-             }
+             } 
         return false;
     }
 
@@ -189,4 +198,5 @@ public class HeaderSettings extends SettingsPreferenceFragment implements
             browse.setClassName("org.omnirom.omnistyle", "org.omnirom.omnistyle.BrowseHeaderActivity");
             return pm.resolveActivity(browse, 0) != null;
         }
+ 
 }

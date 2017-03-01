@@ -52,16 +52,15 @@ import com.android.internal.util.rr.PackageUtils;
 
 public class QsAdvanced extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String TAG = "QsAdvanced";
-    private static final String CATEGORY_WEATHER = "weather_category";
-    private static final String WEATHER_ICON_PACK = "weather_icon_pack";
-    private static final String DEFAULT_WEATHER_ICON_PACKAGE = "org.omnirom.omnijaws";
-    private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
-    private static final String CHRONUS_ICON_PACK_INTENT = "com.dvtonder.chronus.ICON_PACK";
+        private static final String TAG = "QsAdvanced";
+        private static final String CATEGORY_WEATHER = "weather_category";
+        private static final String WEATHER_ICON_PACK = "weather_icon_pack";
+        private static final String DEFAULT_WEATHER_ICON_PACKAGE = "org.omnirom.omnijaws";
+        private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
+        private static final String CHRONUS_ICON_PACK_INTENT = "com.dvtonder.chronus.ICON_PACK";
+        private PreferenceCategory mWeatherCategory;
+        private ListPreference mWeatherIconPack;
 
-    private static final String DEFAULT_PACKAGE = "com.android.systemui";
-    private PreferenceCategory mWeatherCategory;
-    private ListPreference mWeatherIconPack;
 
     @Override
     protected int getMetricsCategory() {
@@ -72,22 +71,12 @@ public class QsAdvanced extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-         addPreferencesFromResource(R.xml.rr_qs_advanced);
-         final PreferenceScreen prefSet = getPreferenceScreen();
+             addPreferencesFromResource(R.xml.rr_qs_advanced);
 
-        String settingHeaderPackage = Settings.System.getString(getContentResolver(),
-                Settings.System.STATUS_BAR_DAYLIGHT_HEADER_PACK);
-        if (settingHeaderPackage == null) {
-            settingHeaderPackage = DEFAULT_PACKAGE;
-        }
-
-         List<String> entries = new ArrayList<String>();
-         List<String> values = new ArrayList<String>();
-
-         mWeatherCategory = (PreferenceCategory) prefSet.findPreference(CATEGORY_WEATHER);
-         if (mWeatherCategory != null && !isOmniJawsServiceInstalled()) {
-             prefSet.removePreference(mWeatherCategory);
-         } else {
+             mWeatherCategory = (PreferenceCategory) getPreferenceScreen().findPreference(CATEGORY_WEATHER);
+             if (mWeatherCategory != null && !isOmniJawsServiceInstalled()) {
+             getPreferenceScreen().removePreference(mWeatherCategory);
+             } else {
              String settingsJaws = Settings.System.getString(getContentResolver(),
                      Settings.System.OMNIJAWS_WEATHER_ICON_PACK);
              if (settingsJaws == null) {
@@ -98,37 +87,39 @@ public class QsAdvanced extends SettingsPreferenceFragment implements
              List<String> entriesJaws = new ArrayList<String>();
              List<String> valuesJaws = new ArrayList<String>();
              getAvailableWeatherIconPacks(entriesJaws, valuesJaws);
-             mWeatherIconPack.setEntries(entries.toArray(new String[entriesJaws.size()]));
-             mWeatherIconPack.setEntryValues(values.toArray(new String[valuesJaws.size()]));
+             mWeatherIconPack.setEntries(entriesJaws.toArray(new String[entriesJaws.size()]));
+             mWeatherIconPack.setEntryValues(valuesJaws.toArray(new String[valuesJaws.size()]));
  
-             int valueJawsIndex = mWeatherIconPack.findIndexOfValue(settingHeaderPackage);
+             int valueJawsIndex = mWeatherIconPack.findIndexOfValue(settingsJaws);
              if (valueJawsIndex == -1) {
                  // no longer found
-                 settingHeaderPackage = DEFAULT_WEATHER_ICON_PACKAGE;
+                 settingsJaws = DEFAULT_WEATHER_ICON_PACKAGE;
                  Settings.System.putString(getContentResolver(),
-                         Settings.System.OMNIJAWS_WEATHER_ICON_PACK, settingHeaderPackage);
-                 valueJawsIndex = mWeatherIconPack.findIndexOfValue(settingHeaderPackage);
+                         Settings.System.OMNIJAWS_WEATHER_ICON_PACK, settingsJaws);
+                 valueJawsIndex = mWeatherIconPack.findIndexOfValue(settingsJaws);
              }
              mWeatherIconPack.setValueIndex(valueJawsIndex >= 0 ? valueJawsIndex : 0);
              mWeatherIconPack.setSummary(mWeatherIconPack.getEntry());
              mWeatherIconPack.setOnPreferenceChangeListener(this);
-         }
+          }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-         if (preference == mWeatherIconPack) {
-            String value = (String) newValue;
-            Settings.System.putString(getContentResolver(),
+           if (preference == mWeatherIconPack) {
+                String value = (String) newValue;
+                Settings.System.putString(getContentResolver(),
                     Settings.System.OMNIJAWS_WEATHER_ICON_PACK, value);
-            int valueIndex = mWeatherIconPack.findIndexOfValue(value);
-            mWeatherIconPack.setSummary(mWeatherIconPack.getEntries()[valueIndex]);
-            return true;
-         }
-        return false;
+                int valueIndex = mWeatherIconPack.findIndexOfValue(value);
+                mWeatherIconPack.setSummary(mWeatherIconPack.getEntries()[valueIndex]);
+               return true;
+            } 
+            return false;
     }
 
- 
+
+
+
      private boolean isOmniJawsServiceInstalled() {
          return PackageUtils.isAvailableApp(WEATHER_SERVICE_PACKAGE, getActivity());
      }
@@ -188,5 +179,4 @@ public class QsAdvanced extends SettingsPreferenceFragment implements
          }
          return true;
      }
- 
 }

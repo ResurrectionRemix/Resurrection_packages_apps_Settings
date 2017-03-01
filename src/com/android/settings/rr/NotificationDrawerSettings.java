@@ -22,7 +22,6 @@ import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,38 +35,13 @@ import com.android.settings.Utils;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
-public class NotificationDrawerSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
-
-	private static final String DISABLE_IMMERSIVE_MESSAGE = "disable_immersive_message";
-
-	private SwitchPreference mDisableIM;
-
+public class NotificationDrawerSettings extends SettingsPreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_notification_drawer);
-
-		mDisableIM = (SwitchPreference) findPreference(DISABLE_IMMERSIVE_MESSAGE);
-        mDisableIM.setOnPreferenceChangeListener(this);
-        int DisableIM = Settings.System.getInt(getContentResolver(),
-                DISABLE_IMMERSIVE_MESSAGE, 0);
-mDisableIM.setChecked(DisableIM != 0);
     }
-
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mDisableIM) {
-            boolean value = (Boolean) newValue;
-            Settings.System.putInt(getContentResolver(), DISABLE_IMMERSIVE_MESSAGE,
-                    value ? 1 : 0);
-            return true;
-        }
-        return false;
-	}
-
 
 
     @Override
