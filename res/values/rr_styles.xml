@@ -25,8 +25,17 @@
    		<item name="android:textColor">@color/secondary_text</item>
 	</style>
 
- 
- 
+    <!-- Preference fragment -->
+    <style name="PreferenceTheme" parent="Theme.AppCompat">
+        <item name="colorPrimary">@*android:color/primary_material_light</item>
+        <item name="colorPrimaryDark">@*android:color/primary_material_dark</item>
+        <item name="colorAccent">@color/rr_accent</item>
+        <item name="android:colorAccent">@color/rr_accent</item>
+        <item name="android:windowActionBar">true</item>
+        <item name="android:windowNoTitle">false</item>
+        <item name="preferenceTheme">@style/rr_settings</item>
+    </style>
+
     <style name="floating_action_button">
         <item name="android:layout_width">@dimen/fab_size</item>
         <item name="android:layout_height">@dimen/fab_size</item>
