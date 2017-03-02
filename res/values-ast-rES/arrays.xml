@@ -23,122 +23,18 @@
          These values will be used as search terms for TimeZone displayName
          strings. -->
   <!-- The time zone picker screen has two levels.  The first level allows the user to choose a region. -->
-  <string-array name="timezone_filters">
-    <!-- The next level of the time zoner picker should show time zones from the Americas. -->
-    <item>América</item>
-    <!-- The next level of the time zoner picker should show time zones from Europe. -->
-    <item>Europa</item>
-    <!-- The next level of the time zoner picker should show time zones from Africa. -->
-    <item>África</item>
-    <!-- The next level of the time zoner picker should show time zones from Asia. -->
-    <item>Asia</item>
-    <!-- The next level of the time zoner picker should show time zones from Australia. -->
-    <item>Australia</item>
-    <!-- The next level of the time zoner picker should show time zones from Pacific. -->
-    <item>Pacíficu</item>
-    <!-- The next level of the time zoner picker should show time zones from ALL regions. -->
-    <item>Toes</item>
-  </string-array>
   <!-- Display settings.  The delay in inactivity before the screen is turned off. These are shown in a list dialog. -->
-  <string-array name="screen_timeout_entries">
-    <item>15 segundos</item>
-    <item>30 segundos</item>
-    <item>1 minutu</item>
-    <item>2 minutos</item>
-    <item>5 minutos</item>
-    <item>10 minutos</item>
-    <item>30 minutos</item>
-  </string-array>
   <!-- Do not translate. -->
   <!-- Display settings.  The delay in inactivity before the dream is shown. These are shown in a list dialog. -->
-  <string-array name="dream_timeout_entries">
-    <item>Nunca</item>
-    <item>15 segundos</item>
-    <item>30 segundos</item>
-    <item>1 minutu</item>
-    <item>2 minutos</item>
-    <item>5 minutos</item>
-    <item>10 minutos</item>
-    <item>30 minutos</item>
-  </string-array>
   <!-- Do not translate. -->
   <!-- Security settings.  The delay after screen is turned off until device locks.
          These are shown in a list dialog. -->
-  <string-array name="lock_after_timeout_entries">
-    <item>Darréu</item>
-    <item>5 segundos</item>
-    <item>15 segundos</item>
-    <item>30 segundos</item>
-    <item>1 minutu</item>
-    <item>2 minutos</item>
-    <item>5 minutos</item>
-    <item>10 minutos</item>
-    <item>30 minutos</item>
-  </string-array>
   <!-- Do not translate. -->
-  <string-array name="entries_font_size">
-    <item msgid="6490061470416867723">Pequeñu</item>
-    <item msgid="3579015730662088893">Predetermináu</item>
-    <item msgid="1678068858001018666">Grande</item>
-    <item msgid="490158884605093126">Largest</item>
-  </string-array>
   <!-- Wi-Fi settings -->
   <!-- Match this with the order of NetworkInfo.DetailedState. -->
   <!-- Wi-Fi settings. The status messages when the network is unknown. -->
-  <string-array name="wifi_status">
-    <!-- Status message of Wi-Fi when it is idle. -->
-    <item></item>
-    <!-- Status message of Wi-Fi when it is scanning. -->
-    <item>Guetando...</item>
-    <!-- Status message of Wi-Fi when it is connecting. -->
-    <item>Afitando conexón...</item>
-    <!-- Status message of Wi-Fi when it is authenticating. -->
-    <item>Autenticando...</item>
-    <!-- Status message of Wi-Fi when it is obtaining IP address. -->
-    <item>Obteniendo direición IP…</item>
-    <!-- Status message of Wi-Fi when it is connected. -->
-    <item>Conexón afitada</item>
-    <!-- Status message of Wi-Fi when it is suspended. -->
-    <item>Suspendida</item>
-    <!-- Status message of Wi-Fi when it is disconnecting. -->
-    <item>Desconeutando...</item>
-    <!-- Status message of Wi-Fi when it is disconnected. -->
-    <item>Desconeutada</item>
-    <!-- Status message of Wi-Fi when it is a failure. -->
-    <item>Con error</item>
-    <!-- Status message of Wi-Fi when it is blocked. -->
-    <item>Bloquiada</item>
-    <!-- Status message of Wi-Fi when connectiong is being verified. -->
-    <item>Inhabilitando conexón inestable temporalmente...</item>
-  </string-array>
   <!-- Match this with the order of NetworkInfo.DetailedState. -->
   <!-- Wi-Fi settings. The status messages when the network is known. -->
-  <string-array name="wifi_status_with_ssid">
-    <!-- Status message of Wi-Fi when it is idle. -->
-    <item></item>
-    <!-- Status message of Wi-Fi when it is scanning. -->
-    <item>Guetando...</item>
-    <!-- Status message of Wi-Fi when it is connecting to a network. -->
-    <item>Afitando conexón con <xliff:g id="NETWORK_NAME">%1$s</xliff:g>...</item>
-    <!-- Status message of Wi-Fi when it is authenticating with a network. -->
-    <item>Autenticando con <xliff:g id="NETWORK_NAME">%1$s</xliff:g>…</item>
-    <!-- Status message of Wi-Fi when it is obtaining IP address from a network. -->
-    <item>Obteniendo direición IP de <xliff:g id="NETWORK_NAME">%1$s</xliff:g>...</item>
-    <!-- Status message of Wi-Fi when it is connected to a network. -->
-    <item>Conexón afitada con <xliff:g id="NETWORK_NAME">%1$s</xliff:g></item>
-    <!-- Status message of Wi-Fi when it is suspended. -->
-    <item>Suspendida</item>
-    <!-- Status message of Wi-Fi when it is disconnecting from a network. -->
-    <item>Desconeutando de <xliff:g id="NETWORK_NAME">%1$s</xliff:g>...</item>
-    <!-- Status message of Wi-Fi when it is disconnected. -->
-    <item>Desconeutada</item>
-    <!-- Status message of Wi-Fi when it is a failure. -->
-    <item>Con error</item>
-    <!-- Status message of Wi-Fi when it is blocked. -->
-    <item>Bloquiada</item>
-    <!-- Status message of Wi-Fi when connectiong is being verified. -->
-    <item>Inhabilitando conexón inestable temporalmente...</item>
-  </string-array>
   <!-- Match this with the constants in AccessPoint. -->
   <!-- Wi-Fi security choices used when manually added a Wi-Fi network -->
   <!-- Match this with the constants in AccessPoint. -->
@@ -147,472 +43,72 @@
   <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
   <!-- Match this with the constants in WifiDialog. -->
   <!-- Wi-Fi settings.  The type of EAP method a Wi-Fi network has. -->
-  <string-array name="wifi_eap_method">
-    <!-- Do not translate. -->
-    <item>PEAP</item>
-    <!-- Do not translate. -->
-    <item>TLS</item>
-    <!-- Do not translate. -->
-    <item>TTLS</item>
-    <!-- Do not translate. -->
-    <item>PWD</item>
-    <!-- Do not translate. -->
-    <item>SIM</item>
-    <!-- Do not translate. -->
-    <item>AKA</item>
-    <!-- Do not translate. -->
-    <item>AKA\'</item>
-  </string-array>
   <!-- Type of EAP method when EAP SIM, AKA, AKA' are not supported -->
-  <string-array name="eap_method_without_sim_auth">
-    <!-- Do not translate. -->
-    <item>PEAP</item>
-    <!-- Do not translate. -->
-    <item>TLS</item>
-    <!-- Do not translate. -->
-    <item>TTLS</item>
-    <!-- Do not translate. -->
-    <item>PWD</item>
-  </string-array>
   <!-- Wi-Fi AP band settings.  Either 2.4GHz or 5GHz. -->
   <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
-  <string-array name="wifi_ap_band_config_full">
-    <item>@string/wifi_ap_choose_2G</item>
-    <item>@string/wifi_ap_choose_5G</item>
-  </string-array>
-  <string-array name="wifi_ap_band_config_2G_only">
-    <item>@string/wifi_ap_choose_2G</item>
-  </string-array>
   <!-- Wi-Fi WPS setup for p2p connections.  -->
   <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
-  <string-array name="wifi_p2p_wps_setup">
-    <!-- Push button based configuration involves pushing a button on two connecting devices [CHAR LIMIT=30]-->
-    <item>Botón WPS</item>
-    <!-- This involves entering a pin obtained from a peer device [CHAR LIMIT=30] -->
-    <item>PIN del otru preséu</item>
-    <!-- This involves generating a pin from this device [CHAR LIMIT=20] -->
-    <item>PIN del preséu</item>
-  </string-array>
   <!-- Match this with the order of WifiP2pDevice.Status -->
   <!-- Wi-Fi p2p settings device status message -->
-  <string-array name="wifi_p2p_status">
-    <item>Coneutáu</item>
-    <item>Invitáu</item>
-    <item>Con fallu</item>
-    <item>Disponible</item>
-    <item>Fuera del algame</item>
-  </string-array>
   <!-- Bluetooth Settings -->
   <!-- Discoverable mode timeout options -->
-  <string-array name="bluetooth_visibility_timeout_entries">
-    <item>2 minutos</item>
-    <item>5 minutos</item>
-    <item>1 hora</item>
-    <item>Siempre visible</item>
-  </string-array>
   <!-- Match this with drawable.wifi_signal. -->
   <!-- Wi-Fi settings. The signal strength a Wi-Fi network has. -->
-  <string-array name="wifi_signal">
-    <item>Mala</item>
-    <item>Aceutable</item>
-    <item>Bona</item>
-    <item>Escelente</item>
-  </string-array>
   <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi sleep policy. -->
-  <string-array name="wifi_sleep_policy_entries">
-    <!-- Always keep Wi-Fi on when screen turns off. -->
-    <item>Siempre</item>
-    <!-- Keep Wi-Fi on when screen turns off and plugged in.  When on battery, go to sleep when screen turns off. -->
-    <item>Namái si se ta cargando</item>
-    <!-- Do not keep Wi-Fi on when screen turns off.  [CHAR LIMIT=40] -->
-    <item>Enxamás</item>
-  </string-array>
   <!-- Wi-Fi settings. Presented as a list dialog to the user to choose the Wi-Fi sleep policy. Used when
          the device is Wi-Fi-only. [CHAR LIMIT=30] -->
-  <string-array name="wifi_sleep_policy_entries_wifi_only">
-    <!-- Always keep Wi-Fi on when screen turns off. -->
-    <item>Siempre</item>
-    <!-- Keep Wi-Fi on when screen turns off and plugged in.  When on battery, go to sleep when screen turns off. -->
-    <item>Namái si se ta cargando</item>
-    <!-- Do not keep Wi-Fi on when screen turns off, for Wi-Fi-only devices, no other data connection -->
-    <item>Enxamás</item>
-  </string-array>
   <!-- Match with wifi_sleep_policy_entries and the values of the settings in Settings class. -->
   <!-- Do not translate. -->
-  <string-array name="wifi_sleep_policy_values">
-    <!-- Do not translate. -->
-    <item>2</item>
-    <!-- Do not translate. -->
-    <item>1</item>
-    <!-- Do not translate. -->
-    <item>0</item>
-  </string-array>
   <!-- Data Usage settings. Range of data usage. -->
-  <string-array name="data_usage_data_range">
-    <!-- Last 30 days [CHAR LIMIT=25]-->
-    <item>Caberos 30 díes</item>
-    <!-- Set usage cycle [CHAR LIMIT=25]-->
-    <item>Afitar ciclu d\'usu...</item>
-  </string-array>
   <!-- Display options for UsageStats class -->
-  <string-array name="usage_stats_display_order_types">
-    <item>Tiempu d\'usu</item>
-    <item>Usáu per postrer vegada</item>
-    <item>Nome de l\'aplicación</item>
-  </string-array>
   <!-- EAP method -->
-  <string-array name="wifi_eap_entries">
-    <item>PEAP</item>
-    <item>TLS</item>
-    <item>TTLS</item>
-    <item>PWD</item>
-  </string-array>
   <!-- Phase 2 options for PEAP -->
-  <string-array name="wifi_peap_phase2_entries">
-    <item>Nengún</item>
-    <item>MSCHAPV2</item>
-    <item>GTC</item>
-  </string-array>
   <!-- Phase 2 options for rest of EAP methods -->
-  <string-array name="wifi_phase2_entries">
-    <item>Nengún</item>
-    <item>PAP</item>
-    <item>MSCHAP</item>
-    <item>MSCHAPV2</item>
-    <item>GTC</item>
-  </string-array>
   <!-- Wi-Fi IP settings. -->
   <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
-  <string-array name="wifi_ip_settings">
-    <!-- Use DHCP (Dynamic Host Configuration Protocol) for obtaining IP settings [CHAR LIMIT=25] -->
-    <item>Protocolu DHCP</item>
-    <!-- Use statically defined IP settings [CHAR LIMIT=25]-->
-    <item>IP estática</item>
-  </string-array>
   <!-- Wi-Fi proxy settings. -->
   <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
-  <string-array name="wifi_proxy_settings">
-    <!-- No HTTP proxy is used for the current wifi network [CHAR LIMIT=25] -->
-    <item>Nengún</item>
-    <!-- Manual HTTP proxy settings are used for the current wifi network [CHAR LIMIT=25] -->
-    <item>Manual</item>
-    <!-- Proxy Auto-Config URL that is used for the current wifi network [CHAR LIMIT=25] -->
-    <item>Proxy Auto-Config</item>
-  </string-array>
   <!-- Authentication Types used in APN editor -->
-  <string-array name="apn_auth_entries">
-    <item>Nengún</item>
-    <item>PAP</item>
-    <item>CHAP</item>
-    <item>PAP o CHAP</item>
-  </string-array>
   <!-- Authentication Types used in APN editor -->
-  <string-array name="apn_protocol_entries">
-    <item>IPv4</item>
-    <item>IPv6</item>
-    <item>IPv4/IPv6</item>
-  </string-array>
   <!-- Bearer Info used in APN editor -->
-  <string-array name="bearer_entries">
-    <item>Ensin especificar</item>
-    <item>LTE</item>
-    <item>HSPAP</item>
-    <item>HSPA</item>
-    <item>HSUPA</item>
-    <item>HSDPA</item>
-    <item>UMTS</item>
-    <item>EDGE</item>
-    <item>GPRS</item>
-    <item>eHRPD</item>
-    <item>EVDO_B</item>
-    <item>EVDO_A</item>
-    <item>EVDO_0</item>
-    <item>1xRTT</item>
-    <item>IS95B</item>
-    <item>IS95A</item>
-  </string-array>
   <!-- MVNO Info used in APN editor -->
-  <string-array name="mvno_type_entries">
-    <item>Nenguna</item>
-    <!-- Do not translate. -->
-    <item>SPN</item>
-    <!-- Do not translate. -->
-    <item>IMSI</item>
-    <!-- Do not translate. -->
-    <item>GID</item>
-    <!-- Do not translate. -->
-    <item>ICCID</item>
-  </string-array>
   <!-- Apps on SD installation location options in ApplicationSettings -->
-  <string-array name="app_install_location_entries">
-    <item>Almacenamientu de preséu internu</item>
-    <item>Tarxeta SD extrayible</item>
-    <item>Seleición del sistema</item>
-  </string-array>
   <!-- Do not translate. -->
   <!-- Names of categories of app ops tabs -->
-  <string-array name="app_ops_categories">
-    <item>Llocalización</item>
-    <item>Personal</item>
-    <item>Mensaxes</item>
-    <item>Multimedia</item>
-    <item>Preséu</item>
-  </string-array>
   <!-- User display names for app ops codes -->
-  <string-array name="app_ops_summaries">
-    <item>llocalización común</item>
-    <item>llocalización precisa</item>
-    <item>GPS</item>
-    <item>vibrar</item>
-    <item>consultar contautos</item>
-    <item>modificar los contautos</item>
-    <item>lleer el rexistru de llamaes</item>
-    <item>modificar el rexistru de llamaes</item>
-    <item>lleer calendariu</item>
-    <item>modificar el calendariu</item>
-    <item>gueta de Wi-Fi</item>
-    <item>notificación</item>
-    <item>gueta de rede móvil</item>
-    <item>llamar a un teléfonu</item>
-    <item>lleer SMS</item>
-    <item>escribir SMS</item>
-    <item>recibir SMS</item>
-    <item>recibir SMS d\'emerxencia</item>
-    <item>recibir MMS</item>
-    <item>recibir WAP Push</item>
-    <item>unviar SMS</item>
-    <item>lleer SMS ICC</item>
-    <item>escribir SMS ICC</item>
-    <item>modificar la configuración</item>
-    <item>dibuxar en parte superior</item>
-    <item>acceder a les notificaciones</item>
-    <item>cámara</item>
-    <item>grabar audiu</item>
-    <item>reproducir audiu</item>
-    <item>lleer cartafueyu</item>
-    <item>modificar cartafueyu</item>
-    <item>botones multimedia</item>
-    <item>focu d\'audiu</item>
-    <item>volume principal</item>
-    <item>volume de la voz</item>
-    <item>volume del tonu</item>
-    <item>volume multimedia</item>
-    <item>volume de l\'alarma</item>
-    <item>volume de les notificaciones</item>
-    <item>volume de Bluetooth</item>
-    <item>caltener activu</item>
-    <item>remanar llocalización</item>
-    <item>supervisar llocalización d\'alta potencia</item>
-    <item>Obtener estaos d\'usu</item>
-    <item>Silenciar/dar volume micrófonu</item>
-    <item>Proyeutu Media</item>
-    <item>activar VPN</item>
-    <item>escribir fondu de pantalla</item>
-    <item>encontu a la estructura</item>
-    <item>encontu a la captura de pantalla</item>
-  </string-array>
   <!-- User display names for app ops codes -->
-  <string-array name="app_ops_labels">
-    <item>Llocalización</item>
-    <item>Llocalización</item>
-    <item>Llocalización</item>
-    <item>Vibrar</item>
-    <item>Consultar contautos</item>
-    <item>Modificar los contautos</item>
-    <item>Lleer el rexistru de llamaes</item>
-    <item>Modificar el rexistru de llamaes</item>
-    <item>Lleer calendariu</item>
-    <item>Modificar el calendariu</item>
-    <item>Llocalización</item>
-    <item>Espublizar notificación</item>
-    <item>Llocalización</item>
-    <item>Llamar a un teléfonu</item>
-    <item>Lleer SMS/MMS</item>
-    <item>Escribir SMS/MMS</item>
-    <item>Recibir SMS/MMS</item>
-    <item>Recibir SMS/MMS</item>
-    <item>Recibir SMS/MMS</item>
-    <item>Recibir SMS/MMS</item>
-    <item>Unviar SMS/MMS</item>
-    <item>Lleer SMS/MMS</item>
-    <item>Escribir SMS/MMS</item>
-    <item>Modificar la configuración</item>
-    <item>Dibuxar en parte superior</item>
-    <item>Acceder a les notificaciones</item>
-    <item>Cámara</item>
-    <item>Grabar audiu</item>
-    <item>Reproducir audiu</item>
-    <item>Lleer cartafueyu</item>
-    <item>Modificar cartafueyu</item>
-    <item>Botones multimedia</item>
-    <item>Focu d\'audiu</item>
-    <item>Volume principal</item>
-    <item>Volume de la voz</item>
-    <item>Volume del tonu</item>
-    <item>Volume multimedia</item>
-    <item>Volume d\'alarma</item>
-    <item>Volume de notificaciones</item>
-    <item>Volume de Bluetooth</item>
-    <item>Caltener activu</item>
-    <item>Llocalización</item>
-    <item>Llocalización</item>
-    <item>Obtener estaos d\'usu</item>
-    <item>Silenciar/dar volume micrófonu</item>
-    <item>Proyeutu Media</item>
-    <item>Activar VPN</item>
-    <item>Escribir fondu de pantalla</item>
-    <item>Encontu a la estructura</item>
-    <item>Encontu a la captura de pantalla</item>
-  </string-array>
   <!-- Titles for the list of long press timeout options. -->
-  <string-array name="long_press_timeout_selector_titles">
-    <!-- A title for the option for short long-press timeout [CHAR LIMIT=25] -->
-    <item>Curtiu</item>
-    <!-- A title for the option for medium long-press timeout [CHAR LIMIT=25] -->
-    <item>Mediu</item>
-    <!-- A title for the option for long long-press timeout [CHAR LIMIT=25] -->
-    <item>Llargu</item>
-  </string-array>
   <!-- Values for the list of long press timeout options. -->
   <!-- Titles for captioning typeface preference. [CHAR LIMIT=35] -->
-  <string-array name="captioning_typeface_selector_titles">
-    <item>Predetermináu</item>
-    <item>Sans-serif</item>
-    <item>Sans-serif condensáu</item>
-    <item>Sans-serif monospace</item>
-    <item>Serif</item>
-    <item>Serif monospace</item>
-    <item>Casual</item>
-    <item>Cursiva</item>
-    <item>Minúscules</item>
-  </string-array>
   <!-- Values for captioning typeface preference. -->
   <!-- Titles for captioning font size preference. [CHAR LIMIT=35] -->
-  <string-array name="captioning_font_size_selector_titles">
-    <item>Mui pequeña</item>
-    <item>Pequeña</item>
-    <item>Mediana</item>
-    <item>Grande</item>
-    <item>Mui grande</item>
-  </string-array>
   <!-- Values for captioning font size preference. -->
   <!-- Titles for captioning character edge type preference. [CHAR LIMIT=35] -->
-  <string-array name="captioning_edge_type_selector_titles">
-    <item>Predetermináu</item>
-    <item>Nengún</item>
-    <item>Contornu</item>
-    <item>Solombra paralela</item>
-    <item>Eleváu</item>
-    <item>Fundíu</item>
-  </string-array>
   <!-- Values for captioning character edge type preference. -->
   <!-- Titles for captioning color preference. -->
   <!-- Values for captioning color preference. -->
   <!-- Titles for captioning opacity preference. [CHAR LIMIT=35] -->
-  <string-array name="captioning_opacity_selector_titles">
-    <item>25%</item>
-    <item>50%</item>
-    <item>75%</item>
-    <item>100%</item>
-  </string-array>
   <!-- Values for captioning opacity preference. -->
   <!-- Titles for captioning text style preset preference. [CHAR LIMIT=35] -->
-  <string-array name="captioning_preset_selector_titles">
-    <item>Usar predeterm d\'app</item>
-    <item>Blancu sobre prietu</item>
-    <item>Prietu sobre blancu</item>
-    <item>Mariellu sobre prietu</item>
-    <item>Mariellu sobre azul</item>
-    <item>Personalizáu</item>
-  </string-array>
   <!-- Values for captioning text style preset preference. -->
   <!-- Match this with the constants in VpnProfile. -->
   <!-- Short names for each VPN type, not really translatable. [CHAR LIMIT=20] -->
   <!-- Match this with the constants in VpnProfile. -->
   <!-- Longer descriptions for each VPN type. [CHAR LIMIT=100] -->
-  <string-array name="vpn_types_long">
-    <item>Rede privada virtual PPTP</item>
-    <item>Rede privada virtual L2TP/IPSec con claves precompartíes</item>
-    <item>Rede privada virtual L2TP/IPSec con certificaos</item>
-    <item>Rede privada virtual IPSec con claves precompartíes y autenticación XAuth</item>
-    <item>Rede privada virtual IPSec con certificaos y autenticación XAuth</item>
-    <item>Rede privada virtual IPSec con certificaos y autenticación híbrida</item>
-  </string-array>
   <!-- Match this with the constants in LegacyVpnInfo. -->
   <!-- Status for a VPN network. [CHAR LIMIT=100] -->
-  <string-array name="vpn_states">
-    <!-- Status message when VPN is disconnected. -->
-    <item>Desconeutáu</item>
-    <!-- Status message when VPN is initializing. -->
-    <item>Aniciando...</item>
-    <!-- Status message when VPN is connecting. -->
-    <item>Coneutando...</item>
-    <!-- Status message when VPN is connected. -->
-    <item>Coneutáu</item>
-    <!-- Status message when VPN is timeout. -->
-    <item>Tiempu d\'espera superáu</item>
-    <!-- Status message when VPN is failed. -->
-    <item>Con fallu</item>
-  </string-array>
   <!-- User content ratings for restricted users [CHAR LIMIT=30] -->
   <!-- Values for user content ratings for restricted users -->
   <!-- Values for premium SMS permission selector [CHAR LIMIT=30] -->
-  <string-array name="security_settings_premium_sms_values">
-    <!-- Ask user before sending to premium SMS short code. -->
-    <item>Entrugar</item>
-    <!-- Never allow app to send to premium SMS short code. -->
-    <item>Nun permitir nunca</item>
-    <!-- Always allow app to send to premium SMS short code. -->
-    <item>Permitir siempre</item>
-  </string-array>
   <!-- [CHAR LIMIT=40] Labels for memory states -->
-  <string-array name="ram_states">
-    <!-- Normal desired memory state. -->
-    <item>Normal</item>
-    <!-- Moderate memory state, not as good as normal. -->
-    <item>Moderáu</item>
-    <!-- Memory is running low. -->
-    <item>Baxo</item>
-    <!-- Memory is critical. -->
-    <item>Críticu</item>
-    <!-- Unknown memory state -->
-    <item>\¿?</item>
-  </string-array>
   <!-- Display color space adjustment modes for accessibility -->
   <!-- Values for display color space adjustment modes for accessibility -->
   <!-- Battery saver mode: allowable trigger threshold levels. -->
   <!-- Process stats memory use details: labels for memory states -->
-  <string-array name="proc_stats_memory_states">
-    <item>Normal</item>
-    <item>Moderáu</item>
-    <item>Baxu</item>
-    <item>Críticu</item>
-  </string-array>
   <!-- Process stats memory use details: labels for process -->
-  <string-array name="proc_stats_process_states">
-    <item>Persistente</item>
-    <item>Más actividá</item>
-    <item>Importante (primer planu)</item>
-    <item>Importante (segundu planu)</item>
-    <item>Copia seguranza</item>
-    <item>Heavy weight</item>
-    <item>Serviciu (executando)</item>
-    <item>Serviciu (reaniciando)</item>
-    <item>Receutor</item>
-    <item>Aniciu</item>
-    <item>Cabera actividá</item>
-    <item>Cached (actividá)</item>
-    <item>Cached (actividá veceru)</item>
-    <item>Cached (baleru)</item>
-  </string-array>
   <!-- Array of titles for sim color for multi-sim -->
   <!-- Wifi extension requirement -->
   <!-- Wifi extension requirement -->
-  <string-array name="cellcular2wifi_values">
-    <item>0</item>
-    <item>1</item>
-    <item>2</item>
-  </string-array>
   <!-- CT MCC-MNC-->
   <!-- dm plmn that need to be hidden -->
   <!-- supl plmn list that need to be hidden -->
