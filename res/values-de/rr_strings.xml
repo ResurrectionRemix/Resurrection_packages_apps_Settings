@@ -134,6 +134,7 @@
   <string name="icons">Symbole</string>
   <string name="general">Allgemeine Einstellungen</string>
   <string name="ka_title">Leistung</string>
+  <string name="rr_notif_settings_title">Benachrichtigungen</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">Uhr und Datum in der Statusleiste anpassen</string>
   <string name="status_bar_logo_summary">Aktivieren oder Deaktivieren des Resurrection-Logos in der Statusleiste. Anpassen der Farbe und Position</string>
@@ -177,6 +178,7 @@
   <string name="misc_weather_settings_summary">Anpassen verschiedener Optionen der Uhr-App</string>
   <string name="system_app_remover_summary">Unnötige System-Apps entfernen</string>
   <string name="rr_updater_summary">Nach OTA-Updates und anderen Links suchen</string>
+  <string name="rr_notif_settings_summary">Passen sie das Aussehen der Benachrichtigungen in der Benachrichtigungsleiste an</string>
   <!-- Manage applications: show substratum overlays -->
   <string name="filter_substratum_apps">Substratum Overlays</string>
   <string name="menu_show_substratum">Overlays anzeigen</string>
@@ -709,8 +711,19 @@
   <string name="shortcut_action_select_action_newaction">Neue Aktion wählen:</string>
   <string name="shortcut_action_add">Hinzufügen</string>
   <string name="shortcut_action_reset_message">Alle Einträge auf die Standardwerte zurücksetzen?</string>
+  <string name="shortcut_action_max">Das Maximum an Einträgen wurde erreicht</string>
   <string name="shortcut_action_warning">ACHTUNG</string>
+  <string name="shortcut_action_warning_message">Es ist nicht möglich den letzten Eintrag zu löschen</string>
+  <string name="shortcut_action_disable_message">Deaktiviert\nFügen sie einen Eintrag hinzu um dieses Feature zu aktivieren</string>
+  <string name="shortcut_image_not_valid">Die ausgewählte App hat kein gültiges Symbol zurückgeliefert oder unterstützt das Zuschneiden von Bildern nicht. Benutzen sie eine andere App.</string>
+  <string name="shortcut_duplicate_entry">Die Ausgewählte Aktion kann nicht zweimal hinzugefügt werden</string>
+  <string name="shortcut_action_help_shortcut">Verknüpfung</string>
+  <string name="shortcut_action_help_button">Button</string>
+  <string name="shortcut_action_help_app">Anwendung</string>
+  <string name="shortcut_action_help_icon">, während das auswählen des Symbols weitere Anpassungsmöglichkeiten anzeigen wird</string>
   <string name="shortcut_action_help_main">Um eine %1$s hinzuzufügen, auf das \"(+)\"-Symbol drücken. Wenn eine %1$s hinzugefügt wurde, kann diese durch nochmaliges Drücken auf den Eintrag geändert werden%2$s\n\nUm eine %1$s zu löschen, den Eintrag einfach nach links oder rechts aus dem Bildschirm schieben. Um die Position einer %1$s zu ändern, das Symbol auf der linken Seite lange drücken und den Eintrag auf die neue Position verschieben.\n\nZum Löschen auf das \"Zurücksetzen\"-Symbol drücken.</string>
+  <string name="shortcut_action_help_delete_last_entry">Das Entfernen aller %1$s in der Liste deaktiviert das Feature vollständig.</string>
+  <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Das Entfernen aller %1$s in der Liste deaktiviert das zweite Pie Layer vollständig.</string>
   <string name="shortcut_picker_choose_longpress_action">Aktion beim lange drücken wählen:</string>
   <string name="shortcut_picker_choose_new_action">Neue Aktion wählen:</string>
   <string name="shortcut_picker_reassign_action">Aktion zuweisen:</string>
@@ -1035,9 +1048,24 @@
   <string name="clock_settings_title">Uhrzeit-Einstellungen</string>
   <string name="status_bar_clock_category">Uhrzeit</string>
   <string name="status_bar_date_title">Datum</string>
+  <string name="status_bar_clock_style_title">Darstellung der Uhr</string>
+  <string name="status_bar_clock_style_right">Rechts</string>
+  <string name="status_bar_clock_style_left">Links</string>
+  <string name="status_bar_clock_style_center">Mitte</string>
+  <string name="status_bar_clock_style_hidden">Versteckt</string>
+  <string name="status_bar_clock_style_title">Darstellung der Uhr</string>
+  <string name="status_bar_clock_style_right">Rechts</string>
+  <string name="status_bar_clock_style_left">Links</string>
+  <string name="status_bar_clock_style_center">Mitte</string>
+  <string name="status_bar_clock_style_hidden">Versteckt</string>
   <string name="clock_date_position">Position des Datums</string>
   <string name="clock_date_right">Rechts neben der Uhrzeit</string>
   <string name="clock_date_left">Links neben der Uhrzeit</string>
+  <string name="status_bar_am_pm_title">AM/PM-Stil</string>
+  <string name="status_bar_am_pm_info">24-Stunden Format ist aktiviert</string>
+  <string name="status_bar_am_pm_normal">Normal</string>
+  <string name="status_bar_am_pm_small">Klein</string>
+  <string name="status_bar_am_pm_hidden">Versteckt</string>
   <string name="status_bar_date_none">Versteckt (Standard)</string>
   <string name="status_bar_date_small">Klein</string>
   <string name="status_bar_date_normal">Normal</string>
@@ -1311,12 +1339,14 @@
   <string name="qs_rows_portrait_title">Zeilen (Hochformat)</string>
   <string name="qs_rows_landscape_title">Zeilen (Querformat)</string>
   <string name="qs_columns_title">Spalten</string>
+  <string name="qs_small_tiles_title">Kleine QS-Kacheln</string>
   <!-- Battery saver color -->
   <string name="battery_saver_color_title">Warnungsfarbe</string>
   <string name="battery_saver_color_summary">Aktiviere orangene Status-/Navigationsleiste bei aktiviertem Energiesparmodus</string>
   <string name="network_traffic_color_style">Farbstil</string>
   <string name="network_traffic_color_reset">Farbauswahl zurücksetzen</string>
   <string name="network_traffic_color_reset_message">Soll die Farbauswahl für den Netzwerkmonitor wirklich zurückgesetzt werden?</string>
+  <string name="status_bar_weather_color_title">Schriftfarbe der Temperatur</string>
   <string name="status_bar_rr_logo_color">Logofarbe</string>
   <string name="status_bar_logo">Resurrection-Logo</string>
   <string name="status_bar_logo_title">Brand Logo</string>
@@ -1341,6 +1371,7 @@
   <string name="qs_battery_easy_toggle_summary">Ein Tippen aktiviert/deaktiviert den Energiesparmodus, anstatt die Einstellungen zu öffnen</string>
   <string name="qs_music_tile_track_optional_title">Musik-Kachel</string>
   <string name="qs_music_tile_track_optional_summary">Zeige den Musiktitel als QS-Kachel</string>
+  <string name="quick_settings_vibrate_title">Bei Berührung vibrieren</string>
   <string name="quick_settings_vibrate_summary">Bei Berührung der Schaltflächen vibrieren</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Schnelles Entsperren</string>
@@ -1354,6 +1385,12 @@
   <string name="app_circle_bar_summary">Zeigt einen Ring mit Anwendungen bei Berührung des rechten Displayrands</string>
   <string name="app_circle_bar_included_apps_title">Einbezogene Apps</string>
   <string name="app_circle_bar_included_apps_summary">Apps, die in der App Circle Bar angezeigt werden sollen</string>
+  <string name="trigger_width_title">Breite des Auslösebereichs</string>
+  <string name="trigger_width_summary">Breite des Auslösebereichs anpassen</string>
+  <string name="trigger_top_title">Position des Auslösers</string>
+  <string name="trigger_top_summary">Bestimmung der vertikalen Postion des Auslöserbereiches</string>
+  <string name="trigger_bottom_title">Höhe des Auslösebereichs</string>
+  <string name="trigger_bottom_summary">Bestimmung der Höhe des Auslöserbereiches</string>
   <!-- Breathing Notifications -->
   <string name="breathing_notifications_title">Pulsierende Benachrichtigungen</string>
   <string name="sms_breath_title">Pulsierende SMS-Benachrichtigungen</string>
@@ -1371,12 +1408,16 @@
   <string name="navigationbar_settings_title">Navigationsleiste</string>
   <string name="navigationbar_settings_summary">Navigationsstil und -verhalten anpassen</string>
   <string name="navbar_general_title">Erweitert</string>
+  <string name="navigation_bar_left_title">Linkshänder-Modus</string>
+  <string name="navigation_bar_left_summary">Navigationsleiste im Querformat auf der linken Seite anzeigen</string>
   <string name="info_pref_note_title">Hinweis</string>
   <string name="smartbar_interface">SmartBar</string>
   <string name="navbar_tint_switch">Buttons der Navigationsleiste färben</string>
   <string name="navbar_button_color">Tasten der Navigationsleiste</string>
   <string name="icon_pack_picker_dialog_title">Symbolpakete</string>
   <string name="invalid_icon_from_uri">Nicht möglich, Bild vom Anbieter zu laden</string>
+  <string name="picker_activities">Aktivitäten</string>
+  <string name="select_custom_app_title">Benutzerdefinierte App auswählen</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
   <string name="choose_action_title">Aktion auswählen</string>
   <string name="action_entry_default_action">Standardeinstellungen</string>

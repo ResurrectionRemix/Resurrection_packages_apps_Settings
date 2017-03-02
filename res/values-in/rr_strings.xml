@@ -135,6 +135,7 @@
   <string name="icons">Ikon</string>
   <string name="general">Umum</string>
   <string name="ka_title">Kinerja</string>
+  <string name="rr_notif_settings_title">Pemberitahuan</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">Sesuaikan berbagai elemen dari statusbar, jam dan tanggal</string>
   <string name="status_bar_logo_summary">Aktifkan atau nonaktifkan logo Resurrection di status bar. Sesuaikan warna dan posisi</string>
@@ -148,6 +149,8 @@
   <string name="rr_sb_gestures_summary">Mengaktifkan atau menonaktifkan gesture yang digunakan pada statusbar</string>
   <string name="breathing_notifications_summary">Berikan efek nafas pada pemberitahuan seperti sms, panggilan tak terjawab, dan pesan suara</string>
   <string name="rr_trans_summary">Sesuaikan berbagai komponen seperti transparansi dan garis tepi papan notifikasi</string>
+  <string name="rr_volume_summary">Menyesuaikan berbagai elemen dalam dialog volume yang seperti transparansi dan stroke</string>
+  <string name="rr_power_summary">Sesuaikan redup dan transparansi dari antarmuka menu power</string>
   <string name="rr_recents_ui_summary">Menyesuaikan berbagai elemen di panel Recent seperti bar memori, immersive Recent, dll.</string>
   <string name="recents_clear_all_summary">Mengganti tombol bersih semua yang asli dengan tombol mengambang yang asli dan sesuaikan posisinya</string>
   <string name="omniswitch_summary">Mengganti Recent bawaan dengan Omni Recent</string>
@@ -163,6 +166,7 @@
   <string name="gesture_anywhere_summary">Gambar isyarat Anda untuk memulai aktivitas yang dipilih</string>
   <string name="app_sidebar_summary">Gunakan sisi bar untuk menyimpan aplikasi dan kegiatan yang dapat dengan cepat diluncurkan dengan mudah</string>
   <string name="app_circle_bar_summary">Gunakan sisi bar melingkar untuk menyimpan aplikasi ringkas dan aktivitas</string>
+  <string name="pa_pie_control_summary">Geser dari tepi untuk mengaktifkan/menonaktifkan pie dan kontrol navigasi</string>
   <string name="rr_navbar_summary">Aktifkan atau nonaktifkan tombol lunak dan sesuaikan</string>
   <string name="rr_power_summary">Menyesuaikan berbagai pilihan untuk terlihat pada menu daya</string>
   <string name="system_animations_summary">Sesuaikan animasi dari setiap jendela dalam sistem</string>
@@ -175,6 +179,7 @@
   <string name="misc_weather_settings_summary">Menyesuaikan berbagai pilihan untuk aplikasi Cclock</string>
   <string name="system_app_remover_summary">Hapus aplikasi sistem yang tidak diperlukan</string>
   <string name="rr_updater_summary">Periksa untuk pembaruan OTA dan tautan lainnya</string>
+  <string name="rr_notif_settings_summary">Sesuaikan tampilan notifikasi di panel notifikasi</string>
   <!-- Manage applications: show substratum overlays -->
   <string name="filter_substratum_apps">Substratum overlay</string>
   <string name="menu_show_substratum">Tampilkan overlay</string>
@@ -553,6 +558,7 @@
   <string name="summary_doze_enabled">Diaktifkan</string>
   <string name="summary_doze_disabled">Dinonaktifkan</string>
   <string name="doze_overwrite_value_title">Menimpa standar</string>
+  <string name="doze_overwrite_value_summary">Mengijinkan menimpa nilai-nilai default dengan konfigurasi</string>
   <string name="doze_pulse_title">Pengaturan konfigurasi pengguna</string>
   <string name="doze_pulse_duration_in_title">Pudar ke dalam</string>
   <string name="doze_pulse_duration_visible_title">Durasi terlihat</string>
@@ -608,6 +614,8 @@
   <string name="shortcut_action_help_shortcut">jalan pintas</string>
   <string name="shortcut_action_help_button">tombol</string>
   <string name="shortcut_action_help_app">app</string>
+  <string name="shortcut_action_help_icon">, saat memilih ikon akan memunculkan opsi kustomisasi</string>
+  <string name="shortcut_action_help_main">Untuk menambahkan %1$s, pilih ikon Tambah. Setelah %1$s ditambahkan, memilih baris akan mengubah target %2$s\n\n Untuk menghapus %1$s, menggesek baris horizontal ke kiri atau kanan. Menyusun ulang %1$s dalam daftar secara vertikal dengan menyeret jangkar di sebelah kiri.\n\n Untuk menghapus atau mengembalikan ke default, pilih ikon Reset.</string>
   <string name="shortcut_action_help_delete_last_entry">Menghapus setiap %1$s dalam daftar akan menonaktifkan fitur sepenuhnya.</string>
   <string name="shortcuts_applications">Aplikasi</string>
   <string name="shortcuts_select_custom_app_title">Pilih kostum aplikasi</string>
@@ -1388,6 +1396,9 @@
   <string name="smartbar_button_animation_summary">Atur gaya animasi tombol utama saat mereka ditekan</string>
   <string name="smartbar_button_animation_ripple">Riak</string>
   <string name="smartbar_button_animation_spring">Spring</string>
+  <string name="smartbar_button_animation_pixel">Piksel (semua tombol)</string>
+  <string name="smartbar_button_animation_pixel_home">Piksel (Hanya tombol Home)</string>
+  <string name="smartbar_button_animation_pixel_home_ripple">Pixel (Hanya tombol Home) dan riak</string>
   <string name="smartbar_factory_reset_title">Setel ulang ke bawaan</string>
   <string name="smartbar_factory_reset_confirm">Anda yakin ingin menyetel ulang \'SmartBar\' ke pengaturan bawaan?</string>
   <string name="smartbar_ime_action_title">Tindakan metode masukan</string>
@@ -1823,6 +1834,11 @@
   <!-- Themes settings -->
   <string name="themes_title">Tema</string>
   <!-- Slim Recent panel -->
+  <string name="slim_recents_title">Slim Recent</string>
+  <string name="use_slim_recents_title">Gunakan Slim Recent</string>
+  <string name="slim_recents_settings_title">Pengaturan Slim Recent</string>
+  <string name="slim_recents_settings_summary">Lihat pengaturan untuk Slim Recent</string>
+  <string name="recent_panel_category">Panel Slim Recent aplikasi</string>
   <string name="show_running_tasks_title">Hanya tampilkan aplikasi berjalan</string>
   <string name="recent_panel_scale_title">Ukuran</string>
   <string name="recent_panel_expanded_mode_title">Mode diperluas</string>
@@ -1837,8 +1853,18 @@
   <string name="recent_panel_lefty_mode_summary">Tampilkan panel aplikasi terkini di tepi kiri</string>
   <!-- Fingerprint unlock keystore -->
   <!-- Wired headset ringtone audio focus -->
+  <string name="rr_sound_title">Headset</string>
   <!-- Slim Recent App Sidebar  -->
+  <string name="recent_app_sidebar_label_color_title">Warna label</string>
+  <string name="recent_app_sidebar_bg_color_title">Warna latar belakang</string>
+  <string name="recent_app_sidebar_scale_title">Ukuran</string>
   <!-- Battery stats reset -->
+  <string name="battery_stats_reset">Atur ulang statistik</string>
+  <string name="battery_stats_message">Statistik penggunaan baterai akan di atur ulang</string>
+  <string name="ok_string">Oke</string>
   <!-- Hide Statusbar on Lockscreen -->
+  <string name="lockscreen_hide_status_bar_title">Sembunyikan status bar</string>
   <!-- Notification guts kill app button -->
+  <string name="notification_guts_kill_app_button_title">Tombol tutup aplikasi</string>
+  <string name="weather_title">Cuaca</string>
 </resources>
