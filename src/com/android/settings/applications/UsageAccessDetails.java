@@ -163,7 +163,7 @@ public class UsageAccessDetails extends AppInfoWithHeader implements OnPreferenc
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.APPLICATIONS_USAGE_ACCESS_DETAIL;
+        return MetricsEvent.APPLICATIONS_USAGE_ACCESS_DETAIL;
     }
 
 }
