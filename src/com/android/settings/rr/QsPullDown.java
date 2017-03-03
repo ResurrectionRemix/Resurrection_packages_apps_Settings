@@ -72,7 +72,7 @@ public class QsPullDown extends SettingsPreferenceFragment implements
 
 	    mQuickPulldown = (ListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
         int quickPulldown = CMSettings.System.getInt(resolver,
-                CMSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1);
+                CMSettings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 0);
         mQuickPulldown.setValue(String.valueOf(quickPulldown));
         if (quickPulldown == 0) {
             // quick pulldown deactivated
