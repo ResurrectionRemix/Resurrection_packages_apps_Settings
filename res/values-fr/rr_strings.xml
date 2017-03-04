@@ -135,6 +135,7 @@
   <string name="icons">Icônes</string>
   <string name="general">Générales</string>
   <string name="ka_title">Performances</string>
+  <string name="rr_notif_settings_title">Notifications</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">Personnaliser les différents éléments de la barre d’état, l’horloge et la date</string>
   <string name="status_bar_logo_summary">Activer ou désactiver le logo résurection dans la barre de statut. Personnaliser couleur et position</string>
@@ -178,6 +179,7 @@
   <string name="misc_weather_settings_summary">Personnaliser diverses options pour l\'application d\'horloge</string>
   <string name="system_app_remover_summary">Supprimer les applications inutiles du système</string>
   <string name="rr_updater_summary">Recherchez les mises à jour OTA et autres liens</string>
+  <string name="rr_notif_settings_summary">Personnaliser l\'apparence de vos notifications dans le panneau de notifications</string>
   <!-- Manage applications: show substratum overlays -->
   <string name="filter_substratum_apps">Surcouches Substratum</string>
   <string name="menu_show_substratum">Afficher les surcouches</string>
@@ -284,6 +286,8 @@
   <string name="force_expanded_notifications_title">Forcer le mode étendu des notifications</string>
   <string name="force_expanded_notifications_summary">Disponible uniquement pour les applications qui prennent en charge les notifications étendues</string>
   <!-- Disabling FC notifications -->
+  <string name="disable_fc_notifications_title">Désactiver les notifications FC</string>
+  <string name="disable_fc_notifications_summary">Cela permet de masquer toutes les notifications de fermeture forcée</string>
   <!-- Disabling immersive mode messages -->
   <string name="disable_immersive_message_title">Désactiver les messages en mode immersif</string>
   <string name="disable_immersive_message_summary">Cela permet de masquer tous les messages en mode immersif</string>
@@ -1499,6 +1503,8 @@
   <string name="pulse_legacy_mode_advanced_category">Paramètres du mode blocs en degradé</string>
   <string name="pulse_custom_fudge_factor">Fréquence de Pulse</string>
   <string name="lavamp_solid_speed_title">Vitesse de la lampe Lava</string>
+  <string name="pulse_solid_units_count">Nombre de lignes pleines</string>
+  <string name="pulse_solid_units_opacity">Opacité des lignes pleines</string>
   <string name="pulse_solid_dimen_category">Lignes pleines</string>
   <string name="fling_lavalamp_color_from">Couleur de départ \"Lava Lamp\"</string>
   <string name="fling_lavalamp_color_to">Couleur finale \"Lava Lamp\"</string>
@@ -1526,6 +1532,9 @@
   <string name="smartbar_button_animation_summary">Définir le mode d\'animation des boutons lorsqu\'ils sont appuyés</string>
   <string name="smartbar_button_animation_ripple">Ondulation</string>
   <string name="smartbar_button_animation_spring">Rebond</string>
+  <string name="smartbar_button_animation_pixel">Pixel (tous les boutons)</string>
+  <string name="smartbar_button_animation_pixel_home">Pixel (bouton Home seulement)</string>
+  <string name="smartbar_button_animation_pixel_home_ripple">Pixel (bouton Home seulement) et Ondulation</string>
   <string name="smartbar_factory_reset_title">Réinitialiser les paramètres</string>
   <string name="smartbar_factory_reset_confirm">Êtes-vous sûr de vouloir réinitialiser la barre intelligente aux paramètres de base ?</string>
   <string name="smartbar_ime_action_title">Modes de saisie</string>
@@ -1881,6 +1890,7 @@
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Attention</string>
   <string name="title_keyboard_input">Options de saisie</string>
+  <string name="rr_input_method_summary">Personnaliser les éléments avancés de vos actions de méthode d’entrée</string>
   <string name="disable_fullscreen_keyboard_title">Désactiver le clavier plein écran</string>
   <string name="disable_fullscreen_keyboard_summary">Le clavier au format paysage ne prendra jamais la totalité de l\'écran</string>
   <string name="keyboard_rotation_toggle_title">Rotation automatique du clavier</string>
@@ -2057,8 +2067,36 @@
   <string name="fp_unlock_keystore_title">Déverrouiller avec l\'empreinte digitale</string>
   <string name="fp_unlock_keystore_summary">Déverrouiller l’appareil avec l\'empreinte digitale après redémarrage sans mot de passe/PIN/Schema\nNote : à vos risques et périls !</string>
   <!-- Wired headset ringtone audio focus -->
+  <string name="rr_sound_title">Ecouteurs</string>
+  <string name="rr_sound_summary">Personnaliser les paramètres de vos écouteurs filaires</string>
+  <string name="wired_ringtone_focus_mode_title">Jouer les sonneries à partir de</string>
+  <string name="wired_ringtone_focus_mode_dynamic">Casque filaire si connecté et musique en cours</string>
+  <string name="wired_ringtone_focus_mode_stock">Haut-parleur et écouteurs (par défaut)</string>
   <!-- Slim Recent App Sidebar  -->
+  <string name="recent_app_sidebar_title">Barre latérale des Applications récentes</string>
+  <string name="use_recent_app_sidebar_title">Activez la barre d\'application latérale</string>
+  <string name="use_recent_app_sidebar_summary">Afficher les raccourcis d\'application sur l\'autre bord</string>
+  <string name="recent_app_sidebar_content_title">Contenu de la barre d\'application latérale</string>
+  <string name="recent_app_sidebar_content_summary">Configurer le contenu de la barre d\'application latérale</string>
+  <string name="recent_app_sidebar_style_title">Style de la barre latérale</string>
+  <string name="recent_app_sidebar_style_summary">Changer le style de la barre d\'application latérale</string>
+  <string name="recent_app_sidebar_hide_labels_title">Masquer le nom des icônes</string>
+  <string name="recent_app_sidebar_label_color_title">Couleur de l\'étiquette</string>
+  <string name="recent_app_sidebar_bg_color_title">Couleur d\'arrière-plan</string>
+  <string name="recent_app_sidebar_scale_title">Taille</string>
+  <string name="recent_app_sidebar_open_simultaneously_title">Ouvrir en même temps que les récents</string>
+  <string name="recent_app_sidebar_open_simultaneously_summary">Réduire le ralentissement à l\'ouverture des récents en désactivant ceci</string>
   <!-- Battery stats reset -->
+  <string name="battery_stats_reset">Réinitialiser les statistiques</string>
+  <string name="battery_stats_message">Les statistiques de batterie vont être réinitialisées</string>
+  <string name="ok_string">Valider</string>
   <!-- Hide Statusbar on Lockscreen -->
+  <string name="lockscreen_hide_status_bar_title">Masquer la barre d\'état</string>
+  <string name="lockscreen_hide_status_bar_summary">Afficher la barre d\'état sur l\'écran de verrouillage</string>
   <!-- Notification guts kill app button -->
+  <string name="notification_guts_kill_app_button_title">Bouton pour tuer les apps</string>
+  <string name="notification_guts_kill_app_button_summary">Afficher un bouton pour tuer l\'application lors d\'un appui long dans les notifications</string>
+  <string name="weather_title">Météo</string>
+  <string name="weather_config_title">Paramètres du service</string>
+  <string name="weather_icon_pack_title">Pack d’icônes Météo</string>
 </resources>

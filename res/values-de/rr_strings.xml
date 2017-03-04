@@ -28,6 +28,7 @@
   <string name="help">Hilfe</string>
   <string name="reset_message">Alle Einträge auf Standard zurücksetzen?</string>
   <string name="attention">Achtung</string>
+  <string name="reset">Zurücksetzen</string>
   <string name="restart_systemui">UI neustarten</string>
   <!-- About RR -->
   <string name="about_rr_settings">Über</string>
@@ -285,6 +286,8 @@
   <string name="force_expanded_notifications_title">Erzwinge erweiterte Benachrichtigungen</string>
   <string name="force_expanded_notifications_summary">Nur bei den Apps verfügbar, die erweiterte Benachrichtigungen unterstützen</string>
   <!-- Disabling FC notifications -->
+  <string name="disable_fc_notifications_title">Benachrichtigungen zu Zwangsschließungen deaktivieren</string>
+  <string name="disable_fc_notifications_summary">Alle Pop-Up-Fenster zu den Zwangsschließungen werden versteckt</string>
   <!-- Disabling immersive mode messages -->
   <string name="disable_immersive_message_title">Immersive Mode-Nachrichten deaktivieren</string>
   <string name="disable_immersive_message_summary">Diese Einstellung wird alle Immersive Mode-Nachrichten verstecken</string>
@@ -710,6 +713,7 @@
   <string name="shortcut_action_select_action_longpress">Aktion für langes Drücken wählen:</string>
   <string name="shortcut_action_select_action">Aktion wählen:</string>
   <string name="shortcut_action_select_action_newaction">Neue Aktion wählen:</string>
+  <string name="shortcut_action_reset">Wiederherstellen</string>
   <string name="shortcut_action_add">Hinzufügen</string>
   <string name="shortcut_action_reset_message">Alle Einträge auf die Standardwerte zurücksetzen?</string>
   <string name="shortcut_action_max">Das Maximum an Einträgen wurde erreicht</string>
@@ -1419,6 +1423,10 @@
   <string name="invalid_icon_from_uri">Nicht möglich, Bild vom Anbieter zu laden</string>
   <string name="picker_activities">Aktivitäten</string>
   <string name="select_custom_app_title">Benutzerdefinierte App auswählen</string>
+  <string name="select_custom_activity_title">Benutzerdefinierte Aktivität auswählen</string>
+  <string name="profile_applist_title">Anwendungen</string>
+  <string name="default_string">Standard</string>
+  <string name="reset">Wiederherstellen</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
   <string name="choose_action_title">Aktion auswählen</string>
   <string name="action_entry_default_action">Standardeinstellungen</string>
@@ -1495,6 +1503,8 @@
   <string name="pulse_legacy_mode_advanced_category">Einstellungen für verblassende Blöcke</string>
   <string name="pulse_custom_fudge_factor">Vernünftiger Pegel</string>
   <string name="lavamp_solid_speed_title">Geschwindigkeit des Farbwechsels</string>
+  <string name="pulse_solid_units_count">Durchgezogene Linien zählen</string>
+  <string name="pulse_solid_units_opacity">Durchgezogene Linien Deckkraft</string>
   <string name="pulse_solid_dimen_category">Einstellungen für durchgezogene Linien</string>
   <string name="fling_lavalamp_color_from">Lavalampe Startfarbe</string>
   <string name="fling_lavalamp_color_to">Lavalampe Endfarbe</string>
@@ -1524,6 +1534,7 @@
   <string name="smartbar_button_animation_spring">Sprung</string>
   <string name="smartbar_button_animation_pixel">Pixel (alle Buttons)</string>
   <string name="smartbar_button_animation_pixel_home">Pixel (nur Homebutton)</string>
+  <string name="smartbar_button_animation_pixel_home_ripple">Pixel (Home Taste nur) und Welligkeit</string>
   <string name="smartbar_factory_reset_title">Auf Standard zurücksetzen</string>
   <string name="smartbar_factory_reset_confirm">Sind Sie sicher, dass Sie die SmartBar auf die Standardeinstellungen zurücksetzen möchten?</string>
   <string name="smartbar_ime_action_title">Aktionen für Eingabemethoden</string>
@@ -1879,6 +1890,7 @@
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Achtung</string>
   <string name="title_keyboard_input">Eingabe-Optionen</string>
+  <string name="rr_input_method_summary">Passen Sie die erweiterten Einstellungen Ihrer Eingabemethode-Aktionen an</string>
   <string name="disable_fullscreen_keyboard_title">Vollbild-Tastatur deaktivieren</string>
   <string name="disable_fullscreen_keyboard_summary">Im Breitbild-Format wird die Tastatur nie den kompletten Bildschirm belegen.</string>
   <string name="keyboard_rotation_toggle_title">Automatische Tastatur Drehung</string>
@@ -2052,9 +2064,39 @@
   <string name="recent_panel_lefty_mode_title">Am linken Bildschirmrand anzeigen</string>
   <string name="recent_panel_lefty_mode_summary">Zeige das \"Letzte Apps\" Panel an der linken Kante</string>
   <!-- Fingerprint unlock keystore -->
+  <string name="fp_unlock_keystore_title">Fingerprint entsperren</string>
+  <string name="fp_unlock_keystore_summary">Nach einem Neustart ohne PIN/Passwort/Muster das Gerät mit Fingerabdruck entsperren\nNote: auf eigene Gefahr!</string>
   <!-- Wired headset ringtone audio focus -->
+  <string name="rr_sound_title">Kopfhörer</string>
+  <string name="rr_sound_summary">Die angeschlossene Kopfhörer-Einstellungen anpassen</string>
+  <string name="wired_ringtone_focus_mode_title">Woraus der Klingelton abgespielt werden soll</string>
+  <string name="wired_ringtone_focus_mode_dynamic">Angeschlossener Kopfhörer falls verbunden und Musik abgespielt wird</string>
+  <string name="wired_ringtone_focus_mode_stock">Lautsprecher und Kopfhörer (Standard)</string>
   <!-- Slim Recent App Sidebar  -->
+  <string name="recent_app_sidebar_title">Anwendungsverlauf Seitenleiste</string>
+  <string name="use_recent_app_sidebar_title">App Seitenleiste aktivieren</string>
+  <string name="use_recent_app_sidebar_summary">Zeigt App-Verknüpfungen auf der gegenüberliegenden Displayseite an</string>
+  <string name="recent_app_sidebar_content_title">App-Seitenleiste-Inhalte</string>
+  <string name="recent_app_sidebar_content_summary">Konfigurieren Sie den Inhalt der Seitenleiste app</string>
+  <string name="recent_app_sidebar_style_title">Seitenleisten-Stil</string>
+  <string name="recent_app_sidebar_style_summary">Stil des Anwendungsverlaufs der Seitenleiste ändern</string>
+  <string name="recent_app_sidebar_hide_labels_title">Symbol Beschriftung verbergen</string>
+  <string name="recent_app_sidebar_label_color_title">Textfarbe</string>
+  <string name="recent_app_sidebar_bg_color_title">Hintergrundfarbe</string>
+  <string name="recent_app_sidebar_scale_title">Größe</string>
+  <string name="recent_app_sidebar_open_simultaneously_title">Gleichzeitig mit Anwendungsverlauf öffnen</string>
+  <string name="recent_app_sidebar_open_simultaneously_summary">Deaktiviere dies, um den Lag beim Öffnen des Anwendungsverlaufs zu verringern</string>
   <!-- Battery stats reset -->
+  <string name="battery_stats_reset">Statistiken zurücksetzen</string>
+  <string name="battery_stats_message">Akkustatistiken werden zurückgesetzt</string>
+  <string name="ok_string">Ok</string>
   <!-- Hide Statusbar on Lockscreen -->
+  <string name="lockscreen_hide_status_bar_title">Statusleiste ausblenden</string>
+  <string name="lockscreen_hide_status_bar_summary">Schalte Statusbar Sicht im Sperrbildschirm</string>
   <!-- Notification guts kill app button -->
+  <string name="notification_guts_kill_app_button_title">App beenden Taste</string>
+  <string name="notification_guts_kill_app_button_summary">Zeige eine \"App beenden\" Taste im Menü des gedrückt halten der Benachrichtigung</string>
+  <string name="weather_title">Wetter</string>
+  <string name="weather_config_title">Service-Einstellungen</string>
+  <string name="weather_icon_pack_title">Bedingung Symbole Packet</string>
 </resources>
