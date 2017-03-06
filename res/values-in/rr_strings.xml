@@ -286,6 +286,7 @@
   <string name="force_expanded_notifications_title">Paksa perluas pemberitahuan</string>
   <string name="force_expanded_notifications_summary">Tersedia hanya untuk aplikasi yang mendukung pemberitahuan diperluas</string>
   <!-- Disabling FC notifications -->
+  <string name="disable_fc_notifications_title">Nonaktifkan pemberitahuan FC</string>
   <!-- Disabling immersive mode messages -->
   <string name="disable_immersive_message_title">Menonaktifkan notifikasi ketika menggunakan layar penuh</string>
   <string name="disable_immersive_message_summary">Akan menghilangkan semua notifikasi ketika layar penuh</string>
@@ -559,7 +560,7 @@
   <string name="summary_doze_enabled">Diaktifkan</string>
   <string name="summary_doze_disabled">Dinonaktifkan</string>
   <string name="doze_overwrite_value_title">Menimpa standar</string>
-  <string name="doze_overwrite_value_summary">Mengijinkan menimpa nilai-nilai default dengan konfigurasi</string>
+  <string name="doze_overwrite_value_summary">Mengijinkan menimpa nilai-nilai standar dengan konfigurasi pengguna</string>
   <string name="doze_pulse_title">Pengaturan konfigurasi pengguna</string>
   <string name="doze_pulse_duration_in_title">Pudar ke dalam</string>
   <string name="doze_pulse_duration_visible_title">Durasi terlihat</string>
@@ -1141,14 +1142,18 @@
   <string name="pin_button_color">Tombol penyemat layar </string>
   <string name="mw_button_color">Tombol multi-jendela</string>
   <string name="tv_app_text_color">Teks deskripsi aplikasi</string>
+  <string name="recent_styles_summary">Menyesuaikan berbagai elemen pada Recent </string>
   <string name="mem_text_color">Text bar memori</string>
   <string name="clear_button_color">Bersihkan semua</string>
   <string name="clear_recents_style_enable">Gaya Recent khusus</string>
   <string name="clear_recents_style_enable_summary">Mengaktifkan / menonaktifkan gaya tampilan Recent khusus</string>
   <string name="recents_rotate_fab_summary">Mengaktifkan / menonaktifkan rotasi tombol hapus semua</string>
   <string name="recents_fab_vibrate">Tombol hapus semua bergetar saat ditekan</string>
+  <string name="recents_fab_vibrate_summary">Mengaktifkan / menonaktifkan umpan balik haptik dari tomnol Abaikan Semua</string>
   <string name="fab_animation_style">Animasi tombol mengambang</string>
   <string name="recents_fab_lp">Aktifkan tekan agak lama pada tombol mengambang</string>
+  <string name="recents_fab_lp_summary">Menekan agak lama memperbarui bar memori jika ada</string>
+  <string name="recents_fab_lp_anim">Animasi menekan agak lama pada FAB</string>
   <string name="clear_animation_style">Animasi /\'hapus semua/\'</string>
   <string name="button1">Standar </string>
   <string name="button2">Centang kotak persegi </string>
@@ -1184,6 +1189,7 @@
   <string name="omniswitch_settings_title">Omni switch</string>
   <!-- Less Notification sounds -->
   <string name="notifications_category_title">Pemberitahuan</string>
+  <string name="less_notification_sounds_title">Kurangi frekuensi suara pemberitahuan</string>
   <string name="less_notification_sounds_default">Perilaku standar</string>
   <string name="less_notification_sounds_3s">3 detik</string>
   <string name="less_notification_sounds_5s">5 detik</string>
@@ -1270,6 +1276,11 @@
   <string name="app_circle_bar_summary">Menampilkan lingkaran peluncur aplikasi setelah menyentuh sisi kanan layar</string>
   <string name="app_circle_bar_included_apps_title">Aplikasi dimasukkan</string>
   <string name="app_circle_bar_included_apps_summary">Aplikasi akan ditampilkan pada bar lingkaran aplikasi</string>
+  <string name="trigger_width_title">Lebar pemicu</string>
+  <string name="trigger_width_summary">Menyesuaikan lebar daerah pemicu</string>
+  <string name="trigger_top_title">Posisi pemicu</string>
+  <string name="trigger_bottom_title">Tinggi pemicu</string>
+  <string name="trigger_bottom_summary">Menyesuaikan tinggi daerah pemicu</string>
   <!-- Breathing Notifications -->
   <!-- Navigation Bar -->
   <string name="navigation_category">Navigasi</string>
@@ -1370,6 +1381,8 @@
   <string name="pulse_legacy_mode_advanced_category">Pengaturan mode blok memudar</string>
   <string name="pulse_custom_fudge_factor">Tingkat kewajaran</string>
   <string name="lavamp_solid_speed_title">Kecepatan lampu lava</string>
+  <string name="pulse_solid_units_count">Jumlah garis-garis solid</string>
+  <string name="pulse_solid_units_opacity">Keburaman garis-garis solid</string>
   <string name="pulse_solid_dimen_category">Pengaturan mode garis-garis solid</string>
   <string name="fling_lavalamp_color_from">Warna mulai lampu lava</string>
   <string name="fling_lavalamp_color_to">Warna berakhir lampu lava</string>
@@ -1684,6 +1697,9 @@
   <string name="animation_no_scroll_summary_on">Diaktifkan</string>
   <string name="animation_no_scroll_summary_off">Dinonaktifkan</string>
   <string name="animation_settings_reset_message">Atur ulang semua pengaturan animasi ke standar?</string>
+  <string name="qs_tile_title_visibility_title">Nama ubin QS</string>
+  <string name="qs_tile_title_visibility_summary_on">Nama ubin QS sekarang terilhat</string>
+  <string name="qs_tile_title_visibility_summary_off">Nama ubin QS sekarang tersembunyi</string>
   <!-- setting: show CPU info-->
   <string name="show_cpu_info">Tampilkan info CPU</string>
   <string name="show_cpu_info_summary">Tampilan layar menampilkan info CPU saat ini</string>
@@ -1841,6 +1857,7 @@
   <string name="slim_recents_settings_summary">Lihat pengaturan untuk Slim Recent</string>
   <string name="recent_panel_category">Panel Slim Recent aplikasi</string>
   <string name="show_running_tasks_title">Hanya tampilkan aplikasi berjalan</string>
+  <string name="recents_max_apps_title">Maksimal aplikasi diperbolehkan</string>
   <string name="recent_panel_scale_title">Ukuran</string>
   <string name="recent_panel_expanded_mode_title">Mode diperluas</string>
   <string name="recent_panel_expanded_mode_auto">Otomatis (standar)</string>
@@ -1856,6 +1873,7 @@
   <!-- Wired headset ringtone audio focus -->
   <string name="rr_sound_title">Headset</string>
   <!-- Slim Recent App Sidebar  -->
+  <string name="recent_app_sidebar_hide_labels_title">Sembunyikan label ikon</string>
   <string name="recent_app_sidebar_label_color_title">Warna label</string>
   <string name="recent_app_sidebar_bg_color_title">Warna latar belakang</string>
   <string name="recent_app_sidebar_scale_title">Ukuran</string>
@@ -1868,4 +1886,6 @@
   <!-- Notification guts kill app button -->
   <string name="notification_guts_kill_app_button_title">Tombol tutup aplikasi</string>
   <string name="weather_title">Cuaca</string>
+  <string name="weather_config_title">Pengaturan layanan</string>
+  <string name="weather_icon_pack_title">Paket ikon kondisi</string>
 </resources>

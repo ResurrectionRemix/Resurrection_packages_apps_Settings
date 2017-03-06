@@ -95,6 +95,8 @@
   <string name="fab_reset">Nollställ</string>
   <string name="fab_about">Om RR-OS</string>
   <string name="fab_layout">Uppdatera layout</string>
+  <string name="fab_layout_update">Växla till Marshmallow layout</string>
+  <string name="fab_layout_toggle">Växla till Nougat layout</string>
   <string name="rr_reset_settings">Återställ inställningar</string>
   <string name="rr_reset_yes">Ja</string>
   <string name="rr_reset_cancel">Avbryt</string>
@@ -124,11 +126,17 @@
   <string name="icons">Ikoner</string>
   <string name="general">Allmänt</string>
   <string name="ka_title">Prestanda</string>
+  <string name="rr_notif_settings_title">Aviseringar</string>
   <!--RR Configurations Summaries-->
   <!-- Manage applications: show substratum overlays -->
   <!-- Manage applications: show substratum icon overlays -->
   <!-- AOKP custom system animations -->
+  <string name="animation_title">Animeringar</string>
   <string name="system_animation_title">Systemanimationer</string>
+  <string name="activity_open_title">Aktivitet - Öppna animering</string>
+  <string name="activity_close_title">Aktivitet - Stäng animering</string>
+  <string name="task_open_title">Uppgift - Öppna animering</string>
+  <string name="animation_duration_title">Tidsintervall för animering</string>
   <string name="animation_duration_default">Standard</string>
   <!-- Toast Animation -->
   <string name="toast_none_animation">Inga</string>
@@ -156,6 +164,7 @@
   <string name="listview_bounce_interpolator">Studsa</string>
   <!-- Disable animations -->
   <!-- Option to enable/disable scrolling cache -->
+  <string name="pref_scrollingcache_force_enable">Tvinga aktiv</string>
   <string name="pref_scrollingcache_default_enable">Standard aktiverat</string>
   <string name="pref_scrollingcache_default_disable">Standard inaktiverat</string>
   <string name="pref_scrollingcache_force_disable">Tvinga inaktiv</string>
@@ -213,25 +222,40 @@
   <string name="color_picker_fragment_title">Färgväljaren</string>
   <string name="apply_color_title">Applicera färg</string>
   <string name="edit_hex_title">HEX värde</string>
+  <string name="palette_title">Annat</string>
   <string name="palette_material_title">Material</string>
   <string name="palette_rgb_title">RGB</string>
   <string name="reset_color_title">Nollställ</string>
+  <string name="reset_theme_default_title">Standardtema</string>
   <string name="favorites_title">Favoriter</string>
+  <string name="hide_favorites_title">Göm favoriter</string>
+  <string name="show_favorites_title">Visa favoriter</string>
+  <string name="hide_help_title">Göm hjälp</string>
+  <string name="show_help_title">Visa hjälp</string>
   <string name="empty_title">Tom</string>
   <!-- Help screen -->
+  <string name="color_picker_help_ab_back_title">Bakåtknapp</string>
   <string name="color_picker_help_ab_name_title">Titel:</string>
+  <string name="color_picker_help_ab_hex_title">HEX värde</string>
+  <string name="color_picker_help_ab_menu_title">Menyknapp:</string>
   <string name="color_picker_help_ab_menu_reset_title">Nollställ:</string>
+  <string name="color_picker_help_ab_menu_favorites_title">Visa/dölj favoriter:</string>
   <string name="color_picker_help_colors_title">Färger:</string>
   <string name="color_picker_help_picker_view_title">Färgpanel:</string>
+  <string name="color_picker_help_favorites_title">Favoriter:</string>
   <string name="color_picker_help_button_ok_title">OK</string>
   <!-- Color picker end -->
   <!-- Power menu Animations  -->
+  <string name="powermenu">Avstängningsmeny</string>
+  <string name="power_menu_animation_title">Avstängningsmeny - Animering</string>
   <string name="power_menu_animation_bottom">Botten</string>
   <string name="power_menu_animation_top">Överst</string>
+  <string name="power_menu_animation_rotate">Rotation </string>
   <string name="power_menu_animation_rotate">Rotation </string>
   <string name="power_menu_animation_xylon">Flygande</string>
   <string name="power_menu_animation_card">3D</string>
   <string name="rr_battery_title">Batteri</string>
+  <string name="rr_pm_animations_title">Avstängningsmeny</string>
   <!-- Tiles animation style  -->
   <string name="qs_tile_animation_style_flip">Vänd</string>
   <string name="qs_tile_animation_style_rotate">Rotera</string>
@@ -262,11 +286,13 @@
   <string name="gesture_anywhere_position_left">Vänsterkant</string>
   <string name="gesture_anywhere_position_right">Högerkant</string>
   <string name="gesture_anywhere_gestures_title">Gester</string>
+  <string name="gesture_anywhere_gestures_summary">Lägga till, ta bort och redigera gester</string>
   <!-- Label, button used to add a gesture -->
   <string name="ga_button_add">Lägg till gest</string>
   <!-- Label, button used to reload all gestures -->
   <string name="ga_button_reload">Ladda om</string>
   <!-- Label, button used to cancel the operation of adding a gesture -->
+  <string name="ga_button_discard">Förkasta</string>
   <!-- Label, button used to save a gesture newly created -->
   <!-- Label, prompt asking the user to enter the name of the gesture -->
   <string name="ga_prompt_gesture_name">Namn</string>
@@ -278,6 +304,7 @@
   <string name="ga_cancel_action">Avbryt</string>
   <!-- Message displayed when the user opens the gestures settings screen -->
   <!-- Message displayed when the user has no gestures -->
+  <string name="ga_gestures_empty">Inga gester</string>
   <!-- Title of the screen used to view/manage gestures -->
   <string name="ga_gestures_activity">Gester</string>
   <!-- Noun, menu item used to edit a gesture -->
@@ -285,9 +312,13 @@
   <!-- Noun, menu item used to remove a gesture -->
   <string name="ga_gestures_delete">Radera</string>
   <!-- Message displayed when a gesture is successfully deleted -->
+  <string name="ga_gestures_delete_success">Gest raderad</string>
   <!-- Title of dialog box -->
+  <string name="ga_gestures_rename_title">Döp om gest</string>
   <!-- Label of gesture name field in Rename gesture dialog box -->
+  <string name="ga_gestures_rename_label">Namn på gest</string>
   <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
+  <string name="picker_activities">Aktiviteter</string>
   <string name="profile_applist_title">Appar</string>
   <string name="ga_0">0px</string>
   <string name="ga_1">1px</string>
@@ -349,6 +380,7 @@
   <string name="onehalf_second">1.5 s</string>
   <string name="two_second">2 s</string>
   <string name="twohalf_second">2.5 s</string>
+  <string name="three_second_default">3 s (standard)</string>
   <string name="threehalf_second">3.5 s</string>
   <string name="four_second">4 s</string>
   <string name="fourhalf_second">4.5 s</string>
@@ -357,6 +389,7 @@
   <!-- Selinux Switch -->
   <string name="selinux_title">SELinux läge</string>
   <!-- Slim DSLV -->
+  <string name="shortcut_action_none">Inga</string>
   <string name="shortcut_action_select_action_longpress">Välj långtrycksåtgärd:</string>
   <string name="shortcut_action_select_action">Välj åtgärd:</string>
   <string name="shortcut_action_select_action_newaction">Välj ny åtgärd:</string>
@@ -368,9 +401,13 @@
   <string name="shortcut_action_help_button">knapp</string>
   <string name="shortcut_action_help_app">app</string>
   <string name="shortcuts_applications">Appar</string>
+  <string name="shortcuts_icon_picker_type">Välj ikontyp:</string>
   <string name="shortcuts_icon_default">Standard</string>
+  <string name="shortcuts_icon_presets">Systemikoner</string>
   <string name="shortcuts_icon_custom">Galleri</string>
+  <string name="shortcuts_icon_picker_choose_icon_title">Välj ikon</string>
   <string name="lockscreen_shortcuts_category">Genvägar</string>
+  <string name="keyguard_torch_title">Låsskärm - Ficklampa</string>
   <!-- Lockscreen shortcuts -->
   <string name="lockscreen_shortcuts_single_tap">Klicka</string>
   <string name="lockscreen_shortcuts_double_tap">Dubbeltryck</string>
@@ -417,9 +454,12 @@
   <string name="shortcuts_icon_picker_tv">TV</string>
   <string name="shortcuts_icon_picker_twitter">Twitter</string>
   <string name="shortcuts_icon_picker_unlock">Lås upp</string>
+  <string name="shortcut_action_app">Anpassad app</string>
   <string name="shortcut_action_home">Hem</string>
   <string name="shortcut_action_back">Tillbaka</string>
   <string name="shortcut_action_menu">Meny</string>
+  <string name="shortcut_action_power_menu">Avstängningsmeny</string>
+  <string name="shortcut_action_recent">Senaste appar</string>
   <string name="shortcut_action_power">Skärm av</string>
   <string name="shortcut_action_search">Sök i app</string>
   <string name="shortcut_action_ring_vib">Ring/Vibrera</string>
@@ -431,10 +471,15 @@
   <string name="shortcut_action_media_previous">Musik - föregående låt</string>
   <string name="shortcut_action_wake_device">Väck enhet</string>
   <string name="shortcut_action_longpress">Långtryck:</string>
+  <string name="shortcut_action_select_action_longpress">Välj långtrycksåtgärd:</string>
+  <string name="shortcut_action_select_action">Välj åtgärd:</string>
   <string name="shortcut_action_add">Lägg till</string>
   <string name="shortcut_action_warning">Varning</string>
   <string name="shortcut_action_help_button">knapp</string>
   <string name="shortcut_action_help_app">app</string>
+  <string name="shortcut_picker_applications_title">Appar</string>
+  <string name="shortcut_picker_activities_title">Aktiviteter</string>
+  <string name="shortcut_picker_select_app_title">Välj app:</string>
   <string name="shortcut_picker_icon_type_default_title">Standard</string>
   <string name="shortcut_picker_icon_type_system_title">Systemikoner</string>
   <string name="shortcut_picker_icon_type_custom_title">Galleri</string>
@@ -479,6 +524,7 @@
   <string name="googletranslate">Google Översätt</string>
   <string name="google">Google</string>
   <string name="imdb">imdb</string>
+  <string name="instagram">Instagram</string>
   <string name="lastfm">Lastfm</string>
   <string name="maps">Maps</string>
   <string name="mxplayer">Mxplayer</string>
@@ -524,7 +570,19 @@
   <!-- Advanced data tile -->
   <!-- Hardware button navigation -->
   <string name="button_pref_title">Knappar</string>
+  <string name="hardware_keys_home_key_title">Hemknapp</string>
+  <string name="hardware_keys_menu_key_title">Menyknapp</string>
+  <string name="hardware_keys_assist_key_title">Sökknapp</string>
+  <string name="hardware_keys_appswitch_key_title">Översiktsknapp</string>
+  <string name="hardware_keys_back_key_title">Bakåtknapp</string>
+  <string name="hardware_keys_camera_key_title">Kameraknapp</string>
+  <string name="hardware_keys_action_nothing">Ingen åtgärd</string>
   <string name="hardware_keys_action_menu">Öppna/stäng menyn</string>
+  <string name="hardware_keys_action_app_switch">Senaste app-växlare</string>
+  <string name="hardware_keys_category">Hårdvaruknappar</string>
+  <string name="hardware_keys_power_key_title">Strömknapp</string>
+  <string name="camera_launch_title">Starta kamera</string>
+  <string name="volbtn_cursor_control_off">Inaktiverad</string>
   <string name="power_end_call_title">Avsluta samtal</string>
   <string name="home_answer_call_title">Besvara samtal</string>
   <!-- Key backlight -->
@@ -536,24 +594,35 @@
   <!-- Navigation Bar -->
   <string name="navigation_bar_category">Navigeringsfält</string>
   <!-- Power menu -->
+  <string name="power_menu_title">Avstängningsmeny</string>
+  <string name="power_menu_reboot_title">Omstartsmeny</string>
+  <string name="power_menu_screenshot_title">Skärmdump</string>
+  <string name="power_menu_airplane_title">Flygplansläge</string>
+  <string name="power_menu_bug_report_title">Felrapport</string>
+  <string name="power_menu_sound_title">Ljudpanel</string>
+  <string name="power_menu_screenrecord_title">SKärminspelning</string>
   <string name="power_menu_torch">Ficklampa</string>
+  <string name="power_menu_emergency_title">Nödknapp</string>
   <string name="volume_answer_call_title">Besvara samtal</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <!-- Media art -->
   <!-- Lockscreen notif count -->
   <!-- Volume settings - Volume adjustment sound -->
   <!-- Status bar -->
+  <string name="status_bar_title">Statusfält</string>
   <string name="status_bar_quick_qs_pulldown_summary_left">Vänster</string>
   <string name="status_bar_quick_qs_pulldown_summary_right">Höger</string>
   <string name="status_bar_quick_qs_pulldown_off">Av</string>
   <string name="status_bar_quick_qs_pulldown_left">Vänster</string>
   <string name="status_bar_quick_qs_pulldown_right">Höger</string>
   <!-- Status bar - Clock -->
+  <string name="status_bar_clock_style_title">Klockstil</string>
   <string name="status_bar_clock_style_right">Höger</string>
   <string name="status_bar_clock_style_left">Vänster</string>
   <string name="status_bar_clock_style_center">Centrerat</string>
   <string name="status_bar_clock_style_hidden">Gömd</string>
   <string name="status_bar_am_pm_title">AM/PM stil</string>
+  <string name="status_bar_am_pm_info">24-timmarsklocka är aktiverad</string>
   <string name="status_bar_am_pm_normal">Normal</string>
   <string name="status_bar_am_pm_small">Liten</string>
   <string name="status_bar_am_pm_hidden">Gömd</string>
@@ -569,6 +638,8 @@
   <!-- Status bar - icon blacklist -->
   <!-- Smart pulldown-->
   <string name="smart_pulldown_off">Av</string>
+  <string name="smart_pulldown_none">Inga aviseringar</string>
+  <string name="smart_pulldown_dismissable">Inga avfärdbara</string>
   <!-- Clock and date immersive recents-->
   <string name="recents_full_screen_clock_title">Visa klocka</string>
   <string name="recents_full_screen_date_title">Visa datum</string>
@@ -576,10 +647,18 @@
   <string name="clock_settings_title">Klockinställningar</string>
   <string name="status_bar_clock_category">Klocka</string>
   <string name="status_bar_date_title">Datum</string>
+  <string name="status_bar_clock_style_right">Höger</string>
   <string name="status_bar_clock_style_left">Vänster</string>
   <string name="status_bar_clock_style_hidden">Dold</string>
+  <string name="status_bar_clock_style_right">Höger</string>
   <string name="status_bar_clock_style_left">Vänster</string>
+  <string name="status_bar_clock_style_center">Centrera</string>
   <string name="status_bar_clock_style_hidden">Dold</string>
+  <string name="clock_date_position">Datumposition</string>
+  <string name="clock_date_right">Till höger om tid</string>
+  <string name="clock_date_left">Till vänster om tid</string>
+  <string name="status_bar_am_pm_title">AM/PM stil</string>
+  <string name="status_bar_am_pm_info">24-timmarsklocka är aktiverad</string>
   <string name="status_bar_am_pm_normal">Normal</string>
   <string name="status_bar_am_pm_small">Liten</string>
   <string name="status_bar_am_pm_hidden">Dold</string>
@@ -604,6 +683,9 @@
   <string name="clock_font_thin">Tunn</string>
   <string name="clock_font_black">Svart</string>
   <!-- Status bar temperature -->
+  <string name="settings_title_cclock">Väderinställningar</string>
+  <string name="weather_category">Väderinställningar</string>
+  <string name="status_bar_temperature_title">Väder - Temperatur</string>
   <string name="status_bar_temperature_location_title">Placering</string>
   <string name="status_bar_weather_font_style_title">Font</string>
   <string name="status_bar_weather_font_normal">Normal</string>
@@ -624,6 +706,7 @@
   <string name="position_right_title">Höger</string>
   <string name="position_centered_title">Centrerad</string>
   <string name="hidden_title">Dold</string>
+  <string name="weather_cat_notifications_title">Aviseringar</string>
   <string name="weather_hide_panel_auto_title">Auto</string>
   <string name="weather_hide_panel_custom_title">Anpassad</string>
   <string name="weather_hide_panel_never_title">Aldrig</string>
