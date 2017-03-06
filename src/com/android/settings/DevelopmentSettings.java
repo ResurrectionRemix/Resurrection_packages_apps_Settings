@@ -617,6 +617,25 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     }
 
     private boolean removeRootOptionsIfRequired() {
+
+        // Magisk Manager
+        boolean magiskSupported = false;
+        try {
+            magiskSupported = (getPackageManager().getPackageInfo("com.topjohnwu.magisk", 0).versionCode > 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+
+        // if magisk is supported, management is done in MagiskManager.
+        // remove the root access and appops preferences
+        if (magiskSupported) {
+            if (mRootAccess != null) {
+                getPreferenceScreen().removePreference(mRootAccess);
+            }
+            if (mRootAppops != null) {
+                getPreferenceScreen().removePreference(mRootAppops);
+            }
+            return true;
+        }
         // user builds don't get root, and eng always gets root
         if (!(Build.IS_DEBUGGABLE || "eng".equals(Build.TYPE))) {
             if (mRootAccess != null) {
