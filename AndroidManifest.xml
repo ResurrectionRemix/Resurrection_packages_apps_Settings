@@ -3043,6 +3043,27 @@
                 android:value="true" />
         </activity>
 
+        <activity android:name="Settings$MagiskActivity"
+            android:label="@string/magisk_title"
+            android:icon="@drawable/ic_settings_magisk"
+            android:taskAffinity="">
+            <intent-filter android:priority="4">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.VOICE_LAUNCH" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="9">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.aicpextras" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.MagiskManager" />
+            <meta-data android:name="com.android.settings.summary"
+                android:resource="@string/magisk_summary" />
+        </activity>
+
         <!-- Show apps for which application-level notification settings are applicable -->
         <activity android:name="Settings$NotificationAppListActivity"
                 android:label="@string/app_notifications_title"
