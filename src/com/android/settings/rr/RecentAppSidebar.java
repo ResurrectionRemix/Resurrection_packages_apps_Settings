@@ -20,13 +20,14 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.preference.Preference;
-import android.support.v14.preference.PreferenceFragment;
 import android.provider.Settings;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
 
-public class RecentAppSidebar extends PreferenceFragment
+public class RecentAppSidebar extends SettingsPreferenceFragment
             implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "RecentAppSidebarSettings";
@@ -51,7 +52,8 @@ public class RecentAppSidebar extends PreferenceFragment
     }
 
     @Override
-    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+    protected int getMetricsCategory() {
+        return MetricsEvent.RESURRECTED;
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

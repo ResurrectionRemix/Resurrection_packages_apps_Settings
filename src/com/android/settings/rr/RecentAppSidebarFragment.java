@@ -33,15 +33,11 @@ public class RecentAppSidebarFragment extends PreferenceFragment {
 
     private static final String RECENT_APP_SIDEBAR = "recent_app_sidebar";
 
-    private Preference mRecentAppSidebar;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.recent_app_sidebar_fragment);
-
-        mRecentAppSidebar = findPreference(RECENT_APP_SIDEBAR);
     }
 
     @Override
@@ -61,18 +57,4 @@ public class RecentAppSidebarFragment extends PreferenceFragment {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
     }
-
-
-        @Override
-        public boolean onPreferenceTreeClick(Preference preference) {
-            if (preference == mRecentAppSidebar) {
-                Intent intent = new Intent(getActivity(), SubActivity.class);
-                intent.putExtra(SubActivity.EXTRA_FRAGMENT_CLASS, RecentAppSidebar.class.getName());
-                intent.putExtra(SubActivity.EXTRA_TITLE,
-                        getResources().getString(R.string.recent_app_sidebar_style_title));
-                getActivity().startActivity(intent);
-                return true;
-            }
-            return super.onPreferenceTreeClick(preference);
-        }
 }
