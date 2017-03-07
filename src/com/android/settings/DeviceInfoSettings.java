@@ -227,7 +227,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         // Remove manual entry if none present.
         removePreferenceIfBoolFalse(KEY_MANUAL, R.bool.config_show_manual);
 
-        setStringSummary(KEY_BUILD_NUMBER, "Resurrection Remix Nougat 7.1.1_r21 - NOF26W");
+        setStringSummary(KEY_BUILD_NUMBER, "Resurrection Remix Nougat 7.1.1_r25 - NOF27B");
         // Remove regulatory labels if no activity present to handle intent.
         removePreferenceIfActivityMissing(
                 KEY_REGULATORY_INFO, Settings.ACTION_SHOW_REGULATORY_INFO);
