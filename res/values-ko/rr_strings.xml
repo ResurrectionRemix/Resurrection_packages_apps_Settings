@@ -134,6 +134,7 @@
   <string name="icons">아이콘</string>
   <string name="general">기본 설정</string>
   <string name="ka_title">성능</string>
+  <string name="rr_notif_settings_title">알림</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">상태 표시줄의 시계와 날짜 구성요소를 수정합니다</string>
   <string name="status_bar_logo_summary">상태 표시줄에 RR 로고 사용 유무와 색, 위치를 설정합니다</string>
@@ -186,7 +187,16 @@
   <string name="menu_show_substratum_icons">아이콘 오버레이 보이기</string>
   <string name="menu_hide_substratum_icons">아이콘 오버레이 숨기기</string>
   <!-- AOKP custom system animations -->
+  <string name="animation_title">애니메이션</string>
+  <string name="system_animation_title">시스템 애니메이션</string>
+  <string name="wallpaper_open_title">바탕화면 열기 애니메이션</string>
+  <string name="wallpaper_close_title">바탕화면 닫기 애니메이션</string>
+  <string name="wallpaper_intra_open_title">내부 화면 열기 애니메이션</string>
+  <string name="wallpaper_intra_close_title">내부 화면 닫기 애니메이션</string>
+  <string name="animation_duration_title">애니메이션 지속 시간</string>
+  <string name="title_animation_no_override">애플리케이션 덮어쓰기 방지</string>
   <!-- Toast Animation -->
+  <string name="toast_animation_title">토스트 애니메이션</string>
   <string name="toast_none_animation">없음</string>
   <string name="toast_default_animation">기본</string>
   <string name="toast_fade_animation">페이드</string>
@@ -197,11 +207,33 @@
   <string name="toast_Tn_animation">Tn</string>
   <string name="toast_Honami_animation">Honami</string>
   <string name="toast_FastFade_animation">빠른 페이드</string>
+  <string name="toast_Translucent_animation">반투명</string>
+  <string name="toast_SlideLeftRight_animation">왼쪽에서 오른쪽으로 슬라이드</string>
+  <string name="toast_SlideRightLeft_animation">왼쪽에서 오른쪽으로 슬라이드</string>
   <!-- ListView animation -->
+  <string name="listview_animation_title">리스트뷰 애니메이션</string>
   <string name="listview_off">기본</string>
+  <string name="listview_wave_left">웨이브 (왼쪽)</string>
+  <string name="listview_wave_right">웨이브 (오른쪽)</string>
+  <string name="listview_alpha">투명도</string>
+  <string name="listview_scale">크기</string>
+  <string name="listview_stack_top">스택 (맨 위)</string>
+  <string name="listview_stack_bottom">스택 (맨 아래)</string>
+  <string name="listview_unfold">펼침</string>
+  <string name="listview_fold">접음</string>
+  <string name="listview_translate_left">번역 (왼쪽)</string>
+  <string name="listview_translate_right">번역 (오른쪽)</string>
   <!-- ListView interpolator -->
+  <string name="listview_accelerate_interpolator">가속</string>
+  <string name="listview_decelerate_interpolator">감속</string>
+  <string name="listview_accelerate_decelerate_interpolator">가속 및 감속</string>
+  <string name="listview_anticipate_interpolator">예상</string>
   <!-- Disable animations -->
   <!-- Option to enable/disable scrolling cache -->
+  <string name="pref_scrollingcache_title">스크롤 캐시</string>
+  <string name="pref_scrollingcache_summary">스크롤 캐시는 메모리를 사용하면서 스크롤 성능을 향상시킬 수도 있습니다.</string>
+  <string name="pref_scrollingcache_force_enable">강제 활성화</string>
+  <string name="pref_scrollingcache_default_enable">기본 활성화</string>
   <string name="pref_scrollingcache_default_disable">기본 비활성화</string>
   <string name="pref_scrollingcache_force_disable">강제 비활성화</string>
   <!-- Volume Steps -->
@@ -234,6 +266,8 @@
   <string name="force_expanded_notifications_title">알림 강제 확장</string>
   <string name="force_expanded_notifications_summary">확장된 알림을 지원하는 앱에서만 사용할 수 있습니다</string>
   <!-- Disabling FC notifications -->
+  <string name="disable_fc_notifications_title">FC 알림 끄기</string>
+  <string name="disable_fc_notifications_summary">이것은 모든 강제종료 알림을 숨깁니다.</string>
   <!-- Disabling immersive mode messages -->
   <string name="disable_immersive_message_title">전체 화면 모드 메시지 사용 안 함</string>
   <string name="disable_immersive_message_summary">모든 전체 화면 모드 메시지를 표시하지 않습니다</string>
@@ -246,23 +280,88 @@
   <string name="mem_info">RAM</string>
   <string name="systemui_recents_mem_display_title">메모리 사용량 표시</string>
   <!-- Network traffic -->
+  <string name="network_traffic_title">네트워크 트래픽</string>
+  <string name="show_network_traffic_state">상태 표시줄 트래픽 모니터</string>
+  <string name="show_network_traffic_unit">표시 단위</string>
+  <string name="show_network_traffic_frequency">새로 고침 간격</string>
+  <string name="show_network_traffic_disable">비활성화됨</string>
+  <string name="show_network_traffic_up">나가는</string>
+  <string name="show_network_traffic_down">들어오는</string>
+  <string name="show_network_traffic_all">나가고 들어오는</string>
+  <string name="show_network_traffic_bit">비트/초</string>
+  <string name="show_network_traffic_byte">바이트/초</string>
+  <string name="show_network_traffic_500">500 밀리초</string>
+  <string name="show_network_traffic_1000">1000 밀리초</string>
+  <string name="show_network_traffic_1500">1500 밀리초</string>
+  <string name="show_network_traffic_2000">2000 밀리초</string>
+  <string name="network_traffic_autohide">자동으로 숨기기</string>
+  <string name="network_traffic_autohide_summary">아무런 활동이 없을때 트래픽 모니터 숨기기</string>
+  <string name="network_traffic_autohide_threshold">비활성 임계값</string>
   <!-- Statusbar RR logo -->
+  <string name="status_bar_rr_logo_title">로고 사용</string>
+  <string name="status_bar_rr_logo_summary">상태 표시줄에 RR-OS 로고 표시 활성화</string>
   <!-- Color picker -->
+  <string name="color_picker_fragment_title">색상 선택기</string>
+  <string name="apply_color_title">색상 적용</string>
+  <string name="edit_hex_title">HEX 값</string>
+  <string name="palette_title">기타</string>
+  <string name="palette_material_title">머테리얼</string>
   <string name="palette_rgb_title">RGB</string>
+  <string name="reset_android_title">안드로이드 기본값</string>
+  <string name="reset_title">Resurrection 기본</string>
+  <string name="reset_theme_default_title">테마 기본</string>
+  <string name="favorites_title">즐겨찾기</string>
+  <string name="hide_favorites_title">즐겨찾기 숨기기</string>
+  <string name="show_favorites_title">즐겨찾기 표시</string>
+  <string name="hide_help_title">도움말 숨기기</string>
+  <string name="show_help_title">도움말 표시</string>
+  <string name="empty_title">비어 있음</string>
   <!-- Help screen -->
+  <string name="color_picker_help_screen_title">색상 선택기 도움말</string>
+  <string name="color_picker_help_ab_title">작업 표시 줄:</string>
+  <string name="color_picker_help_ab_back_title">뒤로가기 버튼:</string>
+  <string name="color_picker_help_ab_back_summary">새로 선택한 색상을 적용하지 않고 색상 선택기를 닫습니다 (취소) \n 네비게이션 바의 뒤로 버튼과 동일한 기능입니다.</string>
+  <string name="color_picker_help_ab_name_title">제목:</string>
   <string name="color_picker_help_button_ok_title">확인</string>
   <!-- Color picker end -->
   <!-- Power menu Animations  -->
+  <string name="power_menu_animation_xylon">비행중</string>
+  <string name="power_menu_animation_slide">슬라이드</string>
+  <string name="power_menu_animation_fly">노을</string>
+  <string name="power_menu_animation_card">3D</string>
+  <string name="power_menu_animation_translucent_top">반투명 (맨 위)</string>
+  <string name="power_menu_animation_translucent_bottom">반투명 (아래)</string>
+  <string name="rr_qs_title">빠른 설정</string>
   <string name="rr_battery_title">배터리</string>
+  <string name="rr_qs_animation">빠른 애니메이션</string>
   <string name="rr_navbar_title">내비게이션 바</string>
   <string name="rr_toast_title">토스트</string>
   <string name="rr_pm_animations_title">전원 메뉴</string>
   <!-- Tiles animation style  -->
   <string name="qs_tiles">빠른 설정 타일</string>
+  <string name="qs_tile_animation_style_title">애니메이션 스타일</string>
+  <string name="qs_tile_animation_duration_title">애니메이션 지속 시간</string>
+  <string name="qs_tile_animation_interpolator_title">타일 애니메이션 보간</string>
+  <string name="qs_tile_animation_style_off">애니메이션 없음</string>
+  <string name="qs_tile_animation_style_flip">뒤집기</string>
+  <string name="qs_tile_animation_style_rotate">회전</string>
   <string name="qs_tile_animation_duration_default">기본</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">가속</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">감속</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Immersive Recents -->
+  <string name="immersive_recents_fullscreen">전체 화면</string>
+  <string name="immersive_recents_navbar">소프트 키 사용</string>
+  <string name="network_traffic_hidearrow_title">화살표 숨기기</string>
+  <string name="show_4g_title">4G 표시</string>
   <string name="show_4g_summary">신호 아이콘을 LTE 대신에 4G로 표시</string>
+  <string name="show_3g_title">3G 표시</string>
   <!-- Gesture Anywhere -->
+  <string name="gestures_settings">제스처</string>
+  <string name="gesture_anywhere_position_title">위치</string>
+  <string name="gesture_anywhere_position_left">왼쪽 가장자리</string>
   <!-- Label, button used to add a gesture -->
   <!-- Label, button used to reload all gestures -->
   <!-- Label, button used to cancel the operation of adding a gesture -->
@@ -285,6 +384,47 @@
   <!-- Title of dialog box -->
   <!-- Label of gesture name field in Rename gesture dialog box -->
   <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
+  <string name="profile_applist_title">응용 프로그램</string>
+  <string name="ga_0">0px</string>
+  <string name="ga_1">1px</string>
+  <string name="ga_5">5px</string>
+  <string name="ga_10">10px</string>
+  <string name="ga_15">15px</string>
+  <string name="ga_20">20px</string>
+  <string name="ga_25">25px</string>
+  <string name="ga_30">30px</string>
+  <string name="ga_35">35px</string>
+  <string name="ga_40">40px</string>
+  <string name="ga_45">45px</string>
+  <string name="ga_50">50px</string>
+  <string name="ga_55">55px</string>
+  <string name="ga_60">60px</string>
+  <string name="ga_65">65px</string>
+  <string name="ga_70">70px</string>
+  <string name="ga_75">75px</string>
+  <string name="ga_80">80px</string>
+  <string name="ga_85">85px</string>
+  <string name="ga_90">90px</string>
+  <string name="ga_95">95px</string>
+  <string name="ga_100">100px</string>
+  <string name="ga_4">4px</string>
+  <string name="ga_8">8px</string>
+  <string name="ga_12">12px</string>
+  <string name="ga_16">16px</string>
+  <string name="ga_20">20px</string>
+  <string name="ga_24">24px</string>
+  <string name="ga_28">28px</string>
+  <string name="ga_32">32px</string>
+  <string name="ga_36">36px</string>
+  <string name="ga_40">40px</string>
+  <string name="ga_44">44px</string>
+  <string name="ga_48">48px</string>
+  <string name="ga_52">52px</string>
+  <string name="ga_56">56px</string>
+  <string name="ga_60">60px</string>
+  <string name="ga_64">64px</string>
+  <string name="ga_68">68px</string>
+  <string name="entries">항목</string>
   <!--Power menu on Secure Lockscreen -->
   <!-- CM Lockscreen shortcuts -->
   <!-- Battery Bar -->
