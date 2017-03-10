@@ -49,6 +49,13 @@
             android:summary="@string/recent_panel_show_topmost_summary"
             android:defaultValue="false" />
 
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="slim_recents_mem_display_long_click_clear"
+            android:title="@string/slim_recents_mem_display_long_click_clear_title"
+            android:summary="@string/slim_recents_mem_display_long_click_clear_summary"
+            android:defaultValue="false"
+            android:dependency="slim_recents_mem_display" />
+
         <com.android.settings.rr.SeekBarPreference
             android:key="recent_panel_scale"
             android:title="@string/recent_panel_scale_title"
