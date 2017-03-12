@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.slim.fragments;
+package com.android.settings.rr.fragments;
 
 import android.os.Bundle;
 import android.support.v7.preference.Preference;
