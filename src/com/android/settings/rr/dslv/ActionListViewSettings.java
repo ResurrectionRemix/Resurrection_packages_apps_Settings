@@ -881,8 +881,8 @@ public class ActionListViewSettings extends ListFragment implements
                                         getOwner().mPendingIndex, false);
                                     getOwner().mPendingIndex = -1;
                                     break;
-                                case 1: // System defaults
-                                /*
+                                case 1://  System defaults
+                                
                                     ListView list = new ListView(getActivity());
                                     list.setAdapter(new IconAdapter());
                                     final Dialog holoDialog = new Dialog(getActivity());
@@ -903,8 +903,7 @@ public class ActionListViewSettings extends ListFragment implements
                                     });
                                     holoDialog.show();
                                     break;
-                                case 2: // Custom user icon
-                                    */
+                                case 2:  //Custom user icon
                                     Intent intent = new Intent(Intent.ACTION_GET_CONTENT, null);
                                     intent.setType("image/*");
                                     intent.putExtra("crop", "true");
@@ -986,7 +985,7 @@ public class ActionListViewSettings extends ListFragment implements
                 TextView tt = (TextView) iView.findViewById(android.R.id.text1);
                 tt.setText(labels[position]);
                 Drawable ic = ((Drawable) getItem(position)).mutate();
-                ic.setTint(color);
+                //ic.setTint(color);
                 tt.setCompoundDrawablePadding(15);
                 tt.setCompoundDrawablesWithIntrinsicBounds(ic, null, null, null);
                 return iView;
