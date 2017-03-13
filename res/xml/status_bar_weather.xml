@@ -49,5 +49,29 @@
             android:title="@string/status_bar_weather_color_title"
             android:defaultValue="0xffffffff" />
 
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="status_bar_weather_image_color"
+            android:title="@string/status_bar_weather_image_color_title"
+            android:defaultValue="0xffffffff" />
+
+      <PreferenceCategory
+        android:key="weather_category"
+        android:title="@string/sb_weather_ic_title" >
+
+        <PreferenceScreen
+            android:title="@string/weather_config_title"
+            android:summary="@string/weather_config_summary" >
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="org.omnirom.omnijaws"
+                android:targetClass="org.omnirom.omnijaws.SettingsActivity" />
+        </PreferenceScreen>
+
+        <ListPreference
+           android:key="weather_icon_pack"
+           android:title="@string/weather_icon_pack_title"
+           android:persistent="false" />
+
+      </PreferenceCategory>
+
 
 </PreferenceScreen>
