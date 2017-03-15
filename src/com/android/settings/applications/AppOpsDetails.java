@@ -182,7 +182,7 @@ public class AppOpsDetails extends InstrumentedFragment {
                 sw.setVisibility(View.GONE);
 
                 final int switchOp = AppOpsManager.opToSwitch(firstOp.getOp());
-                int mode = mAppOps.checkOp(switchOp, entry.getPackageOps().getUid(),
+                int mode = mAppOps.checkOpNoThrow(switchOp, entry.getPackageOps().getUid(),
                         entry.getPackageOps().getPackageName());
                 sp.setSelection(modeToPosition(mode));
                 sp.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
@@ -205,7 +205,7 @@ public class AppOpsDetails extends InstrumentedFragment {
                     }
                 });
 
-                sw.setChecked(mAppOps.checkOp(switchOp, entry.getPackageOps()
+                sw.setChecked(mAppOps.checkOpNoThrow(switchOp, entry.getPackageOps()
                         .getUid(), entry.getPackageOps().getPackageName()) == AppOpsManager.MODE_ALLOWED);
                 sw.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
                     public void onCheckedChanged(CompoundButton buttonView,
