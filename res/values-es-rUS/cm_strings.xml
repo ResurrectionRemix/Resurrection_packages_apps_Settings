@@ -29,16 +29,16 @@
   <!-- Launch Dev Tools -->
   <string name="development_tools_title">Herramientas de desarrollo</string>
   <!-- Setting checkbox title for root access -->
-  <string name="root_access">Acceso root</string>
-  <string name="root_access_warning_title">¿Permitir acceso root?</string>
-  <string name="root_access_warning_message">¡Permitir que las aplicaciones tengan acceso root es muy peligroso y puede comprometer la seguridad del dispositivo!</string>
+  <string name="root_access">Acceso administrativo</string>
+  <string name="root_access_warning_title">¿Permitir acceso administrativo?</string>
+  <string name="root_access_warning_message">¡Permitir a las aplicaciones solicitar acceso administrativo es muy peligroso y puede comprometer la seguridad del sistema!</string>
   <string name="root_access_none">Desactivado</string>
   <string name="root_access_apps">Solo aplicaciones</string>
   <string name="root_access_adb">Solo ADB</string>
   <string name="root_access_all">Aplicaciones y ADB</string>
   <!-- Preference link for root appops -->
-  <string name="root_appops_title">Gestión del acceso raíz (root)</string>
-  <string name="root_appops_summary">Ver y controlar las reglas de la raíz</string>
+  <string name="root_appops_title">Gestionar acceso administrativo (root)</string>
+  <string name="root_appops_summary">Ver y controlar las reglas administrativas</string>
   <!-- About phone screen, LineageOS version -->
   <string name="mod_version">Versión de LineageOS</string>
   <string name="mod_version_default">Desconocido</string>
@@ -61,7 +61,7 @@
   <string name="app_ops_categories_device">Dispositivo</string>
   <string name="app_ops_categories_background">Fondo de pantalla</string>
   <string name="app_ops_categories_bootup">Arranque</string>
-  <string name="app_ops_categories_su">Acceso root</string>
+  <string name="app_ops_categories_su">Acceso administrativo</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">ubicación aproximada</string>
   <string name="app_ops_summaries_fine_location">ubicación precisa</string>
@@ -132,7 +132,7 @@
   <string name="app_ops_summaries_start_at_boot">iniciar en el arranque</string>
   <string name="app_ops_summaries_toggle_nfc">alternar NFC</string>
   <string name="app_ops_summaries_toggle_mobile_data">alternar datos móviles</string>
-  <string name="app_ops_summaries_superuser">acceso root</string>
+  <string name="app_ops_summaries_superuser">acceso administrativo</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Ubicación aproximada</string>
   <string name="app_ops_labels_fine_location">Ubicación precisa</string>
@@ -203,7 +203,7 @@
   <string name="app_ops_labels_start_at_boot">Iniciar en el arranque</string>
   <string name="app_ops_labels_toggle_nfc">Alternar NFC</string>
   <string name="app_ops_labels_toggle_mobile_data">Alternar datos móviles</string>
-  <string name="app_ops_labels_superuser">Acceso root</string>
+  <string name="app_ops_labels_superuser">Acceso administrativo</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Permitir</string>
   <string name="app_ops_permissions_ignored">Ignorado</string>
@@ -395,4 +395,19 @@
   <!-- Status bar - double tap to sleep -->
   <string name="status_bar_double_tap_to_sleep_title">Doble pulsación para suspender</string>
   <string name="status_bar_double_tap_to_sleep_summary">Pulsa dos veces la barra de estado para apagar la pantalla</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s </xliff:g> es <xliff:g id="status" example="disabled">%2$s </xliff:g></string>
+  <string name="sim_disabled">desactivada</string>
+  <string name="sim_missing">ausente o defectuosa</string>
+  <string name="sim_enabler_need_disable_sim">La tarjeta SIM se desactivará. ¿Quieres continuar?</string>
+  <string name="sim_enabler_will_disable_sim_title">Atención</string>
+  <string name="sim_enabler_need_switch_data_service">Se deshabilitará esta SIM y la SIM <xliff:g id="slotid">%1$s</xliff:g> se utilizará para servicios de datos. ¿Estás seguro de que deseas continuar?</string>
+  <string name="sim_enabler_airplane_on">No se puede realizar la operación mientras esté activado el modo avión.</string>
+  <string name="sim_enabler_in_call">No se puede realizar la operación mientras haya una llamada en curso.</string>
+  <string name="sim_enabler_both_inactive">No es posible desactivar todas las tarjetas SIM</string>
+  <string name="sim_enabler_enabling">Activando\u2026</string>
+  <string name="sim_enabler_disabling">Desactivando\u2026</string>
+  <string name="sub_activate_success">SIM activada.</string>
+  <string name="sub_activate_failed">Activación fallida.</string>
+  <string name="sub_deactivate_success">SIM desactivada.</string>
+  <string name="sub_deactivate_failed">Error de desactivación.</string>
 </resources>

@@ -17,6 +17,11 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">Jesteś o <xliff:g id="step_count">%1$d</xliff:g> krok od włączenia ustawień programisty.</item>
+    <item quantity="few">Jesteś <xliff:g id="step_count">%1$d</xliff:g> kroki od włączenia ustawień programisty.</item>
+    <item quantity="other">Jesteś <xliff:g id="step_count">%1$d</xliff:g> kroków od włączenia ustawień programisty.</item>
+  </plurals>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">Aktywowałeś opcje programistyczne!</string>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
@@ -360,4 +365,19 @@
   <!-- Status bar - double tap to sleep -->
   <string name="status_bar_double_tap_to_sleep_title">Dwukrotnie dotknij, aby uśpić</string>
   <string name="status_bar_double_tap_to_sleep_summary">Dotknij dwukrotnie pasek stanu, aby zablokować ekran</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s </xliff:g> jest <xliff:g id="status" example="disabled">%2$s </xliff:g></string>
+  <string name="sim_disabled">wyłączona</string>
+  <string name="sim_missing">brakująca lub uszkodzona</string>
+  <string name="sim_enabler_need_disable_sim">Karta SIM zostanie wyłączona. Kontynuować?</string>
+  <string name="sim_enabler_will_disable_sim_title">Uwaga</string>
+  <string name="sim_enabler_need_switch_data_service">Ta karta SIM zostanie wyłączona i SIM <xliff:g id="slotid">%1$s </xliff:g> będzie używana do transmisji danych, kontynuować?</string>
+  <string name="sim_enabler_airplane_on">Nie można wykonać operacji, gdy włączony jest tryb samolotowy.</string>
+  <string name="sim_enabler_in_call">Nie można wykonać operacji w czasie rozmowy.</string>
+  <string name="sim_enabler_both_inactive">Nie można wyłączyć wszystkich kart SIM</string>
+  <string name="sim_enabler_enabling">Aktywowanie\u2026</string>
+  <string name="sim_enabler_disabling">Dezaktywowanie\u2026</string>
+  <string name="sub_activate_success">SIM aktywowana.</string>
+  <string name="sub_activate_failed">Aktywacja nie powiodła się.</string>
+  <string name="sub_deactivate_success">SIM dezaktywowana.</string>
+  <string name="sub_deactivate_failed">Dezaktywacja nie powiodła się.</string>
 </resources>
