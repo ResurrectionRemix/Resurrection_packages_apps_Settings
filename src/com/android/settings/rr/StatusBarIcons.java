@@ -18,6 +18,9 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
+import android.telephony.TelephonyManager;
+import android.telephony.ImsFeatureCapability;
+import android.support.v14.preference.SwitchPreference;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -28,6 +31,10 @@ import com.android.settings.Utils;
 public class StatusBarIcons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "StatusBarIcons";
+    private static final String VOLTE_SWITCH = "volte_icon_enabled";
+    private ImsFeatureCapability mImsFeatureCapabilities;
+
+    private SwitchPreference mVolteSwitch;
 
     @Override
     protected int getMetricsCategory() {
@@ -39,6 +46,18 @@ public class StatusBarIcons extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.rr_sb_icons);
+
+        int number = TelephonyManager.getDefault().getPhoneCount();
+
+        mImsFeatureCapabilities = new ImsFeatureCapability();
+
+        mVolteSwitch = (SwitchPreference) findPreference(VOLTE_SWITCH);
+
+        if (mVolteSwitch != null) {
+            if (!mImsFeatureCapabilities.isVolteEnabled()) {
+                getPreferenceScreen().removePreference(mVolteSwitch);
+            }
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) 		{
