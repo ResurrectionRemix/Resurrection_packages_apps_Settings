@@ -58,6 +58,7 @@
   <string name="app_ops_categories_messaging">Boodskappe</string>
   <string name="app_ops_categories_media">Media</string>
   <string name="app_ops_categories_device">Toestel</string>
+  <string name="app_ops_categories_background">Agtergrond</string>
   <string name="app_ops_categories_bootup">Selflaaiproses</string>
   <string name="app_ops_categories_su">Root toegang</string>
   <!-- User display names for app ops codes - extension of AOSP -->
@@ -104,6 +105,7 @@
   <string name="app_ops_summaries_keep_awake">how wakker</string>
   <string name="app_ops_summaries_monitor_location">monitor ligging</string>
   <string name="app_ops_summaries_monitor_high_power_location">monitor hoë krag ligging</string>
+  <string name="app_ops_summaries_get_usage_stats">kry programgebruikstatistieke</string>
   <string name="app_ops_summaries_mute_unmute_microphone">demp/ontdemp mikrofoon</string>
   <string name="app_ops_summaries_toast_window">Vertoon uitspring kennisgewing</string>
   <string name="app_ops_summaries_project_media">projek media</string>
@@ -123,6 +125,7 @@
   <string name="app_ops_summaries_write_external_storage">skryf na eksterne stoor spasie</string>
   <string name="app_ops_summaries_turn_screen_on">skakel skerm aan</string>
   <string name="app_ops_summaries_get_accounts">kry rekeninge</string>
+  <string name="app_ops_summaries_run_in_background">loop in die agtergrond</string>
   <string name="app_ops_summaries_toggle_wifi">wissel Wi-Fi</string>
   <string name="app_ops_summaries_toggle_bluetooth">wissel bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">begin by stelsel begin</string>
@@ -193,6 +196,7 @@
   <string name="app_ops_labels_write_external_storage">Skryf na eksterne stoor spasie</string>
   <string name="app_ops_labels_turn_screen_on">Skakel skerm aan</string>
   <string name="app_ops_labels_get_accounts">Kry rekeninge</string>
+  <string name="app_ops_labels_run_in_background">Loop in die agtergrond</string>
   <string name="app_ops_labels_toggle_wifi">Wissel Wi-Fi</string>
   <string name="app_ops_labels_toggle_bluetooth">Wissel bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Begin by stelsel begin</string>
@@ -219,8 +223,10 @@
   <string name="volume_adjust_sounds_title">Volume verander klanke</string>
   <!-- Vibrator intensity -->
   <string name="vibrator_intensity_title">Vibrator intensiteit</string>
+  <string name="vibrator_intensity_dialog_warning">Waardes groter as %1$d%% is nie aanbeveel nie</string>
   <string name="vibrator_intensity_dialog_reset">Stel terug</string>
   <!-- Sizes for pattern lockscreen -->
+  <string name="lock_settings_picker_pattern_size_message">Kies \'n patroongrootte</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Wys patroon fout</string>
   <!-- Whether the dots will be drawn when using the lockscreen pattern -->
@@ -233,11 +239,14 @@
   <string name="lock_directly_show_pin">Wys direk PIN inskrywing</string>
   <!-- Lock screen vibrate settings -->
   <string name="lockscreen_vibrate_enabled_title">Vibreer</string>
+  <string name="lockscreen_vibrate_enabled_head">Vibreer tydens ontsluiting</string>
   <!-- Lights settings -->
   <string name="lights_label">Liggies</string>
   <!-- Memory -->
   <string name="memory_startup_apps_title">Toepe wat begin met stelsel begin</string>
   <!-- Advanced restart options -->
+  <string name="advanced_reboot_title">Gevorderde herlaai</string>
+  <string name="advanced_reboot_summary">Wanneer ontsluit, sluit opsies in die kragkieslys vir herlaai na \'recovery\', \'bootloader\' of doen a vinnige herlaai in</string>
   <!-- PIN scramble -->
   <string name="unlock_scramble_pin_layout_title">Skommel uitleg</string>
   <string name="unlock_scramble_pin_layout_summary">Skommel PIN uitleg wanneer die toestel ontsluit word</string>
@@ -252,6 +261,7 @@
   <string name="protected_apps">Beskermde programme</string>
   <string name="protected_apps_summary">Bestuur watter toepassings is verberg agter \'n veilige slot</string>
   <string name="saving_protected_components">Stoor komponent toestand\u2026</string>
+  <string name="launch_app">Begin program</string>
   <string name="pa_login_username_hint">Gebruikersnaam (e-pos)</string>
   <string name="pa_login_password_hint">Wagwoord</string>
   <string name="pa_login_submit_button">Teken in</string>
@@ -264,6 +274,7 @@
   <string name="lockscreen_blur_enabled_title">Blur agtergrond</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Voorkom toevallige wakker word</string>
+  <string name="proximity_wake_summary">Kontroleer die nabyheidsensor voor wakkerword, wat deur gebare veroorsaak is</string>
   <!-- High touch sensitivity -->
   <string name="high_touch_sensitivity_title">Hoë raak sensitiwiteit</string>
   <string name="high_touch_sensitivity_summary">Verhoog skerm sensitiwiteit, sodat dit kan gebruik word met die dra van handskoene</string>
@@ -274,6 +285,7 @@
   <string name="ime_switcher_notify">Selektor ikoon</string>
   <string name="ime_switcher_notify_summary">Wys invoer metode selektor ikoon</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
+  <string name="notification_importance_very_low">Geen volskerm onderbreking, loer, klank of vibrasie. Wys aan die onderkant van die kennisgewing lys. Versteek van sluitskerm.</string>
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Toon ikoon tydens die gebruik van \'n stilus</string>
   <string name="stylus_icon_enabled_summary">Wys die wyser ikoon wanneer beweeg of skets met die stilus</string>
@@ -282,6 +294,7 @@
   <string name="kill_app_longpress_back_summary">Beëindig die aktiewe program deur lang-druk van die Terug-knoppie</string>
   <!-- Android debugging -->
   <string name="enable_adb_cm">Android ontfouting</string>
+  <string name="enable_adb_summary_cm">Aktiveer die Android Debug Bridge (ADB) koppelvlak</string>
   <!-- Android debugging notification -->
   <string name="adb_notify">Ontfouting kennisgewing</string>
   <string name="adb_notify_summary">Vertoon \'n kennisgewing wanneer USB of netwerk ontfouting geaktiveer is</string>
@@ -296,7 +309,20 @@
   <string name="increasing_ring_min_volume_title">Begin volume</string>
   <string name="increasing_ring_ramp_up_time_title">Tydsduur</string>
   <!-- Allow vibration in zen mode -->
+  <string name="zen_mode_vibration">Vibrasie</string>
+  <string name="zen_mode_vibration_never">Moenie vibreer nie</string>
+  <string name="zen_mode_vibration_calls_only">Vibreer net vir oproepe</string>
+  <string name="zen_mode_vibration_calls_and_notifications">Vibreer vir oproepe en kennisgewings</string>
   <!-- Notification sound timeout -->
+  <string name="app_notification_sound_timeout_title">Minimum tyd tussen kennisgewingklanke</string>
+  <string name="app_notification_sound_timeout_summary_template">Laat geluide of vibrasie nie meer as een keer elke <xliff:g id="duration">%1$s </xliff:g> toe</string>
+  <string name="app_notification_sound_timeout_value_none">Geen beperkings</string>
+  <string name="app_notification_sound_timeout_value_10_seconds">10 sekondes</string>
+  <string name="app_notification_sound_timeout_value_30_seconds">30 sekondes</string>
+  <string name="app_notification_sound_timeout_value_1_minute">1 minuut</string>
+  <string name="app_notification_sound_timeout_value_5_minutes">5 minute</string>
+  <string name="app_notification_sound_timeout_value_15_minutes">10 minute</string>
+  <string name="app_notification_sound_timeout_value_30_minutes">30 minute</string>
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d status</string>
   <string name="sim_card_lock_settings_title">SIM %d gesluit instellings</string>
@@ -306,6 +332,7 @@
   <!-- NFC PreferenceCategory title -->
   <string name="nfc_title_category">NFC</string>
   <!-- Notification importance -->
+  <string name="tuner_full_importance_settings">Krag kennisgewing kontroles</string>
   <!-- CM Legal -->
   <string name="cmlicense_title">CyanogenMod Regs</string>
   <!-- Format string for fingerprint location message -->
@@ -325,7 +352,14 @@
   <string name="wake_when_plugged_or_unplugged_title">Word wakker op in/uit prop</string>
   <string name="wake_when_plugged_or_unplugged_summary">Skakel die skerm aan met die koppeling of ontkoppeling van \'n kragbron</string>
   <!-- Heads-up -->
+  <string name="heads_up_notifications_enabled_title">Swewende kennisgewings</string>
+  <string name="heads_up_notifications_enabled_summary">Wys prioriteit kennisgewings in \'n klein swewende venster</string>
   <!-- Encryption password -->
+  <string name="crypt_keeper_change_password_title">Verander enkripsie wagwoord</string>
+  <string name="crypt_keeper_change_password_summary">Verander die wagwoord wat gebruik word vir enkripsie</string>
+  <string name="crypt_keeper_choose_your_password_header">Stel enkripsie wagwoord</string>
+  <string name="crypt_keeper_replace_password_title">Vervang versleutelingswagwoord</string>
+  <string name="crypt_keeper_replace_password_summary">Verwyder die afsonderlike enkripsie wagwoord</string>
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Ander</string>
   <!-- Wi-Fi tethering inactivity timeout -->
@@ -337,20 +371,31 @@
   <string name="hotstpot_inactivity_timeout_never_summary_text">Draagbare Wifi\u2011Fi warmkol sal nooit uittel</string>
   <string name="hotstpot_inactivity_timeout_summary_text">Draagbare Wi\u2011Fi warmkol sal uittel na <xliff:g id="timeout">%1$s</xliff:g></string>
   <!-- Per-app data restrictions -->
+  <string name="data_usage_app_restrict_data_category_title">Sellulêre data toegang</string>
+  <string name="data_usage_app_restrict_wifi_category_title">Wi\u2011Fi data toegang</string>
   <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <string name="data_usage_app_restrict_all_data_title">Deaktiveer alle sellulêre data toegang</string>
   <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <string name="data_usage_app_restrict_all_data_summary">Verhoed enige gebruik van data toegang via sellulêre netwerke</string>
   <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <string name="data_usage_app_restrict_all_wifi_title">Deaktiveer alle Wi\u2011Fi data toegang</string>
   <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <string name="data_usage_app_restrict_all_wifi_summary">Verhoed enige gebruik van data toegang via Wi\u2011Fi netwerke</string>
   <!-- Volume link notification -->
   <string name="volume_link_notification_title">Koppel foon-luitoon &amp; kennisgewing volumes</string>
   <!-- Launch music player when headset is connected -->
+  <string name="headset_connect_player_title">Begin musiekspeler</string>
+  <string name="headset_connect_player_summary">Begin die verstek musiek speler wanneer \'n kopstuk gekoppel is</string>
   <!-- Update recovery -->
+  <string name="update_recovery_title">Werk herstel by</string>
+  <string name="update_recovery_summary">Werk die ingeboude recovery by tydens stelsel bywerkings</string>
   <string name="update_recovery_on_warning">KENNISGEWING: Wanneer hierdie funksie geaktiveer is, sal jou geïnstalleerde recovery vervang word deur een ingesluit met die huidige weergawe van die Beheer Stelsel\n\nJou recovery sal opgedateer word saam met die opgraderings aan jou stelsel, dit help om versoenbaarheid te verseker van toekomstige weergawes.\n\nWil jy hierdie funksie aktiveer?</string>
   <string name="update_recovery_off_warning">WAARSKUWING: Wanneer hierdie funksie afgeskakel is, sal jou geïnstalleerde recovery nie opgedateer word met Beheer Stelsel (BS) opgraderings nie.\n\nToekomstige BS opdaterings kan dalk nie geïnstalleer word met verouderde of persoonlike recovery weergawes nie.\n\nWil jy regtig hierdie funksie af skakel?</string>
   <!-- Status bar - double tap to sleep -->
   <string name="status_bar_double_tap_to_sleep_title">Klop-Klop om te slaap</string>
   <string name="status_bar_double_tap_to_sleep_summary">Dubbel klop op die statusbalk om skerm af te skakel</string>
   <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> is <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
+  <string name="sim_enabled">geaktiveer</string>
   <string name="sim_disabled">gedeaktiveer</string>
   <string name="sim_missing">verlore of foutief</string>
   <string name="sim_enabler_need_disable_sim">SIM-kaart sal gedeaktiveer word. Wil jy voortgaan?</string>
