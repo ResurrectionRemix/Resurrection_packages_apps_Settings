@@ -200,6 +200,8 @@
   <string name="task_move_to_back_title">Mutați la animația spate</string>
   <string name="wallpaper_open_title">Animații deschise wallpaper</string>
   <string name="wallpaper_close_title">Animații închise wallpaper</string>
+  <string name="wallpaper_intra_open_title">Activare animație wallpaper</string>
+  <string name="wallpaper_intra_close_title">Dezactivare animație wallpaper</string>
   <string name="animation_duration_title">Durata Animaţiei</string>
   <string name="title_animation_no_override">Preveniți suprascrierea aplicației</string>
   <string name="summary_animation_no_override">Preveniți aplicațiile să suprascrie tranzițiile</string>
@@ -526,6 +528,9 @@
   <string name="lockscreen_enable_power_menu_title">Afișează minimul de putere pe ecranul de blocare</string>
   <string name="lockscreen_enable_power_menu_summary">Această opţiune va dezactiva meniul de putere doar pe ecrane de blocare securizate</string>
   <!-- CM Lockscreen shortcuts -->
+  <string name="lockscreen_targets_message">Comenzi rapide de jos</string>
+  <string name="double_tap_sleep_anywhere_title">Atingeți ecranul de blocare pentru sleep</string>
+  <string name="double_tap_sleep_anywhere_summary">Atingeţi de două ori oriunde pe ecranul de blocare pentru a pune aparatul în mod sleep</string>
   <!-- Battery Bar -->
   <string name="battery_icon">Stil icon baterie</string>
   <string name="battery_not_title">Icon baterie în notificări</string>
@@ -560,7 +565,11 @@
   <string name="doze_pulse_duration_in_title">Atenuare graduală</string>
   <string name="doze_pulse_duration_visible_title">Durata vizibilitate</string>
   <string name="doze_pulse_duration_out_title">Dispariţie graduală</string>
+  <string name="doze_trigger_pickup_summary_off">Senzorul de ridicare nu va fi utilizat ca declanșator</string>
   <string name="doze_trigger_notification_title">Declanșator notificare</string>
+  <string name="doze_trigger_notification_summary_on">Puls va fi declanşat de notificări</string>
+  <string name="doze_trigger_notification_summary_off">Notificările nu vor fi utilizate ca declanșator</string>
+  <string name="doze_brightness_level_title">Nivel de luminozitate</string>
   <string name="onehundred_ms">100 ms</string>
   <string name="twofifty_ms">250 ms</string>
   <string name="fivehundred_ms_default">500 ms (implicit)</string>
@@ -574,12 +583,41 @@
   <string name="four_second">4 s</string>
   <string name="fourhalf_second">4.5 s</string>
   <string name="five_second">5 s</string>
+  <string name="doze_notification_color_invert_title">Inversare notificări</string>
+  <string name="doze_notification_color_invert_summary_off">Notificările nu vor fi inversate. Utilizați pentru teme întunecate.</string>
+  <string name="doze_notification_color_invert_summary_on">Notificările vor fi inversate. Utilizați pentru teme luminoase sau originale.</string>
+  <string name="ambient_display_show_battery_title">Stare baterie</string>
+  <string name="ambient_display_show_battery_summary">Arată indicator baterie în mod pulse</string>
+  <string name="keyguard_toggle_torch_title">Apăsarea lungă pe butonul power activează lanterna</string>
+  <string name="keyguard_toggle_torch_summary">Apăsați lung pe butonul power când ecranul este oprit pentru activarea lanternei</string>
   <!-- Selinux Switch -->
+  <string name="selinux_switch_title">Opțiuni Selinux switch</string>
+  <string name="selinux_switch_summary">SELinux este un set de unelte de modificare a nucleului. Schimbarea modurilor poate provoca efecte nedorite. Utilizați pe propria răspundere.</string>
+  <string name="selinux_title">Mod Selinux</string>
+  <string name="selinux_permissive_title">Permisiv</string>
   <string name="selinux_enforcing_title">Obligatoriu</string>
   <!-- Slim DSLV -->
   <string name="shortcut_action_none">Nimic</string>
   <string name="shortcut_action_longpress">Apăsare lungă:</string>
+  <string name="shortcut_action_select_action_longpress">Alege acţiunea pentru apăsare lungă:</string>
   <string name="shortcut_action_select_action">Alege acțiunea:</string>
+  <string name="shortcut_action_select_action_newaction">Alege noua acţiune:</string>
+  <string name="shortcut_action_reset">Resetează</string>
+  <string name="shortcut_action_add">Adăugați</string>
+  <string name="shortcut_action_reset_message">Resetați toate intrările la implicit?</string>
+  <string name="shortcut_action_max">S-a atins mărimea maximă pentru intrări</string>
+  <string name="shortcut_action_warning">Atenție</string>
+  <string name="shortcut_action_warning_message">Nu este posibilă ștergerea ultimei intrări</string>
+  <string name="shortcut_action_disable_message">Dezactivat\nAdaugă o intrare pentru activarea acestei funcții</string>
+  <string name="shortcut_image_not_valid">Aplicația aleasă nu a returnat o pictogramă validă sau aceasta nu suportă trunchierea imaginilor. Folosiți altă aplicație.</string>
+  <string name="shortcut_duplicate_entry">Acţiunea aleasă nu poate fi adăugată de două ori</string>
+  <string name="shortcut_action_help_shortcut">comandă rapidă</string>
+  <string name="shortcut_action_help_button">buton</string>
+  <string name="shortcut_action_help_app">aplicații</string>
+  <string name="shortcut_action_help_icon">, în timp ce selectarea pictogramei va aduce opţiuni de personalizare</string>
+  <string name="shortcut_action_help_main">Pentru a adăuga o %1$s, selectaţi pictograma Adăugare. După ce este adăugată o %1$s, selectarea rândului va schimba valoarea%2$s\n\nPentru a scoate o %1$s, trageți rândul orizontal la stânga sau la dreapta. Re-ordonați o %1$s în listă trăgând ancora din stânga pe verticală.\n\nPentru ștergere sau resetate la setările implicite, selectaţi pictograma resetare.</string>
+  <string name="shortcut_action_help_delete_last_entry">Ștergerea fiecărei %1$s din listă va dezactiva caracteristica în întregime.</string>
+  <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Ștergerea fiecărei %1$s din listă va dezactiva al doilea strat pie în întregime.</string>
   <string name="shortcuts_applications">Aplicații</string>
   <string name="shortcuts_select_custom_app_title">Selectaţi aplicaţie particularizată</string>
   <string name="shortcuts_icon_picker_type">Selectaţi tipul de icon:</string>
@@ -672,6 +710,15 @@
   <string name="shortcut_action_select_action_longpress">Alege acţiunea pentru apăsare lungă:</string>
   <string name="shortcut_action_select_action">Alege acțiunea:</string>
   <string name="shortcut_action_select_action_newaction">Alege noua acţiune:</string>
+  <string name="shortcut_action_reset">Resetați</string>
+  <string name="shortcut_action_add">Adăugați</string>
+  <string name="shortcut_action_reset_message">Resetați la valorile implicite?</string>
+  <string name="shortcut_action_max">S-a atins mărimea maximă pentru intrări</string>
+  <string name="shortcut_action_warning">Atenție</string>
+  <string name="shortcut_action_warning_message">Nu este posibilă ștergerea ultimei intrări</string>
+  <string name="shortcut_action_disable_message">Dezactivat\nAdaugă o intrare pentru activarea acestei funcții</string>
+  <string name="shortcut_image_not_valid">Aplicația aleasă nu a returnat o pictogramă validă sau aceasta nu suportă trunchierea imaginilor. Folosiți altă aplicație.</string>
+  <string name="shortcut_duplicate_entry">Acţiunea aleasă nu poate fi adăugată de două ori</string>
   <string name="shortcut_picker_applications_title">Aplicații</string>
   <string name="shortcut_picker_activities_title">Activităţi</string>
   <string name="shortcut_picker_select_app_title">Selectaţi aplicaţia:</string>
@@ -801,8 +848,18 @@
   <string name="hardware_keys_appswitch_key_title">Buton vedere generală</string>
   <string name="hardware_keys_back_key_title">Buton înapoi</string>
   <string name="hardware_keys_camera_key_title">Buton cameră</string>
+  <string name="hardware_keys_action_nothing">Nicio acțiune</string>
+  <string name="hardware_keys_action_menu">Deschide/închide meniul</string>
+  <string name="hardware_keys_action_app_switch">Comutator aplicații recente</string>
+  <string name="hardware_keys_action_search">Asistent căutare</string>
+  <string name="hardware_keys_action_voice_search">Căutare vocală</string>
+  <string name="hardware_keys_action_in_app_search">Căutare în aplicație</string>
   <string name="hardware_keys_action_launch_camera">Lansare cameră foto</string>
+  <string name="hardware_keys_action_sleep">Închide ecranul</string>
   <string name="hardware_keys_action_last_app">Ultima aplicație</string>
+  <string name="hardware_keys_category">Butoane fizice</string>
+  <string name="hardware_keys_disable_title">Dezactivează tastele fizice</string>
+  <string name="hardware_keys_power_key_title">Buton oprire</string>
   <string name="power_end_call_title">Terminare apel</string>
   <string name="home_answer_call_title">Răspunde la apel</string>
   <!-- Key backlight -->
