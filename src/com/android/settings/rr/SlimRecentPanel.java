@@ -449,6 +449,7 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
             this.icon = icon;
             this.packageName = packageName;
         }
+     }
 
     @Override
     protected int getMetricsCategory() {
