@@ -115,6 +115,10 @@ public class BatterySettings extends SettingsPreferenceFragment implements
 
         mBatteryBarColor = (ColorPickerPreference) findPreference(PREF_BATT_BAR_COLOR);
         mBatteryBarColor.setOnPreferenceChangeListener(this);
+        intColor = Settings.System.getInt(getActivity().getContentResolver(), Settings.System.STATUSBAR_BATTERY_BAR_COLOR, defaultColor);
+        hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mBatteryBarColor.setSummary(hexColor);
+        mBatteryBarColor.setNewPreviewColor(intColor);
 
         mBatteryBarChargingAnimation = (SwitchPreference) findPreference(PREF_BATT_ANIMATE);
         mBatteryBarChargingAnimation.setChecked(Settings.System.getInt(resolver,
@@ -148,12 +152,14 @@ public class BatterySettings extends SettingsPreferenceFragment implements
         intColor = Settings.System.getInt(getActivity().getContentResolver(), Settings.System.STATUSBAR_BATTERY_BAR_CHARGING_COLOR, defaultColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBatteryBarChargingColor.setSummary(hexColor);
+        mBatteryBarChargingColor.setNewPreviewColor(intColor);
  
         mBatteryBarBatteryLowColor = (ColorPickerPreference) findPreference(STATUS_BAR_BAR_LOW_COLOR);
         mBatteryBarBatteryLowColor.setOnPreferenceChangeListener(this);
         intColor = Settings.System.getInt(getActivity().getContentResolver(), Settings.System.STATUSBAR_BATTERY_BAR_LOW_COLOR, defaultColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBatteryBarBatteryLowColor.setSummary(hexColor);
+        mBatteryBarBatteryLowColor.setNewPreviewColor(intColor);
 
         mBatteryBarBatteryHighColor = (ColorPickerPreference) findPreference(STATUS_BAR_BAR_HIGH_COLOR);
         mBatteryBarBatteryHighColor.setOnPreferenceChangeListener(this);
@@ -161,6 +167,7 @@ public class BatterySettings extends SettingsPreferenceFragment implements
                 Settings.System.STATUSBAR_BATTERY_BAR_HIGH_COLOR, highColor);
         hexColor = String.format("#%08x", (0xff99CC00 & intColor));
         mBatteryBarBatteryHighColor.setSummary(hexColor);
+        mBatteryBarBatteryHighColor.setNewPreviewColor(intColor);
 
  
         int chargeColor = Settings.Secure.getInt(resolver,
@@ -176,6 +183,7 @@ public class BatterySettings extends SettingsPreferenceFragment implements
                 Settings.System.STATUSBAR_BATTERY_BAR_BATTERY_LOW_COLOR_WARNING, defaultColor);
         hexColor = String.format("#%08x", (0xffffffff & intColor));
         mBatteryBarBatteryLowColorWarn.setSummary(hexColor);
+        mBatteryBarBatteryLowColorWarn.setNewPreviewColor(intColor);
 
         mBatteryBarUseGradient = (SwitchPreference) findPreference(STATUS_BAR_USE_GRADIENT_COLOR);
         mBatteryBarUseGradient.setChecked(Settings.System.getInt(resolver,
