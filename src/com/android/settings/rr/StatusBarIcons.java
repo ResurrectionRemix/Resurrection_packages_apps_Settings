@@ -19,6 +19,8 @@ import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
+import android.telephony.TelephonyManager;
+import android.telephony.SubscriptionManager;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
@@ -29,6 +31,11 @@ import com.android.settings.Utils;
 public class StatusBarIcons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "StatusBarIcons";
+    private static final String SIM_EMPTY_SWITCH = "no_sim_cluster_switch";
+    private SubscriptionManager mSm;
+
+
+    private SwitchPreference mNoSims;
 
     @Override
     public int getMetricsCategory() {
@@ -38,11 +45,19 @@ public class StatusBarIcons extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         addPreferencesFromResource(R.xml.rr_system_icons);
+        mNoSims = (SwitchPreference) findPreference(SIM_EMPTY_SWITCH);
+        mSm = (SubscriptionManager) getSystemService(getContext().TELEPHONY_SUBSCRIPTION_SERVICE);
+
+        if (mNoSims != null) { 
+            if (!TelephonyManager.getDefault().isMultiSimEnabled() || mSm.getActiveSubscriptionInfoCount() <= 0){
+                getPreferenceScreen().removePreference(mNoSims);
+            }
+        }
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) 		{
-        return true;
+        return false;
     }
 }
