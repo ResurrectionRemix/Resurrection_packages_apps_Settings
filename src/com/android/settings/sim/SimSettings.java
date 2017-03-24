@@ -41,6 +41,7 @@ import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.PreferenceViewHolder;
+import android.support.v14.preference.SwitchPreference;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -83,6 +84,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private static final int INVALID_STATE = -1;
     private static final int CARD_NOT_PRESENT = -2;
 
+    private static final String SIM_EMPTY_SWITCH = "no_sim_cluster_switch";
     private static final String DISALLOW_CONFIG_SIM = "no_config_sim";
     private static final String SIM_CARD_CATEGORY = "sim_cards";
     private static final String KEY_CELLULAR_DATA = "sim_cellular_data";
@@ -106,6 +108,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private int mNumSlots;
     private Context mContext;
     private IExtTelephony mExtTelephony;
+    private SwitchPreference mNoSims;
 
     private int mPhoneCount = TelephonyManager.getDefault().getPhoneCount();
     private int[] mCallState = new int[mPhoneCount];
@@ -141,6 +144,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
 
         addPreferencesFromResource(R.xml.sim_settings);
 
+        mNoSims = (SwitchPreference) findPreference(SIM_EMPTY_SWITCH);
         mNumSlots = tm.getSimCount();
         mSimCards = (PreferenceCategory)findPreference(SIM_CARD_CATEGORY);
         mMobileNetwork = (PreferenceCategory) findPreference(MOBILE_NETWORK_CATEGORY);
@@ -264,6 +268,9 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
             simPref.setSummary(R.string.sim_selection_required_pref);
             // Enable data preference in msim mode and call state idle
             simPref.setEnabled((mSelectableSubInfos.size() >= 1) && callStateIdle && !ecbMode);
+        }
+        if (mNoSims != null) { 
+            mNoSims.setEnabled(mSelectableSubInfos.size() >= 1);
         }
     }
 
@@ -588,6 +595,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             mIsChecked = isChecked;
             logd("onClick: " + isChecked);
+            mNoSims.setChecked(false);
 
             handleUserRequest();
         }
