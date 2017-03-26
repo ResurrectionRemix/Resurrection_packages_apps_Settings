@@ -91,7 +91,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String KEY_UNLOCK_SET_OR_CHANGE_PROFILE = "unlock_set_or_change_profile";
     private static final String KEY_VISIBLE_PATTERN_PROFILE = "visiblepattern_profile";
     private static final String KEY_SECURITY_CATEGORY = "security_category";
-    private static final String KEY_ENCRYPTION_CATEGORY = "encryption_category";
     private static final String KEY_DEVICE_ADMIN_CATEGORY = "device_admin_category";
     private static final String KEY_ADVANCED_SECURITY = "advanced_security";
     private static final String KEY_MANAGE_TRUST_AGENTS = "manage_trust_agents";
@@ -118,7 +117,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
-    private static final String KEY_REPLACE_ENCRYPTION_PASSWORD = "crypt_keeper_replace_password";
     private static final int PASSWORD_VISIBLE = 1;
     private static final int PASSWORD_INVISIBLE = 0;
 
@@ -288,15 +286,6 @@ public class SecuritySettings extends SettingsPreferenceFragment
             if (LockPatternUtils.isDeviceEncryptionEnabled()) {
                 // The device is currently encrypted.
                 addPreferencesFromResource(R.xml.security_settings_encrypted);
-                if (!mLockPatternUtils.isSeparateEncryptionPasswordEnabled()) {
-                     PreferenceGroup encryptionCategory =
-                            (PreferenceGroup) root.findPreference(KEY_ENCRYPTION_CATEGORY);
-                    if (encryptionCategory != null) {
-                        Preference replaceEncryptionPassword =
-                                root.findPreference(KEY_REPLACE_ENCRYPTION_PASSWORD);
-                        encryptionCategory.removePreference(replaceEncryptionPassword);
-                    }
-                }
             } else {
                 // This device supports encryption but isn't encrypted.
                 addPreferencesFromResource(R.xml.security_settings_unencrypted);
