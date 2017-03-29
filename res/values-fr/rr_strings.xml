@@ -17,11 +17,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="rr_mod_version">Version de RR-OS</string>
   <string name="build_date">Date de compilation</string>
-  <string name="mod_version_default">Défaut</string>
+  <string name="mod_version_default">Par défaut</string>
   <!-- General -->
   <string name="ok">Valider</string>
   <string name="reset">Réinitialiser</string>
-  <string name="default_string">Défaut</string>
+  <string name="default_string">Par défaut</string>
   <string name="add">Ajouter</string>
   <string name="enabled">Activé</string>
   <string name="choose_app">Choisir une application</string>
@@ -62,8 +62,8 @@
   <string name="rr_ls_ui">Verrouiller l\'interface utilisateur</string>
   <string name="rr_ls_security">Sécurité</string>
   <string name="updater_title">Mises à jour</string>
-  <string name="altan_summary">● Fondateur \n● projet leader \n● chef développeur \n● UX designer \n● mainteneur</string>
-  <string name="varun_summary">● Développeur principal \n● Concepteur d\'expérience utilisateur \n● Mainteneur</string>
+  <string name="altan_summary">● Fondateur \n● chef de projet \n● chef développeur \n● concepteur UX \n● mainteneur</string>
+  <string name="varun_summary">● Développeur principal \n● Concepteur UX \n● Mainteneur</string>
   <string name="akhil_summary">● Développeur \n● mainteneur \n● Javascript master</string>
   <string name="brian_summary">● Développeur \n● mainteneur</string>
   <string name="device_maintainers_title">Appareils et mainteneurs</string>
@@ -205,7 +205,7 @@
   <string name="animation_duration_title">Durée de l\'animation</string>
   <string name="title_animation_no_override">Empêcher les substitutions d\'application</string>
   <string name="summary_animation_no_override">Empêche les applications d\'outrepasser les effets de transition</string>
-  <string name="animation_duration_default">Défaut</string>
+  <string name="animation_duration_default">Par défaut</string>
   <!-- Toast Animation -->
   <string name="toast_animation_title">Animation des notifications contextuelles</string>
   <string name="toast_none_animation">Aucune</string>
@@ -418,7 +418,7 @@
   <string name="immersive_recents_title">Applications récentes immersives</string>
   <string name="immersive_recents_summary">Apparence de l\'écran des Applications récentes</string>
   <string name="immersive_recents_dialog_title">Choisir l\'apparence pour les Applications récentes</string>
-  <string name="immersive_recents_default">Défaut</string>
+  <string name="immersive_recents_default">Par défaut</string>
   <string name="immersive_recents_fullscreen">Plein écran</string>
   <string name="immersive_recents_statusbar">Uniquement la barre d\'état</string>
   <string name="immersive_recents_navbar">Uniquement la barre de navigation</string>
@@ -575,7 +575,7 @@
   <string name="doze_brightness_level_title">Niveau de luminosité</string>
   <string name="onehundred_ms">100 ms</string>
   <string name="twofifty_ms">250 ms</string>
-  <string name="fivehundred_ms_default">500 (par défaut)</string>
+  <string name="fivehundred_ms_default">500 ms (par défaut)</string>
   <string name="sevenfifty_ms">750 ms</string>
   <string name="one_second">1 sec</string>
   <string name="onehalf_second">1,5 sec</string>
@@ -624,7 +624,7 @@
   <string name="shortcuts_applications">Applications</string>
   <string name="shortcuts_select_custom_app_title">Sélectionnez une application personnalisée</string>
   <string name="shortcuts_icon_picker_type">Sélectionnez le type d\'icône :</string>
-  <string name="shortcuts_icon_default">Défaut</string>
+  <string name="shortcuts_icon_default">Par défaut</string>
   <string name="shortcuts_icon_presets">Icônes système</string>
   <string name="shortcuts_icon_custom">Gallerie</string>
   <string name="shortcuts_icon_picker_choose_icon_title">Choisir l\'icône</string>
@@ -2075,6 +2075,11 @@
   <string name="recent_card_text_color_title">Couleur du texte de la carte</string>
   <string name="slim_recents_mem_display_long_click_clear_title">Barre de mémoire par une longue pression</string>
   <string name="slim_recents_mem_display_long_click_clear_summary">Effacer les éléments récents en appuyant longuement sur la barre mémoire</string>
+  <string name="slim_icon_pack_title">Pack d\'icône</string>
+  <string name="slim_icon_pack_summary">Appliquer un pack d\'icône personnalisé pour les application dans le panneau</string>
+  <string name="no_iconpacks_summary">Aucun pack d\'icônes installé</string>
+  <string name="dialog_pick_iconpack_title">Choisir un pack d\'icônes</string>
+  <string name="default_iconpack_title">Icônes par défaut</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
   <string name="recent_panel_lefty_mode_title">Afficher sur le bord gauche</string>
   <string name="recent_panel_lefty_mode_summary">Afficher le panneau des Applications récentes sur le bord gauche</string>
@@ -2122,12 +2127,27 @@
   <string name="magisk_title">Manager Magisk</string>
   <string name="magisk_summary">Gestion du Root</string>
   <string name="notif_text_color">Couleur du texte</string>
+  <string name="status_bar_expanded_empty_shade_view_settings_title">Pas de vue de notifications</string>
+  <string name="status_bar_expanded_empty_shade_view_settings_summary">Personnaliser l\'affichage quand il n\'y a pas de notifications</string>
   <!-- Statusbar expanded empty shade view settings -->
   <string name="empty_shade_view_show_carrier_name_title">Afficher le nom de l\'opérateur</string>
   <string name="empty_shade_view_show_carrier_name_summary">Activer pour afficher le nom de l\'opérateur</string>
   <string name="empty_shade_view_show_wifi_name_title">Afficher le nom du réseau WIFI</string>
   <string name="empty_shade_view_show_wifi_name_summary">Activer pour afficher le nom du réseau WIFI</string>
   <!-- Roaming indicator icon -->
+  <string name="roaming_indicator_icon_title">Montrer l\'indicateur du mode d\'itinérance</string>
   <!-- Screen state service -->
+  <string name="screen_state_toggles_title">Suspendre les actions</string>
+  <string name="screen_state_toggles_enable_title">Activer</string>
+  <string name="screen_state_toggles_mobile_title">Réseaux mobiles</string>
+  <string name="screen_state_toggles_location_title">Emplacement</string>
+  <string name="screen_state_toggles_twog">Basculer vers 2G</string>
+  <string name="screen_state_toggles_twog_summary">Le mode réseau basculera vers la 2G à l\'extinction de l\'écran</string>
+  <string name="screen_state_toggles_gps">Désactiver le GPS</string>
+  <string name="screen_state_toggles_gps_summary">Le service de localisation GPS sera désactivé à l\'extinction de l\'écran</string>
+  <string name="screen_state_toggles_mobile_data">Désactiver les données mobiles</string>
+  <string name="screen_state_toggles_mobile_data_summary">La connexion des données mobiles sera désactivée à l\'extinction de l\'écran</string>
+  <string name="screen_state_off_delay_title">Délai des actions à l\'extinction de l\'écran</string>
+  <string name="screen_state_off_delay_summary">Nombre de secondes à attendre avant d’effectuer des actions après extinction de l\'écran</string>
   <!-- In-call DND -->
 </resources>
