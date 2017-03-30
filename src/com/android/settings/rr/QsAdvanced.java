@@ -49,10 +49,12 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.android.internal.util.rr.PackageUtils;
+import cyanogenmod.providers.CMSettings;
 
 public class QsAdvanced extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
         private static final String TAG = "QsAdvanced";
+        private static final String BATTERY_TILE_STYLE = "battery_tile_style";
         private static final String CATEGORY_WEATHER = "weather_category";
         private static final String WEATHER_ICON_PACK = "weather_icon_pack";
         private static final String DEFAULT_WEATHER_ICON_PACKAGE = "org.omnirom.omnijaws";
@@ -60,6 +62,8 @@ public class QsAdvanced extends SettingsPreferenceFragment implements
         private static final String CHRONUS_ICON_PACK_INTENT = "com.dvtonder.chronus.ICON_PACK";
         private PreferenceCategory mWeatherCategory;
         private ListPreference mWeatherIconPack;
+        private ListPreference mBatteryTileStyle;
+        private int mBatteryTileStyleValue;
 
 
     @Override
@@ -83,6 +87,7 @@ public class QsAdvanced extends SettingsPreferenceFragment implements
                  settingsJaws = DEFAULT_WEATHER_ICON_PACKAGE;
              }
              mWeatherIconPack = (ListPreference) findPreference(WEATHER_ICON_PACK);
+
  
              List<String> entriesJaws = new ArrayList<String>();
              List<String> valuesJaws = new ArrayList<String>();
@@ -102,6 +107,13 @@ public class QsAdvanced extends SettingsPreferenceFragment implements
              mWeatherIconPack.setSummary(mWeatherIconPack.getEntry());
              mWeatherIconPack.setOnPreferenceChangeListener(this);
           }
+
+             mBatteryTileStyle = (ListPreference) findPreference(BATTERY_TILE_STYLE);
+             mBatteryTileStyleValue = Settings.Secure.getInt(getActivity().getContentResolver(),
+                     Settings.Secure.BATTERY_TILE_STYLE, 0);
+             mBatteryTileStyle.setValue(Integer.toString(mBatteryTileStyleValue));
+             mBatteryTileStyle.setSummary(mBatteryTileStyle.getEntry());
+             mBatteryTileStyle.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -113,8 +125,16 @@ public class QsAdvanced extends SettingsPreferenceFragment implements
                 int valueIndex = mWeatherIconPack.findIndexOfValue(value);
                 mWeatherIconPack.setSummary(mWeatherIconPack.getEntries()[valueIndex]);
                return true;
-            } 
-            return false;
+            }  else if (preference == mBatteryTileStyle) {
+            mBatteryTileStyleValue = Integer.valueOf((String) newValue);
+            int index = mBatteryTileStyle.findIndexOfValue((String) newValue);
+            mBatteryTileStyle.setSummary(
+                    mBatteryTileStyle.getEntries()[index]);
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.BATTERY_TILE_STYLE, mBatteryTileStyleValue);
+            return true;
+           }
+      return false;
     }
 
 
