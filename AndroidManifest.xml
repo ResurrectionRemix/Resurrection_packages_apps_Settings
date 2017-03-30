@@ -2568,6 +2568,18 @@
                 android:value="com.android.settings.rr.gestureanywhere.GestureAnywhereSettings" />
         </activity>
 
+        <!-- Suspend Actions -->
+        <activity android:name="Settings$ScreenStateServiceActivity"
+             android:label="@string/screen_state_toggles_title"
+             android:taskAffinity="">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.ScreenStateToggles" />
+        </activity>
+
         <!-- App Sidebar -->
         <activity android:name="Settings$AppSidebarActivity"
              android:label="@string/app_circle_bar_title"
