@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016 The DirtyUnicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" 
+    android:title ="@string/pixel_anim_title">
+
+    <Preference
+            android:key="selinux_switch"
+            android:title="@string/pixel_anim_title"
+            android:summary="@string/pixel_anim_warning"
+            android:icon="@drawable/rr_pixel_navbar_icon"
+            android:selectable="false"/>
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="opa_anim_duration_x"
+        android:title="@string/pixel_anim_x_title"
+        settings:maximum="1000"
+        settings:minimum="50"
+        settings:units="ms"
+        android:persistent="false" />
+
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="opa_anim_duration_y"
+        android:title="@string/pixel_anim_y_title"
+        settings:maximum="1000"
+        settings:minimum="50"
+        settings:units="ms"
+        android:persistent="false" />
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="collapse_anim_duration_ry"
+        android:title="@string/collapse_anim_duration_ry_title"
+        settings:maximum="1000"
+        settings:minimum="50"
+        settings:units="ms"
+        android:persistent="false" />
+
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="collapse_anim_duration_bg"
+        android:title="@string/collapse_anim_duration_bg_title"
+        settings:maximum="1000"
+        settings:minimum="50"
+        settings:units="ms"
+        android:persistent="false" />
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="retract_anim_duration"
+        android:title="@string/retract_anim_duration_title"
+        settings:maximum="1000"
+        settings:minimum="50"
+        settings:units="ms"
+        android:persistent="false" />
+
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="diamond_anim_duration"
+        android:title="@string/diamond_anim_duration_title"
+        settings:maximum="1000"
+        settings:minimum="50"
+        settings:units="ms"
+        android:persistent="false" />
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="dots_anim_duration"
+        android:title="@string/dots_anim_duration_title"
+        settings:maximum="1000"
+        settings:minimum="50"
+        settings:units="ms"
+        android:persistent="false" />
+
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="home_resize_anim_duration"
+        android:title="@string/home_resize_anim_duration_title"
+        settings:maximum="1000"
+        settings:minimum="50"
+        settings:units="ms"
+        android:persistent="false" />
+
+
+
+</PreferenceScreen>
