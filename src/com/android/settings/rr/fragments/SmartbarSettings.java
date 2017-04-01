@@ -79,6 +79,7 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
     private static final String KEY_SMARTBAR_BACKUP = "smartbar_profile_save";
     private static final String KEY_SMARTBAR_RESTORE = "smartbar_profile_restore";
     private static final String PREF_NAVBAR_BUTTONS_ALPHA = "navbar_buttons_alpha";
+    private static final String PIXEL = "pixel_anim";
     private static final String PREF_SMARTBAR_CUSTOM_ICON_SIZE = "smartbar_custom_icon_size";
 
     @Override
@@ -87,6 +88,7 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.smartbar_settings);
 
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.smartbar_help_policy_notice_summary);
+        mPixel = (PreferenceScreen) findPreference(PIXEL);
 
         int contextVal = Settings.Secure.getIntForUser(getContentResolver(),
                 "smartbar_context_menu_mode", 0, UserHandle.USER_CURRENT);
@@ -126,6 +128,7 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
         mCustomButtonScaling.setValue(size);
         mCustomButtonScaling.setOnPreferenceChangeListener(this);
 
+        updateAnimDurationPref(buttonAnimVal);
 
         setHasOptionsMenu(true);
     }
@@ -269,6 +272,7 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
             int val = Integer.parseInt(((String) newValue).toString());
             Settings.Secure.putInt(getContentResolver(), "smartbar_button_animation_style",
                     val);
+            updateAnimDurationPref(val);
             return true;
         } else if (preference.equals(mImeActions)) {
             int val = Integer.parseInt(((String) newValue).toString());
@@ -446,5 +450,13 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.RESURRECTED;
+    }
+
+    public void updateAnimDurationPref(int buttonAnimVal) {
+         if (buttonAnimVal == 0 || buttonAnimVal == 1 || buttonAnimVal == 2) {
+             mPixel.setEnabled(false);
+         } else {
+             mPixel.setEnabled(true);
+         }
     }
 }
