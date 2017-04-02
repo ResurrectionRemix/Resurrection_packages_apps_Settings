@@ -100,6 +100,8 @@
   <string name="fab_reset">Ponovno postavi</string>
   <string name="fab_about">O RR-OS-u</string>
   <string name="fab_layout">Ažuriraj izgled</string>
+  <string name="fab_layout_update">Klasični izgled</string>
+  <string name="fab_layout_toggle">Izgled s karticama</string>
   <string name="rr_reset_message">Želite li ponovno postaviti sve postavke na zadane vrijednosti?</string>
   <string name="rr_reset_settings">Vraćanje postavki</string>
   <string name="rr_reset_yes">Da</string>
@@ -626,6 +628,7 @@
   <string name="shortcuts_icon_presets">Ikone sustava</string>
   <string name="shortcuts_icon_custom">Galerija</string>
   <string name="shortcuts_icon_picker_choose_icon_title">Odaberite ikonu</string>
+  <string name="image_exceeds_max_allowed_size">Slika ne smije premašiti 512 x 512</string>
   <string name="lockscreen_shortcuts_category">Prečaci</string>
   <string name="keyguard_torch_title">Svjetiljka na zaključanom zaslonu</string>
   <string name="keyguard_torch_summary">Dugi pritisak gumba za uključivanje uređaja upalit će bljeskalicu kad je zaslon isključen.</string>
@@ -1009,6 +1012,7 @@
   <string name="status_bar_am_pm_small">Malo</string>
   <string name="status_bar_am_pm_hidden">Skriveno</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Stil baterije u statusnoj traci</string>
   <string name="status_bar_battery_style_icon_portrait">Ikona u portretu</string>
   <string name="status_bar_battery_style_icon_landscape">Ikona u pejzažu</string>
   <string name="status_bar_battery_style_circle">Krug</string>
@@ -1549,9 +1553,12 @@
   <string name="smartbar_button_animation_pixel_home_ripple">Pixel (samo početni gumb) i mreškanje</string>
   <string name="smartbar_factory_reset_title">Vrati na zadano</string>
   <string name="smartbar_factory_reset_confirm">Jeste li sigurni da želite vratiti pametnu traku na zadane postavke?</string>
+  <string name="smartbar_ime_action_title">Način unosa i medijske radnje</string>
+  <string name="smartbar_ime_action_summary">Postavite koji će se gumbi prikazivati kad se prikazuje zaslonska tipkovnica ili se reproducira glazba.</string>
   <string name="smartbar_ime_action_none">Ništa</string>
   <string name="smartbar_ime_action_arrows">Strelice za unos</string>
   <string name="smartbar_ime_action_switcher">Promjena tipkovnice</string>
+  <string name="smartbar_ime_action_dynamic">Strelice za unos/medije</string>
   <string name="smartbar_backup_current_config_title">Spremi profil</string>
   <string name="smartbar_restore_config_title">Vrati profil</string>
   <string name="smartbar_config_name_edit_dialog_title">Naziv profila pametne trake</string>
@@ -1870,6 +1877,7 @@
   <string name="lock_screen_weather_city_color">Grad </string>
   <string name="lock_screen_weather_wind_color">Vjetar</string>
   <string name="yes">DA</string>
+  <string name="battery_tile_style_title">Stil pločice baterije</string>
   <string name="status_bar_battery_style_tile_summary">Omogućite za postavljanje istog stila ikone koji ste odabrali za bateriju u statusnoj traci</string>
   <!-- Scrolling Animation Controls -->
   <string name="scrolling_title">Modifikatori pomicanja</string>
@@ -2016,6 +2024,17 @@
   <string name="smartbar_doubletap_sleep_title">Dvostruki dodir za zaključavanje</string>
   <string name="smartbar_doubletap_sleep_summary">Dvostruki dodir praznih područja navigacijske trake isključit će zaslon.</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_title">Trajanje animacije Pixel navigacijske trake</string>
+  <string name="pixel_anim_summary">Prilagodite razna trajanja animacija za Pixel navigacijsku traku</string>
+  <string name="pixel_anim_warning">Prilagodite razna trajanja animacija za Pixel navigacijsku traku. UPOZORENJE! Promjena zadanih vrijednosti može uzrokovati pad performansi u animacijama. Nastavite na vlastitu odgovornost!</string>
+  <string name="pixel_anim_x_title">Vodoravno trajanje</string>
+  <string name="pixel_anim_y_title">Okomito trajanje</string>
+  <string name="collapse_anim_duration_ry_title">Trajanje smanjivanja</string>
+  <string name="collapse_anim_duration_bg_title">Smanjivanje pozadine</string>
+  <string name="retract_anim_duration_title">Trajanje uvlačenja</string>
+  <string name="diamond_anim_duration_title">Dijamantsko trajanje</string>
+  <string name="dots_anim_duration_title">Trajanje točkica</string>
+  <string name="home_resize_anim_duration_title">Trajanje promjene veličine gumba</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Jednoručni način</string>
   <string name="one_handed_mode_summary">Omogućava prelazak prstom preko navigacijske trake za omogućavanje jednoručnog načina rada.</string>
@@ -2121,6 +2140,7 @@
   <!-- Force authorize substratum packages -->
   <string name="force_authorize_substratum_packages_title">Aplikacije za teme iz nepoznatih izvora</string>
   <string name="force_authorize_substratum_packages_summary">Prisilno autorizirajte svaku aplikaciju za teme</string>
+  <string name="magisk_title">Magisk Manager</string>
   <string name="magisk_summary">Upravljanje rootom</string>
   <string name="notif_text_color">Boja teksta</string>
   <string name="status_bar_expanded_empty_shade_view_settings_title">Prikaz bez obavijesti</string>
@@ -2156,4 +2176,11 @@
   <string name="no_sim_cluster_switch_title">Skrivanje SIM-a</string>
   <string name="no_sim_cluster_switch_summary">Mrežna traka sakrit će se ako je pretplata SIM-a neaktivna ili onemogućena. Ako SIM nije onemogućen, ovo neće funkcionirati.</string>
   <!-- Advanced night mode brightness -->
+  <string name="night_brightness_category">Svjetlina</string>
+  <string name="night_brightness_value_title">Svjetlina noćnog svjetla</string>
+  <string name="night_brightness_text">Kad je omogućeno noćno svjetlo, željena svjetlina automatski će se postaviti.</string>
+  <string name="night_bright_disabled">Onemogućeno</string>
+  <string name="night_bright_min">Minimalna svjetlina</string>
+  <string name="night_bright_low">Slaba svjetlina</string>
+  <string name="night_bright_medium">Srednja svjetlina</string>
 </resources>

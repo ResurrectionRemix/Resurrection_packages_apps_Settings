@@ -100,6 +100,8 @@
   <string name="fab_reset">Thiết lập lại</string>
   <string name="fab_about">Về RR-OS</string>
   <string name="fab_layout">Cập nhật giao diện</string>
+  <string name="fab_layout_update">Bật/tắt bố cục cổ điển</string>
+  <string name="fab_layout_toggle">Bật/tắt bố cục thẻ</string>
   <string name="rr_reset_message">Đặt lại tất cả cấu hình về giá trị mặc định?</string>
   <string name="rr_reset_settings">Đặt lại các thiếp lập</string>
   <string name="rr_reset_yes">Có</string>
@@ -626,6 +628,7 @@
   <string name="shortcuts_icon_presets">Biểu tượng hệ thống</string>
   <string name="shortcuts_icon_custom">Bộ sưu tập</string>
   <string name="shortcuts_icon_picker_choose_icon_title">Chọn biểu tượng</string>
+  <string name="image_exceeds_max_allowed_size">Hình ảnh không vượt quá 512x512</string>
   <string name="lockscreen_shortcuts_category">Lối tắt</string>
   <string name="keyguard_torch_title">Đèn pin khi màn hình tắt</string>
   <string name="keyguard_torch_summary">Nhấn giữ phím nguồm khi màn hình tắt để bật đèn pin</string>
@@ -1009,6 +1012,7 @@
   <string name="status_bar_am_pm_small">Nhỏ</string>
   <string name="status_bar_am_pm_hidden">Ẩn</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Kiểu pin thanh trạng thái</string>
   <string name="status_bar_battery_style_icon_portrait">Biểu tượng dọc</string>
   <string name="status_bar_battery_style_icon_landscape">Biểu tượng ngang</string>
   <string name="status_bar_battery_style_circle">Vòng tròn</string>
@@ -1549,9 +1553,12 @@
   <string name="smartbar_button_animation_pixel_home_ripple">Điểm ảnh (chỉ nút Home) và Gợn sóng</string>
   <string name="smartbar_factory_reset_title">Thiết lập lại về gốc</string>
   <string name="smartbar_factory_reset_confirm">Bạn có chắc chắn muốn thiết lập lại Smartbar về cài đặt gốc?</string>
+  <string name="smartbar_ime_action_title">Phương thức đầu vào và các hành động phương tiện</string>
+  <string name="smartbar_ime_action_summary">Cài đặt phím nào hiện khi bàn phím trên màn hình đang hiển thị hoặc âm nhạc đang phát</string>
   <string name="smartbar_ime_action_none">Không gì cả</string>
   <string name="smartbar_ime_action_arrows">Mũi tên nhập liệu</string>
   <string name="smartbar_ime_action_switcher">Chuyển đổi bàn phím</string>
+  <string name="smartbar_ime_action_dynamic">Mũi tên đầu vào/phương tiện</string>
   <string name="smartbar_backup_current_config_title">Lưu cấu hình</string>
   <string name="smartbar_restore_config_title">Khôi phục lại cấu hình</string>
   <string name="smartbar_config_name_edit_dialog_title">Tên cấu hình Smartbar</string>
@@ -1870,6 +1877,7 @@
   <string name="lock_screen_weather_city_color">Thời tiết trong thành phố </string>
   <string name="lock_screen_weather_wind_color">Gió thời tiết</string>
   <string name="yes">Có</string>
+  <string name="battery_tile_style_title">Kiểu ô pin</string>
   <string name="status_bar_battery_style_tile_summary">Cho phép đặt cùng một kiểu biểu tượng được chọn cho thanh trạng thái pin</string>
   <!-- Scrolling Animation Controls -->
   <string name="scrolling_title">Điều chỉnh cuộn</string>
@@ -2016,6 +2024,17 @@
   <string name="smartbar_doubletap_sleep_title">Chạm hai lần để tắt màn hình</string>
   <string name="smartbar_doubletap_sleep_summary">Chạm hai lần vào khu vực trống trên thanh điều hướng để tắt màn hình</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_title">Thời gian hoạt ảnh điểm ảnh thanh điều hướng</string>
+  <string name="pixel_anim_summary">Tùy chỉnh các thời gian khác nhau của hoạt ảnh điểm ảnh trên thanh điều hướng</string>
+  <string name="pixel_anim_warning">Tùy chỉnh các thời gian khác nhau của hoạt ảnh điểm ảnh hoạt hình trên thanh điều hướng. CẢNH BÁO! Thay đổi giá trị mặc định có thể gây ra hiệu suất giảm trong hoạt ảnh. Tiến hành rủi ro của riêng bạn</string>
+  <string name="pixel_anim_x_title">Thời gian ngang</string>
+  <string name="pixel_anim_y_title">Thời gian dọc</string>
+  <string name="collapse_anim_duration_ry_title">Thời gian thu gọn</string>
+  <string name="collapse_anim_duration_bg_title">Thu gọn hình nền</string>
+  <string name="retract_anim_duration_title">Thời gian rút lại</string>
+  <string name="diamond_anim_duration_title">Thời gian kim cương</string>
+  <string name="dots_anim_duration_title">Thiết lập các chấm</string>
+  <string name="home_resize_anim_duration_title">Thời gian thay đổi nút</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Chế độ một tay</string>
   <string name="one_handed_mode_summary">Cho phép vuốt trên thanh điều hướng để kích hoạt chế độ một tay</string>
@@ -2121,6 +2140,7 @@
   <!-- Force authorize substratum packages -->
   <string name="force_authorize_substratum_packages_title">Cho phép cài đặt ứng dụng từ các nguồn không xác định</string>
   <string name="force_authorize_substratum_packages_summary">Buộc ủy quyền cho mỗi ứng dụng chủ đề</string>
+  <string name="magisk_title">Trình quản lý Magisk</string>
   <string name="magisk_summary">Quản lí Root</string>
   <string name="notif_text_color">Màu văn bản</string>
   <string name="status_bar_expanded_empty_shade_view_settings_title">Không có thông báo</string>
@@ -2156,4 +2176,11 @@
   <string name="no_sim_cluster_switch_title">Không có mạng sim ẩn</string>
   <string name="no_sim_cluster_switch_summary">Ẩn thanh mạng nếu đăng ký sim không hoạt động và bị vô hiệu. Nếu sim không bị vô hiệu, chuyển đổi này sẽ không làm việc</string>
   <!-- Advanced night mode brightness -->
+  <string name="night_brightness_category">Độ sáng</string>
+  <string name="night_brightness_value_title">Độ sáng Night Light</string>
+  <string name="night_brightness_text">Khi Night Light được kích hoạt, tự động thiết lập độ sáng mong muốn.</string>
+  <string name="night_bright_disabled">Đã tắt</string>
+  <string name="night_bright_min">Độ sáng tối thiểu</string>
+  <string name="night_bright_low">Độ sáng thấp</string>
+  <string name="night_bright_medium">Độ sáng trung bình</string>
 </resources>

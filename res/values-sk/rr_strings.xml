@@ -100,6 +100,8 @@
   <string name="fab_reset">Resetovať</string>
   <string name="fab_about">O RR</string>
   <string name="fab_layout">Aktualizáciu rozloženia</string>
+  <string name="fab_layout_update">Prepnúť klasické rozloženie</string>
+  <string name="fab_layout_toggle">Prepnúť kartové rozloženie</string>
   <string name="rr_reset_message">Obnoviť všetky konfigurácie na predvolené hodnoty?</string>
   <string name="rr_reset_settings">Obnoviť nastavenia</string>
   <string name="rr_reset_yes">Áno</string>
@@ -626,6 +628,7 @@
   <string name="shortcuts_icon_presets">Systémové ikony</string>
   <string name="shortcuts_icon_custom">Galéria</string>
   <string name="shortcuts_icon_picker_choose_icon_title">Vyberte ikonu</string>
+  <string name="image_exceeds_max_allowed_size">Obrázok nesmie presiahnuť rozmen 512 x 512</string>
   <string name="lockscreen_shortcuts_category">Zástupcovia</string>
   <string name="keyguard_torch_title">Baterka na obrazovke uzamknutia</string>
   <string name="keyguard_torch_summary">Stlačením a podržaním tlačidla Napájanie, keď obrazovka je vypnutá, zapnete baterku</string>
@@ -1009,6 +1012,7 @@
   <string name="status_bar_am_pm_small">Malý</string>
   <string name="status_bar_am_pm_hidden">Skryté</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Štýl batérie v stavovom riadku</string>
   <string name="status_bar_battery_style_icon_portrait">Ikona na výšku</string>
   <string name="status_bar_battery_style_icon_landscape">Ikona na šírku</string>
   <string name="status_bar_battery_style_circle">Kruh</string>
@@ -1549,9 +1553,12 @@
   <string name="smartbar_button_animation_pixel_home_ripple">Pixel (iba tlačidlo Domov) a efekt zvlnenia</string>
   <string name="smartbar_factory_reset_title">Obnoviť predvolené</string>
   <string name="smartbar_factory_reset_confirm">Naozaj chcete obnoviť nastavenia Inteligentnej lišty?</string>
+  <string name="smartbar_ime_action_title">Vstupné metódy a mediálne akcie</string>
+  <string name="smartbar_ime_action_summary">Nastavte, které tlačidlá majú byť zobrazené, keď sa zobrazí klávesnica alebo hrá hdba</string>
   <string name="smartbar_ime_action_none">Žiadne</string>
   <string name="smartbar_ime_action_arrows">Vstupné šípky</string>
   <string name="smartbar_ime_action_switcher">Prepínač klávesnice</string>
+  <string name="smartbar_ime_action_dynamic">Šípky vstupu/médií</string>
   <string name="smartbar_backup_current_config_title">Uložiť profil</string>
   <string name="smartbar_restore_config_title">Obnoviť profil</string>
   <string name="smartbar_config_name_edit_dialog_title">Názov profilu Smartbar</string>
@@ -1870,6 +1877,7 @@
   <string name="lock_screen_weather_city_color">Mesto </string>
   <string name="lock_screen_weather_wind_color">Vietor</string>
   <string name="yes">ÁNO</string>
+  <string name="battery_tile_style_title">Štýl dlaždice batérie</string>
   <string name="status_bar_battery_style_tile_summary">Nastaví rovnaký štýl ikony batérie v stavovom riadku</string>
   <!-- Scrolling Animation Controls -->
   <string name="scrolling_title">Meniče posunu</string>
@@ -2016,6 +2024,17 @@
   <string name="smartbar_doubletap_sleep_title">Uspať dvojitým kliknutím</string>
   <string name="smartbar_doubletap_sleep_summary">Dvojiklik na práznu oblasť stavového riadoku vypne obrazovku</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_title">Trvanie Pixel animácie stavového riadku</string>
+  <string name="pixel_anim_summary">Prispôsobiť rôzne trvania pixel animácie v stavovom riadku</string>
+  <string name="pixel_anim_warning">Prispôsobiť rôzne trvania pixel animácie v stavovom riadku. UPOZORNENIE! Zmena predvolených hodnôt môže spôsobiť pokles výkonu v animácií. Pokračujte na vlastné riziko</string>
+  <string name="pixel_anim_x_title">Trvanie horizontálnej animácie</string>
+  <string name="pixel_anim_y_title">Trvanie vertikálnej animácie</string>
+  <string name="collapse_anim_duration_ry_title">Trvanie animácie zbalenia</string>
+  <string name="collapse_anim_duration_bg_title">Trvanie animácie zbalenie pozadia</string>
+  <string name="retract_anim_duration_title">Trvanie animácie Zrušiť</string>
+  <string name="diamond_anim_duration_title">Trvanie animácie kosoštvorec</string>
+  <string name="dots_anim_duration_title">Trvanie animácie pre bodky</string>
+  <string name="home_resize_anim_duration_title">Trvanie zmeny veľkosti tlačidla</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Režim jednou rukou</string>
   <string name="one_handed_mode_summary">Umožní zapnúť režim jednou rukou posunutím po navigačnej lište</string>
@@ -2121,6 +2140,7 @@
   <!-- Force authorize substratum packages -->
   <string name="force_authorize_substratum_packages_title">Povoliť inštaláciu tém z neznámych zdrojov</string>
   <string name="force_authorize_substratum_packages_summary">Vyžadovať povolenie pre každú tému</string>
+  <string name="magisk_title">Správca Magisk</string>
   <string name="magisk_summary">Správca Root oprávnení</string>
   <string name="notif_text_color">Farba textu</string>
   <string name="status_bar_expanded_empty_shade_view_settings_title">Zobrazenie žiadne upozornenia</string>
@@ -2156,4 +2176,11 @@
   <string name="no_sim_cluster_switch_title">Skryť hlásenie \"Žiadna sieť\"</string>
   <string name="no_sim_cluster_switch_summary">Skryť hlásenie \"Žiadna sieť\", v prípade, že je SIM-karta je neaktívna alebo vypnutá. Ak SIM-karta nie je vypnutá, nebude tento prepínač fungovať</string>
   <!-- Advanced night mode brightness -->
+  <string name="night_brightness_category">Jas</string>
+  <string name="night_brightness_value_title">Jas v nočnom režime</string>
+  <string name="night_brightness_text">Keď je zapnutý nočný režim, automaticky nastaví požadovaný jas.</string>
+  <string name="night_bright_disabled">Vypnuté</string>
+  <string name="night_bright_min">Minimálny jas</string>
+  <string name="night_bright_low">Nízky jas</string>
+  <string name="night_bright_medium">Stredný jas</string>
 </resources>

@@ -100,6 +100,8 @@
   <string name="fab_reset">Сброс</string>
   <string name="fab_about">О RR-OS</string>
   <string name="fab_layout">Обновить расположение</string>
+  <string name="fab_layout_update">Включить классическое расположение</string>
+  <string name="fab_layout_toggle">Включить расположение по вкладкам</string>
   <string name="rr_reset_message">Сбросить все настройки к значениям по умолчанию?</string>
   <string name="rr_reset_settings">Сбросить настройки</string>
   <string name="rr_reset_yes">Да</string>
@@ -626,6 +628,7 @@
   <string name="shortcuts_icon_presets">Системные значки</string>
   <string name="shortcuts_icon_custom">Галерея</string>
   <string name="shortcuts_icon_picker_choose_icon_title">Выбрать значок</string>
+  <string name="image_exceeds_max_allowed_size">Разрешение изображения не должно превышать 512x512</string>
   <string name="lockscreen_shortcuts_category">Ярлыки</string>
   <string name="keyguard_torch_title">Фонарик на экране блокировки</string>
   <string name="keyguard_torch_summary">Удерживайте кнопку питания, когда устройство заблокировано, чтобы включить фонарик</string>
@@ -1009,6 +1012,7 @@
   <string name="status_bar_am_pm_small">Маленький</string>
   <string name="status_bar_am_pm_hidden">Не показывать</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Стиль значка батареи в строке состояния</string>
   <string name="status_bar_battery_style_icon_portrait">Вертикальный значок</string>
   <string name="status_bar_battery_style_icon_landscape">Горизонтальный значок</string>
   <string name="status_bar_battery_style_circle">Круглый значок</string>
@@ -1549,9 +1553,12 @@
   <string name="smartbar_button_animation_pixel_home_ripple">Pixel (только кнопка Домой) и пульсация</string>
   <string name="smartbar_factory_reset_title">Сбросить к настройкам по умолчанию</string>
   <string name="smartbar_factory_reset_confirm">Вы уверены что вы хотите сбросить настройки SmartBar к настройкам по умолчанию?</string>
+  <string name="smartbar_ime_action_title">Метод ввода и медиа действия</string>
+  <string name="smartbar_ime_action_summary">Выберите, какие кнопки отображать, когда отображается наэкранная клавиатура или играет музыка</string>
   <string name="smartbar_ime_action_none">Нет</string>
   <string name="smartbar_ime_action_arrows">Стрелки ввода</string>
   <string name="smartbar_ime_action_switcher">Переключатель клавиатуры</string>
+  <string name="smartbar_ime_action_dynamic">Стрелки ввода/медиа</string>
   <string name="smartbar_backup_current_config_title">Сохранить профиль</string>
   <string name="smartbar_restore_config_title">Восстановить профиль</string>
   <string name="smartbar_config_name_edit_dialog_title">Имя профиля SmartBar</string>
@@ -1871,6 +1878,7 @@
   <string name="lock_screen_weather_city_color">Город </string>
   <string name="lock_screen_weather_wind_color">Ветер</string>
   <string name="yes">Да</string>
+  <string name="battery_tile_style_title">Стиль плитки батареи</string>
   <string name="status_bar_battery_style_tile_summary">Разрешить устанавливать тот же стиль значка батареи, что и в строке состояния</string>
   <!-- Scrolling Animation Controls -->
   <string name="scrolling_title">Модификаторы прокрутки</string>
@@ -2016,6 +2024,17 @@
   <string name="smartbar_doubletap_sleep_title">Двойное нажатие для отключения экрана</string>
   <string name="smartbar_doubletap_sleep_summary">Двойное нажатие на пустое место на панели навигации для отключения экрана</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_title">Продолжительность Pixel анимации панели навигации</string>
+  <string name="pixel_anim_summary">Настройте различные продолжительности Pixel анимации на панели навигации</string>
+  <string name="pixel_anim_warning">Настройте различные продолжительности Pixel анимации на панели навигации. ПРЕДУПРЕЖДЕНИЕ! Изменение значений по умолчанию может вызвать потерю производительности в анимации. Продолжайте на свой страх и риск</string>
+  <string name="pixel_anim_x_title">Горизонтальная продолжительность</string>
+  <string name="pixel_anim_y_title">Вертикальная продолжительность</string>
+  <string name="collapse_anim_duration_ry_title">Продолжительность сворачивания</string>
+  <string name="collapse_anim_duration_bg_title">Сворачивание фона</string>
+  <string name="retract_anim_duration_title">Продолжительность отмены</string>
+  <string name="diamond_anim_duration_title">Продолжительность анимации ромба</string>
+  <string name="dots_anim_duration_title">Продолжительность для точек</string>
+  <string name="home_resize_anim_duration_title">Продолжительность изменения размера кнопки</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Режим \"Управление одной рукой\"</string>
   <string name="one_handed_mode_summary">Позволяет свайпом по панели навигации включать режим \"Управление одной рукой\"</string>
@@ -2121,6 +2140,7 @@
   <!-- Force authorize substratum packages -->
   <string name="force_authorize_substratum_packages_title">Разрешить установку тем из неизвестных источников</string>
   <string name="force_authorize_substratum_packages_summary">Принудительно запрашивать разрешения для каждой темы</string>
+  <string name="magisk_title">Менеджер Magisk</string>
   <string name="magisk_summary">Управление правами суперпользователя</string>
   <string name="notif_text_color">Цвет текста</string>
   <string name="status_bar_expanded_empty_shade_view_settings_title">Вид без уведомлений</string>
@@ -2156,4 +2176,11 @@
   <string name="no_sim_cluster_switch_title">Скрыть надпись \"Нет сети\"</string>
   <string name="no_sim_cluster_switch_summary">Скрыть панель сети, если подпись SIM-карты неактивна или отключена. Если SIM-карта не отключена, данный переключатель не будет работать</string>
   <!-- Advanced night mode brightness -->
+  <string name="night_brightness_category">Яркость</string>
+  <string name="night_brightness_value_title">Яркость в ночном режиме</string>
+  <string name="night_brightness_text">Когда ночной режим включен, автоматически устанавливается желаемая яркость.</string>
+  <string name="night_bright_disabled">Выключено</string>
+  <string name="night_bright_min">Минимальная яркость</string>
+  <string name="night_bright_low">Низкая яркость</string>
+  <string name="night_bright_medium">Средняя яркость</string>
 </resources>
