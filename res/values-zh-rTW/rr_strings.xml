@@ -100,6 +100,8 @@
   <string name="fab_reset">重設</string>
   <string name="fab_about">關於 RR-OS</string>
   <string name="fab_layout">更新佈局</string>
+  <string name="fab_layout_update">切換經典佈局</string>
+  <string name="fab_layout_toggle">切換分頁佈局</string>
   <string name="rr_reset_message">將所有配置重設為預設值嗎？</string>
   <string name="rr_reset_settings">重設設定</string>
   <string name="rr_reset_yes">是</string>
@@ -626,6 +628,7 @@
   <string name="shortcuts_icon_presets">系統圖示</string>
   <string name="shortcuts_icon_custom">相簿</string>
   <string name="shortcuts_icon_picker_choose_icon_title">選擇圖示</string>
+  <string name="image_exceeds_max_allowed_size">圖片不得超過 512×512</string>
   <string name="lockscreen_shortcuts_category">捷徑</string>
   <string name="keyguard_torch_title">鎖定畫面手電筒</string>
   <string name="keyguard_torch_summary">螢幕關閉的情況下長按電源鍵開啟手電筒</string>
@@ -1009,6 +1012,7 @@
   <string name="status_bar_am_pm_small">小</string>
   <string name="status_bar_am_pm_hidden">隐藏</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">狀態列電池樣式</string>
   <string name="status_bar_battery_style_icon_portrait">直式圖示</string>
   <string name="status_bar_battery_style_icon_landscape">橫式圖示</string>
   <string name="status_bar_battery_style_circle">環形</string>
@@ -1549,9 +1553,12 @@
   <string name="smartbar_button_animation_pixel_home_ripple">像素 (僅主畫面鍵) 和波紋</string>
   <string name="smartbar_factory_reset_title">重設為預設值</string>
   <string name="smartbar_factory_reset_confirm">確定將智慧列重設為預設值？</string>
+  <string name="smartbar_ime_action_title">輸入法和媒體動作</string>
+  <string name="smartbar_ime_action_summary">設定顯示螢幕鍵盤或播放音樂時要顯示的按鍵</string>
   <string name="smartbar_ime_action_none">無</string>
   <string name="smartbar_ime_action_arrows">輸入箭頭</string>
   <string name="smartbar_ime_action_switcher">鍵盤切換器</string>
+  <string name="smartbar_ime_action_dynamic">輸入/媒體箭頭</string>
   <string name="smartbar_backup_current_config_title">儲存設定檔</string>
   <string name="smartbar_restore_config_title">還原設定檔</string>
   <string name="smartbar_config_name_edit_dialog_title">「智慧列」設定檔名稱</string>
@@ -1870,6 +1877,7 @@
   <string name="lock_screen_weather_city_color">城市天氣 </string>
   <string name="lock_screen_weather_wind_color">天氣風向</string>
   <string name="yes">是</string>
+  <string name="battery_tile_style_title">電池圖塊樣式</string>
   <string name="status_bar_battery_style_tile_summary">選擇狀態列電池允許設定相同的圖示樣式</string>
   <!-- Scrolling Animation Controls -->
   <string name="scrolling_title">捲動選項</string>
@@ -2016,6 +2024,16 @@
   <string name="smartbar_doubletap_sleep_title">輕觸兩下即可休眠</string>
   <string name="smartbar_doubletap_sleep_summary">輕觸兩下導覽列空白區域以關閉螢幕</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_title">像素導航列動畫持續時間</string>
+  <string name="pixel_anim_summary">在導航列上自訂像素動畫的各種持續時間</string>
+  <string name="pixel_anim_warning">在導航列上自訂像素動畫的各種持續時間。 警告！ 更改預設值可能會導致動畫效能下降。自行承擔風險</string>
+  <string name="pixel_anim_x_title">水平持續時間</string>
+  <string name="pixel_anim_y_title">垂直持續時間</string>
+  <string name="collapse_anim_duration_ry_title">收起持續時間</string>
+  <string name="collapse_anim_duration_bg_title">收起背景</string>
+  <string name="retract_anim_duration_title">撤回持續時間</string>
+  <string name="diamond_anim_duration_title">鑽石持續時間</string>
+  <string name="dots_anim_duration_title">點的持續時間</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">單手模式</string>
   <string name="one_handed_mode_summary">允許在導覽列上滑動以啟用單手模式</string>
@@ -2121,7 +2139,6 @@
   <!-- Force authorize substratum packages -->
   <string name="force_authorize_substratum_packages_title">允許來源不明的主題應用程式</string>
   <string name="force_authorize_substratum_packages_summary">強制授權每個主題應用程式</string>
-  <string name="magisk_title">Magisk 管理員</string>
   <string name="magisk_summary">Root 管理</string>
   <string name="notif_text_color">文字顏色</string>
   <string name="status_bar_expanded_empty_shade_view_settings_title">沒有通知查看</string>
@@ -2157,4 +2174,11 @@
   <string name="no_sim_cluster_switch_title">沒有 sim 卡時網路隱藏</string>
   <string name="no_sim_cluster_switch_summary">如果 Sim 卡的訂閱處於非活動狀態並被停用，則隱藏網路列。 如果 sim 未被停用，則此開關將不起作用</string>
   <!-- Advanced night mode brightness -->
+  <string name="night_brightness_category">亮度</string>
+  <string name="night_brightness_value_title">夜間模式亮度</string>
+  <string name="night_brightness_text">啟用夜間模式時，自動設定所需的亮度。</string>
+  <string name="night_bright_disabled">已停用</string>
+  <string name="night_bright_min">最小亮度</string>
+  <string name="night_bright_low">低亮度</string>
+  <string name="night_bright_medium">中等亮度</string>
 </resources>

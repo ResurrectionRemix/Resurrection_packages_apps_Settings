@@ -100,6 +100,8 @@
   <string name="fab_reset">Sıfırla</string>
   <string name="fab_about">RR-OS Hakkında</string>
   <string name="fab_layout">Güncelleştirme düzeni</string>
+  <string name="fab_layout_update">Klasik düzeni değiştir</string>
+  <string name="fab_layout_toggle">Sekme düzenini değiştir</string>
   <string name="rr_reset_message">Tüm yapılandırmaları varsayılan değerlere sıfırlansın mı?</string>
   <string name="rr_reset_settings">Ayarları sıfırla</string>
   <string name="rr_reset_yes">Evet</string>
@@ -626,6 +628,7 @@
   <string name="shortcuts_icon_presets">Sistem simgeleri</string>
   <string name="shortcuts_icon_custom">Galeri</string>
   <string name="shortcuts_icon_picker_choose_icon_title">Simge seçin</string>
+  <string name="image_exceeds_max_allowed_size">Görüntü 512x512\'yi geçmemelidir</string>
   <string name="lockscreen_shortcuts_category">Kısayollar</string>
   <string name="keyguard_torch_title">Kilit ekranı el feneri</string>
   <string name="keyguard_torch_summary">El fenerini açmak için ekran kapalıyken güç tuşuna uzun basın</string>
@@ -1009,6 +1012,7 @@
   <string name="status_bar_am_pm_small">Küçük</string>
   <string name="status_bar_am_pm_hidden">Gizli</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Durum çubuğu pil stili</string>
   <string name="status_bar_battery_style_icon_portrait">Dikey simge</string>
   <string name="status_bar_battery_style_icon_landscape">Yatay simge</string>
   <string name="status_bar_battery_style_circle">Daire</string>
@@ -1549,9 +1553,12 @@
   <string name="smartbar_button_animation_pixel_home_ripple">Pixel (Yalnızca ana sayfa tuşu) ve Dalgalanma</string>
   <string name="smartbar_factory_reset_title">Stok ayarları geri yükle</string>
   <string name="smartbar_factory_reset_confirm">Akıllı çubuk ayarlarını stok ayarlara sıfırlamak istediğinizden emin misiniz?</string>
+  <string name="smartbar_ime_action_title">Giriş yöntemi ve medya eylemleri</string>
+  <string name="smartbar_ime_action_summary">Bir ekran klavyesi gösterilirken veya müzik çalınırken hangi tuşların gösterileceğini ayarlayın</string>
   <string name="smartbar_ime_action_none">Hiçbiri</string>
   <string name="smartbar_ime_action_arrows">İmleç okları</string>
   <string name="smartbar_ime_action_switcher">Klavye değiştirici</string>
+  <string name="smartbar_ime_action_dynamic">Giriş/medya okları</string>
   <string name="smartbar_backup_current_config_title">Profili kaydet</string>
   <string name="smartbar_restore_config_title">Profili geri yükle</string>
   <string name="smartbar_config_name_edit_dialog_title">Smartbar profil adı</string>
@@ -1870,6 +1877,7 @@
   <string name="lock_screen_weather_city_color">Şehir hava durumu </string>
   <string name="lock_screen_weather_wind_color">Hava Rüzgar</string>
   <string name="yes">EVET</string>
+  <string name="battery_tile_style_title">Pil karesi stili</string>
   <string name="status_bar_battery_style_tile_summary">Durum çubuğu pili için seçilen aynı simge stilini ayarlamaya izin ver</string>
   <!-- Scrolling Animation Controls -->
   <string name="scrolling_title">Kaydırmayı düzenle</string>
@@ -2018,6 +2026,16 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <string name="smartbar_doubletap_sleep_title">Uykuya geçmek için iki kez dokun</string>
   <string name="smartbar_doubletap_sleep_summary">Ekranı kapatmak için gezinme çubuğunun boş bir kısmına iki defa dokunun</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_title">Pixel gezinti çubuğu animasyon süresi</string>
+  <string name="pixel_anim_summary">Gezinme çubuğunda pixel animasyonunun çeşitli sürelerini özelleştirme</string>
+  <string name="pixel_anim_warning">Gezinti çubuğundaki pixel animasyonunun çeşitli sürelerini özelleştirin. UYARI! Varsayılan değerleri değiştirmek, animasyonda performans düşüşüne neden olabilir. Kendi sorumluluğunuzdadır</string>
+  <string name="pixel_anim_x_title">Yatay süre</string>
+  <string name="pixel_anim_y_title">Dikey süre</string>
+  <string name="collapse_anim_duration_ry_title">Daraltma süresi</string>
+  <string name="collapse_anim_duration_bg_title">Arka planı daralt</string>
+  <string name="retract_anim_duration_title">Geri çekme süresi</string>
+  <string name="diamond_anim_duration_title">Elmas süresi</string>
+  <string name="dots_anim_duration_title">Noktaların süresi</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Tek el modu</string>
   <string name="one_handed_mode_summary">Tek elle kullanılan modu etkinleştirmek için gezinme çubuğunda hızlıca kaydırmaya izin verir</string>
@@ -2123,7 +2141,6 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <!-- Force authorize substratum packages -->
   <string name="force_authorize_substratum_packages_title">Bilinmeyen kaynaklardan tema uygulamalarına izin ver</string>
   <string name="force_authorize_substratum_packages_summary">Her tema uygulamasını zorla yetkilendir</string>
-  <string name="magisk_title">Magisk Manager</string>
   <string name="magisk_summary">Root yönetimi</string>
   <string name="notif_text_color">Metin rengi</string>
   <string name="status_bar_expanded_empty_shade_view_settings_title">Bildirim yok görünümü</string>
@@ -2159,4 +2176,11 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <string name="no_sim_cluster_switch_title">Sim ağı yok metnini gizle</string>
   <string name="no_sim_cluster_switch_summary">Sim ağı etkin değilse ve devre dışı bırakıldıysa ağ çubuğunda gizleyin. Sim devre dışı bırakılmazsa, bu anahtar çalışmaz</string>
   <!-- Advanced night mode brightness -->
+  <string name="night_brightness_category">Parlaklık</string>
+  <string name="night_brightness_value_title">Gece Işığı parlaklığı</string>
+  <string name="night_brightness_text">Gece Işığı etkinleştirildiğinde, otomatik olarak istenen parlaklığı ayarla.</string>
+  <string name="night_bright_disabled">Devre dışı</string>
+  <string name="night_bright_min">En düşük parlaklık</string>
+  <string name="night_bright_low">Düşük parlaklık</string>
+  <string name="night_bright_medium">Orta parlaklık</string>
 </resources>
