@@ -176,21 +176,31 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
                 Settings.System.RECENTS_MAX_APPS, Integer.valueOf(String.valueOf(newValue)));
             return true;
         } else if (preference == mMemTextColor) {
-                String hex = ColorPickerPreference.convertToARGB(
-                        Integer.valueOf(String.valueOf(newValue)));
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hex.equals("#00ffffff")) {
+                preference.setSummary(R.string.default_string);
+            } else {
                 preference.setSummary(hex);
-                int intHex = ColorPickerPreference.convertToColorInt(hex);
-                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                        Settings.System.SLIM_MEM_TEXT_COLOR, intHex);
-                return true;
+            }
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContext().getContentResolver(),
+                    Settings.System.SLIM_MEM_TEXT_COLOR,
+                    intHex);
+            return true;
         } else if (preference == mMemBarColor) {
-                String hex = ColorPickerPreference.convertToARGB(
-                        Integer.valueOf(String.valueOf(newValue)));
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            if (hex.equals("#00ffffff")) {
+                preference.setSummary(R.string.default_string);
+            } else {
                 preference.setSummary(hex);
-                int intHex = ColorPickerPreference.convertToColorInt(hex);
-                Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
-                        Settings.System.SLIM_MEM_BAR_COLOR, intHex);
-                return true;
+            }
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContext().getContentResolver(),
+                    Settings.System.SLIM_MEM_BAR_COLOR,
+                    intHex);
+            return true;
         } 
         return false;
     }
@@ -246,21 +256,33 @@ public class SlimRecentPanel extends /*Slim*/SettingsPreferenceFragment implemen
         }
         mRecentPanelBgColor.setNewPreviewColor(intColor);
 
-        mMemTextColor = (ColorPickerPreference) findPreference(MEM_TEXT_COLOR);
-        mMemTextColor.setOnPreferenceChangeListener(this);
-        final int intColortext = Settings.System.getInt(getContentResolver(),
-                    Settings.System.SLIM_MEM_TEXT_COLOR, 0xffffffff);
-        String hexColortext = String.format("#%08x", (0xffffffff & intColortext));
-        mMemTextColor.setSummary(hexColortext);
-        mMemTextColor.setNewPreviewColor(intColortext);
-
-        mMemBarColor = (ColorPickerPreference) findPreference(MEMBAR_COLOR);
+        // Recents memory bar bar color
+        mMemBarColor  =
+                (ColorPickerPreference) findPreference(MEMBAR_COLOR);
         mMemBarColor.setOnPreferenceChangeListener(this);
-        final int intColorbar = Settings.System.getInt(getContentResolver(),
-                    Settings.System.SLIM_MEM_BAR_COLOR, getResources().getColor(R.color.theme_accent));
-        String hexColorbar = String.format("#%08x", (0x00ffffff & intColorbar));
-        mMemBarColor.setSummary(hexColorbar);
-        mMemBarColor.setNewPreviewColor(intColorbar);
+        final int intColorBar = Settings.System.getInt(getContext().getContentResolver(),
+                Settings.System.SLIM_MEM_BAR_COLOR, 0x00ffffff);
+        String hexColorBar = String.format("#%08x", (0x00ffffff & intColorBar));
+        if (hexColorBar.equals("#00ffffff")) {
+            mMemBarColor.setSummary(R.string.default_string);
+        } else {
+            mMemBarColor.setSummary(hexColorBar);
+        }
+        mMemBarColor.setNewPreviewColor(intColorBar);
+
+        // Recents memory bar text color
+        mMemTextColor  =
+                (ColorPickerPreference) findPreference(MEM_TEXT_COLOR);
+        mMemTextColor.setOnPreferenceChangeListener(this);
+        final int intColorText = Settings.System.getInt(getContext().getContentResolver(),
+                Settings.System.SLIM_MEM_TEXT_COLOR, 0x00ffffff);
+        String hexColorText = String.format("#%08x", (0x00ffffff & intColorText));
+        if (hexColorText.equals("#00ffffff")) {
+            mMemTextColor.setSummary(R.string.default_string);
+        } else {
+            mMemTextColor.setSummary(hexColorText);
+        }
+        mMemTextColor.setNewPreviewColor(intColorText);
 
 
         // Recent card background color

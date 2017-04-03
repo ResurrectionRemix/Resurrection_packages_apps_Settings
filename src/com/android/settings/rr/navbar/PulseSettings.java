@@ -183,7 +183,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         int buttonsOpacity = Settings.Secure.getIntForUser(getContentResolver(),
                 Settings.Secure.PULSE_CUSTOM_BUTTONS_OPACITY, 200, UserHandle.USER_CURRENT);
         mNavButtonsOpacity =
-                (CustomSeekBarPreference) findPreference(PULSE_CUSTOM_BUTTONS_OPACITY);
+                (SeekBarPreference) findPreference(PULSE_CUSTOM_BUTTONS_OPACITY);
         mNavButtonsOpacity.setValue(buttonsOpacity);
         mNavButtonsOpacity.setOnPreferenceChangeListener(this);
     }
