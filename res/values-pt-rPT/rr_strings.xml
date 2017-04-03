@@ -100,6 +100,8 @@
   <string name="fab_reset">Restaurar</string>
   <string name="fab_about">Sobre a RR</string>
   <string name="fab_layout">Atualizar esquema</string>
+  <string name="fab_layout_update">Alternar para a disposição clássica</string>
+  <string name="fab_layout_toggle">Alternar para a disposição em separadores</string>
   <string name="rr_reset_message">Restaurar todas as configurações para os valores predefinidos?</string>
   <string name="rr_reset_settings">Restaurar definições</string>
   <string name="rr_reset_yes">Sim</string>
@@ -626,6 +628,7 @@
   <string name="shortcuts_icon_presets">Ícones do sistema</string>
   <string name="shortcuts_icon_custom">Galeria</string>
   <string name="shortcuts_icon_picker_choose_icon_title">Escolher ícone</string>
+  <string name="image_exceeds_max_allowed_size">A imagem não deve exceder os 512x512 píxeis</string>
   <string name="lockscreen_shortcuts_category">Atalhos</string>
   <string name="keyguard_torch_title">Lanterna no ecrã de bloqueio</string>
   <string name="keyguard_torch_summary">Ligar a lanterna com pressão longa no botão de ligar/desligar com o ecrã desligado</string>
@@ -1009,6 +1012,7 @@
   <string name="status_bar_am_pm_small">Pequena</string>
   <string name="status_bar_am_pm_hidden">Não mostrar</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Estilo da bateria na barra de estado</string>
   <string name="status_bar_battery_style_icon_portrait">Ícone em modo retrato</string>
   <string name="status_bar_battery_style_icon_landscape">Ícone em modo paisagem</string>
   <string name="status_bar_battery_style_circle">Círculo</string>
@@ -1549,9 +1553,12 @@
   <string name="smartbar_button_animation_pixel_home_ripple">Pixel (apenas botão Página Inicial) e Ondulação</string>
   <string name="smartbar_factory_reset_title">Redefinir para padrão</string>
   <string name="smartbar_factory_reset_confirm">Tem a certeza que deseja repor as configurações predefinidas da barra de navegação?</string>
+  <string name="smartbar_ime_action_title">Método de introdução e ações multimédia</string>
+  <string name="smartbar_ime_action_summary">Definir que botões mostrar quando um teclado é mostrado ou quando reproduz música</string>
   <string name="smartbar_ime_action_none">Nenhuma</string>
   <string name="smartbar_ime_action_arrows">Setas de introdução</string>
   <string name="smartbar_ime_action_switcher">Troca de teclado</string>
+  <string name="smartbar_ime_action_dynamic">Setas de entrada/multimédia</string>
   <string name="smartbar_backup_current_config_title">Guardar perfil</string>
   <string name="smartbar_restore_config_title">Restaurar o perfil</string>
   <string name="smartbar_config_name_edit_dialog_title">Nome do perfil da barra de navegação</string>
@@ -1870,6 +1877,7 @@
   <string name="lock_screen_weather_city_color">Localização da meteorologia </string>
   <string name="lock_screen_weather_wind_color">Vento</string>
   <string name="yes">SIM</string>
+  <string name="battery_tile_style_title">Estilo do mosaico da bateria</string>
   <string name="status_bar_battery_style_tile_summary">Atribuir ao mosaico o mesmo estilo do ícone de bateria escolhido para a barra de estado</string>
   <!-- Scrolling Animation Controls -->
   <string name="scrolling_title">Modificadores de deslizamento</string>
@@ -2016,6 +2024,17 @@
   <string name="smartbar_doubletap_sleep_title">Toque duplo para desligar ecrã</string>
   <string name="smartbar_doubletap_sleep_summary">Toque duas vezes numa área vazia da barra de navegação para desligar o ecrã</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_title">Duração da animação Pixel da barra de navegação</string>
+  <string name="pixel_anim_summary">Personalizar várias durações da animação Pixel da barra de navegação</string>
+  <string name="pixel_anim_warning">Personalizar várias durações da animação Pixel da barra de navegação. ATENÇÃO! Alterar os valores predefinidos pode causar perda de performance durante a animação. Prossiga por sua conta e risco</string>
+  <string name="pixel_anim_x_title">Duração horizontal</string>
+  <string name="pixel_anim_y_title">Duração vertical</string>
+  <string name="collapse_anim_duration_ry_title">Duração ao fechar</string>
+  <string name="collapse_anim_duration_bg_title">Fechar o fundo</string>
+  <string name="retract_anim_duration_title">Duração ao retrair</string>
+  <string name="diamond_anim_duration_title">Duração do diamante</string>
+  <string name="dots_anim_duration_title">Duração dos pontos</string>
+  <string name="home_resize_anim_duration_title">Duração do tamanho dos botões</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Modo de uma mão</string>
   <string name="one_handed_mode_summary">Permite deslizar na barra de navegação para ativar o modo de uma mão</string>
@@ -2121,6 +2140,7 @@
   <!-- Force authorize substratum packages -->
   <string name="force_authorize_substratum_packages_title">Permitir aplicações de temas de fontes desconhecidas</string>
   <string name="force_authorize_substratum_packages_summary">Forçar autorização de todas as aplicações de temas</string>
+  <string name="magisk_title">Gestor Magisk</string>
   <string name="magisk_summary">Gestão de root</string>
   <string name="notif_text_color">Cor texto</string>
   <string name="status_bar_expanded_empty_shade_view_settings_title">Nenhum modo de exibição de notificações</string>
@@ -2156,4 +2176,11 @@
   <string name="no_sim_cluster_switch_title">Esconder o indicador de \"sem cartão SIM\"</string>
   <string name="no_sim_cluster_switch_summary">Esconder o indicador da rede se o cartão SIM estiver inativo ou desativado. Se o cartão SIM não estiver desativado, esta função não irá funcionar</string>
   <!-- Advanced night mode brightness -->
+  <string name="night_brightness_category">Brilho</string>
+  <string name="night_brightness_value_title">Brilho da Luz Noturna</string>
+  <string name="night_brightness_text">Definir automaticamente o brilho desejado quando a Luz Noturna é ativada.</string>
+  <string name="night_bright_disabled">Desativado</string>
+  <string name="night_bright_min">Brilho mínimo</string>
+  <string name="night_bright_low">Brilho baixo</string>
+  <string name="night_bright_medium">Brilho médio</string>
 </resources>

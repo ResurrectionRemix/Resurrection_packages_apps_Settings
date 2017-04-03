@@ -100,6 +100,8 @@
   <string name="fab_reset">Скидання</string>
   <string name="fab_about">Про RR-OS</string>
   <string name="fab_layout">Оновлення розміщення</string>
+  <string name="fab_layout_update">Використовувати класичний макет</string>
+  <string name="fab_layout_toggle">Використовувати макет вкладок</string>
   <string name="rr_reset_message">Скинути всі налаштування за замовчуванням?</string>
   <string name="rr_reset_settings">Скинути налаштування</string>
   <string name="rr_reset_yes">Так</string>
@@ -626,6 +628,7 @@
   <string name="shortcuts_icon_presets">Системні значки</string>
   <string name="shortcuts_icon_custom">Галерея</string>
   <string name="shortcuts_icon_picker_choose_icon_title">Виберіть значок</string>
+  <string name="image_exceeds_max_allowed_size">Зображення не може перевищувати 512х512</string>
   <string name="lockscreen_shortcuts_category">Ярлики</string>
   <string name="keyguard_torch_title">Ліхтарик на екрані блокування</string>
   <string name="keyguard_torch_summary">Утримуйте кнопку живлення, коли пристрій заблоковано, щоб увімкнути ліхтарик</string>
@@ -1009,6 +1012,7 @@
   <string name="status_bar_am_pm_small">Маленький</string>
   <string name="status_bar_am_pm_hidden">Приховати</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Стиль батареї у рядку стану</string>
   <string name="status_bar_battery_style_icon_portrait">Вертикальний значок</string>
   <string name="status_bar_battery_style_icon_landscape">Горизонтальний значок</string>
   <string name="status_bar_battery_style_circle">Коло</string>
@@ -1549,9 +1553,12 @@
   <string name="smartbar_button_animation_pixel_home_ripple">Pixel (тільки кнопка Додому) і пульсація</string>
   <string name="smartbar_factory_reset_title">Скинути до налаштувань за замовчуванням</string>
   <string name="smartbar_factory_reset_confirm">Ви впевнені, що хочете повернути налаштування в початковий стан?</string>
+  <string name="smartbar_ime_action_title">Метод введення та дії з медіа</string>
+  <string name="smartbar_ime_action_summary">Виберіть, які кнопки відображати, коли відображається наекранна клавіатура або грає музика</string>
   <string name="smartbar_ime_action_none">Немає</string>
   <string name="smartbar_ime_action_arrows">Стрілки введення</string>
   <string name="smartbar_ime_action_switcher">Перемикач клавіатури</string>
+  <string name="smartbar_ime_action_dynamic">Стрілки для введення або медіа</string>
   <string name="smartbar_backup_current_config_title">Зберегти профіль</string>
   <string name="smartbar_restore_config_title">Відновити профіль</string>
   <string name="smartbar_config_name_edit_dialog_title">Ім\'я профілю SmartBar</string>
@@ -1870,6 +1877,7 @@
   <string name="lock_screen_weather_city_color">Місто </string>
   <string name="lock_screen_weather_wind_color">Вітер</string>
   <string name="yes">ТАК</string>
+  <string name="battery_tile_style_title">Стиль плитки батареї</string>
   <string name="status_bar_battery_style_tile_summary">Дозволити встановити іконку, таку як в рядку стану</string>
   <!-- Scrolling Animation Controls -->
   <string name="scrolling_title">Налаштування прокручування</string>
@@ -2016,6 +2024,17 @@
   <string name="smartbar_doubletap_sleep_title">Подвійне натискання для вимкнення екрану</string>
   <string name="smartbar_doubletap_sleep_summary">Подвійне натискання на порожнє місце на панелі навігації для вимкнення екрану</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_title">Тривалість анімації рядку навігації Pixel</string>
+  <string name="pixel_anim_summary">Налаштуйте різні тривалості анімації для рядку навігації Pixel</string>
+  <string name="pixel_anim_warning">Налаштуйте різні тривалості анімації рядку навігації Pixel. ПОПЕРЕДЖЕННЯ! Зміна значень за замовчуванням може призвести до зниження продуктивності анімації. Змінюйте на свій страх і ризик</string>
+  <string name="pixel_anim_x_title">Тривалість горизонтально</string>
+  <string name="pixel_anim_y_title">Тривалість вертикально</string>
+  <string name="collapse_anim_duration_ry_title">Тривалість згортання</string>
+  <string name="collapse_anim_duration_bg_title">Згортання фону</string>
+  <string name="retract_anim_duration_title">Тривалість Retract</string>
+  <string name="diamond_anim_duration_title">Тривалість Diamond</string>
+  <string name="dots_anim_duration_title">Тривалість Dots</string>
+  <string name="home_resize_anim_duration_title">Тривалість змінення розміру кнопок</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Режим \"Управління однією рукою\"</string>
   <string name="one_handed_mode_summary">Дозволяє проведенням по панелі навігації увімкнути режим \"Управління однією рукою\"</string>
@@ -2121,6 +2140,7 @@
   <!-- Force authorize substratum packages -->
   <string name="force_authorize_substratum_packages_title">Дозволити теми із невідомих джерел</string>
   <string name="force_authorize_substratum_packages_summary">Примусово авторизувати кожну тему</string>
+  <string name="magisk_title">Magisk менеджер</string>
   <string name="magisk_summary">Керування Root-доступом</string>
   <string name="notif_text_color">Колір тексту</string>
   <string name="status_bar_expanded_empty_shade_view_settings_title">Вигляд пустої панелі сповіщень</string>
@@ -2156,4 +2176,11 @@
   <string name="no_sim_cluster_switch_title">Приховати неактивну мережу</string>
   <string name="no_sim_cluster_switch_summary">Приховати панель мережі, якщо sim-карта неактивна і вимкнена. Якщо sim-карту не вимкнуто, ця опція не працюватиме</string>
   <!-- Advanced night mode brightness -->
+  <string name="night_brightness_category">Яскравість</string>
+  <string name="night_brightness_value_title">Яскравість Нічного світла</string>
+  <string name="night_brightness_text">Коли ввімкнуто Нічне світло, автоматично встановити бажану яскравість.</string>
+  <string name="night_bright_disabled">Вимкнено</string>
+  <string name="night_bright_min">Мінімальна яскравість</string>
+  <string name="night_bright_low">Низька яскравість</string>
+  <string name="night_bright_medium">Середня яскравість</string>
 </resources>
