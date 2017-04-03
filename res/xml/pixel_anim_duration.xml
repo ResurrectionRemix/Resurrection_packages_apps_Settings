@@ -95,5 +95,37 @@
         android:persistent="false" />
 
 
+    <ListPreference
+        android:key="dot_color_switch"
+        android:title="@string/dot_color_switch_title"
+        android:entries="@array/dot_color_switch_entries"
+        android:entryValues="@array/dot_color_switch_values"
+        android:persistent="false" />
+
+    <PreferenceCategory
+        android:key="pixel_anim_color"
+        android:title="@string/pixel_anim_color_title">
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="dot_top_color"
+            android:title="@string/dot_top_color_title"
+            alphaSliderEnabled="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="dot_left_color"
+            android:title="@string/dot_left_color_title"
+            alphaSliderEnabled="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="dot_right_color"
+            android:title="@string/dot_right_color_title"
+            alphaSliderEnabled="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="dot_bottom_color"
+            android:title="@string/dot_bottom_color_title"
+            alphaSliderEnabled="true" />
+
+     </PreferenceCategory>
 
 </PreferenceScreen>
