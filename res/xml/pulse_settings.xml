@@ -94,6 +94,13 @@
             settings:min="2"
             android:dependency="pulse_fading_bars_category"/>
 
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="pulse_fading_blocks_opacity"
+            android:title="@string/pulse_fading_blocks_opacity"
+            android:max="200"
+            settings:min="0"
+            android:dependency="eos_fling_show_pulse" />
+
         <com.android.settings.rr.Preferences.CustomSeekBarPreference
             android:key="fling_pulse_lavalamp_speed"
             android:title="@string/lavamp_solid_speed_title"
