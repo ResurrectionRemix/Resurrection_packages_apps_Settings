@@ -62,12 +62,19 @@
             android:title="@string/pulse_legacy_mode_advanced_category">
 
            <com.android.settings.rr.SeekBarPreference
+                android:key="pulse_fading_blocks_opacity"
+                android:title="@string/pulse_fading_blocks_opacity"
+                settings:maximum="200"
+                settings:minimum="0"
+                android:dependency="eos_fling_show_pulse" />
+
+           <com.android.settings.rr.SeekBarPreference
                 android:key="pulse_custom_dimen"
                 android:title="@string/pulse_custom_dimen"
                 settings:maximum="30"
                 settings:minimum="1"
                 settings:units="px"
-                android:dependency="pulse_fading_bars_category"/>
+                android:dependency="eos_fling_show_pulse" />
 
            <com.android.settings.rr.SeekBarPreference
                 android:key="pulse_custom_div"
@@ -76,7 +83,7 @@
                 settings:minimum="2"
                 settings:interval="2"
                 settings:units="px"
-                android:dependency="pulse_fading_bars_category"/>
+                android:dependency="eos_fling_show_pulse" />
 
            <com.android.settings.rr.SeekBarPreference
                 android:key="pulse_filled_block_size"
@@ -84,7 +91,7 @@
                 settings:maximum="8"
                 settings:minimum="4"
                 settings:units="px"
-                android:dependency="pulse_fading_bars_category"/>
+                android:dependency="eos_fling_show_pulse" />
 
            <com.android.settings.rr.SeekBarPreference
                 android:key="pulse_empty_block_size"
@@ -92,14 +99,14 @@
                 settings:maximum="4"
                 settings:minimum="0"
                 settings:units="px"
-                android:dependency="pulse_fading_bars_category"/>
+                android:dependency="eos_fling_show_pulse" />
 
            <com.android.settings.rr.SeekBarPreference
                 android:key="pulse_custom_fudge_factor"
                 android:title="@string/pulse_custom_fudge_factor"
                 settings:maximum="6"
                 settings:minimum="2"
-                android:dependency="pulse_fading_bars_category"/>
+                android:dependency="eos_fling_show_pulse" />
 
            <com.android.settings.rr.SeekBarPreference
                 android:key="fling_pulse_lavalamp_speed"
@@ -107,7 +114,7 @@
                 settings:maximum="30000"
                 settings:minimum="200"
                 settings:units="ms"
-                android:dependency="pulse_fading_bars_category"/>
+                android:dependency="eos_fling_show_pulse" />
 
             <net.margaritov.preference.colorpicker.ColorPickerPreference
                 android:key="fling_lavalamp_color_from"
@@ -131,7 +138,7 @@
             android:title="@string/pulse_solid_units_opacity"
             settings:maximum="255"
             settings:minimum="0"
-            android:dependency="pulse_2"/>
+            android:dependency="eos_fling_show_pulse" />
 
         <com.android.settings.rr.SeekBarPreference
             android:key="pulse_solid_units_count"
@@ -139,14 +146,14 @@
             settings:maximum="128"
             settings:interval="16"
             settings:minimum="32"
-            android:dependency="pulse_2"/>
+            android:dependency="eos_fling_show_pulse" />
 
         <com.android.settings.rr.SeekBarPreference
             android:key="pulse_solid_fudge_factor"
             android:title="@string/pulse_custom_fudge_factor"
             settings:maximum="7"
             settings:minimum="2"
-            android:dependency="pulse_2"/>
+            android:dependency="eos_fling_show_pulse" />
 
         <com.android.settings.rr.SeekBarPreference
             android:key="lavamp_solid_speed"
@@ -154,7 +161,7 @@
             settings:maximum="30000"
             settings:minimum="200"
             settings:units="ms"
-            android:dependency="pulse_2"/>
+            android:dependency="eos_fling_show_pulse" />
 	</PreferenceCategory>
 
 </PreferenceScreen>
