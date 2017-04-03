@@ -2769,6 +2769,24 @@
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.ka" />
         </activity>
+
+        <activity android:name="Settings$KAMODActivity"
+                android:label="@string/kamod_title"
+                android:icon="@drawable/rr_performance_icon"
+                android:taskAffinity="" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+            <intent-filter android:priority="0">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.system" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.kamod" />
+        </activity>
   
         <activity android:name="Settings$MagiskActivity"
             android:label="@string/magisk_title"

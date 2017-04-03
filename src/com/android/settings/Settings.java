@@ -161,6 +161,7 @@ public class Settings extends SettingsActivity {
     public static class WifiInfoActivity extends SettingsActivity { /* empty */ }
 	public static class MainSettingsActivity extends SettingsActivity { /* empty */ }
 	public static class KActivity extends SettingsActivity { /* empty */ }
+    public static class KAMODActivity extends SettingsActivity { /* empty */ }
 	public static class MainSettingsLayoutActivity extends SettingsActivity { /* empty */ }
 
     // Categories.
