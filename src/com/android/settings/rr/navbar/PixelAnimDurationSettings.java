@@ -22,11 +22,13 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.provider.Settings;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
@@ -34,11 +36,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.android.internal.logging.MetricsProto.MetricsEvent;
-import com.android.settings.rr.SeekBarPreference;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.settings.rr.Preferenences.CustomSeekBarPreference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,15 +57,27 @@ public class PixelAnimDurationSettings extends SettingsPreferenceFragment implem
     private static final String PIXEL_DIAMOND = "diamond_anim_duration";
     private static final String PIXEL_DOTS = "dots_anim_duration";
     private static final String PIXEL_HOME = "home_resize_anim_duration";
+    private static final String TOP_COLOR = "dot_top_color";
+    private static final String BOTTOM_COLOR = "dot_bottom_color";
+    private static final String LEFT_COLOR = "dot_left_color";
+    private static final String RIGHT_COLOR = "dot_right_color";
+    private static final String COLOR_CAT = "pixel_anim_color";
+    private static final String COLOR_STYLE = "dot_color_switch";
 
-    private SeekBarPreference mPixelx;
-    private SeekBarPreference mPixely;
-    private SeekBarPreference mCollapse;
-    private SeekBarPreference mBg;
-    private SeekBarPreference mRetract;
-    private SeekBarPreference mDiamond;
-    private SeekBarPreference mDots;
-    private SeekBarPreference mHome;
+    private CustomSeekBarPreference mPixelx;
+    private CustomSeekBarPreference mPixely;
+    private CustomSeekBarPreference mCollapse;
+    private CustomSeekBarPreference mBg;
+    private CustomSeekBarPreference mRetract;
+    private CustomSeekBarPreference mDiamond;
+    private CustomSeekBarPreference mDots;
+    private CustomSeekBarPreference mHome;
+    private ListPreference mColorStyle;
+    private ColorPickerPreference mTopColor;
+    private ColorPickerPreference mBottomColor;
+    private ColorPickerPreference mLeftColor;
+    private ColorPickerPreference mRightColor;
+    private PreferenceCategory mColorCat;
     protected Context mContext;
     protected ContentResolver mContentRes;
 
@@ -80,7 +96,7 @@ public class PixelAnimDurationSettings extends SettingsPreferenceFragment implem
     private static final int DLG_RESET = 0;
 
     @Override
-    protected int getMetricsCategory() {
+    public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
     }
 
@@ -106,60 +122,108 @@ public class PixelAnimDurationSettings extends SettingsPreferenceFragment implem
 		int defaultValue;
 
         mPixelx =
-                (SeekBarPreference) findPreference(PIXEL_X);
+                (CustomSeekBarPreference) findPreference(PIXEL_X);
         int xanim = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.OPA_ANIM_DURATION_X, 133, UserHandle.USER_CURRENT);
         mPixelx.setValue(xanim / 1);
         mPixelx.setOnPreferenceChangeListener(this);
 
         mPixely =
-                (SeekBarPreference) findPreference(PIXEL_Y);
+                (CustomSeekBarPreference) findPreference(PIXEL_Y);
         int yanim = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.OPA_ANIM_DURATION_Y, 255, UserHandle.USER_CURRENT);
         mPixely.setValue(yanim / 1);
         mPixely.setOnPreferenceChangeListener(this);
 
         mCollapse =
-                (SeekBarPreference) findPreference(PIXEL_COLLAPSE);
+                (CustomSeekBarPreference) findPreference(PIXEL_COLLAPSE);
         int xcol = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.COLLAPSE_ANIMATION_DURATION_RY, 83, UserHandle.USER_CURRENT);
         mCollapse.setValue(xcol / 1);
         mCollapse.setOnPreferenceChangeListener(this);
 
         mBg =
-               (SeekBarPreference) findPreference(PIXEL_BG);
+               (CustomSeekBarPreference) findPreference(PIXEL_BG);
         int bg = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.COLLAPSE_ANIMATION_DURATION_BG, 100, UserHandle.USER_CURRENT);
         mBg.setValue(yanim / 1);
         mBg.setOnPreferenceChangeListener(this);
 
         mRetract =
-                (SeekBarPreference) findPreference(PIXEL_RETRACT);
+                (CustomSeekBarPreference) findPreference(PIXEL_RETRACT);
         int ret = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.RETRACT_ANIMATION_DURATION, 300, UserHandle.USER_CURRENT);
         mRetract.setValue(ret/ 1);
         mRetract.setOnPreferenceChangeListener(this);
 
         mDiamond =
-                (SeekBarPreference) findPreference(PIXEL_DIAMOND);
+                (CustomSeekBarPreference) findPreference(PIXEL_DIAMOND);
         int diam = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.DIAMOND_ANIMATION_DURATION, 200, UserHandle.USER_CURRENT);
         mDiamond.setValue(diam / 1);
         mDiamond.setOnPreferenceChangeListener(this);
 
         mDots =
-                (SeekBarPreference) findPreference(PIXEL_DOTS);
+                (CustomSeekBarPreference) findPreference(PIXEL_DOTS);
         int dots = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.DOTS_RESIZE_DURATION, 200, UserHandle.USER_CURRENT);
         mDots.setValue(dots / 1);
         mDots.setOnPreferenceChangeListener(this);
 
         mHome =
-                (SeekBarPreference) findPreference(PIXEL_HOME);
+                (CustomSeekBarPreference) findPreference(PIXEL_HOME);
         int home = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.HOME_RESIZE_DURATION, 255, UserHandle.USER_CURRENT);
         mHome.setValue(home / 1);
         mHome.setOnPreferenceChangeListener(this);
+
+        mColorCat = (PreferenceCategory) findPreference(COLOR_CAT);
+
+        mTopColor =
+                (ColorPickerPreference) findPreference(TOP_COLOR);
+        mTopColor.setOnPreferenceChangeListener(this);
+        int top = Settings.System.getInt(mContentRes,
+                 Settings.System.DOT_TOP_COLOR, Color.RED);
+        String topHexColor = String.format("#%08x", (0x00ffffff & top));
+        mTopColor.setSummary(topHexColor);
+        mTopColor.setNewPreviewColor(top);
+
+        mBottomColor =
+                (ColorPickerPreference) findPreference(BOTTOM_COLOR);
+        mBottomColor.setOnPreferenceChangeListener(this);
+        int bottom = Settings.System.getInt(mContentRes,
+                 Settings.System.DOT_BOTTOM_COLOR, Color.YELLOW);
+        String bottomHexColor = String.format("#%08x", (0x00ffffff & bottom));
+        mBottomColor.setSummary(bottomHexColor);
+        mBottomColor.setNewPreviewColor(bottom);
+
+        mRightColor =
+                (ColorPickerPreference) findPreference(RIGHT_COLOR);
+        mRightColor.setOnPreferenceChangeListener(this);
+        int right = Settings.System.getInt(mContentRes,
+                 Settings.System.DOT_RIGHT_COLOR, Color.GREEN);
+        String rightHexColor = String.format("#%08x", (0x00ffffff & right));
+        mRightColor.setSummary(rightHexColor);
+        mRightColor.setNewPreviewColor(right);
+
+        mLeftColor =
+                (ColorPickerPreference) findPreference(LEFT_COLOR);
+        mLeftColor.setOnPreferenceChangeListener(this);
+        int left = Settings.System.getInt(mContentRes,
+                 Settings.System.DOT_LEFT_COLOR, Color.RED);
+        String leftHexColor = String.format("#%08x", (0x00ffffff & left));
+        mLeftColor.setSummary(leftHexColor);
+        mLeftColor.setNewPreviewColor(left);
+
+        mColorStyle =
+                (ListPreference) findPreference(COLOR_STYLE);
+        int style = Settings.System.getIntForUser(mContentRes,
+                 Settings.System.DOT_COLOR_SWITCH, 0,
+                 UserHandle.USER_CURRENT);
+        mColorStyle.setValue(String.valueOf(style));
+        mColorStyle.setSummary(mColorStyle.getEntry());
+        mColorStyle.setOnPreferenceChangeListener(this);
+        UpdateSettings(style);
 
     }
 
@@ -208,8 +272,56 @@ public class PixelAnimDurationSettings extends SettingsPreferenceFragment implem
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.HOME_RESIZE_DURATION, val * 1, UserHandle.USER_CURRENT);
             return true;
-        }
+        } else if (preference == mTopColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                    Settings.System.DOT_TOP_COLOR, intHex);
+            return true;
+        } else if (preference == mBottomColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                    Settings.System.DOT_BOTTOM_COLOR, intHex);
+            return true;
+        } else if (preference == mRightColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                    Settings.System.DOT_RIGHT_COLOR, intHex);
+            return true;
+        } else if (preference == mLeftColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(objValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                    Settings.System.DOT_LEFT_COLOR, intHex);
+            return true;
+        } else if (preference == mColorStyle) {
+            intValue = Integer.parseInt((String) objValue);
+            index = mColorStyle.findIndexOfValue((String) objValue);
+            Settings.System.putIntForUser(resolver, Settings.System.
+                    DOT_COLOR_SWITCH, intValue, UserHandle.USER_CURRENT);
+            mColorStyle.setSummary(mColorStyle.getEntries()[index]);
+            UpdateSettings(intValue);
+            return true;
+         } 
         return false;
+    }
+
+    public void UpdateSettings(int style) {
+         if (style == 0 || style == 2 || style == 3) {
+             mColorCat.setEnabled(false);
+         } else {
+             mColorCat.setEnabled(true);
+         }
     }
 
     @Override
@@ -288,6 +400,21 @@ public class PixelAnimDurationSettings extends SettingsPreferenceFragment implem
                             Settings.System.putInt(getOwner().mContentRes,
                                     Settings.System.HOME_RESIZE_DURATION, 
                                     HOME_RESIZE_DURATION);
+                            Settings.System.putInt(getOwner().mContentRes,
+                                    Settings.System.DOT_TOP_COLOR,
+                                    Color.RED);
+                            Settings.System.putInt(getOwner().mContentRes,
+                                    Settings.System.DOT_BOTTOM_COLOR,
+                                    Color.YELLOW);
+                            Settings.System.putInt(getOwner().mContentRes,
+                                    Settings.System.DOT_RIGHT_COLOR, 
+                                    Color.GREEN);
+                            Settings.System.putInt(getOwner().mContentRes,
+                                    Settings.System.DOT_LEFT_COLOR, 
+                                    Color.BLUE);
+                            Settings.System.putInt(getOwner().mContentRes,
+                                    Settings.System.DOT_COLOR_SWITCH, 
+                                    0);
                             getOwner().refreshSettings();
                         }
                     })
@@ -318,6 +445,21 @@ public class PixelAnimDurationSettings extends SettingsPreferenceFragment implem
                             Settings.System.putInt(getOwner().mContentRes,
                                     Settings.System.HOME_RESIZE_DURATION, 
                                     367);
+                            Settings.System.putInt(getOwner().mContentRes,
+                                    Settings.System.DOT_TOP_COLOR,
+                                    Color.RED);
+                            Settings.System.putInt(getOwner().mContentRes,
+                                    Settings.System.DOT_BOTTOM_COLOR,
+                                    Color.YELLOW);
+                            Settings.System.putInt(getOwner().mContentRes,
+                                    Settings.System.DOT_RIGHT_COLOR, 
+                                    Color.GREEN);
+                            Settings.System.putInt(getOwner().mContentRes,
+                                    Settings.System.DOT_LEFT_COLOR, 
+                                    Color.BLUE);
+                            Settings.System.putInt(getOwner().mContentRes,
+                                    Settings.System.DOT_COLOR_SWITCH, 
+                                    0);
                             getOwner().refreshSettings();
                         }
                     })

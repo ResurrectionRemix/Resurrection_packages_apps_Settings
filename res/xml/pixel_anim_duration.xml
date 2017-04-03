@@ -26,7 +26,7 @@
             android:icon="@drawable/rr_pixel_navbar_icon"
             android:selectable="false"/>
 
-    <com.android.settings.rr.SeekBarPreference
+    <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="opa_anim_duration_x"
         android:title="@string/pixel_anim_x_title"
         settings:maximum="1000"
@@ -35,7 +35,7 @@
         android:persistent="false" />
 
 
-    <com.android.settings.rr.SeekBarPreference
+    <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="opa_anim_duration_y"
         android:title="@string/pixel_anim_y_title"
         settings:maximum="1000"
@@ -43,7 +43,7 @@
         settings:units="ms"
         android:persistent="false" />
 
-    <com.android.settings.rr.SeekBarPreference
+    <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="collapse_anim_duration_ry"
         android:title="@string/collapse_anim_duration_ry_title"
         settings:maximum="1000"
@@ -52,7 +52,7 @@
         android:persistent="false" />
 
 
-    <com.android.settings.rr.SeekBarPreference
+    <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="collapse_anim_duration_bg"
         android:title="@string/collapse_anim_duration_bg_title"
         settings:maximum="1000"
@@ -60,7 +60,7 @@
         settings:units="ms"
         android:persistent="false" />
 
-    <com.android.settings.rr.SeekBarPreference
+    <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="retract_anim_duration"
         android:title="@string/retract_anim_duration_title"
         settings:maximum="1000"
@@ -69,7 +69,7 @@
         android:persistent="false" />
 
 
-    <com.android.settings.rr.SeekBarPreference
+    <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="diamond_anim_duration"
         android:title="@string/diamond_anim_duration_title"
         settings:maximum="1000"
@@ -77,7 +77,7 @@
         settings:units="ms"
         android:persistent="false" />
 
-    <com.android.settings.rr.SeekBarPreference
+    <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="dots_anim_duration"
         android:title="@string/dots_anim_duration_title"
         settings:maximum="1000"
@@ -86,7 +86,7 @@
         android:persistent="false" />
 
 
-    <com.android.settings.rr.SeekBarPreference
+    <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="home_resize_anim_duration"
         android:title="@string/home_resize_anim_duration_title"
         settings:maximum="1000"
@@ -95,5 +95,37 @@
         android:persistent="false" />
 
 
+    <ListPreference
+        android:key="dot_color_switch"
+        android:title="@string/dot_color_switch_title"
+        android:entries="@array/dot_color_switch_entries"
+        android:entryValues="@array/dot_color_switch_values"
+        android:persistent="false" />
+
+    <PreferenceCategory
+        android:key="pixel_anim_color"
+        android:title="@string/pixel_anim_color_title">
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="dot_top_color"
+            android:title="@string/dot_top_color_title"
+            alphaSliderEnabled="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="dot_left_color"
+            android:title="@string/dot_left_color_title"
+            alphaSliderEnabled="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="dot_right_color"
+            android:title="@string/dot_right_color_title"
+            alphaSliderEnabled="true" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="dot_bottom_color"
+            android:title="@string/dot_bottom_color_title"
+            alphaSliderEnabled="true" />
+
+     </PreferenceCategory>
 
 </PreferenceScreen>
