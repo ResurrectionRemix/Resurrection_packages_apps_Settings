@@ -21,6 +21,8 @@
   <!-- General -->
   <string name="ok">Rendben</string>
   <string name="reset">Alaphelyzet</string>
+  <string name="dlg_reset_rr">RR</string>
+  <string name="dlg_reset_android">Alapértelmezett</string>
   <string name="default_string">Alapértelmezett</string>
   <string name="add">Hozzáadás</string>
   <string name="enabled">Engedélyezve</string>
@@ -100,6 +102,8 @@
   <string name="fab_reset">Alaphelyzet</string>
   <string name="fab_about">RR-OS info</string>
   <string name="fab_layout">Elrendezés frissítése</string>
+  <string name="fab_layout_update">Váltás klasszikus elrendezésre</string>
+  <string name="fab_layout_toggle">Elrendezés váltása</string>
   <string name="rr_reset_message">Konfigurációk visszaállítása az alapértelmezett értékekre?</string>
   <string name="rr_reset_settings">Beállítások visszaállítása</string>
   <string name="rr_reset_yes">Igen</string>
@@ -626,6 +630,7 @@
   <string name="shortcuts_icon_presets">Rendszerikonok</string>
   <string name="shortcuts_icon_custom">Galéria</string>
   <string name="shortcuts_icon_picker_choose_icon_title">Ikon választása</string>
+  <string name="image_exceeds_max_allowed_size">A kép nem lehet ennél nagyobb: 512x512</string>
   <string name="lockscreen_shortcuts_category">Parancsikonok</string>
   <string name="keyguard_torch_title">Zárképernyő zseblámpa</string>
   <string name="keyguard_torch_summary">A bekapcsoló gomb hosszan nyomása lezárt képernyőnél elindítja a zseblámpát</string>
@@ -970,6 +975,8 @@
   <string name="volume_keys_control_ring_stream_summary_off">Médiahang vezérlése hangerőgombokkal</string>
   <string name="volume_answer_call_title">Hívás fogadása</string>
   <string name="volume_answer_call_summary">Bejövő hívások fogadása a hangerő gombok megnyomásával</string>
+  <string name="vol_up_disable_overlays_title">Téma fedvények letiltása a hangerő fel gombbal</string>
+  <string name="vol_up_disable_overlays_summary">Rendszerindítás során tartsa lenyomva a hangerő fel gombot az összes alkalmazott fedvény letiltásához</string>
   <string name="camera_double_tap_power_gesture_title">Nyomja meg a bekapcsoló gombot kétszer a kamerához</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <string name="camera_double_tap_power_gesture_desc">A kamera gyors megnyitása a képernyő feloldása nélkül</string>
@@ -1431,6 +1438,7 @@
   <string name="smartbar_interface">SmartBar</string>
   <string name="navbar_tint_switch">Navigációs gombok színezése</string>
   <string name="navbar_button_color">Navigációs sáv gombok</string>
+  <string name="navbar_button_custom_icon_switch_title">Színszűrő hozzáadása az alkalmazásgombokhoz</string>
   <string name="icon_pack_picker_dialog_title">Ikon csomagok</string>
   <string name="invalid_icon_from_uri">Nem sikerült betölteni a képet a tartalomszolgáltatótól</string>
   <string name="picker_activities">Tevékenységek</string>
@@ -1518,6 +1526,7 @@
   <string name="pulse_solid_units_count">Folytonos vonalak száma</string>
   <string name="pulse_solid_units_opacity">Folytonos vonalak átlátszósága</string>
   <string name="pulse_solid_dimen_category">Folytonos vonalak üzemmód beállításai</string>
+  <string name="pulse_custom_buttons_opacity_title">Gombok átlátszósága Pulse mellett</string>
   <string name="fling_lavalamp_color_from">Lávalámpa indítási szín</string>
   <string name="fling_lavalamp_color_to">Lávalámpa vége szín</string>
   <!-- Pulse config -->
@@ -1549,9 +1558,12 @@
   <string name="smartbar_button_animation_pixel_home_ripple">Pixel (csak kezdőlap gomb) és hullámosság</string>
   <string name="smartbar_factory_reset_title">Gyári beállítások visszaállítása</string>
   <string name="smartbar_factory_reset_confirm">Biztos, hogy visszaállítja a Smartbar-t gyári állapotra?</string>
+  <string name="smartbar_ime_action_title">Beviteli módszer és médiatevékenységek</string>
+  <string name="smartbar_ime_action_summary">Állítsa be, mely gombok jelenjenek meg a billentyűzet felugrása, vagy a zene lejátszása közben</string>
   <string name="smartbar_ime_action_none">Semmi</string>
   <string name="smartbar_ime_action_arrows">Beviteli nyilak</string>
   <string name="smartbar_ime_action_switcher">Billentyűzet váltó</string>
+  <string name="smartbar_ime_action_dynamic">Beviteli/média nyilak</string>
   <string name="smartbar_backup_current_config_title">Profil mentése</string>
   <string name="smartbar_restore_config_title">Profil visszaállítása</string>
   <string name="smartbar_config_name_edit_dialog_title">Smartbar profilnév</string>
@@ -2017,6 +2029,14 @@
   <string name="smartbar_doubletap_sleep_title">Dupla érintésre alvás</string>
   <string name="smartbar_doubletap_sleep_summary">A navigációs sáv üres területére kétszer koppintva kikapcsol a képernyő</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_x_title">Vízszintes időtartam</string>
+  <string name="pixel_anim_y_title">Függőleges időtartam</string>
+  <string name="collapse_anim_duration_ry_title">Összeomlás időtartama</string>
+  <string name="collapse_anim_duration_bg_title">Összeomlás háttere</string>
+  <string name="retract_anim_duration_title">Visszahúzódási időtartam</string>
+  <string name="diamond_anim_duration_title">Gyémánt időtartama</string>
+  <string name="dots_anim_duration_title">Pontok időtartama</string>
+  <string name="home_resize_anim_duration_title">Gomb átméretezésének időtartama</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Egykezes üzemmód</string>
   <string name="one_handed_mode_summary">Engedélyezi a navigációs sávon való csúsztatást az egykezes üzemmód engedélyezéséhez</string>
@@ -2074,6 +2094,7 @@
   <string name="slim_recents_mem_display_long_click_clear_title">Memóriasáv hosszan nyomva</string>
   <string name="slim_recents_mem_display_long_click_clear_summary">Előzmények törlése a memóriasáv hosszan nyomásával</string>
   <string name="slim_icon_pack_title">Ikoncsomag</string>
+  <string name="slim_icon_pack_summary">Egyéni ikoncsomag alkalmazása a panelban szereplő alkalmazásokhoz</string>
   <string name="no_iconpacks_summary">Nincs ikoncsomag telepitve</string>
   <string name="dialog_pick_iconpack_title">Ikoncsomag választása</string>
   <string name="default_iconpack_title">Alapértelmezett ikonok</string>
@@ -2132,6 +2153,8 @@
   <string name="empty_shade_view_show_wifi_name_title">Wi-Fi hálózat nevének mutatása</string>
   <string name="empty_shade_view_show_wifi_name_summary">Engedélyezze a Wi-Fi hálózat nevének megjelenítéséhez</string>
   <!-- Roaming indicator icon -->
+  <string name="roaming_indicator_icon_title">Roaming indikátor megjelenítése</string>
+  <string name="roaming_indicator_icon_summary">Roaming indikátor megjelenítése a térerő ikonban, ha roaming módban van</string>
   <!-- Screen state service -->
   <string name="screen_state_toggles_summary">\@null</string>
   <string name="screen_state_toggles_title">Felfüggesztett műveletek</string>
@@ -2150,6 +2173,10 @@
   <string name="screen_state_on_delay_title">Bekapcsolt képernyős műveletek késleltetése</string>
   <string name="screen_state_on_delay_summary">Az elvégzendő műveletek előtti várakozás időtartama (másodpercekben)</string>
   <!-- In-call DND -->
+  <string name="dnd_when_call_title">Hívás közbeni ne zavarjanak</string>
+  <string name="dnd_when_call_summary">Hívások közben automatikusan engedélyezi a ne zavarjanak módot</string>
+  <string name="no_sim_cluster_switch_title">Nincs SIM hálózat elrejtése</string>
+  <string name="no_sim_cluster_switch_summary">Elrejti a hálózati sávot, ha a SIM előfizetése inaktív és le van tiltva. Ha a SIM-kártya nincs letiltva, ez a kapcsoló nem fog működni</string>
   <!-- Advanced night mode brightness -->
   <string name="night_brightness_category">Fényerő</string>
   <string name="night_brightness_value_title">Éjszakai fény fényerő</string>

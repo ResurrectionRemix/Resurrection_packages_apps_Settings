@@ -21,6 +21,8 @@
   <!-- General -->
   <string name="ok">Aceptar</string>
   <string name="reset">Restablecer</string>
+  <string name="dlg_reset_rr">RR</string>
+  <string name="dlg_reset_android">Por defecto</string>
   <string name="default_string">Por defecto</string>
   <string name="add">Añadir</string>
   <string name="enabled">Habilitado</string>
@@ -101,6 +103,8 @@ https://plus.google.com/communities/109352646351468373340</string>
   <string name="fab_reset">Restablecer</string>
   <string name="fab_about">Acerca de RR-OS</string>
   <string name="fab_layout">Diseño de actualización</string>
+  <string name="fab_layout_update">Diseño clásico de los toggles</string>
+  <string name="fab_layout_toggle">Cambiar el diseño de la pestaña</string>
   <string name="rr_reset_message">¿Restablecer todas las configuraciones a sus valores predeterminados?</string>
   <string name="rr_reset_settings">Resetear Configuración</string>
   <string name="rr_reset_yes">Sí</string>
@@ -627,6 +631,7 @@ https://plus.google.com/communities/109352646351468373340</string>
   <string name="shortcuts_icon_presets">Íconos del Sistema</string>
   <string name="shortcuts_icon_custom">Galería</string>
   <string name="shortcuts_icon_picker_choose_icon_title">Seleccione el icono</string>
+  <string name="image_exceeds_max_allowed_size">La imagen no debe superar los 512 x 512</string>
   <string name="lockscreen_shortcuts_category">Accesos directos</string>
   <string name="keyguard_torch_title">Linterna en pantalla de bloqueo</string>
   <string name="keyguard_torch_summary">Pulsación larga del botón de encendido con la pantalla apagada para encender linterna</string>
@@ -971,6 +976,8 @@ https://plus.google.com/communities/109352646351468373340</string>
   <string name="volume_keys_control_ring_stream_summary_off">Las teclas de volumen controlan el volumen multimedia</string>
   <string name="volume_answer_call_title">Responder llamada</string>
   <string name="volume_answer_call_summary">Responder llamadas entrantes presionando botones de volumen</string>
+  <string name="vol_up_disable_overlays_title">Deshabilitar superposiciones de temas con el volumen aumentado</string>
+  <string name="vol_up_disable_overlays_summary">Durante el arranque mantener el botón de subir volumen para desactivar todas las superposiciones aplicadas del tema</string>
   <string name="camera_double_tap_power_gesture_title">Presione el botón de encendido dos veces para acceder a la cámara</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <string name="camera_double_tap_power_gesture_desc">Abre la cámara rápidamente sin desbloquear la pantalla</string>
@@ -1010,6 +1017,7 @@ https://plus.google.com/communities/109352646351468373340</string>
   <string name="status_bar_am_pm_small">Pequeño</string>
   <string name="status_bar_am_pm_hidden">Ocultos</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Estilo de la batería en la barra de estado</string>
   <string name="status_bar_battery_style_icon_portrait">Icono vertical</string>
   <string name="status_bar_battery_style_icon_landscape">Icono apaisado</string>
   <string name="status_bar_battery_style_circle">Circulo</string>
@@ -1519,6 +1527,7 @@ https://plus.google.com/communities/109352646351468373340</string>
   <string name="pulse_solid_units_count">Recuento de líneas sólidas</string>
   <string name="pulse_solid_units_opacity">Opacidad de líneas sólidas</string>
   <string name="pulse_solid_dimen_category">Ajustes del modo de lineas solidas</string>
+  <string name="pulse_custom_buttons_opacity_title">Opacidad de los botones al pulsarlo</string>
   <string name="fling_lavalamp_color_from">Color inicial de Lámpara de Lava</string>
   <string name="fling_lavalamp_color_to">Color final de Lámpara de Lava</string>
   <!-- Pulse config -->
@@ -1550,9 +1559,12 @@ https://plus.google.com/communities/109352646351468373340</string>
   <string name="smartbar_button_animation_pixel_home_ripple">Pixel (sólo el botón Home) y ondulación</string>
   <string name="smartbar_factory_reset_title">Restablecer a valores por defecto</string>
   <string name="smartbar_factory_reset_confirm">¿Está seguro que desea restablecer Smartbar a los valores por defecto?</string>
+  <string name="smartbar_ime_action_title">Acciones de media y método de entrada</string>
+  <string name="smartbar_ime_action_summary">Establecer qué botones se mostrarán cuando el teclado está en pantalla o hay música sonando</string>
   <string name="smartbar_ime_action_none">Ninguno</string>
   <string name="smartbar_ime_action_arrows">Flechas de entrada</string>
   <string name="smartbar_ime_action_switcher">Selector de teclado</string>
+  <string name="smartbar_ime_action_dynamic">Flechas de entrada/media</string>
   <string name="smartbar_backup_current_config_title">Guardar perfil</string>
   <string name="smartbar_restore_config_title">Restaurar perfil</string>
   <string name="smartbar_config_name_edit_dialog_title">Nombre del perfil de Smartbar</string>
@@ -1872,6 +1884,7 @@ Esta configuración sobrescribirá cualquier resumen personalizado anterior.</st
   <string name="lock_screen_weather_city_color">Localidad </string>
   <string name="lock_screen_weather_wind_color">Viento</string>
   <string name="yes">SÍ</string>
+  <string name="battery_tile_style_title">Estilo de la tile de batería</string>
   <string name="status_bar_battery_style_tile_summary">Permite establecer el mismo estilo de icono elegido para la batería de la barra de estado</string>
   <!-- Scrolling Animation Controls -->
   <string name="scrolling_title">Modificadores de desplazamiento</string>
@@ -2018,6 +2031,14 @@ Esta configuración sobrescribirá cualquier resumen personalizado anterior.</st
   <string name="smartbar_doubletap_sleep_title">Doble toque para dormir</string>
   <string name="smartbar_doubletap_sleep_summary">Doble toque en las áreas vacías de la barra de navegación para apagar la pantalla</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_x_title">Duración horizontal</string>
+  <string name="pixel_anim_y_title">Duración vertical</string>
+  <string name="collapse_anim_duration_ry_title">Duración del colapso</string>
+  <string name="collapse_anim_duration_bg_title">Fondo del colapso</string>
+  <string name="retract_anim_duration_title">Retraer la duración</string>
+  <string name="diamond_anim_duration_title">Duración de diamante</string>
+  <string name="dots_anim_duration_title">Duración de los puntos</string>
+  <string name="home_resize_anim_duration_title">Duración del tamaño del botón</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Modo de una sola mano</string>
   <string name="one_handed_mode_summary">Permite deslizar en la barra de navegación para activar el modo una sola mano</string>
@@ -2123,6 +2144,7 @@ Esta configuración sobrescribirá cualquier resumen personalizado anterior.</st
   <!-- Force authorize substratum packages -->
   <string name="force_authorize_substratum_packages_title">Permitir temas de origen desconocido</string>
   <string name="force_authorize_substratum_packages_summary">Fuerza de autorizar la aplicación de cada tema</string>
+  <string name="magisk_title">Gestor de Magisk</string>
   <string name="magisk_summary">Gestor de Root</string>
   <string name="notif_text_color">Color de texto</string>
   <string name="status_bar_expanded_empty_shade_view_settings_title">Sin notificaciones</string>
@@ -2158,4 +2180,11 @@ Esta configuración sobrescribirá cualquier resumen personalizado anterior.</st
   <string name="no_sim_cluster_switch_title">No ocultar red de sim</string>
   <string name="no_sim_cluster_switch_summary">Ocultar la barra de red si la subscripción de la sim está inactiva y deshabilitada. Si no está desactivada la sim, este toggle no funcionará</string>
   <!-- Advanced night mode brightness -->
+  <string name="night_brightness_category">Brillo</string>
+  <string name="night_brightness_value_title">Brillo de luz nocturna</string>
+  <string name="night_brightness_text">Cuando se activa la luz de la noche, se ajusta automáticamente el brillo deseado.</string>
+  <string name="night_bright_disabled">Deshabilitado</string>
+  <string name="night_bright_min">Brillo mínimo</string>
+  <string name="night_bright_low">Brillo bajo</string>
+  <string name="night_bright_medium">Brillo medio</string>
 </resources>

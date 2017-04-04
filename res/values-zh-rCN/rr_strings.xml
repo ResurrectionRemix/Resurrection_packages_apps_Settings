@@ -21,6 +21,8 @@
   <!-- General -->
   <string name="ok">确定</string>
   <string name="reset">重置</string>
+  <string name="dlg_reset_rr">RR</string>
+  <string name="dlg_reset_android">默认</string>
   <string name="default_string">默认</string>
   <string name="add">添加</string>
   <string name="enabled">启用</string>
@@ -100,6 +102,8 @@
   <string name="fab_reset">重置</string>
   <string name="fab_about">关于 RR-OS</string>
   <string name="fab_layout">更新布局</string>
+  <string name="fab_layout_update">切换到经典布局</string>
+  <string name="fab_layout_toggle">切换到选项卡布局</string>
   <string name="rr_reset_message">要重置所有ResurrectionRemix配置为默认值吗</string>
   <string name="rr_reset_settings">重置设置</string>
   <string name="rr_reset_yes">确认</string>
@@ -971,6 +975,8 @@
   <string name="volume_keys_control_ring_stream_summary_off">音量键控制媒体音量</string>
   <string name="volume_answer_call_title">接听电话</string>
   <string name="volume_answer_call_summary">按音量键接听电话</string>
+  <string name="vol_up_disable_overlays_title">\"音量+\"键禁用主题叠加层</string>
+  <string name="vol_up_disable_overlays_summary">在启动时按住\"音量+\"键以禁用所有已应用的主题叠加层</string>
   <string name="camera_double_tap_power_gesture_title">按电源按钮两次即可打开相机</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <string name="camera_double_tap_power_gesture_desc">在不解锁屏幕的情况下快速打开相机</string>
@@ -1013,7 +1019,7 @@
   <string name="status_bar_battery_style_title">状态栏电池图标样式</string>
   <string name="status_bar_battery_style_icon_portrait">立式图标</string>
   <string name="status_bar_battery_style_icon_landscape">卧式图标</string>
-  <string name="status_bar_battery_style_circle">圆形图标</string>
+  <string name="status_bar_battery_style_circle">环状图标</string>
   <string name="status_bar_battery_style_text">文本</string>
   <string name="status_bar_battery_style_hidden">隐藏</string>
   <string name="status_bar_battery_style_solid">实心</string>
@@ -1520,6 +1526,7 @@
   <string name="pulse_solid_units_count">实线计数</string>
   <string name="pulse_solid_units_opacity">实线不透明度</string>
   <string name="pulse_solid_dimen_category">实线模式设置</string>
+  <string name="pulse_custom_buttons_opacity_title">Pulse 的按钮不透明度</string>
   <string name="fling_lavalamp_color_from">java</string>
   <string name="fling_lavalamp_color_to">熔岩灯消失颜色</string>
   <!-- Pulse config -->
@@ -1552,6 +1559,7 @@
   <string name="smartbar_factory_reset_title">恢复默认设置</string>
   <string name="smartbar_factory_reset_confirm">你确定要重置 Smart Bar 为默认设置？</string>
   <string name="smartbar_ime_action_title">输入法和媒体行为</string>
+  <string name="smartbar_ime_action_summary">设置在虚拟键盘显示或者播放音乐时所显示的按键</string>
   <string name="smartbar_ime_action_none">无</string>
   <string name="smartbar_ime_action_arrows">输入光标</string>
   <string name="smartbar_ime_action_switcher">键盘切换器</string>
@@ -2021,8 +2029,14 @@
   <string name="smartbar_doubletap_sleep_title">双击睡眠</string>
   <string name="smartbar_doubletap_sleep_summary">双击导航栏的空白区域以关闭屏幕</string>
   <!-- Pixel Animation Duration -->
-  <string name="pixel_anim_title">Pixel 导航栏动画持续时间</string>
-  <string name="pixel_anim_summary">自定义导航栏上的 Pixel 动画持续时间</string>
+  <string name="pixel_anim_x_title">水平持续时间</string>
+  <string name="pixel_anim_y_title">垂直持续时间</string>
+  <string name="collapse_anim_duration_ry_title">折叠持续时间</string>
+  <string name="collapse_anim_duration_bg_title">折叠背景</string>
+  <string name="retract_anim_duration_title">收回持续时间</string>
+  <string name="diamond_anim_duration_title">Diamond 持续时间</string>
+  <string name="dots_anim_duration_title">Dots 持续时间</string>
+  <string name="home_resize_anim_duration_title">按键调整持续时间</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">单手模式</string>
   <string name="one_handed_mode_summary">启用在导航栏上滑动以启动单手模式</string>
@@ -2128,6 +2142,7 @@
   <!-- Force authorize substratum packages -->
   <string name="force_authorize_substratum_packages_title">允许未知来源的主题应用</string>
   <string name="force_authorize_substratum_packages_summary">强制授权所有主题应用</string>
+  <string name="magisk_title">Magisk 管理器</string>
   <string name="magisk_summary">Root 管理</string>
   <string name="notif_text_color">文字颜色</string>
   <string name="status_bar_expanded_empty_shade_view_settings_title">无通知视图</string>
@@ -2163,4 +2178,11 @@
   <string name="no_sim_cluster_switch_title">无 SIM 卡网络隐藏</string>
   <string name="no_sim_cluster_switch_summary">当 SIM 卡被禁用时隐藏网络栏。如果未禁用 SIM 卡，这个选项将不生效。</string>
   <!-- Advanced night mode brightness -->
+  <string name="night_brightness_category">亮度</string>
+  <string name="night_brightness_value_title">夜间模式亮度</string>
+  <string name="night_brightness_text">当夜间模式启动时，使用自动亮度</string>
+  <string name="night_bright_disabled">禁用</string>
+  <string name="night_bright_min">最低亮度</string>
+  <string name="night_bright_low">低亮度</string>
+  <string name="night_bright_medium">中等亮度</string>
 </resources>

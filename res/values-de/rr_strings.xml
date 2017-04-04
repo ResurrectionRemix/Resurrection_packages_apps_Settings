@@ -21,6 +21,8 @@
   <!-- General -->
   <string name="ok">Ok</string>
   <string name="reset">Zurücksetzen</string>
+  <string name="dlg_reset_rr">RR</string>
+  <string name="dlg_reset_android">Standard</string>
   <string name="default_string">Standard</string>
   <string name="add">Hinzufügen</string>
   <string name="enabled">Aktiviert</string>
@@ -100,6 +102,8 @@
   <string name="fab_reset">Zurücksetzen</string>
   <string name="fab_about">Über RR-OS</string>
   <string name="fab_layout">Layout updaten</string>
+  <string name="fab_layout_update">Zum klassischen Layout umschalten</string>
+  <string name="fab_layout_toggle">Layout des Schalters</string>
   <string name="rr_reset_message">Alle Konfigurationen zurücksetzen?</string>
   <string name="rr_reset_settings">Einstellungen zurücksetzen</string>
   <string name="rr_reset_yes">Ja</string>
@@ -626,6 +630,7 @@
   <string name="shortcuts_icon_presets">Systemsymbole</string>
   <string name="shortcuts_icon_custom">Gallerie</string>
   <string name="shortcuts_icon_picker_choose_icon_title">Symbol auswählen</string>
+  <string name="image_exceeds_max_allowed_size">Bild darf nicht 512×512 überschreiten</string>
   <string name="lockscreen_shortcuts_category">Verknüpfungen</string>
   <string name="keyguard_torch_title">Lockscreen-Taschenlampe</string>
   <string name="keyguard_torch_summary">Durch Gedrückthalten der Power-Taste wird die LED-Lampe ein- bzw. ausgeschaltet.</string>
@@ -970,6 +975,8 @@
   <string name="volume_keys_control_ring_stream_summary_off">Lautstärketasten steuern Medienlautstärke</string>
   <string name="volume_answer_call_title">Anruf annehmen</string>
   <string name="volume_answer_call_summary">Anruf durch drücken der Lautstärketasten annehmen</string>
+  <string name="vol_up_disable_overlays_title">Theme Overlays mit oberer Lautstärketaste deaktivieren</string>
+  <string name="vol_up_disable_overlays_summary">Halte die obere Lautstärketaste gedrückt, um beim Hochfahren alle angewendeten Theme Overlays zu deaktivieren</string>
   <string name="camera_double_tap_power_gesture_title">Für Kamera Ein/Aus zweimal drücken</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <string name="camera_double_tap_power_gesture_desc">Kamera ohne Entsperren des Displays schnell öffnen</string>
@@ -1009,6 +1016,7 @@
   <string name="status_bar_am_pm_small">Klein</string>
   <string name="status_bar_am_pm_hidden">Versteckt</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Statusbar Batterie Stil</string>
   <string name="status_bar_battery_style_icon_portrait">Symbol (Hochformat)</string>
   <string name="status_bar_battery_style_icon_landscape">Symbol (Querformat)</string>
   <string name="status_bar_battery_style_circle">Kreis</string>
@@ -1518,6 +1526,7 @@
   <string name="pulse_solid_units_count">Durchgezogene Linien zählen</string>
   <string name="pulse_solid_units_opacity">Durchgezogene Linien Deckkraft</string>
   <string name="pulse_solid_dimen_category">Einstellungen für durchgezogene Linien</string>
+  <string name="pulse_custom_buttons_opacity_title">Tasten Deckkraft bei Pulse</string>
   <string name="fling_lavalamp_color_from">Lavalampe Startfarbe</string>
   <string name="fling_lavalamp_color_to">Lavalampe Endfarbe</string>
   <!-- Pulse config -->
@@ -1549,9 +1558,12 @@
   <string name="smartbar_button_animation_pixel_home_ripple">Pixel (Home Taste nur) und Welligkeit</string>
   <string name="smartbar_factory_reset_title">Auf Standard zurücksetzen</string>
   <string name="smartbar_factory_reset_confirm">Sind Sie sicher, dass Sie die SmartBar auf die Standardeinstellungen zurücksetzen möchten?</string>
+  <string name="smartbar_ime_action_title">Eingabe-Methode und Medien-Aktionen</string>
+  <string name="smartbar_ime_action_summary">Einstellen, welche Tasten angezeigt werden sollen, wenn eine Bildschirmtastatur angezeigt wird oder die Musik abgespielt wird</string>
   <string name="smartbar_ime_action_none">Kein</string>
   <string name="smartbar_ime_action_arrows">Eingabepfeile</string>
   <string name="smartbar_ime_action_switcher">Tastatur-Auswahl</string>
+  <string name="smartbar_ime_action_dynamic">Eingang/Medien Pfeile</string>
   <string name="smartbar_backup_current_config_title">Profil speichern</string>
   <string name="smartbar_restore_config_title">Profil wiederherstellen</string>
   <string name="smartbar_config_name_edit_dialog_title">SmartBar-Profilname</string>
@@ -1870,6 +1882,7 @@
   <string name="lock_screen_weather_city_color">Stadt </string>
   <string name="lock_screen_weather_wind_color">Wind</string>
   <string name="yes">Ja</string>
+  <string name="battery_tile_style_title">Akku Kachel Stil</string>
   <string name="status_bar_battery_style_tile_summary">Erlaube das setzen des gleichen Symbols für die Akku Statusbar</string>
   <!-- Scrolling Animation Controls -->
   <string name="scrolling_title">Scroll Einstellungen</string>
@@ -2016,6 +2029,14 @@
   <string name="smartbar_doubletap_sleep_title">Standby durch doppeltes Tippen</string>
   <string name="smartbar_doubletap_sleep_summary">Bildschirm durch doppeltes Tippen auf leere Bereiche innerhalb der Navigationsleiste ausschalten</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_x_title">Horizontale Dauer</string>
+  <string name="pixel_anim_y_title">Vertikale Dauer</string>
+  <string name="collapse_anim_duration_ry_title">Einsturz Dauer</string>
+  <string name="collapse_anim_duration_bg_title">Einsturz Hintergrund</string>
+  <string name="retract_anim_duration_title">Dauer zurückziehen</string>
+  <string name="diamond_anim_duration_title">Diamant Dauer</string>
+  <string name="dots_anim_duration_title">Punkte Dauer</string>
+  <string name="home_resize_anim_duration_title">Dauer der Größenänderung der Taste</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Einhandmodus</string>
   <string name="one_handed_mode_summary">Durch streichen auf der Navigationsleiste den Einhand-Modus aktivieren</string>
@@ -2073,6 +2094,7 @@
   <string name="slim_recents_mem_display_long_click_clear_title">Arbeitsspeicher bar lange gedrückt halten</string>
   <string name="slim_recents_mem_display_long_click_clear_summary">Anwendungsverlauf, durch langes drücken der Arbeitsspeicher Bar, leeren.</string>
   <string name="slim_icon_pack_title">Symbolpacket</string>
+  <string name="slim_icon_pack_summary">Wenden Sie eine benutzerdefiniertes Symbol Packet für Anwendungen im Panel</string>
   <string name="no_iconpacks_summary">Keine Symbolpakete installiert</string>
   <string name="dialog_pick_iconpack_title">Symbolpaket auswählen</string>
   <string name="default_iconpack_title">Standardsymbole</string>
@@ -2158,7 +2180,10 @@
   <!-- Advanced night mode brightness -->
   <string name="night_brightness_category">Helligkeit</string>
   <string name="night_brightness_value_title">Nachtlicht Helligkeit</string>
+  <string name="night_brightness_text">Bei aktiviertem Nachtlicht, wird automatisch die gewünschte Helligkeit eingestellt.</string>
   <string name="night_bright_disabled">Deaktiviert</string>
   <string name="night_bright_min">Minimale Helligkeit</string>
+  <string name="night_bright_low">Niedrige Helligkeit
+</string>
   <string name="night_bright_medium">Mittlere Helligkeit</string>
 </resources>
