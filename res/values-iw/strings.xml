@@ -47,7 +47,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"‏הצג פנקס כתובות של SIM"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"הצג מספרי חיוג קבועים"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"הצג מספרי חיוג לשירות"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"‏קבל רשימת PDP"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"‏סטטוס שירות IMS"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"‏סטטוס IMS"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"רשום"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"לא רשום"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"זמין/ה"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"לא זמין"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"‏הרשמה ל-IMS:‏ <xliff:g id="STATUS">%1$s</xliff:g>\nVoice over LTE:‏ <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nVoice over Wi-Fi:‏ <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nשיחות וידאו: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nממשק UT:‏ <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"בשירות"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"לא תקין"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"שיחות חירום בלבד"</string>
@@ -691,6 +697,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"‏ה-Wi-Fi ימשיך לפעול בזמן שינה"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"‏Wi‑Fi פועל גם במצב שינה"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"אירעה בעיה בשינוי ההגדרה"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"התחבר לרשתות סלולריות"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"התחבר לרשתות סלולריות כשניתן"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"שפר יעילות"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"‏אופטימיזציה ל-Wi-Fi"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"‏צמצם את השימוש בסוללה כאשר Wi-Fi פועל"</string>
@@ -819,7 +827,7 @@
     <string name="wifi_gateway" msgid="163914742461092086">"שער"</string>
     <string name="wifi_network_prefix_length" msgid="3028785234245085998">"אורך קידומת של רשת"</string>
     <string name="wifi_p2p_settings_title" msgid="5444461191435291082">"‏Wi-Fi ישיר"</string>
-    <string name="wifi_p2p_device_info" msgid="3191876744469364173">"פרטי מכשיר"</string>
+    <string name="wifi_p2p_device_info" msgid="3191876744469364173">"מידע מהמכשיר"</string>
     <string name="wifi_p2p_persist_network" msgid="1646424791818168590">"זכור חיבור זה"</string>
     <string name="wifi_p2p_menu_search" msgid="3436429984738771974">"חיפוש מכשירים"</string>
     <string name="wifi_p2p_menu_searching" msgid="2396704492143633876">"מחפש…"</string>
@@ -1457,9 +1465,9 @@
     <string name="auto_launch_label_generic" msgid="3230569852551968694">"ברירות מחדל"</string>
     <string name="screen_compatibility_label" msgid="663250687205465394">"תאימות מסך"</string>
     <string name="permissions_label" msgid="2605296874922726203">"הרשאות"</string>
-    <string name="cache_header_label" msgid="1877197634162461830">"קובץ שמור"</string>
-    <string name="clear_cache_btn_text" msgid="5756314834291116325">"נקה קבצים שמורים"</string>
-    <string name="cache_size_label" msgid="7505481393108282913">"קובץ שמור"</string>
+    <string name="cache_header_label" msgid="1877197634162461830">"מטמון"</string>
+    <string name="clear_cache_btn_text" msgid="5756314834291116325">"נקה מטמון"</string>
+    <string name="cache_size_label" msgid="7505481393108282913">"מטמון"</string>
     <plurals name="uri_permissions_text" formatted="false" msgid="3983110543017963732">
       <item quantity="two">‏%d פריטים</item>
       <item quantity="many">‏%d פריטים</item>
@@ -1966,7 +1974,7 @@
     <string name="process_stats_os_native" msgid="5322428494231768472">"מקורי"</string>
     <string name="process_stats_os_kernel" msgid="1938523592369780924">"ליבה"</string>
     <string name="process_stats_os_zram" msgid="677138324651671575">"Z-Ram"</string>
-    <string name="process_stats_os_cache" msgid="6432533624875078233">"קבצים שמורים"</string>
+    <string name="process_stats_os_cache" msgid="6432533624875078233">"קובצי מטמון"</string>
     <string name="process_stats_ram_use" msgid="976912589127397307">"‏שימוש ב-RAM"</string>
     <string name="process_stats_bg_ram_use" msgid="5398191511030462404">"‏שימוש ב-RAM (ברקע)"</string>
     <string name="process_stats_run_time" msgid="6520628955709369115">"משך ההפעלה"</string>
@@ -1978,7 +1986,7 @@
     <string name="mem_use_subtitle" msgid="7319468770222422412">"שימוש בזיכרון"</string>
     <string name="mem_use_kernel_type" msgid="8698327165935012484">"ליבה"</string>
     <string name="mem_use_native_type" msgid="5976704902328347400">"מקומי"</string>
-    <string name="mem_use_kernel_cache_type" msgid="6411475064463957513">"קבצים שמורים בליבה"</string>
+    <string name="mem_use_kernel_cache_type" msgid="6411475064463957513">"קובצי מטמון בליבה"</string>
     <string name="mem_use_zram_type" msgid="9087217476795358232">"‏החלפת ZRam"</string>
     <string name="mem_use_free_type" msgid="717708548454880840">"פנוי"</string>
     <string name="mem_use_total" msgid="6308786055749777934">"סה\"כ"</string>
@@ -1993,7 +2001,7 @@
     <string name="menu_proc_stats_type" msgid="4700209061072120948">"סוג נתונים סטטיסטיים"</string>
     <string name="menu_proc_stats_type_background" msgid="2236161340134898852">"רקע"</string>
     <string name="menu_proc_stats_type_foreground" msgid="2286182659954958586">"חזית"</string>
-    <string name="menu_proc_stats_type_cached" msgid="5084272779786820693">"קובץ שמור"</string>
+    <string name="menu_proc_stats_type_cached" msgid="5084272779786820693">"מטמון"</string>
     <string name="voice_input_output_settings" msgid="1336135218350444783">"קלט ופלט קולי"</string>
     <string name="voice_input_output_settings_title" msgid="2442850635048676991">"הגדרות קלט ופלט קולי"</string>
     <string name="voice_search_settings_title" msgid="2775469246913196536">"חיפוש קולי"</string>
@@ -2497,8 +2505,8 @@
     <string name="user_restrictions_controlled_by" msgid="3164078767438313899">"בשליטת <xliff:g id="APP">%1$s</xliff:g>"</string>
     <string name="app_sees_restricted_accounts" msgid="7503264525057246240">"האפליקציה הזו יכולה לגשת לחשבונות שלך"</string>
     <string name="app_sees_restricted_accounts_and_controlled_by" msgid="6968697624437267294">"האפליקציה הזו יכולה לגשת אל החשבונות שלך. בשליטה של <xliff:g id="APP">%1$s</xliff:g>"</string>
-    <string name="restriction_wifi_config_title" msgid="8889556384136994814">"‏רשת Wi‑Fi ורשת לנייד"</string>
-    <string name="restriction_wifi_config_summary" msgid="70888791513065244">"‏אפשר שינוי של הגדרות רשת Wi-Fi ורשת לנייד"</string>
+    <string name="restriction_wifi_config_title" msgid="8889556384136994814">"‏רשת Wi‑Fi ורשת סלולרית"</string>
+    <string name="restriction_wifi_config_summary" msgid="70888791513065244">"‏אפשר שינוי של הגדרות רשת Wi-Fi ורשת סלולרית"</string>
     <string name="restriction_bluetooth_config_title" msgid="8871681580962503671">"Bluetooth"</string>
     <string name="restriction_bluetooth_config_summary" msgid="8372319681287562506">"‏אפשר שינויים של התאמות והגדרות Bluetooth"</string>
     <string name="restriction_nfc_enable_title" msgid="5888100955212267941">"NFC"</string>
@@ -2695,7 +2703,7 @@
     <string name="vr_listeners_title" msgid="1318901577754715777">"‏שירותי מסייע של VR"</string>
     <string name="no_vr_listeners" msgid="2689382881717507390">"‏אין אפליקציות מותקנות שביקשו הפעלה כשירותי מסייע של VR."</string>
     <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"‏האם לאפשר לשירות VR גישה אל <xliff:g id="SERVICE">%1$s</xliff:g>?"</string>
-    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> יוכל לפעול כשאתה משתמש באפליקציות במצב מציאות וירטואלית."</string>
+    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> יוכל לפעול כשאתה משתמש באפליקציות במצב של מציאות מדומה."</string>
     <string name="display_vr_pref_title" msgid="8104485269504335481">"‏כשהמכשיר במצב VR"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"הפחת טשטוש (מומלץ)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"הפחת הבהוב"</string>
@@ -2949,6 +2957,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"אופטימיזציה של סוללה"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"התראות על ניצול סוללה"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"לא בוצעה אופטימיזציה"</string>
     <string name="high_power_on" msgid="6216293998227583810">"לא בוצעה אופטימיזציה"</string>
     <string name="high_power_off" msgid="3393904131961263278">"מבצעת אופטימיזציה לשימוש בסוללה"</string>
@@ -3038,7 +3047,7 @@
     <string name="permit_draw_overlay" msgid="6606018549732046201">"התר הצגה מעל אפליקציות אחרות"</string>
     <string name="app_overlay_permission_preference" msgid="8355410276571387439">"הרשאה להצגת האפליקציה למעלה"</string>
     <string name="allow_overlay_description" msgid="7895191337585827691">"הרשאה זו מאפשרת הצגה של האפליקציה מעל אפליקציות אחרות שנמצאות בשימוש, ועשויה להפריע לשימוש שלך בממשק של אפליקציות אחרות או לשנות את מה שאתה חושב שאתה רואה באפליקציות אחרות."</string>
-    <string name="keywords_vr_listener" msgid="7441221822576384680">"‏VR מציאות וירטואלית ליסנר סטריאו שירות מסייע"</string>
+    <string name="keywords_vr_listener" msgid="7441221822576384680">"‏שירות מסייע של מציאות מדומה VR להאזנה סטריאופונית"</string>
     <string name="keywords_system_alert_window" msgid="8579673659566564926">"תיבת הדו שיח של חלון ההתראה מוצגת מעל אפליקציות אחרות"</string>
     <string name="overlay_settings" msgid="222062091489691363">"הצגה מעל אפליקציות אחרות"</string>
     <string name="system_alert_window_summary" msgid="4268867238063922290">"<xliff:g id="COUNT_0">%d</xliff:g> מתוך <xliff:g id="COUNT_1">%d</xliff:g> אפליקציות רשאיות להיות מוצגות מעל אפליקציות אחרות"</string>
@@ -3322,4 +3331,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"אפליקציות לא מותקנות"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"אפליקציות מותקנות"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"האחסון שלך מנוהל כעת על ידי מנהל האחסון"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"פרטי ניהול תצורה של ספק סלולרי"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"הפעל ניהול תצורה של ספק סלולרי"</string>
 </resources>

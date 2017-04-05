@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"Se adressebok for SIM-kort"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Vis faste numre"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Vis tjenestenummer"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"Hent PDP-liste"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"Status for IMS-tjeneste"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS-status"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Registrert"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Ikke registrert"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Tilgjengelig"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Utilgjengelig"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS-registrering: <xliff:g id="STATUS">%1$s</xliff:g>\nTale over LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nTale over Wi-Fi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nVideoanrop: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT-grensesnitt: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"Fungerer som normalt"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Ute av drift"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Bare nødanrop"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Behold Wi-Fi på i hvilemodus"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Wi-Fi aktivert i hvilemodus"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"Det oppstod et problem under endring av innstillingen"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Koble til operatørnettverk"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Koble til operatørnettverk når de er tilgjengelige"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Forbedre effektiviteten"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Optimalisering av Wi-Fi"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Minimer batteribruk når Wi-Fi er på"</string>
@@ -1013,7 +1021,7 @@
     <string name="system_update_settings_list_item_title" msgid="3342887311059985961">"Systemoppdateringer"</string>
     <string name="system_update_settings_list_item_summary" msgid="3853057315907710747"></string>
     <string name="firmware_version" msgid="4801135784886859972">"Android-versjon"</string>
-    <string name="security_patch" msgid="8438384045870296634">"Nivå for patch (feilretting) av sikkerhet på Android"</string>
+    <string name="security_patch" msgid="8438384045870296634">"Nivå av sikkerhetsoppdatering i Android"</string>
     <string name="model_info" msgid="1952009518045740889">"Modell"</string>
     <string name="fcc_equipment_id" msgid="149114368246356737">"Utstyrs-ID"</string>
     <string name="baseband_version" msgid="1848990160763524801">"Basisbåndversjon"</string>
@@ -2644,11 +2652,11 @@
     <string name="notification_listener_disable_warning_summary" msgid="6738915379642948000">"Hvis du slår av varseltilgang for <xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g>, kan tilgang til Ikke forstyrr også bli slått av."</string>
     <string name="notification_listener_disable_warning_confirm" msgid="8333442186428083057">"Slå av"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8586417377104211584">"Avbryt"</string>
-    <string name="vr_listeners_title" msgid="1318901577754715777">"Hjelpetjenester for virtuell virkelighet"</string>
-    <string name="no_vr_listeners" msgid="2689382881717507390">"Ingen av de installerte appene har bedt om å bli kjørt som hjelpetjeneste for virtuell virkelighet."</string>
-    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Vil du tillate tjenestetilgang for virtuell virkelighet for <xliff:g id="SERVICE">%1$s</xliff:g>?"</string>
+    <string name="vr_listeners_title" msgid="1318901577754715777">"Hjelpetjenester for VR"</string>
+    <string name="no_vr_listeners" msgid="2689382881717507390">"Ingen av de installerte appene har bedt om å bli kjørt som hjelpetjeneste for VR."</string>
+    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Vil du tillate tjenestetilgang for VR for <xliff:g id="SERVICE">%1$s</xliff:g>?"</string>
     <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> kan kjøres når du bruker apper i virtuell virkelighet-modus."</string>
-    <string name="display_vr_pref_title" msgid="8104485269504335481">"Når enheten er i virtuell virkelighetsmodus"</string>
+    <string name="display_vr_pref_title" msgid="8104485269504335481">"Når enheten er i VR-modus"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"Reduser uskarphet (anbefales)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"Reduser flimmer"</string>
     <string name="manage_zen_access_title" msgid="2611116122628520522">"«Ikke forstyrr»-tilgang"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Batterioptimalisering"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Bruksvarsler"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Ikke optimalisert"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Ikke optimalisert"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Optimaliserer batteribruken"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Apper som ikke er installert"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Installerte apper"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Lagringsplassen din blir nå administrert av lagringsadministratoren"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Informasjon om operatørhåndtering"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Utløs operatørhåndtering"</string>
 </resources>

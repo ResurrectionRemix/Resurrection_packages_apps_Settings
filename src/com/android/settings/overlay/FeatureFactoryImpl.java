@@ -17,15 +17,40 @@
 package com.android.settings.overlay;
 
 import android.content.Context;
+import android.support.annotation.Keep;
+import com.android.settings.dashboard.SuggestionFeatureProvider;
+import com.android.settings.dashboard.SuggestionFeatureProviderImpl;
+import com.android.settings.fuelgauge.PowerUsageFeatureProvider;
 
 /**
  * {@link FeatureFactory} implementation for AOSP Settings.
  */
-public final class FeatureFactoryImpl extends FeatureFactory {
+@Keep
+public class FeatureFactoryImpl extends FeatureFactory {
+
+    private SuggestionFeatureProvider mSuggestionFeatureProvider;
 
     @Override
     public SupportFeatureProvider getSupportFeatureProvider(Context context) {
         return null;
+    }
+
+    @Override
+    public PowerUsageFeatureProvider getPowerUsageFeatureProvider(Context context) {
+        return null;
+    }
+
+    @Override
+    public SurveyFeatureProvider getSurveyFeatureProvider(Context context) {
+        return null;
+    }
+
+    @Override
+    public SuggestionFeatureProvider getSuggestionFeatureProvider() {
+        if (mSuggestionFeatureProvider == null) {
+            mSuggestionFeatureProvider = new SuggestionFeatureProviderImpl();
+        }
+        return mSuggestionFeatureProvider;
     }
 
 }

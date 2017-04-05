@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"Прикажи SIM адресар"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Прикажи броеви на фиксно бирање"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Прикажи броеви за бирање служби"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"Добиј список со PDP"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"Статус на услугата IMS"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS-статус"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Регистриран"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Не е регистриран"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Достапен"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Недостапен"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS-регистрација: <xliff:g id="STATUS">%1$s</xliff:g>\nКомуникација преку LTE (VoLTE): <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nКомуникација преку Wi-Fi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nВидеоповици: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT-интерфејс: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"Во употреба"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Надвор од употреба"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Само итни повици"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Задржи Wi-Fi во текот на режим на мирување"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Вклучена Wi‑Fi при мирување"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"Настана проблем при менување на подесувањето"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Поврзи се со мрежи на оператор"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Поврзи со достап. опер. мрежи"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Подобри ефикасност"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Оптимизација на Wi-Fi"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Минимизирај употреба на батерија кога е вклучена Wi-Fi"</string>
@@ -2648,7 +2656,7 @@
     <string name="no_vr_listeners" msgid="2689382881717507390">"Ниедна инсталирана апликација не побара да се извршува како VR помошните услуги."</string>
     <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Дозволете пристап до VR услугата за <xliff:g id="SERVICE">%1$s</xliff:g>?"</string>
     <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> ќе може да се извршува кога користите апликации во режим на виртуелна реалност."</string>
-    <string name="display_vr_pref_title" msgid="8104485269504335481">"Кога уредот е во режим на виртуелна реалност"</string>
+    <string name="display_vr_pref_title" msgid="8104485269504335481">"Кога уредот е во VR"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"Намалете го замаглувањето (се препорачува)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"Намалете го треперењето"</string>
     <string name="manage_zen_access_title" msgid="2611116122628520522">"Пристап до „Не вознемирувај“"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Оптимизација на батерија"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Предупредувања за батеријата"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Не се оптимизирани"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Не е оптимизирано"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Се оптимизира користењето на батеријата"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Апликациите не се инсталирани"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Инсталирани апликации"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Управникот со меморија сега управува со вашата меморија"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Информации за обезбедување оператор"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Активирајте обезбедување оператор"</string>
 </resources>

@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"SIM のアドレス帳を表示"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"発信番号制限を表示"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"サービス電話番号を表示"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"PDP リストを取得"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"IMS サービスのステータス"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS ステータス"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"登録済み"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"未登録"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"使用可能"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"使用不可"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS 登録: <xliff:g id="STATUS">%1$s</xliff:g>\nボイスオーバー LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nボイスオーバー WiFi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nビデオハングアウト: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT インターフェース: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"圏内"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"圏外"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"緊急通報のみ"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"スリープ時にWi-Fi接続を維持"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"スリープ時にWi-Fi接続を維持"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"設定の変更中に問題が発生しました"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"携帯通信会社のネットワークに接続する"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"利用可能な場合は携帯通信会社のネットワークに接続する"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"効率を上げる"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Wi-Fi最適化"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Wi-FiがONのときに電池使用を節約する"</string>
@@ -2893,6 +2901,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g>/<xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g>（<xliff:g id="COUNT">%2$d</xliff:g>）"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"電池の最適化"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"使用状況に関する通知"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"最適化していないアプリ"</string>
     <string name="high_power_on" msgid="6216293998227583810">"最適化していないアプリ"</string>
     <string name="high_power_off" msgid="3393904131961263278">"電池の使用を最適化"</string>
@@ -2975,7 +2984,7 @@
     <string name="system_alert_window_settings" msgid="1757821151143694951">"他のアプリの上に重ねて表示"</string>
     <string name="system_alert_window_apps_title" msgid="7005760279028569491">"アプリ"</string>
     <string name="system_alert_window_access_title" msgid="8811695381437304132">"他のアプリの上に重ねて描画"</string>
-    <string name="permit_draw_overlay" msgid="6606018549732046201">"他のアプリの上に重ねて描画することを許可"</string>
+    <string name="permit_draw_overlay" msgid="6606018549732046201">"他のアプリ上に重ねて描画することを許可"</string>
     <string name="app_overlay_permission_preference" msgid="8355410276571387439">"アプリが上に重ねて描画する権限"</string>
     <string name="allow_overlay_description" msgid="7895191337585827691">"この権限により、アプリは使用中の他のアプリの上に重ねて表示できるようになります。これにより、他のアプリのインターフェースを使用する際に邪魔になったり、他のアプリに表示されていると思われるものが変更されたりする場合があります。"</string>
     <string name="keywords_vr_listener" msgid="7441221822576384680">"vr バーチャル リアリティ リスナー ステレオ ヘルパー サービス"</string>
@@ -3082,8 +3091,8 @@
     <string name="cell_warning_only" msgid="763147658209027140">"<xliff:g id="ID_1">%1$s</xliff:g> データ警告"</string>
     <string name="cell_warning_and_limit" msgid="2273413629267437470">"<xliff:g id="ID_1">%1$s</xliff:g> データ警告 / <xliff:g id="ID_2">%2$s</xliff:g> データ上限"</string>
     <string name="billing_cycle" msgid="5169909190811133499">"請求期間"</string>
-    <string name="billing_cycle_summary" msgid="9009106526129293752">"月単位の請求期間の開始日は、毎月 <xliff:g id="ID_1">%1$s</xliff:g>です"</string>
-    <string name="billing_cycle_fragment_summary" msgid="1940518156600077066">"<xliff:g id="ID_1">%1$s</xliff:g>から月単位"</string>
+    <string name="billing_cycle_summary" msgid="9009106526129293752">"月単位の請求期間の開始日は、毎月 <xliff:g id="ID_1">%1$s</xliff:g> 日です"</string>
+    <string name="billing_cycle_fragment_summary" msgid="1940518156600077066">"<xliff:g id="ID_1">%1$s</xliff:g> 日から月単位で請求"</string>
     <string name="network_restrictions" msgid="8234695294536675380">"ネットワーク制限"</string>
     <string name="operator_warning" msgid="1862988028996859195">"端末で記録されるデータ使用量と携帯通信会社のデータ使用量は異なる場合があります"</string>
     <string name="data_used_template" msgid="3245919669966296505">"<xliff:g id="ID_1">%1$s</xliff:g> 使用"</string>
@@ -3252,4 +3261,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"アプリがインストールされていません"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"インストール済みアプリ"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"お使いのストレージの管理はストレージ マネージャが行うようになりました"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"携帯通信会社のプロビジョニング情報"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"携帯通信会社のプロビジョニングをトリガー"</string>
 </resources>

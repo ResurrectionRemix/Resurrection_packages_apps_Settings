@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"ดูสมุดที่อยู่ของซิม"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"ดูการจำกัดหมายเลขโทรออก"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"ดูหมายเลขรับบริการโทรออก"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"รับรายการ PDP"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"สถานะบริการ IMS"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"สถานะ IMS"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"ลงทะเบียนแล้ว"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"ไม่ได้ลงทะเบียน"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"มี"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"ไม่มี"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"การลงทะเบียน IMS: <xliff:g id="STATUS">%1$s</xliff:g>\nการสื่อสารทางเสียงผ่าน LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nการสื่อสารทางเสียงผ่าน Wi-Fi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nการโทรแบบวิดีโอคอล: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nอินเทอร์เฟซ UT: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"กำลังให้บริการ"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"ไม่พร้อมให้บริการ"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"โทรฉุกเฉินเท่านั้น"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"เปิด WiFi ระหว่างที่อยู่ในโหมดสลีป"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"เปิด Wi-Fi ระหว่างอยู่ในโหมดสลีป"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"มีปัญหาในการเปลี่ยนแปลงการตั้งค่า"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"เชื่อมต่อเครือข่ายผู้ให้บริการ"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"เชื่อมต่อเครือข่ายผู้ให้บริการเมื่อพร้อมใช้งาน"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"ปรับปรุงประสิทธิภาพ"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"การเพิ่มประสิทธิภาพ WiFi"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"ลดการใช้แบตเตอรี่เมื่อ WiFi เปิดอยู่"</string>
@@ -2644,10 +2652,10 @@
     <string name="notification_listener_disable_warning_summary" msgid="6738915379642948000">"หากคุณปิดการเข้าถึงการแจ้งเตือนสำหรับ <xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> การเข้าถึง \"ห้ามรบกวน\" อาจปิดไปด้วย"</string>
     <string name="notification_listener_disable_warning_confirm" msgid="8333442186428083057">"ปิด"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8586417377104211584">"ยกเลิก"</string>
-    <string name="vr_listeners_title" msgid="1318901577754715777">"บริการตัวช่วยความเป็นจริงเสมือน"</string>
-    <string name="no_vr_listeners" msgid="2689382881717507390">"แอปที่ติดตั้งอยู่ไม่ได้ขอให้เรียกใช้เป็นบริการตัวช่วยความเป็นจริงเสมือน"</string>
-    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"อนุญาตให้ <xliff:g id="SERVICE">%1$s</xliff:g> เข้าถึงบริการความเป็นจริงเสมือนไหม"</string>
-    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> จะเรียกใช้ได้เมื่อคุณกำลังใช้แอปพลิเคชันในโหมดความเป็นจริงเสมือน"</string>
+    <string name="vr_listeners_title" msgid="1318901577754715777">"บริการตัวช่วย VR"</string>
+    <string name="no_vr_listeners" msgid="2689382881717507390">"แอปที่ติดตั้งอยู่ไม่ได้ขอให้เรียกใช้เป็นบริการตัวช่วย VR"</string>
+    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"อนุญาตให้ <xliff:g id="SERVICE">%1$s</xliff:g> เข้าถึงบริการ VR ไหม"</string>
+    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> จะเรียกใช้ได้เมื่อคุณกำลังใช้แอปพลิเคชันในโหมด Virtual Reality"</string>
     <string name="display_vr_pref_title" msgid="8104485269504335481">"เมื่ออุปกรณ์อยู่ใน VR"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"ลดเบลอ (แนะนำ)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"ลดการกะพริบ"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g>/<xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"การเพิ่มประสิทธิภาพแบตเตอรี่"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"การแจ้งเตือนการใช้งาน"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"ไม่ได้เพิ่มประสิทธิภาพ"</string>
     <string name="high_power_on" msgid="6216293998227583810">"ไม่ได้เพิ่มประสิทธิภาพ"</string>
     <string name="high_power_off" msgid="3393904131961263278">"เพิ่มประสิทธิภาพการใช้แบตเตอรี"</string>
@@ -2974,7 +2983,7 @@
     <string name="permit_draw_overlay" msgid="6606018549732046201">"อนุญาตให้วาดทับแอปอื่นๆ"</string>
     <string name="app_overlay_permission_preference" msgid="8355410276571387439">"วาดแอปด้วยสิทธิ์ระดับสูงสุด"</string>
     <string name="allow_overlay_description" msgid="7895191337585827691">"สิทธิ์นี้อนุญาตให้แอปแสดงทับแอปอื่นๆ ที่คุณกำลังใช้อยู่ ซึ่งอาจรบกวนการใช้อินเทอร์เฟซบนแอปพลิเคชันอื่นๆ ของคุณหรือทำให้คุณเข้าใจสิ่งที่คุณเห็นผิดไป"</string>
-    <string name="keywords_vr_listener" msgid="7441221822576384680">"ความเป็นจริงเสมือน Listener ความเป็นจริงเสมือน บริการตัวช่วยสเตอริโอ"</string>
+    <string name="keywords_vr_listener" msgid="7441221822576384680">"VR Virtual Reality Listener บริการตัวช่วยสเตอริโอ"</string>
     <string name="keywords_system_alert_window" msgid="8579673659566564926">"วาดหน้าต่างแจ้งเตือนของระบบทับแอปอื่นๆ"</string>
     <string name="overlay_settings" msgid="222062091489691363">"วาดทับแอปอื่นๆ"</string>
     <string name="system_alert_window_summary" msgid="4268867238063922290">"อนุญาตแอป <xliff:g id="COUNT_0">%d</xliff:g> จาก <xliff:g id="COUNT_1">%d</xliff:g> แอปให้วาดทับแอปอื่นๆ"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"ไม่ได้ติดตั้งแอป"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"แอปที่ติดตั้ง"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"ตัวจัดการพื้นที่เก็บข้อมูลกำลังจัดการพื้นที่เก็บข้อมูลของคุณ"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"ข้อมูลการจัดสรรผู้ให้บริการ"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"ทริกเกอร์การจัดสรรผู้ให้บริการ"</string>
 </resources>
