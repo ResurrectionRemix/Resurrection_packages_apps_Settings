@@ -21,6 +21,7 @@
   <!-- General -->
   <string name="ok">Valider</string>
   <string name="reset">Réinitialiser</string>
+  <string name="dlg_reset_rr">RR</string>
   <string name="dlg_reset_android">Par défaut</string>
   <string name="default_string">Par défaut</string>
   <string name="add">Ajouter</string>
@@ -101,6 +102,8 @@
   <string name="fab_reset">Réinitialiser</string>
   <string name="fab_about">À propos de RR-OS</string>
   <string name="fab_layout">Mettre à jour la mise en page</string>
+  <string name="fab_layout_update">Basculer sur la mise en page classique</string>
+  <string name="fab_layout_toggle">Modification de la disposition des onglets</string>
   <string name="rr_reset_message">Réinitialiser toutes les configurations aux valeurs par défaut?</string>
   <string name="rr_reset_settings">Réinitialiser les paramètres</string>
   <string name="rr_reset_yes">Oui</string>
@@ -627,6 +630,7 @@
   <string name="shortcuts_icon_presets">Icônes système</string>
   <string name="shortcuts_icon_custom">Galerie</string>
   <string name="shortcuts_icon_picker_choose_icon_title">Choisir l\'icône</string>
+  <string name="image_exceeds_max_allowed_size">L\'image ne doit pas excéder 512x512</string>
   <string name="lockscreen_shortcuts_category">Raccourcis</string>
   <string name="keyguard_torch_title">Lampe de poche (Écran de verrouillage)</string>
   <string name="keyguard_torch_summary">Faites un appui long sur le bouton Marche/Arrêt lorsque l\'écran est inactif pour activer la lampe de poche</string>
@@ -971,6 +975,8 @@
   <string name="volume_keys_control_ring_stream_summary_off">Les boutons de volume contrôlent le volume du média</string>
   <string name="volume_answer_call_title">Répondre à l’appel</string>
   <string name="volume_answer_call_summary">Accepter les appels entrants en appuyant sur les touches de volume</string>
+  <string name="vol_up_disable_overlays_title">Désactiver les superpositions de thème avec le volume augmenté</string>
+  <string name="vol_up_disable_overlays_summary">Pendant le démarrage, maintenez le bouton de volume haut enfoncé pour désactiver tous les superpositions de thème appliquées</string>
   <string name="camera_double_tap_power_gesture_title">Appuyer deux fois sur le bouton Marche/Arrêt pour lancer l\'appareil photo</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <string name="camera_double_tap_power_gesture_desc">Ouvrir rapidement l\'appareil photo sans déverrouiller l\'écran</string>
@@ -1010,6 +1016,7 @@
   <string name="status_bar_am_pm_small">Petit</string>
   <string name="status_bar_am_pm_hidden">Cachée</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Style de la batterie de la barre d\'état</string>
   <string name="status_bar_battery_style_icon_portrait">Portrait</string>
   <string name="status_bar_battery_style_icon_landscape">Paysage</string>
   <string name="status_bar_battery_style_circle">Cercle</string>
@@ -1359,6 +1366,7 @@
   <string name="status_bar_logo_position_left">Gauche</string>
   <string name="status_bar_logo_position_center">Centrée</string>
   <string name="statusbar_weather_title">Barre d\'état Météo</string>
+  <string name="statusbar_weather_summary">Configurez à partir des paramètres QS / Météo.</string>
   <string name="statusbar_weather_dialog_title">Style de la barre d\'état Météo</string>
   <string name="status_bar_weather_hidden">Masquer la Météo</string>
   <string name="status_bar_temperature_image_show_scale">Afficher la température avec les unités et image</string>
@@ -1426,10 +1434,11 @@
   <string name="navbar_general_title">Avancée</string>
   <string name="navigation_bar_left_title">Mode pour gaucher</string>
   <string name="navigation_bar_left_summary">En mode paysage, afficher la barre de navigation à gauche</string>
-  <string name="info_pref_note_title">Commentaire</string>
+  <string name="info_pref_note_title">Note</string>
   <string name="smartbar_interface">Barre intelligente</string>
   <string name="navbar_tint_switch">Couleur des boutons de navigation</string>
   <string name="navbar_button_color">Boutons de la barre de navigation</string>
+  <string name="navbar_button_custom_icon_switch_title">Ajouter un filtre de couleur aux boutons d\'application</string>
   <string name="icon_pack_picker_dialog_title">Pack d\'icônes</string>
   <string name="invalid_icon_from_uri">Impossible de charger l\'image</string>
   <string name="picker_activities">Activités</string>
@@ -1488,7 +1497,7 @@
   <string name="fling_animate_logo_summary">Le logo s\'anime lors des événements tactiles</string>
   <string name="fling_logo_color">Couleur du logo</string>
   <string name="fling_logo_custom_logo_pick_title">Définir l\'icône du logo</string>
-  <string name="fling_logo_custom_logo_image_pick_title">Image personnalisée du logo</string>
+  <string name="fling_logo_custom_logo_image_pick_title">Définir un logo personnalisé</string>
   <string name="fling_logo_custom_logo_reset_title">Réinitialiser l\'icône du logo</string>
   <string name="fling_show_ripple_title">Ondulation</string>
   <string name="fling_show_ripple_summary">Effet d\'ondulation lors des événements tactiles</string>
@@ -1516,7 +1525,9 @@
   <string name="lavamp_solid_speed_title">Vitesse de la lampe Lava</string>
   <string name="pulse_solid_units_count">Nombre de lignes continues</string>
   <string name="pulse_solid_units_opacity">Opacité des lignes continues</string>
+  <string name="pulse_fading_blocks_opacity">La décoloration bloque l\'opacité</string>
   <string name="pulse_solid_dimen_category">Lignes pleines</string>
+  <string name="pulse_custom_buttons_opacity_title">Boutons d\'opacité sur Pulse</string>
   <string name="fling_lavalamp_color_from">Couleur de départ \"Lava Lamp\"</string>
   <string name="fling_lavalamp_color_to">Couleur finale \"Lava Lamp\"</string>
   <!-- Pulse config -->
@@ -1548,9 +1559,12 @@
   <string name="smartbar_button_animation_pixel_home_ripple">Pixel (bouton Home seulement) et Ondulation</string>
   <string name="smartbar_factory_reset_title">Réinitialiser les paramètres</string>
   <string name="smartbar_factory_reset_confirm">Êtes-vous sûr de vouloir réinitialiser la barre intelligente aux paramètres de base ?</string>
+  <string name="smartbar_ime_action_title">Méthode d\'entrée et actions média</string>
+  <string name="smartbar_ime_action_summary">Définissez les boutons à afficher lorsqu\'un clavier à l\'écran s\'affiche ou que la musique est en cours de lecture</string>
   <string name="smartbar_ime_action_none">Aucun(e)</string>
   <string name="smartbar_ime_action_arrows">Flèches de direction</string>
   <string name="smartbar_ime_action_switcher">Sélecteur de clavier</string>
+  <string name="smartbar_ime_action_dynamic">Flèches d\'entrée / média</string>
   <string name="smartbar_backup_current_config_title">Enregistrer le profil</string>
   <string name="smartbar_restore_config_title">Restaurer le profil</string>
   <string name="smartbar_config_name_edit_dialog_title">Nom du profil Smartbar</string>
@@ -1565,7 +1579,7 @@
   <!--Custom logos-->
   <string name="rr_custom_logo_summary">Choisir entre différents logos personnalisés/images dans la barre d\'état</string>
   <string name="sb_custom_logos">Logos personnalisés</string>
-  <string name="custom_logo_style">Choisir une couleur</string>
+  <string name="custom_logo_style">Définir un logo</string>
   <string name="custom_logos">Faites votre choix</string>
   <string name="show_custom_logo_title">Afficher le logo personnalisé</string>
   <string name="show_custom_logo_summary">Afficher dans la barre d\'état un logo parmi un large choix disponible dans le système</string>
@@ -1574,12 +1588,12 @@
   <string name="logo0">Resurrection Remix</string>
   <string name="logo1">Resurrection Lollipop</string>
   <string name="logo2">Tuner </string>
-  <string name="logo3">Android Bug </string>
+  <string name="logo3">Bug droid </string>
   <string name="logo4">Fantôme ballon</string>
-  <string name="logo5">Cool sourire</string>
+  <string name="logo5">Cool smile</string>
   <string name="logo6">Fantôme</string>
   <string name="logo7">Flash</string>
-  <string name="logo8">Fenêtre</string>
+  <string name="logo8">Microsoft Windows</string>
   <string name="logo9">Xbox</string>
   <string name="logo10">Emoji</string>
   <string name="logo11">Sourire heureux</string>
@@ -1587,11 +1601,11 @@
   <string name="logo13">Empreinte animale</string>
   <string name="logo14">Hibou</string>
   <string name="logo15">Météo désactivée </string>
-  <string name="logo16">Mélangeur</string>
+  <string name="logo16">Mixeur</string>
   <string name="logo17">Gâteau</string>
   <string name="logo18">Guitare électrique</string>
   <string name="logo19">Balise du Smiley</string>
-  <string name="logo20">Courir</string>
+  <string name="logo20">Jogger</string>
   <string name="logo21">Toxique</string>
   <string name="logo22">Utilisateur Pro</string>
   <string name="logo23">Pokeball</string>
@@ -1825,7 +1839,7 @@
   <string name="sum26">ツ</string>
   <!-- RR Settings tabs slide effects -->
   <string name="tabs_effect_title">Effet de transition des onglets de configuration</string>
-  <string name="effect_default">Défaut</string>
+  <string name="effect_default">Par défaut</string>
   <string name="effect_accordion">Accordéon</string>
   <string name="effect_background_to_foreground">D\'arrière en avant</string>
   <string name="effect_cube_in">Cube intérieur</string>
@@ -2016,6 +2030,27 @@
   <string name="smartbar_doubletap_sleep_title">Double tap pour veille</string>
   <string name="smartbar_doubletap_sleep_summary">Double tap sur les zones vides de la barre de navigation pour éteindre l’écran</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_title">Animation de la barre de navigation style pixel</string>
+  <string name="pixel_anim_summary">Personnaliser divers éléments de l\'animation style pixel sur la barre de navigation</string>
+  <string name="pixel_anim_warning">Personnaliser divers éléments de l\'animation style pixel sur la barre de navigation. ATTENTION ! La modification des valeurs par défaut peut entraîner une baisse de performance dans l\'animation. C\'est à vos risques et périls</string>
+  <string name="pixel_anim_x_title">Durée horizontale</string>
+  <string name="pixel_anim_y_title">Durée verticale</string>
+  <string name="collapse_anim_duration_ry_title">Durée de la disparition</string>
+  <string name="collapse_anim_duration_bg_title">Disparition de l\'arrière plan</string>
+  <string name="retract_anim_duration_title">Retrait de la durée</string>
+  <string name="diamond_anim_duration_title">Durée du diamant</string>
+  <string name="dots_anim_duration_title">Durée des points</string>
+  <string name="home_resize_anim_duration_title">Durée du redimensionnement des boutons</string>
+  <string name="pixel_anim_color_title">Couleurs de point</string>
+  <string name="dot_top_color_title">Point haut </string>
+  <string name="dot_bottom_color_title">Point bas </string>
+  <string name="dot_left_color_title">Point gauche</string>
+  <string name="dot_right_color_title">Point droit</string>
+  <string name="dot_obey_themes">Défaut (couleur de thème)</string>
+  <string name="dot_custom_color">Personnalisé</string>
+  <string name="dot_random_color">Aléatoire</string>
+  <string name="dot_random_color_more">Très aléatoire</string>
+  <string name="dot_color_switch_title">Mode d\'affichage</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Mode à une main</string>
   <string name="one_handed_mode_summary">Autoriser de glisser sur la barre de navigation pour permettre le mode à une main</string>
@@ -2121,6 +2156,7 @@
   <!-- Force authorize substratum packages -->
   <string name="force_authorize_substratum_packages_title">Autoriser les applications de thème depuis des sources inconnues</string>
   <string name="force_authorize_substratum_packages_summary">Forcer l’autorisation de chaque thème d\'application</string>
+  <string name="magisk_title">Gestionnaire Magisk</string>
   <string name="magisk_summary">Gestion du Root</string>
   <string name="notif_text_color">Couleur du texte</string>
   <string name="status_bar_expanded_empty_shade_view_settings_title">Action lorsqu\'il n y a pas de notifications</string>
@@ -2132,10 +2168,12 @@
   <string name="empty_shade_view_show_wifi_name_summary">Activer pour afficher le nom du réseau WIFI</string>
   <!-- Roaming indicator icon -->
   <string name="roaming_indicator_icon_title">Montrer l\'indicateur du mode d\'itinérance</string>
+  <string name="roaming_indicator_icon_summary">Afficher l\'indicateur d\'itinérance dans l\'icône du signal en mode itinérance</string>
   <!-- Screen state service -->
   <string name="screen_state_toggles_summary">\@null</string>
   <string name="screen_state_toggles_title">Suspendre les actions</string>
   <string name="screen_state_toggles_enable_title">Activer</string>
+  <string name="screen_state_toggles_enable_summary">Les actions seront exécutées lorsque l\'écran serait éteint. Écran allumé, l\'état précédent sera restauré.</string>
   <string name="screen_state_toggles_mobile_title">Réseaux mobiles</string>
   <string name="screen_state_toggles_location_title">GPS</string>
   <string name="screen_state_toggles_twog">Basculer vers 2G</string>
@@ -2146,12 +2184,17 @@
   <string name="screen_state_toggles_mobile_data_summary">La connexion des données mobiles sera désactivée à l\'extinction de l\'écran</string>
   <string name="screen_state_off_delay_title">Délai des actions à l\'extinction de l\'écran</string>
   <string name="screen_state_off_delay_summary">Nombre de secondes à attendre avant d’effectuer des actions après extinction de l\'écran</string>
+  <string name="screen_state_on_delay_title">délais des actions lorsque l\'écran est allumé</string>
+  <string name="screen_state_on_delay_summary">Nombre de secondes à attendre avant d\'effectuer des actions une fois l\'écran allumé</string>
   <!-- In-call DND -->
+  <string name="dnd_when_call_title">En appel, ne pas déranger</string>
   <string name="dnd_when_call_summary">Activer automatiquement l\'option « Ne pas déranger » pendant les appels</string>
+  <string name="no_sim_cluster_switch_title">Réseaux masquer si il n\'y a pas de carte sim</string>
   <string name="no_sim_cluster_switch_summary">Masquer la barre réseau si votre carte sim est inactif et désactivée. Si votre carte sim n\'est pas désactivée, ce commutateur ne fonctionnera pas</string>
   <!-- Advanced night mode brightness -->
   <string name="night_brightness_category">Niveau de luminosité</string>
   <string name="night_brightness_value_title">Éclairage nocturne</string>
+  <string name="night_brightness_text">Lorsque la veilleuse est activé, réglez automatiquement la luminosité souhaitée.</string>
   <string name="night_bright_disabled">Désactivé</string>
   <string name="night_bright_min">Luminosité minimale</string>
   <string name="night_bright_low">Luminosité faible</string>
