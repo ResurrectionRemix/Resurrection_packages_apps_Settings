@@ -2,11 +2,12 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/ticker_screen_title">
 
-    <SwitchPreference
+        <ListPreference
+            android:entries="@array/ticker_mode_entries"
+            android:entryValues="@array/ticker_mode_values"
             android:key="status_bar_show_ticker"
-            android:title="@string/ticker_title"
-            android:summary="@string/ticker_summary"
-            android:defaultValue="false" />
+            android:summary="%s"
+            android:title="@string/ticker_title" />
 
         <PreferenceCategory
             android:key="ticker_colors"
