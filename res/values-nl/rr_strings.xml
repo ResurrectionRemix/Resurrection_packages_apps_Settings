@@ -877,7 +877,7 @@
   <string name="lock_clock_font_medium_normal">Middelgroot</string>
   <string name="lock_clock_font_medium_italic">Middelgroot cursief</string>
   <!-- Screenshot sound -->
-  <string name="screenshot_sound_title">Schermafdruk geluid</string>
+  <string name="screenshot_sound_title">Schermafbeelding geluid</string>
   <string name="navbar_settings_title">Navigatiebalk</string>
   <!-- kill app long press back -->
   <string name="kill_app_longpress_back">Stoppen forceren met terug knop</string>
@@ -968,6 +968,7 @@
   <string name="power_menu_emergency_title">Knop voor noodoproep</string>
   <string name="power_menu_bug_report_disabled">Foutrapportage is uitgeschakeld in de opties voor ontwikkelaars</string>
   <string name="dt2l_camera_category">DT2L camera opties</string>
+  <string name="dt2l_camera_vib_title">Pas de vibratie tijdens starten aan</string>
   <string name="dt2l_camera_vib_summary">Aanpassen trillingen tijdens start van de camera</string>
   <string name="volume_keys_control_ring_stream_title">Beltoonvolume beheren</string>
   <string name="volume_keys_control_ring_stream_summary_on">Volumeknoppen passen beltoonvolume aan</string>
@@ -1453,6 +1454,10 @@
   <string name="fling_def_summary">Geen actie ingesteld</string>
   <string name="fling_swipe_actions">Veeg gebaren</string>
   <string name="fling_tap_actions">Tik gebaren</string>
+  <string name="fling_short_swipe_right">Korte veeg naar rechts</string>
+  <string name="fling_short_swipe_left">Korte veeg naar links</string>
+  <string name="fling_long_swipe_right">Lange veeg naar rechts</string>
+  <string name="fling_long_swipe_left">Lange veeg naar links</string>
   <string name="long_swipe_portrait_title">Staand</string>
   <string name="long_swipe_landscape_title">Liggend</string>
   <string name="up_swipe_title">Omhoog vegen</string>
@@ -1475,6 +1480,7 @@
   <string name="fling_ripple_color">Rimpel kleur</string>
   <string name="fling_longpress_timeout_label_left">Minder vertraging</string>
   <string name="fling_longpress_timeout_label_right">Meer vertraging</string>
+  <string name="fling_longpress_title">Lang klik vertraging</string>
   <string name="fling_longpress_summary">Vermeerder of verminder tijd nodig om \'lang drukken\' uit te voeren</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_title">Over Pulse</string>
@@ -1528,6 +1534,7 @@
   <string name="smartbar_ime_action_none">Geen</string>
   <string name="smartbar_ime_action_arrows">Invoer pijltjes</string>
   <string name="smartbar_ime_action_switcher">Toetsenbord keuze</string>
+  <string name="smartbar_ime_action_dynamic">Invoer/media pijlen</string>
   <string name="smartbar_backup_current_config_title">Profiel opslaan</string>
   <string name="smartbar_restore_config_title">Profiel inladen</string>
   <string name="smartbar_config_name_edit_dialog_title">Smartbar profiel naam</string>
@@ -1570,10 +1577,13 @@
   <string name="logo21">Giftig</string>
   <string name="logo22">Pro gebruiker</string>
   <string name="logo23">Poke ball</string>
+  <string name="logo24">Open doos</string>
+  <string name="logo25">Gesloten doos</string>
   <string name="logo26">Weer aan</string>
   <string name="logo27">Poes</string>
   <string name="logo31">Poep</string>
   <string name="logo33">Google</string>
+  <string name="logo34">Vissen</string>
   <string name="logo35">Geslacht: mannelijk</string>
   <string name="logo36">Geslacht: vrouwelijk</string>
   <string name="logo41">Spinnetje 1</string>
@@ -1764,7 +1774,9 @@
   <!-- Lockscreen Colors -->
   <string name="lockscreen_colors">Kleur aanpassingen</string>
   <string name="lockscreen_colors_summary">Geavanceerde kleur aanpassingen</string>
+  <string name="lockscreen_phone_icon_color">Vergrendelscherm links onder snelkoppeling</string>
   <string name="lockscreen_lock_icon_color">Vergrendelscherm slot pictogram</string>
+  <string name="lockscreen_camera_icon_color">Vergrendelscherm rechts onder snelkoppeling</string>
   <string name="ls_shortcut_icon_color">Vergrendelscherm snelkoppelingen</string>
   <string name="lockscreen_clock_color">Vergrendelscherm klok</string>
   <string name="lockscreen_clock_date_color">Vergrendelscherm datum</string>
@@ -1784,6 +1796,8 @@
   <string name="yes">JA</string>
   <string name="battery_tile_style_title">Accu tegel stijl</string>
   <!-- Scrolling Animation Controls -->
+  <string name="animation_fling_velocity_title">Fling snelheid</string>
+  <string name="animation_duration_summary">Stel tijdsduur in</string>
   <string name="animation_no_scroll_summary_on">Ingeschakeld</string>
   <string name="animation_no_scroll_summary_off">Uitgeschakeld</string>
   <string name="qs_tile_title_visibility_title">SI tegel titels</string>
@@ -1842,7 +1856,9 @@
   <string name="qs_expand_indicator_summary">Uitschakelen uitvouwteken</string>
   <!-- Center Date + Time in header -->
   <string name="qs_date_time_center_title">Datum en tijd centreren</string>
+  <string name="qs_date_time_center_summary">Vereist een of meer pictogrammen uitgeschakeld te zijn</string>
   <!-- Settings drawer switch -->
+  <string name="show_settings_drawer_title">Instellingen lade weergeven</string>
   <!-- Custom LCD density -->
   <string name="custom_density_settings">Aangepaste LCD pixel dichtheid</string>
   <string name="custom_density_summary">
@@ -1891,8 +1907,18 @@
   <string name="smartbar_doubletap_sleep_title">Dubbeltikken voor slaapstand</string>
   <string name="smartbar_doubletap_sleep_summary">Dubbeltik op lege gebieden van navigatiebalk om scherm uit te schakelen</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_color_title">Stip kleuren</string>
+  <string name="dot_top_color_title">Bovenste stip</string>
+  <string name="dot_bottom_color_title">Onderste stip</string>
+  <string name="dot_left_color_title">Linker stip</string>
+  <string name="dot_right_color_title">Rechter stip</string>
+  <string name="dot_obey_themes">Standaard (themakleur)</string>
+  <string name="dot_custom_color">Aangepast</string>
+  <string name="dot_random_color">Willekeurig</string>
+  <string name="dot_random_color_more">Zeer willekeurig</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Een hand modus</string>
+  <string name="one_handed_mode_summary">Over de navigatiebalk slepen om één hand modus te activeren</string>
   <!-- SystemUI restart prompt -->
   <string name="systemui_restart_title">WAARSCHUWING</string>
   <string name="systemui_restart_message">SystemUI zal opnieuw worden opgestart zodat de geselecteerde instelling correct kan worden toegepast.</string>
@@ -1936,9 +1962,12 @@
   <!-- Wired headset ringtone audio focus -->
   <string name="rr_sound_title">Koptelefoon</string>
   <string name="rr_sound_summary">Bedrade koptelefoon instellingen aanpassen</string>
+  <string name="wired_ringtone_focus_mode_title">Waarvandaan beltonen af spelen</string>
   <string name="wired_ringtone_focus_mode_dynamic">Bedrade headset als deze is aangesloten en muziek speelt</string>
   <string name="wired_ringtone_focus_mode_stock">Luidspreker en hoofdtelefoon (standaard)</string>
   <!-- Slim Recent App Sidebar  -->
+  <string name="recent_app_sidebar_hide_labels_title">Verberg pictogram titels</string>
+  <string name="recent_app_sidebar_label_color_title">Titel kleur</string>
   <string name="recent_app_sidebar_bg_color_title">Achtergrond kleur</string>
   <string name="recent_app_sidebar_scale_title">Formaat</string>
   <string name="recent_app_sidebar_open_simultaneously_title">Open gelijktijdig met recenten</string>
