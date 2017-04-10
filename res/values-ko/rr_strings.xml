@@ -21,6 +21,8 @@
   <!-- General -->
   <string name="ok">확인</string>
   <string name="reset">초기화</string>
+  <string name="dlg_reset_rr">RR</string>
+  <string name="dlg_reset_android">기본</string>
   <string name="default_string">기본값</string>
   <string name="add">추가</string>
   <string name="enabled">활성화</string>
@@ -100,6 +102,8 @@
   <string name="fab_reset">리셋</string>
   <string name="fab_about">RR-OS에 대하여</string>
   <string name="fab_layout">레이아웃 업데이트</string>
+  <string name="fab_layout_update">클래식 레이아웃 전환</string>
+  <string name="fab_layout_toggle">탭 레이아웃 전환</string>
   <string name="rr_reset_message">모든 구성을 기본값으로 재설정 합니다.</string>
   <string name="rr_reset_settings">설정 초기화</string>
   <string name="rr_reset_yes">예</string>
@@ -320,9 +324,13 @@
   <string name="color_picker_help_ab_back_title">뒤로가기 버튼:</string>
   <string name="color_picker_help_ab_back_summary">새로 선택한 색상을 적용하지 않고 색상 선택기를 닫습니다 (취소) \n 네비게이션 바의 뒤로 버튼과 동일한 기능입니다.</string>
   <string name="color_picker_help_ab_name_title">제목:</string>
+  <string name="color_picker_help_do_not_show_title">다시 표시하지 않음</string>
   <string name="color_picker_help_button_ok_title">확인</string>
   <!-- Color picker end -->
   <!-- Power menu Animations  -->
+  <string name="powermenu">전원 메뉴</string>
+  <string name="power_menu_animation_title">전원 메뉴 애니메이션</string>
+  <string name="power_menu_animation_summary">전원 메뉴의 시작/종료 애니메이션 변경</string>
   <string name="power_menu_animation_xylon">비행중</string>
   <string name="power_menu_animation_slide">슬라이드</string>
   <string name="power_menu_animation_fly">노을</string>
@@ -382,6 +390,7 @@
   <!-- Title of dialog box -->
   <!-- Label of gesture name field in Rename gesture dialog box -->
   <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
+  <string name="select_custom_activity_title">사용자 지정 활동 선택</string>
   <string name="profile_applist_title">응용 프로그램</string>
   <string name="ga_0">0px</string>
   <string name="ga_1">1px</string>
@@ -424,13 +433,46 @@
   <string name="ga_68">68px</string>
   <string name="entries">항목</string>
   <!--Power menu on Secure Lockscreen -->
+  <string name="lockscreen_enable_power_menu_title">잠금 화면에서 전원 메뉴를 표시하기</string>
+  <string name="lockscreen_enable_power_menu_summary">이 옵션은 보안 잠금 화면에서만 전원 메뉴를 비활성화 합니다.</string>
   <!-- CM Lockscreen shortcuts -->
+  <string name="lockscreen_targets_message">하단 바로가기</string>
+  <string name="double_tap_sleep_anywhere_title">잠금 화면을 탭하여 절전 모드로 들어갑니다.</string>
   <!-- Battery Bar -->
   <string name="battery_bar_location">배터리 바 위치</string>
   <string name="battery_bar_color">배터리 바 색상</string>
+  <string name="battery_bar_animate_title">충전 중 애니메이션</string>
   <!-- Doze pulse options -->
   <!-- Selinux Switch -->
+  <string name="selinux_title">SELinux 모드</string>
   <!-- Slim DSLV -->
+  <string name="shortcut_action_longpress">길게 누르기:</string>
+  <string name="shortcut_action_select_action_longpress">길게 누를시 동작 선택:</string>
+  <string name="shortcut_action_select_action">작업 선택:</string>
+  <string name="shortcut_action_select_action_newaction">새 작업 선택:</string>
+  <string name="shortcut_action_reset">초기화</string>
+  <string name="shortcut_action_add">추가</string>
+  <string name="shortcut_action_reset_message">모든 항목을 기본 값으로 재설정 하시겠습니까?</string>
+  <string name="shortcut_action_max">최대 항목 크기에 도달 했습니다.</string>
+  <string name="shortcut_action_warning">경고</string>
+  <string name="shortcut_action_warning_message">마지막 항목을 삭제할 수는 없습니다.</string>
+  <string name="shortcut_action_disable_message">비활성화됨\n이 기능을 사용하시려면 항목을 추가해 주세요</string>
+  <string name="shortcut_image_not_valid">선택한 애플리케이션은 올바른 아이콘을 반환하지 않았거나 이미지 자르기를 지원하지 않습니다. 다른 애플리케이션을 사용합니다.</string>
+  <string name="shortcut_duplicate_entry">선택한 작업을 두 번 추가할 수 없습니다.</string>
+  <string name="shortcut_action_help_shortcut">바로 가기</string>
+  <string name="shortcut_action_help_button">버튼</string>
+  <string name="shortcut_action_help_app">앱</string>
+  <string name="shortcut_action_help_icon">, 아이콘을 선택중일 때 설정 옵션을 불러옵니다</string>
+  <string name="shortcuts_applications">어플리케이션</string>
+  <string name="shortcuts_select_custom_app_title">사용자 어플리케이션을 선택</string>
+  <string name="shortcuts_icon_picker_type">아이콘 종류 선택:</string>
+  <string name="shortcuts_icon_presets">시스템 아이콘</string>
+  <string name="shortcuts_icon_custom">갤러리</string>
+  <string name="shortcuts_icon_picker_choose_icon_title">아이콘 선택</string>
+  <string name="image_exceeds_max_allowed_size">이미지 크기가 512 x 512를 초과 해서는 안됩니다</string>
+  <string name="lockscreen_shortcuts_category">바로가기 </string>
+  <string name="keyguard_torch_title">잠금화면 터치</string>
+  <string name="keyguard_torch_summary">스크린이 꺼져 있을 때 플래시를 켜기 위해 전원버튼 길게 누르기</string>
   <!-- Lockscreen shortcuts -->
   <string name="shortcuts_icon_picker_alarm">알람</string>
   <string name="shortcuts_icon_picker_battery">배터리</string>
@@ -452,11 +494,43 @@
   <!-- Buttons - Enable navbar -->
   <!-- Navigation Bar -->
   <!-- Power menu -->
+  <string name="power_menu_title">전원 메뉴</string>
+  <string name="power_menu_reboot_title">재시작 메뉴</string>
+  <string name="power_menu_screenshot_title">스크린샷</string>
+  <string name="power_menu_airplane_title">비행기 모드</string>
+  <string name="power_menu_users_title">사용자 전환</string>
+  <string name="power_menu_settings_title">설정 바로가기</string>
+  <string name="power_menu_lockdown_title">기기 잠금</string>
+  <string name="power_menu_bug_report_title">버그 신고</string>
+  <string name="power_menu_sound_title">소리 패널</string>
+  <string name="power_menu_screenrecord_title">화면 녹화</string>
+  <string name="power_menu_torch">손전등</string>
+  <string name="power_menu_bug_report_disabled">개발자 설정에서 오류 보고가 비활성화되었습니다</string>
+  <string name="dt2l_camera_vib_summary">카메라를 실행중일 때 진동 조절</string>
+  <string name="volume_keys_control_ring_stream_title">벨소리 크기 조절</string>
+  <string name="volume_keys_control_ring_stream_summary_on">볼륨 키로 벨소리 크기 조절</string>
+  <string name="volume_keys_control_ring_stream_summary_off">볼륨 키로 미디어 볼륨 크기 조절</string>
+  <string name="volume_answer_call_title">전화 받기</string>
+  <string name="volume_answer_call_summary">볼륨 버튼을 눌러 걸려온 전화를 받기</string>
+  <string name="camera_double_tap_power_gesture_title">전원 버튼을 두 번 눌러 카메라 열기</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
+  <string name="camera_double_tap_power_gesture_desc">화면 잠금을 해제하지 않고 빠르게 카메라 열기</string>
   <!-- Media art -->
+  <string name="media_art_summary">잠금화면에 미디어 커버 아트 활성화</string>
   <!-- Lockscreen notif count -->
+  <string name="lockscreen_maxnotif_title">잠금화면 알림 수</string>
+  <string name="lockscreen_maxnotif_sumary">잠금 화면에서 보여지는 최대 알림 갯수 조정 활성화</string>
+  <string name="lockscreen_maxnotif_config">최대 잠금화면 알림</string>
   <!-- Volume settings - Volume adjustment sound -->
+  <string name="volume_adjust_sounds_title">소리 크기 조정</string>
+  <string name="qs_fancy_animation_summary">상태 표시줄을 내릴 때 다른 애니메이션 효과 활성화</string>
   <!-- Status bar -->
+  <string name="status_bar_title">상태 표시줄</string>
+  <string name="status_bar_toggle_brightness">밝기 조절</string>
+  <string name="status_bar_toggle_brightness_summary">상태 표시줄을 슬라이드하여 화면 밝기 조절</string>
+  <string name="status_bar_notif_count_title">알림 갯수 표시</string>
+  <string name="status_bar_notif_count_summary">읽지 않은 알림 숫자 표시</string>
+  <string name="status_bar_quick_qs_pulldown_title">빠르게 패널 내리기</string>
   <!-- Status bar - Clock -->
   <!-- Status bar - Battery -->
   <!-- Status bar - Battery percentage -->
@@ -469,16 +543,31 @@
   <!-- Quick Settings brightness slider -->
   <!-- OmniSwitch -->
   <!-- Less Notification sounds -->
+  <string name="less_notification_sounds_3s">3초</string>
+  <string name="less_notification_sounds_5s">5초</string>
+  <string name="less_notification_sounds_10s">10초</string>
+  <string name="less_notification_sounds_15s">15초</string>
+  <string name="less_notification_sounds_30s">30초</string>
+  <string name="less_notification_sounds_45s">45초</string>
+  <string name="less_notification_sounds_1m">1분</string>
+  <string name="less_notification_sounds_2m">2분</string>
+  <string name="less_notification_sounds_5m">5분</string>
   <!-- Development Settings -->
   <!-- ADB always notify -->
+  <string name="rr_trans_title">알림 창</string>
+  <string name="power">전원</string>
   <!-- QS shade transparency -->
   <!-- QS header transparency -->
   <!-- Volume dialog transparency -->
+  <string name="volume_dialog_transparency">볼륨 창 투명도</string>
   <!-- Power menu and dialogs transparency -->
+  <string name="power_menu_transparency">전원/재시작 메뉴 투명도</string>
   <!-- Power/reboot dialogs dim amount -->
   <!-- Notifications transparency -->
+  <string name="notifications_transparency">알림 투명도</string>
   <!-- Volume dialog stroke settings -->
   <!-- QS stroke settings -->
+  <string name="qs_stroke_disabled">비활성화됨</string>
   <!-- QS settings -->
   <!-- Quick settings tiles columns and rows config -->
   <!-- Battery saver color -->
@@ -491,6 +580,8 @@
   <!-- Circle app bar -->
   <!-- Breathing Notifications -->
   <!-- Navigation Bar -->
+  <string name="navbar_size">소프트 키 높이 크기</string>
+  <string name="navbar_general_title">고급 설정</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
   <!-- Fling -->
   <!-- Pulse navigation bar music visualizer -->
@@ -506,25 +597,51 @@
   <!-- Heads up switch -->
   <!-- Optional screenshot type -->
   <!-- Screenshot delay -->
+  <string name="screenshot_options_category">화면 캡처 설정</string>
+  <string name="screenshot_delay_title">화면 캡쳐 딜레이</string>
   <!--Screenshot crop and share -->
   <!-- Lockscreen battery info indicator  -->
   <!-- Heads up timeout -->
+  <string name="heads_up_time_out_title">시간 초과</string>
+  <string name="heads_up_time_out_2sec">2초</string>
+  <string name="heads_up_time_out_10sec">10초</string>
   <!-- Heads up snooze -->
+  <string name="heads_up_snooze_1min">1분</string>
+  <string name="heads_up_snooze_3min">3분</string>
+  <string name="heads_up_snooze_5min">5분</string>
+  <string name="heads_up_snooze_10min">10분</string>
+  <string name="heads_up_snooze_15min">15분</string>
+  <string name="heads_up_snooze_20min">20분</string>
   <!-- Camera shutter sound -->
+  <string name="camera_sounds_title">카메라 촬영음</string>
   <!-- Ability to disable hardware keys via nav bar settings -->
+  <string name="hw_keys_title">물리키</string>
+  <string name="hw_keys_summary">물리키 사용</string>
   <!-- Expanded desktop -->
+  <string name="expanded_hide_nothing">숨기지 않음</string>
+  <string name="expanded_hide_status">상태 표시줄 숨기기</string>
+  <string name="expanded_hide_navigation">네비게이션 바 숨기기</string>
+  <string name="expanded_hide_both">모두 숨기기</string>
   <!-- SlimSizer  -->
   <!-- RR summary text -->
   <!-- Custom summaries -->
   <!-- RR Settings tabs slide effects -->
   <!-- Three-fingers-swipe to screenshot -->
   <!-- Lockscreen Colors -->
+  <string name="lockscreen_owner_info_color">소유자 정보</string>
+  <string name="lockscreen_alarm_color">알람</string>
+  <string name="lock_screen_weather_temp_color">날씨 온도</string>
+  <string name="battery_tile_style_title">배터리 표시 스타일</string>
   <!-- Scrolling Animation Controls -->
   <!-- setting: show CPU info-->
   <!-- Status Bar Battery Icon Large Percentage Text -->
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">주의</string>
+  <string name="show_enter_key_title">키 입력 보이기</string>
   <!-- XOSP Blur personalizations -->
+  <string name="blur_cat_notice">알림</string>
+  <string name="rr_build_type_default">비공식</string>
+  <string name="rr_maintainer_default">알 수 없음</string>
   <!-- brightness slider -->
   <!-- QS Header Icons -->
   <!-- Center Date + Time in header -->
@@ -553,6 +670,9 @@
   <!-- Statusbar expanded empty shade view settings -->
   <!-- Roaming indicator icon -->
   <!-- Screen state service -->
+  <string name="screen_state_toggles_mobile_title">모바일 네트워크</string>
+  <string name="screen_state_toggles_location_title">위치</string>
   <!-- In-call DND -->
   <!-- Advanced night mode brightness -->
+  <string name="night_brightness_category">밝기</string>
 </resources>
