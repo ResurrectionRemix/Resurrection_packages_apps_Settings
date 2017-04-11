@@ -936,7 +936,21 @@
         android:summary="@string/device_grouper_summary"
         android:selectable="false"
         android:title="@string/device_grouper" />
-
+	
+    <Preference
+        android:id="@+id/device_deb"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_deb_summary"
+        android:selectable="false"
+        android:title="@string/device_deb" />
+	
+    <Preference
+        android:id="@+id/device_flo"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_flo_summary"
+        android:selectable="false"
+        android:title="@string/device_flo" />
+	
     <Preference
         android:id="@+id/device_z00a"
         android:icon="@drawable/phone_tint"
@@ -1028,7 +1042,19 @@
         android:selectable="false"
         android:title="@string/device_paella" />
 </PreferenceCategory>
+	
+<PreferenceCategory
+       android:id="@+id/device_category_zte"
+       android:title="@string/device_category_zte_title" >
 
+	<Preference
+        android:id="@+id/device_axon7"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_axon7_summary"
+        android:selectable="false"
+        android:title="@string/device_axon7" />
+	</PreferenceCategory>
+	
 <PreferenceCategory
        android:id="@+id/device_category_zuk"
        android:title="@string/device_category_zuk_title" >
