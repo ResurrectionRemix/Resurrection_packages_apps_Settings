@@ -102,7 +102,7 @@
   <string name="fab_reset">Réinitialiser</string>
   <string name="fab_about">À propos de RR-OS</string>
   <string name="fab_layout">Mettre à jour la mise en page</string>
-  <string name="fab_layout_update">Basculer entre l\'affichage classique et par défaut des menus</string>
+  <string name="fab_layout_update">Basculer entre l\'affichage classique et par défaut</string>
   <string name="fab_layout_toggle">Modification de la disposition des onglets</string>
   <string name="rr_reset_message">Réinitialiser toutes les configurations aux valeurs par défaut?</string>
   <string name="rr_reset_settings">Réinitialiser les paramètres</string>
@@ -149,16 +149,16 @@
   <string name="network_traffic_summary">Activer ou désactiver le moniteur de trafic réseau dans la barre d’état et personnaliser son apparence, son seuil d\'activité et les caractères</string>
   <string name="carrier_summary">Activer ou désactiver le nom de l\'opérateur dans la barre d’état et personnaliser son apparence </string>
   <string name="rr_sb_gestures_summary">Activer ou désactiver les mouvements sur la barre d\'état</string>
-  <string name="breathing_notifications_summary">Clignotement des notifications lors des Sms, appels manqués et des messages sur votre messagerie</string>
+  <string name="breathing_notifications_summary">Gérer l\'effet visuel donner aux notifications de Sms, d\'appels manqués et de messagerie vocale</string>
   <string name="rr_trans_summary">Personnaliser les différents éléments du panneau de notification comme la transparence et le contour</string>
   <string name="rr_volume_summary">Personnaliser les différents éléments de la boîte de dialogue du volume comme la transparence et le contour</string>
-  <string name="rr_power_summary">Personnaliser l\'opacité et la transparence de l’interface du menu</string>
+  <string name="rr_power_summary">Personnaliser l\'opacité et la transparence de l’interface du menu Marche/Arrêt</string>
   <string name="rr_recents_ui_summary">Personnaliser les divers éléments dans le panneau des Applications récentes tels que la barre de mémoire, la vue, etc.</string>
   <string name="recents_clear_all_summary">Remplacer le bouton standard de fermeture rapide par un bouton flottant et personnaliser sa position</string>
   <string name="omniswitch_summary">Remplacer la vue par défaut des applications récentes par Omni-recents</string>
   <string name="rr_qs_animation_summary">Activer ou désactiver l\'animation lorsque vous appuyez sur les réglages rapides et les ajuster</string>
   <string name="rr_qs_pulldown_summary">Ajuster les réglages de menu du panneau déroulant</string>
-  <string name="qs_tile_layout_summary">Personnaliser les paramètres rapide de présentation</string>
+  <string name="qs_tile_layout_summary">Configurer l\'affichage des tuiles</string>
   <string name="qs_advanced_summary">Personnalisation rapide de paramètres divers</string>
   <string name="rr_ls_gesture_summary">Choisir les différents gestes disponibles sur l\'écran de verrouillage</string>
   <string name="rr_ls_ui_summary">Activer, désactiver et personnaliser les éléments de l\'écran de verrouillage</string>
@@ -170,7 +170,7 @@
   <string name="app_circle_bar_summary">Utiliser une barre latérale circulaire pour lancer les applications et activités</string>
   <string name="pa_pie_control_summary">Glisser depuis le bord de l\'écran pour afficher/masquer un arc composé de raccourcis applicatifs et de navigation</string>
   <string name="rr_navbar_summary">Activer ou désactiver les boutons programmables et les personnaliser</string>
-  <string name="rr_power_summary">Régler l\'opacité, la transparence de l\'arrière-plan et du menu de redémarrage</string>
+  <string name="rr_power_summary">Définir les différents raccourcis à afficher dans le menu Marche/Arrêt</string>
   <string name="system_animations_summary">Personnaliser les animations pour les divers fenêtres du système</string>
   <string name="rr_power_anim_summary">Activer, désactiver et personnaliser les animations du menu de redémarrage</string>
   <string name="rr_toast_summary">Personnaliser les icônes et les animations des notifications contextuelles</string>
@@ -1016,7 +1016,7 @@
   <string name="status_bar_am_pm_small">Petit</string>
   <string name="status_bar_am_pm_hidden">Cachée</string>
   <!-- Status bar - Battery -->
-  <string name="status_bar_battery_style_title">Style de la batterie de la barre d\'état</string>
+  <string name="status_bar_battery_style_title">Style de la batterie</string>
   <string name="status_bar_battery_style_icon_portrait">Portrait</string>
   <string name="status_bar_battery_style_icon_landscape">Paysage</string>
   <string name="status_bar_battery_style_circle">Cercle</string>
@@ -1030,13 +1030,13 @@
   <string name="status_bar_battery_percentage_text_next">À côté de l\'icône</string>
   <string name="status_bar_charge_color_title">Couleur de l\'icône de la batterie dans la barre d\'état lors de la charge</string>
   <string name="status_bar_charge_color_summary">Définir la couleur de l\'icône de la batterie dans la barre d\'état lors de la charge</string>
-  <string name="force_charge_battery_text_title">Pourcentage de charge de la batterie dans la barre d\'état</string>
-  <string name="force_charge_battery_text_summary_on">Afficher le pourcentage de batterie en dehors de l’icône pendant le chargement</string>
-  <string name="force_charge_battery_text_summary_off">Afficher le pourcentage de batterie à l’intérieur de l’icône pendant le chargement</string>
-  <string name="text_charging_symbol_title">Symbole de charge près du texte de pourcentage de batterie</string>
-  <string name="text_charging_symbol_dialog">Afficher un symbole près du texte de pourcentage en dehors de l’icône de la batterie pendant la charge</string>
-  <string name="text_charging_symbol_default">Désactivée</string>
-  <string name="text_charging_symbol_flash">Flash</string>
+  <string name="force_charge_battery_text_title">Niveau de batterie</string>
+  <string name="force_charge_battery_text_summary_on">Si désactivée, affiche le pourcentage de batterie à l\'extérieur de l’icône pendant le chargement</string>
+  <string name="force_charge_battery_text_summary_off">Si activée, affiche le pourcentage de batterie à l’intérieur de l’icône pendant le chargement</string>
+  <string name="text_charging_symbol_title">Afficher un symbole à côté du pourcentage pendant le chargement</string>
+  <string name="text_charging_symbol_dialog">Symbole de charge</string>
+  <string name="text_charging_symbol_default">Désactivé</string>
+  <string name="text_charging_symbol_flash">Éclair</string>
   <string name="text_charging_symbol_tilde">Tilde</string>
   <!-- Status bar - icon blacklist -->
   <string name="status_bar_icons_title">Icônes de la barre d\'état</string>
@@ -1417,10 +1417,10 @@
   <string name="trigger_bottom_summary">Ajuster la position verticale de la zone du déclencheur</string>
   <!-- Breathing Notifications -->
   <string name="breathing_notifications_title">Notifications clignotantes</string>
-  <string name="sms_breath_title">Clignotement SMS</string>
+  <string name="sms_breath_title">SMS</string>
   <string name="sms_breath_summary">Donnera à vos notifications pour les SMS un effet clignotant dans la barre d\'état</string>
-  <string name="missed_call_breath_title">Effet clignotant pour les appels manqués</string>
-  <string name="missed_call_breath_summary">Donnera à vos notifications d\'appels manqués un effet clignotant dans la barre de statut</string>
+  <string name="missed_call_breath_title">Appels manqués</string>
+  <string name="missed_call_breath_summary">Donnera à vos notifications d\'appels manqués un effet clignotant dans la barre d\'état</string>
   <string name="voicemail_breath_title">Messagerie Vocale</string>
   <string name="voicemail_breath_summary">Donnera à vos notifications de messages vocaux un effet clignotant dans la barre d\'état</string>
   <!-- Navigation Bar -->
@@ -1691,11 +1691,11 @@
   <string name="pa_pie_angle_small">Petit</string>
   <string name="pa_pie_angle_big">Normal (par défaut)</string>
   <string name="pa_pie_angle_huge">Gros</string>
-  <string name="pa_pie_angle_super">Enorme</string>
+  <string name="pa_pie_angle_super">Énorme</string>
   <string name="pa_pie_gap_none">Aucun(e)</string>
   <string name="pa_pie_gap_small">Petit</string>
   <string name="pa_pie_gap_big">Grand (par défaut)</string>
-  <string name="pa_pie_gap_huge">Enorme</string>
+  <string name="pa_pie_gap_huge">Énorme</string>
   <string name="pa_pie_mode_title">Style de l\'arc</string>
   <string name="pa_pie_mode_summary">Définir comment les animations et les ajouts de statut seront traités</string>
   <string name="pa_pie_mode_bare">Vide</string>
@@ -1827,7 +1827,7 @@
   <string name="sum14">Qu\'attendez-vous ?</string>
   <string name="sum15">Uniquement pour les utilisateurs pro</string>
   <string name="sum16">Vous vous ennuyez ? Découvrez-moi dès maintenant !</string>
-  <string name="sum17">Bien joué ! Vous avez gagné une fonctionnalité bonus</string>
+  <string name="sum17">Bien joué ! Vous avez gagné une fonction supplémentaire</string>
   <string name="sum18">Arrêter de spammer sur la communauté Google+</string>
   <string name="sum19">Suivez les règles de publication Google+</string>
   <string name="sum20">Les noobs ne peuvent pas entrer</string>
@@ -1905,8 +1905,8 @@
   <string name="show_cpu_info">Afficher les infos CPU</string>
   <string name="show_cpu_info_summary">Montrer les infos CPU en superposition d\'écran</string>
   <!-- Status Bar Battery Icon Large Percentage Text -->
-  <string name="battery_large_text">Grande icône de batterie en pourcentages</string>
-  <string name="battery_large_text_summary_on">Texte grand</string>
+  <string name="battery_large_text">Agrandir le texte du pourcentage de batterie</string>
+  <string name="battery_large_text_summary_on">Texte agrandi</string>
   <string name="battery_large_text_summary_off">Texte normal</string>
   <string name="nav_bar_dynamic_title">Couleur dynamique</string>
   <string name="nav_bar_dynamic_summary">Activer cette option pour que la barre de navigation s\'adapte au thème sombre de l\'application. Redémarrer l\'application pour visualiser les changements</string>
@@ -1982,9 +1982,9 @@
   <string name="show_settings_drawer_enabled">Panneau des paramètres activé</string>
   <string name="show_settings_drawer_disabled">Panneau des paramètres desactivé</string>
   <!-- Custom LCD density -->
-  <string name="custom_density_settings">Densité de pixels LCD personnalisée</string>
+  <string name="custom_density_settings">Résolution de l\'affichage LCD</string>
   <string name="custom_density_summary">
-    	<xliff:g name="count" example="520">%d</xliff:g> Pixels de densité</string>
+    	<xliff:g name="count" example="520">%d</xliff:g> Dpi</string>
   <!-- Header images -->
   <string name="status_bar_custom_header_title">Image d\'en-tête personnalisée</string>
   <string name="status_bar_custom_header_summary">Activer l\'image d\'en-tête du panneau de notification</string>
@@ -2145,8 +2145,8 @@
   <!-- Hide Statusbar on Lockscreen -->
   <string name="lockscreen_hide_status_bar_title">Masquer la barre d\'état</string>
   <string name="lockscreen_hide_status_bar_summary">Si activée, Masque la barre d\'état sur l\'écran de verrouillage</string>
-  <string name="confirm_shutdown_switch_title">Boîte de dialogue de confirmation d\'arrêt</string>
-  <string name="confirm_shutdown_switch_desc">Lorsque le bouton d\'arrêt est activé sur le menu d\'alimentation, ajoutez une boîte de dialogue pour confirmer l\'arrêt</string>
+  <string name="confirm_shutdown_switch_title">Confirmer l\'extinction de l\'appareil</string>
+  <string name="confirm_shutdown_switch_desc">Lorsque la fonction d\'arrêt est choisi sur le menu Marche/Arrêt, ajouter une boîte de dialogue pour confirmer l\'extinction de l\'appareil</string>
   <!-- Notification guts kill app button -->
   <string name="notification_guts_kill_app_button_title">Bouton pour tuer les apps</string>
   <string name="notification_guts_kill_app_button_summary">Afficher un bouton pour tuer l\'application lors d\'un appui long dans les notifications</string>
@@ -2173,11 +2173,11 @@
   <string name="screen_state_toggles_summary">\@null</string>
   <string name="screen_state_toggles_title">Suspendre les actions</string>
   <string name="screen_state_toggles_enable_title">Activer</string>
-  <string name="screen_state_toggles_enable_summary">Les actions seront exécutées lorsque l\'écran serait éteint. Écran allumé, l\'état précédent sera restauré.</string>
+  <string name="screen_state_toggles_enable_summary">Les actions seront exécutées lorsque l\'écran sera éteint. Écran allumé, l\'état précédent sera restauré.</string>
   <string name="screen_state_toggles_mobile_title">Réseaux mobiles</string>
   <string name="screen_state_toggles_location_title">GPS</string>
   <string name="screen_state_toggles_twog">Basculer vers 2G</string>
-  <string name="screen_state_toggles_twog_summary">Le mode réseau basculera vers la 2G à l\'extinction de l\'écran</string>
+  <string name="screen_state_toggles_twog_summary">La connexion des données mobiles basculera vers la 2G à l\'extinction de l\'écran</string>
   <string name="screen_state_toggles_gps">Désactiver le GPS</string>
   <string name="screen_state_toggles_gps_summary">Le service de localisation GPS sera désactivé à l\'extinction de l\'écran</string>
   <string name="screen_state_toggles_mobile_data">Désactiver les données mobiles</string>
