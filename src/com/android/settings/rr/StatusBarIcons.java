@@ -30,11 +30,19 @@ import com.android.settings.Utils;
 public class StatusBarIcons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "StatusBarIcons";
+    private static final String FOUR_G = "show_fourg";
+    private static final String THREE_G = "show_threeg";
+    private static final String ROAMING_PREF = "roaming_indicator_icon";
+    private static final String DATA_DISABLED_PREF = "data_disabled_icon";
     private static final String SIM_EMPTY_SWITCH = "no_sim_cluster_switch";
     private SubscriptionManager mSm;
 
 
     private SwitchPreference mNoSims;
+    private SwitchPreference m4g;
+    private SwitchPreference m3g;
+    private SwitchPreference mRoaming;
+    private SwitchPreference mNoData;
 
     @Override
     protected int getMetricsCategory() {
@@ -48,12 +56,23 @@ public class StatusBarIcons extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_sb_icons);
 
         mNoSims = (SwitchPreference) findPreference(SIM_EMPTY_SWITCH);
+        m4g = (SwitchPreference) findPreference(FOUR_G);
+        m3g = (SwitchPreference) findPreference(THREE_G);
+        mRoaming = (SwitchPreference) findPreference(ROAMING_PREF);
+        mNoData = (SwitchPreference) findPreference(DATA_DISABLED_PREF);
         mSm = (SubscriptionManager) getSystemService(getContext().TELEPHONY_SUBSCRIPTION_SERVICE);
 
         if (mNoSims != null) { 
             if (!TelephonyManager.getDefault().isMultiSimEnabled() || mSm.getActiveSubscriptionInfoCount() <= 0){
                 getPreferenceScreen().removePreference(mNoSims);
             }
+        }
+
+        if (mSm.getActiveSubscriptionInfoCount() <= 0) {
+                getPreferenceScreen().removePreference(m4g);
+                getPreferenceScreen().removePreference(m3g);
+                getPreferenceScreen().removePreference(mRoaming);
+                getPreferenceScreen().removePreference(mNoData);
         }
     }
 
