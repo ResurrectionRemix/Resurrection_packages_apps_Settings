@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"View SIM address book"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"View fixed dialling numbers"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"View Service Dialling Numbers"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"Get PDP list"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"IMS Service Status"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS Status"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Registered"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Not Registered"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Available"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Unavailable"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS Registration: <xliff:g id="STATUS">%1$s</xliff:g>\nVoice over LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nVoice over Wi-Fi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nVideo Calling: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT Interface: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"In service"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Out of service"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Emergency Calls Only"</string>
@@ -378,7 +384,7 @@
     <string name="fingerprint_enroll_button_add" msgid="6317978977419045463">"Add another"</string>
     <string name="fingerprint_enroll_button_next" msgid="6247009337616342759">"Next"</string>
     <string name="security_settings_fingerprint_enroll_disclaimer" msgid="2624905914239271751">"In addition to unlocking your phone, you can also use your fingerprint to authorise purchases and app access. "<annotation id="url">"Learn more"</annotation></string>
-    <string name="security_settings_fingerprint_enroll_disclaimer_lockscreen_disabled" msgid="7007548031540826618">"Screen lock option disabled. Contact your organisation\'s administrator to Find out more. "<annotation id="admin_details">"More details"</annotation>\n\n"You can still use your fingerprint to authorise purchases and app access. "<annotation id="url">"Find out more"</annotation></string>
+    <string name="security_settings_fingerprint_enroll_disclaimer_lockscreen_disabled" msgid="7007548031540826618">"Screen lock option disabled. Contact your organisation\'s administrator to find out more. "<annotation id="admin_details">"More details"</annotation>\n\n"You can still use your fingerprint to authorise purchases and app access. "<annotation id="url">"Find out more"</annotation></string>
     <string name="security_settings_fingerprint_enroll_lift_touch_again" msgid="1888772560642539718">"Lift finger, then touch sensor again"</string>
     <string name="fingerprint_add_max" msgid="1020927549936895822">"You can add up to <xliff:g id="COUNT">%d</xliff:g> fingerprints"</string>
     <string name="fingerprint_last_delete_title" msgid="6410310101247028988">"Remove all fingerprints?"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Keep Wi‑Fi on during sleep"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Wi‑Fi on during sleep"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"There was a problem while changing the setting"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Connect to operator networks"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Connect to operator networks when available"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Improve efficiency"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Wi‑Fi optimisation"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Minimise battery usage when Wi‑Fi is on"</string>
@@ -2713,7 +2721,7 @@
     <string name="zen_mode_all_callers" msgid="584186167367236922">"All callers"</string>
     <string name="zen_mode_selected_callers" msgid="3127598874060615742">"Selected callers"</string>
     <string name="zen_mode_repeat_callers" msgid="5019521886428322131">"Repeat callers"</string>
-    <string name="zen_mode_repeat_callers_summary" msgid="7192713032364140137">"If the same person calls a second time within a <xliff:g id="MINUTES">%d</xliff:g> minute period, allow it"</string>
+    <string name="zen_mode_repeat_callers_summary" msgid="7192713032364140137">"If the same person calls a second time within a <xliff:g id="MINUTES">%d</xliff:g>-minute period, allow it"</string>
     <string name="zen_mode_when" msgid="2767193283311106373">"Automatically turn on"</string>
     <string name="zen_mode_when_never" msgid="8809494351918405602">"Never"</string>
     <string name="zen_mode_when_every_night" msgid="3122486110091921009">"Every night"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Battery optimisation"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Usage alerts"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Not optimised"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Not optimised"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Optimising battery use"</string>
@@ -2974,7 +2983,7 @@
     <string name="permit_draw_overlay" msgid="6606018549732046201">"Permit drawing over other apps"</string>
     <string name="app_overlay_permission_preference" msgid="8355410276571387439">"App draw on top permission"</string>
     <string name="allow_overlay_description" msgid="7895191337585827691">"This permission allows an app to display on top of other apps that you’re using and may interfere with your use of the interface in other applications, or change what you think you are seeing in other applications."</string>
-    <string name="keywords_vr_listener" msgid="7441221822576384680">"vr virtual reality listener stereo helper service"</string>
+    <string name="keywords_vr_listener" msgid="7441221822576384680">"VR virtual reality listener stereo helper service"</string>
     <string name="keywords_system_alert_window" msgid="8579673659566564926">"system alert window dialogue draw on top other apps"</string>
     <string name="overlay_settings" msgid="222062091489691363">"Draw over other apps"</string>
     <string name="system_alert_window_summary" msgid="4268867238063922290">"<xliff:g id="COUNT_0">%d</xliff:g> of <xliff:g id="COUNT_1">%d</xliff:g> apps allowed to draw on top of other apps"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Apps not installed"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Installed apps"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Your storage is now being managed by the storage manager"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Operator Provisioning Info"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Trigger Operator Provisioning"</string>
 </resources>

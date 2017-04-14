@@ -71,7 +71,7 @@ public final class BluetoothPairingDialog extends AlertActivity implements
     private EditText mPairingView;
     private Button mOkButton;
     private LocalBluetoothProfile mPbapClientProfile;
-
+    private boolean mReceiverRegistered;
 
     /**
      * Dismiss the dialog if the bond state changes to bonded or none,
@@ -100,10 +100,10 @@ public final class BluetoothPairingDialog extends AlertActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mReceiverRegistered = false;
 
         Intent intent = getIntent();
-        if (!intent.getAction().equals(BluetoothDevice.ACTION_PAIRING_REQUEST))
-        {
+        if (!intent.getAction().equals(BluetoothDevice.ACTION_PAIRING_REQUEST)) {
             Log.e(TAG, "Error: this activity may be started only with intent " +
                   BluetoothDevice.ACTION_PAIRING_REQUEST);
             finish();
@@ -135,6 +135,8 @@ public final class BluetoothPairingDialog extends AlertActivity implements
                     intent.getIntExtra(BluetoothDevice.EXTRA_PAIRING_KEY, BluetoothDevice.ERROR);
                 if (passkey == BluetoothDevice.ERROR) {
                     Log.e(TAG, "Invalid Confirmation Passkey received, not showing any dialog");
+                    mDevice.setPairingConfirmation(false);
+                    finish();
                     return;
                 }
                 mPairingKey = String.format(Locale.US, "%06d", passkey);
@@ -154,6 +156,7 @@ public final class BluetoothPairingDialog extends AlertActivity implements
                     intent.getIntExtra(BluetoothDevice.EXTRA_PAIRING_KEY, BluetoothDevice.ERROR);
                 if (pairingKey == BluetoothDevice.ERROR) {
                     Log.e(TAG, "Invalid Confirmation Passkey or PIN received, not showing any dialog");
+                    finish();
                     return;
                 }
                 if (mType == BluetoothDevice.PAIRING_VARIANT_DISPLAY_PASSKEY) {
@@ -167,6 +170,8 @@ public final class BluetoothPairingDialog extends AlertActivity implements
 
             default:
                 Log.e(TAG, "Incorrect pairing type received, not showing any dialog");
+                finish();
+                return;
         }
 
         /*
@@ -175,6 +180,7 @@ public final class BluetoothPairingDialog extends AlertActivity implements
          */
         registerReceiver(mReceiver, new IntentFilter(BluetoothDevice.ACTION_PAIRING_CANCEL));
         registerReceiver(mReceiver, new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED));
+        mReceiverRegistered = true;
     }
 
     private void createUserEntryDialog() {
@@ -381,7 +387,8 @@ public final class BluetoothPairingDialog extends AlertActivity implements
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mReceiver != null) {
+        if (mReceiverRegistered) {
+            mReceiverRegistered = false;
             unregisterReceiver(mReceiver);
         }
     }

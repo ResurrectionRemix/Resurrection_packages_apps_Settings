@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"SIM 주소록 보기"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"발신 허용 번호 보기"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"SDN(Service Dialing Numbers) 보기"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"PDP 목록 가져오기"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"IMS 서비스 상태"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS 상태"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"등록됨"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"등록 안됨"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"사용 가능"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"사용할 수 없음"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS 등록: <xliff:g id="STATUS">%1$s</xliff:g>\nVoLTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nVoWi-Fi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\n화상 통화: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT 인터페이스: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"서비스 중"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"서비스 지역 벗어남"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"긴급 통화만 허용"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"절전 모드 동안 Wi-Fi 연결 유지"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"절전 모드에서 Wi‑Fi 사용"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"설정을 변경하는 중 문제가 발생했습니다."</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"운영자 네트워크에 연결"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"운영자 네트워크가 있는 경우 연결"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"효율성 향상"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Wi-Fi 최적화"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Wi-Fi가 사용 중일 때 배터리 사용량 최소화"</string>
@@ -2644,9 +2652,9 @@
     <string name="notification_listener_disable_warning_summary" msgid="6738915379642948000">"<xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g>에서 알림 액세스를 사용 중지하면 알림 일시중지 액세스도 사용 중지됩니다."</string>
     <string name="notification_listener_disable_warning_confirm" msgid="8333442186428083057">"사용 중지"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8586417377104211584">"취소"</string>
-    <string name="vr_listeners_title" msgid="1318901577754715777">"가상 현실 도우미 서비스"</string>
-    <string name="no_vr_listeners" msgid="2689382881717507390">"설치된 앱 중에서 가상 현실 도우미 서비스로 실행되도록 요청한 앱이 없습니다."</string>
-    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"가상 현실 서비스가 <xliff:g id="SERVICE">%1$s</xliff:g>에 액세스하도록 허용하시겠습니까?"</string>
+    <string name="vr_listeners_title" msgid="1318901577754715777">"VR 도우미 서비스"</string>
+    <string name="no_vr_listeners" msgid="2689382881717507390">"설치된 앱 중에서 VR 도우미 서비스로 실행되도록 요청한 앱이 없습니다."</string>
+    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"VR 서비스가 <xliff:g id="SERVICE">%1$s</xliff:g>에 액세스하도록 허용하시겠습니까?"</string>
     <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"가상 현실 모드에서 애플리케이션을 사용 중일 때 <xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g>이(가) 실행될 수 있습니다."</string>
     <string name="display_vr_pref_title" msgid="8104485269504335481">"기기가 VR 모드인 경우"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"블러 줄이기(권장)"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g>/<xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g>(<xliff:g id="COUNT">%2$d</xliff:g>개)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"배터리 최적화"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"배터리 사용량 알림"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"최적화되지 않음"</string>
     <string name="high_power_on" msgid="6216293998227583810">"최적화되지 않음"</string>
     <string name="high_power_off" msgid="3393904131961263278">"배터리 최적화 사용"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"앱이 설치되어 있지 않음"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"설치된 앱"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"현재 저장용량 관리자가 저장용량을 관리하고 있습니다."</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Carrier Provisioning Info"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Trigger Carrier Provisioning"</string>
 </resources>

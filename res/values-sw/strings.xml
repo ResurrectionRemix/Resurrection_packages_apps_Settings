@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"Angalia Kitabu cha Anwani katika SIM"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Ona nambari zilizopangwa za kupiga"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Angalia number za huduma za kubonyeza"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"Pata Orodha ya PDP"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"Hali ya Huduma ya IMS"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"Hali ya IMS"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Imesajiliwa"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Haijasajiliwa"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Kinapatikana"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Hakipatikani"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"Usajili wa IMS: <xliff:g id="STATUS">%1$s</xliff:g>\nHuduma ya kupiga simu kupitia LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nHuduma ya kupiga simu kupitia WiFi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nKupiga simu ya video: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nKiolesura cha UT: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"Inatumika"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Haitumiki"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Simu za Dharura Pekee"</string>
@@ -509,9 +515,7 @@
     <string name="lock_profile_wipe_content" msgid="2150455386921347628">"Umejaribu mara nyingi mno bila kufaulu. Wasifu wako wa kazini na data inayohusiana nao itaondolewa kwenye kifaa hiki."</string>
     <string name="lock_profile_wipe_dismiss" msgid="5118293266264141442">"Ondoa"</string>
     <string name="lockpassword_password_too_short" msgid="2691590536362441127">"Ni lazima liwe na angalau vibambo %d"</string>
-    <!-- String.format failed for translation -->
-    <!-- no translation found for lockpassword_pin_too_short (1677649103470518953) -->
-    <skip />
+    <string name="lockpassword_pin_too_short" msgid="1677649103470518953">"PIN lazima iwe angalau tarakimu %d"</string>
     <string name="lockpassword_continue_label" msgid="4602203784934526940">"Endelea"</string>
     <string name="lockpassword_password_too_long" msgid="4520363269062591833">"Ni lazima nenosiri liwe na vibambo visivyozidi <xliff:g id="NUMBER">%d</xliff:g>."</string>
     <string name="lockpassword_pin_too_long" msgid="4010052843684165845">"Ni lazima iwe na tarakimu zisizozidi <xliff:g id="NUMBER">%d</xliff:g>."</string>
@@ -677,6 +681,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Washa Wi-Fi wakati wa kulala"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Wi-Fi iwashwe hata katika hali tuli"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"Kulikuwa na hitilafu wakati wa kubadilisha mipangilio"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Unganisha kwenye mitandao ya watoa huduma"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Unganisha kwenye mitandao ya watoa huduma kama inapatikana"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Ongeza ufanisi"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Uboreshaji wa Wi-Fi"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Punguza matumizi ya betri wakati Wi-Fi imewashwa"</string>
@@ -1219,7 +1225,7 @@
     <string name="menu_cancel" msgid="2194502410474697474">"Tupa"</string>
     <string name="error_title" msgid="7631322303341024692"></string>
     <string name="error_name_empty" msgid="5508155943840201232">"Sehemu hii haiwezi kuachwa ikiwa haijajazwa."</string>
-    <string name="error_apn_empty" msgid="4932211013600863642">"APN haiwezi kuwa tupu."</string>
+    <string name="error_apn_empty" msgid="4932211013600863642">"Lazima APN ijazwe."</string>
     <string name="error_mcc_not3" msgid="4560171714156251661">"Sehemu ya MCC lazima iwe na nambari 3."</string>
     <string name="error_mnc_not23" msgid="8418177072458379439">"Sehemu ya MNC lazima iwe na nambari 2 au 3."</string>
     <string name="restore_default_apn" msgid="8178010218751639581">"Inarejesha mipangilio mbadala ya APN"</string>
@@ -1704,7 +1710,7 @@
     <string name="talkback_title" msgid="7912059827205988080">"Talkback"</string>
     <string name="talkback_summary" msgid="8331244650729024963">"Kisoma skrini hasa kwa watu wenye upofu na wenye matatizo ya kuona"</string>
     <string name="accessibility_system_title" msgid="7187919089874130484">"Mfumo"</string>
-    <string name="accessibility_display_title" msgid="7610175687949675162">"Onyesho"</string>
+    <string name="accessibility_display_title" msgid="7610175687949675162">"Mwonekano"</string>
     <string name="accessibility_captioning_title" msgid="7589266662024836291">"Manukuu"</string>
     <string name="accessibility_screen_magnification_title" msgid="9002237235486714636">"Ishara ya kupanua skrini"</string>
     <string name="accessibility_screen_magnification_short_summary" msgid="3411979839172752057">"Gonga mara 3 ili ukuze"</string>
@@ -2895,6 +2901,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Uboreshaji wa betri"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Arifa za matumizi"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Haijaboreshwa"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Haijaboreshwa"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Kuboresha matumizi ya betri"</string>
@@ -3254,4 +3261,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Programu hazijasakinishwa"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Programu zilizosakinishwa"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Hifadhi yako sasa inasimamiwa na kidhibiti cha hifadhi"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Maelezo ya Utaratibu wa Mtoa Huduma"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Anzisha Utaratibu wa Mtoa Huduma"</string>
 </resources>

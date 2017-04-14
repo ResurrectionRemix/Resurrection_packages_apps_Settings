@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"查看 SIM 卡通讯录"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"查看固定拨号号码"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"查看服务拨号"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"获取 PDP 列表"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"IMS 服务状态"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS 状态"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"已注册"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"未注册"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"可供使用"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"无法使用"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS 注册：<xliff:g id="STATUS">%1$s</xliff:g>\nLTE 语音通话：<xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nWLAN 语音通话：<xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\n视频通话：<xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT 接口：<xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"在使用中"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"不在服务区"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"只能拨打紧急呼救电话"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"在休眠状态下保持WLAN网络连接"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"在休眠状态下保持WLAN连接"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"更改设置时出现问题"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"连接到运营商网络"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"连接到运营商网络（可用时）"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"提高能效"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"WLAN优化"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"开启WLAN时尽可能节约电池用量"</string>
@@ -701,7 +709,7 @@
     <string name="wifi_more" msgid="3195296805089107950">"更多"</string>
     <string name="wifi_setup_wps" msgid="8128702488486283957">"自动设置 (WPS)"</string>
     <string name="wifi_show_advanced" msgid="3409422789616520979">"高级选项"</string>
-    <string name="wifi_advanced_toggle_description_expanded" msgid="2380600578544493084">"高级选项下拉列表。点按两次即可折叠。"</string>
+    <string name="wifi_advanced_toggle_description_expanded" msgid="2380600578544493084">"高级选项下拉列表。点按两次即可收起。"</string>
     <string name="wifi_advanced_toggle_description_collapsed" msgid="1463812308429197263">"高级选项下拉列表。点按两次即可展开。"</string>
     <string name="wifi_wps_setup_title" msgid="8207552222481570175">"WLAN保护设置"</string>
     <string name="wifi_wps_setup_msg" msgid="315174329121275092">"正在启动 WPS..."</string>
@@ -2659,8 +2667,8 @@
     <string name="vr_listeners_title" msgid="1318901577754715777">"VR 助手服务"</string>
     <string name="no_vr_listeners" msgid="2689382881717507390">"没有任何已安装的应用请求以 VR 助手服务的形式运行。"</string>
     <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"允许<xliff:g id="SERVICE">%1$s</xliff:g>访问 VR 服务吗？"</string>
-    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"只有当您在虚拟现实模式下使用应用时，才能运行<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g>。"</string>
-    <string name="display_vr_pref_title" msgid="8104485269504335481">"当设备处于虚拟实境模式时"</string>
+    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"只有当您在虚拟实境模式下使用应用时，才能运行<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g>。"</string>
+    <string name="display_vr_pref_title" msgid="8104485269504335481">"当设备处于 VR 模式时"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"减少模糊（建议）"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"减少闪烁"</string>
     <string name="manage_zen_access_title" msgid="2611116122628520522">"“勿扰”权限"</string>
@@ -2901,6 +2909,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"电池优化"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"电池用量提醒"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"未优化"</string>
     <string name="high_power_on" msgid="6216293998227583810">"未优化"</string>
     <string name="high_power_off" msgid="3393904131961263278">"优化电池使用"</string>
@@ -2986,7 +2995,7 @@
     <string name="permit_draw_overlay" msgid="6606018549732046201">"允许出现在其他应用上"</string>
     <string name="app_overlay_permission_preference" msgid="8355410276571387439">"允许应用在最上层显示内容的权限设置"</string>
     <string name="allow_overlay_description" msgid="7895191337585827691">"此权限允许应用出现在您当前使用的其他应用上，因此可能会干扰您使用其他应用的界面，或者会影响您在其他应用中预期看到的内容。"</string>
-    <string name="keywords_vr_listener" msgid="7441221822576384680">"vr 虚拟现实 监听器 立体 助手服务"</string>
+    <string name="keywords_vr_listener" msgid="7441221822576384680">"vr 虚拟实境 监听器 立体 助手服务"</string>
     <string name="keywords_system_alert_window" msgid="8579673659566564926">"系统 提醒 窗口 对话框 显示 上层 其他应用"</string>
     <string name="overlay_settings" msgid="222062091489691363">"出现在其他应用上"</string>
     <string name="system_alert_window_summary" msgid="4268867238063922290">"已允许 <xliff:g id="COUNT_0">%d</xliff:g> 个应用（共 <xliff:g id="COUNT_1">%d</xliff:g> 个）出现在其他应用上"</string>
@@ -3287,4 +3296,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"未安装的应用"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"已安装的应用"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"您的存储空间目前是由存储空间管理器管理"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"运营商配置信息"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"触发运营商配置"</string>
 </resources>

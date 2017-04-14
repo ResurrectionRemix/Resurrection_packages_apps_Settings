@@ -47,7 +47,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"Prikaži imenik na kartici SIM"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Prikaži številke za zaporo odhodnih klicev"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Prikaži številke za klicanje storitev"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"Pridobi seznam PDP"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"Stanje storitve IMS"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"Stanje storitve IMS"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Registrirana"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Ni registrirana"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Na voljo"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Ni na voljo"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"Registracija storitve IMS: <xliff:g id="STATUS">%1$s</xliff:g>\nGovor prek povezave LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nGovor prek povezave WiFi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nVideoklici: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nVmesnik UT: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"V uporabi"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Ne deluje"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Samo klici v sili"</string>
@@ -691,6 +697,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Ohrani povezavo Wi-Fi med spanjem"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Wi-Fi vklop. v stanju priprav."</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"Težava pri spreminjanju nastavitve"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Poveži z omrežji operaterja"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Poveži z omrežji operaterja, ko so na voljo"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Izboljšanje učinkovitosti"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Optimizacija Wi-Fi-ja"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Zmanjšanje porabe energije akumulatorja, ko je vklopljen Wi-Fi"</string>
@@ -2690,11 +2698,11 @@
     <string name="notification_listener_disable_warning_summary" msgid="6738915379642948000">"Če za aplikacijo <xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> izklopite dostop do obvestil, bo dostop do načina »ne moti« morda tudi izklopljen."</string>
     <string name="notification_listener_disable_warning_confirm" msgid="8333442186428083057">"Izklop"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8586417377104211584">"Prekliči"</string>
-    <string name="vr_listeners_title" msgid="1318901577754715777">"Storitve za pomoč za navidezno resničnost"</string>
-    <string name="no_vr_listeners" msgid="2689382881717507390">"Nobena nameščena aplikacija ni zahtevala izvajanja kot storitev za pomoč za navidezno resničnost."</string>
-    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Dovolite storitvi <xliff:g id="SERVICE">%1$s</xliff:g> dostop za storitev za navidezno resničnost?"</string>
+    <string name="vr_listeners_title" msgid="1318901577754715777">"Storitve za pomoč za VR"</string>
+    <string name="no_vr_listeners" msgid="2689382881717507390">"Nobena nameščena aplikacija ni zahtevala izvajanja kot storitev za pomoč za VR."</string>
+    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Dovolite storitvi <xliff:g id="SERVICE">%1$s</xliff:g> dostop za storitev za VR?"</string>
     <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"Poslušalec <xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> se bo lahko izvajal, ko boste uporabljali aplikacije v načinu za navidezno resničnost."</string>
-    <string name="display_vr_pref_title" msgid="8104485269504335481">"Ko je naprava v načinu NR"</string>
+    <string name="display_vr_pref_title" msgid="8104485269504335481">"Ko je naprava v načinu VR"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"Zmanjšanje zameglitve (priporočeno)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"Zmanjšanje utripanja"</string>
     <string name="manage_zen_access_title" msgid="2611116122628520522">"Dostop do načina »ne moti«"</string>
@@ -2947,6 +2955,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g>/<xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Optimizacija akumulatorja"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Opozorila o porabi"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Ni optimizirano"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Ni optimizirano"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Optimizacija uporabe akumulatorja"</string>
@@ -3036,7 +3045,7 @@
     <string name="permit_draw_overlay" msgid="6606018549732046201">"Dovoli risanje čez druge aplikacije"</string>
     <string name="app_overlay_permission_preference" msgid="8355410276571387439">"Dovoljenje aplikacije za risanje čez druge"</string>
     <string name="allow_overlay_description" msgid="7895191337585827691">"To dovoljenje omogoča aplikaciji prikaz čez druge aplikacije, ki jih uporabljate, in lahko vpliva na uporabo vmesnika v drugih aplikacijah ali vas zavede pri prikazu drugih aplikacij."</string>
-    <string name="keywords_vr_listener" msgid="7441221822576384680">"nr navidezna resničnost poslušalec stereo storitev za pomoč"</string>
+    <string name="keywords_vr_listener" msgid="7441221822576384680">"vr navidezna resničnost poslušalec stereo storitev za pomoč"</string>
     <string name="keywords_system_alert_window" msgid="8579673659566564926">"sistemsko opozorilo pogovorno okno risanje čez druge aplikacije"</string>
     <string name="overlay_settings" msgid="222062091489691363">"Prekrivanje drugih aplikacij"</string>
     <string name="system_alert_window_summary" msgid="4268867238063922290">"Toliko aplikacij lahko riše čez druge aplikacije: <xliff:g id="COUNT_0">%d</xliff:g> od <xliff:g id="COUNT_1">%d</xliff:g>"</string>
@@ -3320,4 +3329,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Nenameščene aplikacije"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Nameščene aplikacije"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Shrambo zdaj upravlja upravitelj shrambe"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Podatki o omogočanju uporabe operaterja"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Sproži omogočanje uporabe operaterja"</string>
 </resources>

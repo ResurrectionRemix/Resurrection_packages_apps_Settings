@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"Näytä SIM-kortin osoitekirja"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Näytä sallitut numerot"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Näytä sallitut palvelunumerot"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"Näytä PDP-luettelo"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"IMS-palvelun tila"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS-tila"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Rekisteröity"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Ei rekisteröity"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Käytettävissä"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Ei käytettävissä"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS-rekisteröinti: <xliff:g id="STATUS">%1$s</xliff:g>\nLTE-äänipuhelut: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nWi-Fi-äänipuhelut: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nVideopuhelut: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT-käyttöliittymä: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"Kuuluvuusalueella"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Katvealueella"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Vain hätäpuhelut"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Pidä Wi-Fi käytössä virransäästötilassa"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Wi‑Fi virransäästön aikana"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"Asetuksen vaihtaminen epäonnistui"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Yhdistä operaattoriverkkoon"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Yhdistä operaattoriverkkoon kun mahdollista"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Tehosta"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Wi-Fi-optimointi"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Vähennä akun kulutusta, kun Wi-Fi on käytössä"</string>
@@ -2644,11 +2652,11 @@
     <string name="notification_listener_disable_warning_summary" msgid="6738915379642948000">"Jos <xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> ei saa käyttää ilmoituksia, myös Älä häiritse ‑tilan käyttö voidaan estää."</string>
     <string name="notification_listener_disable_warning_confirm" msgid="8333442186428083057">"Poista käytöstä"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8586417377104211584">"Peruuta"</string>
-    <string name="vr_listeners_title" msgid="1318901577754715777">"Virtuaalitodellisuuden avustinpalvelut"</string>
-    <string name="no_vr_listeners" msgid="2689382881717507390">"Asennettuja sovelluksia ei ole pyydetty toimimaan virtuaalitodellisuuden avustinpalveluina."</string>
-    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Sallitaanko virtuaalitodellisuuspalveluiden käyttöoikeus palvelulle <xliff:g id="SERVICE">%1$s</xliff:g>?"</string>
+    <string name="vr_listeners_title" msgid="1318901577754715777">"VR-avustinpalvelut"</string>
+    <string name="no_vr_listeners" msgid="2689382881717507390">"Asennettuja sovelluksia ei ole pyydetty toimimaan VR-avustinpalveluina."</string>
+    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Sallitaanko VR-palveluiden käyttöoikeus palvelulle <xliff:g id="SERVICE">%1$s</xliff:g>?"</string>
     <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> voidaan käynnistää, kun käytät sovelluksia virtuaalitodellisuustilassa."</string>
-    <string name="display_vr_pref_title" msgid="8104485269504335481">"Kun laite on virtuaalitilassa"</string>
+    <string name="display_vr_pref_title" msgid="8104485269504335481">"Laite VR-tilassa"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"Vähennä sumennusta (suositus)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"Vähennä vilkkumista"</string>
     <string name="manage_zen_access_title" msgid="2611116122628520522">"Älä häiritse -käyttöoikeudet"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Akun käytön optimointi"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Käyttöilmoitukset"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Ei optimointia"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Ei optimointia"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Akun käyttöä optimoidaan."</string>
@@ -2941,7 +2950,7 @@
     <string name="no_memory_use_summary" msgid="2016900536806235588">"Muistia ei ole käytetty viimeisen 3 tunnin aikana."</string>
     <string name="sort_avg_use" msgid="3998036180505143129">"Järjestä keskivertokäytön mukaan"</string>
     <string name="sort_max_use" msgid="4629247978290075124">"Järjestä enimmäiskäytön mukaan"</string>
-    <string name="memory_performance" msgid="5661005192284103281">"Tehokkuus"</string>
+    <string name="memory_performance" msgid="5661005192284103281">"Kehitys"</string>
     <string name="total_memory" msgid="2017287600738630165">"Muistia yhteensä"</string>
     <string name="average_used" msgid="5338339266517245782">"Käytetty keskimäärin (%)"</string>
     <string name="free_memory" msgid="4003936141603549746">"Vapaana"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Sovelluksia ei asennettu"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Asennetut sovellukset"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Tallennustilan hallinta hallitsee nyt tallennustilaasi."</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Operaattorin hallintatiedot"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Ota operaattorin hallinta käyttöön"</string>
 </resources>

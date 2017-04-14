@@ -81,7 +81,23 @@
     <!-- Phone Info screen. Menu item label.  Used for diagnostic info screens, precise translation isn't needed -->
     <string name="radioInfo_menu_viewSDN">View Service Dialing Numbers</string>
     <!-- Phone Info screen. Menu item label.  Used for diagnostic info screens, precise translation isn't needed -->
-    <string name="radioInfo_menu_getPDP">Get PDP List</string>
+    <string name="radioInfo_menu_getIMS">IMS Service Status</string>
+
+    <!-- Phone Info screen. IMS Registration Title.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="radio_info_ims_reg_status_title">IMS Status</string>
+
+    <!-- Phone Info screen. IMS Status - Registered.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="radio_info_ims_reg_status_registered">Registered</string>
+    <!-- Phone Info screen. Ims Status - Unregistered.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="radio_info_ims_reg_status_not_registered">Not Registered</string>
+
+    <!-- Phone Info screen. Ims Feature Status label.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="radio_info_ims_feature_status_available">Available</string>
+    <!-- Phone Info screen. Ims Feature status label.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="radio_info_ims_feature_status_unavailable">Unavailable</string>
+
+    <!-- Phone Info screen. IMS Registration.  Used for diagnostic info screens, precise translation isn't needed -->
+    <string name="radio_info_ims_reg_status">IMS Registration: <xliff:g id="status" example="registered">%1$s</xliff:g>\u000AVoice over LTE: <xliff:g id="availability" example="available">%2$s</xliff:g>\u000AVoice over WiFi: <xliff:g id="availability" example="available">%3$s</xliff:g>\u000AVideo Calling: <xliff:g id="availability" example="available">%4$s</xliff:g>\u000AUT Interface: <xliff:g id="availability" example="available">%5$s</xliff:g></string>
 
     <!-- Phone Info screen. Status label.  Used for diagnostic info screens, precise translation isn't needed -->
     <string name="radioInfo_service_in">In Service</string>
@@ -1590,6 +1606,10 @@
     <string name="wifi_setting_on_during_sleep_title">Wi\u2011Fi on during sleep</string>
     <!-- Generic error message when the sleep policy could not be set. -->
     <string name="wifi_setting_sleep_policy_error">There was a problem changing the setting</string>
+    <!-- Checkbox title for option to toggle connecting to carrier networks[CHAR LIMIT=30] -->
+    <string name="wifi_connect_carrier_networks">Connect to operator networks</string>
+    <!-- Checkbox title for option to toggle suspend power optimizations [CHAR LIMIT=30] -->
+    <string name="wifi_connect_carrier_networks_summary">Connect to operator networks when available</string>
     <!-- Checkbox title for option to toggle suspend power optimizations [CHAR LIMIT=30] -->
     <string name="wifi_suspend_efficiency_title">Improve efficiency</string>
     <!-- Checkbox title for option to toggle suspend power optimizations -->
@@ -6901,6 +6921,9 @@
     <!-- Label for list to control apps that ignore battery saving restrictions [CHAR LIMIT=27]-->
     <string name="high_power_apps">Battery optimization</string>
 
+    <!-- Label for menu to launch a screen showing usage alerts for battery [CHAR LIMIT=30] -->
+    <string name="additional_battery_info">Usage alerts</string>
+
     <!-- Filter for apps allowed to use a lot of power [CHAR LIMIT=25] -->
     <string name="high_power_filter_on">Not optimized</string>
 
@@ -7922,9 +7945,15 @@
     <!-- Warning when activating the automatic storage manager on legacy devices. [CHAR LIMIT=NONE] -->
     <string name="automatic_storage_manager_activation_warning">Your storage is now being managed by the storage manager</string>
 
+    <!-- Carrier Provisioning Info [CHAR LIMIT=NONE] -->
+    <string name="carrier_provisioning">Carrier Provisioning Info</string>
+    <!-- Trigger Carrier Provisioning [CHAR LIMIT=NONE] -->
+    <string name="trigger_carrier_provisioning">Trigger Carrier Provisioning</string>
+
     <!-- Protected Apps -->
     <string name="menu_hidden_apps_delete">Reset</string>
     <string name="menu_hidden_apps_reset_lock">Reset pattern lock</string>
     <string name="protected_apps">Protected apps</string>
     <string name="saving_protected_components">Saving component state</string>
+
 </resources>

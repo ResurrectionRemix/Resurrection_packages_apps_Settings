@@ -47,7 +47,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"Wyświetl książkę adresową z karty SIM"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Wyświetl ustalone numery"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Wyświetl numery usług"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"Pobierz listę PDP"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"Stan usługi IMS"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"Stan IMS"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Zarejestrowano"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Niezarejestrowano"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Dostępna"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Niedostępna"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"Rejestracja w usłudze IMS: <xliff:g id="STATUS">%1$s</xliff:g>\nVoice over LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nVoice over WiFi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nRozmowy wideo: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nInterfejs UT: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"Działa"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Nie działa"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Tylko połączenia alarmowe"</string>
@@ -208,7 +214,7 @@
     <string name="radio_info_toggle_dns_check_label" msgid="6625185764803245075">"Przełącz sprawdzanie DNS"</string>
     <string name="oem_radio_info_label" msgid="6163141792477958941">"Informacje/ustawienia specyficzne dla producenta OEM"</string>
     <string name="band_mode_title" msgid="4071411679019296568">"Ustawianie trybu pasma radiowego"</string>
-    <string name="band_mode_loading" msgid="3555063585133586152">"Ładowanie listy pasm…"</string>
+    <string name="band_mode_loading" msgid="3555063585133586152">"Ładuję listę pasm…"</string>
     <string name="band_mode_set" msgid="5730560180249458484">"Ustaw"</string>
     <string name="band_mode_failed" msgid="1495968863884716379">"Niepowodzenie"</string>
     <string name="band_mode_succeeded" msgid="2701016190055887575">"Udało się"</string>
@@ -691,6 +697,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Wi-Fi włączone w trybie uśpienia"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Wi‑Fi działa po uśpieniu"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"Wystąpił problem ze zmianą ustawienia"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Połącz z sieciami operatora"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Poł. z dost. sieciami operatora"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Popraw wydajność"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Optymalizacja Wi-Fi"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Minimalizuj zużycie baterii po włączeniu Wi-Fi"</string>
@@ -1305,7 +1313,7 @@
     <string name="manage_mobile_plan_title" msgid="7630170375010107744">"Taryfa komórkowa"</string>
     <string name="sms_application_title" msgid="4903928270533250448">"Aplikacja do SMS-ów"</string>
     <string name="sms_change_default_dialog_title" msgid="1958688831875804286">"Zmienić aplikację do SMS-ów?"</string>
-    <string name="sms_change_default_dialog_text" msgid="1522783933230274787">"Chcesz używać aplikacji <xliff:g id="NEW_APP">%1$s</xliff:g> zamiast <xliff:g id="CURRENT_APP">%2$s</xliff:g> do wysłania i otrzymywania SMS-ów?"</string>
+    <string name="sms_change_default_dialog_text" msgid="1522783933230274787">"Chcesz używać aplikacji <xliff:g id="NEW_APP">%1$s</xliff:g> zamiast <xliff:g id="CURRENT_APP">%2$s</xliff:g> do wysyłania i otrzymywania SMS-ów?"</string>
     <string name="sms_change_default_no_previous_dialog_text" msgid="602683880284921998">"Użyć <xliff:g id="NEW_APP">%s</xliff:g> jako aplikacji do SMS-ów?"</string>
     <string name="network_scorer_change_active_dialog_title" msgid="3776301550387574975">"Zmienić asystenta Wi‑Fi?"</string>
     <string name="network_scorer_change_active_dialog_text" msgid="8035173880322990715">"Używać <xliff:g id="NEW_APP">%1$s</xliff:g> zamiast <xliff:g id="CURRENT_APP">%2$s</xliff:g> do zarządzania połączeniami sieciowymi?"</string>
@@ -1369,11 +1377,11 @@
     <string name="settings_manual_activity_unavailable" msgid="4752403782883814898">"Podczas wczytywania instrukcji wystąpił problem."</string>
     <string name="settings_license_activity_title" msgid="7553683406244228650">"Licencje open source"</string>
     <string name="settings_license_activity_unavailable" msgid="4210539215951487627">"Wystąpił problem podczas ładowania licencji."</string>
-    <string name="settings_license_activity_loading" msgid="3337535809093591740">"Ładowanie..."</string>
+    <string name="settings_license_activity_loading" msgid="3337535809093591740">"Ładuję..."</string>
     <string name="settings_safetylegal_title" msgid="1289483965535937431">"Informacje o bezpieczeństwie"</string>
     <string name="settings_safetylegal_activity_title" msgid="6901214628496951727">"Informacje o bezpieczeństwie"</string>
     <string name="settings_safetylegal_activity_unreachable" msgid="250674109915859456">"Brak połączenia transmisji danych. Aby wyświetlić te informacje teraz, przejdź do strony %s na dowolnym komputerze połączonym z internetem."</string>
-    <string name="settings_safetylegal_activity_loading" msgid="8059022597639516348">"Trwa wczytywanie..."</string>
+    <string name="settings_safetylegal_activity_loading" msgid="8059022597639516348">"Wczytuję..."</string>
     <string name="lockpassword_choose_your_password_header" msgid="8624900666929394990">"Wybierz hasło"</string>
     <string name="lockpassword_choose_your_pattern_header" msgid="6949761069941694050">"Wybierz wzór"</string>
     <string name="lockpassword_choose_your_pin_header" msgid="7598849519816138302">"Wybierz kod PIN"</string>
@@ -1715,7 +1723,7 @@
     <string name="accessibility_settings" msgid="3975902491934816215">"Ułatwienia dostępu"</string>
     <string name="accessibility_settings_title" msgid="2130492524656204459">"Ustawienia ułatwień dostępu"</string>
     <string name="vision_settings_title" msgid="4204111425716868288">"Ustawienia widoczności"</string>
-    <string name="vision_settings_description" msgid="5679491180156408260">"Możesz dostosować urządzenie do swoich potrzeb. Funkcje ułatwień dostępu możesz zawsze zmienić w Ustawieniach."</string>
+    <string name="vision_settings_description" msgid="5679491180156408260">"Możesz dostosować urządzenie do swoich potrzeb. Ułatwienia dostępu możesz zawsze zmienić w Ustawieniach."</string>
     <string name="accessibility_services_title" msgid="2592221829284342237">"Usługi"</string>
     <string name="talkback_title" msgid="7912059827205988080">"TalkBack"</string>
     <string name="talkback_summary" msgid="8331244650729024963">"Czytnik ekranu przeznaczony głównie dla osób niewidomych i słabowidzących"</string>
@@ -1728,7 +1736,7 @@
     <string name="accessibility_global_gesture_preference_title" msgid="6752037184140789970">"Skrót ułatwień dostępu"</string>
     <string name="accessibility_global_gesture_preference_summary_on" msgid="6180927399052022181">"Wł."</string>
     <string name="accessibility_global_gesture_preference_summary_off" msgid="8102103337813609849">"Wył."</string>
-    <string name="accessibility_global_gesture_preference_description" msgid="1605107799571936715">"Gdy ta funkcja jest włączona, możesz w dwóch prostych krokach włączyć funkcje ułatwień dostępu:\n\nKrok 1. Naciśnij i przytrzymaj przycisk zasilania, aż usłyszysz dźwięk lub poczujesz wibrację.\n\nKrok 2. Dotknij ekranu dwoma palcami i przytrzymaj je, aż usłyszysz potwierdzenie dźwiękowe.\n\nJeśli z urządzenia korzysta wiele osób, użycie tego skrótu na ekranie blokady powoduje tymczasowe włączenie ułatwień dostępu. Zostaną one aktywne do chwili odblokowania urządzenia."</string>
+    <string name="accessibility_global_gesture_preference_description" msgid="1605107799571936715">"Gdy ta funkcja jest włączona, możesz w dwóch prostych krokach włączyć ułatwienia dostępu:\n\nKrok 1. Naciśnij i przytrzymaj przycisk zasilania, aż usłyszysz dźwięk lub poczujesz wibrację.\n\nKrok 2. Dotknij ekranu dwoma palcami i przytrzymaj je, aż usłyszysz potwierdzenie dźwiękowe.\n\nJeśli z urządzenia korzysta wiele osób, użycie tego skrótu na ekranie blokady powoduje tymczasowe włączenie ułatwień dostępu. Zostaną one aktywne do chwili odblokowania urządzenia."</string>
     <string name="accessibility_toggle_high_text_contrast_preference_title" msgid="2567402942683463779">"Tekst o dużym kontraście"</string>
     <string name="accessibility_toggle_screen_magnification_auto_update_preference_title" msgid="7218498768415430963">"Automatyczna aktualizacja powiększenia ekranu"</string>
     <string name="accessibility_toggle_screen_magnification_auto_update_preference_summary" msgid="4392059334816220155">"Aktualizuj powiększenie ekranu przy zmianie aplikacji"</string>
@@ -2445,7 +2453,7 @@
     <string name="global_change_warning" product="tablet" msgid="8045013389464294039">"To ustawienie obowiązuje wszystkich użytkowników tego tabletu."</string>
     <string name="global_change_warning" product="default" msgid="2461264421590324675">"To ustawienie obowiązuje wszystkich użytkowników tego telefonu."</string>
     <string name="global_locale_change_title" msgid="5956281361384221451">"Zmień język"</string>
-    <string name="nfc_payment_settings_title" msgid="1807298287380821613">"Dotknij i zapłać"</string>
+    <string name="nfc_payment_settings_title" msgid="1807298287380821613">"Zbliż i zapłać"</string>
     <string name="nfc_payment_how_it_works" msgid="3028822263837896720">"Jak to działa"</string>
     <string name="nfc_payment_no_apps" msgid="5477904979148086424">"Płać telefonem w sklepie"</string>
     <string name="nfc_payment_default" msgid="8648420259219150395">"Płatność domyślna"</string>
@@ -2454,14 +2462,14 @@
     <string name="nfc_payment_use_default" msgid="3234730182120288495">"Użyj domyślnej"</string>
     <string name="nfc_payment_favor_default" msgid="5743781166099608372">"Zawsze"</string>
     <string name="nfc_payment_favor_open" msgid="1923314062109977944">"Z wyjątkiem, gdy jest otwarta inna aplikacja płatnicza"</string>
-    <string name="nfc_payment_pay_with" msgid="7524904024378144072">"Na terminalu „dotknij i zapłać” zapłać przy użyciu:"</string>
+    <string name="nfc_payment_pay_with" msgid="7524904024378144072">"Na terminalu „Zbliż i zapłać” zapłać przy użyciu:"</string>
     <string name="nfc_how_it_works_title" msgid="1984068457698797207">"Płacenie przy terminalu"</string>
     <string name="nfc_how_it_works_content" msgid="4749007806393224934">"Skonfiguruj aplikację płatniczą, a później przyłóż tylną część telefonu do terminala z symbolem płatności zbliżeniowej."</string>
     <string name="nfc_how_it_works_got_it" msgid="259653300203217402">"OK"</string>
     <string name="nfc_more_title" msgid="815910943655133280">"Więcej..."</string>
     <string name="nfc_payment_set_default_label" msgid="7315817259485674542">"Ustawić jako Twoją preferencję?"</string>
-    <string name="nfc_payment_set_default" msgid="8532426406310833489">"Zawsze używać aplikacji <xliff:g id="APP">%1$s</xliff:g>, gdy korzystasz z systemu „dotknij i zapłać”?"</string>
-    <string name="nfc_payment_set_default_instead_of" msgid="6993301165940432743">"Zawsze używać aplikacji <xliff:g id="APP_0">%1$s</xliff:g> zamiast <xliff:g id="APP_1">%2$s</xliff:g>, gdy korzystasz z systemu „dotknij i zapłać”?"</string>
+    <string name="nfc_payment_set_default" msgid="8532426406310833489">"Zawsze używać aplikacji <xliff:g id="APP">%1$s</xliff:g>, gdy korzystasz z systemu „Zbliż i zapłać”?"</string>
+    <string name="nfc_payment_set_default_instead_of" msgid="6993301165940432743">"Zawsze używać aplikacji <xliff:g id="APP_0">%1$s</xliff:g> zamiast <xliff:g id="APP_1">%2$s</xliff:g>, gdy korzystasz z systemu „Zbliż i zapłać”?"</string>
     <string name="restriction_settings_title" msgid="4233515503765879736">"Ograniczenia"</string>
     <string name="restriction_menu_reset" msgid="2067644523489568173">"Usuń ograniczenia"</string>
     <string name="restriction_menu_change_pin" msgid="740081584044302775">"Zmień PIN"</string>
@@ -2690,11 +2698,11 @@
     <string name="notification_listener_disable_warning_summary" msgid="6738915379642948000">"Jeśli wyłączysz dostęp do powiadomień dla aplikacji <xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g>, możesz również wyłączyć opcję Nie przeszkadzać."</string>
     <string name="notification_listener_disable_warning_confirm" msgid="8333442186428083057">"Wyłącz"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8586417377104211584">"Anuluj"</string>
-    <string name="vr_listeners_title" msgid="1318901577754715777">"Usługi pomocnicze rzeczywistości wirtualnej"</string>
-    <string name="no_vr_listeners" msgid="2689382881717507390">"Żadne zainstalowane aplikacje nie prosiły o uruchomienie w trybie usług pomocniczych rzeczywistości wirtualnej."</string>
-    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Zezwalasz usłudze <xliff:g id="SERVICE">%1$s</xliff:g> na dostęp do usługi rzeczywistości wirtualnej?"</string>
+    <string name="vr_listeners_title" msgid="1318901577754715777">"Usługi pomocnicze VR"</string>
+    <string name="no_vr_listeners" msgid="2689382881717507390">"Żadne zainstalowane aplikacje nie prosiły o uruchomienie w trybie usług pomocniczych VR."</string>
+    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Zezwalasz usłudze <xliff:g id="SERVICE">%1$s</xliff:g> na dostęp do usługi VR?"</string>
     <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> może działać, gdy korzystasz z aplikacji w trybie rzeczywistości wirtualnej."</string>
-    <string name="display_vr_pref_title" msgid="8104485269504335481">"Gdy urządzenie jest w trybie rzeczywistości wirtualnej"</string>
+    <string name="display_vr_pref_title" msgid="8104485269504335481">"Gdy urządzenie jest w trybie VR"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"Zmniejsz rozmycie (zalecane)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"Zmniejsz migotanie"</string>
     <string name="manage_zen_access_title" msgid="2611116122628520522">"Dostęp do „Nie przeszkadzać”"</string>
@@ -2947,6 +2955,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Optymalizacja baterii"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Alerty o transmisji danych"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Bez optymalizacji"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Bez optymalizacji"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Ma włączoną optymalizację baterii"</string>
@@ -3320,4 +3329,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Aplikacje niezainstalowane"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Zainstalowane aplikacje"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Pamięcią zarządza teraz menedżer miejsca"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Informacje o obsłudze administracyjnej operatora"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Uruchom obsługę administracyjną operatora"</string>
 </resources>
