@@ -5,12 +5,18 @@
     android:title="@string/heads_up_settings">
 
 
-      <!-- Heads Up switch -->
-      <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference
+    <!-- Heads Up switch -->
+    <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference
         android:key="heads_up_notifications_enabled"
         android:title="@string/heads_up_switch_title"
         android:summary="@string/heads_up_switch_summary"
         android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="always_headsup_dialer"
+        android:title="@string/always_headsup_dialer_title"
+        android:summary="@string/always_headsup_dialer_summary"
+        android:defaultValue="false" />
 
     <ListPreference
         android:key="heads_up_time_out"
