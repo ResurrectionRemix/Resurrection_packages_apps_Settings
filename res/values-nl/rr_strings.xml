@@ -1480,7 +1480,7 @@
   <string name="fling_appearance">Uiterlijk</string>
   <string name="fling_show_logo_title">Toon Fling pictogram</string>
   <string name="fling_animate_logo_title">Pictogram animeren</string>
-  <string name="fling_animate_logo_summary">Geanimeerd logo bij vegen</string>
+  <string name="fling_animate_logo_summary">Logo animatie bij drukken</string>
   <string name="fling_logo_color">Pictogram kleur</string>
   <string name="fling_logo_custom_logo_pick_title">Aangepast pictogram</string>
   <string name="fling_logo_custom_logo_image_pick_title">Aangepast pictogram</string>
@@ -1708,23 +1708,7 @@
   <!-- Heads up switch -->
   <string name="heads_up_switch_title">Zwevende meldingen</string>
   <string name="heads_up_switch_summary">Zwevende meldingen algemeen inschakelen, niet per losse app.</string>
-  <string name="lockscreen_pin_ripple_title">Vergrendelscherm pin golfjes</string>
-  <string name="lockscreen_pin_ripple_summary">Uitschakelen om geen golfjes te tonen tijdens het invoeren van de pin</string>
-  <!-- Optional screenshot type -->
-  <string name="screenshot_type_title">Schermafbeelding type</string>
-  <string name="screenshot_type_fullscreen">Neem screenshot van volledig scherm</string>
-  <string name="screenshot_type_partial">Sleep de selectie naar het gebied waarvan je een screenshot wilt nemen</string>
-  <!-- Screenshot delay -->
-  <string name="screenshot_options_category">Schermafbeelding instellingen</string>
-  <string name="screenshot_delay_title">Schermafbeelding vertraging</string>
-  <string name="screenshot_delay_summary">De tijd na wanneer een screenshot wordt genomen</string>
-  <!--Screenshot crop and share -->
-  <string name="screenshot_crop_and_share_title">Schermafbeelding bewerk &amp; deel</string>
-  <string name="screenshot_crop_and_share_summary">Toon een venster na het maken van een schermafbeelding om enkele simpele handelingen te verrichten zoals bijsnijden, opslaan of delen</string>
   <string name="heads_up_settings">Zwevende meldingen</string>
-  <!-- Lockscreen battery info indicator  -->
-  <string name="lockscreen_battery_info_title">Accu informatie op vergrendelscherm</string>
-  <string name="lockscreen_battery_info_summary">Toon oplaad stroom, voltage en accu temperatuur op vergrendelscherm</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Tijdsduur</string>
   <string name="heads_up_time_out_summary">Zwevende meldingen zullen worden weergegeven gedurende <xliff:g id="number">%d</xliff:g> seconden</string>
@@ -1745,6 +1729,22 @@
   <string name="heads_up_snooze_10min">10 minuten</string>
   <string name="heads_up_snooze_15min">15 minuten</string>
   <string name="heads_up_snooze_20min">20 minuten</string>
+  <string name="lockscreen_pin_ripple_title">Vergrendelscherm pin golfjes</string>
+  <string name="lockscreen_pin_ripple_summary">Uitschakelen om geen golfjes te tonen tijdens het invoeren van de pin</string>
+  <!-- Optional screenshot type -->
+  <string name="screenshot_type_title">Schermafbeelding type</string>
+  <string name="screenshot_type_fullscreen">Neem screenshot van volledig scherm</string>
+  <string name="screenshot_type_partial">Sleep de selectie naar het gebied waarvan je een screenshot wilt nemen</string>
+  <!-- Screenshot delay -->
+  <string name="screenshot_options_category">Schermafbeelding instellingen</string>
+  <string name="screenshot_delay_title">Schermafbeelding vertraging</string>
+  <string name="screenshot_delay_summary">De tijd na wanneer een screenshot wordt genomen</string>
+  <!--Screenshot crop and share -->
+  <string name="screenshot_crop_and_share_title">Schermafbeelding bewerk &amp; deel</string>
+  <string name="screenshot_crop_and_share_summary">Toon een venster na het maken van een schermafbeelding om enkele simpele handelingen te verrichten zoals bijsnijden, opslaan of delen</string>
+  <!-- Lockscreen battery info indicator  -->
+  <string name="lockscreen_battery_info_title">Accu informatie op vergrendelscherm</string>
+  <string name="lockscreen_battery_info_summary">Toon oplaad stroom, voltage en accu temperatuur op vergrendelscherm</string>
   <!-- Camera shutter sound -->
   <string name="camera_sounds_title">Camera sluitergeluid</string>
   <string name="camera_sounds_summary">Uitschakelen werkt mogelijk niet bij elke camera app of in HDR+ modus</string>
@@ -1782,6 +1782,7 @@
   <string name="sizer_message_noselect">Niets geselecteerd.</string>
   <string name="system_app_remover">Systeem app verwijderaar</string>
   <!-- RR summary text -->
+  <string name="custom_summary_explain">Voer een korte tekst in. Laat leeg om terug te keren naar de originele tekst.</string>
   <!-- Custom summaries -->
   <string name="custom_summary_randomize_title">Willekeurige samenvatting</string>
   <string name="sum1">Heb je alle leuke instellingen al bekeken?</string>
@@ -1932,6 +1933,7 @@
   <string name="qs_date_time_center_summary">Vereist een of meer pictogrammen uitgeschakeld te zijn</string>
   <!-- Settings drawer switch -->
   <string name="show_settings_drawer_title">Instellingen lade weergeven</string>
+  <string name="show_settings_drawer_disabled">Instellingen lade uitgeschakeld</string>
   <!-- Custom LCD density -->
   <string name="custom_density_settings">Aangepaste LCD pixel dichtheid</string>
   <string name="custom_density_summary">
@@ -2038,6 +2040,8 @@
   <string name="dialog_pick_iconpack_title">Pictogrampakket kiezen</string>
   <string name="default_iconpack_title">Standaard pictogrammen</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
+  <string name="recent_panel_lefty_mode_title">Toon op de linkerrand</string>
+  <string name="recent_panel_lefty_mode_summary">Toon recente apps paneel op de linkerrand</string>
   <!-- Fingerprint unlock keystore -->
   <string name="fp_unlock_keystore_title">Vingerafdruk ontgrendelen</string>
   <string name="fp_unlock_keystore_summary">Ontgrendelen van apparaat met vingerafdruk na herstart zonder pincode/wachtwoord\nLet op: eigen risico!</string>
@@ -2048,6 +2052,12 @@
   <string name="wired_ringtone_focus_mode_dynamic">Bedrade headset als deze is aangesloten en muziek speelt</string>
   <string name="wired_ringtone_focus_mode_stock">Luidspreker en hoofdtelefoon (standaard)</string>
   <!-- Slim Recent App Sidebar  -->
+  <string name="recent_app_sidebar_title">Recents app zijbalk</string>
+  <string name="use_recent_app_sidebar_title">App zijbalk inschakelen</string>
+  <string name="use_recent_app_sidebar_summary">Toon app snelkoppelingen op de andere rand</string>
+  <string name="recent_app_sidebar_content_title">App zijbalk inhoud</string>
+  <string name="recent_app_sidebar_content_summary">Configureren van inhoud van de zijbalk app</string>
+  <string name="recent_app_sidebar_style_title">Zijbalk stijl</string>
   <string name="recent_app_sidebar_hide_labels_title">Verberg pictogram titels</string>
   <string name="recent_app_sidebar_label_color_title">Titel kleur</string>
   <string name="recent_app_sidebar_bg_color_title">Achtergrond kleur</string>
@@ -2081,7 +2091,7 @@
   <!-- Roaming indicator icon -->
   <string name="roaming_indicator_icon_title">Toon roaming indicator</string>
   <string name="roaming_indicator_icon_summary">Toon roaming indicator in het signaal pictogram wanneer het toestel aan het roamen is</string>
-  <!-- Roaming indicator icon -->
+  <!-- Data disabled icon -->
   <!-- Screen state service -->
   <string name="screen_state_toggles_summary">\@null</string>
   <string name="screen_state_toggles_title">Onderbreek activiteiten</string>

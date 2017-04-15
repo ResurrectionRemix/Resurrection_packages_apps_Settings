@@ -1656,6 +1656,9 @@
   <string name="text_title">Szöveg</string>
   <string name="icon_title">Ikon</string>
   <string name="colors_title">Színek</string>
+  <string name="ticker_disabled">Nincs gördítés</string>
+  <string name="ticker_enabled">Értesítés gördítése állapotsoron</string>
+  <string name="ticker_media_enabled">Értesítés és zene gördítése állapotsoron</string>
   <!-- Superuser indicator on status bar -->
   <string name="show_su_indicator_title">Superuser indikátor</string>
   <string name="show_su_indicator_summary">Superuser jelölő megjelenítése az állapotsoron, amikor egy munkamenet aktív</string>
@@ -1728,23 +1731,7 @@
   <!-- Heads up switch -->
   <string name="heads_up_switch_title">Lebegő értesítések</string>
   <string name="heads_up_switch_summary">Lebegő értesítések globális kapcsolója, nem alkalmazás szerinti.</string>
-  <string name="lockscreen_pin_ripple_title">Képernyőzár PIN fodrozódás</string>
-  <string name="lockscreen_pin_ripple_summary">Tiltsa le a fodrozódás letiltásához, amikor a PIN kódot írja be</string>
-  <!-- Optional screenshot type -->
-  <string name="screenshot_type_title">Képernyőmentés típusa</string>
-  <string name="screenshot_type_fullscreen">Teljes képernyős</string>
-  <string name="screenshot_type_partial">Képernyőmentés területének kijelölése</string>
-  <!-- Screenshot delay -->
-  <string name="screenshot_options_category">Képernyőmentési beállítások</string>
-  <string name="screenshot_delay_title">Képernyőmentés késleltetés</string>
-  <string name="screenshot_delay_summary">Képernyőmentés készítési idő beállítása</string>
-  <!--Screenshot crop and share -->
-  <string name="screenshot_crop_and_share_title">Képernyőmentés vágás és megosztás</string>
-  <string name="screenshot_crop_and_share_summary">A szerkesztő ablak megjelenítése képernyőmentés után, annak érdekében, hogy elvégezhessen bizonyos műveleteket, mint a vágás, mentés és megosztás</string>
   <string name="heads_up_settings">Lebegő értesítések</string>
-  <!-- Lockscreen battery info indicator  -->
-  <string name="lockscreen_battery_info_title">Zárképernyő akkumulátor info</string>
-  <string name="lockscreen_battery_info_summary">Megjeleníti a maximális töltőfeszültséget és az akkumulátor hőmérsékletét a zárképernyőn töltés közben</string>
   <!-- Heads up timeout -->
   <string name="heads_up_time_out_title">Időkorlát</string>
   <string name="heads_up_time_out_summary">Lebegő értesítések megjelenítése <xliff:g id="number">%d</xliff:g> másodpercig</string>
@@ -1765,6 +1752,22 @@
   <string name="heads_up_snooze_10min">10 perc</string>
   <string name="heads_up_snooze_15min">15 perc</string>
   <string name="heads_up_snooze_20min">20 perc</string>
+  <string name="lockscreen_pin_ripple_title">Képernyőzár PIN fodrozódás</string>
+  <string name="lockscreen_pin_ripple_summary">Tiltsa le a fodrozódás letiltásához, amikor a PIN kódot írja be</string>
+  <!-- Optional screenshot type -->
+  <string name="screenshot_type_title">Képernyőmentés típusa</string>
+  <string name="screenshot_type_fullscreen">Teljes képernyős</string>
+  <string name="screenshot_type_partial">Képernyőmentés területének kijelölése</string>
+  <!-- Screenshot delay -->
+  <string name="screenshot_options_category">Képernyőmentési beállítások</string>
+  <string name="screenshot_delay_title">Képernyőmentés késleltetés</string>
+  <string name="screenshot_delay_summary">Képernyőmentés készítési idő beállítása</string>
+  <!--Screenshot crop and share -->
+  <string name="screenshot_crop_and_share_title">Képernyőmentés vágás és megosztás</string>
+  <string name="screenshot_crop_and_share_summary">A szerkesztő ablak megjelenítése képernyőmentés után, annak érdekében, hogy elvégezhessen bizonyos műveleteket, mint a vágás, mentés és megosztás</string>
+  <!-- Lockscreen battery info indicator  -->
+  <string name="lockscreen_battery_info_title">Zárképernyő akkumulátor info</string>
+  <string name="lockscreen_battery_info_summary">Megjeleníti a maximális töltőfeszültséget és az akkumulátor hőmérsékletét a zárképernyőn töltés közben</string>
   <!-- Camera shutter sound -->
   <string name="camera_sounds_title">Kamera zárhang</string>
   <string name="camera_sounds_summary">Nem érvényes a harmadik féltől származó alkalmazásokra és HDR+ módban</string>
@@ -2169,7 +2172,9 @@
   <!-- Roaming indicator icon -->
   <string name="roaming_indicator_icon_title">Roaming indikátor megjelenítése</string>
   <string name="roaming_indicator_icon_summary">Roaming indikátor megjelenítése a térerő ikonban, ha roaming módban van</string>
-  <!-- Roaming indicator icon -->
+  <!-- Data disabled icon -->
+  <string name="data_disabled_icon_title">Mobilnet kikapcsolva ikon</string>
+  <string name="data_disabled_icon_summary">A térerő mellett x jel megjelenítése, ha a mobilnet le van tiltva</string>
   <!-- Screen state service -->
   <string name="screen_state_toggles_summary">\@null</string>
   <string name="screen_state_toggles_title">Felfüggesztett műveletek</string>
