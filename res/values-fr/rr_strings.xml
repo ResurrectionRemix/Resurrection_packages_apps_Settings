@@ -103,7 +103,7 @@
   <string name="fab_about">À propos de RR-OS</string>
   <string name="fab_layout">Mettre à jour la mise en page</string>
   <string name="fab_layout_update">Basculer entre l\'affichage classique et par défaut</string>
-  <string name="fab_layout_toggle">Modification de la disposition des onglets</string>
+  <string name="fab_layout_toggle">Basculer entre l\'affichage classique et par défaut</string>
   <string name="rr_reset_message">Réinitialiser toutes les configurations aux valeurs par défaut?</string>
   <string name="rr_reset_settings">Réinitialiser les paramètres</string>
   <string name="rr_reset_yes">Oui</string>
@@ -200,10 +200,10 @@
   <string name="task_close_title">Animation à la fermeture d\'une tâche</string>
   <string name="task_move_to_front_title">Animation lors du passage au premier plan</string>
   <string name="task_move_to_back_title">Animation lors du renvoi en arrière plan</string>
-  <string name="wallpaper_open_title">Animation lors de l\'ouverture d\'un fond d\'écran</string>
-  <string name="wallpaper_close_title">Animation lors de la fermeture d\'un fond d\'écran</string>
-  <string name="wallpaper_intra_open_title">Animation lors de l\'ouverture du fond d\'écran intra</string>
-  <string name="wallpaper_intra_close_title">Animation lors de la fermeture du fond d\'écran intra</string>
+  <string name="wallpaper_open_title">Animation d\'ouverture « fond d\'écran »</string>
+  <string name="wallpaper_close_title">Animation de fermeture « fond d\'écran »</string>
+  <string name="wallpaper_intra_open_title">Animation d\'ouverture « fond d\'écran intra »</string>
+  <string name="wallpaper_intra_close_title">Animation de fermeture « fond d\'écran intra »</string>
   <string name="animation_duration_title">Durée de l\'animation</string>
   <string name="title_animation_no_override">Empêcher les substitutions d\'application</string>
   <string name="summary_animation_no_override">Empêche les applications d\'outrepasser les effets de transition</string>
@@ -1437,7 +1437,7 @@
   <string name="info_pref_note_title">Note</string>
   <string name="smartbar_interface">Barre intelligente</string>
   <string name="navbar_tint_switch">Couleur des boutons de navigation</string>
-  <string name="navbar_button_color">Boutons de la barre de navigation</string>
+  <string name="navbar_button_color">Couleur des boutons</string>
   <string name="navbar_button_custom_icon_switch_title">Ajouter un filtre de couleur aux boutons d\'application</string>
   <string name="icon_pack_picker_dialog_title">Pack d\'icônes</string>
   <string name="invalid_icon_from_uri">Impossible de charger l\'image</string>
@@ -1544,31 +1544,31 @@
   <!-- SmartBar -->
   <string name="smartbar_category">Barre intelligente</string>
   <string name="smartbar_settings_title">Paramètres de la barre intelligente</string>
-  <string name="smartbar_editor_title">Démarrer/Arrêter l\'édition des boutons</string>
-  <string name="smartbar_editor_summary">Maintenir appuyé et faire glisser le bouton, pour en modifier la position.\nAfficher le menu d\'édition du bouton par appui prolongé.\nLa position du bouton peut être modifiée lors de l\'affichage du menu d\'édition.</string>
+  <string name="smartbar_editor_title">Éditer les boutons de navigation</string>
+  <string name="smartbar_editor_summary">Maintenir la pression sur le bouton et le faire glisser pour modifier sa position.\nAfficher le menu d\'édition du bouton par un appui long.\nLa position du bouton peut être modifiée à l\'affichage du menu d\'édition.</string>
   <string name="smartbar_context_menu_position_title">Boutons contextuels</string>
   <string name="smartbar_context_menu_position_summary">Définir la position des boutons contextuels tels que le bouton Menu ou le sélecteur de clavier</string>
   <string name="smartbar_right">Droite</string>
   <string name="smartbar_left">Gauche</string>
-  <string name="smartbar_button_animation_title">Animation lorsqu\'un bouton est touché</string>
-  <string name="smartbar_button_animation_summary">Définir le mode d\'animation des boutons lorsqu\'ils sont appuyés</string>
+  <string name="smartbar_button_animation_title">Animation des boutons de navigation</string>
+  <string name="smartbar_button_animation_summary">Définir l\'animation des boutons lorsqu\'ils sont utilisés</string>
   <string name="smartbar_button_animation_ripple">Ondulation</string>
   <string name="smartbar_button_animation_spring">Rebond</string>
-  <string name="smartbar_button_animation_pixel">Pixel (tous les boutons)</string>
+  <string name="smartbar_button_animation_pixel">Pixel</string>
   <string name="smartbar_button_animation_pixel_home">Pixel (bouton Home seulement)</string>
   <string name="smartbar_button_animation_pixel_home_ripple">Pixel (bouton Home seulement) et Ondulation</string>
   <string name="smartbar_factory_reset_title">Réinitialiser les paramètres</string>
   <string name="smartbar_factory_reset_confirm">Êtes-vous sûr de vouloir réinitialiser la barre intelligente aux paramètres de base ?</string>
-  <string name="smartbar_ime_action_title">Méthode d\'entrée et actions média</string>
-  <string name="smartbar_ime_action_summary">Définir les boutons supplémentaires du clavier à afficher</string>
+  <string name="smartbar_ime_action_title">Mode de saisie et commande musicale</string>
+  <string name="smartbar_ime_action_summary">Définir les boutons de la barre de navigation à afficher lorsque le clavier ou le lecteur de musique sont utilisés</string>
   <string name="smartbar_ime_action_none">Aucun(e)</string>
-  <string name="smartbar_ime_action_arrows">Flèches de direction</string>
+  <string name="smartbar_ime_action_arrows">Flèches directionnelles</string>
   <string name="smartbar_ime_action_switcher">Sélecteur de clavier</string>
   <string name="smartbar_ime_action_dynamic">Boutons de saut de titre musical</string>
   <string name="smartbar_backup_current_config_title">Enregistrer le profil</string>
   <string name="smartbar_restore_config_title">Restaurer le profil</string>
   <string name="smartbar_config_name_edit_dialog_title">Nom du profil Smartbar</string>
-  <string name="smartbar_config_name_edit_dialog_message">Saisir un nom ou laisser vide</string>
+  <string name="smartbar_config_name_edit_dialog_message">Saisissez un nom ou laissez vide</string>
   <string name="smartbar_config_dialog_title">Profils de Smartbar</string>
   <string name="smartbar_config_backup_success_toast">Profil de la barre intelligente enregistrée avec succès</string>
   <string name="smartbar_config_restore_success_toast">Profil de la barre intelligente restaurée avec succès</string>
@@ -1856,9 +1856,9 @@
   <string name="effect_scale_in_out">Mise à l\'échelle</string>
   <string name="effect_stack">Empilement</string>
   <string name="effect_tablet">Tablette</string>
-  <string name="effect_zoom_in">Zoomer en avant</string>
+  <string name="effect_zoom_in">Zoom avant</string>
   <string name="effect_zoom_out_slide">Zoom arrière coulissant</string>
-  <string name="effect_zoom_out">Zoom en arrière</string>
+  <string name="effect_zoom_out">Zoom arrière</string>
   <!-- Three-fingers-swipe to screenshot -->
   <string name="three_finger_gesture">Geste avec trois doigts</string>
   <string name="three_finger_gesture_summary">Glissez trois doigts pour faire une capture d\'écran</string>
@@ -2000,6 +2000,7 @@
   <string name="custom_header_provider_title">Fournisseur de l’en-tête</string>
   <string name="custom_header_browse_title">Parcourir les en-têtes installés</string>
   <string name="custom_header_browse_summary">Pression longue sur n’importe quelle image à utiliser pour le mode statique</string>
+  <!-- Header Weather -->
   <!-- Task Manager -->
   <string name="enable_task_manager_title">Gestionnaire des tâches</string>
   <string name="enable_task_manager_summary">Activer / Désactiver le bouton du gestionnaire des tâches dans la zone étendue de la barre d\'état</string>
@@ -2030,12 +2031,12 @@
   <string name="alarm_blocker_warning_title">Procédez avec prudence</string>
   <string name="alarm_blocker_warning">Le blocage des alertes et notifications peut potentiellement causer des instabilités, des bogues, des pertes de données.</string>
   <!-- DUI Double Tap to Sleep -->
-  <string name="smartbar_doubletap_sleep_title">Double tap pour veille</string>
-  <string name="smartbar_doubletap_sleep_summary">Double tap sur les zones vides de la barre de navigation pour éteindre l’écran</string>
+  <string name="smartbar_doubletap_sleep_title">Mode veille par un double appui</string>
+  <string name="smartbar_doubletap_sleep_summary">Faites un appui double sur les zones vides de la barre de navigation pour éteindre l’écran</string>
   <!-- Pixel Animation Duration -->
   <string name="pixel_anim_title">Animation pixel de la barre de navigation </string>
-  <string name="pixel_anim_summary">Personnaliser divers éléments de l\'animation pixel sur la barre de navigation</string>
-  <string name="pixel_anim_warning">Personnaliser divers éléments de l\'animation style pixel sur la barre de navigation. ATTENTION ! La modification des valeurs par défaut peut entraîner une baisse de performance dans l\'animation. C\'est à vos risques et périls</string>
+  <string name="pixel_anim_summary">Personnaliser les différents éléments de l\'animation Pixel sur la barre de navigation</string>
+  <string name="pixel_anim_warning">Personnaliser les différents éléments de l\'animation Pixel sur la barre de navigation. ATTENTION ! La modification des valeurs par défaut peut entraîner une baisse de performance dans l\'animation. C\'est à vos risques et périls</string>
   <string name="pixel_anim_x_title">Durée horizontale</string>
   <string name="pixel_anim_y_title">Durée verticale</string>
   <string name="collapse_anim_duration_ry_title">Durée de la disparition</string>
@@ -2173,8 +2174,8 @@
   <string name="roaming_indicator_icon_title">Afficher l\'indicateur d\'itinérance</string>
   <string name="roaming_indicator_icon_summary">Afficher l\'indicateur d\'itinérance dans l\'icône du signal en mode itinérance</string>
   <!-- Data disabled icon -->
-  <string name="data_disabled_icon_title">Afficher l\'icône lorsque la Data est désactivée</string>
-  <string name="data_disabled_icon_summary">Afficher une croix à côté du signal lorsque la connexion Data est désactivée</string>
+  <string name="data_disabled_icon_title">Afficher l\'icône lorsque les données sont désactivées</string>
+  <string name="data_disabled_icon_summary">Afficher une croix à côté du signal lorsque les données sont désactivées </string>
   <!-- Screen state service -->
   <string name="screen_state_toggles_summary">\@null</string>
   <string name="screen_state_toggles_title">Suspendre les actions</string>
