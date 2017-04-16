@@ -2607,6 +2607,16 @@
                 android:value="com.android.settings.rr.AppCircleBar" />
         </activity>
 
+        <activity android:name="Settings$HeadsUpSettingsActivity"
+                android:label="@string/rr_title">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.Headsup" />
+        </activity>
+
         <activity android:name="Settings$MainSettingsActivity"
                 android:label="@string/rr_title">
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
