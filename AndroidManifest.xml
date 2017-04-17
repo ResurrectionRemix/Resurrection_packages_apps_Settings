@@ -2655,6 +2655,19 @@
                 android:value="com.android.settings.rr.pie.PieControl" />
         </activity>
 
+         <!-- Hw Keys settings activity. -->
+         <activity android:name="Settings$HwKeysSettingsActivity"
+                 android:label="@string/hw_keys_title"
+                 android:excludeFromRecents="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.DEFAULT" />
+             </intent-filter>
+             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                 android:value="com.android.settings.rr.input.HWSettings" />
+         </activity>
+ 
+
         <!-- Ambient Display -->
         <activity android:name="Settings$AmbientDisplaySettingsActivity"
                 android:label="@string/doze_title"
@@ -2700,7 +2713,7 @@
                  <category android:name="android.intent.category.DEFAULT" />
              </intent-filter>
              <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
-                 android:value=" com.android.settings.rr.navbar.FlingSettings" />
+                 android:value="com.android.settings.rr.navbar.FlingSettings" />
          </activity>
  
          <!-- Pulse settings activity. -->
