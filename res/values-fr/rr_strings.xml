@@ -109,7 +109,7 @@
   <string name="rr_reset_yes">Oui</string>
   <string name="rr_reset_cancel">Annuler</string>
   <string name="rr_category_title">Personnalisation</string>
-  <string name="rr_title">Paramètres</string>
+  <string name="rr_title">Paramètres RR-OS</string>
   <string name="rr_title_summary">Personnalisations diverses</string>
   <string name="rr_config_main_title">RR-OS</string>
   <string name="rr_ota_fab_title">Afficher le bouton flottant</string>
@@ -283,13 +283,13 @@
   <string name="toast_icon_color">Couleur de l’icône</string>
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Afficher l’état de la batterie Bluetooth</string>
-  <string name="bluetooth_battery_summary">Afficher l\'état de la batterie de l\'appareil Bluetooth connecté (si disponible).</string>
+  <string name="bluetooth_battery_summary">Afficher l\'état de la batterie de l\'appareil Bluetooth actuellement connecté, si disponible</string>
   <!-- Force expanded notifications -->
   <string name="force_expanded_notifications_title">Forcer le mode étendu des notifications</string>
   <string name="force_expanded_notifications_summary">Disponible uniquement pour les applications qui prennent en charge les notifications étendues</string>
   <!-- Disabling FC notifications -->
   <string name="disable_fc_notifications_title">Désactiver les notifications FC</string>
-  <string name="disable_fc_notifications_summary">Cela permet de masquer toutes les notifications de fermeture forcée</string>
+  <string name="disable_fc_notifications_summary">Si activé, masquera toutes les notifications de fermeture forcée</string>
   <!-- Disabling immersive mode messages -->
   <string name="disable_immersive_message_title">Désactiver les messages en mode immersif</string>
   <string name="disable_immersive_message_summary">Cela permet de masquer tous les messages en mode immersif</string>
@@ -324,7 +324,7 @@
   <string name="status_bar_rr_logo_title">Activer le logo</string>
   <string name="status_bar_rr_logo_summary">Activer pour afficher le logo RR-OS dans la barre d\'état</string>
   <!-- Color picker -->
-  <string name="color_picker_fragment_title">Sélecteur de Couleur</string>
+  <string name="color_picker_fragment_title">Pipette de couleur</string>
   <string name="apply_color_title">Appliquer la couleur</string>
   <string name="edit_hex_title">Valeur hexa</string>
   <string name="palette_title">Autres</string>
@@ -341,7 +341,7 @@
   <string name="show_help_title">Afficher l’aide</string>
   <string name="empty_title">Vide</string>
   <!-- Help screen -->
-  <string name="color_picker_help_screen_title">Aide du sélecteur de couleur</string>
+  <string name="color_picker_help_screen_title">Aide de la pipette de couleur</string>
   <string name="color_picker_help_ab_title">Barre d\'action :</string>
   <string name="color_picker_help_ab_back_title">Bouton Retour :</string>
   <string name="color_picker_help_ab_back_summary">Fermer le sélecteur de couleur sans appliquer la nouvelle couleur, (annuler). \nÇa a le même effet qu’un clic sur le bouton de retour dans la barre de navigation.</string>
@@ -364,7 +364,7 @@
   <string name="color_picker_help_color_buttons_title">Boutons de couleur :</string>
   <string name="color_picker_help_favorites_title">Favoris :</string>
   <string name="color_picker_help_favorites_summary">La liste des favoris est vide par défaut. \nLa nouvelle couleur peut être enregistrée en tant que favorite à tout moment via un clic long, (la couleur favorite vide sera remplacée par la nouvelle couleur).\nUn clic définit la couleur préférée comme nouvelle couleur, sans l\'appliquer.</string>
-  <string name="color_picker_help_palette_title">Palette:\n(Resurrection Remix, Matérielle et RGB)</string>
+  <string name="color_picker_help_palette_title">Palette:\n(Resurrection Remix, Material and RGB)</string>
   <string name="color_picker_help_palette_summary">Toutes les couleurs de la palette ont une valeur fixe. \nUn clic définit la couleur favorite comme nouvelle couleur, sans l\'appliquer.</string>
   <string name="color_picker_help_do_not_show_title">Ne plus afficher</string>
   <string name="color_picker_help_button_ok_title">OK</string>
@@ -544,17 +544,17 @@
   <string name="battery_bar_summary">Personnalisation des couleurs et de la position de la barre de batterie</string>
   <string name="battery_bar_style_title">Style de barre de batterie</string>
   <string name="battery_bar_thickness_title">Épaisseur de la barre de batterie</string>
-  <string name="battery_bar_animate_title">Animation lors de la charge</string>
+  <string name="battery_bar_animate_title">Animation de la charge de batterie</string>
   <string name="battery_bar_animate_summary">L\'animation de charge peut entraîner une mauvaise expérience utilisateur. Activez à vos risques et périls.</string>
-  <string name="battery_bar_charging_color">Couleur de la barre de batterie durant le chargement</string>
+  <string name="battery_bar_charging_color">Couleur de la barre de batterie durant la charge</string>
   <string name="battery_bar_battery_low_color">Couleur de la barre de batterie (batterie faible)</string>
   <string name="battery_bar_style_regular">Normal</string>
   <string name="battery_bar_style_center_mirrored">Centre-miroir</string>
   <string name="battery_bar_style_reversed">Inverser</string>
   <string name="battery_bar_use_gradient_color">Utiliser la graduation de couleur</string>
   <string name="battery_bar_gradient_color_summary">Utiliser un dégradé de couleur comme une échelle indiquant le niveau de batterie</string>
-  <string name="battery_bar_high_color">Contraste élevé des couleurs</string>
-  <string name="battery_bar_low_color">Faible contraste des couleurs</string>
+  <string name="battery_bar_high_color">Couleur à faible niveau</string>
+  <string name="battery_bar_low_color">Couleur à haut niveau</string>
   <string name="battery_bar_hide">Cachée</string>
   <string name="battery_bar_statusbar">Barre d\'état</string>
   <string name="battery_bar_navbar_top">Au-dessus de la barre de navigation</string>
@@ -598,7 +598,7 @@
   <!-- Selinux Switch -->
   <string name="selinux_switch_title">Option de changement d\'état de SELinux</string>
   <string name="selinux_switch_summary">SELinux est un ensemble de modifications du noyau et d\'outils de l\'espace utilisateur. Les changements d\'état peuvent provoquer des effets indésirables. À utiliser avec précaution.</string>
-  <string name="selinux_title">Mode de SELinux</string>
+  <string name="selinux_title">Mode SELinux</string>
   <string name="selinux_permissive_title">Permissif</string>
   <string name="selinux_enforcing_title">Renforcé</string>
   <!-- Slim DSLV -->
@@ -856,7 +856,7 @@
   <string name="quick_settings_vibrate_summary">Vibrer lors des appuis sur les raccourcis</string>
   <!-- Lock Clock Fonts -->
   <string name="lock_clock_font_title">Police d\'affichage</string>
-  <string name="lock_clock_font_summary">Changer la police par défaut du widget horloge sur l\'écran de verrouillage</string>
+  <string name="lock_clock_font_summary">Changer la police par défaut de l\'horloge sur l\'écran de verrouillage</string>
   <string name="lockdate_font_size_title">Taille de police de la date</string>
   <string name="lockclock_font_size_title">Taille de police de l\'horloge</string>
   <string name="lock_date_font_summary">Personnaliser la police pour la date</string>
@@ -1028,7 +1028,7 @@
   <string name="status_bar_battery_percentage_default">Cachée</string>
   <string name="status_bar_battery_percentage_text_inside">Dans l\'icône</string>
   <string name="status_bar_battery_percentage_text_next">À côté de l\'icône</string>
-  <string name="status_bar_charge_color_title">Couleur de l\'icône de la batterie dans la barre d\'état lors de la charge</string>
+  <string name="status_bar_charge_color_title">Couleur de l\'icône de batterie lors de la charge</string>
   <string name="status_bar_charge_color_summary">Définir la couleur de l\'icône de la batterie dans la barre d\'état lors de la charge</string>
   <string name="force_charge_battery_text_title">Niveau de batterie</string>
   <string name="force_charge_battery_text_summary_on">Si désactivée, affiche le pourcentage de batterie à l\'extérieur de l’icône pendant le chargement</string>
@@ -1242,8 +1242,8 @@
   <string name="button9">Case à cocher ronde </string>
   <string name="button10">Nettoyer </string>
   <string name="button11">Zzzzz</string>
-  <string name="button12">Clin d\'oeil</string>
-  <string name="button13">Bouton \"J\'aime\"</string>
+  <string name="button12">Clin d’œil</string>
+  <string name="button13">Bouton « j\'aime »</string>
   <string name="button14">Cube balayant</string>
   <string name="button15">Cloche </string>
   <string name="button16">Flèches vers la gauche </string>
@@ -1256,7 +1256,7 @@
   <string name="button23">Google</string>
   <string name="button24">Base de données moins</string>
   <string name="button25">Cube séquentiel</string>
-  <string name="button26">Minuteur</string>
+  <string name="button26">Sablier</string>
   <string name="button27">Resurrection</string>
   <string name="button28">Android (Stock)</string>
   <string name="button29">Resurrection Lollipop</string>
@@ -1774,7 +1774,7 @@
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">Boutons physiques</string>
   <string name="hw_keys_summary">Activer les boutons physiques</string>
-  <string name="rr_hw_keys_summary">Personnaliser les différents boutons physiques de votre appareil comme l\'Accueil, retour et menu</string>
+  <string name="rr_hw_keys_summary">Personnaliser les différents boutons physiques de votre appareil comme l\'accueil, retour et menu</string>
   <!-- Expanded desktop -->
   <string name="expanded_desktop_category">Bureau étendu</string>
   <string name="expanded_hide_nothing">Ne rien masquer</string>
@@ -2001,6 +2001,10 @@
   <string name="custom_header_browse_title">Parcourir les en-têtes installés</string>
   <string name="custom_header_browse_summary">Pression longue sur n’importe quelle image à utiliser pour le mode statique</string>
   <!-- Header Weather -->
+  <string name="header_weather_enabled_title">Météo</string>
+  <string name="header_weather_enabled_summary">Activer l\'info Météo dans l\'en-tête étendu</string>
+  <string name="header_weather_image_enabled_title">Image Météo</string>
+  <string name="header_weather_image_enabled_summary">Activer l\'image Météo dans l\'en-tête étendu</string>
   <!-- Task Manager -->
   <string name="enable_task_manager_title">Gestionnaire des tâches</string>
   <string name="enable_task_manager_summary">Activer / Désactiver le bouton du gestionnaire des tâches dans la zone étendue de la barre d\'état</string>
@@ -2045,16 +2049,16 @@
   <string name="diamond_anim_duration_title">Durée du diamant</string>
   <string name="dots_anim_duration_title">Durée des points</string>
   <string name="home_resize_anim_duration_title">Durée du redimensionnement des boutons</string>
-  <string name="pixel_anim_color_title">Couleurs de point</string>
+  <string name="pixel_anim_color_title">Couleurs des points</string>
   <string name="dot_top_color_title">Point haut </string>
   <string name="dot_bottom_color_title">Point bas </string>
   <string name="dot_left_color_title">Point gauche</string>
   <string name="dot_right_color_title">Point droit</string>
-  <string name="dot_obey_themes">Défaut (couleur de thème)</string>
-  <string name="dot_custom_color">Personnalisé</string>
+  <string name="dot_obey_themes">Par défaut</string>
+  <string name="dot_custom_color">Personnalisée</string>
   <string name="dot_random_color">Aléatoire</string>
   <string name="dot_random_color_more">Très aléatoire</string>
-  <string name="dot_color_switch_title">Mode d\'affichage</string>
+  <string name="dot_color_switch_title">Couleur d\'affichage</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">Mode à une main</string>
   <string name="one_handed_mode_summary">Autoriser de glisser sur la barre de navigation pour permettre le mode à une main</string>
