@@ -182,4 +182,6 @@ public class Settings extends SettingsActivity {
     public static class AppCircleBarActivity extends SettingsActivity { /* empty */ }
     public static class DevRunningServicesActivity extends SettingsActivity { /* empty */ }
     public static class ScreenStateServiceActivity extends SettingsActivity { /* empty */ }
+    public static class HeadsUpSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class HwKeysSettingsActivity extends SettingsActivity { /* empty */ }
 }

@@ -17,18 +17,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="rr_mod_version">Versi RR-OS</string>
   <string name="build_date">Tanggal pembuatan</string>
-  <string name="mod_version_default">Standar</string>
+  <string name="mod_version_default">Bawaan</string>
   <!-- General -->
   <string name="ok">Oke</string>
   <string name="reset">Atur ulang</string>
   <string name="dlg_reset_rr">RR</string>
-  <string name="dlg_reset_android">Asal</string>
-  <string name="default_string">Default</string>
+  <string name="dlg_reset_android">Bawaan</string>
+  <string name="default_string">Bawaan</string>
   <string name="add">Tambah</string>
   <string name="enabled">Diaktifkan</string>
   <string name="choose_app">Pilih aplikasi</string>
   <string name="help">Bantuan</string>
-  <string name="reset_message">Ulang semua ke Awal?</string>
+  <string name="reset_message">Setel ulang entri ke bawaan?</string>
   <string name="attention">Perhatian</string>
   <string name="reset">Setel ulang</string>
   <string name="restart_systemui">Mulai ulang UI</string>
@@ -40,7 +40,7 @@
   <string name="rr_donate">Donasi ke Pengembang</string>
   <string name="rr_donate_summary">Tunjukkan dukungan Anda untuk Resurrection Remix OS</string>
   <string name="app_name">Resurrection Remix OS</string>
-  <string name="devs">Label pengembang</string>
+  <string name="devs">Label Pengembang</string>
   <string name="github_westcrip">https://github.com/westcripp</string>
   <string name="github_varund7726">https://github.com/varund7726</string>
   <string name="github_akhilnarang">https://github.com/akhilnarang</string>
@@ -90,10 +90,10 @@
   <string name="share_message">Cobalah Resurrection Remix OS! https://Plus.Google.com/Communities/109352646351468373340</string>
   <string name="share_chooser_title">Bagikan Resurrection Remix OS melalui...</string>
   <!-- RR Changelog-->
-  <string name="changelog_title">Catatan Perubahan</string>
+  <string name="changelog_title">Log perubahan</string>
   <string name="changelog_title_summary">Lihat perubahan terbaru dalam ROM</string>
-  <string name="changelog_loading">Memuat daftar perubahan...</string>
-  <string name="changelog_error">Tidak dapat memuat daftar perubahan</string>
+  <string name="changelog_loading">Memuat log perubahan...</string>
+  <string name="changelog_error">Tidak dapat memuat log perubahan</string>
   <string name="changelog_unknown">Tidak diketahui</string>
   <string name="changelog_version">Versi</string>
   <!--RR Configurations-->
@@ -1564,6 +1564,7 @@
   <string name="smartbar_ime_action_none">Tidak ada</string>
   <string name="smartbar_ime_action_arrows">Panah masukan</string>
   <string name="smartbar_ime_action_switcher">Pengubah papan ketik</string>
+  <string name="smartbar_ime_action_dynamic">Memasukkan/media panah</string>
   <string name="smartbar_backup_current_config_title">Simpan profil</string>
   <string name="smartbar_restore_config_title">Pulihkan profil</string>
   <string name="smartbar_config_name_edit_dialog_title">Nama profil \'SmartBar\'</string>
@@ -1655,6 +1656,9 @@
   <string name="text_title">Teks</string>
   <string name="icon_title">Ikon</string>
   <string name="colors_title">Warna</string>
+  <string name="ticker_disabled">Tanpa ticker</string>
+  <string name="ticker_enabled">Notifikasi ticker</string>
+  <string name="ticker_media_enabled">Notifikasi dan musik ticker</string>
   <!-- Superuser indicator on status bar -->
   <string name="show_su_indicator_title">Indikator superuser</string>
   <string name="show_su_indicator_summary">Tampilkan indikator superuser di status bar ketika sesi aktif</string>
@@ -1737,6 +1741,8 @@
   <string name="heads_up_time_out_6sec">6 detik</string>
   <string name="heads_up_time_out_8sec">8 detik</string>
   <string name="heads_up_time_out_10sec">10 detik</string>
+  <string name="always_headsup_dialer_title">Paksa pemberitahuan terhadap tombol layar</string>
+  <string name="always_headsup_dialer_summary">Tampilkan pemberitahuan untuk tombol layar bahkan jika pemberitahuan di nonaktifkan untuk menghindari tombol layar layar penuh saat panggilan masuk</string>
   <!-- Heads up snooze -->
   <string name="heads_up_snooze_title">Tunda timer</string>
   <string name="heads_up_snooze_summary_one_minute">Menggesekkan atas pemberitahuan mengintip akan tunda kepala dari aplikasi tersebut selama 1 menit</string>
@@ -1996,6 +2002,7 @@
   <string name="custom_header_provider_title">Penyedia Header</string>
   <string name="custom_header_browse_title">Jelajahi Header yang terpasang</string>
   <string name="custom_header_browse_summary">Tekan dan tahan pada setiap gambar untuk digunakan pada mode statis</string>
+  <!-- Header Weather -->
   <!-- Task Manager -->
   <string name="enable_task_manager_title">Manajer Tugas</string>
   <string name="enable_task_manager_summary">Mengaktifkan/menonaktifkan tindakan untuk tombol manajer tugas di daerah diperluas statusbar</string>
@@ -2035,6 +2042,7 @@
   <string name="pixel_anim_x_title">Durasi horisontal</string>
   <string name="pixel_anim_y_title">Durasi vertikal</string>
   <string name="collapse_anim_duration_ry_title">Durasi runtuh</string>
+  <string name="collapse_anim_duration_bg_title">Latar belakang runtuh</string>
   <string name="retract_anim_duration_title">Durasi menarik</string>
   <string name="diamond_anim_duration_title">Durasi berlian</string>
   <string name="dots_anim_duration_title">Durasi Dot</string>
@@ -2045,6 +2053,7 @@
   <string name="dot_left_color_title">Dot kiri</string>
   <string name="dot_right_color_title">Dot kanan</string>
   <string name="dot_obey_themes">Standar (warna Tema)</string>
+  <string name="dot_custom_color">Kustom</string>
   <string name="dot_random_color">Acak</string>
   <string name="dot_random_color_more">Sangat Acak</string>
   <string name="dot_color_switch_title">Gaya</string>
@@ -2167,6 +2176,8 @@
   <string name="roaming_indicator_icon_title">Tampilkan indikator roaming</string>
   <string name="roaming_indicator_icon_summary">Menampilkan indikator roaming pada ikon sinyal ketika dalam mode roaming</string>
   <!-- Data disabled icon -->
+  <string name="data_disabled_icon_title">Menunjukkan ikon data dinonaktifkan</string>
+  <string name="data_disabled_icon_summary">Menampilkan tanda silang di sebelah bar sinyal saat data dinonaktifkan</string>
   <!-- Screen state service -->
   <string name="screen_state_toggles_summary">kosong</string>
   <string name="screen_state_toggles_title">Hentikan tindakan</string>

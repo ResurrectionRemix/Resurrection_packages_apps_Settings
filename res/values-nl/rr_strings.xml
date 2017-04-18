@@ -1255,6 +1255,7 @@
   <string name="button30">Android N</string>
   <string name="animation0">Rotatie </string>
   <string name="animation1">Recente apps sluiten</string>
+  <string name="animation4">Melding sluiten</string>
   <string name="animation5">Glijd Uit Beneden </string>
   <string name="animation8">Glijd Uit Rechts </string>
   <string name="animation10">Traag vervagen </string>
@@ -1451,14 +1452,11 @@
   <string name="fling_short_swipe_left">Korte veeg naar links</string>
   <string name="fling_long_swipe_right">Lange veeg naar rechts</string>
   <string name="fling_long_swipe_left">Lange veeg naar links</string>
-  <string name="fling_right_up_swipe">Rechterzeide naar boven vegen</string>
-  <string name="fling_left_up_swipe">Linkerzeide naar boven vegen</string>
   <string name="fling_single_tap">Enkele tik rechts</string>
   <string name="fling_double_tap">Dubbel tikken rechts</string>
   <string name="fling_long_press">Lang duwen rechts</string>
   <string name="fling_single_left_tap">Enkele tik links</string>
   <string name="fling_double_left_tap">Dubbel tikken links</string>
-  <string name="fling_long_left_press">Lang duwen links</string>
   <string name="long_swipe_portrait_title">Staand</string>
   <string name="long_swipe_landscape_title">Liggend</string>
   <string name="portrait_right_swipe_title">Staand rechts vegen</string>
@@ -1471,7 +1469,6 @@
   <string name="down_swipe_title">Omlaag vegen</string>
   <string name="long_swipe_reset">Terug naar standaard</string>
   <string name="fling_advanced">Geavanceerd</string>
-  <string name="fling_long_swipe_title">Lang vegen afstand</string>
   <string name="fling_long_swipe_summary">Afstemmen van lang vegen drempels gebaseerd op percentage van Fling interface breedte of hoogte</string>
   <string name="fling_trails_enable_title">Gebaar sporen inschakelen</string>
   <string name="fling_trails_enable_summary">Toon een spoor bij gebaren</string>
@@ -1510,7 +1507,7 @@
   <string name="lavamp_solid_speed_title">Lavalamp snelheid</string>
   <string name="pulse_solid_units_count">Aantal ononderbroken lijnen</string>
   <string name="pulse_solid_units_opacity">Ononderbroken lijn transparantie</string>
-  <string name="pulse_fading_blocks_opacity">Vervagende blokken opaciteit</string>
+  <string name="pulse_fading_blocks_opacity">Vervagende blokken transparantie</string>
   <string name="pulse_solid_dimen_category">Vaste lijnen modus instellingen</string>
   <string name="pulse_custom_buttons_opacity_title">Knop doorzichtigheid van Pulse</string>
   <string name="fling_lavalamp_color_from">Lava lamp start kleur</string>
@@ -1532,7 +1529,7 @@
   <string name="smartbar_editor_title">(De-)activeren knoppenbewerker</string>
   <string name="smartbar_editor_summary">Medium duwen en slepen om positie te wijzigen. Lang duwen om bewerkmenu te tonen. Positie knop kan wijzigen terwijl menu weergegeven wordt.</string>
   <string name="smartbar_context_menu_position_title">Context knoppen weergavepositie</string>
-  <string name="smartbar_context_menu_position_summary">Stel positie van contextuele knoppen in zoals menu en ime kiezer</string>
+  <string name="smartbar_context_menu_position_summary">Stel positie van contextuele knoppen in zoals menu en invoer selectie</string>
   <string name="smartbar_right">Rechts</string>
   <string name="smartbar_left">Links</string>
   <string name="smartbar_button_animation_title">Knop indruk animatie</string>
@@ -1640,6 +1637,9 @@
   <string name="text_title">Tekst</string>
   <string name="icon_title">Pictogram</string>
   <string name="colors_title">Kleuren</string>
+  <string name="ticker_disabled">Geen ticker</string>
+  <string name="ticker_enabled">Meldingen ticker</string>
+  <string name="ticker_media_enabled">Meldingen en muziek ticker</string>
   <!-- Superuser indicator on status bar -->
   <string name="show_su_indicator_title">Superuser indicator</string>
   <string name="show_su_indicator_summary">Toon een superuser indicator op de statusbalk wanneer er een sessie actief is</string>
@@ -1779,6 +1779,7 @@
   <string name="sizer_message_sdnowrite">Schrijven naar geheugenkaart niet mogelijk.</string>
   <string name="sizer_message_sdnoread">Lezen van geheugenkaart niet mogelijk.</string>
   <string name="sizer_message_filesuccess">Profiel is aangemaakt.</string>
+  <string name="sizer_message_filefail">Aanmaken van profiel mislukt.</string>
   <string name="sizer_message_noselect">Niets geselecteerd.</string>
   <string name="system_app_remover">Systeem app verwijderaar</string>
   <!-- RR summary text -->
@@ -1933,6 +1934,7 @@
   <string name="qs_date_time_center_summary">Vereist een of meer pictogrammen uitgeschakeld te zijn</string>
   <!-- Settings drawer switch -->
   <string name="show_settings_drawer_title">Instellingen lade weergeven</string>
+  <string name="show_settings_drawer_enabled">Instellingen lade ingeschakeld</string>
   <string name="show_settings_drawer_disabled">Instellingen lade uitgeschakeld</string>
   <!-- Custom LCD density -->
   <string name="custom_density_settings">Aangepaste LCD pixel dichtheid</string>
@@ -1950,6 +1952,7 @@
   <string name="custom_header_provider_title">Kopbalk type</string>
   <string name="custom_header_browse_title">Blader door geinstalleerde kopbalken</string>
   <string name="custom_header_browse_summary">Lang drukken op afbeelding om te gebruiken in statische modus</string>
+  <!-- Header Weather -->
   <!-- Task Manager -->
   <string name="enable_task_manager_title">Taakbeheer</string>
   <string name="enable_task_manager_summary">Taakbeheer knop in uitgebreide statusbar in- of uitschakelen</string>
@@ -2079,6 +2082,7 @@
   <string name="weather_config_title">Service instellingen</string>
   <string name="weather_icon_pack_title">Pictogram verzameling</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Installatie van thema\'s uit onbekende bronnen toestaan</string>
   <string name="magisk_title">Magisk manager</string>
   <string name="magisk_summary">Root beheer</string>
   <string name="notif_text_color">Tekstkleur</string>
@@ -2092,6 +2096,8 @@
   <string name="roaming_indicator_icon_title">Toon roaming indicator</string>
   <string name="roaming_indicator_icon_summary">Toon roaming indicator in het signaal pictogram wanneer het toestel aan het roamen is</string>
   <!-- Data disabled icon -->
+  <string name="data_disabled_icon_title">Toon mobiele gegevens uitgeschakeld pictogram</string>
+  <string name="data_disabled_icon_summary">Toon het kruisje naast de signaalsterkte wanneer mobiele gegevens niet beschikbaar zijn</string>
   <!-- Screen state service -->
   <string name="screen_state_toggles_summary">\@null</string>
   <string name="screen_state_toggles_title">Onderbreek activiteiten</string>

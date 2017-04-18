@@ -202,6 +202,10 @@ public class PowerUsageSummary extends PowerUsageBase {
                 }
                 refreshStats();
                 return true;
+            case MENU_BATTERY_SAVER:
+                sa.startPreferencePanel(BatterySaverSettings.class.getName(), null,
+                        R.string.battery_saver, null, null, 0);
+                return true;
             case MENU_HIGH_POWER_APPS:
                 Bundle args = new Bundle();
                 args.putString(ManageApplications.EXTRA_CLASSNAME,

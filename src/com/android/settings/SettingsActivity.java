@@ -149,6 +149,8 @@ import com.android.settings.rr.AppCircleBar;
 import com.android.settings.rr.pie.PieControl;
 import com.android.settings.rr.gestureanywhere.GestureAnywhereSettings;
 import com.android.settings.rr.ambientdisplay.AmbientSettings;
+import com.android.settings.rr.Headsup;
+import com.android.settings.rr.input.HWSettings;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -398,7 +400,9 @@ public class SettingsActivity extends SettingsDrawerActivity
             PulseSettings.class.getName(),
             AppCircleBar.class.getName(),
             GestureAnywhereSettings.class.getName(),
+            HWSettings.class.getName(),
             PieControl.class.getName(),
+            Headsup.class.getName(),
             MasterClear.class.getName(),
             NightDisplaySettings.class.getName(),
             ManageDomainUrls.class.getName(),
