@@ -39,6 +39,13 @@
         android:summary="@string/device_g4_summary"
         android:selectable="false" 
         android:title="@string/device_g4" />
+	   
+    <Preference
+        android:id="@+id/device_g2"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_g2_summary"
+        android:selectable="false" 
+        android:title="@string/device_g2" />
     
     <Preference
         android:id="@+id/device_g3"
@@ -294,6 +301,20 @@
     <PreferenceCategory
         android:id="@+id/device_category_samsung"
         android:title="@string/device_category_samsung_title" >
+	    
+     <Preference
+        android:id="@+id/device_manta"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_manta_summary"
+        android:selectable="false" 
+        android:title="@string/device_manta" />
+	    
+     <Preference
+        android:id="@+id/device_d2lte"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_d2lte_summary"
+        android:selectable="false" 
+        android:title="@string/device_d2lte" />
 
      <Preference
         android:id="@+id/device_herolte"
@@ -325,12 +346,6 @@
         android:summary="@string/device_i9305_summary"
         android:selectable="false" 
         android:title="@string/device_i9305" />
-   <Preference
-        android:id="@+id/device_d2spr"
-        android:icon="@drawable/phone_tint"
-        android:summary="@string/device_d2spr_summary"
-        android:selectable="false" 
-        android:title="@string/device_d2spr" />
     <Preference
         android:id="@+id/device_jf"
         android:icon="@drawable/phone_tint"
@@ -501,7 +516,8 @@
         android:summary="@string/device_flounder_summary"
         android:selectable="false" 
         android:title="@string/device_flounder" />
-    <Preference
+
+	 <Preference
         android:id="@+id/device_m9"
         android:icon="@drawable/phone_tint"
         android:summary="@string/device_m9_summary"
@@ -531,6 +547,19 @@
         android:summary="@string/device_google_marlin_summary"
         android:selectable="false" 
         android:title="@string/device_google_marlin" />
+   
+     </PreferenceCategory>
+	
+     <PreferenceCategory
+        android:id="@+id/device_category_hp"
+        android:title="@string/device_category_hp_title" >
+		     
+     <Preference
+	     android:id="@+id/device_tenderloin"
+	     android:icon="@drawable/phone_tint"
+	     android:summary="@string/device_tenderloin_summary"
+	     android:selectable="false"
+	    android:title="@string/device_tenderloin" />
               
      </PreferenceCategory>
               
@@ -723,7 +752,7 @@
         android:title="@string/device_oneplus3" />
 
    <Preference
-       android:id="@+id/device_oneplus3t"
+        android:id="@+id/device_oneplus3t"
         android:icon="@drawable/phone_tint"
         android:summary="@string/device_oneplus3t_summary"
         android:selectable="false" 
@@ -742,11 +771,11 @@
         android:selectable="false" 
         android:title="@string/device_tomato" />
     <Preference
-       android:id="@+id/device_lettuce"
-       android:icon="@drawable/phone_tint"
-       android:summary="@string/device_lettuce_summary"
-       android:selectable="false"
-       android:title="@string/device_lettuce" />
+        android:id="@+id/device_lettuce"
+        android:icon="@drawable/phone_tint"
+        android:summary="@string/device_lettuce_summary"
+        android:selectable="false"
+        android:title="@string/device_lettuce" />
      <Preference
         android:id="@+id/device_sambar"
         android:icon="@drawable/phone_tint"
@@ -841,8 +870,9 @@
        </PreferenceCategory>
 
 <PreferenceCategory
-    android:id="@+id/device_category_one"
-    android:title="@string/device_category_one_title">
+       android:id="@+id/device_category_one"
+       android:title="@string/device_category_one_title">
+  
     <Preference
         android:id="@+id/device_sprout4"
         android:icon="@drawable/phone_tint"
