@@ -103,7 +103,7 @@
   <string name="fab_about">À propos de RR-OS</string>
   <string name="fab_layout">Mettre à jour la mise en page</string>
   <string name="fab_layout_update">Basculer entre l\'affichage classique et par défaut</string>
-  <string name="fab_layout_toggle">Basculer entre l\'affichage classique et par défaut</string>
+  <string name="fab_layout_toggle">Basculer entre le rendu classique et par défaut</string>
   <string name="rr_reset_message">Réinitialiser toutes les configurations aux valeurs par défaut?</string>
   <string name="rr_reset_settings">Réinitialiser les paramètres</string>
   <string name="rr_reset_yes">Oui</string>
@@ -113,7 +113,7 @@
   <string name="rr_title_summary">Personnalisations diverses</string>
   <string name="rr_config_main_title">RR-OS</string>
   <string name="rr_ota_fab_title">Afficher le bouton flottant</string>
-  <string name="rr_ota_fab_summary">Activer/désactiver pour afficher/masquer le bouton flottant dans des configurations. Entrer/sortir une fois lorsque le commutateur utilisé</string>
+  <string name="rr_ota_fab_summary">Activer/désactiver le bouton flottant dans les onglets de configurations. Relancer l\'interface après le basculement du commutateur</string>
   <string name="rr_statusbar_title">Barre d\'état</string>
   <string name="rr_sb_gestures_title">Gestes sur la barre d\'état</string>
   <string name="qs_advanced_title">Options avancées</string>
@@ -178,8 +178,8 @@
   <string name="rr_doze_summary">Activer ou désactiver l\'affichage en mode Veille et personnaliser ses composants</string>
   <string name="rr_heads_up_summary">Activer ou désactiver les notifications d\'en-tête et paramétrer le timeout </string>
   <string name="rr_dash_board_summary">Personnaliser les résumés et mise en page de tableau de bord</string>
-  <string name="misc_weather_settings_summary">Personnaliser diverses options pour l\'application d\'horloge</string>
-  <string name="system_app_remover_summary">Supprimer les applications inutiles du système</string>
+  <string name="misc_weather_settings_summary">Personnaliser diverses options de l\'application d\'horloge</string>
+  <string name="system_app_remover_summary">Supprimer les applications système inutiles</string>
   <string name="rr_updater_summary">Rechercher les mises à jour OTA et autres liens</string>
   <string name="rr_notif_settings_summary">Personnaliser l\'apparence de vos notifications dans le panneau de notifications</string>
   <!-- Manage applications: show substratum overlays -->
@@ -386,7 +386,7 @@
   <string name="power_menu_animation_card">3D</string>
   <string name="power_menu_animation_translucent_top">Translucide (en haut)</string>
   <string name="power_menu_animation_translucent_bottom">Translucide (en bas)</string>
-  <string name="rr_qs_title">Paramètres rapides</string>
+  <string name="rr_qs_title">Volet des paramètres rapides</string>
   <string name="rr_battery_title">Batterie</string>
   <string name="rr_qs_animation">Animations rapides</string>
   <string name="rr_qs_pulldown">Menu déroulant rapide</string>
@@ -849,7 +849,7 @@
   <string name="keyguard_statusbar_clock_title">Horloge</string>
   <string name="keyguard_statusbar_clock_summary">Afficher l\'horloge à gauche de la barre d\'état sur l\'écran de déverrouillage</string>
   <!-- Fingerprint vibrate -->
-  <string name="fprint_sucess_vib_title">Authentification par empreintes digitales</string>
+  <string name="fprint_sucess_vib_title">Activer le vibreur pour l’authentification</string>
   <string name="fprint_sucess_vib_summary">Vibrer en cas de succès de l\'authentification par empreintes digitales</string>
   <!-- QuickSettings haptic feedback -->
   <string name="quick_settings_vibrate_title">Vibrer au toucher</string>
@@ -880,7 +880,7 @@
   <string name="screenshot_sound_title">Son de capture d\'écran</string>
   <string name="navbar_settings_title">Barre de navigation</string>
   <!-- kill app long press back -->
-  <string name="kill_app_longpress_back">Tuer avec le bouton Retour</string>
+  <string name="kill_app_longpress_back">Arrêter l\'application avec le bouton Retour</string>
   <string name="kill_app_longpress_back_summary">Tuer l\'application en premier plan par un appui long sur le bouton Retour</string>
   <string name="long_press_kill_delay">Délai de fermeture de l\'application</string>
   <!-- Advanced data tile -->
@@ -981,12 +981,12 @@
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <string name="camera_double_tap_power_gesture_desc">Ouvrir rapidement l\'appareil photo sans déverrouiller l\'écran</string>
   <!-- Media art -->
-  <string name="media_art_title">Pochette de média</string>
-  <string name="media_art_summary">Activer la pochette de média sur votre écran de verrouillage</string>
+  <string name="media_art_title">Affichage des métadonnées de musique</string>
+  <string name="media_art_summary">Afficher la pochette de l\'album sur l\'écran de déverrouillage</string>
   <!-- Lockscreen notif count -->
-  <string name="lockscreen_maxnotif_title">Notifications en attente</string>
-  <string name="lockscreen_maxnotif_sumary">Activer le réglage du nombre maximal de notifications en attente sur l\'écran de déverrouillage</string>
-  <string name="lockscreen_maxnotif_config">Nombre maximum de notifications sur l\'écran de verrouillage</string>
+  <string name="lockscreen_maxnotif_title">Notifications de l\'écran de verrouillage</string>
+  <string name="lockscreen_maxnotif_sumary">Régler le nombre maximal de notifications en attente sur l\'écran de déverrouillage</string>
+  <string name="lockscreen_maxnotif_config">Nombre maximal de notifications</string>
   <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">Sons au réglage du volume</string>
   <string name="qs_fancy_animation_title">Animation des réglages rapides</string>
@@ -1188,7 +1188,7 @@
   <string name="weather_number_of_notifications_title">Nombre de notifications</string>
   <!-- Quick Settings brightness slider -->
   <string name="qs_brightness_slider_title">Curseur de luminosité</string>
-  <string name="qs_brightness_slider_summary">Afficher un curseur de luminosité dans le panneau de configuration rapide</string>
+  <string name="qs_brightness_slider_summary">Afficher un curseur de luminosité dans le panneau des réglages rapides</string>
   <string name="brightness_icon_title">Icône de luminosité </string>
   <string name="brightness_icon_summary">Afficher l\'icône de luminosité à gauche du curseur de luminosité permettant d\'ajuster automatiquement la luminosité</string>
   <string name="show_clear_all_recents_button_title">Bouton de fermeture rapide</string>
@@ -1393,8 +1393,8 @@
   <!-- Location easy toggle -->
   <string name="qs_location_easy_toggle_title">Activer/désactiver rapidement la localisation</string>
   <string name="qs_location_easy_toggle_summary">Un clic activera ou désactivera la localisation au lieu de vous envoyer dans les paramètres</string>
-  <string name="qs_music_tile_track_optional_title">Titre de la musique dans la tuile</string>
-  <string name="qs_music_tile_track_optional_summary">Montrer le titre de la musique dans la tuile des réglages rapides</string>
+  <string name="qs_music_tile_track_optional_title">Afficher le titre de la musique</string>
+  <string name="qs_music_tile_track_optional_summary">Afficher le titre de la musique sous la tuile des réglages rapides</string>
   <string name="quick_settings_vibrate_title">Vibrer au toucher</string>
   <string name="quick_settings_vibrate_summary">Vibrer lors des appuis sur les raccourcis</string>
   <!-- Quick unlock -->
@@ -1741,6 +1741,8 @@
   <string name="heads_up_time_out_6sec">6 secondes</string>
   <string name="heads_up_time_out_8sec">8 secondes</string>
   <string name="heads_up_time_out_10sec">10 secondes</string>
+  <string name="always_headsup_dialer_title">Afficher les notifications flottantes pour le téléphone</string>
+  <string name="always_headsup_dialer_summary">Afficher les notifications flottantes même si les notifications flottantes sont désactivées afin d\'éviter que le numéroteur téléphonique ne s\'affiche sur tout l\'écran lors d\'un appel</string>
   <!-- Heads up snooze -->
   <string name="heads_up_snooze_title">Minuterie de répétition</string>
   <string name="heads_up_snooze_summary_one_minute">Glisser les notifications désactivera les notifications flottantes de cette application pendant 1 minutes</string>
@@ -1902,8 +1904,8 @@
   <string name="scroll_disclaimer_summary">Remarque : La plupart des applications doivent être redémarrées pour que les modifications prennent effet</string>
   <string name="animation_settings_reset_message">Rétablir tous les paramètres d\'animation à leur valeur par défaut ?</string>
   <string name="qs_tile_title_visibility_title">Activer l\'affichage des noms sous les tuiles</string>
-  <string name="qs_tile_title_visibility_summary_on">Les titres dans les tuiles des réglages rapides sont maintenant visibles</string>
-  <string name="qs_tile_title_visibility_summary_off">Les titres dans les tuiles des réglages rapides sont maintenant masqués</string>
+  <string name="qs_tile_title_visibility_summary_on">Les noms des tuiles de réglages rapides sont maintenant visibles</string>
+  <string name="qs_tile_title_visibility_summary_off">Les noms des tuiles de réglages rapides sont maintenant masqués</string>
   <!-- setting: show CPU info-->
   <string name="show_cpu_info">Afficher les infos CPU</string>
   <string name="show_cpu_info_summary">Montrer les infos CPU en superposition d\'écran</string>
@@ -1991,7 +1993,7 @@
   <!-- Header images -->
   <string name="status_bar_custom_header_title">Image d\'en-tête personnalisée</string>
   <string name="status_bar_custom_header_summary">Activer l\'image d\'en-tête du panneau de notification</string>
-  <string name="daylight_header_pack_title">Pack d\'image de l\'en-tête</string>
+  <string name="daylight_header_pack_title">Pack d\'image d\'en-tête</string>
   <string name="status_bar_custom_header_shadow_title">Ombre de l\'image d\'en tête</string>
   <string name="status_bar_custom_header_shadow_summary">Pour une meilleure visibilité des images brillantes</string>
   <string name="unit_percent">\u0025</string>
