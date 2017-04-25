@@ -88,6 +88,14 @@
              android:dependency="disable_transition_animations"
              android:title="@string/wallpaper_intra_close_title" />
 
+        <ListPreference
+            android:key="animation_duration"
+            android:dialogTitle="@string/animation_duration_title"
+            android:title="@string/animation_duration_title"
+            android:entries="@array/animation_duration_entries"
+            android:entryValues="@array/animation_duration_values"
+            android:defaultValue="0" />
+
        <PreferenceCategory
         android:title="@string/listview">
 
@@ -97,7 +105,6 @@
             android:title="@string/listview_animation_title"
             android:entries="@array/listview_animation_entries"
             android:entryValues="@array/listview_animation_values"
-            android:dependency="disable_transition_animations"
             android:defaultValue="0" />
 
         <ListPreference
@@ -106,7 +113,6 @@
             android:title="@string/listview_interpolator_title"
             android:entries="@array/listview_interpolator_entries"
             android:entryValues="@array/listview_interpolator_values"
-            android:dependency="disable_transition_animations"
             android:defaultValue="0" />
 
        <ListPreference
@@ -115,8 +121,8 @@
       	   android:title="@string/pref_scrollingcache_title"
       	   android:summary="@string/pref_scrollingcache_summary"
       	   android:entries="@array/entries_scrollingcache"
-      	   android:dependency="disable_transition_animations"
       	   android:entryValues="@array/values_scrollingcache" />
+
 
       </PreferenceCategory>
 

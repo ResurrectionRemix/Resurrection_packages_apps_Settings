@@ -52,7 +52,7 @@ public class SystemAnimations extends SettingsPreferenceFragment implements
       private static final String WALLPAPER_INTRA_CLOSE = "wallpaper_intra_close";
       private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
       private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
-
+      private static final String ANIMATION_DURATION = "animation_duration";
       private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
       private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
 
@@ -73,6 +73,7 @@ public class SystemAnimations extends SettingsPreferenceFragment implements
 	  ListPreference mListViewAnimation;
       ListPreference mListViewInterpolator;
 	  ListPreference mScrollingCachePref;
+      ListPreference mAnimationDuration;
 
       private int[] mAnimations;
       private String[] mAnimationsStrings;
@@ -91,9 +92,9 @@ public class SystemAnimations extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.rr_system_animations);
- 		mContext = getActivity().getApplicationContext();
-		mContentRes = getActivity().getContentResolver();
+          addPreferencesFromResource(R.xml.rr_system_animations);
+ 		  mContext = getActivity().getApplicationContext();
+		  mContentRes = getActivity().getContentResolver();
 
           mAnimations = AwesomeAnimationHelper.getAnimationsList();
           int animqty = mAnimations.length;
@@ -137,6 +138,13 @@ public class SystemAnimations extends SettingsPreferenceFragment implements
           mTaskClosePref.setSummary(getProperSummary(mTaskClosePref));
           mTaskClosePref.setEntries(mAnimationsStrings);
           mTaskClosePref.setEntryValues(mAnimationsNum);
+
+          int defaultDuration = Settings.System.getInt(mContentRes,
+                 Settings.System.ANIMATION_CONTROLS_DURATION, 0);
+          mAnimationDuration = (ListPreference)findPreference(ANIMATION_DURATION);
+          mAnimationDuration.setValue(String.valueOf(defaultDuration));
+          mAnimationDuration.setSummary(mAnimationDuration.getEntry());
+          mAnimationDuration.setOnPreferenceChangeListener(this);
   
           mTaskMoveToFrontPref = (ListPreference) findPreference(TASK_MOVE_TO_FRONT);
           mTaskMoveToFrontPref.setOnPreferenceChangeListener(this);
@@ -262,7 +270,15 @@ public class SystemAnimations extends SettingsPreferenceFragment implements
             int val = Integer.parseInt((String) newValue);
             result = Settings.System.putInt(mContentRes,
                     Settings.System.ACTIVITY_ANIMATION_CONTROLS[10], val);
-         } 
+         }  else if (preference == mAnimationDuration) {
+                int dur = Integer.valueOf((String) newValue);
+                int index = mAnimationDuration.findIndexOfValue((String) newValue);
+                Settings.System.putInt(getContentResolver(), 
+		        Settings.System.ANIMATION_CONTROLS_DURATION, dur);
+                mAnimationDuration.setSummary(
+                        mAnimationDuration.getEntries()[index]);
+                return true;
+	    }
         preference.setSummary(getProperSummary(preference));
         return false;
     }
