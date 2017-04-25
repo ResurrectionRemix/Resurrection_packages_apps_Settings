@@ -943,9 +943,15 @@
   <string name="backlight_summary_enabled">활성화됨</string>
   <!-- Buttons - Enable navbar -->
   <string name="disable_navkeys_title">하드웨어 키 비활성화</string>
+  <string name="disable_navkeys_summary">HW 키를 지원하는 기기에서 하드웨어 버튼을 활성화/비활성화 합니다</string>
   <!-- Navigation Bar -->
+  <string name="navigation_bar_category">내비게이션 바</string>
+  <string name="navigation_bar_title">버튼 및 레이아웃</string>
   <string name="navigation_bar_left_title">왼손 모드</string>
   <string name="navigation_bar_left_summary">가로 모드일 때 내비게이션 바를 화면의 왼쪽에 표시합니다</string>
+  <string name="navigation_bar_arrow_keys_title">입력 도중 화살표 키 표시</string>
+  <string name="navigation_bar_arrow_keys_summary">입력시 좌우 커서 방향키를 표시합니다. 입력기 전환키는 표시되지 않습니다.</string>
+  <string name="navigation_bar_recents_title">최근 실행 목록 버튼을 길게 누를 때 동작</string>
   <!-- Power menu -->
   <string name="power_menu_title">전원 메뉴</string>
   <string name="power_menu_reboot_title">재시작 메뉴</string>
@@ -959,13 +965,18 @@
   <string name="power_menu_screenrecord_title">화면 녹화</string>
   <string name="power_menu_torch">손전등</string>
   <string name="power_menu_onthego_title">On-The-Go 모드</string>
+  <string name="power_menu_emergency_title">긴급 버튼</string>
   <string name="power_menu_bug_report_disabled">개발자 설정에서 오류 보고가 비활성화되었습니다</string>
+  <string name="dt2l_camera_category">DT2L 카메라 옵션</string>
+  <string name="dt2l_camera_vib_title">실행 진동 조절</string>
   <string name="dt2l_camera_vib_summary">카메라를 실행중일 때 진동 조절</string>
   <string name="volume_keys_control_ring_stream_title">벨소리 크기 조절</string>
   <string name="volume_keys_control_ring_stream_summary_on">볼륨 키로 벨소리 크기 조절</string>
   <string name="volume_keys_control_ring_stream_summary_off">볼륨 키로 미디어 볼륨 크기 조절</string>
   <string name="volume_answer_call_title">볼륨 키로 전화받기</string>
   <string name="volume_answer_call_summary">볼륨+ 키로 전화를 받습니다</string>
+  <string name="vol_up_disable_overlays_title">볼륩 업 버튼으로 테마 오버레이 비활성화</string>
+  <string name="vol_up_disable_overlays_summary">부팅하는 동안 볼륨 업 버튼을 눌러서 적용된 모든 테마 오버레이를 비활성화 합니다</string>
   <string name="camera_double_tap_power_gesture_title">전원 버튼을 두 번 눌러 카메라 열기</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <string name="camera_double_tap_power_gesture_desc">화면 잠금을 해제하지 않고 빠르게 카메라 열기</string>
@@ -978,6 +989,7 @@
   <string name="lockscreen_maxnotif_config">최대 알림 개수</string>
   <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">소리 크기 조정</string>
+  <string name="qs_fancy_animation_title">화려한 빠른 설정 애니메이션</string>
   <string name="qs_fancy_animation_summary">상태 표시줄을 내릴 때 다른 애니메이션 효과 활성화</string>
   <!-- Status bar -->
   <string name="status_bar_title">상태 표시줄</string>
@@ -987,9 +999,42 @@
   <string name="status_bar_notif_count_summary">읽지 않은 알림 숫자 표시</string>
   <string name="status_bar_quick_qs_pulldown_title">빠르게 패널 내리기</string>
   <string name="status_bar_quick_qs_pulldown_summary">상태 표시줄의 %1$s 끝을 끌어내리면 빠른 설정을 보여줍니다</string>
+  <string name="status_bar_quick_qs_pulldown_summary_left">왼쪽</string>
+  <string name="status_bar_quick_qs_pulldown_summary_right">오른쪽</string>
+  <string name="status_bar_quick_qs_pulldown_off">끄기</string>
+  <string name="status_bar_quick_qs_pulldown_left">왼쪽</string>
+  <string name="status_bar_quick_qs_pulldown_right">오른쪽</string>
   <!-- Status bar - Clock -->
+  <string name="status_bar_clock_style_title">시계 스타일</string>
+  <string name="status_bar_clock_style_right">우측</string>
+  <string name="status_bar_clock_style_left">좌측</string>
+  <string name="status_bar_clock_style_center">중앙</string>
+  <string name="status_bar_clock_style_hidden">숨김</string>
+  <string name="status_bar_am_pm_title">AM/PM 스타일</string>
+  <string name="status_bar_am_pm_info">24시간 형식이 활성화됨</string>
+  <string name="status_bar_am_pm_normal">보통</string>
+  <string name="status_bar_am_pm_small">작게</string>
+  <string name="status_bar_am_pm_hidden">숨김</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">상태 표시줄 배터리 스타일</string>
+  <string name="status_bar_battery_style_icon_portrait">세로 아이콘</string>
+  <string name="status_bar_battery_style_icon_landscape">가로 아이콘</string>
+  <string name="status_bar_battery_style_circle">원 아이콘</string>
+  <string name="status_bar_battery_style_text">글자</string>
+  <string name="status_bar_battery_style_hidden">숨김</string>
+  <string name="status_bar_battery_style_solid">두껍게</string>
   <!-- Status bar - Battery percentage -->
+  <string name="status_bar_battery_percentage_title">배터리 잔량 표시</string>
+  <string name="status_bar_battery_percentage_default">숨김</string>
+  <string name="status_bar_battery_percentage_text_inside">아이콘 안에 표시</string>
+  <string name="status_bar_battery_percentage_text_next">아이콘 바깥에 표시</string>
+  <string name="status_bar_charge_color_title">상태 표시줄 배터리 아이콘 충전 색</string>
+  <string name="status_bar_charge_color_summary">충전 중일 때의 배터리 아이콘 색을 변경합니다</string>
+  <string name="force_charge_battery_text_title">상태 표시줄 배터리 충전 퍼센트</string>
+  <string name="force_charge_battery_text_summary_on">충전 중일 때 아이콘 밖에 배터리 퍼센트를 표시합니다</string>
+  <string name="force_charge_battery_text_summary_off">충전 중일 때 아이콘 안에 배터리 퍼센트를 표시합니다</string>
+  <string name="text_charging_symbol_title">퍼센트 표시와 함께 충전 기호 표시</string>
+  <string name="text_charging_symbol_dialog">충전 중일 때 배터리 아이콘 밖 퍼센트 표시 옆에 충전 기호를 표시합니다</string>
   <!-- Status bar - icon blacklist -->
   <!-- Smart pulldown-->
   <string name="smart_pulldown_title">스마트 내리기</string>
