@@ -18,6 +18,9 @@ import com.android.internal.logging.MetricsProto.MetricsEvent;
 
 
 import com.android.settings.R;
+import com.android.settings.util.CMDProcessor;
+import com.android.settings.util.Helpers;
+import com.android.settings.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.android.settings.rr.SeekBarPreference;
@@ -25,7 +28,6 @@ import com.android.settings.rr.SeekBarPreference;
 public class TransparencySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-        private static final String PREF_QS_TRANSPARENT_SHADE = "qs_transparent_shade";
         private static final String PREF_QS_TRANSPARENT_HEADER = "qs_transparent_header";
         private static final String PREF_QS_STROKE = "qs_stroke";
         private static final String PREF_QS_STROKE_COLOR = "qs_stroke_color";
@@ -44,7 +46,7 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
         private SeekBarPreference mQSDashWidth;
         private SeekBarPreference mQSDashGap;
         //private SeekBarPreference mNotificationsAlpha;
-        static final int DEFAULT_QS_STROKE_COLOR = 0xFF80CBC4;
+        static final int DEFAULT_QS_STROKE_COLOR = 0x4285F4;
 
     	@Override
     	public void onCreate(Bundle savedInstanceState) {
@@ -54,14 +56,6 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
 
             PreferenceScreen prefSet = getPreferenceScreen();
             final ContentResolver resolver = getActivity().getContentResolver();
-
-            // QS shade alpha
-            mQSShadeAlpha =
-                    (SeekBarPreference) prefSet.findPreference(PREF_QS_TRANSPARENT_SHADE);
-            int qSShadeAlpha = Settings.System.getInt(resolver,
-                    Settings.System.QS_TRANSPARENT_SHADE, 255);
-            mQSShadeAlpha.setValue(qSShadeAlpha / 1);
-            mQSShadeAlpha.setOnPreferenceChangeListener(this);
 
             // QS header alpha
             /*mQSHeaderAlpha =
@@ -87,7 +81,7 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
             mQSStrokeColor.setOnPreferenceChangeListener(this);
             int qSIntColor = Settings.System.getInt(resolver,
                     Settings.System.QS_STROKE_COLOR, DEFAULT_QS_STROKE_COLOR);
-            String qSHexColor = String.format("#%08x", (0xFF80CBC4 & qSIntColor));
+            String qSHexColor = String.format("#%08x", (0x4285F4 & qSIntColor));
             mQSStrokeColor.setSummary(qSHexColor);
             mQSStrokeColor.setNewPreviewColor(qSIntColor);
 
@@ -139,31 +133,24 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
 
         }
 
-   	 	@Override
+   	@Override
     	protected int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
-		}
+	}
 
         @Override
         public boolean onPreferenceChange(Preference preference, Object newValue) {
             ContentResolver resolver = getActivity().getContentResolver();
-            if (preference == mQSShadeAlpha) {
-                int alpha = (Integer) newValue;
-                Settings.System.putInt(resolver,
-                        Settings.System.QS_TRANSPARENT_SHADE, alpha * 1);
-                return true;
-            /*} else if (preference == mQSHeaderAlpha) {
-                int alpha = (Integer) newValue;
-                Settings.System.putInt(resolver,
-                        Settings.System.QS_TRANSPARENT_HEADER, alpha * 1);
-                return true;*/
-            } else if (preference == mQSStroke) {
+            if (preference == mQSStroke) {
                 int qSStroke = Integer.parseInt((String) newValue);
                 int index = mQSStroke.findIndexOfValue((String) newValue);
                 Settings.System.putIntForUser(resolver, Settings.System.
                         QS_STROKE, qSStroke, UserHandle.USER_CURRENT);
                 mQSStroke.setSummary(mQSStroke.getEntries()[index]);
                 QSSettingsDisabler(qSStroke);
+                if (index == 0) {
+                    Helpers.showSystemUIrestartDialog(getActivity());
+                }
                 return true;
             } else if (preference == mQSStrokeColor) {
                 String hex = ColorPickerPreference.convertToARGB(
@@ -209,13 +196,13 @@ public class TransparencySettings extends SettingsPreferenceFragment implements
                 mQSDashWidth.setEnabled(false);
                 mQSDashGap.setEnabled(false);
             } else if (qSStroke == 1) {
-				mQSStrokeColor.setEnabled(false);
+                mQSStrokeColor.setEnabled(false);
                 mQSStrokeThickness.setEnabled(true);
                 mQSCornerRadius.setEnabled(true);
                 mQSDashWidth.setEnabled(true);
                 mQSDashGap.setEnabled(true);
             } else {
-				mQSStrokeColor.setEnabled(true);
+                mQSStrokeColor.setEnabled(true);
                 mQSStrokeThickness.setEnabled(true);
                 mQSCornerRadius.setEnabled(true);
                 mQSDashWidth.setEnabled(true);

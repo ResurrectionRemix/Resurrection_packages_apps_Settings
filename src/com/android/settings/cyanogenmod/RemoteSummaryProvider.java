@@ -44,7 +44,7 @@ public class RemoteSummaryProvider implements SummaryLoader.SummaryProvider,
         if (listening) {
             RemotePreferenceManager.get(mActivity).attach(mKey, this);
         } else {
-            RemotePreferenceManager.get(mActivity).detach(mKey);
+            RemotePreferenceManager.get(mActivity).detach(mKey, this);
         }
     }
 

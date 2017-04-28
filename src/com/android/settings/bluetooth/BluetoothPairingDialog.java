@@ -38,6 +38,8 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.os.Handler;
+import android.os.Message;
 
 import com.android.internal.app.AlertActivity;
 import com.android.internal.app.AlertController;
@@ -58,6 +60,8 @@ public final class BluetoothPairingDialog extends AlertActivity implements
 
     private static final int BLUETOOTH_PIN_MAX_LENGTH = 16;
     private static final int BLUETOOTH_PASSKEY_MAX_LENGTH = 6;
+    private static final int PAIRING_POPUP_TIMEOUT = 35000;
+    private static final int MESSAGE_DELAYED_DISMISS = 1;
 
     private LocalBluetoothManager mBluetoothManager;
     private CachedBluetoothDeviceManager mCachedDeviceManager;
@@ -67,7 +71,7 @@ public final class BluetoothPairingDialog extends AlertActivity implements
     private EditText mPairingView;
     private Button mOkButton;
     private LocalBluetoothProfile mPbapClientProfile;
-
+    private boolean mReceiverRegistered;
 
     /**
      * Dismiss the dialog if the bond state changes to bonded or none,
@@ -96,10 +100,10 @@ public final class BluetoothPairingDialog extends AlertActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mReceiverRegistered = false;
 
         Intent intent = getIntent();
-        if (!intent.getAction().equals(BluetoothDevice.ACTION_PAIRING_REQUEST))
-        {
+        if (!intent.getAction().equals(BluetoothDevice.ACTION_PAIRING_REQUEST)) {
             Log.e(TAG, "Error: this activity may be started only with intent " +
                   BluetoothDevice.ACTION_PAIRING_REQUEST);
             finish();
@@ -123,6 +127,7 @@ public final class BluetoothPairingDialog extends AlertActivity implements
             case BluetoothDevice.PAIRING_VARIANT_PIN_16_DIGITS:
             case BluetoothDevice.PAIRING_VARIANT_PASSKEY:
                 createUserEntryDialog();
+                popTimedout();
                 break;
 
             case BluetoothDevice.PAIRING_VARIANT_PASSKEY_CONFIRMATION:
@@ -130,15 +135,19 @@ public final class BluetoothPairingDialog extends AlertActivity implements
                     intent.getIntExtra(BluetoothDevice.EXTRA_PAIRING_KEY, BluetoothDevice.ERROR);
                 if (passkey == BluetoothDevice.ERROR) {
                     Log.e(TAG, "Invalid Confirmation Passkey received, not showing any dialog");
+                    mDevice.setPairingConfirmation(false);
+                    finish();
                     return;
                 }
                 mPairingKey = String.format(Locale.US, "%06d", passkey);
                 createConfirmationDialog();
+                popTimedout();
                 break;
 
             case BluetoothDevice.PAIRING_VARIANT_CONSENT:
             case BluetoothDevice.PAIRING_VARIANT_OOB_CONSENT:
                 createConsentDialog();
+                popTimedout();
                 break;
 
             case BluetoothDevice.PAIRING_VARIANT_DISPLAY_PASSKEY:
@@ -147,6 +156,7 @@ public final class BluetoothPairingDialog extends AlertActivity implements
                     intent.getIntExtra(BluetoothDevice.EXTRA_PAIRING_KEY, BluetoothDevice.ERROR);
                 if (pairingKey == BluetoothDevice.ERROR) {
                     Log.e(TAG, "Invalid Confirmation Passkey or PIN received, not showing any dialog");
+                    finish();
                     return;
                 }
                 if (mType == BluetoothDevice.PAIRING_VARIANT_DISPLAY_PASSKEY) {
@@ -155,10 +165,13 @@ public final class BluetoothPairingDialog extends AlertActivity implements
                     mPairingKey = String.format("%04d", pairingKey);
                 }
                 createDisplayPasskeyOrPinDialog();
+                popTimedout();
                 break;
 
             default:
                 Log.e(TAG, "Incorrect pairing type received, not showing any dialog");
+                finish();
+                return;
         }
 
         /*
@@ -167,6 +180,7 @@ public final class BluetoothPairingDialog extends AlertActivity implements
          */
         registerReceiver(mReceiver, new IntentFilter(BluetoothDevice.ACTION_PAIRING_CANCEL));
         registerReceiver(mReceiver, new IntentFilter(BluetoothDevice.ACTION_BOND_STATE_CHANGED));
+        mReceiverRegistered = true;
     }
 
     private void createUserEntryDialog() {
@@ -373,7 +387,8 @@ public final class BluetoothPairingDialog extends AlertActivity implements
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mReceiver != null) {
+        if (mReceiverRegistered) {
+            mReceiverRegistered = false;
             unregisterReceiver(mReceiver);
         }
     }
@@ -469,4 +484,25 @@ public final class BluetoothPairingDialog extends AlertActivity implements
             mPairingView.setInputType(InputType.TYPE_CLASS_NUMBER);
         }
     }
+
+    private void popTimedout() {
+
+        Message message = mHandler.obtainMessage(MESSAGE_DELAYED_DISMISS);
+        mHandler.sendMessageDelayed(message, PAIRING_POPUP_TIMEOUT);
+
+    }
+
+    private final Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case MESSAGE_DELAYED_DISMISS:
+                    Log.v(TAG, "Delayed pairing pop up handler");
+                    dismiss();
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 }

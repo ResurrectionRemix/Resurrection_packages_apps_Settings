@@ -35,13 +35,11 @@
     <!-- Whether to hide IMS and DUN Apns -->
     <bool name="config_regional_hide_ims_and_dun_apns">false</bool>
     <!-- Carrier_enabled editable -->
-    <bool name="config_allow_edit_carrier_enabled" translatable="false">false</bool>
+    <bool name="config_allow_edit_carrier_enabled" translatable="false">true</bool>
 
     <bool name="config_regional_display_icc_id_enable">false</bool>
     <!-- When true enable color temperature setting. -->
     <bool name="config_enableColorTemperature">false</bool>
-
-    <bool name="config_video_call_datausage_enable">false</bool>
 
     <!-- carrier tethering default ssid and password begin -->
     <bool name="use_empty_password_default">false</bool>
@@ -49,11 +47,11 @@
     <!-- carrier tethering default ssid and password end -->
 
     <!-- show tethering help begin -->
-    <bool name="tethering_show_help_for_first_using">false</bool>
-    <bool name="tethering_show_help_menu">false</bool>
+    <bool name="tethering_show_help_for_first_using">true</bool>
+    <bool name="tethering_show_help_menu">true</bool>
     <!-- show tethering help end -->
     <!-- Config voice over lte in wireless settings begin -->
-    <bool name="config_voice_over_lte_enabled">false</bool>
+    <bool name="config_voice_over_lte_enabled">true</bool>
     <!-- Config voice over lte in wireless settings end -->
     <!-- carrier tethering account check begin -->
     <bool name="edit_hotspot_timeout_enable">false</bool>
@@ -63,6 +61,14 @@
 
     <bool name="config_regional_usb_tethering_quick_start_enable">false</bool>
     <bool name="config_regional_hotspot_tether_help_enable">false</bool>
+
+    <!-- Config to enable/disable wifi call notification -->
+    <bool name="config_regional_wifi_calling_notificaion_enable">false</bool>
+    <bool name="wifi_call_enhanced_setting">false</bool>
+
+    <bool name="tethering_need_show_activated">false</bool>
+    <bool name="config_regional_security_show_password_enable">false</bool>
+    <bool name="config_hotspot_need_show_activated_dialog">false</bool>
 
     <!-- Fully-qualified class name for the implementation of the FeatureFactory to be instantiated. -->
     <string name="config_featureFactory" translatable="false">com.android.settings.overlay.FeatureFactoryImpl</string>
@@ -81,6 +87,11 @@
     <!-- When true enable gesture setting. -->
     <bool name="config_gesture_settings_enabled">false</bool>
 
+    <bool name="config_video_call_datausage_enable">false</bool>
+
+    <!-- If the Storage Manager settings are enabled. -->
+    <bool name="config_storage_manager_settings_enabled">false</bool>
+
     <!-- Display ro.product.name above Device model -->
     <bool name="config_displayDeviceName">false</bool>
 
@@ -93,6 +104,15 @@
     <integer name="config_fingerprintSensorLocation">0</integer>
 
     <!-- If the Storage Manager settings are enabled. -->
-    <bool name="config_storage_manager_settings_enabled">false</bool>
+    <bool name="config_storage_manager_settings_enabled">true</bool>
 
+    <!-- Does the device allow updating the recovery. -->
+    <bool name="config_enableRecoveryUpdater">true</bool>
+
+    <!-- Enable/disable wifi region code preferences -->
+    <bool name="config_hideWifiRegionCode">false</bool>
+
+    <!-- Does the device allow for manual subscription provisioning? Only works for multi-sim devices,
+         and currently depends on QC's proprietary telephony stack -->
+    <bool name="config_enableManualSubProvisioning">true</bool>
 </resources>

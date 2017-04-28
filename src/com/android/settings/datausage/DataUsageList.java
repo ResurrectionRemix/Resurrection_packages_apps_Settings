@@ -448,7 +448,7 @@ public class DataUsageList extends DataUsageBase {
                 collapseKey = uid;
                 category = AppItem.CATEGORY_APP;
             } else if ((ai != null) && (uid == ai.uid) && getContext().getResources().getBoolean(
-                    R.bool.config_video_call_datausage_enable)){
+                    com.android.internal.R.bool.config_video_call_datausage_enable)){
                 collapseKey = uid;
                 category = AppItem.CATEGORY_APP;
             } else {

@@ -114,9 +114,7 @@
     <ListPreference
         android:key="root_access"
         android:title="@string/root_access"
-        android:persistent="false"
-        android:entries="@array/root_access_entries"
-        android:entryValues="@array/root_access_values" />
+        android:persistent="false" />
 
     <Preference
         android:key="root_appops"
@@ -135,7 +133,8 @@
             android:key="adb_notify"
             android:title="@string/adb_notify"
             android:summary="@string/adb_notify_summary"
-            android:dependency="enable_adb" />
+            android:dependency="enable_adb"
+            android:defaultValue="true" />
 
         <SwitchPreference
             android:key="adb_over_network"
@@ -151,6 +150,17 @@
 
         <Preference android:key="clear_adb_keys"
                 android:title="@string/clear_adb_keys" />
+
+        <com.android.settings.HostnamePreference
+            android:key="device_hostname"
+            android:title="@string/device_hostname"
+            android:dialogTitle="@string/device_hostname"
+            android:positiveButtonText="@string/wifi_save"
+            android:negativeButtonText="@string/wifi_cancel"
+            android:selectAllOnFocus="true"
+            android:imeOptions="actionDone"
+            android:inputType="textNoSuggestions"
+            android:persistent="false" />
 
         <SwitchPreference
             android:key="enable_terminal"
@@ -195,6 +205,11 @@
             android:dialogTitle="@string/select_logpersist_dialog_title"
             android:entries="@array/select_logpersist_titles"
             android:entryValues="@array/select_logpersist_values" />
+
+        <SwitchPreference
+            android:key="force_authorize_substratum_packages"
+            android:title="@string/force_authorize_substratum_packages_title"
+            android:summary="@string/force_authorize_substratum_packages_summary" />
 
     </PreferenceCategory>
 
@@ -272,19 +287,19 @@
             android:title="@string/force_rtl_layout_all_locales"
             android:summary="@string/force_rtl_layout_all_locales_summary"/>
 
-        <ListPreference
+        <com.android.settings.AnimationScalePreference
             android:key="window_animation_scale"
             android:title="@string/window_animation_scale_title"
             android:entries="@array/window_animation_scale_entries"
             android:entryValues="@array/window_animation_scale_values" />
 
-        <ListPreference
+        <com.android.settings.AnimationScalePreference
             android:key="transition_animation_scale"
             android:title="@string/transition_animation_scale_title"
             android:entries="@array/transition_animation_scale_entries"
             android:entryValues="@array/transition_animation_scale_values" />
 
-        <ListPreference
+        <com.android.settings.AnimationScalePreference
             android:key="animator_duration_scale"
             android:title="@string/animator_duration_scale_title"
             android:entries="@array/animator_duration_scale_entries"

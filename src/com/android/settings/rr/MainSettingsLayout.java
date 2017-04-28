@@ -113,10 +113,10 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                     Settings.System.RR_CONFIG_STYLE, 0);
         if (which == 1) {
         mTabs.setVisibility(View.GONE);
-        mFab5.setTitle("Toggle tabs layout");
+        mFab5.setTitle(getString(R.string.fab_layout_toggle));
         } else if (which == 0) {
         mTabs.setVisibility(View.VISIBLE);
-        mFab5.setTitle("Toggle classic layout");
+        mFab5.setTitle(getString(R.string.fab_layout_update));
         }
 
         boolean isShowing =   Settings.System.getInt(resolver,
@@ -134,7 +134,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mFab2.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-             CMDProcessor.runSuCommand("pkill -f com.android.systemui");
+             Helpers.showSystemUIrestartDialog(getActivity());
              }
         });
 
@@ -142,15 +142,15 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              @Override
              public void onClick(View v) {
              AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-             alertDialog.setTitle("Reset Settings");
-             alertDialog.setMessage("Reset all RR configurations to default values?");
+             alertDialog.setTitle(getString(R.string.rr_reset_settings));
+             alertDialog.setMessage(getString(R.string.rr_reset_message));
 
-             alertDialog.setButton("Yes", new DialogInterface.OnClickListener() {
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
                          public void onClick(DialogInterface dialog, int which) {
                          stockitems();
                          }
                     });
-             alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,"Cancel", new DialogInterface.OnClickListener() {
+             alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
                          public void onClick(DialogInterface dialog, int which) {
                          return;
                          }

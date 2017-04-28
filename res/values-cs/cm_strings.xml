@@ -61,7 +61,7 @@
   <string name="app_ops_categories_device">Zařízení</string>
   <string name="app_ops_categories_background">Pozadí</string>
   <string name="app_ops_categories_bootup">Při startu</string>
-  <string name="app_ops_categories_su">Superuser</string>
+  <string name="app_ops_categories_su">Root přístup</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">přibližná poloha</string>
   <string name="app_ops_summaries_fine_location">přesná poloha</string>
@@ -106,7 +106,7 @@
   <string name="app_ops_summaries_keep_awake">udržet probuzené</string>
   <string name="app_ops_summaries_monitor_location">sledovat polohu</string>
   <string name="app_ops_summaries_monitor_high_power_location">sledovat polohu v režimu vysoké spotřeby</string>
-  <string name="app_ops_summaries_get_usage_stats">získání statistiky použití</string>
+  <string name="app_ops_summaries_get_usage_stats">získat statistiky využití aplikace</string>
   <string name="app_ops_summaries_mute_unmute_microphone">vypnout/zapnout mikrofon</string>
   <string name="app_ops_summaries_toast_window">zobrazit náhledy</string>
   <string name="app_ops_summaries_project_media">project media</string>
@@ -131,7 +131,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">přepnout bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">spustit při startu</string>
   <string name="app_ops_summaries_toggle_nfc">přepnout NFC</string>
-  <string name="app_ops_summaries_toggle_mobile_data">přepnout mobilní data</string>
+  <string name="app_ops_summaries_toggle_mobile_data">vypnout/zapnout mobilní data</string>
   <string name="app_ops_summaries_superuser">Root přístup</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Získat přibližnou polohu</string>
@@ -202,7 +202,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Přepnout Bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Spustit při startu</string>
   <string name="app_ops_labels_toggle_nfc">Přepnout NFC</string>
-  <string name="app_ops_labels_toggle_mobile_data">Přepnout mobilní data</string>
+  <string name="app_ops_labels_toggle_mobile_data">Vypnout/zapnout mobilní data</string>
   <string name="app_ops_labels_superuser">Root přístup</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Povoleno</string>
@@ -227,10 +227,6 @@
   <string name="vibrator_intensity_dialog_warning">Nedoporučuje se použít hodnoty větší než %1$d%%</string>
   <string name="vibrator_intensity_dialog_reset">Obnovit</string>
   <!-- Sizes for pattern lockscreen -->
-  <string name="lock_pattern_size_3">3 × 3</string>
-  <string name="lock_pattern_size_4">4 × 4</string>
-  <string name="lock_pattern_size_5">5 × 5</string>
-  <string name="lock_pattern_size_6">6 × 6</string>
   <string name="lock_settings_picker_pattern_size_message">Zvolit velikost vzoru</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Zobrazit cestu chybného gesta</string>
@@ -276,7 +272,7 @@
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">Zobrazit počasí</string>
   <!-- title for lock screen blur preference -->
-  <string name="lockscreen_blur_enabled_title">Rozostřený zámek obrazovky</string>
+  <string name="lockscreen_blur_enabled_title">Rozostření pozadí</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Zabránit nechtěnému probuzení</string>
   <string name="proximity_wake_summary">Před probuzením gesty zkontrolovat senzor přiblížení</string>
@@ -287,8 +283,8 @@
   <string name="touchscreen_hovering_title">Detekce nad obrazovkou</string>
   <string name="touchscreen_hovering_summary">Umožňuje pohybovat se jakoby nad obsahem obrazovky podobně, jako když myší najedete na nějaký ovládací prvek</string>
   <!-- Whether to display IME switcher notifcation -->
-  <string name="ime_switcher_notify">Výběr oznámení</string>
-  <string name="ime_switcher_notify_summary">Zobrazit vstupní metody výběru oznámení</string>
+  <string name="ime_switcher_notify">Ikona pro volbu</string>
+  <string name="ime_switcher_notify_summary">Zobrazit ikonu volby vstupní metody</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <string name="notification_importance_very_low">Žádné přerušení v režimu celé obrazovky, žádný náhled, zvuk nebo vibrace. Zobrazit v dolní části seznamu oznámení. Skrýt ze zamykací obrazovky.</string>
   <!-- Stylus Icon -->
@@ -307,6 +303,8 @@
   <string name="adb_over_network">ADB přes síť</string>
   <string name="adb_over_network_summary">Povolit ladění přes TCP/IP síťové připojení (např. Wi\u2011Fi nebo síť USB). Toto nastavení bude obnoveno po restartu</string>
   <string name="adb_over_network_warning">VAROVÁNÍ: Když je ADB přes síť aktivní, váš telefon je otevřen pro vniknutí jakéhokoliv zařízení ze sítě!\n\nPoužívejte tuto funkci jen když jste připojen na důvěryhodné síti.\n\nChcete opravdu zapnout tuto funkci?</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">Hostitelské jméno zařízení</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Zvyšující se hlasitost vyzvánění</string>
   <string name="increasing_ring_min_volume_title">Počáteční hlasitost</string>
@@ -316,6 +314,18 @@
   <string name="zen_mode_vibration_never">Nevibrovat</string>
   <string name="zen_mode_vibration_calls_only">Vibrovat pouze při volání</string>
   <string name="zen_mode_vibration_calls_and_notifications">Vibrovat při volání a oznámení</string>
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">připomenutí</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">události</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">vybrané kontakty</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">vybrané zprávy</string>
   <!-- Notification sound timeout -->
   <string name="app_notification_sound_timeout_title">Minimální doba mezi zvuky oznámení</string>
   <string name="app_notification_sound_timeout_summary_template">Povolit zvuky nebo vibrace ne více než jednou každých <xliff:g id="duration">%1$s</xliff:g></string>
@@ -345,6 +355,24 @@
   <string name="security_settings_fingerprint_sensor_location_front">přední</string>
   <string name="security_settings_fingerprint_sensor_location_left">levá strana</string>
   <string name="security_settings_fingerprint_sensor_location_right">pravá strana</string>
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">Kód regionu Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">Zadejte kód regionu Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">Při nastavení kódu regionu došlo k problému.</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">Probudit při nabíjení</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Zapnout obrazovku při připojení nebo odpojení nabíječky</string>
+  <!-- Heads-up -->
+  <string name="heads_up_notifications_enabled_title">Plovoucí upozornění</string>
+  <string name="heads_up_notifications_enabled_summary">Zobrazit prioritní oznámení v malém plovoucím okně</string>
+  <!-- Encryption password -->
+  <string name="crypt_keeper_change_password_title">Změnit šifrovací heslo</string>
+  <string name="crypt_keeper_change_password_summary">Změnit heslo použité pro šifrování celého zařízení</string>
+  <string name="crypt_keeper_choose_your_password_header">Nastavit šifrovací heslo</string>
+  <string name="crypt_keeper_replace_password_title">Nahradit šifrovací heslo</string>
+  <string name="crypt_keeper_replace_password_summary">Odstranit samostatné šifrovací heslo</string>
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Další</string>
   <!-- Wi-Fi tethering inactivity timeout -->
@@ -353,12 +381,46 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 minuta</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 minut</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minut</string>
-  <string name="hotstpot_inactivity_timeout_never_summary_text">Žádný časový limit přenosného hotspotu Wi\u2011Fi</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Přenosný hotspot Wi\u2011Fi nemá žádný časový limit</string>
   <string name="hotstpot_inactivity_timeout_summary_text">Časový limit přenosného hotspot Wi\u2011Fi je <xliff:g id="timeout">%1$s</xliff:g></string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">Probudit při nabíjení</string>
-  <string name="wake_when_plugged_or_unplugged_summary">Zapnout obrazovku při připojení nebo odpojení nabíječky</string>
-  <!-- Heads-up -->
-  <string name="heads_up_notifications_enabled_title">Plovoucí upozornění</string>
-  <string name="heads_up_notifications_enabled_summary">Zobrazit prioritní oznámení v malém plovoucím okně</string>
+  <!-- Per-app data restrictions -->
+  <string name="data_usage_app_restrict_data_category_title">Mobilní datové připojení</string>
+  <string name="data_usage_app_restrict_wifi_category_title">Wi\u2011Fi datové připojení</string>
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <string name="data_usage_app_restrict_all_data_title">Zakázat mobilní datové připojení</string>
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <string name="data_usage_app_restrict_all_data_summary">Zakázat datové připojení přes mobilní sítě</string>
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <string name="data_usage_app_restrict_all_wifi_title">Zakázat Wi\u2011Fi datové připojení</string>
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <string name="data_usage_app_restrict_all_wifi_summary">Zakázat jakékoliv datové připojení přes Wi\u2011Fi sítě</string>
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Spojit hlasitost vyzvánění a oznámení</string>
+  <!-- Launch music player when headset is connected -->
+  <string name="headset_connect_player_title">Spustit aplikaci pro přehrávání hudby</string>
+  <string name="headset_connect_player_summary">Pokud jsou připojena sluchátka, spustit výchozí aplikaci pro přehrávání hudby</string>
+  <!-- Update recovery -->
+  <string name="update_recovery_title">Aktualizovat recovery oddíl</string>
+  <string name="update_recovery_summary">Aktualizovat oddíl recovery pomocí aktualizace systému</string>
+  <string name="update_recovery_on_warning">UPOZORNĚNÍ: Pokud je tato funkce zapnutá, vaše nainstalované recovery bude nahrazeno aktuální verzí z právě nainstalovaného systému.\n\nOddíl recovery bude aktualizován současně s aktualizací systému, čímž bude zajištěna kompatibilita s budoucími verzemi.\n\nChcete povolit tuto funkci?</string>
+  <string name="update_recovery_off_warning">VAROVÁNÍ: Pokud je tato funkce vypnutá, vaše nainstalované recovery nebude aktualizováno s aktualizacemi systému.\n\nBudoucí aktualizace systému se se starou verzí recovery nemusí správně nainstalovat.\n\nOpravdu chcete tuto funkci vypnout?</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">Dvojím klepnutím uspat</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Dvojitým poklepáním na stavovou lištu vypnout obrazovku</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> je <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
+  <string name="sim_enabled">povoleno</string>
+  <string name="sim_disabled">zakázána</string>
+  <string name="sim_missing">chybějící nebo vadná</string>
+  <string name="sim_enabler_need_disable_sim">SIM karta bude deaktivována. Přejete si pokračovat?</string>
+  <string name="sim_enabler_will_disable_sim_title">Varování</string>
+  <string name="sim_enabler_need_switch_data_service">Tato SIM karta bude zakázána a SIM <xliff:g id="slotid">%1$s</xliff:g> bude použita pro datové služby. Jste si jisti, že chcete pokračovat?</string>
+  <string name="sim_enabler_airplane_on">Nelze provést akci, když je aktivován režim V letadle.</string>
+  <string name="sim_enabler_in_call">Při hovoru tuto akci nelze provést.</string>
+  <string name="sim_enabler_both_inactive">Nelze zakázat všechny SIM karty</string>
+  <string name="sim_enabler_enabling">Aktivování\u2026</string>
+  <string name="sim_enabler_disabling">Deaktivování\u2026</string>
+  <string name="sub_activate_success">SIM karta aktivována.</string>
+  <string name="sub_activate_failed">Aktivace selhala.</string>
+  <string name="sub_deactivate_success">SIM karta deaktivována.</string>
+  <string name="sub_deactivate_failed">Deaktivace selhala.</string>
 </resources>

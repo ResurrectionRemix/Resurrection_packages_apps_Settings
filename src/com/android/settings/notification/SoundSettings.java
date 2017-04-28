@@ -158,16 +158,16 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                 com.android.internal.R.drawable.ic_audio_media_mute);
         initVolumePreference(KEY_ALARM_VOLUME, AudioManager.STREAM_ALARM,
                 com.android.internal.R.drawable.ic_audio_alarm_mute);
+        mRingOrNotificationPreference =
+                initVolumePreference(KEY_NOTIFICATION_VOLUME, AudioManager.STREAM_NOTIFICATION,
+                        com.android.internal.R.drawable.ic_audio_ring_notif_mute);
         if (mVoiceCapable) {
             mRingOrNotificationPreference =
                     initVolumePreference(KEY_RING_VOLUME, AudioManager.STREAM_RING,
                             com.android.internal.R.drawable.ic_audio_ring_notif_mute);
-            removePreference(KEY_NOTIFICATION_VOLUME);
         } else {
-            mRingOrNotificationPreference =
-                    initVolumePreference(KEY_NOTIFICATION_VOLUME, AudioManager.STREAM_NOTIFICATION,
-                            com.android.internal.R.drawable.ic_audio_ring_notif_mute);
             removePreference(KEY_RING_VOLUME);
+            removePreference("volume_link_notification");
         }
 
         initRingtones();
@@ -280,7 +280,9 @@ public class SoundSettings extends SettingsPreferenceFragment implements Indexab
                 ? com.android.internal.R.drawable.ic_audio_ring_notif_mute
                 : mRingerMode == AudioManager.RINGER_MODE_VIBRATE || wasRingerModeVibrate()
                 ? com.android.internal.R.drawable.ic_audio_ring_notif_vibrate
-                : R.drawable.ic_audio_ring);
+                : mRingOrNotificationPreference.getKey().equals(KEY_RING_VOLUME)
+                ? R.drawable.ic_audio_ring
+                : com.android.internal.R.drawable.ic_audio_ring_notif);
     }
 
     private boolean wasRingerModeVibrate() {

@@ -42,10 +42,16 @@
     <string name="vt_provisioned_switch_string" msgid="7876998291744854759">"ভিডিও কলিং এর ব্যবস্থা আছে"</string>
     <string name="wfc_provisioned_switch_string" msgid="3985406545172898078">"Wifi কলিং এর ব্যবস্থা আছে"</string>
     <string name="radio_info_radio_power" msgid="1208229437948820417">"সেলুলার রেডিও পাওয়ার"</string>
-    <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"SIM ঠিকানা বই দেখুন"</string>
+    <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"সিম ঠিকানা বই দেখুন"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"স্থায়ী ডায়াল নম্বরগুলি দেখুন"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"সার্ভিস ডায়াল নম্বরগুলি দেখুন"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"PDP তালিকা পান"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"IMS পরিষেবার স্থিতি"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS স্থিতি"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"নিবন্ধিত হয়েছে"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"নিবন্ধিত নয়"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"উপলব্ধ"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"অনুপলব্ধ"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS নিবন্ধীকরণ: <xliff:g id="STATUS">%1$s</xliff:g>\nভয়েস ওভার LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nভয়েস ওভার WiFi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nভিডিও কলিং: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT ইন্টারফেস: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"পরিষেবায়"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"পরিষেবার বাইরে"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"শুধুমাত্র জরুরি কল"</string>
@@ -145,8 +151,8 @@
     <string name="bluetooth_pb_remember_choice" msgid="3622898084442402071">"আবার জিজ্ঞাসা করবেন না"</string>
     <string name="bluetooth_map_request" msgid="4595727689513143902">"বার্তা অ্যাক্সেসের অনুরোধ"</string>
     <string name="bluetooth_map_acceptance_dialog_text" msgid="8712508202081143737">"%1$s আপনার বার্তাগুলি অ্যাক্সেস করতে ইচ্ছুক। %2$s এ অ্যাক্সেস দেবেন?"</string>
-    <string name="bluetooth_sap_request" msgid="2669762224045354417">"SIM অ্যাক্সেস করার অনুরোধ"</string>
-    <string name="bluetooth_sap_acceptance_dialog_text" msgid="4414253873553608690">"<xliff:g id="DEVICE_NAME_0">%1$s</xliff:g> আপনার SIM কার্ড অ্যাক্সেস করতে চায়। এই SIM কার্ড অ্যাক্সেসের অনুমোদন দিলে তা সংযোগের সময়ে আপনার ডিভাইসে ডেটা সংযোগ অক্ষম করবে। <xliff:g id="DEVICE_NAME_1">%2$s?</xliff:g> -এ অ্যাক্সেস দিন"</string>
+    <string name="bluetooth_sap_request" msgid="2669762224045354417">"সিম অ্যাক্সেস করার অনুরোধ"</string>
+    <string name="bluetooth_sap_acceptance_dialog_text" msgid="4414253873553608690">"<xliff:g id="DEVICE_NAME_0">%1$s</xliff:g> আপনার সিম কার্ড অ্যাক্সেস করতে চায়। এই সিম কার্ড অ্যাক্সেসের অনুমোদন দিলে তা সংযোগের সময়ে আপনার ডিভাইসে ডেটা সংযোগ অক্ষম করবে। <xliff:g id="DEVICE_NAME_1">%2$s?</xliff:g> -এ অ্যাক্সেস দিন"</string>
     <string name="date_and_time" msgid="9062980487860757694">"দিন ও তারিখ"</string>
     <string name="choose_timezone" msgid="1362834506479536274">"সময় অঞ্চল বেছে নিন"</string>
     <string name="display_preview_label" msgid="1127597250917274792">"পূর্বরূপ:"</string>
@@ -242,9 +248,9 @@
     <string name="dlg_remove_locales_error_message" msgid="6697381512654262821">"অন্তত পক্ষে একটি পছন্দের ভাষা রাখুন"</string>
     <string name="locale_not_translated" msgid="516862628177166755">"কিছু অ্যাপ্লিকেশানের মধ্যে নাও উপলব্ধ হতে পারে"</string>
     <string name="action_drag_label_move_up" msgid="9052210023727612540">"উপরে সরান"</string>
-    <string name="action_drag_label_move_down" msgid="7448713844582912157">"নীচে সরান"</string>
+    <string name="action_drag_label_move_down" msgid="7448713844582912157">"নিচে সরান"</string>
     <string name="action_drag_label_move_top" msgid="557081389352288310">"শীর্ষে সরান"</string>
-    <string name="action_drag_label_move_bottom" msgid="2468642142414126482">"নীচে সরান"</string>
+    <string name="action_drag_label_move_bottom" msgid="2468642142414126482">"নিচে সরান"</string>
     <string name="action_drag_label_remove" msgid="2861038147166966206">"ভাষা সরান"</string>
     <string name="activity_picker_label" msgid="6295660302548177109">"কার্যকলাপ বেছে নিন"</string>
     <string name="device_info_label" msgid="6551553813651711205">"ডিভাইস তথ্য"</string>
@@ -268,7 +274,7 @@
     <string name="radio_controls_summary" msgid="2837395036275123133">"ওয়াই-ফাই, ব্লুটুথ, বিমান মোড, সেলুলার নেটওয়ার্ক ও VPN-গুলি পরিচালনা করুন"</string>
     <string name="cellular_data_title" msgid="2525947635539415202">"সেলুলার ডেটা"</string>
     <string name="calls_title" msgid="3544471959217176768">"কলগুলি"</string>
-    <string name="sms_messages_title" msgid="1778636286080572535">"SMS বার্তাগুলি"</string>
+    <string name="sms_messages_title" msgid="1778636286080572535">"এসএমএসগুলি"</string>
     <string name="cellular_data_summary" msgid="4575500999626276446">"সেলুলার নেটওয়ার্কের মাধ্যমে ডাটা ব্যবহারের অনুমতি দিন"</string>
     <string name="allow_data_usage_title" msgid="2238205944729213062">"রোমিংয়ের সময় ডাটা ব্যবহারের অনুমতি দিন"</string>
     <string name="roaming" msgid="3596055926335478572">"ডেটা রোমিং"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"নিষ্ক্রিয় থাকাকালীন ওয়াই-ফাই চালু রাখুন"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"স্ক্রীন বন্ধ থাকলেও ওয়াই-ফাই চালু"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"সেটিং পরিবর্তন করতে একটি সমস্যা হয়েছে"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"অপারেটর নেটওয়ার্কে সংযোগ করুন"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"উপলব্ধ হলেই অপারেটরের নেটওয়ার্কে সংযোগ করুন"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"কর্মক্ষমতা উন্নত করুন"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"ওয়াই-ফাই  অপ্টিমাইজেশান"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"ওয়াই-ফাই চালু থাকাকালীন ব্যাটারি ব্যবহার কমান"</string>
@@ -998,14 +1006,14 @@
     <string name="sim_enter_cancel" msgid="6240422158517208036">"বাতিল করুন"</string>
     <string name="sim_multi_sims_title" msgid="9159427879911231239">"একাধিক সিম পাওয়া গেছে"</string>
     <string name="sim_multi_sims_summary" msgid="7018740080801483990">"আপনি সেলুলার ডেটার জন্য যে সিম পছন্দ করছেন তা নির্বাচন করুন।"</string>
-    <string name="sim_change_data_title" msgid="294357201685244532">"ডেটা SIM পরিবর্তন করবেন?"</string>
+    <string name="sim_change_data_title" msgid="294357201685244532">"ডেটা সিম পরিবর্তন করবেন?"</string>
     <string name="sim_change_data_message" msgid="1313940695939674633">"সেলুলার ডেটার জন্য <xliff:g id="OLD_SIM">%2$s</xliff:g> এর পরিবর্তে <xliff:g id="NEW_SIM">%1$s</xliff:g> ব্যবহার করবেন?"</string>
-    <string name="sim_preferred_title" msgid="5567909634636045268">"পছন্দের SIM কার্ড আপডেট করবেন?"</string>
+    <string name="sim_preferred_title" msgid="5567909634636045268">"পছন্দের সিম কার্ড আপডেট করবেন?"</string>
     <string name="sim_preferred_message" msgid="301251431163650167">"আপনার ডিভাইসে শুধুমাত্র <xliff:g id="NEW_SIM">%1$s</xliff:g> SIMটি রয়েছে৷ আপনি কি মোবাইল ডেটা, কল এবং SMS বার্তাগুলির জন্য এই SIMটি ব্যবহার করতে চান?"</string>
     <string name="wrong_pin_code_pukked" msgid="4003655226832658066">"ভুল সিম পিন কোড, আপনার ডিভাইসটি আনলক করতে এখন আপনাকে অবশ্যই আপনার ক্যারিয়ারের সাথে যোগাযোগ করতে হবে৷"</string>
     <plurals name="wrong_pin_code" formatted="false" msgid="1582398808893048097">
-      <item quantity="one">ভুল SIM পিন কোড, আপনার কাছে আর <xliff:g id="NUMBER_1">%d</xliff:g>টি প্রচেষ্টা বাকি রয়েছে৷</item>
-      <item quantity="other">ভুল SIM পিন কোড, আপনার কাছে আর <xliff:g id="NUMBER_1">%d</xliff:g>টি প্রচেষ্টা বাকি রয়েছে৷</item>
+      <item quantity="one">ভুল সিম পিন কোড, আপনার কাছে আর <xliff:g id="NUMBER_1">%d</xliff:g>টি প্রচেষ্টা বাকি রয়েছে৷</item>
+      <item quantity="other">ভুল সিম পিন কোড, আপনার কাছে আর <xliff:g id="NUMBER_1">%d</xliff:g>টি প্রচেষ্টা বাকি রয়েছে৷</item>
     </plurals>
     <string name="pin_failed" msgid="1848423634948587645">"সিম পিন ক্রিয়াকলাপটি ব্যর্থ হয়েছে!"</string>
     <string name="device_info_settings" product="tablet" msgid="1119755927536987178">"ট্যাবলেট স্থিতি"</string>
@@ -2476,17 +2484,17 @@
     <string name="sim_cards_changed_message" msgid="7900721153345139783">"সিম কার্ড পরিবর্তিত হয়েছে"</string>
     <string name="sim_cards_changed_message_summary" msgid="8258058274989383204">"কার্যকলাপগুলি সেট করতে আলতো চাপুন"</string>
     <string name="sim_cellular_data_unavailable" msgid="9018555543451203035">"সেলুলার ডেটা অনুপলব্ধ"</string>
-    <string name="sim_cellular_data_unavailable_summary" msgid="5416535001368135327">"একটি ডেটা SIM নির্বাচন করতে আলতো চাপুন"</string>
+    <string name="sim_cellular_data_unavailable_summary" msgid="5416535001368135327">"একটি ডেটা সিম নির্বাচন করতে আলতো চাপুন"</string>
     <string name="sim_calls_always_use" msgid="7936774751250119715">"কলের জন্য সবসময় এটি ব্যবহার করুন"</string>
-    <string name="select_sim_for_data" msgid="2366081042162853044">"ডেটার জন্য একটি SIM বেছে নিন"</string>
-    <string name="data_switch_started" msgid="2040761479817166311">"ডেটা SIM পাল্টাতে এক মিনিট পর্যন্ত সময় লাগতে পারে..."</string>
+    <string name="select_sim_for_data" msgid="2366081042162853044">"ডেটার জন্য একটি সিম বেছে নিন"</string>
+    <string name="data_switch_started" msgid="2040761479817166311">"ডেটা সিম পাল্টাতে এক মিনিট পর্যন্ত সময় লাগতে পারে..."</string>
     <string name="select_sim_for_calls" msgid="3503094771801109334">"এর মাধ্যমে কল করুন"</string>
     <string name="sim_select_card" msgid="211285163525563293">"একটি সিম কার্ড নির্বাচন করুন"</string>
     <string name="sim_card_number_title" msgid="7845379943474336488">"সিম <xliff:g id="CARD_NUMBER">%1$d</xliff:g>"</string>
     <string name="sim_slot_empty" msgid="8964505511911854688">"সিম খালি"</string>
     <string name="sim_editor_name" msgid="1722945976676142029">"সিম এর নাম"</string>
-    <string name="sim_name_hint" msgid="7038643345238968930">"SIM নাম লিখুন"</string>
-    <string name="sim_editor_title" msgid="4034301817366627870">"SIM স্লট %1$d"</string>
+    <string name="sim_name_hint" msgid="7038643345238968930">"সিম নাম লিখুন"</string>
+    <string name="sim_editor_title" msgid="4034301817366627870">"সিম স্লট %1$d"</string>
     <string name="sim_editor_carrier" msgid="5684523444677746573">"পরিষেবা প্রদানকারী"</string>
     <string name="sim_editor_number" msgid="6705955651035440667">"সংখ্যা"</string>
     <string name="sim_editor_color" msgid="2542605938562414355">"সিম এর রঙ"</string>
@@ -2503,9 +2511,9 @@
     <string name="preferred_network_offload_footer" msgid="5857279426054744020">"অক্ষম নেটওয়ার্ক নাম সম্প্রচার আপনার নেটওয়ার্ক তথ্যকে তৃতীয় পক্ষের অ্যাক্সেস হওয়া থেকে রক্ষা করে।"</string>
     <string name="preferred_network_offload_popup" msgid="2252915199889604600">"নেটওয়ার্ক নাম সম্প্রচার অক্ষম করলে লুকানো নেটওয়ার্কের সাথে স্বয়ংক্রিয় সংযোগ প্রতিরোধ করা সম্ভব হবে।"</string>
     <string name="sim_signal_strength" msgid="9144010043784767984">"<xliff:g id="DBM">%1$d</xliff:g> dBm <xliff:g id="ASU">%2$d</xliff:g> asu"</string>
-    <string name="sim_notification_title" msgid="6272913297433198340">"SIM কার্ডগুলি পরিবর্তন করা হয়েছে৷"</string>
+    <string name="sim_notification_title" msgid="6272913297433198340">"সিম কার্ডগুলি পরিবর্তন করা হয়েছে৷"</string>
     <string name="sim_notification_summary" msgid="8858043655706669772">"সেট আপ করার জন্য আলতো চাপুন"</string>
-    <string name="sim_pref_divider" msgid="6778907671867621874">"এর জন্য পছন্দসই SIM"</string>
+    <string name="sim_pref_divider" msgid="6778907671867621874">"এর জন্য পছন্দসই সিম"</string>
     <string name="sim_calls_ask_first_prefs_title" msgid="7941299533514115976">"প্রতিবার জিজ্ঞাসা করুন"</string>
     <string name="sim_selection_required_pref" msgid="3446721423206414652">"নির্বাচন করার প্রয়োজন"</string>
     <string name="dashboard_title" msgid="5453710313046681820">"সেটিংস"</string>
@@ -2644,11 +2652,11 @@
     <string name="notification_listener_disable_warning_summary" msgid="6738915379642948000">"যদি আপনি <xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> এর জন্য বিজ্ঞপ্তির অ্যাক্সেস বন্ধ করেন, তাহলে \'বিরক্ত করবেন না\' এর অ্যাক্সেসও বন্ধ হয়ে যেতে পারে৷"</string>
     <string name="notification_listener_disable_warning_confirm" msgid="8333442186428083057">"বন্ধ করুন"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8586417377104211584">"বাতিল করুন"</string>
-    <string name="vr_listeners_title" msgid="1318901577754715777">"VR সহায়তাকারী পরিষেবাগুলি"</string>
+    <string name="vr_listeners_title" msgid="1318901577754715777">"(ভিআর)VR সহায়তাকারী পরিষেবাগুলি"</string>
     <string name="no_vr_listeners" msgid="2689382881717507390">"vr সহায়তাকারী পরিষেবা হিসাবে চলার জন্য কোনো অ্যাপ্লিকেশান ইনস্টল করা নেই৷"</string>
-    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"<xliff:g id="SERVICE">%1$s</xliff:g> এর জন্য VR পরিষেবার অ্যাক্সেসের অনুমতি দেবেন?"</string>
-    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"ভার্চুয়াল রিয়েলিটি মোডে আপনি যখন অ্যাপ্লিকেশানগুলি ব্যবহার করবেন তখন <xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> চালাতে পারবেন৷"</string>
-    <string name="display_vr_pref_title" msgid="8104485269504335481">"যখন ডিভাইসটি VR মোডে থাকে"</string>
+    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"<xliff:g id="SERVICE">%1$s</xliff:g> এর জন্য (ভিআর)VR পরিষেবার অ্যাক্সেসের অনুমতি দেবেন?"</string>
+    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"ভার্চুয়াল রিয়ালিটি মোডে আপনি যখন অ্যাপ্লিকেশানগুলি ব্যবহার করবেন তখন <xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> চালাতে পারবেন৷"</string>
+    <string name="display_vr_pref_title" msgid="8104485269504335481">"যখন ডিভাইসটি (ভিআর)VR মোডে থাকে"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"অস্পষ্ট কমান (প্রস্তাবিত)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"ফ্লিকার কমান"</string>
     <string name="manage_zen_access_title" msgid="2611116122628520522">"বিরক্ত করবেন না অ্যাক্সেস করুন"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"ব্যাটারি অপ্টিমাইজেশান"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"ব্যবহারের সতর্কতা"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"অপ্টিমাইজ করা নেই"</string>
     <string name="high_power_on" msgid="6216293998227583810">"অপ্টিমাইজ করা নেই"</string>
     <string name="high_power_off" msgid="3393904131961263278">"ব্যাটারির ব্যবহার অপ্টিমাইজ করা হচ্ছে"</string>
@@ -2974,7 +2983,7 @@
     <string name="permit_draw_overlay" msgid="6606018549732046201">"অন্য অ্যাপ্লিকেশানগুলির উপর অঙ্কন করার অনুমতি দিন"</string>
     <string name="app_overlay_permission_preference" msgid="8355410276571387439">"উপরে অ্যাপ্লিকেশানের অঙ্কনের অনুমতি"</string>
     <string name="allow_overlay_description" msgid="7895191337585827691">"এই অনুমতিটি একটি অ্যাপ্লিকেশানকে আপনি যে অন্যান্য অ্যাপ্লিকেশানগুলি ব্যবহার করছেন সেগুলির উপরে প্রদর্শিত হওয়ার অনুমতি দেয় এবং তা আপনার অন্যান্য অ্যাপ্লিকেশানে ইন্টারফেস ব্যবহারের ক্ষেত্রে হস্তক্ষেপ করতে পারে অথবা আপনি অন্য অ্যাপ্লিকেশানগুলিতে যা দেখছেন বলে মনে করছেন সেটি পরিবর্তন করতে পারে৷"</string>
-    <string name="keywords_vr_listener" msgid="7441221822576384680">"vr ভার্চুয়াল রিয়েলিটি লিসনার স্টিরিও সহায়তাকারী পরিষেবা"</string>
+    <string name="keywords_vr_listener" msgid="7441221822576384680">"ভার্চুয়াল রিয়েলিটিVR লিসনার স্টিরিও সহায়তাকারী পরিষেবা"</string>
     <string name="keywords_system_alert_window" msgid="8579673659566564926">"সিস্টেম সতর্কতা উইন্ডো ডায়লগ অন্যান্য অ্যাপ্লিকেশানের উপরে অঙ্কন"</string>
     <string name="overlay_settings" msgid="222062091489691363">"অন্যান্য অ্যাপ্লিকেশানের উপর অঙ্কন"</string>
     <string name="system_alert_window_summary" msgid="4268867238063922290">"<xliff:g id="COUNT_1">%d</xliff:g>টির মধ্যে <xliff:g id="COUNT_0">%d</xliff:g>টি অ্যাপ্লিকেশানকে অন্যান্য অ্যাপ্লিকেশানের উপরে অঙ্কনের অনুমতি দেওয়া হয়েছে"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"অ্যাপ্স ইনস্টল করা হয়নি"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"ইনস্টল করা অ্যাপ্স"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"আপনার সঞ্চয়স্থান এখন সঞ্চয়স্থান পরিচালকের দ্বারা পরিচালিত হচ্ছে"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"পরিষেবা প্রদানকারীর ব্যবস্থামূলক তথ্য"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"ট্রিগার পরিষেবা প্রদানকারীর ব্যবস্থা"</string>
 </resources>

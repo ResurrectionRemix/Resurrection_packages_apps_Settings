@@ -45,10 +45,16 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"SIM kartadagi manzillar kitobini ko‘rish"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Ruxsat etilgan raqamlarni ko‘rish"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Terish xizmati raqamlarini ko‘rish"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"PDP ro‘yxatini olish"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"IMS xizmati holati"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS holati"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Ro‘yxatga olingan"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Ro‘yxatdan o‘tmagan"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Mavjud"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Mavjud emas"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS registratsiyasi: <xliff:g id="STATUS">%1$s</xliff:g>\nLTE orqali: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nWi-Fi orqali: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nVideoqo‘ng‘iroq: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT interfeysi: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"Xizmat doirasida"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Xizmat doirasidan tashqarida"</string>
-    <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Faqat favqulodda qo‘ng‘iroqlar"</string>
+    <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Faqat favqulodda chaqiruvlar"</string>
     <string name="radioInfo_service_off" msgid="7536423790014501173">"Tarmoq o‘chirilgan"</string>
     <string name="radioInfo_roaming_in" msgid="9045363884600341051">"Rouming"</string>
     <string name="radioInfo_roaming_not" msgid="4849214885629672819">"Rouming o‘chirilgan"</string>
@@ -267,7 +273,7 @@
     <string name="wireless_networks_settings_title" msgid="3643009077742794212">"Simsiz tarmoqlar"</string>
     <string name="radio_controls_summary" msgid="2837395036275123133">"Wi‑Fi, Bluetooth, parvoz rejimi, mobil tarmoq va VPN tarmoqlarni boshqarish"</string>
     <string name="cellular_data_title" msgid="2525947635539415202">"Mobil internet"</string>
-    <string name="calls_title" msgid="3544471959217176768">"Qo‘ng‘iroqlar"</string>
+    <string name="calls_title" msgid="3544471959217176768">"Chaqiruvlar"</string>
     <string name="sms_messages_title" msgid="1778636286080572535">"SMS xabarlar"</string>
     <string name="cellular_data_summary" msgid="4575500999626276446">"Mobil internetdan foydalanishga ruxsat"</string>
     <string name="allow_data_usage_title" msgid="2238205944729213062">"Roumingda mob. int-dan foyd-sh"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Uyqu rejimida Wi-Fi"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Uyqu rejimida Wi-Fi yoniq tursin"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"Sozlamalarni o‘zgartirishda muammo paydo bo‘ldi"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Operator tarmoqlariga ulanish"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Agar bor bo‘lsa, operator tarmoqlariga ulanish"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Samaradorlikni oshirish"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Wi‑Fi optimallashuvi"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Wi‑Fi yoqilganda batareya sarfini kamaytirish"</string>
@@ -750,7 +758,7 @@
     <string name="wifi_wps_available_first_item" msgid="4422547079984583502">"WPS mavjud"</string>
     <string name="wifi_wps_available_second_item" msgid="8427520131718215301">" (WPS mavjud)"</string>
     <string name="wifi_wps_nfc_enter_password" msgid="2288214226916117159">"Tarmoqqa ulanish uchun parolni kiriting"</string>
-    <string name="wifi_scan_always_turnon_message" msgid="203123538572122989">"Joylashuv aniqligini yana ham yaxshilash va boshqa maqsadlar uchun, Wi-Fi o‘chirilgan bo‘lsada <xliff:g id="APP_NAME">%1$s</xliff:g> tarmoqlarni skanlash vazifasini yoqmoqchi.\n\nBu ruxsat tarmoqlarni skanlashni istagan barcha ilovalarga berilsinmi?"</string>
+    <string name="wifi_scan_always_turnon_message" msgid="203123538572122989">"Joylashuv aniqligini yana ham yaxshilash va boshqa maqsadlar uchun, Wi-Fi o‘chirilgan bo‘lsada <xliff:g id="APP_NAME">%1$s</xliff:g> tarmoqlarni qidirish vazifasini yoqmoqchi.\n\nBu ruxsat tarmoqlarni qidirishni istagan barcha ilovalarga berilsinmi?"</string>
     <string name="wifi_scan_always_turnoff_message" msgid="5538901671131941043">"Uni o‘chirish uchun menyudan “Qo‘shimcha” bandiga o‘ting."</string>
     <string name="wifi_scan_always_confirm_allow" msgid="5355973075896817232">"Ruxsat berish"</string>
     <string name="wifi_scan_always_confirm_deny" msgid="4463982053823520710">"Rad etish"</string>
@@ -2699,7 +2707,7 @@
     <string name="summary_divider_text" msgid="7228986578690919294">", "</string>
     <string name="summary_range_symbol_combination" msgid="5695218513421897027">"<xliff:g id="START">%1$s</xliff:g> - <xliff:g id="END">%2$s</xliff:g>"</string>
     <string name="summary_range_verbal_combination" msgid="8467306662961568656">"<xliff:g id="START">%1$s</xliff:g> - <xliff:g id="END">%2$s</xliff:g>"</string>
-    <string name="zen_mode_calls" msgid="7051492091133751208">"Qo‘ng‘iroqlar"</string>
+    <string name="zen_mode_calls" msgid="7051492091133751208">"Chaqiruvlar"</string>
     <string name="zen_mode_messages" msgid="5886440273537510894">"Xabarlar"</string>
     <string name="zen_mode_all_messages" msgid="6449223378976743208">"Barcha xabarlar"</string>
     <string name="zen_mode_selected_messages" msgid="8245990149599142281">"Tanlangan xabarlar"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Batareya cheklovlari"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Quvvat sarfiga oid bildirgilar"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Cheklov o‘rnatilmagan"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Cheklov o‘rnatilmagan"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Batareya cheklovi o‘rnatilgan"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Ilovalar o‘rnatilmagan"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"O‘rnatilgan ilovalar"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Xotirangiz hozirda xotira boshqaruvi tomonidan boshqarilmoqda"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Operator haqida"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Operator ta’minotini yoqish/o‘chirish"</string>
 </resources>

@@ -20,6 +20,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.net.wifi.WpsInfo;
 import android.os.Bundle;
 import android.os.UserManager;
@@ -51,12 +52,12 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
     private static final String KEY_WPS_PIN = "wps_pin_entry";
 
     // Wifi extension requirement
-    private static final String KEY_CURRENT_GATEWAY = "current_gateway";
-    private static final String KEY_CURRENT_NETMASK = "current_netmask";
     private static final int WIFI_HS2_ENABLED = 1;
     private static final int WIFI_HS2_DISABLED = 0;
 
     private static final String KEY_PRIORITY_SETTINGS = "wifi_priority_settings";
+
+    private static final String KEY_COUNTRY_CODE = "wifi_countrycode";
 
     private static final String KEY_AUTO_CONNECT_ENABLE = "auto_connect_type";
     private static final String WIFI_AUTO_CONNECT_TYPE = "wifi_auto_connect_type";
@@ -88,6 +89,7 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
     private ListPreference mCellularToWlanPref;
 
     private boolean mUnavailable;
+    private WifiManager mWifiManager;
 
     public AdvancedWifiSettings() {
         super(UserManager.DISALLOW_CONFIG_WIFI);
@@ -115,6 +117,8 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
         getEmptyTextView().setText(R.string.wifi_advanced_not_available);
         if (mUnavailable) {
             getPreferenceScreen().removeAll();
+        } else {
+            mWifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
         }
     }
 
@@ -191,6 +195,23 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
             }
         } else {
             Log.d(TAG, "Fail to get priority pref...");
+        }
+
+        ListPreference ccodePref = (ListPreference) findPreference(KEY_COUNTRY_CODE);
+        if (ccodePref != null) {
+            boolean hideWifiRegion = getResources()
+                    .getBoolean(R.bool.config_hideWifiRegionCode);
+            if (hideWifiRegion) {
+                removePreference(KEY_COUNTRY_CODE);
+            } else {
+                ccodePref.setOnPreferenceChangeListener(this);
+                String value = mWifiManager.getCountryCode();
+                if (value != null) {
+                    ccodePref.setValue(value);
+                } else {
+                    Log.e(TAG, "Failed to fetch country code");
+                }
+            }
         }
 
         mAutoConnectEnablePref =
@@ -276,6 +297,16 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
         final Context context = getActivity();
         String key = preference.getKey();
 
+        if (KEY_COUNTRY_CODE.equals(key)) {
+            try {
+                mWifiManager.setCountryCode((String) newValue, true);
+            } catch (IllegalArgumentException e) {
+                Toast.makeText(getActivity(), R.string.wifi_setting_countrycode_error,
+                        Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+
         if (KEY_WLAN_TO_CELLULAR_HINT.equals(key)) {
             boolean checked = ((Boolean) newValue).booleanValue();
             setWlanToCellularHintEnable(checked);
@@ -342,13 +373,13 @@ public class AdvancedWifiSettings extends RestrictedSettingsFragment
     }
 
     private boolean isAutoConnectEnabled() {
-        return Settings.System.getInt(getActivity().getContentResolver(),
+        return Settings.Global.getInt(getActivity().getContentResolver(),
                 WIFI_AUTO_CONNECT_TYPE, AUTO_CONNECT_ENABLED) == AUTO_CONNECT_ENABLED;
     }
 
     private void setAutoConnectTypeEnabled(boolean enable) {
         final int defaultValue = enable ? AUTO_CONNECT_ENABLED : AUTO_CONNECT_DISABLE;
-        Settings.System.putInt(getActivity().getContentResolver(),
+        Settings.Global.putInt(getActivity().getContentResolver(),
                 WIFI_AUTO_CONNECT_TYPE, defaultValue);
     }
 

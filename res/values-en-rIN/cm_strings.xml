@@ -57,6 +57,7 @@
   <string name="app_ops_categories_media">Media</string>
   <string name="app_ops_categories_device">Device</string>
   <string name="app_ops_categories_bootup">Bootup</string>
+  <string name="app_ops_categories_su">Root access</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">coarse location</string>
   <string name="app_ops_summaries_fine_location">fine location</string>
@@ -100,7 +101,6 @@
   <string name="app_ops_summaries_keep_awake">keep awake</string>
   <string name="app_ops_summaries_monitor_location">monitor location</string>
   <string name="app_ops_summaries_monitor_high_power_location">monitor high power location</string>
-  <string name="app_ops_summaries_get_usage_stats">get usage stats</string>
   <string name="app_ops_summaries_mute_unmute_microphone">mute/unmute microphone</string>
   <string name="app_ops_summaries_toast_window">display toasts</string>
   <string name="app_ops_summaries_project_media">project media</string>
@@ -211,6 +211,8 @@
   <string name="touchscreen_hovering_title">Touchscreen hovering</string>
   <string name="touchscreen_hovering_summary">Allows you to hover the screen like a mouse in web browsers, remote desktops, etc</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">Selector icon</string>
+  <string name="ime_switcher_notify_summary">Display input method selector icon</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Show icon when using stylus</string>
@@ -227,11 +229,21 @@
   <string name="adb_over_network">ADB over network</string>
   <string name="adb_over_network_summary">Enable TCP/IP debugging over network interfaces (Wi\u2011Fi, USB networks). This setting is reset on reboot</string>
   <string name="adb_over_network_warning">WARNING: When ADB over network is enabled, your phone is open for intrusions on all connected networks!\n\nOnly use this feature when you are connected on trusted networks.\n\nDo you really want to enable this function?</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">Device hostname</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Increasing ring volume</string>
   <string name="increasing_ring_min_volume_title">Start volume</string>
   <string name="increasing_ring_ramp_up_time_title">Ramp-up time</string>
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
   <!-- Notification sound timeout -->
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d status</string>
@@ -246,10 +258,37 @@
   <string name="cmlicense_title">CyanogenMod legal</string>
   <!-- Format string for fingerprint location message -->
   <!-- Fingerprint sensor locations -->
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">Wi\u2011Fi region code</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">Specify the region code for Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">There was a problem setting the region code.</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Turn the screen on when connecting or disconnecting a power source</string>
+  <!-- Heads-up -->
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">Never</string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">Wake on plug</string>
-  <!-- Heads-up -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Link ringtone &amp; notification volumes</string>
+  <!-- Launch music player when headset is connected -->
+  <!-- Update recovery -->
+  <string name="update_recovery_on_warning">NOTICE: When this feature is enabled, your installed recovery will be replaced by one included with the current version of the running OS.\n\nYour recovery will be updated along with upgrades to your system, helping to ensure compatibility with future versions.\n\nWould you like to enable this feature?</string>
+  <string name="update_recovery_off_warning">WARNING: When this feature is disabled, your installed recovery will not be updated with OS upgrades.\n\nFuture OS updates may not install with outdated or custom recovery versions.\n\nDo you really want to disable this feature?</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">Double-tap to sleep</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Double-tap on the status bar to turn off the display</string>
+  <string name="sim_disabled">disabled</string>
+  <string name="sim_missing">missing or faulty</string>
+  <string name="sim_enabler_airplane_on">Unable to perform the operation while airplane mode is on.</string>
+  <string name="sim_enabler_in_call">Unable to perform the operation while in call.</string>
+  <string name="sim_enabler_both_inactive">Can\'t disable all SIM cards</string>
 </resources>

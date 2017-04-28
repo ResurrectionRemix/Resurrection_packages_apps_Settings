@@ -1,4 +1,7 @@
 /*
+ * Copyright (c) 2016, The Linux Foundation. All rights reserved.
+ * Not a Contribution.
+ *
  * Copyright (C) 2015 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -30,7 +33,7 @@ import android.widget.BaseAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-
+import android.content.pm.PackageManager;
 import com.android.settings.CustomDialogPreference;
 import com.android.settings.R;
 import com.android.settings.dashboard.SummaryLoader;
@@ -134,7 +137,7 @@ public class NfcPaymentPreference extends CustomDialogPreference implements
     }
 
     class NfcPaymentAdapter extends BaseAdapter implements CompoundButton.OnCheckedChangeListener,
-            View.OnClickListener {
+            View.OnClickListener, View.OnLongClickListener {
         // Only modified on UI thread
         private PaymentAppInfo[] appInfos;
 
@@ -180,7 +183,7 @@ public class NfcPaymentPreference extends CustomDialogPreference implements
             holder.imageView.setTag(appInfo);
             holder.imageView.setContentDescription(appInfo.label);
             holder.imageView.setOnClickListener(this);
-
+            holder.imageView.setOnLongClickListener(this);
             // Prevent checked callback getting called on recycled views
             holder.radioButton.setOnCheckedChangeListener(null);
             holder.radioButton.setChecked(appInfo.isDefault);
@@ -205,6 +208,29 @@ public class NfcPaymentPreference extends CustomDialogPreference implements
         public void onClick(View view) {
             PaymentAppInfo appInfo = (PaymentAppInfo) view.getTag();
             makeDefault(appInfo);
+        }
+
+        @Override
+        public boolean onLongClick(View view){
+            PaymentAppInfo appInfo = (PaymentAppInfo) view.getTag();
+            if (appInfo.componentName != null) {
+                Log.d(TAG, "LongClick: " + appInfo.componentName.toString());
+                PackageManager pm = mContext.getPackageManager();
+                Intent gsmaIntent =
+                pm.getLaunchIntentForPackage(appInfo.componentName.getPackageName());
+                if (gsmaIntent != null) {
+                    gsmaIntent.setAction("com.gsma.services.nfc.SELECT_DEFAULT_SERVICE");
+                    gsmaIntent.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+                    gsmaIntent.setPackage(gsmaIntent.getPackage());
+                    try {
+                        mContext.startActivity(gsmaIntent);
+                    } catch (ActivityNotFoundException e) {
+                        Log.e(TAG, "Settings activity for " + appInfo.componentName.toString() +
+                            " not found.");
+                    }
+                }
+            }
+            return true;
         }
 
         void makeDefault(PaymentAppInfo appInfo) {

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2016 The Xperia Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/settings_blur_cat">
+
+    <PreferenceCategory
+        android:key="blur_colors_cat"
+        android:title="@string/blur_colors_cat">
+
+        <Preference
+            style="?android:preferenceInformationStyle"
+            android:title="@string/blur_colors_notice"
+            android:summary="@string/blur_colors_notice_summary"
+            android:selectable="false" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="blur_light_color"
+            android:title="@string/blur_light_color"
+            android:defaultValue="0xff444444" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="blur_dark_color"
+            android:title="@string/blur_dark_color"
+            android:defaultValue="0xffcccccc" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="blur_mixed_color"
+            android:title="@string/blur_mixed_color"
+            android:defaultValue="0xff888888" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="blur_expstatus_cat"
+        android:title="@string/blur_expstatus_cat" >
+
+        <Preference
+            style="?android:preferenceInformationStyle"
+            android:title="@string/blur_notice"
+            android:summary="@string/blur_notice_summary"
+            android:selectable="false" />
+
+        <SwitchPreference
+            android:key="blurred_status_bar_expanded_enabled_pref"
+            android:title="@string/blurred_status_bar_expanded_enabled_pref"
+            android:summary="@string/blurred_status_bar_expanded_enabled_pref_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="statusbar_blur_scale"
+            android:title="@string/blurred_scale"
+            android:summary="@string/blurred_scale_summary"
+            settings:maximum="20"
+            settings:minimum="1"
+            android:dependency="blurred_status_bar_expanded_enabled_pref"
+            android:defaultValue="10" />
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="statusbar_blur_radius"
+            android:title="@string/blurred_radius"
+            android:summary="@string/blurred_radius_summary"
+            settings:maximum="25"
+            settings:minimum="1"
+            android:dependency="blurred_status_bar_expanded_enabled_pref"
+            android:defaultValue="5" />
+    </PreferenceCategory>
+
+    <!--<PreferenceCategory
+        android:key="blur_notifications_cat"
+        android:title="@string/blur_notifications_cat" >   
+
+        <SwitchPreference
+            android:key="translucent_notifications_pref"
+            android:title="@string/translucent_notifications_pref"
+            android:summary="@string/translucent_notifications_pref_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="notifications_transluency"
+            android:title="@string/transluency_level_universal"
+            settings:maximum="100"
+            settings:minimum="0"
+            android:dependency="translucent_notifications_pref"
+            android:defaultValue="60" />
+    </PreferenceCategory>-->
+
+    <PreferenceCategory
+        android:key="blur_qs_cat"
+        android:title="@string/blur_qs_cat" >
+
+        <SwitchPreference
+            android:key="translucent_quick_settings_pref"
+            android:title="@string/translucent_quick_settings_pref"
+            android:summary="@string/translucent_quick_settings_pref_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="quick_settings_transluency"
+            android:title="@string/transluency_level_universal"
+            settings:maximum="100"
+            settings:minimum="0"
+            android:dependency="translucent_quick_settings_pref"
+            android:defaultValue="60" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="blur_recents_cat"
+        android:title="@string/blur_recents_cat" >
+
+        <SwitchPreference
+            android:key="blurred_recent_app_enabled_pref"
+            android:title="@string/blurred_recent_app_enabled_pref"
+            android:summary="@string/blurred_recent_app_enabled_pref_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="recents_blur_scale"
+            android:title="@string/blurred_scale"
+            android:summary="@string/blurred_scale_summary"
+            settings:maximum="20"
+            settings:minimum="1"
+            android:dependency="blurred_recent_app_enabled_pref"
+            android:defaultValue="6" />
+
+        <com.android.settings.rr.SeekBarPreference
+            android:key="recents_blur_radius"
+            android:title="@string/blurred_radius"
+            android:summary="@string/blurred_radius_summary"
+            settings:maximum="25"
+            settings:minimum="1"
+            android:dependency="blurred_recent_app_enabled_pref"
+            android:defaultValue="3" />
+
+    </PreferenceCategory>
+</PreferenceScreen>

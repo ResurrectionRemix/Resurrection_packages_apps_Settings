@@ -56,6 +56,7 @@
   <string name="app_ops_categories_media">Meedia</string>
   <string name="app_ops_categories_device">Seade</string>
   <string name="app_ops_categories_bootup">Alglaadimine</string>
+  <string name="app_ops_categories_su">Root ligipääs</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">Umbmäärane asukoht</string>
   <string name="app_ops_summaries_fine_location">Hea asukoht</string>
@@ -207,6 +208,8 @@
   <string name="touchscreen_hovering_title">Puuteekraani hõljumine</string>
   <string name="touchscreen_hovering_summary">Lubab hõljuda ekraani kohal nagu hiirega veebilehitsejas, kaugtöölaual jne</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">Valiku ikoon</string>
+  <string name="ime_switcher_notify_summary">Kuva sisestamismeetodi valiku ikoon</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Pliiatsi kasutamisel kuva ikoon</string>
@@ -223,11 +226,21 @@
   <string name="adb_over_network">ADB üle võrgu</string>
   <string name="adb_over_network_summary">Luba TCP/IP silumine üle võrguliideste (Wi\u2011Fi, USB võrgud). Säte lähtestatakse taaskäivitamisel</string>
   <string name="adb_over_network_warning">HOIATUS: Kui ADB üle võrgu on lubatud, on Teie telefon avatud sissetungimiseks kõikidest ühendatud võrkudest!\n\nKasuta seda võimalust ainult turvalistes võrkudes.\n\nKas sa soovid tõesti selle funktsiooni sisse lülitada?</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">Seadme hostname</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Kasvav helisemistugevus</string>
   <string name="increasing_ring_min_volume_title">Lähtevaljusus</string>
   <string name="increasing_ring_ramp_up_time_title">Käivitamisetapi aeg</string>
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
   <!-- Notification sound timeout -->
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d olek</string>
@@ -242,10 +255,37 @@
   <string name="cmlicense_title">CyanogenMod juriidiline info</string>
   <!-- Format string for fingerprint location message -->
   <!-- Fingerprint sensor locations -->
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">Wi\u2011Fi regioonikood</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">Täpsusta  Wi\u2011Fi regioonikoodi</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">Ilmnes probleem piirkonna koodi salvestamisel.</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">Ärka laadija ühendamisel</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Lülita ekraan sisse kui ühendatakse või eemaldatakse toite allikas</string>
+  <!-- Heads-up -->
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">Mitte kunagi</string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">Ärka laadija ühendamisel</string>
-  <!-- Heads-up -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Ühenda helina toon &amp; teavituse toonid</string>
+  <!-- Launch music player when headset is connected -->
+  <!-- Update recovery -->
+  <string name="update_recovery_on_warning">TEADE: Kui see funktsioon on lubatud, siis teie installitud Recovery asendatakse praeguses OS versioonis kaasas olevaga.\n\nSinu Recovery uuendatakse koos süsteemi uuendustega, et tagada ühilduvus tulevaste versioonidega.\n\nKas soovite funktsiooni aktiveerida?</string>
+  <string name="update_recovery_off_warning">HOIATUS: Kui see funktsioon on keelatud, siis teie installitud Recovery ei ajakohastata OS uuendamisel.\n\nTulevased OS ajakohastamised ei pruugi paigalduda vananenud või kohandatud Recovery kasutamisel.\n\nKas soovite funktsiooni keelata?</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">Topelt koputus ekraani väljalülitamiseks</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Topeltpuudutage olekuriba ekraani väljalülitamiseks</string>
+  <string name="sim_disabled">keelatud</string>
+  <string name="sim_missing">puuduv või vigane</string>
+  <string name="sim_enabler_airplane_on">Toimingut ei saa sooritada, kui lennukirežiim on aktiveeritud.</string>
+  <string name="sim_enabler_in_call">Toimingut ei saa kõne ajal sooritada.</string>
+  <string name="sim_enabler_both_inactive">Ei saa keelata kõiki SIM-kaarte</string>
 </resources>

@@ -46,7 +46,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"Прикажи SIM адресар"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Прикажи бројеве за фиксно бирање"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Прикажи бројеве за сервисно бирање"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"Преузми PDP листу"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"Статус услуге за размену тренутних порука"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"Статус размене тренутних порука"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Регистровано je"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Није регистровано"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Доступно"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Недоступно"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"Регистрација услуге за размену тренутних порука: <xliff:g id="STATUS">%1$s</xliff:g>\nГлас преко LTE-а: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nГлас преко WiFi-ја: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nВидео позив: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT интерфејс: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"Ради"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Не ради"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Само хитни позиви"</string>
@@ -682,6 +688,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Не искључуј Wi-Fi током спавања"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Wi‑Fi је укључен током спавања"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"Дошло је до проблема приликом промене подешавања"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Повежи се са мрежама оператера"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Повежи се са мрежама оператера када су доступне"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Побољшај ефикасност"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Wi-Fi оптимизација"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Смањи коришћење батерије када је Wi-Fi укључен"</string>
@@ -2918,6 +2926,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g>/<xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Оптимизација батерије"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Обавештења о коришћењу"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Без оптимизације"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Без оптимизације"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Оптимизација коришћења батерије"</string>
@@ -3245,7 +3254,7 @@
     <string name="bluetooth_talkback_bluetooth" msgid="5615463912185280812">"Bluetooth"</string>
     <string name="automatic_storage_manager_settings" msgid="7819434542155181607">"Управљај меморијским простором"</string>
     <string name="automatic_storage_manager_text" msgid="4562950476680600604">"Да би ослободио меморијски простор, менаџер меморијског простора уклања резервне копије слика и видео снимака са уређаја."</string>
-    <string name="automatic_storage_manager_days_title" msgid="2017913896160914647">"Уклоните слике и видео снимке"</string>
+    <string name="automatic_storage_manager_days_title" msgid="2017913896160914647">"Уклоните слике и видео"</string>
     <string name="automatic_storage_manager_preference_title" msgid="5753702798151073383">"Менаџер меморијског простора"</string>
     <string name="deletion_helper_automatic_title" msgid="6605660435498272520">"Аутоматска"</string>
     <string name="deletion_helper_manual_title" msgid="7947432164411214029">"Ручна"</string>
@@ -3284,4 +3293,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Апликације које нису инсталиране"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Инсталиране апликације"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Меморијским простором сада управља Менаџер меморијског простора"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Информације о додели мобилног оператера"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Покретање доделе мобилног оператера"</string>
 </resources>

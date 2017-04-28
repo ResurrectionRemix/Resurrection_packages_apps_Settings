@@ -62,6 +62,7 @@ public class PowerMenuActions extends SettingsPreferenceFragment  implements OnP
 	private CheckBoxPreference mScreenrecordPref;
 	private CheckBoxPreference mFlashlightPref;
 	private CheckBoxPreference mOnTheGoPowerMenu;
+	private CheckBoxPreference mEmergencyPref;
 
     Context mContext;
     private ArrayList<String> mLocalUserConfig = new ArrayList<String>();
@@ -110,6 +111,8 @@ public class PowerMenuActions extends SettingsPreferenceFragment  implements OnP
                 mFlashlightPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_TORCH);
 			} else if (action.equals(GLOBAL_ACTION_KEY_SCREENRECORD)) {
                 mScreenrecordPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_SCREENRECORD);
+			} else if  (action.equals(GLOBAL_ACTION_KEY_EMERGENCY)) {
+                mEmergencyPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_EMERGENCY);
 			}
 
         mOnTheGoPowerMenu = (CheckBoxPreference) findPreference(POWER_MENU_ONTHEGO_ENABLED);
@@ -181,6 +184,10 @@ public class PowerMenuActions extends SettingsPreferenceFragment  implements OnP
         if (mFlashlightPref != null) {
             mFlashlightPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_TORCH));
 		}
+
+        if (mEmergencyPref != null) {
+            mEmergencyPref.setChecked(settingsArrayContains(GLOBAL_ACTION_KEY_EMERGENCY));
+        }
 
         updatePreferences();
     }
@@ -255,7 +262,11 @@ public class PowerMenuActions extends SettingsPreferenceFragment  implements OnP
             value = mScreenrecordPref.isChecked();
             updateUserConfig(value, GLOBAL_ACTION_KEY_SCREENRECORD);
 
-		} else {
+		}  else if (preference == mEmergencyPref) {
+            value = mEmergencyPref.isChecked();
+            updateUserConfig(value, GLOBAL_ACTION_KEY_EMERGENCY);
+
+		}  else {
             return super.onPreferenceTreeClick(preference);
         }
         return true;

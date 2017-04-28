@@ -18,9 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
   <plurals name="show_dev_countdown_cm">
-    <item quantity="one">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> krok od włączenia opcji programistycznych.</item>
-    <item quantity="few">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> kroki od włączenia opcji programistycznych.</item>
-    <item quantity="other">Jesteś teraz <xliff:g id="step_count">%1$d</xliff:g> kroków od włączenia opcji programistycznych.</item>
+    <item quantity="one">Jesteś o <xliff:g id="step_count">%1$d</xliff:g> krok od włączenia ustawień programisty.</item>
+    <item quantity="few">Jesteś <xliff:g id="step_count">%1$d</xliff:g> kroki od włączenia ustawień programisty.</item>
+    <item quantity="other">Jesteś <xliff:g id="step_count">%1$d</xliff:g> kroków od włączenia ustawień programisty.</item>
   </plurals>
   <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
   <string name="show_dev_on_cm">Aktywowałeś opcje programistyczne!</string>
@@ -61,6 +61,7 @@
   <string name="app_ops_categories_device">Urządzenie</string>
   <string name="app_ops_categories_background">Tło</string>
   <string name="app_ops_categories_bootup">Rozruch</string>
+  <string name="app_ops_categories_su">Dostęp do roota</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">Przybliżona lokalizacja</string>
   <string name="app_ops_summaries_fine_location">Dokładna lokalizacja</string>
@@ -105,7 +106,6 @@
   <string name="app_ops_summaries_keep_awake">Nie usypiaj</string>
   <string name="app_ops_summaries_monitor_location">Monitorowanie lokalizacji</string>
   <string name="app_ops_summaries_monitor_high_power_location">Monitorowanie lokalizacji z pełną mocą</string>
-  <string name="app_ops_summaries_get_usage_stats">pobieranie statystyk używania</string>
   <string name="app_ops_summaries_mute_unmute_microphone">wyciszanie/włączanie mikrofonu</string>
   <string name="app_ops_summaries_toast_window">wyświetla wyskakujące powiadomienia</string>
   <string name="app_ops_summaries_project_media">projekcja mediów</string>
@@ -129,6 +129,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">przełączanie Bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">uruchom na starcie</string>
   <string name="app_ops_summaries_toggle_nfc">przełączanie NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">przełączanie transmisji danych</string>
   <string name="app_ops_summaries_superuser">dostęp do roota</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Przybliżona lokalizacja</string>
@@ -198,6 +199,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Przełączanie bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Uruchom na starcie</string>
   <string name="app_ops_labels_toggle_nfc">Przełączanie NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Przełączanie transmisji danych</string>
   <string name="app_ops_labels_superuser">Dostęp do roota</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Zezwolono</string>
@@ -219,12 +221,8 @@
   <string name="volume_adjust_sounds_title">Dźwięk regulacji głośności</string>
   <!-- Vibrator intensity -->
   <string name="vibrator_intensity_title">Siła wibracji</string>
-  <string name="vibrator_intensity_dialog_reset">Przywróć domyślne</string>
+  <string name="vibrator_intensity_dialog_reset">Reset</string>
   <!-- Sizes for pattern lockscreen -->
-  <string name="lock_pattern_size_3">3x3</string>
-  <string name="lock_pattern_size_4">4x4</string>
-  <string name="lock_pattern_size_5">5x5</string>
-  <string name="lock_pattern_size_6">6x6</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Pokazuj błędny wzór</string>
   <!-- Whether the dots will be drawn when using the lockscreen pattern -->
@@ -268,7 +266,7 @@
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">Pokaż pogodę</string>
   <!-- title for lock screen blur preference -->
-  <string name="lockscreen_blur_enabled_title">Rozmycie ekranu blokady</string>
+  <string name="lockscreen_blur_enabled_title">Rozmycie tła</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Zapobiega przypadkowemu wybudzeniu</string>
   <!-- High touch sensitivity -->
@@ -278,7 +276,8 @@
   <string name="touchscreen_hovering_title">Wskazywanie ekranu dotykowego</string>
   <string name="touchscreen_hovering_summary">Pozwala na wskazywanie na ekranie jak myszką w przeglądarce internetowej, pulpicie zdalnym itd.</string>
   <!-- Whether to display IME switcher notifcation -->
-  <string name="ime_switcher_notify">Wybór powiadomień</string>
+  <string name="ime_switcher_notify">Ikona selektora</string>
+  <string name="ime_switcher_notify_summary">Wyświetl ikonę selektora metody wprowadzania</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Pokaż ikonę podczas używania rysika</string>
@@ -296,11 +295,25 @@
   <string name="adb_over_network">ADB przez sieć</string>
   <string name="adb_over_network_summary">Aktywuj debugowanie TCP/IP przez interfejs sieciowy (Wi-Fi, sieci USB). Ustawienie zostanie zresetowane po ponownym uruchomieniu</string>
   <string name="adb_over_network_warning">OSTRZEŻENIE: Gdy ADB przez sieć jest włączone, twój telefon jest narażony na intruzów z wszystkich podłączonych sieci!\n\nUżywaj tej funkcji tylko wtedy, gdy korzystasz z zaufanych sieci.\n\nNa pewno chcesz włączyć tę funkcję?</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">Nazwa hosta urządzenia</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Narastająca głośność dzwonka</string>
   <string name="increasing_ring_min_volume_title">Głośność początkowa</string>
   <string name="increasing_ring_ramp_up_time_title">Wydłużenie odstępu</string>
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">przypomnienia</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">zdarzenia</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">wybrani rozmówcy</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">wybrane wiadomości</string>
   <!-- Notification sound timeout -->
   <string name="app_notification_sound_timeout_value_10_seconds">10 sekund</string>
   <string name="app_notification_sound_timeout_value_30_seconds">30 sekund</string>
@@ -326,6 +339,17 @@
   <string name="security_settings_fingerprint_sensor_location_front">przód</string>
   <string name="security_settings_fingerprint_sensor_location_left">lewa strona</string>
   <string name="security_settings_fingerprint_sensor_location_right">prawa strona</string>
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">Kod regionu Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">Określ kod regionu Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">Wystąpił problem podczas ustawiania kodu regionu.</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">Wybudź przy podłączaniu</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Włącz ekran podczas podłączania i odłączania od źródła zasilania</string>
+  <!-- Heads-up -->
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Inny</string>
   <!-- Wi-Fi tethering inactivity timeout -->
@@ -334,7 +358,38 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 min</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 min</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 min</string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">Wybudź przy podłączaniu</string>
-  <!-- Heads-up -->
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Przenośny hotspot Wi\u2011Fi nie przejdzie w stan bezczynności</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Przenośny hotspot Wi\u2011Fi przejdzie w stan bezczynności po <xliff:g id="timeout">%1$s</xliff:g></string>
+  <!-- Per-app data restrictions -->
+  <string name="data_usage_app_restrict_wifi_category_title">Dostęp do danych przez Wi\u2011Fi</string>
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Połącz głośność dzwonka &amp; powiadomień</string>
+  <!-- Launch music player when headset is connected -->
+  <string name="headset_connect_player_title">Uruchom odtwarzacz muzyki</string>
+  <!-- Update recovery -->
+  <string name="update_recovery_title">Aktualizacja recovery</string>
+  <string name="update_recovery_on_warning">UWAGA: Kiedy ta funkcja jest włączona, twoje recovery zostanie zastąpione przez to dołączone do aktualnie działającej wersji systemu.\n\nTwoje recovery będzie aktualizowane wraz z aktualizacjami systemu, pomagając w zapewnieniu kompatybilność z przyszłymi wersjami.\n\nChciałbyś włączyć tę funkcję?</string>
+  <string name="update_recovery_off_warning">OSTRZEŻENIE: Kiedy ta funkcja jest wyłączona, zainstalowane recovery nie będzie się aktualizowało wraz z aktualizacjami systemu.\n\nPrzyszłe aktualizacje systemu mogą się nie zainstalować przy przestarzałych lub zewnętrznych wersjach recovery.\n\nCzy jesteś pewien, że chcesz wyłączyć tę funkcję?</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">Dwukrotnie dotknij, aby uśpić</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Dotknij dwukrotnie pasek stanu, aby zablokować ekran</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s </xliff:g> jest <xliff:g id="status" example="disabled">%2$s </xliff:g></string>
+  <string name="sim_disabled">wyłączona</string>
+  <string name="sim_missing">brakująca lub uszkodzona</string>
+  <string name="sim_enabler_need_disable_sim">Karta SIM zostanie wyłączona. Kontynuować?</string>
+  <string name="sim_enabler_will_disable_sim_title">Uwaga</string>
+  <string name="sim_enabler_need_switch_data_service">Ta karta SIM zostanie wyłączona i SIM <xliff:g id="slotid">%1$s </xliff:g> będzie używana do transmisji danych, kontynuować?</string>
+  <string name="sim_enabler_airplane_on">Nie można wykonać operacji, gdy włączony jest tryb samolotowy.</string>
+  <string name="sim_enabler_in_call">Nie można wykonać operacji w czasie rozmowy.</string>
+  <string name="sim_enabler_both_inactive">Nie można wyłączyć wszystkich kart SIM</string>
+  <string name="sim_enabler_enabling">Aktywowanie\u2026</string>
+  <string name="sim_enabler_disabling">Dezaktywowanie\u2026</string>
+  <string name="sub_activate_success">SIM aktywowana.</string>
+  <string name="sub_activate_failed">Aktywacja nie powiodła się.</string>
+  <string name="sub_deactivate_success">SIM dezaktywowana.</string>
+  <string name="sub_deactivate_failed">Dezaktywacja nie powiodła się.</string>
 </resources>

@@ -57,6 +57,7 @@
   <string name="app_ops_categories_media">മീഡിയ</string>
   <string name="app_ops_categories_device">ഉപകരണം</string>
   <string name="app_ops_categories_bootup">ബൂട്ടപ്പ്</string>
+  <string name="app_ops_categories_su">റൂട്ട് പ്രവേശനം</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">പരുപരുത്ത സ്ഥലം</string>
   <string name="app_ops_summaries_fine_location">നല്ല സ്ഥാനം</string>
@@ -101,7 +102,6 @@
   <string name="app_ops_summaries_keep_awake">സജീവമായി തുടരുക</string>
   <string name="app_ops_summaries_monitor_location">മോണിറ്റർ സ്ഥാനം</string>
   <string name="app_ops_summaries_monitor_high_power_location">ഉയർന്ന പവർ സ്ഥാനം നിരീക്ഷിക്കുക</string>
-  <string name="app_ops_summaries_get_usage_stats">ഉപയോഗ സ്ഥിതിവിവരക്കണക്കുകൾ ലഭ്യമാക്കുക</string>
   <string name="app_ops_summaries_mute_unmute_microphone">മൈക്രോഫോൺ നിശ്ശബ്ദമാക്കുക / ശബ്ദമുള്ളതാക്കൂ ചെയ്യുക</string>
   <string name="app_ops_summaries_toast_window">ടോസ്റ്റുകൾ പ്രദര്‍ശനം ചെയ്യുക</string>
   <string name="app_ops_summaries_project_media">പ്രോജക്റ്റ് മീഡിയ</string>
@@ -125,6 +125,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">ടോഗിൾ Bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">ബൂട്ടില്‍ അരംഭിക്കുക</string>
   <string name="app_ops_summaries_toggle_nfc">NFC ടോഗിൾ</string>
+  <string name="app_ops_summaries_toggle_mobile_data">ടോഗിൾ മൊബൈൽ ഡാറ്റ</string>
   <string name="app_ops_summaries_superuser">റൂട്ട് പ്രവേശനം</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">പരുപരുത്ത സ്ഥലം</string>
@@ -194,6 +195,7 @@
   <string name="app_ops_labels_toggle_bluetooth">ടോഗിള് Bluetooth</string>
   <string name="app_ops_labels_start_at_boot">ബൂട്ടില്‍ അരംഭിക്കുക</string>
   <string name="app_ops_labels_toggle_nfc">NFC ടോഗിൾ</string>
+  <string name="app_ops_labels_toggle_mobile_data">മൊബൈൽ ഡാറ്റ ടോഗിൾ</string>
   <string name="app_ops_labels_superuser">റൂട്ട് പ്രവേശനം</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">അനുവദനീയമായ</string>
@@ -265,6 +267,8 @@
   <string name="touchscreen_hovering_title">ടച്ച്സ്ക്രീൻ ഹോവറിംഗ്</string>
   <string name="touchscreen_hovering_summary">വെബ് ബ്രൌസറുകള്‍, റിമോട്ട് ഡെസ്ക്ടോപ്പുകള്‍ തുടങ്ങിയവയിലെ മൌസ് എന്നപോലെ സ്ക്രീന്‍ ഹോവര്‍ ചെയ്യാന്‍ നിങ്ങളെ അനുവദിക്കുന്നു.</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">ഐക്കൺ സെലക്ടർ</string>
+  <string name="ime_switcher_notify_summary">ഇൻപുട്ട് മെത്തേഡ് സെലക്ടർ ഐക്കൺ ദൃശ്യമാക്കുക</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">സ്റ്റൈലസ് ഉപയോഗിക്കുമ്പോൾ ഐക്കൺ ദൃശ്യമാക്കുക</string>
@@ -281,11 +285,25 @@
   <string name="adb_over_network">നെറ്റ്‌വർക്കിൽ ADB</string>
   <string name="adb_over_network_summary">നെറ്റ്‌വര്‍ക്ക് ഇന്‍റര്‍ഫേസില്‍ (Wi\u2011Fi, USB , നെറ്റ്‌വര്‍ക്കുകള്‍) TCP/IP ഡീബഗ്ഗിംഗ് പ്രാപ്തമാക്കുക. ഈ ക്രമീകരണം റീബൂട്ടിൽ പുനഃക്രമീകരിക്കുന്നതാണ്</string>
   <string name="adb_over_network_warning">മുന്നറിയിപ്പ്: നെറ്റ്‌വർക്കിലൂടെയുള്ള ADB പ്രാപ്തമാക്കിയിരിക്കുമ്പോള്‍, ബന്ധിപ്പിച്ച എല്ലാ നെറ്റ്‌വർക്കുകളിൽ നിന്നും നുഴഞ്ഞുകയറുന്നതിനായി നിങ്ങളുടെ ഫോൺ തുറന്നിരിക്കുന്നതാണ്!\n\nഒരു വിശ്വസനീയ നെറ്റ്‌വര്‍ക്കില്‍ ബന്ധിപ്പിച്ചിരിക്കുമ്പോള്‍ മാത്രം നിങ്ങള്‍ ഈ സവിശേഷത ഉപയോഗിക്കുക.\n\nനിങ്ങള്‍ക്ക് ശരിക്കും ഈ സവിശേഷത പ്രാപ്തമാക്കണോ?</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">ഉപകരണ ഹോസ്റ്റ്നെയിം</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">വര്‍ദ്ധിക്കുന്ന റിംഗ് വോളിയം</string>
   <string name="increasing_ring_min_volume_title">വോളിയം ആരംഭിക്കുക</string>
   <string name="increasing_ring_ramp_up_time_title">റാംപ്-അപ്പ് സമയം</string>
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">ഓർമ്മപ്പെടുത്തലുകൾ</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">ഇവന്റുകൾ</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">തിരഞ്ഞെടുത്ത കോളർമാർ</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">തിരഞ്ഞെടുത്ത സന്ദേശങ്ങൾ</string>
   <!-- Notification sound timeout -->
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d സ്റ്റാറ്റസ്</string>
@@ -300,6 +318,17 @@
   <string name="cmlicense_title">CyanogenMod ലീഗല്‍</string>
   <!-- Format string for fingerprint location message -->
   <!-- Fingerprint sensor locations -->
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">Wi\u2011Fi മേഖലാ കോഡ്</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">Wi\u2011Fi മേഖലാ കോഡ് വ്യക്തമാക്കുക</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">മേഖല കോഡ് സജ്ജമാക്കുന്നതിൽ ഒരു പ്രശ്നമുണ്ടായി.</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">വേക്ക് ഓൺ പ്ലഗ്</string>
+  <string name="wake_when_plugged_or_unplugged_summary">ഒരു ഊര്‍ജ്ജ സ്രോതസ്സില്‍ ബന്ധിപ്പിക്കുമ്പോള്‍ അല്ലെങ്കില്‍ വിച്ഛേദിക്കുമ്പോൾ സ്ക്രീന്‍ ഓണ്‍ ചെയ്യുക</string>
+  <!-- Heads-up -->
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">മറ്റുള്ളവ</string>
   <!-- Wi-Fi tethering inactivity timeout -->
@@ -308,7 +337,34 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 മിനിറ്റ്</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 മിനിറ്റ്</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 മിനിറ്റ്</string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">വേക്ക് ഓൺ പ്ലഗ്</string>
-  <!-- Heads-up -->
+  <string name="hotstpot_inactivity_timeout_never_summary_text">പോർട്ടബിൾ Wi\u2011Fi ഒരിക്കലും കാലഹരണപ്പെടില്ല</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">പോർട്ടബിൾ Wi\u2011Fi ഹോട്ട്സ്പോട്ട് കാലഹരണപെടും ഇതിനു ശേഷം <xliff:g id="timeout">%1$s</xliff:g></string>
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">ലിങ്ക് റിംഗ്ടോൺ &amp; അറിയിപ്പ് വോളിയം</string>
+  <!-- Launch music player when headset is connected -->
+  <!-- Update recovery -->
+  <string name="update_recovery_on_warning">അറിയിപ്പ്: ഈ സവിശേഷത പ്രാപ്തമാക്കുമ്പോൾ, ഇന്‍സ്റ്റാള്‍ ചെയ്തിട്ടുള്ള നിങ്ങളുടെ റിക്കവറി ഇപ്പോള്‍ പ്രവര്‍ത്തിക്കുന്ന OS ന്‍റെ നിലവിലെ പതിപ്പ് ഉള്‍പ്പെടുന്ന മറ്റൊന്ന് ഉപയോഗിച്ച് മാറ്റിസ്ഥാപിക്കുന്നതാണ്.\n\nഭാവിയിലെ പതിപ്പുകളുമായി അനുയോജ്യത ഉറപ്പുവരുത്താൻ സഹായിക്കുന്നതിന്, നവീകരണങ്ങള്‍ക്കൊപ്പം നിങ്ങളുടെ റിക്കവറി അപ്ഡേറ്റ് ചെയ്യുന്നതാണ്.\n\nഈ സവിശേഷത നിങ്ങള്‍ക്ക് പ്രാപ്തമാക്കണോ?</string>
+  <string name="update_recovery_off_warning">മുന്നറിയിപ്പ്: ഈ സവിശേഷത അപ്രാപ്തമാക്കിയിരിക്കുമ്പോള്‍, ഇന്‍സ്റ്റാള്‍ ചെയ്തിട്ടുള്ള നിങ്ങളുടെ റിക്കവറി OS നവീകരണങ്ങള്‍ക്കൊപ്പം അപ്ഡേറ്റ് ചെയ്യുന്നതല്ല.\n\nകാലഹരണപ്പെട്ട അല്ലെങ്കില്‍ ഇഷ്ടാനുസൃത റിക്കവറി പതിപ്പുകളില്‍ ഭാവിയിലെ OS അപ്ഡേറ്റുകള്‍ ഇന്‍സ്റ്റാള്‍ ചെയ്യുകയില്ല.\n\nഈ സവിശേഷത നിങ്ങള്‍ക്ക് ശരിക്കും അപ്രാപ്തമാക്കണോ?</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">നിഷ്ക്രിയമാക്കുന്നതിന് ഇരട്ട-അമര്‍ത്തല്‍ ചെയ്യുക</string>
+  <string name="status_bar_double_tap_to_sleep_summary">ഡിസ്പ്ലേ ഓഫ് ചെയ്യുന്നതിന് സ്റ്റാറ്റസ് ബാറിൽ ഇരട്ട-അമര്‍ത്തല്‍ ചെയ്യുക</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> is <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
+  <string name="sim_disabled">അപ്രാപ്തമാക്കി</string>
+  <string name="sim_enabler_need_disable_sim">SIM കാർഡ് നിര്‍ജീവമാക്കുന്നതാണ്. നിങ്ങൾക്ക് തുടരണോ?</string>
+  <string name="sim_enabler_will_disable_sim_title">ശ്രദ്ധിക്കുക</string>
+  <string name="sim_enabler_need_switch_data_service">ഈ SIM അപ്രാപ്തമാക്കുകയും ഡാറ്റ സേവനങ്ങൾക്കായി SIM <xliff:g id="slotid">%1$s</xliff:g> ഉപയോഗിക്കുന്നതുമാണ്. നിങ്ങൾ തുടരണമെന്ന് ഉറപ്പാണോ?</string>
+  <string name="sim_enabler_airplane_on">എയര്‍പ്ലെയിന്‍ മോഡ് ഓണ്‍ ആയിരിക്കുന്ന സമയത്ത് പ്രവർത്തനം നടത്താൻ കഴിയുന്നില്ല.</string>
+  <string name="sim_enabler_in_call">കോളില്‍ ആയിരിക്കുന്ന സമയത്ത് പ്രവർത്തനം നടത്താൻ കഴിയുന്നില്ല.</string>
+  <string name="sim_enabler_both_inactive">എല്ലാ SIM കാർഡുകളും അപ്രാപ്തമാക്കുവാന്‍ കഴിയില്ല</string>
+  <string name="sim_enabler_enabling">സജീവമാക്കുന്നു\u2026</string>
+  <string name="sim_enabler_disabling">നിർജീവമാക്കുന്നു\u2026</string>
+  <string name="sub_activate_success">SIM സജീവമാക്കി</string>
+  <string name="sub_activate_failed">സജീവമാക്കൽ പരാജയപ്പെട്ടു.</string>
+  <string name="sub_deactivate_success">SIM നിർജീവമാക്കി.</string>
+  <string name="sub_deactivate_failed">നിർജീവമാക്കല്‍ പരാജയപ്പെട്ടു.</string>
 </resources>

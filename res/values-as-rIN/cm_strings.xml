@@ -57,6 +57,7 @@
   <string name="app_ops_categories_media">মিডিয়া</string>
   <string name="app_ops_categories_device">ডিভাইচ</string>
   <string name="app_ops_categories_bootup">বুটআপ</string>
+  <string name="app_ops_categories_su">ৰুট প্ৰৱেশ কৰক</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">কোআৰ্চ অৱস্থান</string>
   <string name="app_ops_summaries_fine_location">ফাইন অৱস্থান</string>
@@ -101,7 +102,6 @@
   <string name="app_ops_summaries_keep_awake">জাগ্ৰত ৰাখক</string>
   <string name="app_ops_summaries_monitor_location">নিৰীক্ষণ স্থান</string>
   <string name="app_ops_summaries_monitor_high_power_location">উচ্চ শক্তিৰ স্থান নিৰীক্ষণ কৰক</string>
-  <string name="app_ops_summaries_get_usage_stats">ইউজেজ অৱস্থা প্ৰাপ্ত কৰক</string>
   <string name="app_ops_summaries_mute_unmute_microphone">মাইক্ৰ\'ফোন মিউট/আনমিউট কৰক</string>
   <string name="app_ops_summaries_toast_window">টোষ্ট প্ৰদৰ্শন কৰক</string>
   <string name="app_ops_summaries_project_media">প্ৰজেক্ট মিডিয়া</string>
@@ -125,6 +125,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">Bluetooth টগল কৰক</string>
   <string name="app_ops_summaries_start_at_boot">এটা বুট আৰম্ভ কৰক</string>
   <string name="app_ops_summaries_toggle_nfc">NFC টগল কৰা</string>
+  <string name="app_ops_summaries_toggle_mobile_data">ম\'বাইল ডাটা টগল কৰা</string>
   <string name="app_ops_summaries_superuser">ৰুট প্ৰৱেশ কৰক</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">কোআৰ্চ অৱস্থান</string>
@@ -194,6 +195,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Bluetooth টগল কৰক</string>
   <string name="app_ops_labels_start_at_boot">এটা বুট আৰম্ভ কৰক</string>
   <string name="app_ops_labels_toggle_nfc">NFC টগল কৰক</string>
+  <string name="app_ops_labels_toggle_mobile_data">ম\'বাইল ডাটা টগল কৰক</string>
   <string name="app_ops_labels_superuser">ৰুট প্ৰৱেশ কৰক</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">অনুমতি দিয়া হল।</string>
@@ -265,6 +267,8 @@
   <string name="touchscreen_hovering_title">টাচ্চস্ক্ৰীণ ভাসমান কৰাৰ</string>
   <string name="touchscreen_hovering_summary">আপোনাক স্ক্ৰীণৰ ওপৰত ৱেব ব্ৰাউজাৰ, ৰিম\'ট ডেস্কটপ আদিৰ দৰে মাউচ ভাসমান কৰাৰ অনুমতি দিয়ে</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">নিৰ্বাচক আইকন</string>
+  <string name="ime_switcher_notify_summary">নিৰ্বাচক আইকনৰ ইনপুট পদ্ধতি প্ৰদৰ্শন কৰক</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">ষ্টাইলাচ ব্যৱহাৰ কৰা সময়ত আইকন প্ৰদৰ্শন কৰক</string>
@@ -281,11 +285,25 @@
   <string name="adb_over_network">ADB অভাৰ নেটৱৰ্ক</string>
   <string name="adb_over_network_summary">নেটৱৰ্ক ইণ্টাৰফেচৰ ওপৰত TCP/IP ডিবাগিং সক্ষম কৰক (ৱাই\u2011ফাই, USB নেটৱৰ্ক) এই ছেটিংটো ৰিবুট কৰিলে ৰিছেট হয়</string>
   <string name="adb_over_network_warning">সকীয়নি: যেতিয়া ADB অভাৰ নেটৱৰ্ক সক্ষম কৰা হয়, আপোনাৰ ফোনটো সকলো সংযোগিত নেটৱৰ্কৰ দ্বাৰা অনাধিকাৰ প্ৰৱেশৰ বাবে মুকলি হয়!\n\nকেৱল আপুনি বিশ্বাসী নেটৱৰ্কৰ সৈতে সংযোগিত হ\'লেহে এই বৈশিষ্ট্যটো ব্যৱহাৰ কৰক।\n\n আপুনি সঁচাকৈ এই ফাংচনটো সক্ষম কৰিব বিচাৰে নে?</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">ডিভাইচৰ হোষ্টনেম</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">ৰিং ভলিউম বৃদ্ধি কৰক</string>
   <string name="increasing_ring_min_volume_title">ৰিং ভলিউম</string>
   <string name="increasing_ring_ramp_up_time_title">ৰেম্প-আপ সময়</string>
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">স্মাৰকবোৰ</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">ইভেণ্টসমূহ</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">নিৰ্বাচিত কলাৰসকল</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">নিৰ্বাচিত বাৰ্তা</string>
   <!-- Notification sound timeout -->
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d স্থিতি</string>
@@ -300,6 +318,17 @@
   <string name="cmlicense_title">CyanogenMod আইনী</string>
   <!-- Format string for fingerprint location message -->
   <!-- Fingerprint sensor locations -->
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">ৱাই\u2011ফাই অঞ্চল কোড</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">ৱাই\u2011ফাই ৰ বাবে অঞ্চল কোড নিৰ্দিষ্ট কৰক</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">অঞ্চল কোড ছেটিং কৰাত এটা সমস্যা হৈছিল</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">প্লাগ কৰিলে ৱেক কৰক</string>
+  <string name="wake_when_plugged_or_unplugged_summary">পাৱাৰ উৎসৰ সৈতে সংযোগ কৰিলে বা সংযোগহীন কৰিলে স্ক্ৰীণ অন কৰক</string>
+  <!-- Heads-up -->
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">অন্যান্য</string>
   <!-- Wi-Fi tethering inactivity timeout -->
@@ -308,7 +337,35 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 মিনিট</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 মিনিট</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 মিনিট</string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">প্লাগ কৰিলে ৱেক কৰক</string>
-  <!-- Heads-up -->
+  <string name="hotstpot_inactivity_timeout_never_summary_text">প’ৰ্টেবল ৱাই\u2011ফাই হটস্পট কেতিয়াও টাইমআউট নহয়</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">প’ৰ্টেবল ৱাই\u2011ফাই হটস্পট <xliff:g id="timeout">%1$s</xliff:g> পিছত টাইমআউট হ\'ব</string>
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">ৰিংটোন আৰু অধিসূচনা ভলিউম লিংক কৰক</string>
+  <!-- Launch music player when headset is connected -->
+  <!-- Update recovery -->
+  <string name="update_recovery_on_warning">জাননী: এই বৈশিষ্ট্যটো সক্ষম কৰিলে, আপোনাৰ ইনষ্টল থকা পুনৰুদ্ধাৰ এই চলি থকা OS-ৰ সাম্প্ৰতিক সংস্কৰণত অন্তৰ্ভুক্ত এটাৰ দ্বাৰা পৰিবৰ্তিত হ\'ব।\n\nআপোনাৰ পুনৰুদ্ধাৰ আপোনাৰ ছিষ্টেমৰ সৈতে আপগ্ৰেডৰ সৈতে আপডেট কৰা হ\'ব, যাতে ভৱিষ্যৎ সংস্কৰণসমূহৰ সৈতে সুসমতা নিশ্চিত কৰাত সহায় হয়।\n\nআপুনি এই বৈশিষ্ট্যটো সক্ষম কৰিব বিচাৰে নে?</string>
+  <string name="update_recovery_off_warning">সকীয়নি: যেতিয়া বৈশিষ্ট্যটো অক্ষম কৰা হয়, আপোনাৰ ইনষ্টল কৰা পুনৰুদ্ধাৰ OS আপগ্ৰেডৰ সৈতে আপডেট কৰা নহ\'ব।\n\nভৱিষ্যৎ OS আপডেটবোৰ পুৰণি বা কাষ্টম পুনৰুদ্ধাৰ সংস্কৰণৰ সৈতে ইনষ্টল নহ\'ব পাৰে।\n\nআপুনি সঁচাই এই বৈশিষ্ট্যটো অক্ষম কৰিব বিচাৰে নে?</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">সুপ্ত কৰিবলৈ দুবাৰ টেপ কৰক</string>
+  <string name="status_bar_double_tap_to_sleep_summary">প্রদর্শন অফ কৰিবলৈ ষ্টেটাছ বাৰত দুবাৰ ক্লিক কৰক</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> হ\'ল <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
+  <string name="sim_disabled">অক্ষম</string>
+  <string name="sim_missing">হেৰাইছে বা ত্ৰুটিপূৰ্ণ</string>
+  <string name="sim_enabler_need_disable_sim">SIM কাৰ্ড নিষ্ক্ৰিয় কৰা হ\'ব। আপুনি অব্যাহত ৰাখিবলৈ বিচাৰে নেকি?</string>
+  <string name="sim_enabler_will_disable_sim_title">মনোযোগ</string>
+  <string name="sim_enabler_need_switch_data_service">এইখন SIM অক্ষম কৰা হ\'ব আৰু SIM <xliff:g id="slotid">%1$s</xliff:g> খন ডাটা সেৱাৰ বাবে ব্যৱহাৰ কৰা হ\'ব। আপুনি অব্যাহত ৰাখিব বিচাৰে বুলি নিশ্চিতনে?</string>
+  <string name="sim_enabler_airplane_on">এয়াৰপ্লেন মোড অন থাকিলে অপাৰেচনটো সম্পন্ন কৰিবলৈ অক্ষম</string>
+  <string name="sim_enabler_in_call">কল কৰি থাকিলে অপাৰেচনটো সম্পন্ন কৰিবলৈ অক্ষম</string>
+  <string name="sim_enabler_both_inactive">সকলোবোৰ SIM কাৰ্ড অক্ষম কৰিব নোৱাৰি</string>
+  <string name="sim_enabler_enabling">সক্ৰিয়কৰণ\u2026</string>
+  <string name="sim_enabler_disabling">সক্ৰিয়হীন\u2026</string>
+  <string name="sub_activate_success">SIM সক্ৰিয় কৰা হ\'ল।</string>
+  <string name="sub_activate_failed">সক্ৰিয়কৰণ ব্যৰ্থ হ\'ল।</string>
+  <string name="sub_deactivate_success">SIM নিষ্ক্ৰিয় কৰা হ\'ল।</string>
+  <string name="sub_deactivate_failed">নিষ্ক্ৰিয়কৰণ ব্যৰ্থ হ\'ল।</string>
 </resources>

@@ -49,7 +49,6 @@
   <string name="mod_api_level_default">Невядома</string>
   <!-- About phone screen, build date -->
   <string name="build_date">Дата зборкі</string>
-  <string name="build_date_default">2015-01-01-0000</string>
   <!-- CM Updater -->
   <string name="cmupdate_settings_title">Абнаўленні сістэмы</string>
   <!-- Names of categories of app ops tabs - extension of AOSP -->
@@ -105,7 +104,6 @@
   <string name="app_ops_summaries_keep_awake">актыўны рэжым</string>
   <string name="app_ops_summaries_monitor_location">асочванне месцазнаходжання</string>
   <string name="app_ops_summaries_monitor_high_power_location">асочванне высокадакладнага месцазнаходжання</string>
-  <string name="app_ops_summaries_get_usage_stats">атрымаць статыстыку выкарыстання</string>
   <string name="app_ops_summaries_mute_unmute_microphone">вымыкаць/далучаць мікрафон</string>
   <string name="app_ops_summaries_toast_window">адлюстроўваць усплывальныя паведамленні</string>
   <string name="app_ops_summaries_project_media">трансляцыя кантэнту</string>
@@ -130,6 +128,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">пераключыць bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">запуск падчас загрузкі</string>
   <string name="app_ops_summaries_toggle_nfc">пераключыць NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">пераключыць стан сотавай сеткі</string>
   <string name="app_ops_summaries_superuser">суперкарыстальнік</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Прыблізнае месцазнаходжанне</string>
@@ -200,7 +199,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Пераключыць bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Запуск падчас загрузкі</string>
   <string name="app_ops_labels_toggle_nfc">Пераключыць NFC</string>
-  <string name="app_ops_labels_toggle_mobile_data">Пераключыць стан мабільнага сеціва</string>
+  <string name="app_ops_labels_toggle_mobile_data">пераключыць стан сотавай сеткі</string>
   <string name="app_ops_labels_superuser">Рэжым суперкарыстальніка</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Дазваляць</string>
@@ -225,10 +224,6 @@
   <string name="vibrator_intensity_dialog_warning">Не раю выкарыстоўваць звыш %1$d%%</string>
   <string name="vibrator_intensity_dialog_reset">Скід</string>
   <!-- Sizes for pattern lockscreen -->
-  <string name="lock_pattern_size_3">3x3</string>
-  <string name="lock_pattern_size_4">4x4</string>
-  <string name="lock_pattern_size_5">5x5</string>
-  <string name="lock_pattern_size_6">6x6</string>
   <string name="lock_settings_picker_pattern_size_message">Абяры памер графічнага ключа</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Паказваць няправільны ўвод</string>
@@ -280,6 +275,8 @@
   <string name="touchscreen_hovering_title">Навядзенне пальца</string>
   <string name="touchscreen_hovering_summary">Распазнаваць набліжэнне пальца да экрана для падзей навядзення курсора ў браўзары ці іншых дадатках</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">Значок выбару метаду ўводу</string>
+  <string name="ime_switcher_notify_summary">Адлюстроўваць пераключальнік метаду ўводу пры адкрыцці тэкставых палёў</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Курсор пры выкарыстанні сцілуса</string>
@@ -296,11 +293,25 @@
   <string name="adb_over_network">Адладка па сетцы</string>
   <string name="adb_over_network_summary">Уключыць рэжым адладкі праз сеткавыя інтэрфейсы (Wi-Fi і USB-сеткі). Адладка адключаецца пры перазагрузцы прылады</string>
   <string name="adb_over_network_warning">УВАГА: калі ўключана адладка па сетцы, прылада адкрыта для некантралюемага доступу з усіх падлучаных сетак!\n\nСкарыстайце гэту функцыю толькі тады, калі вы падлучаны да давераных сетак.\n\nВы сапраўды хочаце ўключыць гэту функцыю?</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">Сеткавае імя прылады</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Нарастальная гучнасць званку</string>
   <string name="increasing_ring_min_volume_title">Пачатковая гучнасць</string>
   <string name="increasing_ring_ramp_up_time_title">Час павелічэння</string>
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">нагадванні</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">падзеі</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">абраныя абанэнты</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">абраныя паведамленні</string>
   <!-- Notification sound timeout -->
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">Статус SIM %d</string>
@@ -315,6 +326,17 @@
   <string name="cmlicense_title">Палітыка прыватнасці CyanogenMod</string>
   <!-- Format string for fingerprint location message -->
   <!-- Fingerprint sensor locations -->
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">Код рэгіёну Wi-Fi</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">Пакажыце код рэгіёну Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">Пры наладзе кода рэгіёна Wi-Fi паўстала памылка.</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">Улучэнне пры зарадцы</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Улучаць экран пры падлучэнні ці адключэнні крыніцы сілкавання</string>
+  <!-- Heads-up -->
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Іншы</string>
   <!-- Wi-Fi tethering inactivity timeout -->
@@ -322,7 +344,35 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 хвіліна</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 хвілін</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 хвілін</string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">Улучэнне пры зарадцы</string>
-  <!-- Heads-up -->
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Не адключаць ніколі Wi\u2011Fi</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Адключыць праз <xliff:g id="timeout">%1$s</xliff:g></string>
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Звязаць гучнасць рынгтону &amp; паведамленняў</string>
+  <!-- Launch music player when headset is connected -->
+  <!-- Update recovery -->
+  <string name="update_recovery_on_warning">Калі гэта функцыя ўключана, усталяваная прашыўка рэжыму аднаўлення будзе перазапісана той, якая адпавядае бягучай версіі АС.\n\n Рэжым аднаўлення будзе абнаўляцца разам з абнаўленнямі сістэмы, забяспечваючы сумяшчальнасць з будучымі версіямі.\n\nУключыць выкарыстанне гэтай функцыі?</string>
+  <string name="update_recovery_off_warning">Калі гэта функцыя адключана, прашыўка рэжыму аднаўлення заўсёды будзе заставацца нязменнай.\n\nНекаторыя абнаўленні АС могуць не ўсталёўвацца пры выкарыстанні састарэлых ці карыстальніцкіх версій падзелу Recovery.\n\nАдключыць выкарыстанне гэтай функцыі?</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">Вымыкаць экран пры падвойным націсканні</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Двойчы дакраніцеся радка стану, каб перавесці прыладу ў спячы рэжым</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> — <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
+  <string name="sim_disabled">адключана</string>
+  <string name="sim_missing">адсутнічае альбо няспраўная</string>
+  <string name="sim_enabler_need_disable_sim">SIM-картка будзе адключана. Жадаеш працягнуць?</string>
+  <string name="sim_enabler_will_disable_sim_title">Увага</string>
+  <string name="sim_enabler_need_switch_data_service">SIM картка будзе адключана і SIM <xliff:g id="slotid">%1$s</xliff:g> будзе выкарыстоўваць дадзеныя службаў. Упэўнены ў жаданні працягнуць?</string>
+  <string name="sim_enabler_airplane_on">Выкананне аперацыі немагчымае пры ўлучаным рэжыме лёту.</string>
+  <string name="sim_enabler_in_call">Выкананне аперацыі немагчымае падчас тэлефанавання.</string>
+  <string name="sim_enabler_both_inactive">Немагчыма адключыць усе SIM-карты</string>
+  <string name="sim_enabler_enabling">Улучэнне\u2026</string>
+  <string name="sim_enabler_disabling">Адлучэнне\u2026</string>
+  <string name="sub_activate_success">SIM актывована.</string>
+  <string name="sub_activate_failed">Памылка падчас актывацыі.</string>
+  <string name="sub_deactivate_success">SIM дэактывована.</string>
+  <string name="sub_deactivate_failed">Памылка падчас дэактывацыі.</string>
 </resources>

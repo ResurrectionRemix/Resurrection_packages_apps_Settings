@@ -59,7 +59,7 @@
   <string name="app_ops_categories_device">Enhed</string>
   <string name="app_ops_categories_background">Baggrund</string>
   <string name="app_ops_categories_bootup">Opstart</string>
-  <string name="app_ops_categories_su">Superuser</string>
+  <string name="app_ops_categories_su">Root-adgang</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">grov placering</string>
   <string name="app_ops_summaries_fine_location">fin placering</string>
@@ -104,7 +104,6 @@
   <string name="app_ops_summaries_keep_awake">hold vågen</string>
   <string name="app_ops_summaries_monitor_location">overvåg placering</string>
   <string name="app_ops_summaries_monitor_high_power_location">overvåg placering højt strømforbrug</string>
-  <string name="app_ops_summaries_get_usage_stats">få brugsstatistik</string>
   <string name="app_ops_summaries_mute_unmute_microphone">Mikrofon til/fra</string>
   <string name="app_ops_summaries_toast_window">Vis toastbeskeder</string>
   <string name="app_ops_summaries_project_media">projekt medie</string>
@@ -128,7 +127,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">bluetooth til/fra</string>
   <string name="app_ops_summaries_start_at_boot">start ved opstart</string>
   <string name="app_ops_summaries_toggle_nfc">NFC til/fra</string>
-  <string name="app_ops_summaries_toggle_mobile_data">mobildata til/fra</string>
+  <string name="app_ops_summaries_toggle_mobile_data">slå mobildata til/fra</string>
   <string name="app_ops_summaries_superuser">root-adgang</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Grov placering</string>
@@ -196,7 +195,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Bluetooth til/fra</string>
   <string name="app_ops_labels_start_at_boot">Start ved opstart</string>
   <string name="app_ops_labels_toggle_nfc">NFC til/fra</string>
-  <string name="app_ops_labels_toggle_mobile_data">Mobildata til/fra</string>
+  <string name="app_ops_labels_toggle_mobile_data">Slå mobildata til/fra</string>
   <string name="app_ops_labels_superuser">Root-adgang</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Tilladt</string>
@@ -221,10 +220,6 @@
   <string name="vibrator_intensity_dialog_warning">Værdier højere end %1$d%% anbefales ikke</string>
   <string name="vibrator_intensity_dialog_reset">Nulstil</string>
   <!-- Sizes for pattern lockscreen -->
-  <string name="lock_pattern_size_3">3x3</string>
-  <string name="lock_pattern_size_4">4x4</string>
-  <string name="lock_pattern_size_5">5x5</string>
-  <string name="lock_pattern_size_6">6x6</string>
   <string name="lock_settings_picker_pattern_size_message">Vælg en mønsterstørrelse</string>
   <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
   <string name="lockpattern_settings_enable_error_path_title">Vis mønsterfejl</string>
@@ -268,7 +263,7 @@
   <!-- title for lock screen weather preference -->
   <string name="lockscreen_weather_enabled_title">Vis vejr</string>
   <!-- title for lock screen blur preference -->
-  <string name="lockscreen_blur_enabled_title">Animeret låseskærm</string>
+  <string name="lockscreen_blur_enabled_title">Sløring af baggrund</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Undgå utilsigtet vækning</string>
   <string name="proximity_wake_summary">Check nærhedsføler før oplåsning udløst af bevægelser</string>
@@ -279,8 +274,8 @@
   <string name="touchscreen_hovering_title">Brug skærmen som mus</string>
   <string name="touchscreen_hovering_summary">Gør det muligt at bevæge skærmen og bruge den som mus f.eks. i en browser, på fjernskriveborde m.v.</string>
   <!-- Whether to display IME switcher notifcation -->
-  <string name="ime_switcher_notify">IME-vælgemeddelelse</string>
-  <string name="ime_switcher_notify_summary">Vis vælgemeddelelse for inputmetode</string>
+  <string name="ime_switcher_notify">Ikon for valg</string>
+  <string name="ime_switcher_notify_summary">Vis ikon til valg af input-metode</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <string name="notification_importance_very_low">Ingen fuldskærmsafbrydelse, smugkig, lyd eller vibration. Vis nederst på underretningslisten. Skjul fra skærmlås.</string>
   <!-- Stylus Icon -->
@@ -299,11 +294,24 @@
   <string name="adb_over_network">ADB via netværk</string>
   <string name="adb_over_network_summary">Aktivér TCP/IP fejlretning for netværksenheder (Wi\u2011Fi, USB-netværk). Denne indstilling nulstilles ved genstart</string>
   <string name="adb_over_network_warning">Advarsel: Når ADB over netværket er aktiveret, er telefonen åben for indtrængen på alle forbundne netværk! \n\nBrug kun denne funktion, når du er tilsluttet et netværk, du stoler på.\n\nØnsker du virkelig at aktivere denne funktion?</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">Enhedens værtsnavn</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Stigende ringelydstyrke</string>
   <string name="increasing_ring_min_volume_title">Start lydstyrke</string>
   <string name="increasing_ring_ramp_up_time_title">Forøgelsestid</string>
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">påmindelser</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">begivenheder</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">valgte beskeder</string>
   <!-- Notification sound timeout -->
   <string name="app_notification_sound_timeout_value_none">Ingen begrænsning</string>
   <string name="app_notification_sound_timeout_value_10_seconds">10 sekunder</string>
@@ -330,6 +338,19 @@
   <string name="security_settings_fingerprint_sensor_location_front">front</string>
   <string name="security_settings_fingerprint_sensor_location_left">venstre side</string>
   <string name="security_settings_fingerprint_sensor_location_right">højre side</string>
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">Wi\u2011Fi-regionskode</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">Angiv regionskoden for Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">Der opstod et problem med indstillingen af regionskoden.</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">Væk ved strøm</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Tænd skærmen, når du tilslutter eller frakobler en strømkilde</string>
+  <!-- Heads-up -->
+  <string name="heads_up_notifications_enabled_title">Vigtige underretninger</string>
+  <string name="heads_up_notifications_enabled_summary">Vise prioriteretsunderretninger i et lille flydende vindue</string>
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Andet</string>
   <!-- Wi-Fi tethering inactivity timeout -->
@@ -338,12 +359,35 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 minut</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 minutter</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minutter</string>
-  <string name="hotstpot_inactivity_timeout_never_summary_text">Det mobile Wi\u2011Fi-hotspot har ingen tidsbegrænsning</string>
-  <string name="hotstpot_inactivity_timeout_summary_text">Tidsgrænse for det mobile Wi\u2011Fi-hotspot udløber efter <xliff:g id="timeout">%1$s</xliff:g></string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">Væk ved strøm</string>
-  <string name="wake_when_plugged_or_unplugged_summary">Tænd skærmen, når du tilslutter eller frakobler en strømkilde</string>
-  <!-- Heads-up -->
-  <string name="heads_up_notifications_enabled_title">Vigtige underretninger</string>
-  <string name="heads_up_notifications_enabled_summary">Vise prioriteretsunderretninger i et lille flydende vindue</string>
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Ingen tidsgrænse for Mobil Wi\u2011Fi hotspot</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Tidsgrænse for Mobil Wi\u2011Fi hotspot udløber efter <xliff:g id="timeout">%1$s</xliff:g></string>
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Forbind ringe- og meddelelseslydstyrke</string>
+  <!-- Launch music player when headset is connected -->
+  <!-- Update recovery -->
+  <string name="update_recovery_on_warning">BEMÆRK: Når denne funktion er aktiveret, vil din installerede \'recovery\' blive erstattet af en inkluderet i den aktuelle version af styresystemet.\n\nDin \'recovery\' opdateres sammen med opdateringer til styresystemet, hvilket sikrer kompatibilitet med fremtidige versioner.\n\nVil du aktivere denne funktion?</string>
+  <string name="update_recovery_off_warning">ARVARSEL: Med denne funktion slået fra, vil din \'recovery\' ikke blive opdateret sammen med styresystemet.\n\nFremtidige opdateringer til styresystemet kan måske ikke installeres med en forældet \'recovery\'\n\nVil du virkelig slå denne funktion fra?</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">Dobbelttryk for dvale</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Dobbelttryk på statuslinjen for at slukke skærmen</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> er <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
+  <string name="sim_disabled">deaktiveret</string>
+  <string name="sim_missing">mangler eller defekt</string>
+  <string name="sim_enabler_need_disable_sim">SIM-kortet vil blive deaktiveret. Vil du fortsætte?</string>
+  <string name="sim_enabler_will_disable_sim_title">Advarsel</string>
+  <string name="sim_enabler_need_switch_data_service">Dette SIM-kort deaktiveres og SIM-<xliff:g id="slotid">%1$s</xliff:g> vil blive anvendt til data-tjenester. Vil du fortsætte?</string>
+  <string name="sim_enabler_airplane_on">Kan ikke udføre operationen, mens flytilstand er slået til.</string>
+  <string name="sim_enabler_in_call">Kan ikke udføre handlingen under igangværende opkald.</string>
+  <string name="sim_enabler_both_inactive">Kan ikke deaktivere alle SIM-kort</string>
+  <string name="sim_enabler_enabling">Aktiverer\u2026</string>
+  <string name="sim_enabler_disabling">Deaktiverer\u2026</string>
+  <string name="sub_activate_success">SIM-kort aktiveret.</string>
+  <string name="sub_activate_failed">Aktivering mislykkedes.</string>
+  <string name="sub_deactivate_success">SIM-kort deaktiveret.</string>
+  <string name="sub_deactivate_failed">Deaktivering mislykkedes.</string>
 </resources>

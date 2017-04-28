@@ -56,6 +56,7 @@
   <string name="app_ops_categories_media">رسانه</string>
   <string name="app_ops_categories_device">دستگاه</string>
   <string name="app_ops_categories_bootup">راه‌اندازی</string>
+  <string name="app_ops_categories_su">دسترسی روت</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">مکان تقریبی</string>
   <string name="app_ops_summaries_fine_location">مکان دقیق</string>
@@ -207,6 +208,8 @@
   <string name="touchscreen_hovering_title">لمس شناور صفحه</string>
   <string name="touchscreen_hovering_summary">به شما اجازه می‌دهد مانند عملکرد ماوس در مرورگرهای وب، ریموت دسکتاپ و غیره، صفحه نمایش را به صورت شناور کنترل کنید</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">آیکون انتخابگر</string>
+  <string name="ime_switcher_notify_summary">نمایش آیکون انتخابگر روش ورودی</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">نمایش آیکون هنگام استفاده از قلم لمسی</string>
@@ -223,11 +226,21 @@
   <string name="adb_over_network">ای‌دی‌بی از طریق شبکه</string>
   <string name="adb_over_network_summary">فعال‌کردن اشکال‌زدایی TCP/IP از طریق رابط‌های شبکه (شبکه‌های وای‌فای، یواس‌بی). این تنظیمات در راه‌اندازی گوشی مجددا تنظیم خواهند شد</string>
   <string name="adb_over_network_warning">هشدار: هنگامی که ای‌دی‌بی از طریق شبکه فعال باشد، تلفن همراه شما در معرض تجاوز از طرف تمام شبکه‌های متصل قرار خواهد گرفت!\n\nتنها زمانی که به شبکه‌های مورد اعتماد متصل هستید از این قابلیت استفاده کنید.\n\nآیا واقعا می‌خواهید این قابلیت را فعال کنید؟</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">نام هاست دستگاه</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">صدای صعودی زنگ</string>
   <string name="increasing_ring_min_volume_title">میزان صدا هنگام شروع</string>
   <string name="increasing_ring_ramp_up_time_title">زمان افزایش صدا</string>
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
   <!-- Notification sound timeout -->
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">وضعیت سیم کارت %d</string>
@@ -242,10 +255,37 @@
   <string name="cmlicense_title">موارد حقوقی سایانوژن‌مود</string>
   <!-- Format string for fingerprint location message -->
   <!-- Fingerprint sensor locations -->
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">کد منطقه‌ای وای‌فای</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">تعیین کد منطقه‌ای برای وای‌فای</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">مشکلی در تنظیم کد منطقه‌ای وجود داشت.</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">بیدار شدن هنگام اتصال به برق</string>
+  <string name="wake_when_plugged_or_unplugged_summary">روشن شدن صفحه هنگام اتصال یا قطع اتصال منبع برق</string>
+  <!-- Heads-up -->
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">هرگز</string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">بیدار شدن هنگام اتصال به برق</string>
-  <!-- Heads-up -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">یکی شدن میزان صدای زنگ و اعلان</string>
+  <!-- Launch music player when headset is connected -->
+  <!-- Update recovery -->
+  <string name="update_recovery_on_warning">توجه: وقتی این امکان فعال باشد، ریکاوری نصب‌شده شما با نسخه موجود فعلی سیستم‌عامل جایگزین خواهد شد.\n\n ریکاوری با بروزرسانی‌های سیستم شما بروز خواهد شد تا از سازگاری با نسخه‌های آینده اطمینان حاصل شود.\n\n آیا می‌خواهید این امکان را فعال کنید؟</string>
+  <string name="update_recovery_off_warning">هشدار: وقتی این امکان غیرفعال باشد، ریکاوری نصب شده شما با بروزرسانی‌های سیستم‌عامل بروز نخواهد شد.\n\nبروزرسانی‌های آینده‌ی سیستم‌عامل ممکن است با نسخه‌های تاریخ گذشته یا شخصی ریکاوری نصب نشود.\n\nآیا واقعا می‌خواهید این قابلیت را غیرفعال کنید؟</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">دو بار ضربه برای به خواب رفتن</string>
+  <string name="status_bar_double_tap_to_sleep_summary">خاموش شدن صفحه با دوبار ضربه زدن روی نوار وضعیت</string>
+  <string name="sim_disabled">غیرفعال</string>
+  <string name="sim_missing">مفقود یا معیوب</string>
+  <string name="sim_enabler_airplane_on">اجرای عملیات هنگام روشن بودن حالت هواپیما ممکن نیست.</string>
+  <string name="sim_enabler_in_call">اجرای عملیات هنگام برقرار بودن تماس ممکن نیست.</string>
+  <string name="sim_enabler_both_inactive">نمی‌توان تمام سیم کارت‌ها را غیرفعال کرد</string>
 </resources>

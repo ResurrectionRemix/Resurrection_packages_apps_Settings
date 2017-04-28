@@ -22,7 +22,7 @@
     android:layout_height="match_parent"
     android:id="@+id/fl_interceptor"
     android:descendantFocusability="blocksDescendants"
-    android:background="@color/white_overlay"
+    android:background="@drawable/rr_fab_overlay_bg"
     tools:context="in.city.bytes.view.MainActivity">
 
 <com.android.settings.rr.fab.FloatingActionsMenu
@@ -30,9 +30,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="right|bottom"
-    fab:fab_addButtonColorNormal="@color/fab_bg_main"
-    fab:fab_addButtonColorPressed="@color/fab_main_pressed_color"
-    fab:fab_addButtonPlusIconColor="@color/white"
+    fab:fab_addButtonColorNormal="@color/fab_rr_bg"
+    fab:fab_addButtonPlusIconColor="@color/fab_button_icon_color"
     fab:fab_addButtonStrokeVisible="false"
     fab:fab_labelStyle="@style/menu_labels_style"
     fab:fab_labelsPosition="left">
@@ -41,9 +40,8 @@
         android:id="@+id/fab_event"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        fab:fab_colorNormal="@color/fab_bg_1"
-        fab:fab_colorPressed="@color/accent_dark"
-        fab:fab_plusIconColor="@color/white"
+        fab:fab_colorNormal="@color/fab_rr_bg"
+        fab:fab_plusIconColor="@color/fab_button_icon_color"
         fab:fab_icon="@drawable/rr_ota_icon_fab"
         fab:fab_size="mini"
         fab:fab_title="@string/fab_updates" />
@@ -52,9 +50,8 @@
         android:id="@+id/fab_restart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        fab:fab_colorNormal="@color/fab_bg_2"
-        fab:fab_colorPressed="@color/accent_dark"
-        fab:fab_plusIconColor="@color/white"
+        fab:fab_colorNormal="@color/fab_rr_bg"
+        fab:fab_plusIconColor="@color/fab_button_icon_color"
         fab:fab_icon="@drawable/rr_restart_ui_icon"
         fab:fab_size="mini"
         fab:fab_title="@string/fab_restartui" />
@@ -63,9 +60,8 @@
         android:id="@+id/fab_reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        fab:fab_colorNormal="@color/fab_bg_3"
-        fab:fab_colorPressed="@color/accent_dark"
-        fab:fab_plusIconColor="@color/white"
+        fab:fab_colorNormal="@color/fab_rr_bg"
+        fab:fab_plusIconColor="@color/fab_button_icon_color"
         fab:fab_icon="@drawable/rr_reset_icon"
         fab:fab_size="mini"
         fab:fab_title="@string/fab_reset" />
@@ -74,9 +70,8 @@
         android:id="@+id/fab_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        fab:fab_colorNormal="@color/fab_bg_4"
-        fab:fab_colorPressed="@color/accent_dark"
-        fab:fab_plusIconColor="@color/white"
+        fab:fab_colorNormal="@color/fab_rr_bg"
+        fab:fab_plusIconColor="@color/fab_button_icon_color"
         fab:fab_icon="@drawable/rr_info_icon"
         fab:fab_size="mini"
         fab:fab_title="@string/fab_about" />
@@ -85,9 +80,8 @@
         android:id="@+id/fab_config"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        fab:fab_colorNormal="@color/fab_bg_5"
-        fab:fab_colorPressed="@color/accent_dark"
-        fab:fab_plusIconColor="@color/white"
+        fab:fab_colorNormal="@color/fab_rr_bg"
+        fab:fab_plusIconColor="@color/fab_button_icon_color"
         fab:fab_icon="@drawable/rr_tools_fab_toggle"
         fab:fab_size="mini"
         fab:fab_title="@string/fab_layout" />

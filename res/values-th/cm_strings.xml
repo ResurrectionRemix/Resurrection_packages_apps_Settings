@@ -56,6 +56,7 @@
   <string name="app_ops_categories_media">สื่อ</string>
   <string name="app_ops_categories_device">อุปกรณ์</string>
   <string name="app_ops_categories_bootup">เปิดเครื่อง</string>
+  <string name="app_ops_categories_su">สิทธิผู้ดูแลระบบ</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">พิกัดที่ตั้งหยาบ</string>
   <string name="app_ops_summaries_fine_location">พิกัดที่ตั้งละเอียด</string>
@@ -100,7 +101,6 @@
   <string name="app_ops_summaries_keep_awake">เปิดจอค้าง</string>
   <string name="app_ops_summaries_monitor_location">ตรวจสอบตำแหน่งที่ตั้ง</string>
   <string name="app_ops_summaries_monitor_high_power_location">ตรวจสอบพิกัดที่ตั้งพลังงานสูง</string>
-  <string name="app_ops_summaries_get_usage_stats">ดูสถิติการใช้งาน</string>
   <string name="app_ops_summaries_mute_unmute_microphone">เปิด/ปิด ไมโครโฟน</string>
   <string name="app_ops_summaries_toast_window">แสดงกล่องข้อความ</string>
   <string name="app_ops_summaries_project_media">สื่อโครงการ</string>
@@ -124,6 +124,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">สลับบลูทูธ</string>
   <string name="app_ops_summaries_start_at_boot">เริ่มต้นเมื่อบูต</string>
   <string name="app_ops_summaries_toggle_nfc">สลับ NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">สลับข้อมูลโทรศัพท์มือถือ</string>
   <string name="app_ops_summaries_superuser">สิทธิผู้ดูแลระบบ</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">พิกัดที่ตั้งหยาบ</string>
@@ -193,6 +194,7 @@
   <string name="app_ops_labels_toggle_bluetooth">สลับบลูทูธ</string>
   <string name="app_ops_labels_start_at_boot">เริ่มต้นเมื่อบูต</string>
   <string name="app_ops_labels_toggle_nfc">สลับ NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">สลับข้อมูลโทรศัพท์มือถือ</string>
   <string name="app_ops_labels_superuser">สิทธิผู้ดูแลระบบ</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">อนุญาต</string>
@@ -265,6 +267,8 @@
   <string name="touchscreen_hovering_title">วางนิ้วเหนือจอ</string>
   <string name="touchscreen_hovering_summary">อนุญาตให้คุณสามารถวางนิ้วเหนือจอเหมือนการวางเม้าส์เหนือปุ่มในคอมพิวเตอร์</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">ไอคอนตัวเลือก</string>
+  <string name="ime_switcher_notify_summary">แสดงไอคอนตัวเลือกวิธีป้อนข้อมูล</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">แสดงไอคอนเมื่อใช้งานปากกาสไตลัส</string>
@@ -281,11 +285,25 @@
   <string name="adb_over_network">ADB บนเครือข่าย</string>
   <string name="adb_over_network_summary">เปิดแก้ไขข้อบกพร่องผ่าน TCP/IP โดยใช้อินเตอร์เฟซเครือข่าย (Wi-Fi เครือข่าย USB) การตั้งค่านี้จะมีการรีเซ็ตเมื่อเริ่มระบบ</string>
   <string name="adb_over_network_warning">คำเตือน: เมื่อเปิดใช้งาน ADB บนเครือข่าย โทรศัพท์ของคุณอาจโดนโจมตีจากทุกช่องทางที่เชื่อมต่ออยู่\n\nใช้คุณลักษณะนี้เมื่อคุณเชื่อมต่อกับเครือข่ายที่ไว้ใจได้เท่านั้น\n\nต้องการเปิดใช้งานฟังก์ชันนี้หรือไม่</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">ชื่อโฮสต์ของอุปกรณ์</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">การเพิ่มเสียงเรียกเข้า</string>
   <string name="increasing_ring_min_volume_title">ระดับเสียงเริ่มต้น</string>
   <string name="increasing_ring_ramp_up_time_title">ระยะเวลาที่ดังเพิ่มขึ้น</string>
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">การแจ้งเตือน</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">กิจกรรม</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">ผู้โทรที่เลือก</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">ข้อความที่เลือก</string>
   <!-- Notification sound timeout -->
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">สถานะซิม %d</string>
@@ -300,6 +318,17 @@
   <string name="cmlicense_title">เกี่ยวกับกฎหมาย CyanogenMod</string>
   <!-- Format string for fingerprint location message -->
   <!-- Fingerprint sensor locations -->
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">รหัสภูมิภาค Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">ระบุรหัสภูมิภาคสำหรับ Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">มีปัญหาขณะตั้งรหัสภูมิภาค</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">ตื่นเมื่อเสียบปลั๊ก</string>
+  <string name="wake_when_plugged_or_unplugged_summary">เปิดหน้าจอเมื่อเชื่อมต่อหรือตัดการเชื่อมต่อกับแหล่งจ่ายไฟ</string>
+  <!-- Heads-up -->
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">อื่น ๆ</string>
   <!-- Wi-Fi tethering inactivity timeout -->
@@ -308,7 +337,35 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 นาที</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 นาที</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 นาที</string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">ตื่นเมื่อเสียบปลั๊ก</string>
-  <!-- Heads-up -->
+  <string name="hotstpot_inactivity_timeout_never_summary_text">สัญญาณ Wi\u2011Fi แบบพกพาจะไม่หมดเวลา</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">สัญญาณ Wi\u2011Fi แบบพกพาจะหมดเวลาหลังจาก <xliff:g id="timeout">%1$s</xliff:g></string>
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">เชื่อมต่อความดังเสียงเรียกเข้า&amp; เสียงแจ้งเตือน</string>
+  <!-- Launch music player when headset is connected -->
+  <!-- Update recovery -->
+  <string name="update_recovery_on_warning">คำเตือน: เมื่อเปิดใช้งานคุณสมบัตินี้ recovery ที่ติดตั้งจะถูกแทนที่ด้วย recovery รุ่นปัจจุบันของระบบที่ใช้งาน\n\n recovery ของคุณจะได้รับการอัปเดตไปพร้อมกับการอัพเกรดระบบ ซึ่งช่วยให้แน่ใจได้ว่าจะสามารถเข้าได้กับรุ่นต่าง ๆ ในอนาคต\n\nต้องการใช้คุณสมบัตินี้หรือไม่</string>
+  <string name="update_recovery_off_warning">คำเตือน: เมื่อปิดการใช้งานคุณสมบัตินี้ recovery ที่ติดตั้งจะไม่ได้รับการอัปเดตไปกับการอัพเกรดระบบ\n\nการอัปเดตระบบในอนาคตอาจไม่ติดตั้งรุ่น recovery ที่ล้าสมัยหรือที่กำหนดเอง\n\nต้องการปิดใช้คุณสมบัตินี้แน่นอนหรือไม่</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">แตะสองครั้งเพื่อปิดจอ</string>
+  <string name="status_bar_double_tap_to_sleep_summary">แตะสองครั้งที่แถบสถานะเพื่อปิดหน้าจอ</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> ถูก <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
+  <string name="sim_disabled">ปิดใช้งานแล้ว</string>
+  <string name="sim_missing">สูญหายหรือชำรุด</string>
+  <string name="sim_enabler_need_disable_sim">ซิมการ์ดจะถูกปิดใช้งาน คุณต้องการทำต่อหรือไม่</string>
+  <string name="sim_enabler_will_disable_sim_title">โปรดทราบ</string>
+  <string name="sim_enabler_need_switch_data_service">ซิมการ์ดนี้จะถูกปิดใช้งานและซิม <xliff:g id="slotid">%1$s</xliff:g>จะถูกใช้สำหรับข้อมูลแทน คุณแน่ใจที่จะทำต่อหรือไม่</string>
+  <string name="sim_enabler_airplane_on">ไม่สามารถดำเนินการนี้ได้ขณะอยู่ในรูปแบบเครื่องบิน</string>
+  <string name="sim_enabler_in_call">ไม่สามารถดำเนินการนี้ได้ขณะใช้สายอยู่</string>
+  <string name="sim_enabler_both_inactive">ไม่สามารถปิดการใช้งานทุกซิมการ์ดได้</string>
+  <string name="sim_enabler_enabling">กำลังเปิดใช้\u2026</string>
+  <string name="sim_enabler_disabling">กำลังปิด\u2026</string>
+  <string name="sub_activate_success">เปิดใช้งานซิมแล้ว</string>
+  <string name="sub_activate_failed">เปิดใช้งานล้มเหลว</string>
+  <string name="sub_deactivate_success">ซิมปิดการใช้งานแล้ว</string>
+  <string name="sub_deactivate_failed">การปิดใช้งานล้มเหลว</string>
 </resources>

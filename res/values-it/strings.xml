@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"Visualizza rubrica SIM"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Visualizza numeri selezione fissa"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Visualizza numeri dell\'elenco dei numeri di servizio"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"Ricevi elenco PDP"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"Stato del servizio IMS"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"Stato IMS"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Registrato"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Non registrato"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Disponibile"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Non disponibile"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"Registrazione IMS: <xliff:g id="STATUS">%1$s</xliff:g>\nChiamate tramite LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nChiamate tramite Wi-Fi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nVideochiamata: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nInterfaccia UT: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"In servizio"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Fuori servizio"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Solo chiamate di emergenza"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Tieni attivo Wi‑Fi durante sospensione"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Wi‑Fi attivo in sospensione"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"Si è verificato un problema durante la modifica dell\'impostazione"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Connetti a reti operatore"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Connetti a reti operatore se disponibili"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Migliora l\'efficienza"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Ottimizzazione Wi‑Fi"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Riduci al minimo l\'utilizzo della batteria quando Wi‑Fi è attivo"</string>
@@ -751,7 +759,7 @@
     <string name="wifi_wps_available_second_item" msgid="8427520131718215301">" (WPS disponibile)"</string>
     <string name="wifi_wps_nfc_enter_password" msgid="2288214226916117159">"Inserisci la password di rete"</string>
     <string name="wifi_scan_always_turnon_message" msgid="203123538572122989">"Per migliorare la precisione della posizione e per altri scopi, <xliff:g id="APP_NAME">%1$s</xliff:g> chiede di attivare la ricerca della rete, anche quando il Wi-Fi è disattivato.\n\nConsetirlo a tutte le app che vogliono eseguire la ricerca?"</string>
-    <string name="wifi_scan_always_turnoff_message" msgid="5538901671131941043">"Per disattivare questa impostazione, vai alla sezione Avanzate nel menu di overflow."</string>
+    <string name="wifi_scan_always_turnoff_message" msgid="5538901671131941043">"Per disattivare questa impostazione, vai alla sezione Avanzate nel menu extra."</string>
     <string name="wifi_scan_always_confirm_allow" msgid="5355973075896817232">"Consenti"</string>
     <string name="wifi_scan_always_confirm_deny" msgid="4463982053823520710">"Rifiuta"</string>
     <string name="wifi_hotspot_title" msgid="7726205804813286950">"Accedere per connettersi?"</string>
@@ -1025,7 +1033,7 @@
     <string name="device_status" msgid="607405385799807324">"Stato"</string>
     <string name="device_status_summary" product="tablet" msgid="3292717754497039686">"Stato delle batteria, della rete e altre informazioni"</string>
     <string name="device_status_summary" product="default" msgid="2599162787451519618">"Numero di telefono, segnale ecc."</string>
-    <string name="storage_settings" msgid="4211799979832404953">"Memoria"</string>
+    <string name="storage_settings" msgid="4211799979832404953">"Spazio di archiviazione"</string>
     <string name="storage_usb_settings" msgid="7293054033137078060">"Spazio di archiviazione"</string>
     <string name="storage_settings_title" msgid="8746016738388094064">"Impostazioni memoria"</string>
     <string name="storage_settings_summary" product="nosdcard" msgid="3543813623294870759">"Smonta l\'archivio USB, visualizza lo spazio di archiviazione disponibile"</string>
@@ -1106,7 +1114,7 @@
     <string name="storage_menu_set_up" msgid="4263294929451685366">"Configura"</string>
     <string name="storage_menu_explore" msgid="4637496051816521560">"Esplora"</string>
     <string name="storage_menu_free" msgid="6386070442027135427">"Libera spazio"</string>
-    <string name="storage_menu_manage" msgid="5914482953856430780">"Gestisci memoria"</string>
+    <string name="storage_menu_manage" msgid="5914482953856430780">"Gestisci archiviazione"</string>
     <string name="storage_title_usb" msgid="679612779321689418">"Connessione computer USB"</string>
     <string name="usb_connection_category" msgid="7805945595165422882">"Connetti come"</string>
     <string name="usb_mtp_title" msgid="3399663424394065964">"Dispositivo multimediale (MTP)"</string>
@@ -2644,11 +2652,11 @@
     <string name="notification_listener_disable_warning_summary" msgid="6738915379642948000">"Se disattivi l\'accesso alle notifiche per <xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g>, potrebbe essere disattivato anche l\'accesso alla funzione Non disturbare."</string>
     <string name="notification_listener_disable_warning_confirm" msgid="8333442186428083057">"Disattiva"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8586417377104211584">"Annulla"</string>
-    <string name="vr_listeners_title" msgid="1318901577754715777">"Servizi helper realtà virtuale"</string>
-    <string name="no_vr_listeners" msgid="2689382881717507390">"Nessuna delle app installate ha richiesto di essere eseguita come servizio helper realtà virtuale"</string>
-    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Consentire al servizio di realtà virtuale l\'accesso a <xliff:g id="SERVICE">%1$s</xliff:g>?"</string>
+    <string name="vr_listeners_title" msgid="1318901577754715777">"Servizi helper VR"</string>
+    <string name="no_vr_listeners" msgid="2689382881717507390">"Nessuna delle app installate ha richiesto di essere eseguita come servizio helper VR."</string>
+    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Consentire l\'accesso a <xliff:g id="SERVICE">%1$s</xliff:g> al servizio VR?"</string>
     <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> potrà essere eseguito quando utilizzi applicazioni in modalità realtà virtuale."</string>
-    <string name="display_vr_pref_title" msgid="8104485269504335481">"Quando il dispositivo è in realtà virtuale"</string>
+    <string name="display_vr_pref_title" msgid="8104485269504335481">"Quando il dispositivo è in modalità VR"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"Riduci sfocatura (consigliato)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"Riduci sfarfallio"</string>
     <string name="manage_zen_access_title" msgid="2611116122628520522">"Accesso Non disturbare"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g>/<xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Ottimizzazione batteria"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Avvisi sul livello di carica"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Senza ottimizzazione"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Senza ottimizzazione"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Uso della batteria ottimizzato"</string>
@@ -3207,7 +3216,7 @@
     <string name="bluetooth_talkback_headphone" msgid="26580326066627664">"Cuffie"</string>
     <string name="bluetooth_talkback_input_peripheral" msgid="5165842622743212268">"Periferica di immissione"</string>
     <string name="bluetooth_talkback_bluetooth" msgid="5615463912185280812">"Bluetooth"</string>
-    <string name="automatic_storage_manager_settings" msgid="7819434542155181607">"Gestisci memoria"</string>
+    <string name="automatic_storage_manager_settings" msgid="7819434542155181607">"Gestisci archiviazione"</string>
     <string name="automatic_storage_manager_text" msgid="4562950476680600604">"Per liberare spazio, la gestione memoria rimuove foto e video dal dispositivo dopo averne eseguito il backup."</string>
     <string name="automatic_storage_manager_days_title" msgid="2017913896160914647">"Rimuovi foto e video"</string>
     <string name="automatic_storage_manager_preference_title" msgid="5753702798151073383">"Gestione memoria"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"App non installate"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"App installate"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Il tuo spazio di archiviazione è ora gestito dalla Gestione memoria"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Informazioni sul provisioning operatore"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Attiva provisioning operatore"</string>
 </resources>

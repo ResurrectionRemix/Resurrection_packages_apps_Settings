@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"Visa SIM-adressbok"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Visa Fasta nummer"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Visa tjänstenummer"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"Hämta PDP-lista"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"Status för IMS-tjänst"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS-status"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Registrerad"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Ej registrerad"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Tillgänglig"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Inte tillgänglig"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS-registrering: <xliff:g id="STATUS">%1$s</xliff:g>\nRöst via LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nRöst via Wi-Fi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nVideosamtal: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT-gränssnitt: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"I tjänst"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Ur funktion"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Endast nödsamtal"</string>
@@ -311,7 +317,7 @@
     <string name="owner_info_settings_title" msgid="5530285568897386122">"Låsskärmsmeddelande"</string>
     <string name="security_enable_widgets_title" msgid="2754833397070967846">"Aktivera widgetar"</string>
     <string name="security_enable_widgets_disabled_summary" msgid="1557090442377855233">"Har inaktiverats av administratören"</string>
-    <string name="owner_info_settings_summary" msgid="7472393443779227052">"Ingen"</string>
+    <string name="owner_info_settings_summary" msgid="7472393443779227052">"Inget"</string>
     <string name="owner_info_settings_status" msgid="120407527726476378">"<xliff:g id="COUNT_0">%1$d</xliff:g>/<xliff:g id="COUNT_1">%2$d</xliff:g>"</string>
     <string name="owner_info_settings_edit_text_hint" msgid="7591869574491036360">"T.ex. Jockes Android."</string>
     <string name="user_info_settings_title" msgid="1195015434996724736">"Användarinfo"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Behåll Wi-Fi på i viloläge"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Wi-Fi på i viloläge"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"Ett problem inträffade när inställningen ändrades"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Anslut till operatörsnät"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Anslut till operatörsnät om tillgängligt"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Öka effektiviteten"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Wi-Fi-optimering"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Minimera batterianvändningen när Wi-Fi är aktiverat"</string>
@@ -2644,9 +2652,9 @@
     <string name="notification_listener_disable_warning_summary" msgid="6738915379642948000">"Om du inaktiverar aviseringsåtkomst för <xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> kan åtkomsten till Stör ej också inaktiveras."</string>
     <string name="notification_listener_disable_warning_confirm" msgid="8333442186428083057">"Inaktivera"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8586417377104211584">"Avbryt"</string>
-    <string name="vr_listeners_title" msgid="1318901577754715777">"Hjälptjänster för virtuell verklighet"</string>
-    <string name="no_vr_listeners" msgid="2689382881717507390">"Inga installerade appar har begärt att få köras som hjälptjänster för virtuell verklighet."</string>
-    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Vill du tillåta att tjänsten för virtuell verklighet får tillgång till <xliff:g id="SERVICE">%1$s</xliff:g>?"</string>
+    <string name="vr_listeners_title" msgid="1318901577754715777">"Hjälptjänster för VR"</string>
+    <string name="no_vr_listeners" msgid="2689382881717507390">"Inga installerade appar har begärt att få köras som hjälptjänster för VR."</string>
+    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Vill du tillåta att tjänsten för VR får tillgång till <xliff:g id="SERVICE">%1$s</xliff:g>?"</string>
     <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> kan köras medan du använder appar i läget för virtuell verklighet."</string>
     <string name="display_vr_pref_title" msgid="8104485269504335481">"När enheten är i VR-läge"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"Minska oskärpa (rekommenderas)"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g>/<xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Batterioptimering"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Aviseringar om användning"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Inte optimerade"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Inte optimerad"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Använder optimerad batteriförbrukning"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Appar som är inte installerade"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Installerade appar"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Ditt lagringsutrymme hanteras nu av lagringshanteraren"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Information om operatörsadministration"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Aktivera operatörsadministration"</string>
 </resources>

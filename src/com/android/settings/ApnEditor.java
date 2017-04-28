@@ -172,6 +172,8 @@ public class ApnEditor extends SettingsPreferenceFragment
     private static final int MVNO_MATCH_DATA_INDEX = 22;
     private static final int EDITED_INDEX = 23;
 
+    private static final int DEFAULT_IPV4V6_INDEX = 2;
+
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -502,9 +504,13 @@ public class ApnEditor extends SettingsPreferenceFragment
             } else {
                 mAuthType.setValue(null);
             }
-
-            mProtocol.setValue(mCursor.getString(PROTOCOL_INDEX));
-            mRoamingProtocol.setValue(mCursor.getString(ROAMING_PROTOCOL_INDEX));
+            if (mNewApn && getResources().getBoolean(R.bool.config_default_apn_for_new)) {
+                mProtocol.setValueIndex(DEFAULT_IPV4V6_INDEX);
+                mRoamingProtocol.setValueIndex(DEFAULT_IPV4V6_INDEX);
+            } else {
+                mProtocol.setValue(mCursor.getString(PROTOCOL_INDEX));
+                mRoamingProtocol.setValue(mCursor.getString(ROAMING_PROTOCOL_INDEX));
+            }
             mCarrierEnabled.setChecked(mCursor.getInt(CARRIER_ENABLED_INDEX)==1);
             mBearerInitialVal = mCursor.getInt(BEARER_INDEX);
 
@@ -754,7 +760,7 @@ public class ApnEditor extends SettingsPreferenceFragment
             return;
         }
         // If it's a new APN, then cancel will delete the new entry in onPause
-        if (!mNewApn && !mReadOnlyApn && !mDisableEditor) {
+        if (!mNewApn && !mDisableEditor && !mReadOnlyApn) {
             menu.add(0, MENU_DELETE, 0, R.string.menu_delete)
                 .setIcon(R.drawable.ic_menu_delete);
         }

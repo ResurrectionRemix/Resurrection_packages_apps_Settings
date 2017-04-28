@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"Adresboek op simkaart weergeven"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Vaste nummers weergeven"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Servicenummers weergeven"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"PDP-lijst ophalen"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"IMS-servicestatus"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS-status"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Geregistreerd"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Niet geregistreerd"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Beschikbaar"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Niet beschikbaar"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS-registratie: <xliff:g id="STATUS">%1$s</xliff:g>\nBellen via LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nBellen via wifi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nVideo-oproepen: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT-interface: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"In gebruik"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Niet in gebruik"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Alleen noodoproepen"</string>
@@ -266,7 +272,7 @@
     <string name="radio_controls_title" msgid="3447085191369779032">"Meer"</string>
     <string name="wireless_networks_settings_title" msgid="3643009077742794212">"Draadloos en netwerken"</string>
     <string name="radio_controls_summary" msgid="2837395036275123133">"Wifi, Bluetooth, vliegtuigmodus, mobiele netwerken en VPN\'s beheren"</string>
-    <string name="cellular_data_title" msgid="2525947635539415202">"Mobiele gegevens"</string>
+    <string name="cellular_data_title" msgid="2525947635539415202">"Mobiele data"</string>
     <string name="calls_title" msgid="3544471959217176768">"Oproepen"</string>
     <string name="sms_messages_title" msgid="1778636286080572535">"Sms\'jes"</string>
     <string name="cellular_data_summary" msgid="4575500999626276446">"Geg.gebruik via mobiel netwerk toestaan"</string>
@@ -413,7 +419,7 @@
     <string name="crypt_keeper_failed_title" msgid="7133499413023075961">"Encryptie mislukt"</string>
     <string name="crypt_keeper_failed_summary" product="tablet" msgid="8219375738445017266">"Het versleutelen is onderbroken en kan niet worden voltooid. Als gevolg hiervan zijn de gegevens op je telefoon niet meer toegankelijk. \n\nAls je je tablet weer wilt gebruiken, moet je de fabrieksinstellingen herstellen. Wanneer je de tablet instelt na het herstel, krijg je de mogelijkheid gegevens waarvan je een back-up hebt gemaakt in je Google-account, terug te zetten."</string>
     <string name="crypt_keeper_failed_summary" product="default" msgid="3270131542549577953">"Het versleutelen is onderbroken en kan niet worden voltooid. Daardoor zijn de gegevens op je telefoon niet meer toegankelijk. \n\nAls je je telefoon weer wilt gebruiken, moet je de fabrieksinstellingen herstellen. Wanneer je de telefoon instelt na het herstel, krijg je de mogelijkheid gegevens terug te zetten waarvan je een back-up hebt gemaakt in je Google-account."</string>
-    <string name="crypt_keeper_data_corrupt_title" msgid="8759119849089795751">"Decodering mislukt"</string>
+    <string name="crypt_keeper_data_corrupt_title" msgid="8759119849089795751">"Ontsleutelen mislukt"</string>
     <string name="crypt_keeper_data_corrupt_summary" product="tablet" msgid="840107296925798402">"Het wachtwoord dat je hebt opgegeven, is correct, maar je gegevens zijn beschadigd. \n\nAls je je tablet weer wilt gebruiken, moet je deze terugzetten naar de fabrieksinstellingen. Wanneer je je tablet configureert na het terugzetten, heb je de mogelijkheid gegevens waarvan je een back-up in je Google-account hebt gemaakt, te herstellen."</string>
     <string name="crypt_keeper_data_corrupt_summary" product="default" msgid="8843311420059663824">"Het wachtwoord dat je hebt opgegeven, is correct, maar je gegevens zijn beschadigd. \n\nAls je je telefoon weer wilt gebruiken, moet je deze terugzetten naar de fabrieksinstellingen. Wanneer je je telefoon configureert na het terugzetten, heb je de mogelijkheid gegevens waarvan je een back-up in je Google-account hebt gemaakt, te herstellen."</string>
     <string name="crypt_keeper_switch_input_method" msgid="4168332125223483198">"Invoermethode schakelen"</string>
@@ -673,11 +679,13 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Wifi behouden in slaapstand"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Wifi aan in slaapstand"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"Er is een probleem opgetreden bij het wijzigen van de instelling"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Verbinden met providernetwerk"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Verbinden met providernetwerken (indien beschikbaar)"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Efficiëntie verbeteren"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Wifi-optimalisatie"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Accugebruik minimaliseren wanneer wifi is ingeschakeld"</string>
     <string name="wifi_limit_optimizations_summary" msgid="9000801068363468950">"Accugebruik van wifi beperken"</string>
-    <string name="wifi_switch_away_when_unvalidated" msgid="1410499115509796174">"Overschakelen naar mobiele gegevens als wifi geen internettoegang meer heeft."</string>
+    <string name="wifi_switch_away_when_unvalidated" msgid="1410499115509796174">"Overschakelen naar mobiele data als wifi geen internettoegang meer heeft."</string>
     <string name="wifi_cellular_data_fallback_title" msgid="8741291033791891668">"Automatisch overschakelen naar mobiele data"</string>
     <string name="wifi_cellular_data_fallback_summary" msgid="2641527693037426430">"Mobiele data gebruiken wanneer er geen internettoegang via wifi is. Datagebruik kan in rekening worden gebracht."</string>
     <string name="wifi_add_network" msgid="6234851776910938957">"Netwerk toevoegen"</string>
@@ -701,8 +709,8 @@
     <string name="wifi_more" msgid="3195296805089107950">"Meer"</string>
     <string name="wifi_setup_wps" msgid="8128702488486283957">"Autom. config. (WPS)"</string>
     <string name="wifi_show_advanced" msgid="3409422789616520979">"Geavanceerde opties"</string>
-    <string name="wifi_advanced_toggle_description_expanded" msgid="2380600578544493084">"Dropdown-menu \'Geavanceerde opties\'. Dubbeltik om samen te vouwen."</string>
-    <string name="wifi_advanced_toggle_description_collapsed" msgid="1463812308429197263">"Dropdown-menu \'Geavanceerde opties\'. Dubbeltik om uit te vouwen."</string>
+    <string name="wifi_advanced_toggle_description_expanded" msgid="2380600578544493084">"Dropdownmenu \'Geavanceerde opties\'. Dubbeltik om samen te vouwen."</string>
+    <string name="wifi_advanced_toggle_description_collapsed" msgid="1463812308429197263">"Dropdownmenu \'Geavanceerde opties\'. Dubbeltik om uit te vouwen."</string>
     <string name="wifi_wps_setup_title" msgid="8207552222481570175">"Beveiligde configuratie voor wifi"</string>
     <string name="wifi_wps_setup_msg" msgid="315174329121275092">"WPS starten…"</string>
     <string name="wifi_wps_onstart_pbc" msgid="817003360936932340">"Druk op de knop \'Beveiligde configuratie voor wifi\' op je router. Misschien heet deze knop \'WPS\' of is deze gemarkeerd met het volgende symbool:"</string>
@@ -773,9 +781,9 @@
     <string name="wifi_cancel" msgid="6763568902542968964">"Annuleren"</string>
     <string name="wifi_skip_anyway" msgid="6965361454438011190">"Toch overslaan"</string>
     <string name="wifi_dont_skip" msgid="3615535136327231588">"Terug"</string>
-    <string name="wifi_skipped_message" product="tablet" msgid="6761689889733331124">"WAARSCHUWING: als je wifi overslaat, gebruikt je telefoon alleen mobiele gegevens voor initiële downloads en updates. Maak verbinding met wifi om te voorkomen dat er gegevenskosten in rekening worden gebracht."</string>
-    <string name="wifi_skipped_message" product="device" msgid="1385490367826852775">"WAARSCHUWING: als je wifi overslaat, gebruikt  apparaat alleen mobiele gegevens voor initiële downloads en updates. Maak verbinding met wifi om te voorkomen dat er gegevenskosten in rekening worden gebracht."</string>
-    <string name="wifi_skipped_message" product="default" msgid="6084295135297772350">"WAARSCHUWING: als je wifi overslaat, gebruikt je telefoon alleen mobiele gegevens voor initiële downloads en updates. Maak verbinding met wifi om te voorkomen dat er gegevenskosten in rekening worden gebracht."</string>
+    <string name="wifi_skipped_message" product="tablet" msgid="6761689889733331124">"WAARSCHUWING: als je wifi overslaat, gebruikt je telefoon alleen mobiele data voor initiële downloads en updates. Maak verbinding met wifi om te voorkomen dat er datakosten in rekening worden gebracht."</string>
+    <string name="wifi_skipped_message" product="device" msgid="1385490367826852775">"WAARSCHUWING: als je wifi overslaat, gebruikt  apparaat alleen mobiele data voor initiële downloads en updates. Maak verbinding met wifi om te voorkomen dat er datakosten in rekening worden gebracht."</string>
+    <string name="wifi_skipped_message" product="default" msgid="6084295135297772350">"WAARSCHUWING: als je wifi overslaat, gebruikt je telefoon alleen mobiele data voor initiële downloads en updates. Maak verbinding met wifi om te voorkomen dat er datakosten in rekening worden gebracht."</string>
     <string name="wifi_and_mobile_skipped_message" product="tablet" msgid="6324917391996718760">"Als je wifi overslaat:\n\n"<li>"Je tablet heeft geen verbinding met internet."</li>\n\n<li>"Je ontvangt geen software-updates totdat je verbinding maakt met internet."</li>\n\n<li>"Je kunt op dit moment geen functies voor apparaatbescherming activeren."</li></string>
     <string name="wifi_and_mobile_skipped_message" product="device" msgid="1110629752293998468">"Als je wifi overslaat:\n\n"<li>"Je apparaat heeft geen verbinding met internet."</li>\n\n<li>"Je ontvangt geen software-updates totdat je verbinding maakt met internet."</li>\n\n<li>"Je kunt op dit moment geen functies voor apparaatbescherming activeren."</li></string>
     <string name="wifi_and_mobile_skipped_message" product="default" msgid="8271524692702309267">"Als je wifi overslaat:\n\n"<li>"Heeft je telefoon geen verbinding met internet."</li>\n\n<li>"Ontvang je geen software-updates totdat je verbinding maakt met internet."</li>\n\n<li>"Kun je op dit moment geen functies voor apparaatbescherming activeren."</li></string>
@@ -867,7 +875,7 @@
     <string name="wifi_calling_off_explanation" msgid="2597566001655908391">"Wanneer bellen via wifi is ingeschakeld, kan je telefoon oproepen doorschakelen via wifi-netwerken of het netwerk van je provider, afhankelijk van je voorkeur en welk signaal sterker is. Voordat je deze functie inschakelt, neem je contact met je provider op over de kosten en andere details."</string>
     <string name="emergency_address_title" msgid="3571902448699714454">"Noodadres updaten"</string>
     <string name="emergency_address_summary" msgid="306028701568728126">"Adres dat door noodhulpdiensten als je locatie wordt gebruikt als je het noodnummer belt via wifi"</string>
-    <string name="home_settings" msgid="212375129455718176">"Startpagina"</string>
+    <string name="home_settings" msgid="212375129455718176">"Homepage"</string>
     <string name="display_settings_title" msgid="1708697328627382561">"Weergave"</string>
     <string name="sound_settings" msgid="5534671337768745343">"Geluid"</string>
     <string name="ringtone_summary" msgid="2630023412632683493"></string>
@@ -997,11 +1005,11 @@
     <string name="sim_enter_ok" msgid="6475946836899218919">"OK"</string>
     <string name="sim_enter_cancel" msgid="6240422158517208036">"Annuleren"</string>
     <string name="sim_multi_sims_title" msgid="9159427879911231239">"Meerdere simkaarten gevonden"</string>
-    <string name="sim_multi_sims_summary" msgid="7018740080801483990">"Kies de simkaart die je wilt gebruiken voor mobiele gegevens."</string>
+    <string name="sim_multi_sims_summary" msgid="7018740080801483990">"Kies de simkaart die je wilt gebruiken voor mobiele data."</string>
     <string name="sim_change_data_title" msgid="294357201685244532">"Sim voor gegevens wijzigen?"</string>
-    <string name="sim_change_data_message" msgid="1313940695939674633">"<xliff:g id="NEW_SIM">%1$s</xliff:g> in plaats van <xliff:g id="OLD_SIM">%2$s</xliff:g> gebruiken voor mobiele gegevens?"</string>
+    <string name="sim_change_data_message" msgid="1313940695939674633">"<xliff:g id="NEW_SIM">%1$s</xliff:g> in plaats van <xliff:g id="OLD_SIM">%2$s</xliff:g> gebruiken voor mobiele data?"</string>
     <string name="sim_preferred_title" msgid="5567909634636045268">"Voorkeurs-simkaart updaten?"</string>
-    <string name="sim_preferred_message" msgid="301251431163650167">"<xliff:g id="NEW_SIM">%1$s</xliff:g> is de enige simkaart in je apparaat. Wil je deze simkaart gebruiken voor mobiele gegevens, oproepen en sms\'jes?"</string>
+    <string name="sim_preferred_message" msgid="301251431163650167">"<xliff:g id="NEW_SIM">%1$s</xliff:g> is de enige simkaart in je apparaat. Wil je deze simkaart gebruiken voor mobiele data, oproepen en sms\'jes?"</string>
     <string name="wrong_pin_code_pukked" msgid="4003655226832658066">"Onjuiste pincode voor simkaart. Je moet nu contact opnemen met je provider om je apparaat te ontgrendelen."</string>
     <plurals name="wrong_pin_code" formatted="false" msgid="1582398808893048097">
       <item quantity="other">Onjuiste pincode voor simkaart. Je hebt nog <xliff:g id="NUMBER_1">%d</xliff:g> pogingen over.</item>
@@ -1307,9 +1315,9 @@
     <string name="location_high_battery_use" msgid="517199943258508020">"Hoog accugebruik"</string>
     <string name="location_low_battery_use" msgid="8602232529541903596">"Laag accugebruik"</string>
     <string name="location_mode_screen_title" msgid="4528716772270246542">"Locatiemodus"</string>
-    <string name="location_mode_high_accuracy_description" msgid="5703350404315028607">"GPS, wifi, Bluetooth of mobiele netwerken gebruiken om locatie te bepalen"</string>
+    <string name="location_mode_high_accuracy_description" msgid="5703350404315028607">"gps, wifi, Bluetooth of mobiele netwerken gebruiken om locatie te bepalen"</string>
     <string name="location_mode_battery_saving_description" msgid="8361848607963121770">"Wifi, Bluetooth of mobiele netwerken gebruiken om locatie te bepalen"</string>
-    <string name="location_mode_sensors_only_description" msgid="788127681455735699">"GPS gebruiken om locatie te bepalen"</string>
+    <string name="location_mode_sensors_only_description" msgid="788127681455735699">"gps gebruiken om locatie te bepalen"</string>
     <string name="location_menu_scanning" msgid="8536245838478802959">"Scannen"</string>
     <string name="location_scanning_screen_title" msgid="4408076862929611554">"Scannen"</string>
     <string name="location_scanning_wifi_always_scanning_title" msgid="6216705505621183645">"Wifi-scannen"</string>
@@ -1319,12 +1327,12 @@
     <string name="location_network_based" msgid="6010456018401296590">"Locatie via wifi en mob. netw."</string>
     <string name="location_neighborhood_level" msgid="5141318121229984788">"Apps toestaan de locatieservice van Google te gebruiken om je locatie sneller te schatten. Anonieme locatiegegevens worden verzameld en verzonden naar Google."</string>
     <string name="location_neighborhood_level_wifi" msgid="4234820941954812210">"Locatie bepaald via wifi"</string>
-    <string name="location_gps" msgid="8392461023569708478">"GPS-satellieten"</string>
-    <string name="location_street_level" product="tablet" msgid="1669562198260860802">"Apps toestaan GPS op je telefoon te gebruiken om je locatie te bepalen"</string>
-    <string name="location_street_level" product="default" msgid="4617445745492014203">"Apps toestaan GPS op je telefoon te gebruiken om je locatie te bepalen"</string>
-    <string name="assisted_gps" msgid="4649317129586736885">"Ondersteunde GPS gebruiken"</string>
-    <string name="assisted_gps_enabled" msgid="8751899609589792803">"Server gebruiken ter ondersteuning van GPS (uitschakelen om het netwerkgebruik te beperken)"</string>
-    <string name="assisted_gps_disabled" msgid="6982698333968010748">"Server gebruiken ter ondersteuning van GPS (uitschakelen om GPS-prestaties te verbeteren)"</string>
+    <string name="location_gps" msgid="8392461023569708478">"gps-satellieten"</string>
+    <string name="location_street_level" product="tablet" msgid="1669562198260860802">"Apps toestaan gps op je telefoon te gebruiken om je locatie te bepalen"</string>
+    <string name="location_street_level" product="default" msgid="4617445745492014203">"Apps toestaan gps op je telefoon te gebruiken om je locatie te bepalen"</string>
+    <string name="assisted_gps" msgid="4649317129586736885">"Ondersteunde gps gebruiken"</string>
+    <string name="assisted_gps_enabled" msgid="8751899609589792803">"Server gebruiken ter ondersteuning van gps (uitschakelen om het netwerkgebruik te beperken)"</string>
+    <string name="assisted_gps_disabled" msgid="6982698333968010748">"Server gebruiken ter ondersteuning van gps (uitschakelen om gps-prestaties te verbeteren)"</string>
     <string name="use_location_title" msgid="5206937465504979977">"Locatie en Google Zoeken"</string>
     <string name="use_location_summary" msgid="3978805802386162520">"Google toestaan je locatie te gebruiken om zoekresultaten en andere services te verbeteren"</string>
     <string name="location_access_title" msgid="7064108942964081243">"Toegang tot mijn locatie"</string>
@@ -1362,7 +1370,7 @@
     <string name="lockpassword_confirm_your_pin_header" msgid="49038294648213197">"Bevestig de pincode"</string>
     <string name="lockpassword_confirm_passwords_dont_match" msgid="5140892109439191415">"Wachtwoorden komen niet overeen"</string>
     <string name="lockpassword_confirm_pins_dont_match" msgid="7226244811505606217">"Pincodes komen niet overeen"</string>
-    <string name="lockpassword_choose_lock_generic_header" msgid="3811438094903786145">"Ontgrendelingsmethode selecteren"</string>
+    <string name="lockpassword_choose_lock_generic_header" msgid="3811438094903786145">"Ontgrendelingsmethode"</string>
     <string name="lockpassword_password_set_toast" msgid="4875050283108629383">"Wachtwoord is ingesteld"</string>
     <string name="lockpassword_pin_set_toast" msgid="6011826444725291475">"Pincode is ingesteld"</string>
     <string name="lockpassword_pattern_set_toast" msgid="6867259621331406236">"Patroon is ingesteld"</string>
@@ -1832,7 +1840,7 @@
     <string name="battery_stats_duration" msgid="7464501326709469282">"<xliff:g id="TIME">%1$s</xliff:g> sinds losgekoppeld"</string>
     <string name="battery_stats_charging_label" msgid="4223311142875178785">"Opladen"</string>
     <string name="battery_stats_screen_on_label" msgid="7150221809877509708">"Scherm aan"</string>
-    <string name="battery_stats_gps_on_label" msgid="1193657533641951256">"GPS ingeschakeld"</string>
+    <string name="battery_stats_gps_on_label" msgid="1193657533641951256">"gps ingeschakeld"</string>
     <string name="battery_stats_camera_on_label" msgid="4935637383628414968">"Camera aan"</string>
     <string name="battery_stats_flashlight_on_label" msgid="4319637669889411307">"Zaklamp aan"</string>
     <string name="battery_stats_wifi_running_label" msgid="1845839195549226252">"Wifi"</string>
@@ -1862,7 +1870,7 @@
     <string name="usage_type_cpu" msgid="715162150698338714">"CPU-totaal"</string>
     <string name="usage_type_cpu_foreground" msgid="6500579611933211831">"CPU op voorgrond"</string>
     <string name="usage_type_wake_lock" msgid="5125438890233677880">"Ingeschakeld houden"</string>
-    <string name="usage_type_gps" msgid="7989688715128160790">"GPS"</string>
+    <string name="usage_type_gps" msgid="7989688715128160790">"gps"</string>
     <string name="usage_type_wifi_running" msgid="3134357198266380400">"Wifi actief"</string>
     <string name="usage_type_phone" product="tablet" msgid="262638572890253393">"Tablet"</string>
     <string name="usage_type_phone" product="default" msgid="9108247984998041853">"Telefoon"</string>
@@ -2185,8 +2193,8 @@
     <string name="data_usage_label_foreground" msgid="4938034231928628164">"Voorgrond"</string>
     <string name="data_usage_label_background" msgid="3225844085975764519">"Achtergrond"</string>
     <string name="data_usage_app_restricted" msgid="3568465218866589705">"beperkt"</string>
-    <string name="data_usage_disable_mobile" msgid="2613595056882494652">"Mobiele gegevens uitschakelen?"</string>
-    <string name="data_usage_disable_mobile_limit" msgid="3934211003105066167">"Mobiele geg.limiet inst."</string>
+    <string name="data_usage_disable_mobile" msgid="2613595056882494652">"Mobiele data uitschakelen?"</string>
+    <string name="data_usage_disable_mobile_limit" msgid="3934211003105066167">"Mobiele datalimiet inst."</string>
     <string name="data_usage_disable_4g_limit" msgid="6233554774946681175">"4G-gegevenslimiet instellen"</string>
     <string name="data_usage_disable_3g_limit" msgid="2558557840444266906">"2G-3G-gegevenslimiet instellen"</string>
     <string name="data_usage_disable_wifi_limit" msgid="1394901415264660888">"Wifi-datalimiet instellen"</string>
@@ -2197,7 +2205,7 @@
     <string name="data_usage_tab_3g" msgid="6092169523081538718">"2G-3G"</string>
     <string name="data_usage_list_mobile" msgid="7219011330831181312">"Mobiel"</string>
     <string name="data_usage_list_none" msgid="3933892774251050735">"Geen"</string>
-    <string name="data_usage_enable_mobile" msgid="5900650720568852325">"Mobiele gegevens"</string>
+    <string name="data_usage_enable_mobile" msgid="5900650720568852325">"Mobiele data"</string>
     <string name="data_usage_enable_3g" msgid="6304006671869578254">"2G-/3G-gegevens"</string>
     <string name="data_usage_enable_4g" msgid="3635854097335036738">"4G-gegevens"</string>
     <string name="data_usage_forground_label" msgid="7654319010655983591">"Voorgrond:"</string>
@@ -2205,10 +2213,10 @@
     <string name="data_usage_app_settings" msgid="2279171379771253165">"App-instellingen"</string>
     <string name="data_usage_app_restrict_background" msgid="7359227831562303223">"Achtergrondgegevens"</string>
     <string name="data_usage_app_restrict_background_summary" msgid="4669789008211107454">"Gebruik van mobiele data op de achtergrond toestaan"</string>
-    <string name="data_usage_app_restrict_background_summary_disabled" msgid="1446565717342917727">"Beperk achtergrondgegevens voor deze app met een mobiele gegevenslimiet."</string>
+    <string name="data_usage_app_restrict_background_summary_disabled" msgid="1446565717342917727">"Beperk achtergrondgegevens voor deze app met een mobiele datalimiet."</string>
     <string name="data_usage_app_restrict_dialog_title" msgid="1613108390242737923">"Achtergrondgegevens beperken?"</string>
     <string name="data_usage_app_restrict_dialog" msgid="5871168521456832764">"Deze functie kan zorgen dat een app die afhankelijk is van achtergrondgegevens, niet meer werkt als er alleen mobiele netwerken beschikbaar zijn.\n\nIn de instellingen van de app kun je relevantere opties voor gegevensbeheer vinden."</string>
-    <string name="data_usage_restrict_denied_dialog" msgid="1493134803720421674">"Je moet een mobiele gegevenslimiet instellen om achtergrondgegevens te kunnen beperken."</string>
+    <string name="data_usage_restrict_denied_dialog" msgid="1493134803720421674">"Je moet een mobiele datalimiet instellen om achtergronddata te kunnen beperken."</string>
     <string name="data_usage_auto_sync_on_dialog_title" msgid="2438617846762244389">"Auto-synchronisatie inschakelen?"</string>
     <string name="data_usage_auto_sync_on_dialog" product="tablet" msgid="8581983093524041669">"Wijzigingen die je op internet aanbrengt in je accounts, worden automatisch naar je telefoon gekopieerd.\n\nBij sommige accounts worden mogelijk ook de wijzigingen die je op de tablet aanbrengt, naar internet gekopieerd. Dit geldt bijvoorbeeld voor Google-accounts."</string>
     <string name="data_usage_auto_sync_on_dialog" product="default" msgid="8651376294887142858">"Wijzigingen die je op internet aanbrengt in je accounts, worden automatisch naar je telefoon gekopieerd.\n\nBij sommige accounts worden mogelijk ook de wijzigingen die je op de telefoon aanbrengt, naar internet gekopieerd. Dit geldt bijvoorbeeld voor Google-accounts."</string>
@@ -2220,12 +2228,12 @@
     <string name="data_usage_warning_editor_title" msgid="3704136912240060339">"Waarschuwing voor gegevensverbruik instellen"</string>
     <string name="data_usage_limit_editor_title" msgid="9153595142385030015">"Limiet voor gegevensverbruik instellen"</string>
     <string name="data_usage_limit_dialog_title" msgid="3023111643632996097">"Gegevensgebruik beperken"</string>
-    <string name="data_usage_limit_dialog_mobile" product="tablet" msgid="5788774061143636263">"Je tablet schakelt mobiele gegevens uit zodra de ingestelde limiet wordt bereikt.\n\nOmdat het gegevensgebruik wordt gemeten door je telefoon en je provider het gebruik anders kan berekenen, kun je het beste een voorzichtige limiet instellen."</string>
-    <string name="data_usage_limit_dialog_mobile" product="default" msgid="3511301596446820549">"Je telefoon schakelt mobiele gegevens uit zodra de ingestelde limiet wordt bereikt.\n\nOmdat het gegevensgebruik wordt gemeten door de telefoon en je provider het gebruik anders kan berekenen, kun je het beste een voorzichtige limiet instellen."</string>
+    <string name="data_usage_limit_dialog_mobile" product="tablet" msgid="5788774061143636263">"Je tablet schakelt mobiele data uit zodra de ingestelde limiet wordt bereikt.\n\nOmdat het datagebruik wordt gemeten door je telefoon en je provider het gebruik anders kan berekenen, kun je het beste een voorzichtige limiet instellen."</string>
+    <string name="data_usage_limit_dialog_mobile" product="default" msgid="3511301596446820549">"Je telefoon schakelt mobiele data uit zodra de ingestelde limiet wordt bereikt.\n\nOmdat het datagebruik wordt gemeten door de telefoon en je provider het gebruik anders kan berekenen, kun je het beste een voorzichtige limiet instellen."</string>
     <string name="data_usage_restrict_background_title" msgid="2201315502223035062">"Achtergrondgegevens beperken?"</string>
-    <string name="data_usage_restrict_background" msgid="6264965779074729381">"Als je mobiele achtergrondgegevens beperkt, werken sommige apps en services alleen als je verbinding hebt via wifi."</string>
-    <string name="data_usage_restrict_background_multiuser" product="tablet" msgid="7954930300449415764">"Als je mobiele achtergrondgegevens beperkt, werken sommige apps en services alleen als je verbinding hebt via wifi.\n\nDeze instelling is van toepassing op alle gebruikers op deze tablet."</string>
-    <string name="data_usage_restrict_background_multiuser" product="default" msgid="259958321968870600">"Als je mobiele achtergrondgegevens beperkt, werken sommige apps en services alleen als je verbinding hebt via wifi..\n\nDeze instelling is van toepassing op alle gebruikers op deze telefoon."</string>
+    <string name="data_usage_restrict_background" msgid="6264965779074729381">"Als je mobiele achtergronddata beperkt, werken sommige apps en services alleen als je verbinding hebt via wifi."</string>
+    <string name="data_usage_restrict_background_multiuser" product="tablet" msgid="7954930300449415764">"Als je mobiele achtergronddata beperkt, werken sommige apps en services alleen als je verbinding hebt via wifi.\n\nDeze instelling is van toepassing op alle gebruikers op deze tablet."</string>
+    <string name="data_usage_restrict_background_multiuser" product="default" msgid="259958321968870600">"Als je mobiele achtergronddata beperkt, werken sommige apps en services alleen als je verbinding hebt via wifi..\n\nDeze instelling is van toepassing op alle gebruikers op deze telefoon."</string>
     <string name="data_usage_sweep_warning" msgid="6387081852568846982"><font size="18">"<xliff:g id="NUMBER">^1</xliff:g>"</font>" "<font size="9">"<xliff:g id="UNIT">^2</xliff:g>"</font>\n<font size="12">"waarschuwing"</font></string>
     <string name="data_usage_sweep_limit" msgid="860566507375933039"><font size="18">"<xliff:g id="NUMBER">^1</xliff:g>"</font>" "<font size="9">"<xliff:g id="UNIT">^2</xliff:g>"</font>\n<font size="12">"limiet"</font></string>
     <string name="data_usage_uninstalled_apps" msgid="614263770923231598">"Verwijderde apps"</string>
@@ -2399,7 +2407,7 @@
     <string name="apps_with_restrictions_header" msgid="3660449891478534440">"Apps met beperkingen"</string>
     <string name="apps_with_restrictions_settings_button" msgid="3841347287916635821">"Inst. uitbreiden voor app"</string>
     <string name="home_app_uninstall_button" msgid="6808453012607962899">"Deze app verwijderen"</string>
-    <string name="only_one_home_message" msgid="3538846733750242759">"Startpagina-instellingen worden verborgen totdat je een andere startpagina-app installeert."</string>
+    <string name="only_one_home_message" msgid="3538846733750242759">"Homepage-instellingen worden verborgen totdat je een andere homepage-app installeert."</string>
     <string name="global_change_warning" product="tablet" msgid="8045013389464294039">"Deze instelling is van invloed op alle gebruikers van deze tablet."</string>
     <string name="global_change_warning" product="default" msgid="2461264421590324675">"Deze instelling is van invloed op alle gebruikers van deze telefoon."</string>
     <string name="global_locale_change_title" msgid="5956281361384221451">"Taal wijzigen"</string>
@@ -2647,7 +2655,7 @@
     <string name="vr_listeners_title" msgid="1318901577754715777">"VR-helperservices"</string>
     <string name="no_vr_listeners" msgid="2689382881717507390">"Er zijn geen geïnstalleerde apps die hebben gevraagd om te worden uitgevoerd als VR-helperservices."</string>
     <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"VR-servicetoegang toestaan voor <xliff:g id="SERVICE">%1$s</xliff:g>?"</string>
-    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> kan worden uitgevoerd wanneer je apps in de virtualrealitymodus gebruikt."</string>
+    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> kan worden uitgevoerd wanneer je apps in de virtual reality-modus gebruikt."</string>
     <string name="display_vr_pref_title" msgid="8104485269504335481">"Wanneer VR-modus van apparaat is geactiveerd"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"Vervaging beperken (aanbevolen)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"Flikkering beperken"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g>/<xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Accuoptimalisatie"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Gebruiksmeldingen"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Niet geoptimaliseerd"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Niet geoptimaliseerd"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Accuverbruik optimaliseren"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Apps niet geïnstalleerd"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Geïnstalleerde apps"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Je opslag wordt nu beheerd door de opslagbeheerder"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Gegevens voor providerregistratie"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Providerregistratie activeren"</string>
 </resources>

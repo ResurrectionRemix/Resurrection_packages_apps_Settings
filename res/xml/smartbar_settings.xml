@@ -52,11 +52,36 @@
         settings:units=""
         android:persistent="false" />
 
+    <PreferenceScreen
+        android:key="pixel_anim"
+        android:fragment="com.android.settings.rr.navbar.PixelAnimDurationSettings"
+        android:title="@string/pixel_anim_title"
+        android:summary="@string/pixel_anim_summary"/>
+
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="smartbar_doubletap_sleep"
+        android:title="@string/smartbar_doubletap_sleep_title"
+        android:summary="@string/smartbar_doubletap_sleep_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+        android:key="one_handed_mode_ui"
+        android:title="@string/one_handed_mode_title"
+        android:summary="@string/one_handed_mode_summary"
+        android:defaultValue="false" />
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="navbar_tint_switch"
         android:title="@string/navbar_tint_switch"
         android:defaultValue="false" />
-    
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="navbar_button_custom_icon_switch"
+        android:title="@string/navbar_button_custom_icon_switch_title"
+        android:defaultValue="true"
+        android:dependency="navbar_tint_switch" />
+
      <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="navbar_button_color"
         android:title="@string/navbar_button_color"

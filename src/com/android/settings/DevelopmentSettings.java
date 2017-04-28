@@ -97,6 +97,8 @@ import com.android.settingslib.RestrictedSwitchPreference;
 
 import cyanogenmod.providers.CMSettings;
 
+import org.cyanogenmod.internal.util.FileUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -233,6 +235,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
 
     private static final String DEVELOPMENT_TOOLS = "development_tools";
 
+    private static final String FORCE_AUTHORIZE_SUBSTRATUM_PACKAGES = "force_authorize_substratum_packages";
+
     private static final int RESULT_DEBUG_APP = 1000;
     private static final int RESULT_MOCK_LOCATION_APP = 1001;
 
@@ -258,6 +262,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private boolean mLastEnabledState;
     private boolean mHaveDebugSettings;
     private boolean mDontPokeProperties;
+
+    private SwitchPreference mForceAuthorizeSubstratumPackages;
 
     private SwitchPreference mEnableAdb;
     private SwitchPreference mAdbAlwaysNotify;
@@ -308,9 +314,9 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private ListPreference mUsbConfiguration;
     private ListPreference mTrackFrameTime;
     private ListPreference mShowNonRectClip;
-    private ListPreference mWindowAnimationScale;
-    private ListPreference mTransitionAnimationScale;
-    private ListPreference mAnimatorDurationScale;
+    private AnimationScalePreference mWindowAnimationScale;
+    private AnimationScalePreference mTransitionAnimationScale;
+    private AnimationScalePreference mAnimatorDurationScale;
     private ListPreference mOverlayDisplayDevices;
 
     private SwitchPreference mWebViewMultiprocess;
@@ -426,12 +432,14 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mForceAllowOnExternal = findAndInitSwitchPref(FORCE_ALLOW_ON_EXTERNAL_KEY);
         mPassword = (PreferenceScreen) findPreference(LOCAL_BACKUP_PASSWORD);
         mAllPrefs.add(mPassword);
+        mForceAuthorizeSubstratumPackages = findAndInitSwitchPref(FORCE_AUTHORIZE_SUBSTRATUM_PACKAGES);
 
         if (!mUm.isAdminUser()) {
             disableForUser(mEnableAdb);
             disableForUser(mClearAdbKeys);
             disableForUser(mEnableTerminal);
             disableForUser(mPassword);
+            disableForUser(mForceAuthorizeSubstratumPackages);
         }
 
         mDebugAppPref = findPreference(DEBUG_APP_KEY);
@@ -487,13 +495,14 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mWebViewMultiprocess = findAndInitSwitchPref(WEBVIEW_MULTIPROCESS_KEY);
         mBluetoothDisableAbsVolume = findAndInitSwitchPref(BLUETOOTH_DISABLE_ABSOLUTE_VOLUME_KEY);
 
-        mWindowAnimationScale = addListPreference(WINDOW_ANIMATION_SCALE_KEY);
-        mTransitionAnimationScale = addListPreference(TRANSITION_ANIMATION_SCALE_KEY);
-        mAnimatorDurationScale = addListPreference(ANIMATOR_DURATION_SCALE_KEY);
         mOverlayDisplayDevices = addListPreference(OVERLAY_DISPLAY_DEVICES_KEY);
         mSimulateColorSpace = addListPreference(SIMULATE_COLOR_SPACE);
         mUSBAudio = findAndInitSwitchPref(USB_AUDIO_KEY);
         mForceResizable = findAndInitSwitchPref(FORCE_RESIZABLE_KEY);
+
+        mWindowAnimationScale = findAndInitAnimationScalePreference(WINDOW_ANIMATION_SCALE_KEY);
+        mTransitionAnimationScale = findAndInitAnimationScalePreference(TRANSITION_ANIMATION_SCALE_KEY);
+        mAnimatorDurationScale = findAndInitAnimationScalePreference(ANIMATOR_DURATION_SCALE_KEY);
 
         mImmediatelyDestroyActivities = (SwitchPreference) findPreference(
                 IMMEDIATELY_DESTROY_ACTIVITIES_KEY);
@@ -560,6 +569,13 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mRootAppops.setOnPreferenceClickListener(this);
 
         if (!removeRootOptionsIfRequired()) {
+            if (FileUtils.fileExists("/system/xbin/su")) {
+                mRootAccess.setEntries(R.array.root_access_entries);
+                mRootAccess.setEntryValues(R.array.root_access_values);
+            } else {
+                mRootAccess.setEntries(R.array.root_access_entries_adb);
+                mRootAccess.setEntryValues(R.array.root_access_values_adb);
+            }
             mAllPrefs.add(mRootAccess);
             mAllPrefs.add(mRootAppops);
         }
@@ -582,6 +598,14 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         }
     }
 
+    private AnimationScalePreference findAndInitAnimationScalePreference(String key) {
+        AnimationScalePreference pref = (AnimationScalePreference) findPreference(key);
+        pref.setOnPreferenceChangeListener(this);
+        pref.setOnPreferenceClickListener(this);
+        mAllPrefs.add(pref);
+        return pref;
+    }
+
     private SwitchPreference findAndInitSwitchPref(String key) {
         SwitchPreference pref = (SwitchPreference) findPreference(key);
         if (pref == null) {
@@ -593,6 +617,25 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     }
 
     private boolean removeRootOptionsIfRequired() {
+
+        // Magisk Manager
+        boolean magiskSupported = false;
+        try {
+            magiskSupported = (getPackageManager().getPackageInfo("com.topjohnwu.magisk", 0).versionCode > 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+
+        // if magisk is supported, management is done in MagiskManager.
+        // remove the root access and appops preferences
+        if (magiskSupported) {
+            if (mRootAccess != null) {
+                getPreferenceScreen().removePreference(mRootAccess);
+            }
+            if (mRootAppops != null) {
+                getPreferenceScreen().removePreference(mRootAppops);
+            }
+            return true;
+        }
         // user builds don't get root, and eng always gets root
         if (!(Build.IS_DEBUGGABLE || "eng".equals(Build.TYPE))) {
             if (mRootAccess != null) {
@@ -798,6 +841,7 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateBluetoothDisableAbsVolumeOptions();
         updateRootAccessOptions();
         updateAdbOverNetwork();
+        updateForceAuthorizeSubstratumPackagesOptions();
     }
 
     private void updateAdbOverNetwork() {
@@ -826,6 +870,17 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         } else {
             mAdbOverNetwork.setSummary(R.string.adb_over_network_summary);
         }
+    }
+
+    private void writeForceAuthorizeSubstratumPackagesOptions() {
+        Settings.Secure.putInt(getActivity().getContentResolver(),
+                Settings.Secure.FORCE_AUTHORIZE_SUBSTRATUM_PACKAGES,
+                mForceAuthorizeSubstratumPackages.isChecked() ? 1 : 0);
+    }
+
+    private void updateForceAuthorizeSubstratumPackagesOptions() {
+        mForceAuthorizeSubstratumPackages.setChecked(Settings.Secure.getInt(getActivity().getContentResolver(),
+                Settings.Secure.FORCE_AUTHORIZE_SUBSTRATUM_PACKAGES, 0) != 0);
     }
 
     private void resetDangerousOptions() {
@@ -1862,11 +1917,10 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
     private void writeUsbConfigurationOption(Object newValue) {
         UsbManager manager = (UsbManager)getActivity().getSystemService(Context.USB_SERVICE);
         String function = newValue.toString();
-        manager.setCurrentFunction(function);
         if (function.equals("none")) {
-            manager.setUsbDataUnlocked(false);
+            manager.setCurrentFunction(function, false);
         } else {
-            manager.setUsbDataUnlocked(true);
+            manager.setCurrentFunction(function, true);
         }
     }
 
@@ -1901,23 +1955,13 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
                 getActivity().getContentResolver(), Settings.Global.ALWAYS_FINISH_ACTIVITIES, 0) != 0);
     }
 
-    private void updateAnimationScaleValue(int which, ListPreference pref) {
+    private void updateAnimationScaleValue(int which, AnimationScalePreference pref) {
         try {
             float scale = mWindowManager.getAnimationScale(which);
-            if (scale != 1) {
+            if (scale != 0.75) {
                 mHaveDebugSettings = true;
             }
-            CharSequence[] values = pref.getEntryValues();
-            for (int i=0; i<values.length; i++) {
-                float val = Float.parseFloat(values[i].toString());
-                if (scale <= val) {
-                    pref.setValueIndex(i);
-                    pref.setSummary(pref.getEntries()[i]);
-                    return;
-                }
-            }
-            pref.setValueIndex(values.length-1);
-            pref.setSummary(pref.getEntries()[0]);
+            pref.setScale(scale);
         } catch (RemoteException e) {
         }
     }
@@ -1928,7 +1972,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         updateAnimationScaleValue(2, mAnimatorDurationScale);
     }
 
-    private void writeAnimationScaleOption(int which, ListPreference pref, Object newValue) {
+    private void writeAnimationScaleOption(int which, AnimationScalePreference pref,
+            Object newValue) {
         try {
             float scale = newValue != null ? Float.parseFloat(newValue.toString()) : 1;
             mWindowManager.setAnimationScale(which, scale);
@@ -2102,6 +2147,11 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             mActivity.startActivity(intent);
             return true;
         }
+        if (preference == mWindowAnimationScale ||
+                preference == mTransitionAnimationScale ||
+                preference == mAnimatorDurationScale) {
+            ((AnimationScalePreference) preference).click();
+        }
         return false;
     }
 
@@ -2249,6 +2299,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
             writeUSBAudioOptions();
         } else if (preference == mForceResizable) {
             writeForceResizableOptions();
+        } else if (preference == mForceAuthorizeSubstratumPackages) {
+            writeForceAuthorizeSubstratumPackagesOptions();
         } else if (INACTIVE_APPS_KEY.equals(preference.getKey())) {
             startInactiveAppsFragment();
         } else if (BACKGROUND_CHECK_KEY.equals(preference.getKey())) {

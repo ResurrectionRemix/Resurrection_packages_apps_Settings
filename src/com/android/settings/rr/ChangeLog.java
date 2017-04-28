@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2012 The CyanogenMod Project
+ * Copyright (C) 2016 The Resurrection Remix Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,21 +17,39 @@
 
 package com.android.settings.rr;
 
-import android.app.Fragment;
+
+import android.widget.ScrollView;
+import android.widget.TextView;
 import android.os.Bundle;
+import android.app.Fragment;
+import android.support.v7.preference.PreferenceScreen;
+import android.support.v7.preference.ListPreference;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
-import android.widget.TextView;
 
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.logging.MetricsLogger;
 import com.android.settings.R;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class ChangeLog extends Fragment {
+public class ChangeLog extends SettingsPreferenceFragment {
+
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.RESURRECTED;
+    }
+
     private static final String CHANGELOG_PATH = "/system/etc/RR/Changelog.txt";
 
     @Override
@@ -39,6 +58,7 @@ public class ChangeLog extends Fragment {
         InputStreamReader inputReader = null;
         String text = null;
 
+       
         try {
             StringBuilder data = new StringBuilder();
             char tmp[] = new char[2048];
@@ -68,4 +88,5 @@ public class ChangeLog extends Fragment {
 
         return scrollView;
     }
+
 }

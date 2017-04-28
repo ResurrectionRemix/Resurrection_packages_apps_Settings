@@ -17,15 +17,19 @@
 package com.android.settings.fuelgauge;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.BatteryStats;
 import android.os.Build;
 import android.os.Bundle;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
 import android.os.UserHandle;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.text.TextUtils;
@@ -43,6 +47,7 @@ import com.android.settings.Settings.HighPowerApplicationsActivity;
 import com.android.settings.SettingsActivity;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.dashboard.SummaryLoader;
+import com.android.settings.overlay.FeatureFactory;
 import com.android.settingslib.BatteryInfo;
 
 import java.util.ArrayList;
@@ -66,8 +71,12 @@ public class PowerUsageSummary extends PowerUsageBase {
     private static final String KEY_BATTERY_HISTORY = "battery_history";
 
     private static final int MENU_STATS_TYPE = Menu.FIRST;
-    private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 3;
-    private static final int MENU_HELP = Menu.FIRST + 4;
+    private static final int MENU_STATS_RESET = Menu.FIRST + 2;
+    private static final int MENU_BATTERY_SAVER = Menu.FIRST + 3;
+    private static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 4;
+    @VisibleForTesting
+    static final int MENU_ADDITIONAL_BATTERY_INFO = Menu.FIRST + 5;
+    private static final int MENU_HELP = Menu.FIRST + 6;
 
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
@@ -127,6 +136,7 @@ public class PowerUsageSummary extends PowerUsageBase {
         return super.onPreferenceTreeClick(preference);
     }
 
+
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         if (DEBUG) {
@@ -135,8 +145,41 @@ public class PowerUsageSummary extends PowerUsageBase {
                     .setAlphabeticShortcut('t');
         }
 
+        MenuItem reset = menu.add(0, MENU_STATS_RESET, 0, R.string.battery_stats_reset)
+                .setIcon(R.drawable.ic_delete)
+                .setAlphabeticShortcut('d');
+        reset.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
+        MenuItem batterySaver = menu.add(0, MENU_BATTERY_SAVER, 0, R.string.battery_saver);
+        batterySaver.setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+
         menu.add(0, MENU_HIGH_POWER_APPS, 0, R.string.high_power_apps);
+
+        PowerUsageFeatureProvider powerUsageFeatureProvider =
+                FeatureFactory.getFactory(getContext()).getPowerUsageFeatureProvider(getContext());
+        if (powerUsageFeatureProvider != null &&
+                powerUsageFeatureProvider.isAdditionalBatteryInfoEnabled()) {
+            menu.add(0, MENU_ADDITIONAL_BATTERY_INFO,
+                    0, R.string.additional_battery_info);
+        }
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    private void resetStats() {
+        AlertDialog dialog = new AlertDialog.Builder(getActivity())
+            .setTitle(R.string.battery_stats_reset)
+            .setMessage(R.string.battery_stats_message)
+            .setPositiveButton(R.string.ok_string, new OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    mStatsHelper.resetStatistics();
+                    refreshStats();
+                    mHandler.removeMessages(MSG_REFRESH_STATS);
+                }
+            })
+            .setNegativeButton(R.string.cancel, null)
+            .create();
+        dialog.show();
     }
 
     @Override
@@ -148,6 +191,9 @@ public class PowerUsageSummary extends PowerUsageBase {
     public boolean onOptionsItemSelected(MenuItem item) {
         final SettingsActivity sa = (SettingsActivity) getActivity();
         switch (item.getItemId()) {
+            case MENU_STATS_RESET:
+                resetStats();
+                return true;
             case MENU_STATS_TYPE:
                 if (mStatsType == BatteryStats.STATS_SINCE_CHARGED) {
                     mStatsType = BatteryStats.STATS_SINCE_UNPLUGGED;
@@ -156,12 +202,21 @@ public class PowerUsageSummary extends PowerUsageBase {
                 }
                 refreshStats();
                 return true;
+            case MENU_BATTERY_SAVER:
+                sa.startPreferencePanel(BatterySaverSettings.class.getName(), null,
+                        R.string.battery_saver, null, null, 0);
+                return true;
             case MENU_HIGH_POWER_APPS:
                 Bundle args = new Bundle();
                 args.putString(ManageApplications.EXTRA_CLASSNAME,
                         HighPowerApplicationsActivity.class.getName());
                 sa.startPreferencePanel(ManageApplications.class.getName(), args,
                         R.string.high_power_apps, null, null, 0);
+                return true;
+            case MENU_ADDITIONAL_BATTERY_INFO:
+                startActivity(FeatureFactory.getFactory(getContext())
+                        .getPowerUsageFeatureProvider(getContext())
+                        .getAdditionalBatteryInfoIntent());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

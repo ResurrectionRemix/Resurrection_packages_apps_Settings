@@ -57,6 +57,7 @@
   <string name="app_ops_categories_media">Medija</string>
   <string name="app_ops_categories_device">Įrenginys</string>
   <string name="app_ops_categories_bootup">Paleidimas</string>
+  <string name="app_ops_categories_su">„Root“ prieiga</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">apytikslė vietovė</string>
   <string name="app_ops_summaries_fine_location">tiksli vietovė</string>
@@ -208,6 +209,8 @@
   <string name="touchscreen_hovering_title">Jutiklinio ekrano slankiojimas</string>
   <string name="touchscreen_hovering_summary">Leidžia slankioti ekraną kaip pelę internetinėse naršyklėse, nuotoliniuose staliniuose kompiuteriuose ir kt.</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">Pasirinkimo piktograma</string>
+  <string name="ime_switcher_notify_summary">Rodyti įvesties metodo pasirinkimo piktogramą</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Rodyti piktogramą naudojant rašiklį</string>
@@ -224,11 +227,21 @@
   <string name="adb_over_network">„Android“ derinimas per tinklą</string>
   <string name="adb_over_network_summary">Įgalinti TCP / IP derinimą per tinklą („Wi-Fi“, USB tinklai). Šis nustatymas nustatomas iš naujo, paleidimo iš naujo metu</string>
   <string name="adb_over_network_warning">ISPĖJIMAS: Kai „Android“ derinimas per tinklą yra įgalintas, jūsų telefonas yra atviras įsibrovimams iš visų prijungtų tinklų!\n\nNaudokite šią funkciją tik tada, kai esate prisijungę prie patikimų tinklų.\n\nAr tikrai norite įgalinti šią funkciją?</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">Įrenginio vardas tinkle</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Didėjantis skambėjimo garsumas</string>
   <string name="increasing_ring_min_volume_title">Pradinis garsumas</string>
   <string name="increasing_ring_ramp_up_time_title">Didėjimo laikas</string>
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
   <!-- Notification sound timeout -->
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d būsena</string>
@@ -243,10 +256,37 @@
   <string name="cmlicense_title">Teisinė „CyanogenMod“ informacija</string>
   <!-- Format string for fingerprint location message -->
   <!-- Fingerprint sensor locations -->
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">„Wi-Fi“ regiono kodas</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">Nurodyti „Wi-Fi“ regiono kodą</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">Iškilo problema nustatant regiono kodą.</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">Pažadinti, kai prijungiama</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Įjungti ekraną, kai prijungiamas ar atjungiamas maitinimo šaltinis</string>
+  <!-- Heads-up -->
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">Niekada</string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">Pažadinti, kai prijungiama</string>
-  <!-- Heads-up -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Sujungti skambėjimo ir pranešimo garsumus</string>
+  <!-- Launch music player when headset is connected -->
+  <!-- Update recovery -->
+  <string name="update_recovery_on_warning">PRANEŠIMAS: Kai ši funkcija yra įgalinta, jūsų įdiegta atkūrimo programa bus pakeista kartu su dabartinės versijos OS.\n\nJūsų atkūrimo programa bus atnaujinta kartu su sistemos atnaujinimais, padedant užtikrinti suderinamumą su būsimomis versijomis.\n\nAr norėtumėte įgalinti šią funkciją?</string>
+  <string name="update_recovery_off_warning">ĮSPĖJIMAS: Kai ši funkcija yra neleidžiama,\n\nJūsų atkūrimo programa nebus atnaujinta kartu su OS atnaujinimais.\n\nAteityje OS atnaujinimai negalės būti įdiegti su pasenusia ar tinkinta atkūrimo programos versija.\n\nAr tikrai norite neleisti šios funkcijos?</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">Dukart bakstelėti, kad užmigdyti</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Dukart bakstelėti būsenos juostą, kad išjungti ekraną</string>
+  <string name="sim_disabled">neleidžiama</string>
+  <string name="sim_missing">trūkstama arba klaidinga</string>
+  <string name="sim_enabler_airplane_on">Nepavyksta atlikti šios operacijos, kai lėktuvo režimas yra įjungtas.</string>
+  <string name="sim_enabler_in_call">Nepavyksta atlikti šios operacijos pokalbio metu.</string>
+  <string name="sim_enabler_both_inactive">Negalima neleisti visų SIM kortelių</string>
 </resources>

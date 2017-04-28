@@ -22,17 +22,29 @@
 
 
         <PreferenceScreen
-                android:key="font_size"
-                android:title="@string/title_font_size"
-                android:fragment="com.android.settings.accessibility.ToggleFontSizePreferenceFragment"
-                android:icon="@drawable/rr_font_size_icon"
-                settings:keywords="@string/keywords_display_font_size" />
+            android:key="font_size"
+            android:title="@string/title_font_size"
+            android:fragment="com.android.settings.accessibility.ToggleFontSizePreferenceFragment"
+            android:icon="@drawable/rr_font_size_icon"
+            settings:keywords="@string/keywords_display_font_size" />
 
         <com.android.settings.display.ScreenZoomPreference
-                android:key="screen_zoom"
-                android:title="@string/screen_zoom_title"
-                android:icon="@drawable/rr_display_icon"
-                settings:keywords="@string/screen_zoom_keywords" />
+            android:key="screen_zoom"
+            android:title="@string/screen_zoom_title"
+            android:icon="@drawable/rr_display_icon"
+            settings:keywords="@string/screen_zoom_keywords" />
+
+        <com.android.settings.rr.LCDDensityPreference
+            android:key="custom_density"
+            android:icon="@drawable/rr_density_icon"
+            android:title="@string/custom_density_settings" />
+
+        <PreferenceScreen
+            android:key="rr_blur"
+            android:fragment="com.android.settings.rr.BlurPersonalizations"
+            android:title="@string/settings_blur_cat" 
+            android:summary="@string/settings_blur_sum"
+            android:icon="@drawable/rr_blur_icon"/>
         
         <PreferenceScreen
             android:key="expanded_desktop"
@@ -42,25 +54,32 @@
             android:title="@string/expanded_desktop_category" />
 
         <PreferenceScreen
-                android:key="doze_fragment"
-                android:title="@string/doze_title"
-                android:icon="@drawable/rr_ambient_display_icon"
-                android:summary="@string/rr_doze_summary"
-                android:fragment="com.android.settings.rr.ambientdisplay.AmbientSettings" />
+            android:key="doze_fragment"
+            android:title="@string/doze_title"
+            android:icon="@drawable/rr_ambient_display_icon"
+            android:summary="@string/rr_doze_summary"
+            android:fragment="com.android.settings.rr.ambientdisplay.AmbientSettings" />
 
         <PreferenceScreen
-                android:key="dashboard"
-                android:title="@string/rr_dash_board_title"
-                android:icon="@drawable/rr_dashboard_icon"
-                android:summary="@string/rr_dash_board_summary"
-                android:fragment="com.android.settings.rr.DashBoardSettings"/>
+            android:key="dashboard"
+            android:title="@string/rr_dash_board_title"
+            android:icon="@drawable/rr_dashboard_icon"
+            android:summary="@string/rr_dash_board_summary"
+            android:fragment="com.android.settings.rr.DashBoardSettings"/>
 
         <PreferenceScreen
-                android:key="heads_up_settings"
-                android:title="@string/heads_up_settings"
-                android:icon="@drawable/rr_heads_up_icon"
-                android:summary="@string/rr_heads_up_summary"
-                android:fragment="com.android.settings.rr.Headsup" />
+            android:key="keyboard_input_settings"
+            android:fragment="com.android.settings.rr.InputMethodsSettings"
+            android:title="@string/title_keyboard_input"
+            android:summary="@string/rr_input_method_summary"
+            android:icon="@drawable/rr_keyboard_icon"/>
+
+        <PreferenceScreen
+            android:key="heads_up_settings"
+            android:title="@string/heads_up_settings"
+            android:icon="@drawable/rr_heads_up_icon"
+            android:summary="@string/rr_heads_up_summary"
+            android:fragment="com.android.settings.rr.Headsup" />
 
         <PreferenceCategory
             android:key="screenshot_options"
@@ -71,9 +90,9 @@
             android:title="@string/screenshot_delay_title"
             android:summary="@string/screenshot_delay_summary"
             settings:maximum="10000"
-            settings:minimum="600"
-            settings:interval="300"
-            settings:defaultVal="600"
+            settings:minimum="100"
+            settings:interval="100"
+            settings:defaultVal="1000"
             settings:units="ms"
             android:persistent="false" />
 

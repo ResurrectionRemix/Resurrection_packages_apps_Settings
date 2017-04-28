@@ -34,7 +34,6 @@
   <string name="app_ops_summaries_wifi_scan">Escaneo de conexiones Wi-Fi</string>
   <string name="app_ops_summaries_notification">notificación/toast</string>
   <string name="app_ops_summaries_bluetooth_volume">volumen de bluetooth</string>
-  <string name="app_ops_summaries_get_usage_stats">obtener estadísticas de uso</string>
   <string name="app_ops_summaries_write_wallpaper">editar fondo de pantalla</string>
   <string name="app_ops_summaries_assist_structure">ayudar a la estructura</string>
   <string name="app_ops_summaries_assist_screenshot">ayudar a la captura de pantalla</string>
@@ -54,6 +53,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">conmutar Bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">iniciar en el arranque</string>
   <string name="app_ops_summaries_toggle_nfc">conmutar NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">conmutar los datos móviles</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Ubicación aproximada</string>
   <string name="app_ops_labels_fine_location">Ubicación precisa</string>
@@ -87,6 +87,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Conmutar Bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Iniciar en el arranque</string>
   <string name="app_ops_labels_toggle_nfc">Conmutar NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Conmutar datos móviles</string>
   <!-- App ops permissions -->
   <!-- App ops detail -->
   <!-- App ops menu options -->
@@ -120,8 +121,21 @@
   <!-- Android debugging -->
   <!-- Android debugging notification -->
   <!-- Android debugging over network -->
+  <!-- Hostname setting -->
   <!-- Increasing ring tone volume -->
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">recordatorios</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">eventos</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">llamadores seleccionados</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">mensajes seleccionados</string>
   <!-- Notification sound timeout -->
   <!-- MSIM SIM status -->
   <!-- NFC PreferenceCategory title -->
@@ -129,6 +143,12 @@
   <!-- CM Legal -->
   <!-- Format string for fingerprint location message -->
   <!-- Fingerprint sensor locations -->
+  <!-- Wi-Fi region code -->
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <!-- Wake on plug -->
+  <!-- Heads-up -->
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Otros</string>
   <!-- Wi-Fi tethering inactivity timeout -->
@@ -136,6 +156,25 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 minuto</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 minutos</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minutos</string>
-  <!-- Wake on plug -->
-  <!-- Heads-up -->
+  <string name="hotstpot_inactivity_timeout_never_summary_text">El punto de acceso portable Wi\u2011Fi no se apagará nunca</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">El punto de acceso portable Wi\u2011Fi se apagará después de <xliff:g id="timeout">%1$s</xliff:g></string>
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <!-- Launch music player when headset is connected -->
+  <!-- Update recovery -->
+  <!-- Status bar - double tap to sleep -->
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s </xliff:g> es <xliff:g id="status" example="disabled">%2$s </xliff:g></string>
+  <string name="sim_enabler_need_disable_sim">La tarjeta SIM se desactivará. ¿Quieres continuar?</string>
+  <string name="sim_enabler_will_disable_sim_title">Atención</string>
+  <string name="sim_enabler_need_switch_data_service">Se desactivará esta SIM y la SIM <xliff:g id="slotid">%1$s</xliff:g> se utilizará para servicios de datos. ¿Estás seguro que deseas continuar?</string>
+  <string name="sim_enabler_enabling">Activando\u2026</string>
+  <string name="sim_enabler_disabling">Desactivando\u2026</string>
+  <string name="sub_activate_success">SIM activada.</string>
+  <string name="sub_activate_failed">Error de activación.</string>
+  <string name="sub_deactivate_success">SIM desactivada.</string>
+  <string name="sub_deactivate_failed">Error de desactivación.</string>
 </resources>

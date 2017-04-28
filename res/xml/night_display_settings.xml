@@ -51,4 +51,21 @@
             android:selectable="false"
             settings:allowDividerAbove="true" />
 
+    <PreferenceCategory
+            android:title="@string/night_brightness_category">
+
+        <DropDownPreference
+                android:key="qs_night_brightness_value"
+                android:title="@string/night_brightness_value_title"
+                android:entries="@array/night_brightness_value_entries"
+                android:entryValues="@array/night_brightness_value_values"
+                android:defaultValue="0" />
+
+    </PreferenceCategory>
+
+    <com.android.settings.fuelgauge.WallOfTextPreference
+            android:summary="@string/night_brightness_text"
+            android:selectable="false"
+            settings:allowDividerAbove="true" />
+
 </PreferenceScreen>

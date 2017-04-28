@@ -71,6 +71,7 @@ import com.android.settings.applications.ManageDomainUrls;
 import com.android.settings.applications.NotificationApps;
 import com.android.settings.applications.ProcessStatsSummary;
 import com.android.settings.applications.ProcessStatsUi;
+import com.android.settings.applications.RunningServices;
 import com.android.settings.applications.UsageAccessDetails;
 import com.android.settings.applications.VrListenerSettings;
 import com.android.settings.applications.WriteSettingsDetails;
@@ -91,6 +92,7 @@ import com.android.settings.fuelgauge.BatterySaverSettings;
 import com.android.settings.fuelgauge.PowerUsageDetail;
 import com.android.settings.fuelgauge.PowerUsageSummary;
 import com.android.settings.gestures.GestureSettings;
+import com.android.settings.rr.ScreenStateToggles;
 import com.android.settings.inputmethod.AvailableVirtualKeyboardFragment;
 import com.android.settings.inputmethod.InputMethodAndLanguageSettings;
 import com.android.settings.inputmethod.KeyboardLayoutPickerFragment;
@@ -147,6 +149,8 @@ import com.android.settings.rr.AppCircleBar;
 import com.android.settings.rr.pie.PieControl;
 import com.android.settings.rr.gestureanywhere.GestureAnywhereSettings;
 import com.android.settings.rr.ambientdisplay.AmbientSettings;
+import com.android.settings.rr.Headsup;
+import com.android.settings.rr.input.HWSettings;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -249,6 +253,10 @@ public class SettingsActivity extends SettingsDrawerActivity
 
     private static final String ACTION_TIMER_SWITCH = "qualcomm.intent.action.TIMER_SWITCH";
 
+    private static final String THEMES_FRAGMENT = "com.android.settings.Themes";
+
+    private static final String MAGISK_FRAGMENT = "com.android.settings.MagiskManager";
+
     private String mFragmentClass;
     private String mActivityAction;
 
@@ -272,6 +280,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.ManageApplicationsActivity.class.getName(),
             Settings.PowerUsageSummaryActivity.class.getName(),
             Settings.GestureSettingsActivity.class.getName(),
+            Settings.ScreenStateServiceActivity.class.getName(),
             //personal_section
             Settings.LocationSettingsActivity.class.getName(),
             Settings.SecuritySettingsActivity.class.getName(),
@@ -285,6 +294,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             Settings.PrintSettingsActivity.class.getName(),
             Settings.PaymentSettingsActivity.class.getName(),
             Settings.TimerSwitchSettingsActivity.class.getName(),
+            Settings.DevRunningServicesActivity.class.getName(),
     };
 
     private static final String[] ENTRY_FRAGMENTS = {
@@ -333,6 +343,7 @@ public class SettingsActivity extends SettingsDrawerActivity
             AccountSyncSettings.class.getName(),
             AccountSettings.class.getName(),
             GestureSettings.class.getName(),
+            ScreenStateToggles.class.getName(),
             CryptKeeperSettings.class.getName(),
             DataUsageSummary.class.getName(),
             DreamSettings.class.getName(),
@@ -389,11 +400,14 @@ public class SettingsActivity extends SettingsDrawerActivity
             PulseSettings.class.getName(),
             AppCircleBar.class.getName(),
             GestureAnywhereSettings.class.getName(),
+            HWSettings.class.getName(),
             PieControl.class.getName(),
+            Headsup.class.getName(),
             MasterClear.class.getName(),
             NightDisplaySettings.class.getName(),
             ManageDomainUrls.class.getName(),
-            AutomaticStorageManagerSettings.class.getName()
+            AutomaticStorageManagerSettings.class.getName(),
+            RunningServices.class.getName(),
     };
 
 
@@ -1069,12 +1083,23 @@ public class SettingsActivity extends SettingsDrawerActivity
      */
     private Fragment switchToFragment(String fragmentName, Bundle args, boolean validate,
             boolean addToBackStack, int titleResId, CharSequence title, boolean withTransition) {
-
-
+         if (MAGISK_FRAGMENT.equals(fragmentName)) {
+            Intent magiskIntent = new Intent();
+            magiskIntent.setClassName("com.topjohnwu.magisk", "com.topjohnwu.magisk.SplashActivity");
+            startActivity(magiskIntent);
+            finish();
+            return null;
+        }
   		 if (KA_FRAGMENT.equals(fragmentName)) {
             Intent kaIntent = new Intent();
             kaIntent.setClassName("com.grarak.kerneladiutor", "com.grarak.kerneladiutor.activities.MainActivity");
             startActivity(kaIntent);
+            finish();
+            return null;
+        } else if (THEMES_FRAGMENT.equals(fragmentName)) {
+            Intent themesIntent = new Intent();
+            themesIntent.setClassName("projekt.substratum", "projekt.substratum.LaunchActivity");
+            startActivity(themesIntent);
             finish();
             return null;
         }
@@ -1182,8 +1207,27 @@ public class SettingsActivity extends SettingsDrawerActivity
                         Settings.KActivity.class.getName()),
                 kapresent, isAdmin, pm);
 
+        boolean themesSupported = false;
+        try {
+            themesSupported = (getPackageManager().getPackageInfo("projekt.substratum", 0).versionCode > 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        setTileEnabled(new ComponentName(packageName,
+                        Settings.ThemesActivity.class.getName()),
+                themesSupported, isAdmin, pm);
+
         // Reveal development-only quick settings tiles
         DevelopmentTiles.setTilesEnabled(this, showDev);
+
+        // Magisk Manager
+        boolean magiskSupported = false;
+        try {
+            magiskSupported = (getPackageManager().getPackageInfo("com.topjohnwu.magisk", 0).versionCode > 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        setTileEnabled(new ComponentName(packageName,
+                        Settings.MagiskActivity.class.getName()),
+                magiskSupported, isAdmin, pm);
 
         // Show scheduled power on and off if support
         boolean showTimerSwitch = false;
@@ -1225,7 +1269,8 @@ public class SettingsActivity extends SettingsDrawerActivity
             }
         }
         setTileEnabled(new ComponentName(packageName,
-                BackupSettingsActivity.class.getName()), hasBackupActivity, isAdmin, pm);
+                BackupSettingsActivity.class.getName()), hasBackupActivity,
+                isAdmin || Utils.isCarrierDemoUser(this), pm);
 
     }
 

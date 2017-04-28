@@ -47,7 +47,18 @@ import android.widget.Toast;
 
 import com.android.settings.R;
 
-public class SystemappRemover extends Fragment {
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.logging.MetricsLogger;
+
+public class SystemappRemover extends SettingsPreferenceFragment {
+
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsEvent.RESURRECTED;
+    }
+
     private final int STARTUP_DIALOG = 1;
     private final int DELETE_DIALOG = 2;
     private final int DELETE_MULTIPLE_DIALOG = 3;
@@ -87,6 +98,9 @@ public class SystemappRemover extends Fragment {
         safetyList.add("DrmProvider.apk");
         safetyList.add("PackageInstaller.apk");
         safetyList.add("TelephonyProvider.apk");
+        safetyList.add("ResurrectionStats.apk");
+        safetyList.add("LockClock.apk");
+        safetyList.add("ResurrectionOTA.apk");
 	 // priv-app
         safetyList.add("ContactsProvider.apk");
         safetyList.add("DefaultContainerService.apk");

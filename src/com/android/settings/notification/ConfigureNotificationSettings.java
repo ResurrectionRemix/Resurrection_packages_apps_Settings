@@ -17,6 +17,7 @@
 package com.android.settings.notification;
 
 import android.app.admin.DevicePolicyManager;
+import android.app.NotificationManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.ContentObserver;
@@ -113,6 +114,7 @@ public class ConfigureNotificationSettings extends SettingsPreferenceFragment {
     // === Pulse notification light ===
 
     private void initPulse() {
+        final NotificationManager nm = mContext.getSystemService(NotificationManager.class);
         final PreferenceCategory category = (PreferenceCategory) findPreference("lights");
         mNotificationPulse =
                 (TwoStatePreference) category.findPreference(KEY_NOTIFICATION_PULSE);
@@ -121,7 +123,8 @@ public class ConfigureNotificationSettings extends SettingsPreferenceFragment {
             return;
         }
         if (!getResources()
-                .getBoolean(com.android.internal.R.bool.config_intrusiveNotificationLed)) {
+                .getBoolean(com.android.internal.R.bool.config_intrusiveNotificationLed) ||
+                !nm.doLightsSupport(NotificationManager.LIGHTS_PULSATING_LED)) {
             category.removePreference(mNotificationPulse);
         } else {
             updatePulse();

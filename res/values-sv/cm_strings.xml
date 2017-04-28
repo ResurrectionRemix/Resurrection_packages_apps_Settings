@@ -57,7 +57,9 @@
   <string name="app_ops_categories_messaging">Meddelanden</string>
   <string name="app_ops_categories_media">Media</string>
   <string name="app_ops_categories_device">Enhet</string>
+  <string name="app_ops_categories_background">Bakgrund</string>
   <string name="app_ops_categories_bootup">Uppstart</string>
+  <string name="app_ops_categories_su">Root-åtkomst</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">grov lokalisering</string>
   <string name="app_ops_summaries_fine_location">fin lokalisering</string>
@@ -102,7 +104,6 @@
   <string name="app_ops_summaries_keep_awake">håll vaken</string>
   <string name="app_ops_summaries_monitor_location">övervaka plats</string>
   <string name="app_ops_summaries_monitor_high_power_location">övervaka högenergiplats</string>
-  <string name="app_ops_summaries_get_usage_stats">få användningsstatistik</string>
   <string name="app_ops_summaries_mute_unmute_microphone">Slå på/av mikrofonen</string>
   <string name="app_ops_summaries_toast_window">visa toasts</string>
   <string name="app_ops_summaries_project_media">projektmedia</string>
@@ -126,6 +127,7 @@
   <string name="app_ops_summaries_toggle_bluetooth">växla Bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">starta vid uppstart</string>
   <string name="app_ops_summaries_toggle_nfc">växla NFC</string>
+  <string name="app_ops_summaries_toggle_mobile_data">växla mobildata</string>
   <string name="app_ops_summaries_superuser">root-åtkomst</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_labels_coarse_location">Grov lokalisering</string>
@@ -195,6 +197,7 @@
   <string name="app_ops_labels_toggle_bluetooth">Växla Bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Starta vid uppstart</string>
   <string name="app_ops_labels_toggle_nfc">Växla NFC</string>
+  <string name="app_ops_labels_toggle_mobile_data">Växla mobildata</string>
   <string name="app_ops_labels_superuser">Rootåtkomst</string>
   <!-- App ops permissions -->
   <string name="app_ops_permissions_allowed">Tillåten</string>
@@ -235,6 +238,7 @@
   <!-- Memory -->
   <string name="memory_startup_apps_title">Appar startade vid uppstart</string>
   <!-- Advanced restart options -->
+  <string name="advanced_reboot_title">Avancerad omstart</string>
   <!-- PIN scramble -->
   <string name="unlock_scramble_pin_layout_title">Kasta om layout</string>
   <string name="unlock_scramble_pin_layout_summary">Kasta om PIN-layout vid upplåsning av enheten</string>
@@ -267,6 +271,8 @@
   <string name="touchscreen_hovering_title">Tryckskärm-hovring</string>
   <string name="touchscreen_hovering_summary">Låter dig hovra över skärmen som en mus i webbläsare, fjärrskrivbord, etc</string>
   <!-- Whether to display IME switcher notifcation -->
+  <string name="ime_switcher_notify">Väljarikonen</string>
+  <string name="ime_switcher_notify_summary">Visa ikonen för inmatningsväxlare</string>
   <!-- [CHAR LIMIT=100] Notification Importance slider: very low importance level description -->
   <!-- Stylus Icon -->
   <string name="stylus_icon_enabled_title">Visa ikon vid användning av pekpenna</string>
@@ -283,11 +289,25 @@
   <string name="adb_over_network">ADB över nätverk</string>
   <string name="adb_over_network_summary">Aktivera TCP/IP-felsökning över nätverksgränssnitt (Wi\u2011Fi, USB-nätverk). Denna inställning återställs vid omstart</string>
   <string name="adb_over_network_warning">VARNING: När ADB över nätverk är aktiverat är din telefon öppen för intrång genom alla sorters anslutna nätverk!\n\nAnvänd endast denna funktion när du är ansluten till betrodda nätverk.\n\nVill du verkligen aktivera denna funktion?</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">Enhetens värdnamn</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_volume_option_title">Ökande ljudvolym</string>
   <string name="increasing_ring_min_volume_title">Startvolym</string>
   <string name="increasing_ring_ramp_up_time_title">Upprampningstid</string>
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <string name="zen_mode_summary_reminders">påminnelser</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_events">händelser</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_callers">valda uppringare</string>
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
+  <string name="zen_mode_summary_selected_messages">valda meddelanden</string>
   <!-- Notification sound timeout -->
   <!-- MSIM SIM status -->
   <string name="sim_card_status_title">SIM %d status</string>
@@ -302,6 +322,19 @@
   <string name="cmlicense_title">CyanogenMod Juridik</string>
   <!-- Format string for fingerprint location message -->
   <!-- Fingerprint sensor locations -->
+  <string name="security_settings_fingerprint_sensor_location_left">vänster sida</string>
+  <string name="security_settings_fingerprint_sensor_location_right">höger sida</string>
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">Wi\u2011Fi-regionskod</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">Ange regionskoden för Wi\u2011Fi</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">Det uppstod ett problem vid inställningen av regionskoden.</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">Vakna vid koppling</string>
+  <string name="wake_when_plugged_or_unplugged_summary">Starta skärmen vid anslutning till eller frånkoppling från strömkälla</string>
+  <!-- Heads-up -->
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <string name="tethering_other_category_text">Annan</string>
   <!-- Wi-Fi tethering inactivity timeout -->
@@ -310,7 +343,35 @@
   <string name="hotstpot_inactivity_timeout_1_minute">1 minut</string>
   <string name="hotstpot_inactivity_timeout_5_minutes">5 minuter</string>
   <string name="hotstpot_inactivity_timeout_10_minutes">10 minuter</string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">Vakna vid koppling</string>
-  <!-- Heads-up -->
+  <string name="hotstpot_inactivity_timeout_never_summary_text">Ingen tidsgräns för Mobil Wi\u2011Fi hotspot</string>
+  <string name="hotstpot_inactivity_timeout_summary_text">Tidsgräns för Mobil Wi\u2011Fi hotspot: <xliff:g id="timeout">%1$s </xliff:g></string>
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Länka ringsignals- och aviseringsvolym</string>
+  <!-- Launch music player when headset is connected -->
+  <!-- Update recovery -->
+  <string name="update_recovery_on_warning">OBSERVERA: När denna funktion är aktiverad, kommer din installerade Recovery att ersättas av en som ingår i den aktuella versionen av ditt nuvarande OS.\n\nRecovery kommer att uppdateras med uppgraderingar till ditt system, detta bidrar till att säkerställa kompatibilitet med framtida versioner.\n\nVill du aktivera den här funktionen?</string>
+  <string name="update_recovery_off_warning">VARNING: När denna funktion är inaktiverad, kommer din installerade Recovery inte att uppdateras med OS-uppgraderingar.\n\nFramtida OS-uppdateringar kan komma att inte kunna installeras med inaktuella eller anpassade Recovery-versioner.\n\nVill du verkligen inaktivera denna funktion?</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">Dubbeltryck för att släcka</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Dubbeltryck på statusfältet för att stänga av skärmen</string>
+  <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> är <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
+  <string name="sim_disabled">inaktiverat</string>
+  <string name="sim_missing">saknas eller felaktig</string>
+  <string name="sim_enabler_need_disable_sim">SIM-kortet kommer att avaktiveras. Vill du fortsätta?</string>
+  <string name="sim_enabler_will_disable_sim_title">Varning</string>
+  <string name="sim_enabler_need_switch_data_service">Detta SIM kommer att inaktiveras och SIM <xliff:g id="slotid">%1$s </xliff:g> kommer att användas för datatjänster. Är du säker på att du vill fortsätta?</string>
+  <string name="sim_enabler_airplane_on">Kunde inte utföra åtgärden medan flygplansläge är på.</string>
+  <string name="sim_enabler_in_call">Kunde inte utföra åtgärden under samtal.</string>
+  <string name="sim_enabler_both_inactive">Kan inte inaktivera alla SIM-kort</string>
+  <string name="sim_enabler_enabling">Aktiverar\u2026</string>
+  <string name="sim_enabler_disabling">Inaktiverar\u2026</string>
+  <string name="sub_activate_success">SIM aktiverad.</string>
+  <string name="sub_activate_failed">Aktivering misslyckades.</string>
+  <string name="sub_deactivate_success">SIM inaktiveras.</string>
+  <string name="sub_deactivate_failed">Inaktivering misslyckades.</string>
 </resources>

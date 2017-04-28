@@ -131,7 +131,7 @@ public class ClockSettings extends SettingsPreferenceFragment
 
 
         int clockStyle = CMSettings.System.getInt(resolver,
-                CMSettings.System.STATUS_BAR_CLOCK, 1);
+                CMSettings.System.STATUS_BAR_CLOCK, 0);
         mStatusBarClock.setValue(String.valueOf(clockStyle));
         mStatusBarClock.setSummary(mStatusBarClock.getEntry());
         mStatusBarClock.setOnPreferenceChangeListener(this);

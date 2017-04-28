@@ -223,11 +223,18 @@ public class WifiEnabler implements SwitchBar.OnSwitchChangeListener  {
         }
 
         // Disable tethering if enabling Wifi
-        if (mayDisableTethering(isChecked)) {
-            mWifiManager.setWifiApEnabled(null, false);
+        if (!mWifiManager.getWifiStaSapConcurrency()) {
+            if (mayDisableTethering(isChecked)) {
+                mWifiManager.setWifiApEnabled(null, false);
+            }
         }
-        MetricsLogger.action(mContext,
-                isChecked ? MetricsEvent.ACTION_WIFI_ON : MetricsEvent.ACTION_WIFI_OFF);
+        if (isChecked) {
+            MetricsLogger.action(mContext, MetricsEvent.ACTION_WIFI_ON);
+        } else {
+            // Log if user was connected at the time of switching off.
+            MetricsLogger.action(mContext, MetricsEvent.ACTION_WIFI_OFF,
+                    mConnected.get());
+        }
         if (!mWifiManager.setWifiEnabled(isChecked)) {
             // Error
             mSwitchBar.setEnabled(true);

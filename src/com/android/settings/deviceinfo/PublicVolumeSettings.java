@@ -140,6 +140,16 @@ public class PublicVolumeSettings extends SettingsPreferenceFragment {
         final ViewGroup buttonBar = getButtonBar();
         buttonBar.removeAllViews();
         buttonBar.setPadding(padding, padding, padding, padding);
+
+        //Fixed monkey test issue
+        //Settings crash caused by null pointer parameter
+        //Add check with mUnmount's values
+        if (null == mUnmount) {
+            mUnmount = new Button(getActivity());
+            mUnmount.setText(R.string.storage_menu_unmount);
+            mUnmount.setOnClickListener(mUnmountListener);
+        }
+
         buttonBar.addView(mUnmount, new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT));

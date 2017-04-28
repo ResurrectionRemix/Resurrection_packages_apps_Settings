@@ -28,12 +28,15 @@ import android.telephony.PhoneNumberUtils;
 import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
+import android.text.Editable;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -184,7 +187,25 @@ public class SimPreferenceDialog extends Activity {
             }
         });
 
-        mBuilder.create().show();
+        AlertDialog dialog = mBuilder.show();
+
+        final Button button = dialog.getButton(AlertDialog.BUTTON1);
+        if (TextUtils.isEmpty(mSubInfoRecord.getDisplayName()) ||
+                TextUtils.getTrimmedLength(mSubInfoRecord.getDisplayName()) == 0) {
+            button.setEnabled(false);
+        }
+        nameText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                button.setEnabled(TextUtils.getTrimmedLength(s) > 0);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) { }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+        });
     }
 
     private class SelectColorAdapter extends ArrayAdapter<CharSequence> {

@@ -48,6 +48,7 @@
   <string name="app_ops_categories_media">媒體</string>
   <string name="app_ops_categories_device">裝置</string>
   <string name="app_ops_categories_bootup">啟動時</string>
+  <string name="app_ops_categories_su">Root 權限</string>
   <!-- User display names for app ops codes - extension of AOSP -->
   <string name="app_ops_summaries_coarse_location">粗略位置</string>
   <string name="app_ops_summaries_fine_location">精確位置</string>
@@ -208,9 +209,19 @@
   <string name="adb_over_network">ADB 透過網絡</string>
   <string name="adb_over_network_summary">啟用透過網絡接口 (Wi-Fi、USB 網絡) 進行 TCP/IP 偵錯。該設定會於重新啟動後重設</string>
   <string name="adb_over_network_warning">警告：啟用透過網絡連接 ADB 後，所有已連接的網絡均可能入侵您的手機！\n\n建議您連接到信任的網絡時才使用此功能。\n\n您確定想啟用此功能嗎？</string>
+  <!-- Hostname setting -->
+  <string name="device_hostname">裝置主機名稱</string>
   <!-- Increasing ring tone volume -->
   <string name="increasing_ring_ramp_up_time_title">漸強時間</string>
   <!-- Allow vibration in zen mode -->
+  <!-- Zen mode allowed event setting summary items -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_reminders, but part of a list, so lower case if needed-->
+  <!-- [CHAR LIMIT=50] Like zen_mode_events, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_repeat_callers, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_all_messages, but part of a list, so lower case if needed -->
+  <!-- [CHAR LIMIT=50] Like zen_mode_selected_messages, but part of a list, so lower case if needed -->
   <!-- Notification sound timeout -->
   <!-- MSIM SIM status -->
   <!-- NFC PreferenceCategory title -->
@@ -219,10 +230,36 @@
   <string name="cmlicense_title">CyanogenMod 法律條款</string>
   <!-- Format string for fingerprint location message -->
   <!-- Fingerprint sensor locations -->
+  <!-- Wi-Fi region code -->
+  <string name="wifi_setting_countrycode_title">Wi\u2011Fi 區域代碼</string>
+  <!-- Wi-Fi settings screen, setting summary for setting the wifi frequency band [CHAR LIMIT=50]-->
+  <string name="wifi_setting_countrycode_summary">指定 Wi\u2011Fi 區域代碼</string>
+  <!-- Wi-Fi settings screen, error message when the frequency band could not be set [CHAR LIMIT=50]. -->
+  <string name="wifi_setting_countrycode_error">設定區域代碼時遇到了問題。</string>
+  <!-- Wake on plug -->
+  <string name="wake_when_plugged_or_unplugged_title">當接上喚醒</string>
+  <string name="wake_when_plugged_or_unplugged_summary">當連接或拔除電源時開啓螢幕</string>
+  <!-- Heads-up -->
+  <!-- Encryption password -->
   <!-- Tethering & portable hotspot other category -->
   <!-- Wi-Fi tethering inactivity timeout -->
   <string name="hotstpot_inactivity_timeout_never">永不</string>
-  <!-- Wake on plug -->
-  <string name="wake_when_plugged_or_unplugged_title">當接上喚醒</string>
-  <!-- Heads-up -->
+  <!-- Per-app data restrictions -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Title for switch to block app data usage [CHAR LIMIT=30] -->
+  <!-- Summary for switch to block app data usage [CHAR LIMIT=NONE] -->
+  <!-- Volume link notification -->
+  <!-- Launch music player when headset is connected -->
+  <!-- Update recovery -->
+  <string name="update_recovery_on_warning">注意：啟用此功能後，您已安裝的修復模式將會被包含運行系統當前版本的修復模式取代。\n\n您的修復模式將會隨著系統一同更新以確保與未來版本的相容性。\n\n您確定要啟用這個功能？</string>
+  <string name="update_recovery_off_warning">警告：停用此功能後，您安裝的修復模式將不與運行系統一同更新。\n\n未來的系统更新可能不支援舊版或自訂修復模式版本。\n\n您確定要停用此功能？</string>
+  <!-- Status bar - double tap to sleep -->
+  <string name="status_bar_double_tap_to_sleep_title">按兩下進入休眠</string>
+  <string name="status_bar_double_tap_to_sleep_summary">按兩下狀態列來關閉顯示器</string>
+  <string name="sim_disabled">已停用</string>
+  <string name="sim_missing">遺失或毀損</string>
+  <string name="sim_enabler_airplane_on">飛航模式開啟时無法進行此操作。</string>
+  <string name="sim_enabler_in_call">通話時無法進行此操作。</string>
+  <string name="sim_enabler_both_inactive">無法停用所有 SIM 卡</string>
 </resources>

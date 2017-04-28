@@ -246,6 +246,7 @@ public class OtherSoundSettings extends SettingsPreferenceFragment implements In
         } else {
             removePreference(KEY_BOOT_SOUNDS);
         }
+
         final CMHardwareManager hardware = CMHardwareManager.getInstance(mContext);
         if (!hardware.isSupported(CMHardwareManager.FEATURE_VIBRATOR)) {
             removePreference(CMSettings.Secure.VIBRATOR_INTENSITY);

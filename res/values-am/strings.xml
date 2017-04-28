@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"የሲም አድራሻ ደብተር አሳይ"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"በቋሚነት የሚደወልባቸው  ቁጥሮች"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"የአገልግሎት መደወያ ቁጥሮችን ዕይ"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"የPDP ዝርዝርን አግኝ"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"IMS አገልግሎት ሁነታ"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS ሁነታ"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"የተመዘገበ"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"አልተመዘገበም"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"የሚገኙ"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"አይገኝም"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"የIMS ምዝገባ፦ <xliff:g id="STATUS">%1$s</xliff:g>\nበLTE በኩል ድምፅ፦ <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nበWiFi በኩል ድምፅ፦ <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nየቪድዮ ጥሪ፦ <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT በይነገጽ፦ <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"በአገልግሎት ውስጥ"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"ከአገልግሎት ውጪ"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"የአደጋ ጊዜ ጥሪዎች ብቻ"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"በሚተኛበት Wi-Fi እንደበራ ይቆይ"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"በእንቅልፍ ጊዜ Wi‑Fi ይበራል"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"ቅንብሮቹን ለመለወጥ ችግር ነበር።"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"ወደ ሥርዓት ከዋኝ አውታረ መረቦች አገናኝ"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"የሚገኝ ሲሆን ወደ ሥርዓት ከዋኝ አውታረ መረቦች አገናኝ"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"ቅልጥፍናን አሻሽል"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"የWi-Fi ማመቻቸት"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Wi-Fi ሲበራ የባትሪ አጠቃቀም ቀንስ"</string>
@@ -2644,11 +2652,11 @@
     <string name="notification_listener_disable_warning_summary" msgid="6738915379642948000">"የ<xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> ማሳወቂያ መዳረሻን ካጠፉ የ«አትረብሽ» መዳረሻ እንዲሁም ሊጠፋ ይችላል።"</string>
     <string name="notification_listener_disable_warning_confirm" msgid="8333442186428083057">"አጥፋ"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8586417377104211584">"ይቅር"</string>
-    <string name="vr_listeners_title" msgid="1318901577754715777">"የምናባዊ እውነታ አጋዥ አገልግሎቶች"</string>
-    <string name="no_vr_listeners" msgid="2689382881717507390">"ምንም የተጫኑ መተግበሪያዎች እንደ የምናባዊ እውነታ አጋዥ አገልግሎቶች ሆነው እንዲሄዱ አልጠየቁም።"</string>
-    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"ለ<xliff:g id="SERVICE">%1$s</xliff:g> የምናባዊ እውነታ መዳረሻ ይፈቀድለት?"</string>
-    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"መተግበሪያዎችን በምናባዊ እውነታ ሁነታ ውስጥ ሲጠቀሙ <xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> መሄድ ይችላል።"</string>
-    <string name="display_vr_pref_title" msgid="8104485269504335481">"መሣሪያ በቪአር ውስጥ ሲሆን"</string>
+    <string name="vr_listeners_title" msgid="1318901577754715777">"የምናባዊ ዕውነታ አጋዥ አገልግሎቶች"</string>
+    <string name="no_vr_listeners" msgid="2689382881717507390">"ምንም የተጫኑ መተግበሪያዎች እንደ የምናባዊ ዕውነታ አጋዥ አገልግሎቶች ሆነው እንዲሄዱ አልጠየቁም።"</string>
+    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"ለ<xliff:g id="SERVICE">%1$s</xliff:g> የምናባዊ ዕውነታ መዳረሻ ይፈቀድለት?"</string>
+    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"መተግበሪያዎችን በምናባዊ ዕውነታ ሁነታ ውስጥ ሲጠቀሙ <xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> መሄድ ይችላል።"</string>
+    <string name="display_vr_pref_title" msgid="8104485269504335481">"መሣሪያ በምናባዊ ዕውነታ ውስጥ ሲሆን"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"ብዥታ ቀንስ (የሚመከር)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"ብልጭታን ቀንስ"</string>
     <string name="manage_zen_access_title" msgid="2611116122628520522">"የአትረብሽ መዳረሻ"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"ባትሪን ማትባት"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"የአጠቃቀም ማንቂያዎች"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"አልተባም"</string>
     <string name="high_power_on" msgid="6216293998227583810">"አልተባም"</string>
     <string name="high_power_off" msgid="3393904131961263278">"የባትሪ አጠቃቀምን አትባ"</string>
@@ -2974,7 +2983,7 @@
     <string name="permit_draw_overlay" msgid="6606018549732046201">"በሌሎች መተግበሪያዎች ላይ መሳል ፍቀድ"</string>
     <string name="app_overlay_permission_preference" msgid="8355410276571387439">"የመተግበሪያ ከላይ የመሳል ፍቃድ"</string>
     <string name="allow_overlay_description" msgid="7895191337585827691">"ይህ ፍቃድ አንድ መተግበሪያ እየተጠቀሙ ካሏቸው መተግበሪያዎች በላይ እንዲታይ ያስችለዋል፣ እና ቤሎች መተግበሪያዎች ላይ በሚያከናውኗቸው ስራዎች ላይ ጣልቃ ሊገባ ወይም በሌሎች መተግበሪያዎች እያዩ የሚመስሉዎትን ነገሮች ሊቀይር ይችላል።"</string>
-    <string name="keywords_vr_listener" msgid="7441221822576384680">"ምናባዊ እውነታ አዳማጭ ስቲሪዮ አጋዥ አገልግሎት"</string>
+    <string name="keywords_vr_listener" msgid="7441221822576384680">"ምናባዊ ዕውነታ አዳማጭ ስቲሪዮ አጋዥ አገልግሎት"</string>
     <string name="keywords_system_alert_window" msgid="8579673659566564926">"የስርዓት ማንቂያ መስኮት መገናኛ በሌሎች መተግበሪያዎች ላይ ሳል"</string>
     <string name="overlay_settings" msgid="222062091489691363">"በሌሎች መተግበሪያዎች ላይ ይሳሉ"</string>
     <string name="system_alert_window_summary" msgid="4268867238063922290">"<xliff:g id="COUNT_0">%d</xliff:g> ከ<xliff:g id="COUNT_1">%d</xliff:g> መተግበሪያዎች ከሌሎች መተግበሪያዎች በላይ እንዲስሉ ተፈቅዶላቸዋል"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"መተግበሪያዎች አልተጫኑም"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"የተጫኑ መተግበሪያዎች"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"የእርስዎ ማከማቻ አሁን በማከማቻ አስተዳዳሪ እየተዳደረ ነው"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"የአገልግሎት አቅራቢ አቅርቦት መረጃ"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"የቀስቃሴ አገልግሎት አቅራቢ አቅርቦት"</string>
 </resources>

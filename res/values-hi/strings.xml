@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"सिम पता पुस्तिका देखें"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"फ़िक्‍स्‍ड डायलिंग नंबर देखें"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"सेवा डायलिंग नंबर देखें"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"PDP सूची प्राप्त करें"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"IMS सेवा स्थिति"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS स्थिति"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"पंजीकृत"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"पंजीकृत नहीं"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"उपलब्ध"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"अनुपलब्ध"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS पंजीकरण: <xliff:g id="STATUS">%1$s</xliff:g>\nवॉइस ओवर LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nवॉइस ओवर वाई-फ़ाई: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nवीडियो कॉलिंग: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT इंटरफ़ेस: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"सेवा में"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"सेवा में नहीं"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"केवल आपातकालीन कॉल"</string>
@@ -71,7 +77,7 @@
     <string name="sdcard_format" product="nosdcard" msgid="6285310523155166716">"USB मेमोरी मिटाएं"</string>
     <string name="sdcard_format" product="default" msgid="6713185532039187532">"SD कार्ड मिटाएं"</string>
     <string name="preview_pager_content_description" msgid="8926235999291761243">"पूर्वावलोकन"</string>
-    <string name="preview_page_indicator_content_description" msgid="4821343428913401264">"पूर्वावलोकन, पृष्ठ <xliff:g id="NUM_PAGES">%2$d</xliff:g> में से <xliff:g id="CURRENT_PAGE">%1$d</xliff:g>"</string>
+    <string name="preview_page_indicator_content_description" msgid="4821343428913401264">"पूर्वावलोकन, पेज <xliff:g id="NUM_PAGES">%2$d</xliff:g> में से <xliff:g id="CURRENT_PAGE">%1$d</xliff:g>"</string>
     <string name="font_size_summary" msgid="1690992332887488183">"स्क्रीन पर स्थित लेख को छोटा या बड़ा करें."</string>
     <string name="small_font" msgid="2295331917424072635">"छोटा"</string>
     <string name="medium_font" msgid="2068475425515133701">"मध्यम"</string>
@@ -107,7 +113,7 @@
     <string name="bluetooth_disconnect_all_profiles" msgid="9148530542956217908">"इससे &lt;br&gt;&lt;b&gt;<xliff:g id="DEVICE_NAME">%1$s</xliff:g>&lt;/b&gt; के साथ आपका कनेक्‍शन समाप्त हो जाएगा"</string>
     <string name="bluetooth_empty_list_user_restricted" msgid="603521233563983689">"आपको ब्लूटूथ सेटिंग में बदलाव करने की अनुमति नहीं है."</string>
     <string name="bluetooth_is_visible_message" msgid="6222396240776971862">"ब्लूटूथ सेटिंग खुली होने पर <xliff:g id="DEVICE_NAME">%1$s</xliff:g> आस-पास के डिवाइसों को दिखाई देता है."</string>
-    <string name="bluetooth_is_disconnect_question" msgid="5334933802445256306">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> को डिस्कनेक्ट करें?"</string>
+    <string name="bluetooth_is_disconnect_question" msgid="5334933802445256306">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> को डिसकनेक्ट करें?"</string>
     <string name="bluetooth_broadcasting" msgid="16583128958125247">"प्रसारण"</string>
     <string name="bluetooth_disable_profile_title" msgid="5916643979709342557">"प्रोफ़ाइल अक्षम करें?"</string>
     <string name="bluetooth_disable_profile_message" msgid="2895844842011809904">"इससे यह अक्षम हो जाएगी:&lt;br&gt;&lt;b&gt;<xliff:g id="PROFILE_NAME">%1$s</xliff:g>&lt;/b&gt;&lt;br&gt;&lt;br&gt;इस पर:&lt;br&gt;&lt;b&gt;<xliff:g id="DEVICE_NAME">%2$s</xliff:g>&lt;/b&gt;"</string>
@@ -350,7 +356,7 @@
     <string name="lock_screen_intro_skip_dialog_text" product="tablet" msgid="8783499872534165700">"डिवाइस सुरक्षा सुविधाओं को सक्रिय नहीं किया जाएगा. यदि यह टैबलेट खो जाता है या चोरी चला जाता है, तो आप इसे दूसरे लोगों द्वारा उपयोग किए जाने से नहीं रोक सकेंगे."</string>
     <string name="lock_screen_intro_skip_dialog_text" product="device" msgid="3120512940873907578">"डिवाइस सुरक्षा सुविधाओं को सक्रिय नहीं किया जाएगा. यदि यह डिवाइस खो जाता है या चोरी चला जाता है, तो आप इसे दूसरे लोगों द्वारा उपयोग किए जाने से नहीं रोक सकेंगे."</string>
     <string name="lock_screen_intro_skip_dialog_text" product="default" msgid="3589945558504439395">"डिवाइस सुरक्षा सुविधाओं को सक्रिय नहीं किया जाएगा. यदि यह फ़ोन खो जाता है या चोरी चला जाता है, तो आप इसे दूसरे लोगों द्वारा उपयोग किए जाने से नहीं रोक सकेंगे."</string>
-    <string name="skip_anyway_button_label" msgid="2323522873558834513">"फिर भी अभी नहीं"</string>
+    <string name="skip_anyway_button_label" msgid="2323522873558834513">"फिर भी आगे बढ़ें"</string>
     <string name="go_back_button_label" msgid="4745265266186209467">"वापस जाएं"</string>
     <string name="security_settings_fingerprint_enroll_find_sensor_title" msgid="5877265753699187149">"संवेदक ढूंढें"</string>
     <string name="security_settings_fingerprint_enroll_find_sensor_message" msgid="1959655161889313661">"अपने फ़ोन के पीछे फ़िंगरप्रिंट संवेदक का पता लगाएं."</string>
@@ -645,7 +651,7 @@
     <string name="android_beam_off_summary" msgid="4663095428454779138">"बंद"</string>
     <string name="android_beam_disabled_summary" msgid="1737782116894793393">"अनुपलब्‍ध है क्‍योंकि NFC बंद है"</string>
     <string name="android_beam_label" msgid="6257036050366775040">"Android Beam"</string>
-    <string name="android_beam_explained" msgid="1828555626055290684">"जब यह सुविधा चालू होती है, तब आप दो डिवाइस पास-पास पकड़े रखते हुए ऐप की सामग्री को दूसरे NFC-सक्षम डिवाइस पर बीम कर सकते हैं. उदाहरण के लिए, आप ब्राउज़र पृष्ठ, YouTube वीडियो, लोग संपर्कों आदि को बीम कर सकते हैं.\n\nबस दोनों डिवाइस साथ में लाएं (आमतौर पर एक-दूसरे के पीछे) और फिर अपनी स्क्रीन पर टैप करें. ऐप यह निर्धारित करता है कि क्या बीम होता है."</string>
+    <string name="android_beam_explained" msgid="1828555626055290684">"जब यह सुविधा चालू होती है, तब आप दो डिवाइस पास-पास पकड़े रखते हुए ऐप की सामग्री को दूसरे NFC-सक्षम डिवाइस पर बीम कर सकते हैं. उदाहरण के लिए, आप ब्राउज़र पेज, YouTube वीडियो, लोग संपर्कों आदि को बीम कर सकते हैं.\n\nबस दोनों डिवाइस साथ में लाएं (आमतौर पर एक-दूसरे के पीछे) और फिर अपनी स्क्रीन पर टैप करें. ऐप यह निर्धारित करता है कि क्या बीम होता है."</string>
     <string name="wifi_quick_toggle_title" msgid="8850161330437693895">"वाई-फ़ाई"</string>
     <string name="wifi_quick_toggle_summary" msgid="2696547080481267642">"वाई-फ़ाई  चालू करें"</string>
     <string name="wifi_settings" msgid="29722149822540994">"वाई-फ़ाई"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"प्रयोग में नहीं रहने के दौरान वाई-फ़ाई चालू रखें"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"निष्क्रिय रहने पर वाई-फ़ाई चालू"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"सेटिंग बदलने में एक समस्‍या थी"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"ऑपरेटर नेटवर्क से कनेक्ट करें"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"उपलब्ध होने पर, ऑपरेटर नेटवर्क से कनेक्ट करें"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"कार्यक्षमता सुधारें"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"वाई-फ़ाई  ऑप्टिमाइज़ेशन"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"वाई-फ़ाई  के चालू रहने पर बैटरी उपयोग को न्यूनतम करें"</string>
@@ -2165,7 +2173,7 @@
     <string name="data_usage_app_items_header_text" msgid="5017850810459372828">"ऐप्स का उपयोग"</string>
     <string name="data_usage_menu_roaming" msgid="8042359966835203296">"रोमिंग डेटा"</string>
     <string name="data_usage_menu_restrict_background" msgid="1989394568592253331">"पृष्ठभूमि डेटा प्रतिबंधित करें"</string>
-    <string name="data_usage_menu_allow_background" msgid="2694761978633359223">"पृष्ठ डेटा की अनुमति दें"</string>
+    <string name="data_usage_menu_allow_background" msgid="2694761978633359223">"पेज डेटा की अनुमति दें"</string>
     <string name="data_usage_menu_split_4g" msgid="5322857680792601899">"4G उपयोग अलग करें"</string>
     <string name="data_usage_menu_show_wifi" msgid="2296217964873872571">"वाई-फ़ाई दिखाएं"</string>
     <string name="data_usage_menu_hide_wifi" msgid="7290056718050186769">"वाई-फ़ाई छिपाएं"</string>
@@ -2271,7 +2279,7 @@
     <string name="vpn_forget" msgid="3684651372749415446">"भूल जाएं"</string>
     <string name="vpn_connect_to" msgid="5965299358485793260">" <xliff:g id="PROFILE">%s</xliff:g> से कनेक्ट करें"</string>
     <string name="vpn_disconnect_confirm" msgid="2555877026824771115">"इस VPN को कनेक्‍ट करें."</string>
-    <string name="vpn_disconnect" msgid="7426570492642111171">"डिस्कनेक्ट करें"</string>
+    <string name="vpn_disconnect" msgid="7426570492642111171">"डिसकनेक्ट करें"</string>
     <string name="vpn_version" msgid="1939804054179766249">"वर्शन <xliff:g id="VERSION">%s</xliff:g>"</string>
     <string name="vpn_forget_long" msgid="2232239391189465752">"VPN भूल जाएं"</string>
     <string name="vpn_replace_always_on_vpn_title" msgid="3010435028275752220">"मौजूदा VPN को बदलें?"</string>
@@ -2647,7 +2655,7 @@
     <string name="vr_listeners_title" msgid="1318901577754715777">"VR सहायक सेवाएं"</string>
     <string name="no_vr_listeners" msgid="2689382881717507390">"इंस्टॉल किए गए किसी भी ऐप ने VR सहायक सेवाओं के रूप में चलाए जाने के लिए अनुरोध नहीं किया है."</string>
     <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"<xliff:g id="SERVICE">%1$s</xliff:g> के लिए VR सेवा के एक्सेस की अनुमति दें?"</string>
-    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"जब आप वर्चुअल रिएलिटी मोड में ऐप्लिकेशन का उपयोग कर रहे होते हैं, तब <xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> चला पाएगा."</string>
+    <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"जब आप आभासी वास्तविकता मोड में ऐप्लिकेशन का उपयोग कर रहे होते हैं, तब <xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> चला पाएगा."</string>
     <string name="display_vr_pref_title" msgid="8104485269504335481">"जब डिवाइस VR मोड में हो"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"धुंधलापन कम करें (अनुशंसित)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"फ़्लिकर कम करें"</string>
@@ -2677,10 +2685,10 @@
     <string name="zen_mode_configure_rule" msgid="8865785428056490305">"नियम कॉन्‍फ़िगर करें"</string>
     <string name="zen_schedule_rule_type_name" msgid="142936744435271449">"समय का नियम"</string>
     <string name="zen_schedule_rule_enabled_toast" msgid="3379499360390382259">"विशिष्‍ट समय के दौरान स्‍वचालित नियम को परेशान ना करें को चालू करने पर सेट किया गया है"</string>
-    <string name="zen_event_rule_type_name" msgid="2645981990973086797">"ईवेंट का नियम"</string>
-    <string name="zen_event_rule_enabled_toast" msgid="6910577623330811480">"विशिष्‍ट ईवेंट के दौरान स्‍वचालित नियम को परेशान ना करें को चालू करने पर सेट किया गया है"</string>
-    <string name="zen_mode_event_rule_calendar" msgid="8787906563769067418">"इसके लिए ईवेंट के दौरान"</string>
-    <string name="zen_mode_event_rule_summary_calendar_template" msgid="5135844750232403975">"<xliff:g id="CALENDAR">%1$s</xliff:g> के लिए ईवेंट के दौरान"</string>
+    <string name="zen_event_rule_type_name" msgid="2645981990973086797">"इवेंट का नियम"</string>
+    <string name="zen_event_rule_enabled_toast" msgid="6910577623330811480">"विशिष्‍ट इवेंट के दौरान स्‍वचालित नियम को परेशान ना करें को चालू करने पर सेट किया गया है"</string>
+    <string name="zen_mode_event_rule_calendar" msgid="8787906563769067418">"इसके लिए इवेंट के दौरान"</string>
+    <string name="zen_mode_event_rule_summary_calendar_template" msgid="5135844750232403975">"<xliff:g id="CALENDAR">%1$s</xliff:g> के लिए इवेंट के दौरान"</string>
     <string name="zen_mode_event_rule_summary_any_calendar" msgid="4936646399126636358">"कोई भी कैलेंडर"</string>
     <string name="zen_mode_event_rule_summary_reply_template" msgid="6590671260829837157">"जहां जवाब <xliff:g id="REPLY">%1$s</xliff:g> है"</string>
     <string name="zen_mode_event_rule_calendar_any" msgid="6485568415998569885">"कोई भी कैलेंडर"</string>
@@ -2709,7 +2717,7 @@
     <string name="zen_mode_from_none" msgid="8219706639954614136">"कोई नहीं"</string>
     <string name="zen_mode_alarms" msgid="2165302777886552926">"अलार्म"</string>
     <string name="zen_mode_reminders" msgid="5458502056440485730">"रिमाइंडर्स"</string>
-    <string name="zen_mode_events" msgid="7914446030988618264">"ईवेंट"</string>
+    <string name="zen_mode_events" msgid="7914446030988618264">"इवेंट"</string>
     <string name="zen_mode_all_callers" msgid="584186167367236922">"सभी कॉलर"</string>
     <string name="zen_mode_selected_callers" msgid="3127598874060615742">"चयनित कॉलर"</string>
     <string name="zen_mode_repeat_callers" msgid="5019521886428322131">"कॉलर दोहराएं"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"बैटरी ऑप्‍टिमाइज़ेशन"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"उपयोग संबंधी सूचनाएं"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"ऑप्‍टिमाइज़ नहीं किया गया"</string>
     <string name="high_power_on" msgid="6216293998227583810">"ऑप्‍टिमाइज़ नहीं किया गया"</string>
     <string name="high_power_off" msgid="3393904131961263278">"बैटरी उपयोग ऑप्‍टिमाइज़ किया जा रहा है"</string>
@@ -2974,7 +2983,7 @@
     <string name="permit_draw_overlay" msgid="6606018549732046201">"अन्‍य ऐप्स के ऊपर ले जाने की अनुमति दें"</string>
     <string name="app_overlay_permission_preference" msgid="8355410276571387439">"ऐप को शीर्ष पर ले जाने की अनुमति"</string>
     <string name="allow_overlay_description" msgid="7895191337585827691">"इस अनुमति से कोई ऐप आपके द्वारा उपयोग किए जा रहे अन्‍य ऐप्‍स में सबसे ऊपर दिखाई देता है और अन्‍य ऐप्‍लिकेशन में इंटरफ़ेस के आपके उपयोग में हस्‍तक्षेप हो सकता है या आपके विचार में आप अन्‍य ऐप्‍लिकेशन में जो कुछ देख रहे हैं वह बदल सकता है."</string>
-    <string name="keywords_vr_listener" msgid="7441221822576384680">"vr वर्चुअल रिएलिटी श्रोता स्टीरियो सहायक सेवा"</string>
+    <string name="keywords_vr_listener" msgid="7441221822576384680">"vr आभासी वास्तविकता श्रोता स्टीरियो सहायक सेवा"</string>
     <string name="keywords_system_alert_window" msgid="8579673659566564926">"सिस्‍टम अलर्ट विंडो संवाद को अन्‍य ऐप्‍स के ऊपर ले जाएं"</string>
     <string name="overlay_settings" msgid="222062091489691363">"अन्‍य ऐप्स के ऊपर ले जाएं"</string>
     <string name="system_alert_window_summary" msgid="4268867238063922290">"<xliff:g id="COUNT_1">%d</xliff:g> में से <xliff:g id="COUNT_0">%d</xliff:g> ऐप्‍स को अन्‍य ऐप्‍स के ऊपर ले जाया जा सकता है"</string>
@@ -3015,7 +3024,7 @@
     <string name="screen_zoom_conversation_timestamp_4" msgid="2511469395448561259">"मंगलवार शाम 6:03 बजे"</string>
     <string name="see_all" msgid="8883901630052886984">"सभी देखें"</string>
     <string name="see_less" msgid="1250265310929558370">"कम देखें"</string>
-    <string name="disconnected" msgid="5787956818111197212">"डिस्कनेक्ट किया गया"</string>
+    <string name="disconnected" msgid="5787956818111197212">"डिसकनेक्ट किया गया"</string>
     <string name="data_usage_summary_format" msgid="7507047900192160585">"<xliff:g id="AMOUNT">%1$s</xliff:g> डेटा का उपयोग किया गया है"</string>
     <plurals name="notification_summary" formatted="false" msgid="4019451362120557382">
       <item quantity="one"><xliff:g id="COUNT_1">%d</xliff:g> ऐप्लिकेशन भेजने से अवरुद्ध किए गए</item>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"इंस्टॉल नहीं किए गए ऐप्‍लिकेशन"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"इंस्‍टॉल किए गए ऐप्‍लिकेशन"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"आपकी जगह का प्रबंधन अब जगह प्रबंधक द्वारा किया जा रहा है"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"वाहक प्रावधान जानकारी"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"वाहक प्रावधान ट्रिगर करें"</string>
 </resources>

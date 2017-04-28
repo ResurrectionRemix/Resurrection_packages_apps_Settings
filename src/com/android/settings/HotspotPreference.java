@@ -48,7 +48,7 @@ public class HotspotPreference extends Preference implements OnCheckedChangeList
     private TextView mSubSummary;
     private Context mContext;
     private boolean mSwitchEnabled;
-
+    private CharSequence mSummary;
     public HotspotPreference(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         mContext = context;
@@ -67,11 +67,20 @@ public class HotspotPreference extends Preference implements OnCheckedChangeList
     @Override
     public void onBindViewHolder(PreferenceViewHolder view) {
         super.onBindViewHolder(view);
-        mSubSummary = (TextView) view.findViewById(R.id.subsummary);
-        mSubSummary.setVisibility(View.GONE);
-        mSwitch = (Switch) view.findViewById(R.id.switchWidget);
-        mSwitch.setOnCheckedChangeListener(this);
-        setChecked(mSwitchEnabled);
+        if (mSubSummary == null) {
+            mSubSummary = (TextView) view.findViewById(R.id.subsummary);
+            if (mSummary != null && !mSummary.toString().isEmpty()) {
+                mSubSummary.setVisibility(View.VISIBLE);
+            } else {
+                mSubSummary.setVisibility(View.GONE);
+            }
+            mSubSummary.setText(mSummary);
+        }
+        if (mSwitch == null) {
+            mSwitch = (Switch) view.findViewById(R.id.switchWidget);
+            mSwitch.setOnCheckedChangeListener(this);
+            setChecked(mSwitchEnabled);
+        }
     }
 
 
@@ -81,6 +90,7 @@ public class HotspotPreference extends Preference implements OnCheckedChangeList
     }
 
     public void setSummary(CharSequence summary) {
+        mSummary = summary;
         if (mSubSummary == null) {
             return;
         }
@@ -94,6 +104,6 @@ public class HotspotPreference extends Preference implements OnCheckedChangeList
             mSwitch.setChecked(state);
             mSwitch.setOnCheckedChangeListener(this);
         }
-        mSwitchEnabled=state;
+        mSwitchEnabled = state;
     }
 }

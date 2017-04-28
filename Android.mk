@@ -12,7 +12,8 @@ include $(BUILD_STATIC_JAVA_LIBRARY)
 # Build the Settings APK
 include $(CLEAR_VARS)
 
-LOCAL_JAVA_LIBRARIES := bouncycastle core-oj telephony-common ims-common org.dirtyunicorns.utils
+LOCAL_JAVA_LIBRARIES := bouncycastle core-oj telephony-common telephony-ext ims-common org.dirtyunicorns.utils
+
 LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v4 \
     android-support-v13 \
@@ -23,15 +24,14 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v7-cardview \
 	android-support-design \
     jsr305 \
-    settings-logtags
-
-LOCAL_STATIC_JAVA_LIBRARIES += \
+    settings-logtags \
     org.cyanogenmod.platform.internal
 
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := \
-        $(call all-java-files-under, src)
+        $(call all-java-files-under, src) \
+        src/com/android/settings/EventLogTags.logtags
 
 LOCAL_JAVA_LIBRARIES += org.apache.http.legacy
 

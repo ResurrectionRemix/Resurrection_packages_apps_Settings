@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"Mostra la llibreta d\'adreces de la SIM"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Mostra els números de marcatge fix"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Visualitza els números de marcatge de serveis"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"Obtén la llista PDP"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"Estat del servei MI"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"Estat de MI"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Registrat"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Sense registrar"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Disponible"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"No disponible"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"Registre de MI: <xliff:g id="STATUS">%1$s</xliff:g>\nVeu per LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nVeu per Wi-Fi: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nVideotrucades: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nInterfície d\'UT: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"En servei"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Sense servei"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Només trucades d\'emergència"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"Utilitza la Wi-Fi en repòs"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"Wi‑Fi activa en repòs"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"S\'ha produït un problema en canviar la configuració"</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Connecta\'t a xarxes d\'operador"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Connecta\'t a xarxes d\'operador quan estiguin disponibles"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Millora l\'eficàcia"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"Optimització de Wi-Fi"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Minimitza l\'ús de la bateria amb Wi-Fi activada"</string>
@@ -2644,11 +2652,11 @@
     <string name="notification_listener_disable_warning_summary" msgid="6738915379642948000">"Si desactives l\'accés a les notificacions per a <xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g>, és possible que també es desactivi l\'accés al mode No molesteu."</string>
     <string name="notification_listener_disable_warning_confirm" msgid="8333442186428083057">"Desactiva"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8586417377104211584">"Cancel·la"</string>
-    <string name="vr_listeners_title" msgid="1318901577754715777">"Serveis d\'ajuda per a la realitat virtual"</string>
-    <string name="no_vr_listeners" msgid="2689382881717507390">"Cap aplicació instal·lada no ha sol·licitat que s\'executi com un servei d\'ajuda per a la realitat virtual."</string>
-    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Vols permetre que <xliff:g id="SERVICE">%1$s</xliff:g> accedeixi al servei de realitat virtual?"</string>
+    <string name="vr_listeners_title" msgid="1318901577754715777">"Serveis d\'ajuda per a RV"</string>
+    <string name="no_vr_listeners" msgid="2689382881717507390">"Cap aplicació instal·lada no ha sol·licitat que s\'executi com un servei d\'ajuda per a RV."</string>
+    <string name="vr_listener_security_warning_title" msgid="8309673749124927122">"Vols permetre que <xliff:g id="SERVICE">%1$s</xliff:g> accedeixi al servei RV?"</string>
     <string name="vr_listener_security_warning_summary" msgid="6931541068825094653">"<xliff:g id="VR_LISTENER_NAME">%1$s</xliff:g> es podrà executar quan utilitzis aplicacions en el mode de realitat virtual."</string>
-    <string name="display_vr_pref_title" msgid="8104485269504335481">"Amb el dispositiu en mode de realitat virtual"</string>
+    <string name="display_vr_pref_title" msgid="8104485269504335481">"Amb el dispositiu en mode RV"</string>
     <string name="display_vr_pref_low_persistence" msgid="5707494209944718537">"Redueix el desenfocament (recomanat)"</string>
     <string name="display_vr_pref_off" msgid="2190091757123260989">"Redueix el parpelleig"</string>
     <string name="manage_zen_access_title" msgid="2611116122628520522">"Accés No molesteu"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g> / <xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Optimització de la bateria"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Alertes d\'ús"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"No optimitzen la bateria"</string>
     <string name="high_power_on" msgid="6216293998227583810">"No optimitzen la bateria"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Optimitza l\'ús de la bateria"</string>
@@ -3248,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Aplicacions no instal·lades"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Aplicacions instal·lades"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Ara mateix, el gestor d\'emmagatzematge gestiona el teu emmagatzematge"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Informació de serveis de l\'operador de telefonia mòbil"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Activa els serveis de l\'operador de telefonia mòbil"</string>
 </resources>

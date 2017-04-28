@@ -156,6 +156,7 @@
         <item>users</item>
         <item>bugreport</item>
         <item>silent</item>
+        <item>emergency</item>
     </string-array>
 
     <!-- Volume key cursor control -->
@@ -172,19 +173,36 @@
     </string-array>
 
 
+	<!-- Battery customizations -->
     <string-array name="status_bar_battery_style_entries" translatable="false">
-        <item>@string/status_bar_battery_style_icon_portrait</item>
-        <item>@string/status_bar_battery_style_icon_landscape</item>
-        <item>@string/status_bar_battery_style_circle</item>
-        <item>@string/status_bar_battery_style_text</item>
-        <item>@string/status_bar_battery_style_hidden</item>
+	<item>@string/status_bar_battery_style_icon_portrait</item>
+	<item>@string/status_bar_battery_style_solid</item>
+	<item>@string/status_bar_battery_style_circle</item>
+	<item>@string/status_bar_battery_style_hidden</item>
+	<item>@string/status_bar_battery_style_icon_landscape</item>
+	<item>@string/status_bar_battery_style_text</item>
     </string-array>
 
     <string-array name="status_bar_battery_style_values" translatable="false">
         <item>0</item>
-        <item>5</item>
+        <item>1</item>
         <item>2</item>
-        <item>6</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+     </string-array>
+
+    <string-array name="battery_tile_style_entries" translatable="false">
+        <item>@string/status_bar_battery_style_icon_portrait</item>
+        <item>@string/status_bar_battery_style_solid</item>
+        <item>@string/status_bar_battery_style_circle</item>
+        <item>@string/status_bar_battery_style_icon_landscape</item>
+    </string-array>
+
+    <string-array name="battery_tile_style_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
         <item>4</item>
     </string-array>
 
@@ -458,8 +476,8 @@
      </string-array>
 
     <string-array name="battery_bar_style_entries">
-        <item>Regular</item>
-        <item>Center-mirrored</item>
+        <item>@string/battery_bar_style_regular</item>
+        <item>@string/battery_bar_style_center_mirrored</item>
     </string-array>
 
     <string-array name="battery_bar_style_values" translatable="false">
@@ -1057,10 +1075,9 @@
     </string-array>
 
     <string-array name="status_bar_clock_style_values" translatable="false">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
-        <item>3</item>
-        <item>0</item>
     </string-array>
 
     <string-array name="status_bar_am_pm_entries" translatable="false">
@@ -1087,15 +1104,21 @@
 
     <!-- Status bar temperature -->
     <string-array name="status_bar_temperature_entries" translatable="false">
-        <item>@string/status_bar_temperature_hidden</item>
-        <item>@string/status_bar_temperature_show_scale</item>
-        <item>@string/status_bar_temperature_hide_scale</item>
+        <item>@string/status_bar_weather_hidden</item>
+        <item>@string/status_bar_temperature_image_show_scale</item>
+        <item>@string/status_bar_temperature_image_hide_scale</item>
+        <item>@string/status_bar_temperature_show_scale_hide_image</item>
+        <item>@string/status_bar_temperature_hide_scale_hide_image</item>
+        <item>@string/status_bar_show_image</item>
     </string-array>
 
     <string-array name="status_bar_temperature_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
 
     <!-- Status bar temperature location-->
@@ -1432,24 +1455,32 @@
         <item>@string/smartbar_button_animation_ripple</item>
         <item>@string/smartbar_button_animation_spring</item>
         <item>@string/qs_tile_animation_style_flip</item>
+        <item>@string/smartbar_button_animation_pixel</item>
+        <item>@string/smartbar_button_animation_pixel_home</item>
+        <item>@string/smartbar_button_animation_pixel_home_ripple</item>
     </string-array>
 
     <string-array name="smartbar_button_animation_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
 
     <string-array name="smartbar_ime_action_entries">
         <item>@string/smartbar_ime_action_none</item>
         <item>@string/smartbar_ime_action_arrows</item>
         <item>@string/smartbar_ime_action_switcher</item>
+        <item>@string/smartbar_ime_action_dynamic</item>
     </string-array>
 
     <string-array name="smartbar_ime_action_values" translatable="false">
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
     </string-array>
 
     <!-- Pulse config -->
@@ -1792,8 +1823,6 @@
          <item>@string/effect_default</item>
          <item>@string/effect_accordion</item>
          <item>@string/effect_background_to_foreground</item>
-         <item>@string/effect_cube_in</item>
-         <item>@string/effect_cube_out</item>
          <item>@string/effect_depth_page</item>
          <item>@string/effect_flip_horizontal</item>
          <item>@string/effect_flip_vertical</item>
@@ -1812,8 +1841,6 @@
          <item>0</item>
          <item>1</item>
          <item>2</item>
-         <item>3</item>
-         <item>4</item>
          <item>5</item>
          <item>6</item>
          <item>7</item>
@@ -1826,6 +1853,173 @@
          <item>14</item>
          <item>15</item>
          <item>16</item>
+     </string-array>
+
+    <!-- Auto keyboard rotation -->
+    <string-array name="keyboard_rotation_timeout_entries" translatable="false">
+        <item>2s</item>
+        <item>5s</item>
+        <item>10s</item>
+        <item>20s</item>
+        <item>30s</item>
+        <item>60s</item>
+    </string-array>
+
+    <string-array name="keyboard_rotation_timeout_values" translatable="false">
+        <item>2000</item>
+        <item>5000</item>
+        <item>10000</item>
+        <item>20000</item>
+        <item>30000</item>
+        <item>60000</item>
+    </string-array>
+
+    <string-array name="custom_header_provider_entries" translatable="false">
+        <item>@string/daylight_header_provider_title</item>
+        <item>@string/static_header_provider_title</item>
+    </string-array>
+
+    <string-array name="custom_header_provider_values" translatable="false">
+        <item>@string/daylight_header_provider</item>
+        <item>@string/static_header_provider</item>
+    </string-array>
+
+
+    <string-array name="task_manager_kill_button_entries" translatable="false">
+        <item>@string/task_manager_kill_button_default</item>
+        <item>@string/task_manager_kill_button_1</item>
+        <item>@string/task_manager_kill_button_2</item>
+        <item>@string/task_manager_kill_button_3</item>
+    </string-array>
+
+    <string-array name="task_manager_kill_button_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+
+    <!-- Slim Recent panel -->
+    <string-array name="recent_panel_expanded_mode_entries">
+        <item>@string/recent_panel_expanded_mode_auto</item>
+        <item>@string/recent_panel_expanded_mode_always</item>
+        <item>@string/recent_panel_expanded_mode_never</item>
+    </string-array>
+
+    <string-array name="recent_panel_expanded_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <!-- Wired headset ringtone audio focus -->
+    <string-array name="wired_ringtone_focus_mode_entries">
+        <item>@string/wired_ringtone_focus_mode_dynamic</item>
+        <item>@string/wired_ringtone_focus_mode_stock</item>
+    </string-array>
+
+    <string-array name="wired_ringtone_focus_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <!-- Night mode tile brightness value  -->
+    <string-array name="night_brightness_value_entries" translatable="false">
+        <item>@string/night_bright_disabled</item>
+        <item>@string/night_bright_min</item>
+        <item>@string/night_bright_low</item>
+        <item>@string/night_bright_medium</item>
+    </string-array>
+
+    <string-array name="night_brightness_value_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="dot_color_switch_entries" translatable="false">
+        <item>@string/dot_obey_themes</item>
+        <item>@string/dot_custom_color</item>
+        <item>@string/dot_random_color</item>
+        <item>@string/dot_random_color_more</item>
+    </string-array>
+
+    <string-array name="dot_color_switch_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+     <!-- Ticker mode -->
+    <string-array name="ticker_mode_entries">
+        <item>@string/ticker_disabled</item>
+        <item>@string/ticker_enabled</item>
+        <item>@string/ticker_media_enabled</item>
+    </string-array>
+
+    <string-array name="ticker_mode_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="animation_duration_entries">
+        <item>@string/lv_dur_default</item>
+        <item>@string/lv_dur_100</item>
+        <item>@string/lv_dur_200</item>
+        <item>@string/lv_dur_300</item>
+        <item>@string/lv_dur_400</item>
+        <item>@string/lv_dur_500</item>
+        <item>@string/lv_dur_1000</item>
+        <item>@string/lv_dur_1500</item>
+        <item>@string/lv_dur_2000</item>
+        <item>@string/lv_dur_2500</item>
+        <item>@string/lv_dur_3000</item>
+        <item>@string/lv_dur_3500</item>
+        <item>@string/lv_dur_4000</item>
+        <item>@string/lv_dur_4500</item>
+        <item>@string/lv_dur_5000</item>
+        <item>@string/lv_dur_5500</item>
+        <item>@string/lv_dur_6000</item>
+        <item>@string/lv_dur_6500</item>
+        <item>@string/lv_dur_7000</item>
+        <item>@string/lv_dur_7500</item>
+        <item>@string/lv_dur_8000</item>
+        <item>@string/lv_dur_8500</item>
+        <item>@string/lv_dur_9000</item>
+        <item>@string/lv_dur_9500</item>
+        <item>@string/lv_dur_10000</item>
+    </string-array>
+ 
+    <string-array name="animation_duration_values" translatable="false">
+        <item>0</item>
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+        <item>1000</item>
+        <item>1500</item>
+        <item>2000</item>
+        <item>2500</item>
+        <item>3000</item>
+        <item>3500</item>
+        <item>4000</item>
+        <item>4500</item>
+        <item>5000</item>
+        <item>5500</item>
+        <item>6000</item>
+        <item>6500</item>
+        <item>7000</item>
+        <item>7500</item>
+        <item>8000</item>
+        <item>8500</item>
+        <item>9000</item>
+        <item>9500</item>
+        <item>10000</item>
      </string-array>
 
 </resources>

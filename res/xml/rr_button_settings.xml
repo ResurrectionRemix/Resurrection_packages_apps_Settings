@@ -3,7 +3,7 @@
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
+     You may obtain a copy of the License sat
 
           http://www.apache.org/licenses/LICENSE-2.0
 
@@ -56,6 +56,12 @@
             android:icon="@drawable/rr_power_menu_icon"
             android:summary="@string/rr_power_summary"                 
             android:fragment="com.android.settings.rr.input.PowerMenuActions" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="confirm_shutdown_switch"
+            android:title="@string/confirm_shutdown_switch_title"
+            android:summary="@string/confirm_shutdown_switch_desc"
+            android:defaultValue="true" />
 
         <SwitchPreference
             android:key="camera_double_tap_power_gesture"
@@ -138,6 +144,17 @@
             android:summaryOff="@string/volume_keys_control_ring_stream_summary_off"
             android:defaultValue="true" />
 
+        <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+            android:key="vol_up_disable_overlays"
+            android:title="@string/vol_up_disable_overlays_title"
+            android:summary="@string/vol_up_disable_overlays_summary"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="swap_volume_buttons"
+            android:title="@string/swap_volume_buttons_title"
+            android:summary="@string/swap_volume_buttons_summary" />
+
         <ListPreference
             android:key="volume_key_cursor_control"
             android:dialogTitle="@string/volbtn_cursor_control_title"
@@ -145,11 +162,6 @@
             android:entries="@array/volbtn_cursor_control_entries"
             android:entryValues="@array/volbtn_cursor_control_values"
             android:persistent="false" />
-
-        <SwitchPreference
-            android:key="swap_volume_buttons"
-            android:title="@string/swap_volume_buttons_title"
-            android:summary="@string/swap_volume_buttons_summary" />
 
 
         <!-- Volume Steps -->

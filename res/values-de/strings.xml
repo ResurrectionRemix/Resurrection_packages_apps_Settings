@@ -45,7 +45,13 @@
     <string name="radioInfo_menu_viewADN" msgid="7069468158519465139">"SIM-Adressbuch anzeigen"</string>
     <string name="radioInfo_menu_viewFDN" msgid="7934301566925610318">"Zugelassene Rufnummern anzeigen"</string>
     <string name="radioInfo_menu_viewSDN" msgid="7130280686244955669">"Servicerufnummern anzeigen"</string>
-    <string name="radioInfo_menu_getPDP" msgid="8951059003824985976">"PDP-Liste abrufen"</string>
+    <string name="radioInfo_menu_getIMS" msgid="185171476413967831">"IMS-Dienststatus"</string>
+    <string name="radio_info_ims_reg_status_title" msgid="16971785902696970">"IMS-Status"</string>
+    <string name="radio_info_ims_reg_status_registered" msgid="5614116179751126247">"Registriert"</string>
+    <string name="radio_info_ims_reg_status_not_registered" msgid="4438054067642750717">"Nicht registriert"</string>
+    <string name="radio_info_ims_feature_status_available" msgid="3687807290327566879">"Verfügbar"</string>
+    <string name="radio_info_ims_feature_status_unavailable" msgid="4606182208970114368">"Nicht verfügbar"</string>
+    <string name="radio_info_ims_reg_status" msgid="7534612158445529715">"IMS-Registrierung: <xliff:g id="STATUS">%1$s</xliff:g>\nVoice-over-LTE: <xliff:g id="AVAILABILITY_0">%2$s</xliff:g>\nVoice-over-WLAN: <xliff:g id="AVAILABILITY_1">%3$s</xliff:g>\nVideoanrufe: <xliff:g id="AVAILABILITY_2">%4$s</xliff:g>\nUT-Oberfläche: <xliff:g id="AVAILABILITY_3">%5$s</xliff:g>"</string>
     <string name="radioInfo_service_in" msgid="1697703164394784618">"In Betrieb"</string>
     <string name="radioInfo_service_out" msgid="7999094221728929681">"Außer Betrieb"</string>
     <string name="radioInfo_service_emergency" msgid="6274434235469661525">"Nur Notrufe"</string>
@@ -673,6 +679,8 @@
     <string name="wifi_setting_sleep_policy_title" msgid="5149574280392680092">"WLAN im Ruhemodus aktiviert lassen"</string>
     <string name="wifi_setting_on_during_sleep_title" msgid="8308975500029751565">"WLAN im Ruhemodus aktiviert"</string>
     <string name="wifi_setting_sleep_policy_error" msgid="8174902072673071961">"Beim Ändern der Einstellung ist ein Problem aufgetreten."</string>
+    <string name="wifi_connect_carrier_networks" msgid="8126250792185749891">"Mit Betreibernetzwerk verbinden"</string>
+    <string name="wifi_connect_carrier_networks_summary" msgid="4812773364191051399">"Wenn möglich mit Betreibernetzwerk verbinden"</string>
     <string name="wifi_suspend_efficiency_title" msgid="2338325886934703895">"Effizienz verbessern"</string>
     <string name="wifi_suspend_optimizations" msgid="1220174276403689487">"WLAN-Optimierung"</string>
     <string name="wifi_suspend_optimizations_summary" msgid="4151428966089116856">"Akkuverbrauch bei aktiviertem WLAN minimieren"</string>
@@ -2640,7 +2648,7 @@
     </plurals>
     <string name="no_notification_listeners" msgid="3487091564454192821">"Keine installierte App hat Benachrichtigungszugriff angefordert."</string>
     <string name="notification_listener_security_warning_title" msgid="5522924135145843279">"Benachrichtigungszugriff für <xliff:g id="SERVICE">%1$s</xliff:g> zulassen?"</string>
-    <string name="notification_listener_security_warning_summary" msgid="119203147791040151">"<xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> kann alle Benachrichtigungen lesen, darunter auch persönliche Informationen wie Kontaktnamen und eingehende Nachrichten. Außerdem können Benachrichtigungen geschlossen oder Schaltflächen in den Benachrichtigungen betätigt werden. \n\nZusätzlich kann durch die App die \"Nicht stören\"-Funktion aktiviert bzw. deaktiviert werden. Verwandte Einstellungen können ebenfalls geändert werden."</string>
+    <string name="notification_listener_security_warning_summary" msgid="119203147791040151">"<xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> kann alle Benachrichtigungen lesen, darunter auch persönliche Informationen wie Kontaktnamen und eingehende Nachrichten. Außerdem können Benachrichtigungen geschlossen und damit verbundene Aktionen ausgelöst werden. \n\nZusätzlich kann durch die App die \"Nicht stören\"-Funktion aktiviert bzw. deaktiviert werden. Verwandte Einstellungen können ebenfalls geändert werden."</string>
     <string name="notification_listener_disable_warning_summary" msgid="6738915379642948000">"Wenn du den Benachrichtigungszugriff für <xliff:g id="NOTIFICATION_LISTENER_NAME">%1$s</xliff:g> deaktivierst, wird möglicherweise auch der \"Nicht stören\"-Zugriff deaktiviert."</string>
     <string name="notification_listener_disable_warning_confirm" msgid="8333442186428083057">"Deaktivieren"</string>
     <string name="notification_listener_disable_warning_cancel" msgid="8586417377104211584">"Abbrechen"</string>
@@ -2889,6 +2897,7 @@
     <string name="memory_use_running_format" msgid="4172488041800743760">"<xliff:g id="MEMORY">%1$s</xliff:g>/<xliff:g id="RUNNING">%2$s</xliff:g>"</string>
     <string name="process_format" msgid="77905604092541454">"<xliff:g id="APP_NAME">%1$s</xliff:g> (<xliff:g id="COUNT">%2$d</xliff:g>)"</string>
     <string name="high_power_apps" msgid="3459065925679828230">"Akku-Leistungsoptimierung"</string>
+    <string name="additional_battery_info" msgid="4754099329165411970">"Akkuwarnung"</string>
     <string name="high_power_filter_on" msgid="3222265297576680099">"Nicht optimiert"</string>
     <string name="high_power_on" msgid="6216293998227583810">"Nicht optimiert"</string>
     <string name="high_power_off" msgid="3393904131961263278">"Akkuverbrauch optimiert"</string>
@@ -2900,9 +2909,7 @@
     </plurals>
     <string name="high_power_prompt_title" msgid="4257734526819699048">"Akkuoptimierungen ignorieren?"</string>
     <string name="high_power_prompt_body" msgid="4072587909486730876">"Darf die App \"<xliff:g id="APP_NAME">%1$s</xliff:g>\" im Hintergrund verbunden bleiben? Dies erhöht möglicherweise die Akkunutzung."</string>
-    <!-- String.format failed for translation -->
-    <!-- no translation found for battery_summary (101415762036784289) -->
-    <skip />
+    <string name="battery_summary" msgid="101415762036784289">"<xliff:g id="percentage">%1$d</xliff:g>%% seit dem letzten vollen Aufladen verbraucht"</string>
     <string name="no_battery_summary" msgid="3528036835462846814">"Kein Verbrauch seit dem letzten vollen Aufladen"</string>
     <string name="app_notification_preferences" msgid="1599319335092722613">"App-Einstellungen"</string>
     <string name="system_ui_settings" msgid="579824306467081123">"SystemUI-Tuner anzeigen"</string>
@@ -3167,7 +3174,7 @@
     <string name="support_escalation_title" msgid="4111071371281023145">"Wir sind für dich da"</string>
     <string name="support_escalation_24_7_title" msgid="8118369197749832074">"Wir sind täglich rund um die Uhr für dich da"</string>
     <string name="support_escalation_24_7_content_description" msgid="3772776213036994533">"Wir sind täglich rund um die Uhr für dich da"</string>
-    <string name="support_escalation_summary" msgid="8473084168776014405">"Unser Kundenservice hilft dir beim Lösen von Problemen"</string>
+    <string name="support_escalation_summary" msgid="8473084168776014405">"Unser Kundenservice hilft dir gerne weiter"</string>
     <string name="support_escalation_24_7_summary" msgid="2802773279262547187">"Unser Kundenservice steht täglich rund um die Uhr zur Verfügung"</string>
     <string name="support_escalation_closed_summary" msgid="2240967274380168303">"Durchsuche die Hilfe oder versuche es noch einmal während der Geschäftszeiten des Supports (Ortszeit):&lt;br&gt;&lt;b&gt;<xliff:g id="OPERATION_HOURS">%s</xliff:g>&lt;/b&gt;"</string>
     <string name="support_escalation_no_internet_summary" msgid="2526082812336597989">"Geschäftszeiten des telefonischen Supports (Ortszeit)&lt;br&gt;&lt;b&gt;<xliff:g id="OPERATION_HOURS">%s</xliff:g>&lt;/b&gt;"</string>
@@ -3250,4 +3257,6 @@
     <string name="web_action_section_title" msgid="806405168097593614">"Nicht installierte Apps"</string>
     <string name="domain_url_section_title" msgid="7046835219056428883">"Installierte Apps"</string>
     <string name="automatic_storage_manager_activation_warning" msgid="6353100011690933254">"Dein Speicher wird jetzt vom Speichermanager verwaltet"</string>
+    <string name="carrier_provisioning" msgid="4398683675591893169">"Informationen zur Nutzerverwaltung durch den Anbieter"</string>
+    <string name="trigger_carrier_provisioning" msgid="3434865918009286187">"Nutzerverwaltung durch den Anbieter auslösen"</string>
 </resources>

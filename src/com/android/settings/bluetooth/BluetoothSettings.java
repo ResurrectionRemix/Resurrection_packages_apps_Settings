@@ -34,7 +34,6 @@ import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceGroup;
 import android.support.v7.preference.PreferenceScreen;
 import android.text.BidiFormatter;
-import android.text.Spannable;
 import android.text.style.TextAppearanceSpan;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -490,10 +489,6 @@ public final class BluetoothSettings extends DeviceListPreferenceFragment implem
             });
         }
         getPreferenceScreen().removeAll();
-        Spannable boldSpan = (Spannable) emptyView.getText();
-        boldSpan.setSpan(
-                new TextAppearanceSpan(getActivity(), android.R.style.TextAppearance_Medium), 0,
-                briefText.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 
     @Override
