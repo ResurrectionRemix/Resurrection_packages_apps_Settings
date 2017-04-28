@@ -130,18 +130,18 @@ public class Ticker extends SettingsPreferenceFragment implements
                 String hexColor;
 
                 Settings.System.putInt(resolver,
-                        Settings.System.STATUS_BAR_TICKER_TEXT_COLOR, 0xffb0b0b0);
+                        Settings.System.STATUS_BAR_TICKER_TEXT_COLOR, 0xffffffff);
                 intColor = Settings.System.getInt(resolver,
-                        Settings.System.STATUS_BAR_TICKER_TEXT_COLOR, 0xffb0b0b0);
-                hexColor = String.format("#%08x", (0xffb0b0b0 & intColor));
+                        Settings.System.STATUS_BAR_TICKER_TEXT_COLOR, 0xffffffff);
+                hexColor = String.format("#%08x", (0xffffffff & intColor));
                 mTextColor.setSummary(hexColor);
                 mTextColor.setNewPreviewColor(intColor);
 
                 Settings.System.putInt(resolver,
-                        Settings.System.STATUS_BAR_TICKER_ICON_COLOR, 0xffb0b0b0);
+                        Settings.System.STATUS_BAR_TICKER_ICON_COLOR, 0xffffffff);
                 intColor = Settings.System.getInt(resolver,
-                        Settings.System.STATUS_BAR_TICKER_ICON_COLOR, 0xffb0b0b0);
-                hexColor = String.format("#%08x", (0xffb0b0b0 & intColor));
+                        Settings.System.STATUS_BAR_TICKER_ICON_COLOR, 0xffffffff);
+                hexColor = String.format("#%08x", (0xffffffff & intColor));
                 mIconColor.setSummary(hexColor);
                 mIconColor.setNewPreviewColor(intColor);
             }
