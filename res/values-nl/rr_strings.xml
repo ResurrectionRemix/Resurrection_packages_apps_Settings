@@ -20,7 +20,7 @@
   <string name="mod_version_default">Standaard</string>
   <!-- General -->
   <string name="ok">Oké</string>
-  <string name="reset">Reset</string>
+  <string name="reset">Herstel</string>
   <string name="dlg_reset_rr">RR</string>
   <string name="dlg_reset_android">Standaard</string>
   <string name="default_string">Standaard</string>
@@ -196,11 +196,14 @@
   <string name="activity_open_title">Activiteit open animatie</string>
   <string name="activity_close_title">Activiteit sluiten animatie</string>
   <string name="task_open_title">Taak open animatie</string>
+  <string name="task_open_behind_title">Taak open achter animatie</string>
   <string name="task_close_title">Taak sluiten animatie</string>
   <string name="task_move_to_front_title">Verplaatsen naar voren animatie</string>
   <string name="task_move_to_back_title">Verplaats naar achteren animatie</string>
   <string name="wallpaper_open_title">Bureaubladachtergrond open animatie</string>
   <string name="wallpaper_close_title">Bureaubladachtergrond sluiten animatie</string>
+  <string name="wallpaper_intra_open_title">Achtergrond intra open animatie</string>
+  <string name="wallpaper_intra_close_title">Achtergrond intra sluit animatie</string>
   <string name="animation_duration_title">Animatieduur</string>
   <string name="title_animation_no_override">Voorkom App overschrijvingen</string>
   <string name="summary_animation_no_override">Voorkom dat apps de ingestelde overgangen negeren</string>
@@ -1290,7 +1293,9 @@
   <string name="animation4">Melding sluiten</string>
   <string name="animation5">Glijd Uit Beneden </string>
   <string name="animation6">Xylon sluiten </string>
+  <string name="animation7">Honami Toastmelding Sluiten</string>
   <string name="animation8">Glijd Uit Rechts </string>
+  <string name="animation9">Melding sluiten</string>
   <string name="animation10">Traag vervagen </string>
   <string name="animation11">Glijd Uit Links</string>
   <string name="animation12">Vervagen</string>
@@ -1708,6 +1713,8 @@
   <string name="pa_pie_gravity_left">Links</string>
   <string name="pa_pie_gap_title">Tussenruimte</string>
   <string name="pa_pie_gap_summary">Pas de ruimte aan tussen de Pie elementen</string>
+  <string name="pa_pie_angle_title">Pie hoek</string>
+  <string name="pa_pie_angle_summary">Pas de hoeken aan van de bijlage van pie</string>
   <string name="pa_pie_angle_none">Geen (oud)</string>
   <string name="pa_pie_angle_small">Klein</string>
   <string name="pa_pie_angle_big">Normaal (standaard)</string>
@@ -1718,6 +1725,7 @@
   <string name="pa_pie_gap_big">Groot (standaard)</string>
   <string name="pa_pie_gap_huge">Enorm</string>
   <string name="pa_pie_mode_title">Pie stijl</string>
+  <string name="pa_pie_mode_summary">Beheer hoe animaties en status toevoegingen worden behandeld</string>
   <string name="pa_pie_mode_bare">Kaal</string>
   <string name="pa_pie_mode_quick">Snel</string>
   <string name="pa_pie_mode_default">Standaard</string>
@@ -1864,14 +1872,17 @@
   <string name="effect_background_to_foreground">Achtergrond naar voorgrond</string>
   <string name="effect_cube_in">Kubus in</string>
   <string name="effect_cube_out">Kubus uit</string>
+  <string name="effect_depth_page">Diepte pagina</string>
   <string name="effect_flip_horizontal">Horizontaal spiegelen</string>
   <string name="effect_flip_vertical">Verticaal spiegelen</string>
   <string name="effect_foreground_to_background">Voorgrond naar achtergrond</string>
   <string name="effect_rotate_down">Naar beneden draaien</string>
   <string name="effect_rotate_up">Naar boven draaien</string>
+  <string name="effect_scale_in_out">Schaal in/uit</string>
   <string name="effect_stack">Stapelen</string>
   <string name="effect_tablet">Tablet</string>
   <string name="effect_zoom_in">Inzoomen</string>
+  <string name="effect_zoom_out_slide">Zoom uit schuifbalk</string>
   <string name="effect_zoom_out">Uitzoomen</string>
   <!-- Three-fingers-swipe to screenshot -->
   <string name="three_finger_gesture">Gebaar met drie vingers</string>
@@ -1903,8 +1914,13 @@
   <string name="battery_tile_style_title">Accu tegel stijl</string>
   <string name="status_bar_battery_style_tile_summary">Inschakelen om hetzelfde pictogram type te gebruiken als de accu in de statusbalk</string>
   <!-- Scrolling Animation Controls -->
+  <string name="scrolling_title">Scrol modificaties</string>
+  <string name="scrolling_summary">Bekijk or verander scrol animaties</string>
   <string name="animation_fling_velocity_title">Fling snelheid</string>
+  <string name="animation_scroll_friction_title">Scrol frictie</string>
+  <string name="animation_overscroll_distance_title">Doorscrol afstand</string>
   <string name="animation_duration_summary">Stel tijdsduur in</string>
+  <string name="animation_no_scroll_title">Aangepaste scrol modificaties</string>
   <string name="animation_no_scroll_summary_on">Ingeschakeld</string>
   <string name="animation_no_scroll_summary_off">Uitgeschakeld</string>
   <string name="scroll_disclaimer_summary">Opmerking: de meeste apps moeten opnieuw gestart worden voordat aangepaste waarden van kracht worden</string>
@@ -1931,6 +1947,7 @@
   <string name="keyboard_rotation_toggle_summary">Geforceerde rotatie bij weergave toetsenbord</string>
   <string name="keyboard_rotation_timeout_title">Auto-rotatie wachttijd</string>
   <string name="keyboard_rotation_timeout_summary">Schakelt de rotatie sensor uit <xliff:g id="rotate_timeout">%1$s</xliff:g> seconden nadat het toetsenbord verborgen is</string>
+  <string name="keyboard_rotation_dialog">Deze functie zorgt ervoor dat auto-rotatie tijdelijk wordt ingeschakeld wanneer het toetsenbord wordt weergegeven. Het heeft geen effect wanneer auto-rotatie al ingeschakeld is.</string>
   <string name="show_enter_key_title">Enter toets weergeven</string>
   <string name="show_enter_key_summary">Forceer enterknop op toetsenbord in plaats van emoticon knop</string>
   <!-- XOSP Blur personalizations -->
@@ -2004,14 +2021,16 @@
   <string name="custom_header_browse_summary">Lang drukken op afbeelding om te gebruiken in statische modus</string>
   <!-- Header Weather -->
   <string name="header_weather_enabled_title">Weer</string>
-  <string name="header_weather_enabled_summary">Toon weer in uitgeklapte topbalk</string>
+  <string name="header_weather_enabled_summary">Toon weer in uitgeklapte kopbalk</string>
   <string name="header_weather_image_enabled_title">Weerbeeld</string>
+  <string name="header_weather_image_enabled_summary">Weer afbeelding aanzetten in uitgeklapte kopbalk</string>
   <!-- Task Manager -->
   <string name="enable_task_manager_title">Taakbeheer</string>
   <string name="enable_task_manager_summary">Taakbeheer knop in uitgebreide statusbar in- of uitschakelen</string>
   <string name="task_manager_kill_button">Stop applicatie knop</string>
   <string name="task_manager_left_button_title">Meldingen knop</string>
   <string name="task_manager_left_button_summary">In- of uitschakelen van knop in taakbeheer om meldingen te verwijderen</string>
+  <string name="task_manager_right_button_title">Service knop</string>
   <string name="task_manager_right_button_summary">In- of uitschakelen van knop in taakbeheer om actieve services te beheren</string>
   <string name="task_manager_kill_button_default">Standaard</string>
   <string name="task_manager_kill_button_1">Rond</string>
@@ -2041,6 +2060,14 @@
   <string name="pixel_anim_title">Pixel navigatiebalk animatie </string>
   <string name="pixel_anim_summary">Aanpassen van de pixel animatie op de navigatiebalk</string>
   <string name="pixel_anim_warning">Aanpassen van de pixel animatie op de navigatiebalk. Waarschuwing: afwijken van de standaard instellingen kan negatieve invloed hebben op de snelheid van de animatie. Gebruik op eigen risico</string>
+  <string name="pixel_anim_x_title">Horizontale duur</string>
+  <string name="pixel_anim_y_title">Verticale duur</string>
+  <string name="collapse_anim_duration_ry_title">Samenvouw duur</string>
+  <string name="collapse_anim_duration_bg_title">Achtergrond samenvouwen</string>
+  <string name="retract_anim_duration_title">Intrek duratie</string>
+  <string name="diamond_anim_duration_title">Diamant duratie</string>
+  <string name="dots_anim_duration_title">Stip duratie</string>
+  <string name="home_resize_anim_duration_title">Duur van knop vergroting/verkleining</string>
   <string name="pixel_anim_color_title">Stip kleuren</string>
   <string name="dot_top_color_title">Bovenste stip</string>
   <string name="dot_bottom_color_title">Onderste stip</string>
@@ -2066,6 +2093,8 @@
   <string name="summary_dashboard_suggestions_disabled">Suggesties zijn uitgeschakeld</string>
   <string name="remove_tile_summaries_title">Samenvattingen</string>
   <string name="dashboard_conditions_title">Condities</string>
+  <string name="summary_dashboard_conditions_enabled">Dashboard conditities zijn ingeschakeld</string>
+  <string name="summary_dashboard_conditions_disabled">Dashboard condities zijn uitgeschakeld</string>
   <string name="dashboard_columns_portrait_title">Kolommen (staand)</string>
   <string name="dashboard_columns_landscape_title">Kolommen (liggend)</string>
   <!-- Dashboard columns -->
@@ -2092,13 +2121,17 @@
   <string name="recents_max_apps_title">Max toegelaten apps</string>
   <string name="recent_panel_scale_title">Formaat</string>
   <string name="recent_panel_expanded_mode_title">Uitgeklapte modus</string>
+  <string name="recent_panel_expanded_mode_summary">Uitgebreide voorbeeldmodus bij recente apps</string>
   <string name="recent_panel_expanded_mode_auto">Automatisch (standaard)</string>
   <string name="recent_panel_expanded_mode_always">Altijd</string>
   <string name="recent_panel_expanded_mode_never">Nooit</string>
   <string name="recent_panel_show_topmost_title">Bovenste taak weergeven</string>
+  <string name="recent_panel_show_topmost_summary">De bovenste taak niet uitsluiten in recente weergave</string>
   <string name="recent_panel_bg_color_title">Achtergrondkleur paneel</string>
   <string name="recent_card_bg_color_title">Kaart achtergrondkleur</string>
   <string name="recent_card_text_color_title">Kaart tekstkleur</string>
+  <string name="slim_recents_mem_display_long_click_clear_title">Geheugenbalk lang drukken</string>
+  <string name="slim_recents_mem_display_long_click_clear_summary">Sluit recente apps door lang op de geheugenbalk te drukken</string>
   <string name="slim_icon_pack_title">Pictogrammenpakket</string>
   <string name="slim_icon_pack_summary">Aangepast pictogrammenpakket gebruiken</string>
   <string name="no_iconpacks_summary">Geen pictogrampakketten geïnstalleerd</string>
