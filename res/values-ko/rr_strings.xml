@@ -209,6 +209,8 @@
   <string name="summary_animation_no_override">앱이 전환 효과를 조정하는 것을 방지합니다</string>
   <string name="animation_duration_default">기본</string>
   <string name="lv_dur_default">기본값</string>
+  <string name="lv_dur_25">25ms</string>
+  <string name="lv_dur_50">50ms</string>
   <string name="lv_dur_100">100ms</string>
   <string name="lv_dur_200">200ms</string>
   <string name="lv_dur_300">300ms</string>
@@ -1546,6 +1548,7 @@
   <string name="eos_fling_lavalamp_summary">라바 램프 스타일의 색 조합으로 Pulse의 색을 자동으로 변경합니다</string>
   <string name="pulse_advanced_category">추가 설정</string>
   <string name="pulse_legacy_mode_advanced_category">페이딩 블록 모드 설정</string>
+  <string name="pulse_custom_fudge_factor">바 구분 정도</string>
   <string name="lavamp_solid_speed_title">라바 램프 변화 속도</string>
   <string name="pulse_solid_units_count">실선 수</string>
   <string name="pulse_solid_units_opacity">실선 불투명도</string>
@@ -1747,6 +1750,7 @@
   <string name="pa_pie_status_clock_title">시계 색상</string>
   <string name="pa_pie_status_title">Pie 상태 색상</string>
   <string name="pa_pie_chevron_title">쉐브론 색상</string>
+  <string name="pa_pie_juice_title">배터리 주스 색상</string>
   <string name="pa_pie_button_color">버튼 색상</string>
   <string name="pa_pie_button_color_title">버튼 색상</string>
   <string name="pa_pie_always_right_title">항상 Pie를 우측에 표시</string>
@@ -1872,6 +1876,7 @@
   <string name="effect_background_to_foreground">뒤에서 앞으로</string>
   <string name="effect_cube_in">큐브 인</string>
   <string name="effect_cube_out">큐브 아웃</string>
+  <string name="effect_depth_page">페이지 잠김</string>
   <string name="effect_flip_horizontal">수평으로 뒤집기</string>
   <string name="effect_flip_vertical">수직으로 뒤집기</string>
   <string name="effect_foreground_to_background">앞에서 뒤로</string>
@@ -2022,10 +2027,24 @@
   <string name="daylight_header_provider_title">동적</string>
   <string name="custom_header_provider_title">헤더 제공자</string>
   <string name="custom_header_browse_title">설치된 헤더를 확인합니다</string>
+  <string name="custom_header_browse_summary">이미지를 길게 눌러 정적 모드에 사용합니다</string>
   <!-- Header Weather -->
+  <string name="header_weather_enabled_title">날씨</string>
+  <string name="header_weather_enabled_summary">확장된 헤더에 날씨 정보 표시</string>
+  <string name="header_weather_image_enabled_title">날씨 이미지</string>
+  <string name="header_weather_image_enabled_summary">확장된 헤더에 날씨 이미지 표시</string>
   <!-- Task Manager -->
   <string name="enable_task_manager_title">작업 관리자</string>
   <string name="enable_task_manager_summary">확장된 상태 표시줄에 작업 관리자 버튼을 활성화/비활성화 합니다.</string>
+  <string name="task_manager_kill_button">작업 종료 버튼</string>
+  <string name="task_manager_left_button_title">알림 버튼</string>
+  <string name="task_manager_left_button_summary">작업 관리자에서 알림을 지울 수 있는 버튼을 활성화 합니다</string>
+  <string name="task_manager_right_button_title">서비스 버튼</string>
+  <string name="task_manager_right_button_summary">작업 관리자에 실행 중인 서비스를 관리할 수 있는 버튼을 활성화 합니다</string>
+  <string name="task_manager_kill_button_default">기본</string>
+  <string name="task_manager_kill_button_1">원형</string>
+  <string name="task_manager_kill_button_2">글자</string>
+  <string name="task_manager_kill_button_3">클래식</string>
   <!-- Wakelock blocker -->
   <string name="wakelock_blocker_title">Wakelock 차단</string>
   <string name="wakelock_blocker_summary">시스템 Wakelock을 차단합니다</string>
@@ -2035,12 +2054,42 @@
   <string name="wakelock_blocker_warning_title">주의해서 사용하세요</string>
   <string name="wakelock_blocker_warning">Wakelock 차단은 기기 불안정이나 충돌, 데이터 손실을 가져올 수 있습니다</string>
   <!-- Alarm blocker -->
+  <string name="alarm_blocker">알람 차단</string>
+  <string name="alarm_blocker_title">활성화</string>
+  <string name="alarm_blocker_summary">화면이 꺼져있을 때 알람을 차단합니다</string>
+  <string name="alarm_blocker_save">저장</string>
+  <string name="alarm_list_header">사용 가능한 알람</string>
+  <string name="alarm_blocker_reload">다시 불러오기</string>
+  <string name="alarm_blocker_warning_title">사용 시 주의사항</string>
+  <string name="alarm_blocker_warning">알람 차단 기능은 기기의 불안정함이나 충돌, 데이터 손실을 가져올 수 있습니다</string>
   <!-- DUI Double Tap to Sleep -->
+  <string name="smartbar_doubletap_sleep_title">두번 두드려 화면 끄기</string>
+  <string name="smartbar_doubletap_sleep_summary">내비게이션 바의 빈 공간을 두번 두드려 화면을 끕니다</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_title">Pixel 내비게이션 바 애니메니션</string>
+  <string name="pixel_anim_summary">내비게이션 바에 표시될 Pixel 애니메이션의 다양한 요소를 수정합니다</string>
+  <string name="pixel_anim_warning">내비게이션 바에 표시될 Pixel 애니메이션의 다양한 요소를 수정합니다. 주의: 기본값을 변경하면 애니메이션 성능 저하를 불러울 수 있습니다. 주의해서 변경하세요.</string>
+  <string name="pixel_anim_x_title">수평 애니메이션 길이</string>
+  <string name="pixel_anim_y_title">수직 애니메이션 길이</string>
+  <string name="collapse_anim_duration_ry_title">붕괴 애니메이션 길이</string>
+  <string name="collapse_anim_duration_bg_title">붕괴 배경 길이</string>
+  <string name="retract_anim_duration_title">수축 애니메이션 길이</string>
+  <string name="diamond_anim_duration_title">다이아몬드 길이</string>
+  <string name="dots_anim_duration_title">점 길이</string>
+  <string name="home_resize_anim_duration_title">버튼 크기 변화 길이</string>
+  <string name="pixel_anim_color_title">점 색상</string>
+  <string name="dot_top_color_title">윗쪽 점</string>
+  <string name="dot_bottom_color_title">아래쪽 점</string>
+  <string name="dot_left_color_title">좌측 점</string>
+  <string name="dot_right_color_title">우측 점</string>
   <string name="dot_obey_themes">기본 (테마 색상)</string>
   <string name="dot_custom_color">사용자 지정</string>
+  <string name="dot_random_color">무작위</string>
+  <string name="dot_random_color_more">무작위 (많음)</string>
   <string name="dot_color_switch_title">스타일</string>
   <!--One handed mode -->
+  <string name="one_handed_mode_title">한 손 조작 모드</string>
+  <string name="one_handed_mode_summary">내비게이션 바를 좌우로 밀어서 한 손 조작 모드를 사용합니다</string>
   <!-- SystemUI restart prompt -->
   <string name="systemui_restart_title">경고</string>
   <string name="systemui_restart_message">변경된 설정을 적용하기 위해 시스템 UI가 재시작됩니다.</string>
@@ -2114,6 +2163,8 @@
   <!-- Slim Recent App Sidebar  -->
   <string name="recent_app_sidebar_title">앱 사이드바</string>
   <string name="use_recent_app_sidebar_title">앱 사이드바 사용</string>
+  <string name="use_recent_app_sidebar_summary">반대쪽 화면 가장자리에 앱 바로가기 표시</string>
+  <string name="recent_app_sidebar_content_title">앱 사이드바 구성 요소</string>
   <string name="recent_app_sidebar_content_summary">앱 사이드바 컨텐츠 구성</string>
   <string name="recent_app_sidebar_style_title">사이드바 스타일</string>
   <string name="recent_app_sidebar_style_summary">최근 실행 목록 사이드바 스타일을 변경합니다</string>
@@ -2121,29 +2172,72 @@
   <string name="recent_app_sidebar_label_color_title">라벨 색</string>
   <string name="recent_app_sidebar_bg_color_title">배경 색</string>
   <string name="recent_app_sidebar_scale_title">크기</string>
+  <string name="recent_app_sidebar_open_simultaneously_title">최근 실행 목록과 함께 열기</string>
+  <string name="recent_app_sidebar_open_simultaneously_summary">비활성화 하면 최근 실행 목록의 실행 버벅임이 줄어듭니다</string>
   <!-- Battery stats reset -->
   <string name="battery_stats_reset">상태 초기화</string>
   <string name="battery_stats_message">배터리 사용 기록이 초기화됩니다</string>
   <string name="ok_string">확인</string>
   <!-- Hide Statusbar on Lockscreen -->
+  <string name="lockscreen_hide_status_bar_title">상태 표시줄 숨기기</string>
+  <string name="confirm_shutdown_switch_title">종료 확인 대화 상자</string>
+  <string name="confirm_shutdown_switch_desc">전원 메뉴에서 종료 버튼이 선택되면, 종료 확인 상자를 표시합니다</string>
   <!-- Notification guts kill app button -->
+  <string name="notification_guts_kill_app_button_title">앱 종료 버튼</string>
+  <string name="notification_guts_kill_app_button_summary">알림을 길게 누르면 앱 종료 버튼을 표시합니다</string>
   <string name="weather_title">날씨</string>
   <string name="weather_config_title">서비스 설정</string>
+  <string name="weather_icon_pack_title">날씨 아이콘 팩</string>
   <!-- Force authorize substratum packages -->
   <string name="force_authorize_substratum_packages_title">알 수 없는 출처의 테마 앱 허용</string>
+  <string name="force_authorize_substratum_packages_summary">테마가 적용된 모든 앱에 강제로 권한을 부여합니다</string>
+  <string name="magisk_title">Magisk 관리자</string>
+  <string name="magisk_summary">루트 권한 관리</string>
   <string name="notif_text_color">글자 색상</string>
+  <string name="status_bar_expanded_empty_shade_view_settings_title">표시할 알림 없음 화면</string>
+  <string name="status_bar_expanded_empty_shade_view_settings_summary">표시할 알림이 없을 때의 화면을 수정합니다</string>
   <!-- Statusbar expanded empty shade view settings -->
   <string name="empty_shade_view_show_carrier_name_title">이동통신사 이름 표시</string>
   <string name="empty_shade_view_show_carrier_name_summary">이동통신사 이름 표시 사용</string>
   <string name="empty_shade_view_show_wifi_name_title">Wi-Fi 네트워크 이름 표시</string>
   <string name="empty_shade_view_show_wifi_name_summary">Wi-Fi 네트워크 이름을 표시하도록 설정</string>
   <!-- Roaming indicator icon -->
+  <string name="roaming_indicator_icon_title">로밍 표시기 표시</string>
+  <string name="roaming_indicator_icon_summary">로밍 모드에 있을 때 신호 아이콘에 로밍 표시기를 표시합니다</string>
   <!-- Data disabled icon -->
+  <string name="data_disabled_icon_title">데이터 사용 중지 아이콘 표시</string>
+  <string name="data_disabled_icon_summary">데이터가 사용 중지 되었을 때 신호 아이콘 옆에 X를 표시합니다</string>
   <!-- Data/Wifi activity arrows -->
+  <string name="data_wifi_activity_arrows_title">데이터/WiFi 활동 표시기</string>
+  <string name="data_wifi_activity_arrows_summary">데이터/WiFi 활동 표시기를 표시합니다</string>
   <!-- Screen state service -->
+  <string name="screen_state_toggles_summary">\@null</string>
+  <string name="screen_state_toggles_title">기능 일시 중지</string>
+  <string name="screen_state_toggles_enable_title">활성화</string>
+  <string name="screen_state_toggles_enable_summary">화면이 꺼지면 기능 일시 중지 활동이 실행됩니다. 화면이 켜지면 이전의 상태가 복구됩니다.</string>
   <string name="screen_state_toggles_mobile_title">모바일 네트워크</string>
   <string name="screen_state_toggles_location_title">위치</string>
+  <string name="screen_state_toggles_twog">2G로 전환</string>
+  <string name="screen_state_toggles_twog_summary">화면이 꺼지면 네트워크 모드가 2G로 전환됩니다</string>
+  <string name="screen_state_toggles_gps">GPS 사용 안 함</string>
+  <string name="screen_state_toggles_gps_summary">화면이 꺼지면 GPS 기반 위치 서비스가 비활성화 됩니다</string>
+  <string name="screen_state_toggles_mobile_data">모바일 데이터 비활성화</string>
+  <string name="screen_state_toggles_mobile_data_summary">화면이 꺼지면 모바일 데이터를 비활성화 합니다</string>
+  <string name="screen_state_off_delay_title">일시 중지 기능 지연 시간</string>
+  <string name="screen_state_off_delay_summary">화면이 꺼진 후 기능 일시 중지 실행 전 대기 시간</string>
+  <string name="screen_state_on_delay_title">일시 중지 기능 해제 지연 시간</string>
+  <string name="screen_state_on_delay_summary">화면이 켜진 후 일시 중지된 기능 복구 전 대기 시간</string>
   <!-- In-call DND -->
+  <string name="dnd_when_call_title">통화 중 방해 금지 모드</string>
+  <string name="dnd_when_call_summary">통화 중에는 방해 금지 모드를 자동으로 활성화 합니다</string>
+  <string name="no_sim_cluster_switch_title">SIM카드 없으면 네트워크 바 숨기기</string>
+  <string name="no_sim_cluster_switch_summary">SIM카드가 비활성화 되거나 없을 때 네트워크 바를 숨깁니다. 비활성화된 SIM카드가 없으면 스위치가 작동하지 않습니다.</string>
   <!-- Advanced night mode brightness -->
   <string name="night_brightness_category">밝기</string>
+  <string name="night_brightness_value_title">야간 모드 화면 밝기</string>
+  <string name="night_brightness_text">야간 모드를 사용 중일 때, 자동으로 지정된 밝기로 설정합니다.</string>
+  <string name="night_bright_disabled">비활성화됨</string>
+  <string name="night_bright_min">최소 밝기</string>
+  <string name="night_bright_low">낮은 밝기</string>
+  <string name="night_bright_medium">중간 밝기</string>
 </resources>
