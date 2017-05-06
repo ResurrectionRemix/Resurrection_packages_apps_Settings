@@ -43,7 +43,6 @@ public class OmniSwitch extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "OmniSwitch";
 
-    private static final String RECENTS_USE_OMNISWITCH = "recents_use_omniswitch";
     private static final String OMNISWITCH_START_SETTINGS = "omniswitch_start_settings";
 
     // Package name of the omnniswitch app
@@ -52,7 +51,6 @@ public class OmniSwitch extends SettingsPreferenceFragment implements
     public static Intent INTENT_OMNISWITCH_SETTINGS = new Intent(Intent.ACTION_MAIN)
             .setClassName(OMNISWITCH_PACKAGE_NAME, OMNISWITCH_PACKAGE_NAME + ".SettingsActivity");
 
-    private SwitchPreference mRecentsUseOmniSwitch;
     private Preference mOmniSwitchSettings;
     private boolean mOmniSwitchInitCalled;
 
@@ -69,21 +67,8 @@ public class OmniSwitch extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-        mRecentsUseOmniSwitch = (SwitchPreference)
-                prefSet.findPreference(RECENTS_USE_OMNISWITCH);
-
-        try {
-            mRecentsUseOmniSwitch.setChecked(Settings.System.getInt(resolver,
-                    Settings.System.RECENTS_USE_OMNISWITCH) == 1);
-            mOmniSwitchInitCalled = true;
-        } catch(SettingNotFoundException e){
-            // if the settings value is unset
-        }
-        mRecentsUseOmniSwitch.setOnPreferenceChangeListener(this);
-
         mOmniSwitchSettings = (Preference)
                 prefSet.findPreference(OMNISWITCH_START_SETTINGS);
-        mOmniSwitchSettings.setEnabled(mRecentsUseOmniSwitch.isChecked());
     }
 
     @Override
@@ -96,22 +81,6 @@ public class OmniSwitch extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mRecentsUseOmniSwitch) {
-            boolean value = (Boolean) objValue;
-
-            // if value has never been set before
-            if (value && !mOmniSwitchInitCalled){
-                openOmniSwitchFirstTimeWarning();
-                mOmniSwitchInitCalled = true;
-            }
-
-            Settings.System.putInt(
-                    resolver, Settings.System.RECENTS_USE_OMNISWITCH, value ? 1 : 0);
-            mOmniSwitchSettings.setEnabled(value);
-        } else {
-            return false;
-        }
 
         return true;
     }
