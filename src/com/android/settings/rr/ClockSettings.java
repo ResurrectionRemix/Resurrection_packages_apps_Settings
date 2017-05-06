@@ -71,11 +71,12 @@ public class ClockSettings extends SettingsPreferenceFragment
     private static final String STATUS_BAR_DATE = "status_bar_date";
     private static final String STATUS_BAR_DATE_STYLE = "status_bar_date_style";
     private static final String STATUS_BAR_DATE_FORMAT = "status_bar_date_format";
+    private static final String PREF_COLOR_PICKER = "status_bar_clock_color";
     private static final String PREF_FONT_STYLE = "font_style";
     private static final String PREF_STATUS_BAR_CLOCK_FONT_SIZE  = "status_bar_clock_font_size";
     private static final String PREF_CLOCK_DATE_POSITION = "clock_date_position";
     private static final String STATUS_BAR_CLOCK_SECONDS = "status_bar_clock_seconds";
-
+        
     public static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     public static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
     private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;
@@ -90,7 +91,7 @@ public class ClockSettings extends SettingsPreferenceFragment
     private boolean mCheckPreferences;	
     private ListPreference mClockDatePosition;
     private SwitchPreference mStatusBarClockSeconds;
-
+    private ColorPickerPreference mStatusBarClockColor;
 
 
     @Override
@@ -187,6 +188,14 @@ public class ClockSettings extends SettingsPreferenceFragment
                 Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 14);
         mStatusBarClockFontSize.setValue(size);
         mStatusBarClockFontSize.setOnPreferenceChangeListener(this);
+        
+        mStatusBarClockColor = (ColorPickerPreference) prefSet.findPreference(PREF_COLOR_PICKER);
+        mStatusBarClockColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.STATUSBAR_CLOCK_COLOR, 0xffffffff);
+       	String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mStatusBarClockColor.setSummary(hexColor);
+        mStatusBarClockColor.setNewPreviewColor(intColor);
 
         setHasOptionsMenu(true);
         mCheckPreferences = true;
@@ -317,7 +326,15 @@ public class ClockSettings extends SettingsPreferenceFragment
                     Settings.System.STATUS_BAR_CLOCK_SECONDS,
                     (Boolean) newValue ? 1 : 0);
             return true;
-        }
+        } else if (preference == mStatusBarClockColor) {
+			String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUSBAR_CLOCK_COLOR, intHex);
+            return true;
+		}
         return false;
     }
 
