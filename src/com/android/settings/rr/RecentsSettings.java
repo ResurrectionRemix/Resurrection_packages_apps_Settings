@@ -78,7 +78,7 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.NAVIGATION_BAR_RECENTS,
                     Integer.valueOf((String) newValue));
             int val = Integer.parseInt((String) newValue);
-            if (val== 0 || val == 1) {
+            if (val== 0 || val == 2) {
                 Helpers.showSystemUIrestartDialog(getActivity());
             }
             mRecentsType.setValue(String.valueOf(newValue));
