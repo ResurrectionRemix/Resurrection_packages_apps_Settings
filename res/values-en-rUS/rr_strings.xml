@@ -206,6 +206,13 @@
   <string name="title_animation_no_override">Prevent app overrides</string>
   <string name="summary_animation_no_override">Prevent apps from overriding transitions</string>
   <string name="animation_duration_default">Default</string>
+  <string name="lv_dur_default">Default</string>
+  <string name="lv_dur_100">100ms</string>
+  <string name="lv_dur_200">200ms</string>
+  <string name="lv_dur_300">300ms</string>
+  <string name="lv_dur_400">400ms</string>
+  <string name="lv_dur_500">500ms</string>
+  <string name="lv_dur_10000">10000ms</string>
   <!-- Toast Animation -->
   <string name="toast_animation_title">Toast animation</string>
   <string name="toast_none_animation">None</string>
@@ -316,12 +323,15 @@
   <string name="empty_title">Empty</string>
   <!-- Help screen -->
   <string name="color_picker_help_ab_name_title">Title:</string>
+  <string name="color_picker_help_ab_hex_title">Hex value:</string>
   <string name="color_picker_help_ab_menu_reset_title">Reset:</string>
   <string name="color_picker_help_colors_title">Colors:</string>
   <string name="color_picker_help_color_buttons_title">Color buttons:</string>
+  <string name="color_picker_help_favorites_title">Favorites:</string>
   <string name="color_picker_help_button_ok_title">OK</string>
   <!-- Color picker end -->
   <!-- Power menu Animations  -->
+  <string name="powermenu">Power menu</string>
   <string name="power_menu_animation_aosp">AOSP (default)</string>
   <string name="power_menu_animation_bottom">Bottom</string>
   <string name="power_menu_animation_top">Top</string>
@@ -336,6 +346,7 @@
   <string name="rr_qs_pulldown">Quick pulldown</string>
   <string name="rr_navbar_title">Navigation bar</string>
   <string name="rr_toast_title">Toast</string>
+  <string name="rr_pm_animations_title">Power menu</string>
   <!-- Tiles animation style  -->
   <string name="qs_tiles">QS Tiles</string>
   <string name="qs_tile_animation_style_flip">Flip</string>
@@ -343,18 +354,24 @@
   <string name="qs_tile_animation_duration_low">Low</string>
   <string name="qs_tile_animation_duration_default">Default</string>
   <string name="qs_tile_animation_duration_fast">Fast</string>
+  <string name="qs_tile_animation_duration_superfast">Super fast</string>
   <string name="qs_tile_animation_interpolator_linearInterpolator">Linear</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Accelerate</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Decelerate</string>
   <string name="qs_tile_animation_interpolator_bounceInterpolator">Bounce</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Anticipate</string>
   <string name="qs_set_animation_style">%1$s</string>
   <string name="qs_set_animation_duration">%1$s</string>
   <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Immersive Recents -->
   <string name="immersive_recents_default">Default</string>
+  <string name="immersive_recents_fullscreen">Fullscreen</string>
   <string name="show_4g_title">Show 4G</string>
   <string name="show_3g_title">Show 3G</string>
   <!-- Gesture Anywhere -->
   <string name="gestures_settings">Gestures</string>
   <string name="gesture_anywhere_position_title">Location</string>
+  <string name="gesture_anywhere_position_right">Right edge</string>
   <string name="gesture_anywhere_gestures_title">Gestures</string>
   <!-- Label, button used to add a gesture -->
   <!-- Label, button used to reload all gestures -->
@@ -387,6 +404,7 @@
   <string name="trigger_category">Trigger region</string>
   <string name="trigger_width_title">Trigger width</string>
   <string name="trigger_bottom_title">Trigger height</string>
+  <string name="picker_activities">Activities</string>
   <string name="ga_0">0px</string>
   <string name="ga_1">1px</string>
   <string name="ga_5">5px</string>
@@ -397,17 +415,41 @@
   <string name="ga_30">30px</string>
   <string name="ga_35">35px</string>
   <string name="ga_40">40px</string>
+  <string name="ga_45">45px</string>
+  <string name="ga_50">50px</string>
+  <string name="ga_55">55px</string>
+  <string name="ga_60">60px</string>
+  <string name="ga_65">65px</string>
+  <string name="ga_70">70px</string>
+  <string name="ga_75">75px</string>
+  <string name="ga_80">80px</string>
+  <string name="ga_85">85px</string>
+  <string name="ga_90">90px</string>
+  <string name="ga_95">95px</string>
   <string name="ga_100">100px</string>
   <string name="ga_4">4px</string>
   <string name="ga_8">8px</string>
+  <string name="ga_12">12px</string>
+  <string name="ga_16">16px</string>
   <string name="ga_20">20px</string>
+  <string name="ga_24">24px</string>
+  <string name="ga_28">28px</string>
+  <string name="ga_32">32px</string>
+  <string name="ga_36">36px</string>
   <string name="ga_40">40px</string>
+  <string name="ga_44">44px</string>
+  <string name="ga_48">48px</string>
+  <string name="ga_52">52px</string>
+  <string name="ga_56">56px</string>
   <string name="ga_60">60px</string>
+  <string name="ga_64">64px</string>
+  <string name="ga_68">68px</string>
   <string name="entries">Entries</string>
   <!--Power menu on Secure Lockscreen -->
   <!-- CM Lockscreen shortcuts -->
   <!-- Battery Bar -->
   <string name="battery_bar">Battery Bar</string>
+  <string name="battery_bar_style_regular">Regular</string>
   <string name="battery_bar_style_center_mirrored">Center-mirrored</string>
   <string name="battery_bar_hide">Hide</string>
   <!-- Doze pulse options -->
@@ -429,7 +471,9 @@
   <string name="five_second">5 s</string>
   <string name="ambient_display_show_battery_title">Battery Status</string>
   <!-- Selinux Switch -->
+  <string name="selinux_permissive_title">Permissive</string>
   <!-- Slim DSLV -->
+  <string name="shortcut_action_none">None</string>
   <string name="shortcut_action_select_action">Choose action:</string>
   <string name="shortcut_action_reset">Reset</string>
   <string name="shortcut_action_add">Add</string>
@@ -442,7 +486,10 @@
   <string name="lockscreen_shortcuts_category">Shortcuts</string>
   <!-- Lockscreen shortcuts -->
   <string name="lockscreen_shortcuts_single_tap">Click</string>
+  <string name="lockscreen_shortcuts_double_tap">Double tap</string>
+  <string name="lockscreen_shorcuts_longpress_title">Long press</string>
   <string name="shortcuts_icon_picker_alarm">Alarm</string>
+  <string name="shortcuts_icon_picker_andy">Andy</string>
   <string name="shortcuts_icon_picker_battery">Battery</string>
   <string name="shortcuts_icon_picker_browser">Browser</string>
   <string name="shortcuts_icon_picker_calendar">Calendar</string>
@@ -461,16 +508,20 @@
   <string name="shortcuts_icon_picker_gears">Gears</string>
   <string name="shortcuts_icon_picker_google_small">Google</string>
   <string name="shortcuts_icon_picker_gtalk">Hangouts</string>
+  <string name="shortcuts_icon_picker_help">Help</string>
   <string name="shortcuts_icon_picker_joystick">Joystick</string>
   <string name="shortcuts_icon_picker_key">Keys/Accounts</string>
   <string name="shortcuts_icon_picker_laptop">Laptop</string>
   <string name="shortcuts_icon_picker_notes">Notes</string>
   <string name="shortcuts_icon_picker_luggage">Travel</string>
+  <string name="shortcuts_icon_picker_maps">Maps</string>
   <string name="shortcuts_icon_picker_market">Market</string>
   <string name="shortcuts_icon_picker_movie">Movies</string>
   <string name="shortcuts_icon_picker_music">Music</string>
+  <string name="shortcuts_icon_picker_nav">Navigation</string>
   <string name="shortcuts_icon_picker_package">Package</string>
   <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
+  <string name="shortcuts_icon_picker_play">Play</string>
   <string name="shortcuts_icon_picker_pocket">Pocket</string>
   <string name="shortcuts_icon_picker_quicksettings">Quick Settings</string>
   <string name="shortcuts_icon_picker_rss">RSS Feed</string>
@@ -483,6 +534,9 @@
   <string name="shortcuts_icon_picker_twitter">Twitter</string>
   <string name="shortcuts_icon_picker_unlock">Unlock</string>
   <string name="shortcut_action_none">None</string>
+  <string name="shortcut_action_home">Home</string>
+  <string name="shortcut_action_back">Back</string>
+  <string name="shortcut_action_menu">Menu</string>
   <string name="shortcut_action_recent">Recents</string>
   <string name="shortcut_action_search">Search in app</string>
   <string name="shortcut_action_ring_vib">Ring/Vib</string>
@@ -490,6 +544,7 @@
   <string name="shortcut_action_wake_device">Wake up device</string>
   <string name="shortcut_action_reset">Reset</string>
   <string name="shortcut_action_add">Add</string>
+  <string name="shortcut_action_warning">Warning</string>
   <string name="shortcut_action_help_button">button</string>
   <string name="shortcut_action_help_app">app</string>
   <string name="shortcut_picker_choose_action">Choose action:</string>
@@ -504,28 +559,42 @@
   <string name="cnn">Cnn</string>
   <string name="deezer">Deezer</string>
   <string name="downloads">Downloads</string>
+  <string name="ebay">Ebay</string>
   <string name="evernote">Evernote</string>
   <string name="explorer">Explorer</string>
   <string name="falcon">Falcon</string>
   <string name="fb">Facebook</string>
   <string name="flipboard">Flipboard</string>
   <string name="googlewallet">Google Wallet</string>
+  <string name="line">Line</string>
   <string name="mic">Mic</string>
   <string name="newyorktimes">New York times</string>
   <string name="rootexplorer">Root explorer</string>
   <string name="sim">Sim</string>
   <string name="golocker">Go locker</string>
+  <string name="gosms">Go sms</string>
   <string name="memorycleaner">Memory cleaner</string>
+  <string name="shazam">Shazam</string>
   <string name="swiftkey">Swiftkey</string>
+  <string name="docs">Docs</string>
+  <string name="google">Google</string>
+  <string name="imdb">imdb</string>
   <string name="instagram">Instagram</string>
+  <string name="lastfm">Lastfm</string>
+  <string name="maps">Maps</string>
   <string name="messages">Messages</string>
   <string name="mxplayer">Mxplayer</string>
   <string name="notepad">Direct Message</string>
+  <string name="paypal">Paypal</string>
+  <string name="picasa">Picasa</string>
   <string name="pictures2">Pictures2</string>
+  <string name="reddit">Reddit</string>
   <string name="settings">Settings</string>
   <string name="spotifiy">Spotifiy</string>
   <string name="tapatalk">Tapatalk</string>
+  <string name="tunein">Tunein</string>
   <string name="whatsapp">Whatsapp</string>
+  <string name="wifi">Wifi</string>
   <string name="xda">Xda</string>
   <!-- Hide Lockscreen clock & date -->
   <!-- Keyguard Statusbar Clock -->
@@ -533,8 +602,13 @@
   <!-- QuickSettings haptic feedback -->
   <!-- Lock Clock Fonts -->
   <string name="lockdate_font_size_title">Date font size</string>
+  <string name="lock_date_font_title">Date</string>
+  <string name="lock_clock_font_bold">Bold</string>
+  <string name="lock_clock_font_italic">Italic</string>
+  <string name="lock_clock_font_thin">Thin</string>
   <string name="lock_clock_font_condensed_normal">Condensed</string>
   <string name="lock_clock_font_condensed_bold">Condensed Bold</string>
+  <string name="lock_clock_font_medium_normal">Medium</string>
   <string name="lock_clock_font_medium_italic">Medium Italic</string>
   <!-- Screenshot sound -->
   <string name="navbar_settings_title">Navigation bar</string>
@@ -572,13 +646,24 @@
   <!-- Status bar -->
   <string name="status_bar_title">Status bar</string>
   <string name="status_bar_quick_qs_pulldown_title">Quick pulldown</string>
+  <string name="status_bar_quick_qs_pulldown_summary_left">Left</string>
   <string name="status_bar_quick_qs_pulldown_off">Off</string>
+  <string name="status_bar_quick_qs_pulldown_left">Left</string>
   <!-- Status bar - Clock -->
+  <string name="status_bar_clock_style_left">Left</string>
+  <string name="status_bar_clock_style_center">Center</string>
+  <string name="status_bar_clock_style_hidden">Hidden</string>
+  <string name="status_bar_am_pm_normal">Normal</string>
+  <string name="status_bar_am_pm_hidden">Hidden</string>
   <!-- Status bar - Battery -->
   <string name="status_bar_battery_style_icon_portrait">Icon portrait</string>
   <string name="status_bar_battery_style_icon_landscape">Icon landscape</string>
+  <string name="status_bar_battery_style_circle">Circle</string>
+  <string name="status_bar_battery_style_text">Text</string>
+  <string name="status_bar_battery_style_hidden">Hidden</string>
   <string name="status_bar_battery_style_solid">Solid</string>
   <!-- Status bar - Battery percentage -->
+  <string name="status_bar_battery_percentage_default">Hidden</string>
   <string name="status_bar_battery_percentage_text_inside">Inside the icon</string>
   <string name="text_charging_symbol_flash">Flash</string>
   <string name="text_charging_symbol_tilde">Tilde</string>
@@ -593,6 +678,7 @@
   <string name="recents_full_screen_date_title">Show date</string>
   <!--Clock & Date Category-->
   <string name="clock_settings_title">Clock Settings</string>
+  <string name="status_bar_date_title">Date</string>
   <string name="status_bar_clock_style_title">Clock style</string>
   <string name="status_bar_clock_style_right">Right</string>
   <string name="status_bar_clock_style_left">Left</string>
@@ -607,25 +693,38 @@
   <string name="status_bar_am_pm_normal">Normal</string>
   <string name="status_bar_am_pm_small">Small</string>
   <string name="status_bar_am_pm_hidden">Hidden</string>
+  <string name="status_bar_date_normal">Normal</string>
   <string name="status_bar_date_style">Date style</string>
+  <string name="status_bar_date_style_normal">Normal</string>
   <string name="status_bar_date_style_lowercase">Lowercase</string>
   <string name="status_bar_date_style_uppercase">Uppercase</string>
+  <string name="clock_category">Clock </string>
+  <string name="clock_font_style_title">Font</string>
+  <string name="clock_font_normal">Normal</string>
+  <string name="clock_font_italic">Italic</string>
+  <string name="clock_font_bold">Bold</string>
+  <string name="clock_font_thin">Thin</string>
   <string name="clock_font_condensed">Condensed</string>
   <string name="clock_font_condensed_light">Condensed Light</string>
   <string name="clock_font_condensed_bold">Condensed Bold</string>
+  <string name="clock_font_medium">Medium</string>
   <string name="clock_font_comingsoon">ComingSoon</string>
   <string name="clock_font_notoserif_bold">NotoSerif Bold</string>
   <string name="clock_font_size_title">Font size</string>
   <string name="status_bar_clock_seconds_title">Show seconds</string>
   <!-- Status bar temperature -->
+  <string name="status_bar_temperature_hidden">Hidden</string>
   <string name="status_bar_temperature_location_title">Placement</string>
   <string name="status_bar_weather_size_title">Font size</string>
+  <string name="status_bar_weather_font_normal">Normal</string>
+  <string name="status_bar_weather_font_italic">Italic</string>
   <string name="status_bar_weather_font_bold_italic">Bold Italic</string>
   <string name="status_bar_weather_font_thin">Thin</string>
   <string name="status_bar_weather_font_thin_italic">Thin Italic</string>
   <string name="status_bar_weather_font_condensed">Condensed</string>
   <string name="status_bar_weather_font_condensed_light">Condensed Light</string>
   <string name="status_bar_weather_font_condensed_bold">Condensed Bold</string>
+  <string name="status_bar_weather_font_medium">Medium</string>
   <string name="status_bar_weather_font_comingsoon">ComingSoon</string>
   <string name="status_bar_weather_font_notoserif_bold">NotoSerif Bold</string>
   <!-- Lockscreen weather -->
@@ -634,7 +733,9 @@
   <string name="weather_condition_icon_title">Condition icon</string>
   <string name="weather_condition_icon_monochrome_title">Monochrome</string>
   <string name="position_centered_title">Centered</string>
+  <string name="hidden_title">Hidden</string>
   <string name="weather_hide_panel_auto_title">Auto</string>
+  <string name="weather_hide_panel_custom_title">Custom</string>
   <!-- Quick Settings brightness slider -->
   <string name="recents_clear_all_location_top_right">Top right</string>
   <string name="recents_clear_all_location_top_left">Top left</string>
@@ -642,19 +743,26 @@
   <string name="recents_clear_all_location_bottom_left">Bottom left</string>
   <string name="recents_clear_all_title">Clear all</string>
   <string name="mem_bar_color">Memory bar</string>
+  <string name="recents_styles_1">Styles</string>
+  <string name="recents_colors">Styles</string>
+  <string name="recents_style_2">Colors</string>
   <string name="float_button_color">Floating button</string>
   <string name="recent_styles">Recent styles </string>
   <string name="mem_text_color">Membar text</string>
   <string name="clear_button_color">Clear all</string>
   <string name="recents_rotate_fab">Animate FAB</string>
   <string name="button1">Default </string>
+  <string name="button3">Graph </string>
   <string name="button6">Clipboard </string>
+  <string name="button7">Paint </string>
   <string name="button10">Swiping Delete </string>
   <string name="button12">Eye Close</string>
   <string name="button13">Like Button</string>
   <string name="button14">Swipe Cube</string>
   <string name="button17">Layers Off </string>
+  <string name="button19">Layers</string>
   <string name="button20">Archive </string>
+  <string name="button23">Google</string>
   <string name="button24">Database Minus </string>
   <string name="button25">Sequential Cube</string>
   <string name="button30">Android N</string>
@@ -696,17 +804,22 @@
   <string name="qs_stroke_title">QS shade stroke</string>
   <string name="qs_stroke_disabled">Disabled</string>
   <string name="qs_tile_layout">Tile layout</string>
+  <string name="rr_qs_layout">Layout</string>
   <!-- QS settings -->
+  <string name="status_bar_expanded_qs_settings">Layout</string>
   <!-- Quick settings tiles columns and rows config -->
   <string name="qs_layout_category">QS tiles layout</string>
   <string name="qs_rows_portrait_title">Rows (portrait)</string>
+  <string name="qs_columns_title">Columns</string>
   <!-- Battery saver color -->
   <string name="network_traffic_color_style">Color style</string>
   <string name="network_traffic_color_reset">Reset color</string>
   <string name="status_bar_rr_logo_color">Logo color</string>
   <string name="status_bar_logo_title">Brand logo</string>
   <string name="status_bar_logo_position_left">Left</string>
+  <string name="status_bar_logo_position_center">Center</string>
   <string name="status_bar_weather_hidden">Hide weather</string>
+  <string name="sb_weather_ic_title">Icon pack</string>
   <!-- Status bar - double tap to sleep -->
   <!-- BT easy toggle -->
   <!-- Battery Saver easy toggle -->
@@ -728,6 +841,7 @@
   <string name="smartbar_interface">SmartBar</string>
   <string name="icon_pack_picker_dialog_title">Icon packs</string>
   <string name="profile_applist_title">Applications</string>
+  <string name="default_string">Default</string>
   <string name="reset">Reset</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
   <!-- Fling -->
@@ -735,8 +849,11 @@
   <string name="fling_single_left_tap">Single tap left</string>
   <string name="fling_double_left_tap">Double tap left</string>
   <string name="fling_long_left_press">Long press left</string>
+  <string name="long_swipe_portrait_title">Portrait</string>
   <string name="long_swipe_landscape_title">Landscape</string>
+  <string name="up_swipe_title">Up swipe</string>
   <string name="down_swipe_title">Down swipe</string>
+  <string name="fling_advanced">Advanced</string>
   <string name="fling_trails_color_title">Trail color</string>
   <string name="fling_trails_width_title">Trail width</string>
   <string name="fling_appearance">Appearance</string>
@@ -752,6 +869,7 @@
   <string name="pulse_render_mode_title">Render mode</string>
   <string name="pulse_render_mode_solid_lines">Solid lines</string>
   <string name="fling_pulse_color">Pulse color</string>
+  <string name="pulse_advanced_category">Advanced</string>
   <string name="pulse_custom_fudge_factor">Sanity level</string>
   <string name="lavamp_solid_speed_title">Lava lamp speed</string>
   <!-- Pulse config -->
@@ -759,10 +877,12 @@
   <string name="pulse_custom_div">Bar spacing</string>
   <string name="pulse_filled_block_size">Block size</string>
   <!-- Navbar height -->
+  <string name="navigation_bar_size_title">Bar size</string>
   <string name="portrait_title">Portrait height</string>
   <string name="land_vert_title">Landscape width</string>
   <string name="positive_done">Done</string>
   <!-- SmartBar -->
+  <string name="smartbar_category">Smartbar</string>
   <string name="smartbar_left">Left</string>
   <string name="smartbar_ime_action_none">None</string>
   <string name="smartbar_ime_action_arrows">Input arrows</string>
@@ -771,44 +891,67 @@
   <!--Custom logos-->
   <string name="sb_custom_logos">Custom logos</string>
   <string name="custom_logo_style">Pick a logo</string>
+  <string name="custom_logo_position">Position</string>
   <string name="logo5">Cool smile</string>
+  <string name="logo6">Ghost</string>
+  <string name="logo7">Flash</string>
   <string name="logo9">Xbox</string>
+  <string name="logo10">Emoji</string>
   <string name="logo11">Happy smile</string>
   <string name="logo12">Finger print</string>
+  <string name="logo13">Pugmark</string>
   <string name="logo14">Owl</string>
   <string name="logo15">Weather off </string>
+  <string name="logo16">Blender</string>
   <string name="logo17">Cake</string>
   <string name="logo18">Electric guitar</string>
   <string name="logo19">Smiley Tag</string>
   <string name="logo20">Run</string>
+  <string name="logo21">Toxic</string>
+  <string name="logo22">Pro user</string>
   <string name="logo23">Poke ball</string>
+  <string name="logo24">Box open</string>
   <string name="logo25">Box closed</string>
   <string name="logo26">Weather on</string>
   <string name="logo27">Cat</string>
   <string name="logo28">Bug droid</string>
+  <string name="logo29">Biker</string>
   <string name="logo30">Candy cane</string>
   <string name="logo31">Shit smiley</string>
   <string name="logo32">Chart bubble</string>
   <string name="logo34">Fish</string>
   <string name="logo35">Gender male</string>
   <string name="logo37">Pitch black</string>
+  <string name="logo41">Spider 1</string>
+  <string name="logo42">Spider 2</string>
+  <string name="logo43">Orioles</string>
   <!-- Carrier label -->
+  <string name="show_carrier_disabled">Disabled</string>
   <string name="show_carrier_keyguard">Lockscreen only</string>
   <string name="show_carrier_statusbar">Status bar only</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_summary">Customize the ticker style in statusbar</string>
   <string name="text_title">Text</string>
   <string name="icon_title">Icon</string>
+  <string name="ticker_disabled">No ticker</string>
   <!-- Superuser indicator on status bar -->
   <!-- PA Pie control -->
   <string name="reset_paranoid">Resurrection</string>
+  <string name="reset_android">Android</string>
   <string name="pa_pie_control_title">Pie control</string>
   <string name="pa_pie_targets_title">Pie targets</string>
   <string name="pa_pie_style_title">Pie style</string>
+  <string name="pa_pie_size_title">Pie Size</string>
+  <string name="pa_pie_size_small">Small</string>
   <string name="pa_pie_size_large">Large</string>
+  <string name="pa_pie_size_gigantic">Gigantic</string>
+  <string name="pa_pie_size_monster">Monster</string>
+  <string name="pa_pie_size_enormous">Enormous</string>
+  <string name="pa_pie_mode_default">Default</string>
   <string name="pa_pie_gravity_title">Pie Gravity</string>
   <string name="pa_pie_gravity_right">Right</string>
   <string name="pa_pie_gravity_left">Left</string>
+  <string name="pa_pie_gap_title">Item gap</string>
   <string name="pa_pie_angle_title">Pie Angle</string>
   <string name="pa_pie_angle_none">None (old)</string>
   <string name="pa_pie_angle_small">Small</string>
@@ -820,6 +963,7 @@
   <string name="pa_pie_mode_title">Pie Style</string>
   <string name="pa_pie_mode_bare">Bare</string>
   <string name="pa_pie_mode_quick">Quick</string>
+  <string name="pa_pie_mode_default">Default</string>
   <string name="pa_pie_mode_slow">Slow</string>
   <string name="pa_pie_killtask_title">Kill Task</string>
   <string name="pa_pie_screenshot_title">Screenshot</string>
@@ -858,19 +1002,24 @@
   <!-- SlimSizer  -->
   <string name="listsystem">list</string>
   <string name="sizer_title">App remover</string>
+  <string name="delete_success">Deleted</string>
+  <string name="btn_profile">Profile</string>
   <!-- RR summary text -->
   <!-- Custom summaries -->
   <string name="sum5">Tap me now!</string>
   <string name="sum6">What else?</string>
   <string name="sum26">ツ</string>
   <!-- RR Settings tabs slide effects -->
+  <string name="effect_default">Default</string>
   <string name="effect_accordion">Accordion</string>
+  <string name="effect_cube_in">Cube in</string>
   <string name="effect_depth_page">Depth page</string>
   <string name="effect_flip_horizontal">Flip horizontal</string>
   <string name="effect_rotate_down">Rotate down</string>
   <string name="effect_rotate_up">Rotate up</string>
   <string name="effect_scale_in_out">Scale in out</string>
   <string name="effect_stack">Stack</string>
+  <string name="effect_zoom_in">Zoom in</string>
   <!-- Three-fingers-swipe to screenshot -->
   <!-- Lockscreen Colors -->
   <string name="lockscreen_clock_date_color">Lockscreen date</string>
@@ -882,14 +1031,17 @@
   <!-- Scrolling Animation Controls -->
   <string name="animation_scroll_friction_title">Scroll friction</string>
   <string name="animation_duration_summary">Set duration</string>
+  <string name="animation_no_scroll_summary_on">Enabled</string>
   <!-- setting: show CPU info-->
   <!-- Status Bar Battery Icon Large Percentage Text -->
   <!-- Keyboard and Input ASS methods  -->
   <string name="attention">Attention</string>
   <!-- XOSP Blur personalizations -->
   <string name="blur_recents_cat">Recent apps</string>
+  <string name="blur_notices_cat">Notices</string>
   <string name="blurred_radius">Blur radius</string>
   <string name="blur_cat_notice">Notice</string>
+  <string name="rr_maintainer_default">Unknown</string>
   <!-- brightness slider -->
   <!-- QS Header Icons -->
   <string name="rr_header_title">Header</string>
@@ -900,10 +1052,14 @@
   <!-- Header images -->
   <string name="unit_percent">\u0025</string>
   <string name="static_header_provider_title">Static</string>
+  <string name="daylight_header_provider_title">Dynamic</string>
   <!-- Header Weather -->
+  <string name="header_weather_enabled_title">Weather</string>
   <!-- Task Manager -->
   <string name="enable_task_manager_title">Task manager</string>
+  <string name="task_manager_kill_button_default">Default</string>
   <string name="task_manager_kill_button_2">Text</string>
+  <string name="task_manager_kill_button_3">Classic</string>
   <!-- Wakelock blocker -->
   <string name="wakelock_blocker_save">Save</string>
   <string name="wakelock_blocker_reload">Reload</string>
@@ -915,11 +1071,15 @@
   <!-- DUI Double Tap to Sleep -->
   <!-- Pixel Animation Duration -->
   <string name="dots_anim_duration_title">Dots duration</string>
+  <string name="dot_top_color_title">Top dot</string>
+  <string name="dot_right_color_title">Right dot</string>
   <string name="dot_custom_color">Custom</string>
   <string name="dot_random_color">Random</string>
   <string name="dot_color_switch_title">Style</string>
   <!--One handed mode -->
   <!-- SystemUI restart prompt -->
+  <string name="systemui_restart_title">WARNING</string>
+  <string name="print_restart">Restart</string>
   <!-- Dashboard options -->
   <string name="dashboard_suggestions_title">Suggestions</string>
   <!-- Dashboard columns -->
@@ -931,10 +1091,12 @@
   <string name="recent_panel_expanded_mode_title">Expanded mode</string>
   <string name="recent_panel_expanded_mode_always">Always</string>
   <string name="recent_panel_expanded_mode_never">Never</string>
+  <string name="slim_icon_pack_title">Icon Pack</string>
   <string name="default_iconpack_title">Default icons</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
   <!-- Fingerprint unlock keystore -->
   <!-- Wired headset ringtone audio focus -->
+  <string name="rr_sound_title">Headset</string>
   <!-- Slim Recent App Sidebar  -->
   <string name="recent_app_sidebar_style_title">Sidebar style</string>
   <string name="recent_app_sidebar_scale_title">Size</string>
@@ -942,6 +1104,7 @@
   <string name="ok_string">Ok</string>
   <!-- Hide Statusbar on Lockscreen -->
   <!-- Notification guts kill app button -->
+  <string name="weather_title">Weather</string>
   <!-- Force authorize substratum packages -->
   <!-- Statusbar expanded empty shade view settings -->
   <!-- Roaming indicator icon -->
