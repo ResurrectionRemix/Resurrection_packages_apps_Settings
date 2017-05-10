@@ -70,7 +70,7 @@
   <string name="brian_summary">● Développeur \n● mainteneur</string>
   <string name="device_maintainers_title">Appareils et mainteneurs</string>
   <string name="device_maintainers_title_summary">Liste des appareils et de leurs mainteneurs officiels RR-OS</string>
-  <string name="maintainers_note_title">Commentaire</string>
+  <string name="maintainers_note_title">Note</string>
   <string name="maintainers_note_title_summary">Envoyer un MP à « Varun Date » sur Hangouts contenant le lien vers le fil de discussion de votre ROM, si vous voulez que votre nom soit ajouté dans la liste des mainteneurs de l\'appareil.</string>
   <!-- The Drill -->
   <string name="rr_drill_title">Humour</string>
@@ -162,7 +162,7 @@
   <string name="recents_clear_all_summary">Remplacer la fonction par défaut « Tout effacer » par un bouton flottant personnalisable</string>
   <string name="omniswitch_summary">Remplacer la vue par défaut des applications récentes par Omni-recents</string>
   <string name="rr_qs_animation_summary">Configurer et appliquer un effet d\'animation lors d\'un appui sur les tuiles des réglages rapides</string>
-  <string name="rr_qs_pulldown_summary">Ajuster les réglages de menu du panneau déroulant</string>
+  <string name="rr_qs_pulldown_summary">Ajuster les paramètres d\'accès et d\'animations du volet des réglages rapides</string>
   <string name="qs_tile_layout_summary">Configurer l\'affichage des tuiles</string>
   <string name="qs_advanced_summary">Configuration de divers paramètres</string>
   <string name="rr_ls_gesture_summary">Choisir les différents gestes disponibles sur l\'écran de verrouillage</string>
@@ -292,13 +292,13 @@
   <string name="pref_scrollingcache_force_disable">Forcer la désactivation</string>
   <!-- Volume Steps -->
   <string name="volume_steps_title">Niveaux de volume</string>
-  <string name="volume_steps_alarm_title">Niveaux de volume: Alarme</string>
-  <string name="volume_steps_dtmf_title">Niveaux de volume: DTMF</string>
-  <string name="volume_steps_music_title">Niveaux de volume: Musique</string>
-  <string name="volume_steps_notification_title">Niveaux de volume: Notifications</string>
-  <string name="volume_steps_ring_title">Niveaux de volume: Sonnerie</string>
-  <string name="volume_steps_system_title">Niveaux de volume: Système</string>
-  <string name="volume_steps_voice_call_title">Niveaux de volume: Appel vocal</string>
+  <string name="volume_steps_alarm_title">Alarme</string>
+  <string name="volume_steps_dtmf_title">DTMF</string>
+  <string name="volume_steps_music_title">Musique</string>
+  <string name="volume_steps_notification_title">Notification</string>
+  <string name="volume_steps_ring_title">Sonnerie</string>
+  <string name="volume_steps_system_title">Système</string>
+  <string name="volume_steps_voice_call_title">Appel vocal</string>
   <string name="volume_steps_reset">Réinitialiser</string>
   <string name="volume_steps_60">60</string>
   <string name="volume_steps_45">45</string>
@@ -673,7 +673,7 @@
   <string name="lockscreen_shortcuts_single_tap">Clic</string>
   <string name="lockscreen_shortcuts_double_tap">Appui double</string>
   <string name="lockscreen_shorcuts_longpress_title">Pression longue</string>
-  <string name="lockscreen_shorcuts_longpress_summary">Appuyez longuement pour ouvrir les raccourcis des applications sur l\'écran de verrouillage</string>
+  <string name="lockscreen_shorcuts_longpress_summary">Appuyez longuement pour ouvrir les applications à partir des raccourcis</string>
   <string name="shortcuts_icon_picker_alarm">Alarme</string>
   <string name="shortcuts_icon_picker_andy">Andy</string>
   <string name="shortcuts_icon_picker_battery">Batterie</string>
@@ -879,7 +879,7 @@
   <string name="lockscreen_alarm_title">Afficher l\'alarme sur l\'écran de verrouillage</string>
   <!-- Keyguard Statusbar Clock -->
   <string name="keyguard_statusbar_clock_title">Horloge</string>
-  <string name="keyguard_statusbar_clock_summary">Afficher l\'horloge à gauche de la barre d\'état sur l\'écran de déverrouillage</string>
+  <string name="keyguard_statusbar_clock_summary">Afficher l\'horloge à gauche de la barre d\'état sur l\'écran de verrouillage</string>
   <!-- Fingerprint vibrate -->
   <string name="fprint_sucess_vib_title">Activer le vibreur pour l’authentification</string>
   <string name="fprint_sucess_vib_summary">Vibrer en cas de succès de l\'authentification par empreintes digitales</string>
@@ -916,7 +916,7 @@
   <string name="kill_app_longpress_back_summary">Tuer l\'application en premier plan par un appui long sur le bouton Retour</string>
   <string name="long_press_kill_delay">Délai de fermeture de l\'application</string>
   <!-- Advanced data tile -->
-  <string name="qs_advanced_data_title">Action associée à la tuile de donnée mobile</string>
+  <string name="qs_advanced_data_title">Activation rapide des données mobiles</string>
   <string name="qs_advanced_data_summary">Activer/Désactiver la connexion aux données mobiles en 1 clic au lieu d\'ouvrir le menu des paramètres</string>
   <!-- Hardware button navigation -->
   <string name="button_pref_title">Boutons</string>
@@ -956,7 +956,7 @@
   <string name="volbtn_cursor_control_off">Désactivé</string>
   <string name="volbtn_cursor_control_on">Déplacer le curseur de gauche à droite</string>
   <string name="volbtn_cursor_control_on_reverse">Déplacer le curseur de droite à gauche</string>
-  <string name="power_end_call_title">Fin de l\'appel</string>
+  <string name="power_end_call_title">Mettre fin à l\'appel</string>
   <string name="power_end_call_summary">Un appui sur le bouton marche/arrêt mettra fin à l\'appel</string>
   <string name="swap_volume_buttons_title">Inverser les boutons de volume</string>
   <string name="swap_volume_buttons_summary">Permute les boutons de volume +/- lorsque l’écran est tenu horizontalement</string>
@@ -1001,15 +1001,15 @@
   <string name="power_menu_emergency_title">Bouton d’urgence</string>
   <string name="power_menu_bug_report_disabled">Le rapport de bug est désactivé dans les paramètres de développement</string>
   <string name="dt2l_camera_category">Options de l’appareil photo DT2L</string>
-  <string name="dt2l_camera_vib_title">Ajuster le niveau de vibration</string>
-  <string name="dt2l_camera_vib_summary">Ajuster le niveau de vibration de l\'ouverture de l\'application Appareil photo</string>
+  <string name="dt2l_camera_vib_title">Ajuster la durée de vibration</string>
+  <string name="dt2l_camera_vib_summary">Ajuster la durée de vibration lorsque l\'appareil photo est lancé</string>
   <string name="volume_keys_control_ring_stream_title">Contrôler le volume de la sonnerie</string>
   <string name="volume_keys_control_ring_stream_summary_on">Les boutons de volume contrôlent le volume de la sonnerie</string>
-  <string name="volume_keys_control_ring_stream_summary_off">Les boutons de volume contrôlent le volume du média</string>
+  <string name="volume_keys_control_ring_stream_summary_off">Les boutons de volume contrôlent le volume des sons multimédia</string>
   <string name="volume_answer_call_title">Répondre à l’appel</string>
   <string name="volume_answer_call_summary">Accepter les appels entrants en appuyant sur les touches de volume</string>
-  <string name="vol_up_disable_overlays_title">Désactiver les surcouches des thèmes avec la touche volume haut</string>
-  <string name="vol_up_disable_overlays_summary">Pendant le démarrage, maintenez le bouton de volume haut enfoncé pour désactiver toutes les thèmes appliquées</string>
+  <string name="vol_up_disable_overlays_title">Désactiver les thèmes avec la touche de volume haut</string>
+  <string name="vol_up_disable_overlays_summary">Pendant le démarrage, maintenez le bouton de volume haut enfoncé pour désactiver tous les thèmes appliquées</string>
   <string name="camera_double_tap_power_gesture_title">Appuyer deux fois sur le bouton Marche/Arrêt pour lancer l\'appareil photo</string>
   <!-- Description of setting that controls gesture to open camera by double tapping the power button [CHAR LIMIT=NONE] -->
   <string name="camera_double_tap_power_gesture_desc">Ouvrir rapidement l\'appareil photo sans déverrouiller l\'écran</string>
@@ -1022,7 +1022,7 @@
   <string name="lockscreen_maxnotif_config">Nombre maximal de notifications</string>
   <!-- Volume settings - Volume adjustment sound -->
   <string name="volume_adjust_sounds_title">Sons au réglage du volume</string>
-  <string name="qs_fancy_animation_title">Animation des réglages rapides</string>
+  <string name="qs_fancy_animation_title">Animation aléatoire</string>
   <string name="qs_fancy_animation_summary">Afficher une animation différente lorsque vous tirez vers le bas la barre d\'état</string>
   <!-- Status bar -->
   <string name="status_bar_title">Barre d\'état</string>
@@ -1416,16 +1416,16 @@
   <!-- Status bar - double tap to sleep -->
   <string name="status_bar_double_tap_to_sleep_title">Tapoter deux fois pour mettre en veille</string>
   <string name="status_bar_double_tap_to_sleep_summary">Appui double sur la barre d\'état pour éteindre l\'écran</string>
-  <string name="qs_wifi_easy_toggle_title">Basculer facilement la connexion Wifi</string>
+  <string name="qs_wifi_easy_toggle_title">Activation rapide du Wifi</string>
   <string name="qs_wifi_easy_toggle_summary">Activer/Désactiver la connexion Wi-Fi en 1 clic au lieu d\'ouvrir le menu des paramètres</string>
   <!-- BT easy toggle -->
-  <string name="qs_bt_easy_toggle_title">Basculer facilement la connexion Bluetooth</string>
+  <string name="qs_bt_easy_toggle_title">Activation rapide du Bluetooth</string>
   <string name="qs_bt_easy_toggle_summary">Activer/Désactiver la connexion Bluetooth en 1 clic au lieu d\'ouvrir le menu des paramètres</string>
   <!-- Battery Saver easy toggle -->
-  <string name="qs_battery_easy_toggle_title">Bouton d\'activation rapide du panneau de batterie</string>
+  <string name="qs_battery_easy_toggle_title">Activation rapide de l\'économiseur de batterie</string>
   <string name="qs_battery_easy_toggle_summary">Activer/Désactiver l\'économiseur de batterie en 1 clic au lieu d\'ouvrir le menu des paramètres</string>
   <!-- Location easy toggle -->
-  <string name="qs_location_easy_toggle_title">Activer/désactiver rapidement la localisation</string>
+  <string name="qs_location_easy_toggle_title">Activation rapide du GPS</string>
   <string name="qs_location_easy_toggle_summary">Activer/Désactiver les services de localisation en 1 clic au lieu d\'ouvrir le menu des paramètres</string>
   <string name="qs_music_tile_track_optional_title">Afficher le titre de la musique</string>
   <string name="qs_music_tile_track_optional_summary">Afficher le titre de la musique sous la tuile des réglages rapides</string>
@@ -1789,7 +1789,7 @@
   <string name="heads_up_snooze_15min">15 minutes</string>
   <string name="heads_up_snooze_20min">20 minutes</string>
   <string name="lockscreen_pin_ripple_title">Filtre d\'ondulation lors de la saisie du code Pin</string>
-  <string name="lockscreen_pin_ripple_summary">Désactiver pour supprimer l’ondulation lors de la saisie du code PIN</string>
+  <string name="lockscreen_pin_ripple_summary">Désactiver pour supprimer l\'effet d’ondulation lors de la saisie du code Pin</string>
   <!-- Optional screenshot type -->
   <string name="screenshot_type_title">Type de capture d\'écran</string>
   <string name="screenshot_type_fullscreen">Prendre des captures d’écran en plein écran</string>
@@ -1900,11 +1900,11 @@
   <string name="three_finger_gesture_summary">Balayer l\'écran avec trois doigts pour faire une capture d\'écran</string>
   <!-- Lockscreen Colors -->
   <string name="lockscreen_colors">Personnalisation des couleurs</string>
-  <string name="lockscreen_colors_summary">Options de couleurs avancés</string>
-  <string name="lockscreen_phone_icon_color">Raccourci en bas à gauche de l\'écran de verrouillage</string>
-  <string name="lockscreen_lock_icon_color">Icône du cadenas de l\'écran de verrouillage</string>
-  <string name="lockscreen_camera_icon_color">Raccourci en bas à droite de l\'écran de verrouillage</string>
-  <string name="ls_shortcut_icon_color">Raccourcis de l\'écran de verrouillage</string>
+  <string name="lockscreen_colors_summary">Éditer les couleurs des éléments sur l\'écran de verrouillage</string>
+  <string name="lockscreen_phone_icon_color">Raccourci inférieur gauche</string>
+  <string name="lockscreen_lock_icon_color">Icône du cadenas</string>
+  <string name="lockscreen_camera_icon_color">Raccourci inférieur droite</string>
+  <string name="ls_shortcut_icon_color">Raccourcis inférieurs</string>
   <string name="lockscreen_indication_text_color">Texte d\'information sur l\'écran de verrouillage</string>
   <string name="lockscreen_clock_color">Horloge sur l\'écran de verrouillage</string>
   <string name="lockscreen_clock_date_color">Date sur l\'écran de verrouillage</string>
@@ -1916,7 +1916,7 @@
   <string name="icons_title">Icônes</string>
   <string name="text_title">Texte</string>
   <string name="lock_screen_weather_temp_color">Température extérieure</string>
-  <string name="lock_screen_weather_con_color">Les conditions météorologiques</string>
+  <string name="lock_screen_weather_con_color">Conditions météorologiques</string>
   <string name="lock_screen_weather_stamp_color">Emplacement pour l\'heure </string>
   <string name="lock_screen_weather_hum_color">Humidité</string>
   <string name="lock_screen_weather_city_color">Ville </string>
@@ -2161,7 +2161,7 @@
   <string name="recent_panel_lefty_mode_summary">Afficher le panneau des Applications récentes sur le bord gauche</string>
   <!-- Fingerprint unlock keystore -->
   <string name="fp_unlock_keystore_title">Déverrouiller avec l\'empreinte digitale</string>
-  <string name="fp_unlock_keystore_summary">Déverrouiller l’appareil avec l\'empreinte digitale après le redémarrage sans mot de passe/PIN/Schema\nNote : à vos risques et périls !</string>
+  <string name="fp_unlock_keystore_summary">Déverrouiller l’appareil avec l\'empreinte digitale après un redémarrage, sans mot de passe/PIN/Schema\nNote : à vos risques et périls !</string>
   <!-- Wired headset ringtone audio focus -->
   <string name="rr_sound_title">Écouteurs</string>
   <string name="rr_sound_summary">Personnaliser les paramètres de vos écouteurs filaires</string>
@@ -2188,7 +2188,7 @@
   <string name="ok_string">Valider</string>
   <!-- Hide Statusbar on Lockscreen -->
   <string name="lockscreen_hide_status_bar_title">Masquer la barre d\'état</string>
-  <string name="lockscreen_hide_status_bar_summary">Activer ou désactiver la visibilité de la barre d\'état sur l\'écran de verrouillage. Appuyez sur le haut de l\'écran pour montrer la barre d\'état</string>
+  <string name="lockscreen_hide_status_bar_summary">Si activée, touchez la barre d\'état pour le faire apparaitre ou disparaitre</string>
   <string name="confirm_shutdown_switch_title">Confirmer l\'extinction de l\'appareil</string>
   <string name="confirm_shutdown_switch_desc">Lorsque la fonction d\'arrêt est choisi sur le menu Marche/Arrêt, ajouter une boîte de dialogue pour confirmer l\'extinction de l\'appareil</string>
   <!-- Notification guts kill app button -->
