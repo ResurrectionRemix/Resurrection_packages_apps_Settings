@@ -96,7 +96,7 @@
             android:icon="@drawable/rr_wakelockblocker_icon"
             />
 
-        <!-- Wakelock blocker -->
+        <!-- Sound -->
         <PreferenceScreen
             android:key="rr_sound"
             android:title="@string/rr_sound_title"
@@ -105,12 +105,20 @@
             android:icon="@drawable/rr_sound_icon"
             />
 
+        <PreferenceScreen
+            android:key="rr_incall"
+            android:title="@string/rr_incall"
+            android:summary="@string/rr_incall_summary"
+            android:icon="@drawable/rr_call_icon"
+            android:fragment="com.android.settings.rr.InCallSettings" />
+
         <Preference
             android:id="@+id/alarm_blocker"
             android:title="@string/alarm_blocker"
             android:summary="@string/alarm_blocker_summary"
             android:icon="@drawable/rr_alarmblocker_icon"
             android:fragment="com.android.settings.rr.AlarmBlocker" />
+
 
         <PreferenceScreen
             android:key="screenstate_category"
