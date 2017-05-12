@@ -45,9 +45,9 @@
 
     <!-- Lockscreen Shortcuts -->
     <string name="lockscreen_shortcuts_title"><b>ショートカット</b></string>
-    <string name="lockscreen_shortcuts_summary">ロック画面のショートカットを確認もしくは変更します</string>
-    <string name="lockscreen_shorcuts_longpress_title">Shortcuts longpress</string>
-    <string name="lockscreen_shorcuts_longpress_summary">Open custom lock screen shortcuts on longpress</string>
+    <string name="lockscreen_shortcuts_summary">ロック画面中央にショートカットを追加します</string>
+    <string name="lockscreen_shorcuts_longpress_title">ショートカットの長押しを強制</string>
+    <string name="lockscreen_shorcuts_longpress_summary">カスタムショートカットは長押ししないと開けないようにする</string>
 
     <!-- Slim settings screens -->
     <string name="header_category_personalization">個人設定</string>
@@ -288,19 +288,19 @@
     <string name="widgets_category">ウィジェット</string>
 
     <!-- Show carrier label and custom -->
-    <string name="carrier_options_category_title">Status Bar Carrier Label</string>
-    <string name="carrier_options"><b>Carrier Label</b></string>
-    <string name="show_status_bar_carrier_title">Status bar carrier</string>
-    <string name="show_status_bar_carrier_summary">Show carrier in status bar</string>
-    <string name="custom_carrier_label_title">Custom carrier label</string>
-    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
-    <string name="custom_carrier_label_notset">Custom label currently not set</string>
-    <string name="status_bar_carrier_color">Carrier label color</string>
-    <string name="show_carrier_disabled">Disabled</string>
-    <string name="show_carrier_keyguard">Lockscreen only</string>
-    <string name="show_carrier_statusbar">Statusbar only</string>
-    <string name="show_carrier_enabled">Lockscreen &amp; statusbar</string>
-    <string name="status_bar_carrier_size">Carrier label text size</string>
+    <string name="carrier_options_category_title">ステータスバーのキャリアラベル</string>
+    <string name="carrier_options"><b>キャリアラベル</b></string>
+    <string name="show_status_bar_carrier_title">ステータスバー上のキャリア</string>
+    <string name="show_status_bar_carrier_summary">ステータスバー上でキャリアラベルを表示します</string>
+    <string name="custom_carrier_label_title">カスタムキャリアラベル</string>
+    <string name="custom_carrier_label_explain">新たに使用するキャリアラベルを入力してください。空欄にするとデフォルトに戻されます。</string>
+    <string name="custom_carrier_label_notset">カスタムなラベルは設定されていません</string>
+    <string name="status_bar_carrier_color">キャリアラベルの色</string>
+    <string name="show_carrier_disabled">無効</string>
+    <string name="show_carrier_keyguard">ロック画面のみ</string>
+    <string name="show_carrier_statusbar">ステータスバーのみ</string>
+    <string name="show_carrier_enabled">ロック画面とステータスバー</string>
+    <string name="status_bar_carrier_size">キャリアラベルの文字サイズ</string>
 
     <!-- ListView interpolator -->
     <string name="listview_interpolator_title">ListView Interpolator</string>
@@ -330,9 +330,13 @@
 
     <!-- Heads up timeout -->
     <string name="heads_up_time_out_title">Time out</string>
+    <string name="heads_up_time_out_summary">Notification will show for: </string>
+    <string name="heads_up_time_out_never_summary">Notification will show until it is dismissed</string>
 
     <!-- Heads up snooze -->
     <string name="heads_up_snooze_title">Snooze timer</string>
+    <string name="heads_up_snooze_summary">If snooze button is pressed, disable heads up for: </string>
+    <string name="heads_up_snooze_disabled_summary">Snooze timer is disabled</string>
 
    <!-- Navigation Bar Dimensions -->
     <string name="navigation_bar_dimensions_reset_message">Reset all dimensions entries to default?</string>
@@ -386,7 +390,7 @@
     <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Removing every %1$s in the list will disable the second pie layer entirely.</string>
     <string name="shortcuts_applications">Applications</string>
     <string name="shortcut_action_kill">Kill app</string>
-    <string name="shortcut_action_restartui">Restart SystemUI</string>
+    <string name="shortcut_action_restartui">システムUIの再起動</string>
     <string name="shortcut_action_lastapp">Last app</string>
     <string name="shortcut_action_assist">Search</string>
     <string name="shortcut_action_screenshot">Screenshot</string>
@@ -631,18 +635,18 @@
     <string name="profile_applist_title">Applications</string>
     <string name="rr_gesture_title">Gestures</string>
     <!-- Recents panel -->
-    <string name="recents_panel_category">Recents panel</string>
-    <string name="show_clear_all_recents_button_title">Clear all button</string>
-    <string name="show_clear_all_recents_button_summary">Show clear all button</string>
-    <string name="recents_clear_all_location_title">Clear all location</string>
-    <string name="recents_clear_all_location_top_right">Top right</string>
-    <string name="recents_clear_all_location_top_left">Top left</string>
-    <string name="recents_clear_all_location_top_center">Top center</string>
-    <string name="recents_clear_all_location_bottom_right">Bottom right</string>
-    <string name="recents_clear_all_location_bottom_left">Bottom left</string>
-    <string name="recents_clear_all_location_bottom_center">Bottom center</string>
-    <string name="recents_clear_all_dismiss_all_title">Clear all tasks</string>
-    <string name="recents_clear_all_dismiss_all_summary">Choose whether to dismiss all tasks or ignore the foreground task</string>
+    <string name="recents_panel_category">アプリ履歴</string>
+    <string name="show_clear_all_recents_button_title">全アプリ終了ボタン</string>
+    <string name="show_clear_all_recents_button_summary">起動中の全てのアプリを終了するボタンを表示する</string>
+    <string name="recents_clear_all_location_title">終了ボタンの位置</string>
+    <string name="recents_clear_all_location_top_right">右上</string>
+    <string name="recents_clear_all_location_top_left">左上</string>
+    <string name="recents_clear_all_location_top_center">中央上</string>
+    <string name="recents_clear_all_location_bottom_right">右下</string>
+    <string name="recents_clear_all_location_bottom_left">左下</string>
+    <string name="recents_clear_all_location_bottom_center">中央下</string>
+    <string name="recents_clear_all_dismiss_all_title">全てのタスクを終了する</string>
+    <string name="recents_clear_all_dismiss_all_summary">全てのタスクを終了する際に最前面のアプリを含めるかどうか選択します</string>
     <string name="omniswitch_settings_title">OmniSwitch</string>
 
     <!-- Battery Bar -->
@@ -661,8 +665,8 @@
     <string name="fullscreen_keyboard_title">Fullscreen keyboard</string>
     <string name="fullscreen_keyboard_summary">Show a fullscreen keyboard in landscape</string>
 
-        <!-- Toast Icons -->
-        <string name="toast_icon_title">Toast icon</string>
+    <!-- Toast Icons -->
+    <string name="toast_icon_title">Toast icon</string>
 
     <!-- Volume Steps -->
     <string name="volume_steps_title">Volume steps</string>
@@ -681,7 +685,7 @@
     <string name="volume_steps_5">5</string>
 
         <!-- QuickSettings brightness slider -->
-    <string name="qs_brightness_slider_title">Show brightness slider</string>
+    <string name="qs_brightness_slider_title">明るさ調節スライダーの表示</string>
     <string name="qs_brightness_slider_summary">Show a brightness slider in the quick settings panel</string>
     <!-- Circle app bar -->
     <string name="category_app_circle_bar_title">App launcher</string>
@@ -758,7 +762,7 @@
     <string name="privacy_guard_notification_title">Notification</string>
     <string name="privacy_guard_notifiation_summary">Show a notification if privacy guard is active</string>
 
-    <string name="rr_lockscreen_targets_message"><b>Quick shortcuts</b></string>
+    <string name="rr_lockscreen_targets_message"><b>クイックショートカット</b></string>
 
     <!-- Display & Lights screen, setting options for LCD density -->
     <string name="lcd_density">LCD density</string>
@@ -770,9 +774,10 @@
     <!-- QuickSettings 4 columns -->
     <string name="qs_four_columns_title">1行に4個のタイルを表示する</string>
     <!-- QuickSettings tiles -->
-    <string name="qs_screenshot_tile">Screenshot</string>
+    <string name="qs_screenshot_tile">スクリーンショット</string>
     <string name="qs_screenrecord_tile">Screenrecord</string>
-    <string name="qs_sync_tile">Sync</string>
+    <string name="qs_screenrecord_tile">Screenrecord</string>
+    <string name="qs_sync_tile">同期</string>
     <!-- Navring targets (enable/disable) -->
     <string name="navigation_ring_enable_title">ナビゲーションリングを有効化する</string>
     <!-- Quick Settings tiles -->
@@ -784,9 +789,10 @@
     <string name="qs_ambient_display_tile">アンビエントディスプレイ</string>
     <string name="qs_music_play_tile">Play</string>
     <string name="qs_tile_heads_up">ヘッドアップ</string>
-    <string name="qs_systemui_restart_tile">SystemUIの再起動</string>
+    <string name="qs_systemui_restart_tile">システムUIの再起動</string>
     <string name="qs_tile_slim_floats">Slim Floats</string>
     <string name="qs_pie_tile">Pie</string>
+    <string name="qs_tile_pb">PitchBlack</string>
 
     <!-- Long press on lock screen lock icon to sleep -->
     <string name="longpress_lock_icon_to_sleep_title">Long press lock icon to sleep</string>
@@ -797,6 +803,8 @@
 
     <string name="qs_navbar_tile">ナビゲーションバー</string>
     <string name="qs_appcirclebar_tile">App Circle Bar</string>
+
+    <string name="qs_tile_kernel_adiutor">Kernel Adiutor</string>
 
     <!-- Doze pulse (ambient display) options -->
     <string name="doze_overwrite_value_title">Overwrite value</string>
@@ -883,8 +891,8 @@
     <string name="double_tap_sleep_nav_bar_title">Double-tap to sleep</string>
     <string name="double_tap_sleep_nav_bar_summary">Double tap navigation bar to put the device to sleep</string>
     <!-- Force expand notifications -->
-    <string name="notification_force_expand_title">Force expanded notification</string>
-    <string name="notification_force_expand_summary">Force expanded notifications on all apps that support it</string>
+    <string name="notification_force_expand_title">常に通知を展開</string>
+    <string name="notification_force_expand_summary">対応している全てのアプリで通知を常に展開します</string>
     <!-- Wakelock blocker -->
     <string name="wakelock_blocker_title"><b>Wakelock blocker</b></string>
     <string name="wakelock_blocker_summary">Block system wakelocks</string>
@@ -993,8 +1001,8 @@
     <string name="notification_drawer_clear_all_icon_color_title">Icon</string>
 
     <!-- Task Manager -->
-    <string name="enable_task_manager_title">Task Manager</string>
-    <string name="enable_task_manager_summary">Enable/Disable action for the task manager button in the expanded statusbar area</string>
+    <string name="enable_task_manager_title">タスクマネージャー</string>
+    <string name="enable_task_manager_summary">クイック設定上部にタスクマネージャーのボタンを表示します</string>
 
     <!-- SuperSU header name - the app hides itself from launcher based on this resource name being present in com.android.settings -->
     <string name="supersu_title">SuperSU</string>
@@ -1067,7 +1075,6 @@
     <!-- The volume key answer -->
     <string name="volume_answer_call_title">Volume key Answer</string>
     <string name="volume_answer_call_summary">Volume up key Answer</string>
-
 
     <!-- Slim Shortcuts -->
     <string name="slim_shortcut_picker">Slim Actions</string>
@@ -1143,9 +1150,6 @@
 
     <!-- Performance Settings : I/O scheduler settings title -->
     <string name="io_scheds_title">I/O スケジューラー</string>
-
-    <!-- Performance Settings : I/O scheduler settings sub items -->
-    <string name="io_sched_title">I/O スケジューラー</string>
 
     <!-- Performance Settings : Set on boot option -->
     <string name="performance_set_on_boot">起動時に適用する</string>
@@ -1257,6 +1261,12 @@
     <string name="notification_title">Notification panel</string>
     <string name="status_bar_custom_header_title">Custom header image</string>
     <string name="status_bar_custom_header_summary">Enable notification panel header image</string>
+    <string name="status_bar_custom_header_default_title">Select your images</string>
+    <string name="status_bar_custom_header_default_summary">Default, modern and poly HD</string>
+    <string name="custom_header_image_0">Default</string>
+    <string name="custom_header_image_1">Modern</string>
+    <string name="custom_header_image_2">Poly HD</string>
+
 
     <!-- Chamber of Secrets -->
     <string name="chamber_title">Chamber of secrets</string>
@@ -1273,6 +1283,7 @@
     <string name="lockscreen_colors_reset_title">Reset lockscreen colors</string>
     <string name="lockscreen_colors_reset_message">Are you sure you want to reset these colors to default?</string>
     <string name="yes">YES</string>
+    <string name="lockscreen_clock_color_cat">Color changer</string>
 
 <!-- OmniSwitch -->
     <string name="omniswitch_category">OmniSwitch</string>
@@ -1323,14 +1334,14 @@
     <!--RR Configuration Preference Strings-->
 
       <!--StatusBar-->
-    <string name="rr_status_bar_main"><b>Main Settings</b></string>
-    <string name="rr_temprature"><b>Status Bar Temprature</b></string>
-    <string name="rr_icons"><b>Status Bar Icons</b></string>
-    <string name="rr_logo_title"><b>Resurrection Remix Logo</b></string>
-    <string name="status_bar_quick_settings"><b>Quick Settings Actions</b></string>
-    <string name="status_bar_battery_title"><b>Battery</b></string>
-    <string name="status_bar_lock_screen"><b>Status Bar In Lockscreen</b></string>
-    <string name="status_bar_quick_security"><b>Status Bar Security</b></string>
+    <string name="rr_status_bar_main"><b>主要な設定</b></string>
+    <string name="rr_temprature"><b>ステータスバーでの温度表示</b></string>
+    <string name="rr_icons"><b>ステータスバーのアイコン</b></string>
+    <string name="rr_logo_title"><b>Resurrection Remixロゴ</b></string>
+    <string name="status_bar_quick_settings"><b>クイック設定のアクション</b></string>
+    <string name="status_bar_battery_title"><b>バッテリ</b></string>
+    <string name="status_bar_lock_screen"><b>ロック画面でのステータスバー</b></string>
+    <string name="status_bar_quick_security"><b>ステータスバーのセキュリティ</b></string>
 
     <!--Notication Drawer-->
     <string name="rr_qs_colors"><b>Colors</b></string>
@@ -1339,14 +1350,15 @@
     <string name="rr_misc_notif"><b>Misc</b></string>
 
      <!--Recents -->
-    <string name="recents_panel_clear_all"><b>Clearing Recent Apps</b> </string>
-    <string name="recents_panel_gestures"><b>Recent Panel Gestures</b></string>
-    <string name="recents_panel_other"><b>Other Recents</b></string>
+    <string name="recents_panel_clear_all"><b>アプリ履歴の消去</b> </string>
+    <string name="recents_panel_gestures"><b>アプリ履歴でのジェスチャー</b></string>
+    <string name="recents_panel_other"><b>その他</b></string>
 
     <!--Lockscreen-->
     <string name="lockscreen_Gestures"><b>Tap Settings</b> </string>
     <string name="rr_lockscreen_weather"><b>Weather And Clock</b></string>
-    <string name="rr_lockscreen_colors"><b>Colors</b></string>
+    <string name="rr_lockscreen_advanced">Customize</string>
+    <string name="rr_lockscreen_misc_cat">Misc</string>
     <string name="rr_lockscreen_vizualizer"><b>Visualizer</b></string>
 
     <!--Gestures-->
@@ -1354,7 +1366,7 @@
     <string name="rr_app_bars"><b>App Bars</b></string>
 
      <!--Animations-->
-    <string name="rr_toast_title"><b>Toast</b></string>
+    <string name="rr_toast_title"><b>トースト</b></string>
     <string name="rr_scrolling_title"><b>Scrolling Options</b></string>
 
      <!--Misc-->
@@ -1368,4 +1380,56 @@
     <!-- Whether the keyguard will directly pass to gesture entry -->
     <string name="lock_directly_show_gesture">Directly show gesture</string>
 
+     <!-- Lockscreen see through -->
+    <string name="lockscreen_see_through_title">ロック画面のぼかし</string>
+    <string name="lockscreen_see_through_summary">ロック画面の背景をスクリーンのぼかし表示にします</string>
+    <string name="lockscreen_blur_radius">ぼかし効果の強さ</string>
+    <string name="lockscreen_see_through_cat">シースルーとぼかし</string>
+
+    <!-- Media art -->
+    <string name="media_art_title">カバーアートの表示</string>
+    <string name="media_art_summary">ロック画面でカバーアートを表示します</string>
+
+    <!-- Status Bar Activity Indicators -->
+    <string name="status_bar_network_activity_title">ネットワークインジケータの表示</string>
+    <string name="status_bar_network_activity_summary">シグナルアイコンにネットワークインジケータを表示します</string>
+
+    <!-- Disable torch when screen goes off -->
+    <string name="disable_torch_screen_off_title">画面の消灯中はライトを無効化する</string>
+    <string name="disable_torch_screen_off_delay_title">遅延時間</string>
+    <string name="torch_screen_off_one_second">1秒</string>
+    <string name="torch_screen_off_ten_second">10秒 (デフォルト)</string>
+    <string name="torch_screen_off_thirty_second">30秒</string>
+    <string name="torch_screen_off_one_minute">1分</string>
+    <string name="torch_screen_off_five_minutes">5分</string>
+    <string name="torch_screen_off_ten_minutes">10分</string>
+
+    <!-- TRDS PitchBlack -->
+    <string name="theme_pb_settings_title">PitchBlack™</string>
+    <string name="theme_settings_switch_title">Switch theme</string>
+    <string name="theme_auto_mode_title">Advanced switch options</string>
+    <string name="theme_override_custom_colors_title">Override custom colors</string>
+    <string name="theme_override_custom_colors_summary">Override custom notification and qs colors</string>
+    <string name="theme_auto_mode_off">Manual</string>
+    <string name="theme_auto_mode_lightsensor">On light condition change (experimental)</string>
+    <string name="theme_auto_mode_twilight">On daytime</string>
+    <string name="theme_auto_switch_mode_error">Automatic light condition change mode is enabled. Manual switching is not possible.</string>
+    <string name="theme_reset_message">Reset theme state to default?</string>
+    <string name="reset_default_message">Reset default</string>
+    <string name="shortcut_action_pie">Pie</string>
+    <string name="shortcut_action_theme_switch">Theme switcher</string>
+    <!-- QS Tiles Columns -->
+    <string name="qs_num_columns_title">行ごとのタイル数</string>
+    <string name="qs_num_columns_showing">各行に%1$s個のタイルを表示しています</string>
+
+
+    <!-- Optimizations Flags -->
+    <string name="rr_android">GCC Android</string>
+    <string name="rr_android_default">Unknown</string>
+    <string name="rr_kernel">GCC Kernel</string>
+    <string name="rr_kernel_default">Unknown</string>
+
+    <!-- GCC build flags info -->
+    <string name="rr_flags">Build Flags</string>
+    <string name="rr_flags_default">None</string>
 </resources>
