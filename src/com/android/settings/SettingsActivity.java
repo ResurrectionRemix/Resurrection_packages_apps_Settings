@@ -177,6 +177,7 @@ public class SettingsActivity extends SettingsDrawerActivity
     private static final String SAVE_KEY_HOME_ACTIVITIES_COUNT = ":settings:home_activities_count";
 
     private static final String KA_FRAGMENT = "com.android.settings.ka";
+    private static final String KAMOD_FRAGMENT = "com.android.settings.kamod";
 
     /**
      * When starting this activity, the invoking Intent can contain this extra
@@ -1089,11 +1090,18 @@ public class SettingsActivity extends SettingsDrawerActivity
             startActivity(magiskIntent);
             finish();
             return null;
-        }
-  		 if (KA_FRAGMENT.equals(fragmentName)) {
+	}
+	if (KA_FRAGMENT.equals(fragmentName)) {
             Intent kaIntent = new Intent();
             kaIntent.setClassName("com.grarak.kerneladiutor", "com.grarak.kerneladiutor.activities.MainActivity");
             startActivity(kaIntent);
+            finish();
+            return null;
+	}
+        if (KAMOD_FRAGMENT.equals(fragmentName)) {
+            Intent kamodIntent = new Intent();
+            kamodIntent.setClassName("com.kerneladiutor.mod", "com.grarak.kerneladiutor.activities.MainActivity");
+            startActivity(kamodIntent);
             finish();
             return null;
         } else if (THEMES_FRAGMENT.equals(fragmentName)) {
@@ -1198,6 +1206,7 @@ public class SettingsActivity extends SettingsDrawerActivity
                         Settings.DevelopmentSettingsActivity.class.getName()),
                 showDev, isAdmin, pm);
 
+        //KA
         boolean kapresent = false;
         try {
             kapresent = (getPackageManager().getPackageInfo("com.grarak.kerneladiutor", 0).versionCode > 0);
@@ -1207,6 +1216,17 @@ public class SettingsActivity extends SettingsDrawerActivity
                         Settings.KActivity.class.getName()),
                 kapresent, isAdmin, pm);
 
+        //KAMOD
+        boolean kamodpresent = false;
+        try {
+            kamodpresent = (getPackageManager().getPackageInfo("com.kerneladiutor.mod", 0).versionCode > 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        setTileEnabled(new ComponentName(packageName,
+                        Settings.KAMODActivity.class.getName()),
+                kamodpresent, isAdmin, pm);
+
+        //THEMES
         boolean themesSupported = false;
         try {
             themesSupported = (getPackageManager().getPackageInfo("projekt.substratum", 0).versionCode > 0);
@@ -1215,9 +1235,6 @@ public class SettingsActivity extends SettingsDrawerActivity
         setTileEnabled(new ComponentName(packageName,
                         Settings.ThemesActivity.class.getName()),
                 themesSupported, isAdmin, pm);
-
-        // Reveal development-only quick settings tiles
-        DevelopmentTiles.setTilesEnabled(this, showDev);
 
         // Magisk Manager
         boolean magiskSupported = false;
@@ -1229,6 +1246,9 @@ public class SettingsActivity extends SettingsDrawerActivity
                         Settings.MagiskActivity.class.getName()),
                 magiskSupported, isAdmin, pm);
 
+        // Reveal development-only quick settings tiles
+        DevelopmentTiles.setTilesEnabled(this, showDev);
+ 
         // Show scheduled power on and off if support
         boolean showTimerSwitch = false;
         Intent intent = new Intent(ACTION_TIMER_SWITCH);
