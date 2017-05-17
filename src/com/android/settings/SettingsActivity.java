@@ -1090,13 +1090,14 @@ public class SettingsActivity extends SettingsDrawerActivity
             finish();
             return null;
         }
-  		 if (KA_FRAGMENT.equals(fragmentName)) {
+	if (KA_FRAGMENT.equals(fragmentName)) {
             Intent kaIntent = new Intent();
             kaIntent.setClassName("com.grarak.kerneladiutor", "com.grarak.kerneladiutor.activities.MainActivity");
             startActivity(kaIntent);
             finish();
             return null;
-        } else if (THEMES_FRAGMENT.equals(fragmentName)) {
+	}
+	if (THEMES_FRAGMENT.equals(fragmentName)) {
             Intent themesIntent = new Intent();
             themesIntent.setClassName("projekt.substratum", "projekt.substratum.LaunchActivity");
             startActivity(themesIntent);
@@ -1198,6 +1199,17 @@ public class SettingsActivity extends SettingsDrawerActivity
                         Settings.DevelopmentSettingsActivity.class.getName()),
                 showDev, isAdmin, pm);
 
+        // Magisk Manager
+        boolean magiskSupported = false;
+        try {
+            magiskSupported = (getPackageManager().getPackageInfo("com.topjohnwu.magisk", 0).versionCode > 0);
+        } catch (PackageManager.NameNotFoundException e) {
+        }
+        setTileEnabled(new ComponentName(packageName,
+                        Settings.MagiskActivity.class.getName()),
+                magiskSupported, isAdmin, pm);
+
+	//KA    
         boolean kapresent = false;
         try {
             kapresent = (getPackageManager().getPackageInfo("com.grarak.kerneladiutor", 0).versionCode > 0);
@@ -1206,7 +1218,8 @@ public class SettingsActivity extends SettingsDrawerActivity
         setTileEnabled(new ComponentName(packageName,
                         Settings.KActivity.class.getName()),
                 kapresent, isAdmin, pm);
-
+	
+	//Themes
         boolean themesSupported = false;
         try {
             themesSupported = (getPackageManager().getPackageInfo("projekt.substratum", 0).versionCode > 0);
@@ -1218,16 +1231,6 @@ public class SettingsActivity extends SettingsDrawerActivity
 
         // Reveal development-only quick settings tiles
         DevelopmentTiles.setTilesEnabled(this, showDev);
-
-        // Magisk Manager
-        boolean magiskSupported = false;
-        try {
-            magiskSupported = (getPackageManager().getPackageInfo("com.topjohnwu.magisk", 0).versionCode > 0);
-        } catch (PackageManager.NameNotFoundException e) {
-        }
-        setTileEnabled(new ComponentName(packageName,
-                        Settings.MagiskActivity.class.getName()),
-                magiskSupported, isAdmin, pm);
 
         // Show scheduled power on and off if support
         boolean showTimerSwitch = false;
