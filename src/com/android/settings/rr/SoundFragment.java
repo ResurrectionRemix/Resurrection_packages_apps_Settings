@@ -37,7 +37,6 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
 import com.android.settings.rr.SeekBarPreference;
-import cyanogenmod.providers.CMSettings;
 
 public class SoundFragment extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -68,8 +67,8 @@ public class SoundFragment extends SettingsPreferenceFragment implements
         mWiredHeadsetRingtoneFocus.setOnPreferenceChangeListener(this);
 
         mLaunchPlayerHeadsetConnection = (ListPreference) findPreference(HEADSET_CONNECT_PLAYER);
-        int mLaunchPlayerHeadsetConnectionValue = CMSettings.System.getIntForUser(resolver,
-                CMSettings.System.HEADSET_CONNECT_PLAYER, 0, UserHandle.USER_CURRENT);
+        int mLaunchPlayerHeadsetConnectionValue = Settings.System.getIntForUser(resolver,
+                Settings.System.HEADSET_CONNECT_PLAYER, 0, UserHandle.USER_CURRENT);
         mLaunchPlayerHeadsetConnection.setValue(Integer.toString(mLaunchPlayerHeadsetConnectionValue));
         mLaunchPlayerHeadsetConnection.setSummary(mLaunchPlayerHeadsetConnection.getEntry());
         mLaunchPlayerHeadsetConnection.setOnPreferenceChangeListener(this);
@@ -90,7 +89,7 @@ public class SoundFragment extends SettingsPreferenceFragment implements
             int index = mLaunchPlayerHeadsetConnection.findIndexOfValue((String) newValue);
             mLaunchPlayerHeadsetConnection.setSummary(
                     mLaunchPlayerHeadsetConnection.getEntries()[index]);
-            CMSettings.System.putIntForUser(resolver, CMSettings.System.HEADSET_CONNECT_PLAYER,
+            Settings.System.putIntForUser(resolver, Settings.System.HEADSET_CONNECT_PLAYER,
                     mLaunchPlayerHeadsetConnectionValue, UserHandle.USER_CURRENT);
             return true;
         }
