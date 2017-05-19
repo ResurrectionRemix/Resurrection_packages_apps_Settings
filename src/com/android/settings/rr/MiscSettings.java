@@ -36,6 +36,7 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
 import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import com.android.settings.util.Helpers;
 import dalvik.system.VMRuntime;
 
@@ -55,20 +56,22 @@ public class MiscSettings extends SettingsPreferenceFragment  implements OnPrefe
 
     private static final String SELINUX = "selinux";
     private static final String RR_OTA = "rr_ota_fab";
+    private static final String RR_INCALL = "rr_incall";
 
     private SwitchPreference mConfig;
     private SwitchPreference mSelinux;
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
+    private PreferenceScreen mIncall;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.rr_misc);
-  	final ContentResolver resolver = getActivity().getContentResolver();
+  	    final ContentResolver resolver = getActivity().getContentResolver();
 
-	//SELinux
+	    //SELinux
         mSelinux = (SwitchPreference) findPreference(SELINUX);
         mSelinux.setOnPreferenceChangeListener(this);
 
@@ -90,6 +93,12 @@ public class MiscSettings extends SettingsPreferenceFragment  implements OnPrefe
         if (!mFingerprintManager.isHardwareDetected()){
             getPreferenceScreen().removePreference(mFingerprintVib);
         }
+
+        PreferenceScreen mIncall = (PreferenceScreen) findPreference(RR_INCALL);
+        if (!isVoiceCapable(getActivity())) {
+            getPreferenceScreen().removePreference(mIncall);
+        }
+
     }
 
     @Override
@@ -100,6 +109,15 @@ public class MiscSettings extends SettingsPreferenceFragment  implements OnPrefe
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+    /**
+     * Returns whether the device is voice-capable (meaning, it is also a phone).
+     */
+    public static boolean isVoiceCapable(Context context) {
+        TelephonyManager telephony =
+                (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        return telephony != null && telephony.isVoiceCapable();
     }
 
     private void setSelinuxEnabled(String status) {
