@@ -14,7 +14,11 @@
 package com.android.settings.rr;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.ContentResolver;
 import android.os.Bundle;
+import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.app.Fragment;
 import android.preference.PreferenceFragment;
 
@@ -42,15 +46,19 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
 
 	private static final String DISABLE_IMMERSIVE_MESSAGE = "disable_immersive_message";
 	private static final String NOTIFICATION_GUTS_KILL_APP_BUTTON = "notification_guts_kill_app_button";
+    private static final String NO_NAVIGATION_NOTIFICATION = "no_navigation_notification";
 
 	private SwitchPreference mDisableIM;
     private SwitchPreference mNotificationKill;
+    private SwitchPreference mNoNavigationNotification;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_notif_settings);
+        final Activity activity = getActivity(); 
+		ContentResolver resolver = getActivity().getContentResolver();
 
 		mDisableIM = (SwitchPreference) findPreference(DISABLE_IMMERSIVE_MESSAGE);
         mDisableIM.setOnPreferenceChangeListener(this);
@@ -60,6 +68,13 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
 
         mNotificationKill = (SwitchPreference) findPreference(NOTIFICATION_GUTS_KILL_APP_BUTTON);
         mNotificationKill.setOnPreferenceChangeListener(this);
+
+        mNoNavigationNotification = (SwitchPreference) findPreference(NO_NAVIGATION_NOTIFICATION);
+
+        boolean isNavNotificationEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.NO_NAVIGATION_NOTIFICATION, 1, UserHandle.USER_CURRENT) != 0;
+        mNoNavigationNotification.setChecked(isNavNotificationEnabled);
+        mNoNavigationNotification.setOnPreferenceChangeListener(this);
 
     }
 
@@ -76,6 +91,12 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
                 // By restarting SystemUI, we can re-create all notifications
                 Helpers.showSystemUIrestartDialog(getActivity());
                 return true;
+        }  else if (preference.equals(mNoNavigationNotification)) {
+            boolean isNavNotificationEnabled = ((Boolean)newValue);
+            Settings.System.putIntForUser(getContentResolver(), Settings.System.NO_NAVIGATION_NOTIFICATION,
+                    isNavNotificationEnabled ? 1 : 0, UserHandle.USER_CURRENT);
+            mNoNavigationNotification.setChecked(isNavNotificationEnabled);
+            return true;
         }
         return false;
 	}
