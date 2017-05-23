@@ -517,6 +517,10 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                                     Settings.System.KEY_VOICEMAIL_BREATH ,0);
                             Settings.System.putInt(mResolver,
                                     Settings.System.KEY_SMS_BREATH, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.HEADER_WEATHER_ENABLED, 0);
+                            Settings.System.putInt(mResolver,
+                                    Settings.System.ENABLE_TASK_MANAGER, 0);
     }
 
 
