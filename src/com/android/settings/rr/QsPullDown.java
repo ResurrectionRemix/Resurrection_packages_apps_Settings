@@ -29,6 +29,8 @@ import android.support.v7.preference.PreferenceScreen;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
+import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -46,6 +48,8 @@ public class QsPullDown extends SettingsPreferenceFragment implements
 	protected ContentResolver mContentRes;
 	private ListPreference mQuickPulldown;
 	private ListPreference mSmartPulldown;
+    private SystemSettingSwitchPreference mQuickPulldownFp;
+    private FingerprintManager mFingerprintManager;
 
     @Override
     protected int getMetricsCategory() {

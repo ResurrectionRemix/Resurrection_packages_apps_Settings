@@ -1185,11 +1185,7 @@ public class ManageApplications extends InstrumentedFragment
 
         @Override
         public boolean isEnabled(int position) {
-            if (mManageApplications.mListType != LIST_TYPE_HIGH_POWER) {
-                return true;
-            }
-            ApplicationsState.AppEntry entry = mEntries.get(position);
-            return !PowerWhitelistBackend.getInstance().isSysWhitelisted(entry.info.packageName);
+            return true;
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {

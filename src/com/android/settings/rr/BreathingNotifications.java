@@ -13,12 +13,16 @@
 */
 package com.android.settings.rr;
 
+import android.content.ContentResolver;
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
+import android.provider.Settings;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
@@ -28,7 +32,12 @@ import com.android.settings.Utils;
 
 public class BreathingNotifications extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String TAG = "MainSettings";
+    private static final String MISSED_CALL_BREATH = "missed_call_breath";
+    private static final String VOICEMAIL_BREATH = "voicemail_breath";
+
+    private SwitchPreference mMissedCallBreath;
+    private SwitchPreference mVoicemailBreath;
+    
 
     @Override
     protected int getMetricsCategory() {
