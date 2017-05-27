@@ -17,7 +17,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
-import android.hardware.fingerprint.FingerprintManager;
 import android.provider.Settings;
 import android.os.Bundle;
 import android.os.UserHandle;
@@ -49,7 +48,6 @@ public class QsPullDown extends SettingsPreferenceFragment implements
 	private ListPreference mQuickPulldown;
 	private ListPreference mSmartPulldown;
     private SystemSettingSwitchPreference mQuickPulldownFp;
-    private FingerprintManager mFingerprintManager;
 
     @Override
     protected int getMetricsCategory() {
@@ -69,7 +67,6 @@ public class QsPullDown extends SettingsPreferenceFragment implements
 
 		PreferenceScreen prefs = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
-        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         mSmartPulldown = (ListPreference) findPreference(PREF_SMART_PULLDOWN);
         mSmartPulldown.setOnPreferenceChangeListener(this);
@@ -95,7 +92,7 @@ public class QsPullDown extends SettingsPreferenceFragment implements
         mQuickPulldown.setOnPreferenceChangeListener(this);
 
         mQuickPulldownFp = (SystemSettingSwitchPreference) findPreference(PREF_QUICK_PULLDOWN_FP);
-        if (!mFingerprintManager.isHardwareDetected()) {
+        if (!getResources().getBoolean(com.android.internal.R.bool.config_supportSystemNavigationKeys)) {
              getPreferenceScreen().removePreference(mQuickPulldownFp);
         } else {
              mQuickPulldownFp.setChecked((Settings.System.getInt(getContentResolver(),
