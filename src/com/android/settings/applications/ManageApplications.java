@@ -412,7 +412,7 @@ public class ManageApplications extends InstrumentedFragment
             case LIST_TYPE_STORAGE:
                 return mSortOrder == R.id.sort_order_alpha;
             default:
-                return false;
+                return true;
         }
     }
 
@@ -1034,7 +1034,7 @@ public class ManageApplications extends InstrumentedFragment
         }
 
         private void rebuildSections() {
-            if (mEntries!= null && mManageApplications.mListView.isFastScrollEnabled()) {
+            if (mEntries!= null && mManageApplications.isFastScrollEnabled()) {
                 // Rebuild sections
                 if (mIndex == null) {
                     LocaleList locales = mContext.getResources().getConfiguration().getLocales();
