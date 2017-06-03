@@ -305,11 +305,21 @@ public class TetherSettings extends RestrictedSettingsFragment
     }
 
     private void updateHotspotTimeoutSummary(WifiConfiguration wifiConfig) {
-        mHotspotInactivityTimeout.setValue(
-                (wifiConfig == null) ? "0" : Long.toString(wifiConfig.wifiApInactivityTimeout));
-        mHotspotInactivityTimeout.setSummary(String.format(
-                getString(R.string.hotstpot_inactivity_timeout_summary_text,
-                        mHotspotInactivityTimeout.getEntry())));
+        if (wifiConfig == null) {
+            mHotspotInactivityTimeout.setValue("0");
+            mHotspotInactivityTimeout.setSummary(
+                    getString(R.string.hotstpot_inactivity_timeout_never_summary_text));
+        } else {
+            mHotspotInactivityTimeout.setValue(Long.toString(wifiConfig.wifiApInactivityTimeout));
+            if (wifiConfig.wifiApInactivityTimeout > 0) {
+                mHotspotInactivityTimeout.setSummary(String.format(
+                        getString(R.string.hotstpot_inactivity_timeout_summary_text,
+                                mHotspotInactivityTimeout.getEntry())));
+            } else {
+                mHotspotInactivityTimeout.setSummary(
+                        getString(R.string.hotstpot_inactivity_timeout_never_summary_text));
+            }
+        }
     }
 
     @Override
