@@ -412,7 +412,7 @@ public class ManageApplications extends InstrumentedFragment
             case LIST_TYPE_STORAGE:
                 return mSortOrder == R.id.sort_order_alpha;
             default:
-                return false;
+                return true;
         }
     }
 
@@ -1034,7 +1034,7 @@ public class ManageApplications extends InstrumentedFragment
         }
 
         private void rebuildSections() {
-            if (mEntries!= null && mManageApplications.mListView.isFastScrollEnabled()) {
+            if (mEntries!= null && mManageApplications.isFastScrollEnabled()) {
                 // Rebuild sections
                 if (mIndex == null) {
                     LocaleList locales = mContext.getResources().getConfiguration().getLocales();
@@ -1185,11 +1185,7 @@ public class ManageApplications extends InstrumentedFragment
 
         @Override
         public boolean isEnabled(int position) {
-            if (mManageApplications.mListType != LIST_TYPE_HIGH_POWER) {
-                return true;
-            }
-            ApplicationsState.AppEntry entry = mEntries.get(position);
-            return !PowerWhitelistBackend.getInstance().isSysWhitelisted(entry.info.packageName);
+            return true;
         }
 
         public View getView(int position, View convertView, ViewGroup parent) {

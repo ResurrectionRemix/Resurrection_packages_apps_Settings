@@ -28,9 +28,12 @@ import android.support.v7.preference.PreferenceScreen;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
+import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
+
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+
 
 import cyanogenmod.providers.CMSettings;
 
@@ -39,10 +42,12 @@ public class QsPullDown extends SettingsPreferenceFragment implements
     private static final String TAG = "QsPullDown";
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
 	private static final String PREF_SMART_PULLDOWN = "smart_pulldown";
+    private static final String PREF_QUICK_PULLDOWN_FP = "quick_pulldown_fp";
 	protected Context mContext;
 	protected ContentResolver mContentRes;
 	private ListPreference mQuickPulldown;
 	private ListPreference mSmartPulldown;
+    private SystemSettingSwitchPreference mQuickPulldownFp;
 
     @Override
     protected int getMetricsCategory() {
@@ -85,6 +90,16 @@ public class QsPullDown extends SettingsPreferenceFragment implements
                     res.getString(R.string.status_bar_quick_qs_pulldown_summary, direction));
         }
         mQuickPulldown.setOnPreferenceChangeListener(this);
+
+        mQuickPulldownFp = (SystemSettingSwitchPreference) findPreference(PREF_QUICK_PULLDOWN_FP);
+        if (!getResources().getBoolean(com.android.internal.R.bool.config_supportSystemNavigationKeys)) {
+             getPreferenceScreen().removePreference(mQuickPulldownFp);
+        } else {
+             mQuickPulldownFp.setChecked((Settings.System.getInt(getContentResolver(),
+                   Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN_FP, 0) == 1));
+             mQuickPulldownFp.setOnPreferenceChangeListener(this);
+        }
+
     }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -110,7 +125,12 @@ public class QsPullDown extends SettingsPreferenceFragment implements
                         res.getString(R.string.status_bar_quick_qs_pulldown_summary, direction));
             }
             return true;
-		} 
+		} else if (preference == mQuickPulldownFp) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN_FP, value ? 1 : 0);
+            return true;
+        }
 		return false;
     }
 

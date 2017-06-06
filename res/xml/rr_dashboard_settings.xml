@@ -38,6 +38,13 @@
                 android:defaultValue="true" />
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+                android:key="show_settings_header"
+                android:title="@string/show_settings_header_title"
+                android:summaryOn="@string/show_settings_header_summary"
+                android:defaultValue="false"
+                android:dependency="show_settings_drawer" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="disable_dashboard_suggestions"
                 android:title="@string/dashboard_suggestions_title"
                 android:summaryOn="@string/summary_dashboard_suggestions_disabled"

@@ -21,14 +21,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+
 import com.android.settings.fuelgauge.PowerUsageFeatureProvider;
+
 import java.util.List;
 
-public final class PowerUsageFeatureProviderImpl
-implements PowerUsageFeatureProvider {
+public final class PowerUsageFeatureProviderImpl implements PowerUsageFeatureProvider {
     static final String ADDITIONAL_BATTERY_INFO_ACTION = "com.google.android.apps.turbo.SHOW_ADDITIONAL_BATTERY_INFO";
     static final String ADDITIONAL_BATTERY_INFO_PACKAGE = "com.google.android.apps.turbo";
     static final String ADDITIONAL_BATTERY_INFO_ENABLED = "settings:additional_battery_info_enabled";
+
     private Context mContext;
 
     public PowerUsageFeatureProviderImpl(Context context) {
@@ -46,8 +48,6 @@ implements PowerUsageFeatureProvider {
      */
     public boolean isAdditionalBatteryInfoEnabled() {
         Intent intent = getAdditionalBatteryInfoIntent();
-        boolean bl2 = mContext.getPackageManager().queryIntentActivities(intent, 0).isEmpty();
-        if (!bl2) return true;
-        return false;
+        return !mContext.getPackageManager().queryIntentActivities(intent, 0).isEmpty();
     }
 }

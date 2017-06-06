@@ -70,9 +70,6 @@ public class HighPowerDetail extends DialogFragment implements OnClickListener,
                 ? R.string.ignore_optimizations_on_desc : R.string.ignore_optimizations_off_desc);
         view.setClickable(true);
         view.setOnClickListener(this);
-        if (!on && mBackend.isSysWhitelisted(mPackageName)) {
-            view.setEnabled(false);
-        }
         return (Checkable) view;
     }
 
@@ -82,9 +79,7 @@ public class HighPowerDetail extends DialogFragment implements OnClickListener,
                 .setTitle(mLabel)
                 .setNegativeButton(R.string.cancel, null)
                 .setView(R.layout.ignore_optimizations_content);
-        if (!mBackend.isSysWhitelisted(mPackageName)) {
-            b.setPositiveButton(R.string.done, this);
-        }
+        b.setPositiveButton(R.string.done, this);
         return b.create();
     }
 
@@ -142,8 +137,7 @@ public class HighPowerDetail extends DialogFragment implements OnClickListener,
 
     public static CharSequence getSummary(Context context, String pkg) {
         PowerWhitelistBackend powerWhitelist = PowerWhitelistBackend.getInstance();
-        return context.getString(powerWhitelist.isSysWhitelisted(pkg) ? R.string.high_power_system
-                : powerWhitelist.isWhitelisted(pkg) ? R.string.high_power_on
+        return context.getString(powerWhitelist.isWhitelisted(pkg) ? R.string.high_power_on
                 : R.string.high_power_off);
     }
 
