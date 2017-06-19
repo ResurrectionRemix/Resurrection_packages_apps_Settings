@@ -36,6 +36,17 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/pattern_sizes"
+        android:layout_width="@dimen/crypt_keeper_pattern_size"
+        android:layout_height="@dimen/crypt_keeper_pattern_size"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal">
+
+        <include layout="@layout/crypt_keeper_pattern_sizes" />
+
+    </LinearLayout>
+
     <include layout="@layout/crypt_keeper_emergency_button" />
 
 </LinearLayout>
