@@ -43,17 +43,14 @@ public class LockScreenSecurity extends SettingsPreferenceFragment implements
 
 
 	private static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_cofig";
-    private static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
 
-	private SeekBarPreference mMaxKeyguardNotifConfig;
-    private SwitchPreference mFpKeystore;
-    private FingerprintManager mFingerprintManager;
+    private SeekBarPreference mMaxKeyguardNotifConfig;
 
 
     @Override
     protected int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
-		}
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,19 +58,6 @@ public class LockScreenSecurity extends SettingsPreferenceFragment implements
         final ContentResolver resolver = getActivity().getContentResolver();
 
         addPreferencesFromResource(R.xml.rr_ls_security);
-        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
-
-
-        mFpKeystore = (SwitchPreference) findPreference(FP_UNLOCK_KEYSTORE);
-        if (mFpKeystore !=null) {
-            if (!mFingerprintManager.isHardwareDetected()){
-            getPreferenceScreen().removePreference(mFpKeystore);
-            } else {
-            mFpKeystore.setChecked((Settings.System.getInt(getContentResolver(),
-                        Settings.System.FP_UNLOCK_KEYSTORE, 0) == 1));
-            mFpKeystore.setOnPreferenceChangeListener(this);
-            }
-        }
 		
         mMaxKeyguardNotifConfig = (SeekBarPreference) findPreference(LOCKSCREEN_MAX_NOTIF_CONFIG);
         int kgconf = Settings.System.getInt(getContentResolver(),
@@ -83,18 +67,13 @@ public class LockScreenSecurity extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue){
-        	ContentResolver resolver = getActivity().getContentResolver();
- 			if (preference == mMaxKeyguardNotifConfig) {
+      ContentResolver resolver = getActivity().getContentResolver();
+      if (preference == mMaxKeyguardNotifConfig) {
             int kgconf = (Integer) objValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, kgconf);
             return true;
-        	} else if (preference == mFpKeystore) {
-            boolean value = (Boolean) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.FP_UNLOCK_KEYSTORE, value ? 1 : 0);
-            return true;
-            }
-	return false;
+      }
+	  return false;
     }
 }
