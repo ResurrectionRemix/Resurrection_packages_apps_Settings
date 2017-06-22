@@ -20,6 +20,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/incall_vibration_category">
 
+    <!-- In-Call DND -->
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="dnd_when_call"
+            android:title="@string/dnd_when_call_title"
+            android:summary="@string/dnd_when_call_summary"
+            android:defaultValue="true" />
+
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="vibrate_on_connect"
                 android:title="@string/incall_vibrate_connect_title"

@@ -54,6 +54,29 @@
             android:title="@string/expanded_desktop_category" />
 
         <PreferenceScreen
+            android:key="rr_fp"
+            android:title="@string/rr_fp_title"
+            android:summary="@string/rr_fp_summary"
+            android:icon="@drawable/rr_fingerprint_icon"
+            android:fragment="com.android.settings.rr.FingerPrintSettings" />
+
+        <!-- Sound -->
+        <PreferenceScreen
+            android:key="rr_sound"
+            android:title="@string/rr_sound_title"
+            android:summary="@string/rr_sound_summary"
+            android:fragment="com.android.settings.rr.SoundFragment"
+            android:icon="@drawable/rr_sound_icon"
+            />
+
+        <PreferenceScreen
+            android:key="rr_incall"
+            android:title="@string/rr_incall"
+            android:summary="@string/rr_incall_summary"
+            android:icon="@drawable/rr_call_icon"
+            android:fragment="com.android.settings.rr.InCallSettings" />
+
+        <PreferenceScreen
             android:key="doze_fragment"
             android:title="@string/doze_title"
             android:icon="@drawable/rr_ambient_display_icon"
@@ -81,34 +104,17 @@
             android:summary="@string/rr_heads_up_summary"
             android:fragment="com.android.settings.rr.Headsup" />
 
-        <PreferenceCategory
-            android:key="screenshot_options"
-            android:title="@string/screenshot_options_category" >
-
-        <com.android.settings.rr.SeekBarPreference
-            android:key="screenshot_delay"
-            android:title="@string/screenshot_delay_title"
-            android:summary="@string/screenshot_delay_summary"
-            settings:maximum="10000"
-            settings:minimum="100"
-            settings:interval="100"
-            settings:defaultVal="1000"
-            settings:units="ms"
-            android:persistent="false" />
-
-         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="screenshot_crop_and_share"
-            android:title="@string/screenshot_crop_and_share_title"
-            android:summary="@string/screenshot_crop_and_share_summary"
-            android:defaultValue="false" />
-
-        <ListPreference
-            android:entries="@array/screenshot_type_entries"
-            android:entryValues="@array/screenshot_type_values"
+        <PreferenceScreen
+            android:key="rr_screenshot"
+            android:title="@string/screenshot_options_category"
             android:icon="@drawable/rr_screenshots"
-            android:key="screenshot_type"
-            android:title="@string/screenshot_type_title" />
+            android:summary="@string/screenshot_options_summary"
+            android:fragment="com.android.settings.rr.ScreenShotSettings" />
 
-        </PreferenceCategory>
-
+        <PreferenceScreen
+            android:key="rr_ui_other"
+            android:title="@string/interface_other_title"
+            android:icon="@drawable/rr_misc_interface_icon"
+            android:summary="@string/interface_other_summary"
+            android:fragment="com.android.settings.rr.MiscInterfaceSettings" />
 </PreferenceScreen>
