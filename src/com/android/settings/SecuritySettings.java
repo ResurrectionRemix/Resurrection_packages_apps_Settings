@@ -117,6 +117,7 @@ public class SecuritySettings extends SettingsPreferenceFragment
     private static final String PACKAGE_MIME_TYPE = "application/vnd.android.package-archive";
     private static final String KEY_TRUST_AGENT = "trust_agent";
     private static final String KEY_SCREEN_PINNING = "screen_pinning_settings";
+    private static final String KEY_LOCK_SCREEN_BLUR_ENABLED = "lock_screen_blur_enabled";
     private static final int PASSWORD_VISIBLE = 1;
     private static final int PASSWORD_INVISIBLE = 0;
 
@@ -1015,6 +1016,11 @@ public class SecuritySettings extends SettingsPreferenceFragment
             if (!lockPatternUtils.isSecure(MY_USER_ID)) {
                 keys.add(KEY_TRUST_AGENT);
                 keys.add(KEY_MANAGE_TRUST_AGENTS);
+            }
+
+            if (!context.getResources().getBoolean(
+                    com.android.internal.R.bool.config_uiBlurEnabled)) {
+                keys.add(KEY_LOCK_SCREEN_BLUR_ENABLED);
             }
 
             return keys;
