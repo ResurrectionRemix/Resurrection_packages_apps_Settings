@@ -132,6 +132,7 @@
   <string name="system_animations">Rendszeranimációk</string>
   <string name="rr_ui_title">Felület</string>
   <string name="rr_dash_board_title">Vezérlőpult</string>
+  <string name="rr_fp_title">Ujjlenyomat beállítások</string>
   <string name="recents_type_title">Előzmények típusa</string>
   <string name="recents_stock">Gyári AOSP</string>
   <string name="recents_omniswitch">OmniSwitch</string>
@@ -187,6 +188,7 @@
   <string name="system_app_remover_summary">Szükségtelen rendszeralkalmazások eltávolítása</string>
   <string name="rr_updater_summary">OTA-frissítések és egyéb linkek ellenőrzése</string>
   <string name="rr_notif_settings_summary">Értesítés megjelenésének testreszabása az értesítési panelen</string>
+  <string name="rr_fp_summary">Ujjlenyomat érzékelő testreszabási lehetőségei</string>
   <!-- Manage applications: show substratum overlays -->
   <string name="filter_substratum_apps">Substratum fedvények</string>
   <string name="menu_show_substratum">Fedvények megjelenítése</string>
@@ -1473,6 +1475,8 @@
   <string name="navbar_button_color">Navigációs sáv gombok</string>
   <string name="navbar_button_custom_icon_switch_title">Színszűrő hozzáadása az alkalmazásgombokhoz</string>
   <string name="icon_pack_picker_dialog_title">Ikoncsomagok</string>
+  <string name="navigation_bar_left_title">Balkezes üzemmód</string>
+  <string name="navigation_bar_left_summary">Fekvő módban a navigációs sáv a bal oldalon jelenik meg</string>
   <string name="invalid_icon_from_uri">Nem sikerült betölteni a képet a tartalomszolgáltatótól</string>
   <string name="picker_activities">Tevékenységek</string>
   <string name="select_custom_app_title">Egyéni alkalmazás választása</string>
@@ -1793,10 +1797,14 @@
   <string name="screenshot_type_title">Képernyőmentés típusa</string>
   <string name="screenshot_type_fullscreen">Teljes képernyős</string>
   <string name="screenshot_type_partial">Képernyőmentés területének kijelölése</string>
-  <!-- Screenshot delay -->
+  <!-- Screenshot -->
   <string name="screenshot_options_category">Képernyőmentési beállítások</string>
   <string name="screenshot_delay_title">Képernyőmentés késleltetés</string>
   <string name="screenshot_delay_summary">Képernyőmentés készítési idő beállítása</string>
+  <string name="screenshot_options_summary">Testreszabhatja a képernyőmentés beállításait, mint az idő, a késeleltetés, a típusa, stb.</string>
+  <!-- Interface -->
+  <string name="interface_other_title">Egyéb</string>
+  <string name="interface_other_summary">A felület egyéb tartalmainak testreszabása</string>
   <!--Screenshot crop and share -->
   <string name="screenshot_crop_and_share_title">Képernyőmentés vágás és megosztás</string>
   <string name="screenshot_crop_and_share_summary">A szerkesztő ablak megjelenítése képernyőmentés után, annak érdekében, hogy elvégezhessen bizonyos műveleteket, mint a vágás, mentés és megosztás</string>
@@ -2155,6 +2163,7 @@
   <string name="no_iconpacks_summary">Nincs ikoncsomag telepitve</string>
   <string name="dialog_pick_iconpack_title">Ikoncsomag választása</string>
   <string name="default_iconpack_title">Alapértelmezett ikonok</string>
+  <string name="slim_recents_corner_radius_title">Használjon lekerekített sarkokat a kártyáknál</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
   <string name="recent_panel_lefty_mode_title">Bal oldalon jelenítse meg</string>
   <string name="recent_panel_lefty_mode_summary">Az előzmények panelt a bal oldalon jelenítse meg</string>
@@ -2219,8 +2228,8 @@
   <string name="data_wifi_activity_arrows_title">Mobilnet/Wifi tevékenység</string>
   <string name="data_wifi_activity_arrows_summary">Mobilnet/Wifi tevékenység nyilak megjelenítése</string>
   <!-- Screen state service -->
-  <string name="screen_state_toggles_summary">\@null</string>
   <string name="screen_state_toggles_title">Felfüggesztett műveletek</string>
+  <string name="screen_state_toggles_summary">Válassza ki azon műveleteket, amikor kikapcsolja a képernyőt.</string>
   <string name="screen_state_toggles_enable_title">Engedélyez</string>
   <string name="screen_state_toggles_enable_summary">Az intézkedések a képernyő kikapcsolásakor végrehajtódnak. A képernyő bekapcsolása esetén az előző állapot áll vissza.</string>
   <string name="screen_state_toggles_mobile_title">Mobilhálózatok</string>
@@ -2240,6 +2249,8 @@
   <string name="dnd_when_call_summary">Hívások közben automatikusan engedélyezi a ne zavarjanak módot</string>
   <string name="no_sim_cluster_switch_title">Nincs SIM hálózat elrejtése</string>
   <string name="no_sim_cluster_switch_summary">Elrejti a hálózati sávot, ha a SIM előfizetése inaktív és le van tiltva. Ha a SIM-kártya nincs letiltva, ez a kapcsoló nem fog működni</string>
+  <string name="disable_no_sim_title">Nincs SIM ikon letiltása</string>
+  <string name="disable_no_sim_summary">Tiltsa le a nincs SIM-kártya ikont, ha nincs SIM</string>
   <!-- Advanced night mode brightness -->
   <string name="night_brightness_category">Fényerő</string>
   <string name="night_brightness_value_title">Éjszakai fény fényerő</string>
@@ -2273,6 +2284,12 @@
   <!-- FP gesture -->
   <string name="quick_pulldown_fp_title">Gyors legördítés ujjlenyomattal</string>
   <string name="quick_pulldown_fp_summary">A gyorsbeállítások panel kibontása az ujjlenyomat-érzékelő egyetlen érintésével</string>
+  <string name="fp_swipe_call_actions_title">Ujjlenyomat hívás gesztusok</string>
+  <string name="fp_swipe_call_actions_disabled">Kikapcsolva</string>
+  <string name="fp_swipe_call_actions_updown_answer_call">Csúsztatás fel vagy le a hívás fogadásához</string>
+  <string name="fp_swipe_call_actions_up_answer_down_silence">Csúsztatás fel a hívás fogadásához, le a némításához</string>
   <string name="recents_lock_icon_title">Zárolás ikon</string>
-  <string name="recents_lock_icon_summary">Zárolás ikon megjelenítése a fejlécen az előzményekben</string>
+  <string name="recents_lock_icon_summary">Zárolás ikon megjelenítése az előzményablakok fejlécein</string>
+  <string name="nav_button_sounds_title">Érintési hangok</string>
+  <string name="nav_button_sounds_summary">Hang lejátszása a smartbar érintése esetén. Csak csengő/hangos módban</string>
 </resources>

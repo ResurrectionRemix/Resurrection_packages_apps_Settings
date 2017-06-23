@@ -17,6 +17,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemProperties;
@@ -28,6 +29,7 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
 import com.android.settings.accessibility.ToggleFontSizePreferenceFragment;
 import android.provider.Settings;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
@@ -38,18 +40,17 @@ import com.android.settings.Utils;
 
 import com.android.settings.rr.SeekBarPreference;
 
-public class UISettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+public class UISettings extends SettingsPreferenceFragment {
     private static final String TAG = "UI";
     private static final String KEY_FONT_SIZE = "font_size";
-    private static final String SCREENSHOT_TYPE = "screenshot_type";
-    private static final String SCREENSHOT_DELAY = "screenshot_delay";
     private static final String KEY_DOZE_FRAGMENT = "doze_fragment";
+    private static final String RR_INCALL = "rr_incall";
 
     private Preference mFontSizePref;
-    private ListPreference mScreenshotType;
-    private SeekBarPreference mScreenshotDelay;
     private PreferenceScreen mDozeFragement;
+    private FingerprintManager mFingerprintManager;
+    private PreferenceScreen mFingerprint;
+    private PreferenceScreen mIncall;
 
     @Override
     protected int getMetricsCategory() {
@@ -65,42 +66,22 @@ public class UISettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_ui_settings);
  		mFontSizePref = findPreference(KEY_FONT_SIZE);
 
-        mScreenshotType = (ListPreference) findPreference(SCREENSHOT_TYPE);
-        int mScreenshotTypeValue = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.SCREENSHOT_TYPE, 0);
-        mScreenshotType.setValue(String.valueOf(mScreenshotTypeValue));
-        mScreenshotType.setSummary(mScreenshotType.getEntry());
-        mScreenshotType.setOnPreferenceChangeListener(this);
-
-        mScreenshotDelay = (SeekBarPreference) findPreference(SCREENSHOT_DELAY);
-        int screenshotDelay = Settings.System.getInt(resolver,
-                Settings.System.SCREENSHOT_DELAY, 1000);
-        mScreenshotDelay.setValue(screenshotDelay / 1);
-        mScreenshotDelay.setOnPreferenceChangeListener(this);
-
         mDozeFragement = (PreferenceScreen) findPreference(KEY_DOZE_FRAGMENT);
         if (!isDozeAvailable(activity)) {
             getPreferenceScreen().removePreference(mDozeFragement);
             mDozeFragement = null;
-         }
-    }
+        }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        if  (preference == mScreenshotType) {
-            int mScreenshotTypeValue = Integer.parseInt(((String) objValue).toString());
-            mScreenshotType.setSummary(
-                    mScreenshotType.getEntries()[mScreenshotTypeValue]);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.SCREENSHOT_TYPE, mScreenshotTypeValue);
-            mScreenshotType.setValue(String.valueOf(mScreenshotTypeValue));
-            return true;
-        } else if (preference == mScreenshotDelay) {
-            int screenshotDelay = (Integer) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.SCREENSHOT_DELAY, screenshotDelay * 1);
-            return true;
-         }
-        return false;
+        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);        
+        mFingerprint = (PreferenceScreen) findPreference("rr_fp");
+        if (!mFingerprintManager.isHardwareDetected()){
+             getPreferenceScreen().removePreference(mFingerprint);
+        }
+
+        PreferenceScreen mIncall = (PreferenceScreen) findPreference(RR_INCALL);
+        if (!isVoiceCapable(getActivity())) {
+            getPreferenceScreen().removePreference(mIncall);
+        }
     }
 
     private void updateFontSizeSummary() {
@@ -124,9 +105,18 @@ public class UISettings extends SettingsPreferenceFragment implements
         return !TextUtils.isEmpty(name);
      }
 
- @Override
+    @Override
     public void onResume() {
         super.onResume();
         updateFontSizeSummary();
 	}
+
+    /**
+     * Returns whether the device is voice-capable (meaning, it is also a phone).
+     */
+    public static boolean isVoiceCapable(Context context) {
+        TelephonyManager telephony =
+                (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        return telephony != null && telephony.isVoiceCapable();
+    }
 }

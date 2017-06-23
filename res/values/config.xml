@@ -115,4 +115,19 @@
     <!-- Does the device allow for manual subscription provisioning? Only works for multi-sim devices,
          and currently depends on QC's proprietary telephony stack -->
     <bool name="config_enableManualSubProvisioning">true</bool>
+
+    <!-- SAR Level for a device -->
+    <!-- Must be overlaid by device -->
+    <bool name="config_show_sar_enable" translatable="false">false</bool>
+    <!-- Maximum Specific Absorption Rate for head -->
+    <string name="sar_head_level" translatable="false"></string>
+    <!-- Maximum Specific Absorption Rate for body -->
+    <string name="sar_body_level" translatable="false"></string>
+
+    <!-- IC Code for a device -->
+    <!-- Must be overlaid by device -->
+    <bool name="config_show_ic_enable" translatable="false">false</bool>
+    <!-- IC Code -->
+    <string name="ic_code" translatable="false"></string>
+    <string name="ic_model" translatable="false"></string>
 </resources>

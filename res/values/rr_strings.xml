@@ -143,6 +143,7 @@
     <string name="system_animations">System animations</string>
     <string name="rr_ui_title">Interface</string>
     <string name="rr_dash_board_title">Dashboard</string>
+    <string name="rr_fp_title">Fingerprint settings</string>
 
     <string name="recents_type_title">Recents type</string>
     <string name="recents_stock">Stock AOSP</string>
@@ -202,6 +203,7 @@
     <string name="system_app_remover_summary">Remove unnecessary system apps</string>
     <string name="rr_updater_summary">Check for OTA updates and other links</string>
     <string name="rr_notif_settings_summary">Customize the look of your notifications in notification panel</string>
+    <string name="rr_fp_summary">Customize various options for the fingerpint sensor</string>
 
 
    <!-- Manage applications: show substratum overlays -->
@@ -353,7 +355,7 @@
 
     <!-- Disabling FC notifications -->
     <string name="disable_fc_notifications_title">Disable FC Notifications</string>
-    <string name="disable_fc_notifications_summary">This will hide all force close notificaitons</string>
+    <string name="disable_fc_notifications_summary">This will hide all force close notifications</string>
 
    <!-- Disabling immersive mode messages -->
    <string name="disable_immersive_message_title">Disable immersive mode messages</string>
@@ -1602,6 +1604,8 @@
     <string name="navbar_button_color">Navigation bar buttons</string>
     <string name="navbar_button_custom_icon_switch_title">Add color filter to application buttons</string>
     <string name="icon_pack_picker_dialog_title">Icon packs</string>
+    <string name="navigation_bar_left_title">Left-handed mode</string>
+    <string name="navigation_bar_left_summary">Show navigation bar on the left hand side in landscape mode</string>
     <string name="invalid_icon_from_uri">Unable to load image from content provider</string>
     <string name="picker_activities">Activities</string>
     <string name="select_custom_app_title">Select custom app</string>
@@ -1949,10 +1953,15 @@
     <string name="screenshot_type_fullscreen">Take fullscreen screenshots</string>
     <string name="screenshot_type_partial">Drag selection on the area you want to take as a screenshot</string>
 
-    <!-- Screenshot delay -->
+    <!-- Screenshot -->
     <string name="screenshot_options_category">Screenshot options</string>
     <string name="screenshot_delay_title">Screenshot delay</string>
     <string name="screenshot_delay_summary">Adjust the time for when a screenshot is captured</string>
+    <string name="screenshot_options_summary">Customize screenshot attributes like time, delay,type etc</string>
+
+    <!-- Interface -->
+    <string name="interface_other_title">Misc</string>
+    <string name="interface_other_summary">Customize miscellaneous contents of the interface</string>
 
     <!--Screenshot crop and share -->
     <string name="screenshot_crop_and_share_title">Screenshot crop &amp; share</string>
@@ -2360,6 +2369,7 @@
     <string name="no_iconpacks_summary">No icon packs installed</string>
     <string name="dialog_pick_iconpack_title">Pick icon pack</string>
     <string name="default_iconpack_title">Default icons</string>
+    <string name="slim_recents_corner_radius_title">Use round corners for cards</string>
 
     <!-- ATTENTION: RTL languages need to replace left with right -->
     <string name="recent_panel_lefty_mode_title">Show on the left edge</string>
@@ -2441,8 +2451,8 @@
     <string name="data_wifi_activity_arrows_summary">Display data/wifi activity arrows</string>
 
     <!-- Screen state service -->
-    <string name="screen_state_toggles_summary">@null</string>
     <string name="screen_state_toggles_title">Suspend actions</string>
+    <string name="screen_state_toggles_summary">Choose a set of actions when you turn your screen off.</string>
     <string name="screen_state_toggles_enable_title">Enable</string>
     <string name="screen_state_toggles_enable_summary">Actions will be executed on screen off. On screen on the previous state will be restored.</string>
     <string name="screen_state_toggles_mobile_title">Mobile networks</string>
@@ -2506,8 +2516,16 @@
     <!-- FP gesture -->
     <string name="quick_pulldown_fp_title">Fingerprint quick pulldown</string>
     <string name="quick_pulldown_fp_summary">Expand the quick settings panel with only one swipe of the fingerprint sensor</string>
+    <string name="fp_swipe_call_actions_title">Fingerprint call gestures</string>
+    <string name="fp_swipe_call_actions_disabled">Disabled</string>
+    <string name="fp_swipe_call_actions_updown_answer_call">Swipe up or down to respond to incoming calls</string>
+    <string name="fp_swipe_call_actions_up_answer_down_silence">Swipe up to respond to incoming calls, down to silence them</string>
 
     <string name="recents_lock_icon_title">Lock icon</string>
     <string name="recents_lock_icon_summary">Show recents lock to task icon in header</string>
+
+    <string name="nav_button_sounds_title">Touch sounds</string>
+    <string name="nav_button_sounds_summary">Play click sound when tapping smartbar.Ringer/loud mode only</string>
+
 
 </resources>

@@ -96,7 +96,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements
         String hexColor;
 
         mShowCarrierLabel = (ListPreference) findPreference(STATUS_BAR_CARRIER);
-        int showCarrierLabel = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_SHOW_CARRIER, 1);
+        int showCarrierLabel = Settings.System.getInt(resolver, Settings.System.STATUS_BAR_SHOW_CARRIER, 0);
         mShowCarrierLabel.setValue(String.valueOf(showCarrierLabel));
         mShowCarrierLabel.setSummary(mShowCarrierLabel.getEntry());
         mShowCarrierLabel.setOnPreferenceChangeListener(this);

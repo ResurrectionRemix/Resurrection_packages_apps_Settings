@@ -132,6 +132,7 @@
   <string name="system_animations">Animazioni di sistema</string>
   <string name="rr_ui_title">Interfaccia</string>
   <string name="rr_dash_board_title">Pannello configurazioni</string>
+  <string name="rr_fp_title">Impostazioni sensore impronta digitale</string>
   <string name="recents_type_title">Tipo di attività recenti</string>
   <string name="recents_stock">AOSP Stock</string>
   <string name="recents_omniswitch">OmniSwitch</string>
@@ -187,6 +188,7 @@
   <string name="system_app_remover_summary">Rimuovi le applicazioni di sistema non necessarie</string>
   <string name="rr_updater_summary">Controlla gli aggiornamenti OTA e altri link</string>
   <string name="rr_notif_settings_summary">Personalizza l\'aspetto delle notifiche nel pannello di notifica</string>
+  <string name="rr_fp_summary">Personalizzare varie opzioni per il sensore impronte digitali</string>
   <!-- Manage applications: show substratum overlays -->
   <string name="filter_substratum_apps">Overlay Substratum</string>
   <string name="menu_show_substratum">Mostra overlay</string>
@@ -1473,6 +1475,8 @@
   <string name="navbar_button_color">Pulsanti barra di navigazione</string>
   <string name="navbar_button_custom_icon_switch_title">Aggiungi filtro colore ai pulsanti applicazione</string>
   <string name="icon_pack_picker_dialog_title">Pacchetti icone</string>
+  <string name="navigation_bar_left_title">Modalità mancino</string>
+  <string name="navigation_bar_left_summary">Visualizzare la barra di navigazione sul lato sinistro in modalità orizzontale</string>
   <string name="invalid_icon_from_uri">Impossibile caricare l\'immagine dal provider di contenuti</string>
   <string name="picker_activities">Attività</string>
   <string name="select_custom_app_title">Seleziona app personalizzata</string>
@@ -1532,9 +1536,9 @@
   <string name="fling_logo_custom_logo_pick_title">Icona del logo personalizzata</string>
   <string name="fling_logo_custom_logo_image_pick_title">Immagine del logo personalizzata</string>
   <string name="fling_logo_custom_logo_reset_title">Ripristina icona logo</string>
-  <string name="fling_show_ripple_title">Mostra increspatura</string>
-  <string name="fling_show_ripple_summary">Effetto increspatura al tocco</string>
-  <string name="fling_ripple_color">Colore increspatura</string>
+  <string name="fling_show_ripple_title">Mostra ondulazione</string>
+  <string name="fling_show_ripple_summary">Effetto ondulazione al tocco</string>
+  <string name="fling_ripple_color">Colore ondulazione</string>
   <string name="fling_longpress_timeout_label_left">Meno ritardo</string>
   <string name="fling_longpress_timeout_label_right">Più ritardo</string>
   <string name="fling_longpress_title">Ritardo pressione prolungata</string>
@@ -1589,7 +1593,7 @@
   <string name="smartbar_button_animation_spring">Rimbalzo</string>
   <string name="smartbar_button_animation_pixel">Pixel (tutti i pulsanti)</string>
   <string name="smartbar_button_animation_pixel_home">Pixel (solo il tasto Home)</string>
-  <string name="smartbar_button_animation_pixel_home_ripple">Pixel (solo tasto home) e Increspatura</string>
+  <string name="smartbar_button_animation_pixel_home_ripple">Pixel (solo tasto home) e ondulazione</string>
   <string name="smartbar_factory_reset_title">Ripristina a predefinito</string>
   <string name="smartbar_factory_reset_confirm">Sei sicuro di voler ripristinare Smart Bar alle impostazioni di fabbrica?</string>
   <string name="smartbar_ime_action_title">Metodo di inserimento e comandi multimediali</string>
@@ -1793,10 +1797,14 @@
   <string name="screenshot_type_title">Tipo di screenshot</string>
   <string name="screenshot_type_fullscreen">Screenshot dell\'intero schermo</string>
   <string name="screenshot_type_partial">Trascinare la selezione sulla zona che si vuole catturare</string>
-  <!-- Screenshot delay -->
+  <!-- Screenshot -->
   <string name="screenshot_options_category">Opzioni screenshot</string>
   <string name="screenshot_delay_title">Ritardo screenshot</string>
   <string name="screenshot_delay_summary">Regola il tempo di acquisizione di uno screenshot</string>
+  <string name="screenshot_options_summary">Personalizzare attributi screenshot come tempo, ritardo, tipo ecc</string>
+  <!-- Interface -->
+  <string name="interface_other_title">Varie</string>
+  <string name="interface_other_summary">Personalizzare vari contenuti dell\'interfaccia</string>
   <!--Screenshot crop and share -->
   <string name="screenshot_crop_and_share_title">Screenshot catturato &amp; condividi</string>
   <string name="screenshot_crop_and_share_summary">Visualizza una finestra di modifica dopo aver catturato uno screenshot per fare alcune operazioni come ritagliare, salvare o condividere</string>
@@ -2112,7 +2120,7 @@
   <string name="remove_tile_summaries_summary_disabled">Riepilogo elementi pannello impostazioni disabilitato</string>
   <string name="dashboard_conditions_title">Condizioni</string>
   <string name="summary_dashboard_conditions_enabled">Le condizioni del pannello impostazioni sono abilitate</string>
-  <string name="summary_dashboard_conditions_disabled">Le condizioni del pannello configurazioni sono disabilitate</string>
+  <string name="summary_dashboard_conditions_disabled">Condizioni pannello impostazioni sono disabilitati</string>
   <string name="dashboard_columns_portrait_title">Colonne (verticale)</string>
   <string name="dashboard_columns_landscape_title">Colonne (orizzontale)</string>
   <!-- Dashboard columns -->
@@ -2155,6 +2163,7 @@
   <string name="no_iconpacks_summary">Nessun pacchetto icone installato</string>
   <string name="dialog_pick_iconpack_title">Scegli pacchetto icone</string>
   <string name="default_iconpack_title">Icone predefinite</string>
+  <string name="slim_recents_corner_radius_title">Utilizza gli angoli rotondi per i recenti a carte</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
   <string name="recent_panel_lefty_mode_title">Mostra sul bordo sinistro</string>
   <string name="recent_panel_lefty_mode_summary">Mostra il pannello delle app recenti sul lato sinistro</string>
@@ -2219,8 +2228,8 @@
   <string name="data_wifi_activity_arrows_title">Attività di dati/wifi</string>
   <string name="data_wifi_activity_arrows_summary">Mostra frecce di attività di dati/wifi</string>
   <!-- Screen state service -->
-  <string name="screen_state_toggles_summary">\@null</string>
   <string name="screen_state_toggles_title">Azioni di sospensione</string>
+  <string name="screen_state_toggles_summary">Scegliere un set di azioni quando si spegne lo schermo.</string>
   <string name="screen_state_toggles_enable_title">Abilita</string>
   <string name="screen_state_toggles_enable_summary">Le azioni saranno eseguite a schermo spento. A schermo acceso verrà ripristinato allo stato precedente.</string>
   <string name="screen_state_toggles_mobile_title">Reti mobili</string>
@@ -2240,6 +2249,8 @@
   <string name="dnd_when_call_summary">Attiva automaticamente \"non disturbare\" durante le chiamate</string>
   <string name="no_sim_cluster_switch_title">Nascondi nessuna sim rete</string>
   <string name="no_sim_cluster_switch_summary">Nascondi la barra di rete se la sottoscrizione della sim è inattiva e disabilitata. Se la sim non è disabilitata, questo interruttore non funziona</string>
+  <string name="disable_no_sim_title">Disabilita icona nessuna sim</string>
+  <string name="disable_no_sim_summary">Disabilita icona nessuna carta sim se non è presente alcuna sim</string>
   <!-- Advanced night mode brightness -->
   <string name="night_brightness_category">Luminosità</string>
   <string name="night_brightness_value_title">Luminosità luce notturna</string>
@@ -2273,6 +2284,12 @@
   <!-- FP gesture -->
   <string name="quick_pulldown_fp_title">Tendina veloce impronta digitale</string>
   <string name="quick_pulldown_fp_summary">Espandere il pannello impostazioni rapide con una sola strusciata del sensore di impronte digitali</string>
+  <string name="fp_swipe_call_actions_title">Gesti chiamata con sensore impronte digitali</string>
+  <string name="fp_swipe_call_actions_disabled">Disabilitato</string>
+  <string name="fp_swipe_call_actions_updown_answer_call">Passare il dito verso l\'alto o verso il basso per rispondere alle chiamate in arrivo</string>
+  <string name="fp_swipe_call_actions_up_answer_down_silence">Scorri in alto per rispondere alle chiamate in arrivo, in basso per silenziarle</string>
   <string name="recents_lock_icon_title">Icona di blocco</string>
   <string name="recents_lock_icon_summary">Mostra blocco recenti come icona attività nell\'intestazione</string>
+  <string name="nav_button_sounds_title">Toni al tocco</string>
+  <string name="nav_button_sounds_summary">Riproduci un suono quando si tocca la smartbar. Solo in modalità suoneria/forte</string>
 </resources>

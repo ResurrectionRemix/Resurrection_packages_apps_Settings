@@ -34,36 +34,6 @@
             android:title="@string/selinux_title"
             android:defaultValue="false" />
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="fingerprint_success_vib"
-            android:title="@string/fprint_sucess_vib_title"
-            android:summary="@string/fprint_sucess_vib_summary"
-            android:icon="@drawable/rr_fingerprint_icon"
-            android:defaultValue="true" />
-
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="battery_save_mode_color"
-            android:title="@string/battery_saver_color_title"
-            android:summary="@string/battery_saver_color_summary"
-            android:icon="@drawable/rr_battery_saver_icon"
-            android:defaultValue="true" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="rr_ota_fab"
-            android:title="@string/rr_ota_fab_title"
-            android:summary="@string/rr_ota_fab_summary"
-            android:icon="@drawable/rr_fab_enable"
-            android:defaultValue="true" />
-
-    <!-- In-Call DND -->
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="dnd_when_call"
-            android:title="@string/dnd_when_call_title"
-            android:icon="@drawable/rr_dnd_icon"
-            android:summary="@string/dnd_when_call_summary"
-            android:defaultValue="true" />
-
         <!-- Weather Settings -->
         <Preference
             android:id="@+id/weather_settings"
@@ -96,22 +66,6 @@
             android:icon="@drawable/rr_wakelockblocker_icon"
             />
 
-        <!-- Sound -->
-        <PreferenceScreen
-            android:key="rr_sound"
-            android:title="@string/rr_sound_title"
-            android:summary="@string/rr_sound_summary"
-            android:fragment="com.android.settings.rr.SoundFragment"
-            android:icon="@drawable/rr_sound_icon"
-            />
-
-        <PreferenceScreen
-            android:key="rr_incall"
-            android:title="@string/rr_incall"
-            android:summary="@string/rr_incall_summary"
-            android:icon="@drawable/rr_call_icon"
-            android:fragment="com.android.settings.rr.InCallSettings" />
-
         <Preference
             android:id="@+id/alarm_blocker"
             android:title="@string/alarm_blocker"
@@ -123,6 +77,7 @@
         <PreferenceScreen
             android:key="screenstate_category"
             android:title="@string/screen_state_toggles_title"
+            android:summary="@string/screen_state_toggles_summary"
             android:icon="@drawable/rr_suspend_icon"
             android:fragment="com.android.settings.rr.ScreenStateToggles" />
 

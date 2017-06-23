@@ -132,6 +132,7 @@
   <string name="system_animations">Sistem animasyonları</string>
   <string name="rr_ui_title">Arayüz</string>
   <string name="rr_dash_board_title">Ayarlar menüsü</string>
+  <string name="rr_fp_title">Parmak izi ayarları</string>
   <string name="recents_type_title">Son kullanılanlar türü</string>
   <string name="recents_stock">AOSP varsayılan</string>
   <string name="recents_omniswitch">Omniswitch</string>
@@ -187,6 +188,7 @@
   <string name="system_app_remover_summary">Gereksiz sistem uygulamalarını kaldır</string>
   <string name="rr_updater_summary">Ota güncellemeleri ve diğer bağlantıları kontrol edin</string>
   <string name="rr_notif_settings_summary">Bildirim panelinde bildirimlerinizin görünümünü özelleştirin</string>
+  <string name="rr_fp_summary">Parmak izi sensörü için çeşitli seçenekleri özelleştirin</string>
   <!-- Manage applications: show substratum overlays -->
   <string name="filter_substratum_apps">Substratum temaları</string>
   <string name="menu_show_substratum">Temaları göster</string>
@@ -321,7 +323,7 @@
   <string name="force_expanded_notifications_summary">Sadece genişletilmiş bildirimleri destekleyen uygulamalar için kullanılabilir</string>
   <!-- Disabling FC notifications -->
   <string name="disable_fc_notifications_title">Kapatmaya Zorla Bildirimleri Devre dışı</string>
-  <string name="disable_fc_notifications_summary">Bu ayar kapatmaya zorla bildirimlerini gizler</string>
+  <string name="disable_fc_notifications_summary">Zorla kapatma bildirimlerini gizler</string>
   <!-- Disabling immersive mode messages -->
   <string name="disable_immersive_message_title">Tam ekran modu mesajlarını devre dışı bırak</string>
   <string name="disable_immersive_message_summary">Bu tüm tam ekran modu mesajlarını gizler</string>
@@ -1473,6 +1475,8 @@
   <string name="navbar_button_color">Gezinme çubuğu tuşları</string>
   <string name="navbar_button_custom_icon_switch_title">Uygulama tuşlarına renk filtresi ekle</string>
   <string name="icon_pack_picker_dialog_title">Simge paketleri</string>
+  <string name="navigation_bar_left_title">Solak modu</string>
+  <string name="navigation_bar_left_summary">Yatay moda geçildiğinde gezinme çubuğunu sol tarafta gösterir</string>
   <string name="invalid_icon_from_uri">İçerik sağlayıcıdan görüntü yüklenemiyor</string>
   <string name="picker_activities">Etkinlikler</string>
   <string name="select_custom_app_title">Özel uygulama seçin</string>
@@ -1793,10 +1797,14 @@
   <string name="screenshot_type_title">Ekran görüntüsü tipi</string>
   <string name="screenshot_type_fullscreen">Tam ekran ekran görüntüsü</string>
   <string name="screenshot_type_partial">Ekran görüntüsü almak istediğiniz alana doğru sürükleyin</string>
-  <!-- Screenshot delay -->
+  <!-- Screenshot -->
   <string name="screenshot_options_category">Ekran görüntüsü seçenekleri</string>
   <string name="screenshot_delay_title">Ekran görüntüsü gecikmesi</string>
   <string name="screenshot_delay_summary">Bir ekran görüntüsü yakalamak için zamanı ayarlayın</string>
+  <string name="screenshot_options_summary">Zaman, gecikme, tür gibi ekran görüntüsü özelliklerini özelleştirin</string>
+  <!-- Interface -->
+  <string name="interface_other_title">Diğerleri</string>
+  <string name="interface_other_summary">Arayüzün diğer içeriğini özelleştirin</string>
   <!--Screenshot crop and share -->
   <string name="screenshot_crop_and_share_title">Ekran görüntüsünü kırpma ve paylaşma</string>
   <string name="screenshot_crop_and_share_summary">Kırpma, kaydetme veya paylaşma gibi bazı işlemleri yapmak için bir ekran görüntüsü aldıktan sonra bir düzenleyici penceresi gösterir</string>
@@ -2157,6 +2165,7 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <string name="no_iconpacks_summary">Yüklü simge paketi yok</string>
   <string name="dialog_pick_iconpack_title">Simge paketi seç</string>
   <string name="default_iconpack_title">Varsayılan simgeler</string>
+  <string name="slim_recents_corner_radius_title">Kartlar için yuvarlak köşeler kullanın</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
   <string name="recent_panel_lefty_mode_title">Sol kenarda göster</string>
   <string name="recent_panel_lefty_mode_summary">Sol kenarda son uygulamalar panelini göster</string>
@@ -2221,8 +2230,8 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <string name="data_wifi_activity_arrows_title">Veri/Wi-Fi etkinliği</string>
   <string name="data_wifi_activity_arrows_summary">Veri/Wi-Fi etkinliği oklarını göster</string>
   <!-- Screen state service -->
-  <string name="screen_state_toggles_summary">\@null</string>
   <string name="screen_state_toggles_title">Eylemleri askıya al</string>
+  <string name="screen_state_toggles_summary">Ekranınızı kapattığınızda gerçekleştirilecek eylemleri seçin.</string>
   <string name="screen_state_toggles_enable_title">Etkinleştir</string>
   <string name="screen_state_toggles_enable_summary">Eylemler ekran kapandığında başlatılır. Ekran açılınca önceki durumuna geri getirilir.</string>
   <string name="screen_state_toggles_mobile_title">Mobil ağlar</string>
@@ -2242,6 +2251,8 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <string name="dnd_when_call_summary">Arama sırasında otomatik olarak Rahatsız Etmeyini etkinleştir</string>
   <string name="no_sim_cluster_switch_title">Sim ağı yok metnini gizle</string>
   <string name="no_sim_cluster_switch_summary">Sim ağı etkin değilse ve devre dışı bırakıldıysa ağ çubuğunda gizleyin. Sim devre dışı bırakılmazsa, bu anahtar çalışmaz</string>
+  <string name="disable_no_sim_title">Sim yok simgesini devre dışı bırak</string>
+  <string name="disable_no_sim_summary">Sim yoksa sim kart yok simgesini devre dışı bırak</string>
   <!-- Advanced night mode brightness -->
   <string name="night_brightness_category">Parlaklık</string>
   <string name="night_brightness_value_title">Gece Işığı parlaklığı</string>
@@ -2275,6 +2286,12 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <!-- FP gesture -->
   <string name="quick_pulldown_fp_title">Parmak izi ile hızlı aşağı çekme</string>
   <string name="quick_pulldown_fp_summary">Parmak izi sensöründe parmağınızı yalnızca bir kez kaydırarak hızlı ayarlar paneli genişletin</string>
+  <string name="fp_swipe_call_actions_title">Parmak izi çağrı hareketleri</string>
+  <string name="fp_swipe_call_actions_disabled">Devre dışı</string>
+  <string name="fp_swipe_call_actions_updown_answer_call">Gelen aramalara cevap vermek için yukarı veya aşağı kaydırın</string>
+  <string name="fp_swipe_call_actions_up_answer_down_silence">Gelen aramaları yanıtlamak için yukarı doğru kaydırın, onları susturmak için aşağı doğru kaydırın</string>
   <string name="recents_lock_icon_title">Kilit simgesi</string>
   <string name="recents_lock_icon_summary">Son kullanılan uygulamaların başlığında kilit simgesi göster</string>
+  <string name="nav_button_sounds_title">Dokunma sesleri</string>
+  <string name="nav_button_sounds_summary">Smartbar\'a dokununca tıklama sesi çal. Yalnızca zil/yüksek sesli mod</string>
 </resources>
