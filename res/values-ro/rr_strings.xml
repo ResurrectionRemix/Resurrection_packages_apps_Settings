@@ -132,6 +132,7 @@
   <string name="system_animations">Animații de sistem</string>
   <string name="rr_ui_title">Interfaţă</string>
   <string name="rr_dash_board_title">Panou de comandă</string>
+  <string name="rr_fp_title">Configurarea amprentei</string>
   <string name="recents_type_title">Tip recente</string>
   <string name="recents_stock">Stock AOSP</string>
   <string name="recents_omniswitch">OmniSwitch</string>
@@ -187,6 +188,7 @@
   <string name="system_app_remover_summary">Eliminați aplicaţii nenecesare de sistem</string>
   <string name="rr_updater_summary">Verificați pentru OTA actualizări și alte legături</string>
   <string name="rr_notif_settings_summary">Particularizaţi aspectul notificări din panoul de notificare</string>
+  <string name="rr_fp_summary">Personalizare diferite opţiuni pentru senzorul de amprentă</string>
   <!-- Manage applications: show substratum overlays -->
   <string name="filter_substratum_apps">Suprapuneri de substrat</string>
   <string name="menu_show_substratum">Arată suprapuneri</string>
@@ -321,6 +323,7 @@
   <string name="force_expanded_notifications_summary">Disponibil doar pentru aplicaţii care acceptă notificări extinse</string>
   <!-- Disabling FC notifications -->
   <string name="disable_fc_notifications_title">Dezactivare notificari de oprire forţată</string>
+  <string name="disable_fc_notifications_summary">Aceasta va ascunde toate notificarile de oprire forţată</string>
   <!-- Disabling immersive mode messages -->
   <string name="disable_immersive_message_title">Dezactivaţi mesaje în mod immersive</string>
   <string name="disable_immersive_message_summary">Acest lucru va ascunde toate mesajele în modul immersive</string>
@@ -1360,10 +1363,35 @@
   <string name="volume_dialog_stroke_thickness_title">Grosime contur dialog volum</string>
   <string name="volume_dialog_corner_radius_title">Curbura colțului dialogului de volum</string>
   <string name="volume_dialog_dash_width_title">Lățimea conturului dialogului de volum</string>
+  <string name="volume_dialog_dash_gap_title">Lățimea conturului dialogului de volum</string>
   <!-- QS stroke settings -->
+  <string name="qs_stroke_title">Umbra conturului QS</string>
+  <string name="qs_stroke_disabled">Dezactivat</string>
+  <string name="qs_stroke_accent">Nuanță culoare</string>
+  <string name="qs_stroke_custom">Culoare personalizată</string>
+  <string name="qs_stroke_color_title">Nuanța culorii conturului QS</string>
+  <string name="qs_stroke_thickness_title">Grosimea umbrei conturului QS</string>
+  <string name="qs_corner_radius_title">Colțul conturului umbrei QS</string>
+  <string name="qs_dash_width_title">Lățimea conturului QS</string>
+  <string name="qs_dash_gap_title">Lățimea conturului QS</string>
+  <string name="qs_tile_layout">Aspect dală</string>
+  <string name="rr_qs_layout">Aspect</string>
   <!-- QS settings -->
+  <string name="status_bar_expanded_qs_settings">Aspect</string>
+  <string name="status_bar_expanded_qs_settings_summary">Selectaţi numărul de rânduri/coloane</string>
   <!-- Quick settings tiles columns and rows config -->
+  <string name="qs_layout_category">Aspect dale QS</string>
+  <string name="qs_rows_portrait_title">Rânduri în modul portret</string>
+  <string name="qs_rows_landscape_title">Rânduri în modul peisaj</string>
+  <string name="qs_columns_title">Coloane</string>
+  <string name="qs_small_tiles_title">Dale QS mici</string>
   <!-- Battery saver color -->
+  <string name="battery_saver_color_title">Culoare avertizare</string>
+  <string name="battery_saver_color_summary">Activează culoarea portocalie pentru bare de navigare atunci când este activat economizorul de baterie</string>
+  <string name="network_traffic_color_style">Stil culoare</string>
+  <string name="network_traffic_color_reset">Resetare culoare</string>
+  <string name="network_traffic_color_reset_message">Resetez culorile traficului de rețea la implicit?</string>
+  <string name="status_bar_weather_color_title">Culoare temperatură</string>
   <string name="status_bar_rr_logo_color">Culoare logo</string>
   <string name="status_bar_logo">Logo Resurrection</string>
   <string name="status_bar_logo_title">Logo-ul brandului</string>
@@ -1447,9 +1475,28 @@
   <string name="navbar_button_color">Butoane pentru bara de navigare</string>
   <string name="navbar_button_custom_icon_switch_title">Adaugă filtru culoare la butoanele aplicațiilor</string>
   <string name="icon_pack_picker_dialog_title">Pachete de iconițe</string>
+  <string name="navigation_bar_left_title">Modul cu mâna stângă</string>
+  <string name="navigation_bar_left_summary">Afișare bară de navigare pe partea stângă în modul peisaj</string>
   <string name="invalid_icon_from_uri">Imposibil de încărcat imaginea de la furnizorul de conţinut</string>
+  <string name="picker_activities">Activităţi</string>
+  <string name="select_custom_app_title">Selectați aplicație personalizată</string>
+  <string name="select_custom_activity_title">Selectați activitate personalizată</string>
+  <string name="profile_applist_title">Aplicații</string>
+  <string name="default_string">Prestabilit</string>
+  <string name="reset">Resetează</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
+  <string name="choose_action_title">Alege acțiunea</string>
+  <string name="action_entry_default_action">Setări prestabilite</string>
+  <string name="action_entry_select_app">Selectaţi aplicaţia</string>
+  <string name="action_entry_custom_action">Selectați activitate personalizată</string>
   <!-- Fling -->
+  <string name="fling_settings">Setări Fling</string>
+  <string name="fling_interface">Fling</string>
+  <string name="fling_enable_title">Activează Fling</string>
+  <string name="fling_back_home_policy">Înapoi şi Home este necesar să fie stabilite în permanenţă. Pentru a modifica o atribuire de Înapoi sau Home, setați mai întâi atribuirea dorită</string>
+  <string name="fling_split_bar_policy">Atunci când este atribuită numai o acţiune la dreapta sau la stânga, acţiunea se aplică în întregime barei</string>
+  <string name="fling_def_summary">Nicio acţiune selectată</string>
+  <string name="fling_swipe_actions">Utilizare gesturi</string>
   <string name="fling_animate_logo_title">Animează logo-ul</string>
   <string name="fling_animate_logo_summary">Animează logo-ul la apăsări</string>
   <string name="fling_logo_color">Culoare logo</string>
