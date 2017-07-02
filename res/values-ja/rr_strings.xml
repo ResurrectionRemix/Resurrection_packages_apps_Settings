@@ -66,6 +66,7 @@
   <string name="updater_title">アップデート</string>
   <string name="altan_summary">● 創設者 \n● プロジェクト リーダー \n● 主開発者 \n● UX デザイナー \n● メンテナ</string>
   <string name="varun_summary">● 主開発者 \n● UX デザイナー \n● メンテナ</string>
+  <string name="akhil_summary">● Developer \n● Maintainer \n● Script master</string>
   <string name="brian_summary">● 開発者 \n● メンテナ</string>
   <string name="device_maintainers_title">デバイスとメンテナ</string>
   <string name="device_maintainers_title_summary">デバイスの一覧と公式 RR-OS メンテナ</string>
@@ -101,6 +102,8 @@
   <string name="fab_reset">リセット</string>
   <string name="fab_about">RR-OSについて</string>
   <string name="fab_layout">レイアウトの更新</string>
+  <string name="fab_layout_update">クラシックなレイアウトに切り替える</string>
+  <string name="fab_layout_toggle">クラシックなタブレイアウトに切り替える</string>
   <string name="rr_reset_message">すべての設定を既定値にリセットしますか？</string>
   <string name="rr_reset_settings">設定をリセット</string>
   <string name="rr_reset_yes">はい</string>
@@ -127,8 +130,14 @@
   <string name="animation_title">アニメーション</string>
   <string name="button_settings">ボタン</string>
   <string name="rr_misc_title">その他の設定</string>
+  <string name="system_animations">システムアニメーション</string>
   <string name="rr_ui_title">インターフェース</string>
   <string name="rr_dash_board_title">ダッシュボード</string>
+  <string name="rr_fp_title">指紋の設定</string>
+  <string name="recents_stock">ストック AOSP</string>
+  <string name="recents_omniswitch">Omniswitch</string>
+  <string name="recents_grid">グリッド</string>
+  <string name="recents_slim">スリム</string>
   <string name="rr_notif_settings_title">通知</string>
   <string name="toast">トースト</string>
   <string name="listview">リストビュー</string>
@@ -178,6 +187,8 @@
   <string name="misc_weather_settings_summary">時計アプリのウィジェット設定をカスタマイズする</string>
   <string name="system_app_remover_summary">不要なシステムアプリを削除します。</string>
   <string name="rr_updater_summary">OTAアップデートと関連リンクをチェックする</string>
+  <string name="rr_notif_settings_summary">通知パネルでの通知の外観をカスタマイズする</string>
+  <string name="rr_fp_summary">指紋センサーのさまざまなオプションをカスタマイズする</string>
   <!-- Manage applications: show substratum overlays -->
   <string name="filter_substratum_apps">下地のオーバーレイ</string>
   <string name="menu_show_substratum">オーバーレイを表示</string>
@@ -204,6 +215,33 @@
   <string name="title_animation_no_override">アプリによる上書きを防止</string>
   <string name="summary_animation_no_override">アプリによりアニメーションが上書きされることを防止する</string>
   <string name="animation_duration_default">既定 （デフォルト）</string>
+  <string name="lv_dur_default">既定</string>
+  <string name="lv_dur_25">25/1000秒</string>
+  <string name="lv_dur_50">50/1000秒</string>
+  <string name="lv_dur_100">100/1000秒</string>
+  <string name="lv_dur_200">200/1000秒</string>
+  <string name="lv_dur_300">300/1000秒</string>
+  <string name="lv_dur_400">400/1000秒</string>
+  <string name="lv_dur_500">500/1000秒</string>
+  <string name="lv_dur_1000">１秒</string>
+  <string name="lv_dur_1500">1.5秒</string>
+  <string name="lv_dur_2000">2.0秒</string>
+  <string name="lv_dur_2500">2.5秒</string>
+  <string name="lv_dur_3000">3秒</string>
+  <string name="lv_dur_3500">3.5秒</string>
+  <string name="lv_dur_4000">4秒</string>
+  <string name="lv_dur_4500">4.5秒</string>
+  <string name="lv_dur_5000">5秒</string>
+  <string name="lv_dur_5500">5.5秒</string>
+  <string name="lv_dur_6000">6秒</string>
+  <string name="lv_dur_6500">6.5秒</string>
+  <string name="lv_dur_7000">7秒</string>
+  <string name="lv_dur_7500">7.5秒</string>
+  <string name="lv_dur_8000">8秒</string>
+  <string name="lv_dur_8500">8.5秒</string>
+  <string name="lv_dur_9000">9秒</string>
+  <string name="lv_dur_9500">9.5秒</string>
+  <string name="lv_dur_10000">10秒</string>
   <!-- Toast Animation -->
   <string name="toast_animation_title">トーストアニメーション</string>
   <string name="toast_none_animation">なし</string>
@@ -284,6 +322,7 @@
   <string name="force_expanded_notifications_title">通知を常に展開</string>
   <string name="force_expanded_notifications_summary">通知の展開をサポートしているアプリでのみ有効です</string>
   <!-- Disabling FC notifications -->
+  <string name="disable_fc_notifications_title">FC の通知を無効にします。</string>
   <!-- Disabling immersive mode messages -->
   <string name="disable_immersive_message_title">全画面モードのメッセージを表示しない</string>
   <string name="disable_immersive_message_summary">全画面モード時のメッセージを全て無効化する</string>
@@ -624,6 +663,7 @@
   <string name="shortcuts_icon_presets">システムアイコン</string>
   <string name="shortcuts_icon_custom">ギャラリー</string>
   <string name="shortcuts_icon_picker_choose_icon_title">アイコンを選択</string>
+  <string name="image_exceeds_max_allowed_size">イメージは 512 x 512 を超えないようにしてください。</string>
   <string name="lockscreen_shortcuts_category">ショートカット</string>
   <string name="keyguard_torch_title">ロック画面のライト</string>
   <string name="keyguard_torch_summary">画面の消灯中に電源ボタンを長押しでフラッシュ用ライトを点灯する</string>
