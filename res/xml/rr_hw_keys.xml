@@ -34,6 +34,13 @@
         android:icon="@drawable/rr_backlight_icon"
         android:dialogTitle="@string/button_backlight_title"
         android:persistent="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="button_light_screen"
+            android:title="@string/button_light_press_title"
+            android:summaryOn="@string/button_light_press_summary_on"
+            android:summaryOff="@string/button_light_press_summary_off"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
