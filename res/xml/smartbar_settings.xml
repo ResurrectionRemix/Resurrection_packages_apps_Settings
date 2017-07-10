@@ -44,12 +44,13 @@
         android:entryValues="@array/smartbar_button_animation_values"
         android:summary="@string/smartbar_button_animation_summary" />
 
-    <ListPreference
+    <com.android.settings.rr.SeekBarPreference
         android:key="smartbar_longpress_delay"
         android:title="@string/smartbar_longpress_delay_title"
-        android:entries="@array/smartbar_longpress_delay_entries"
-        android:entryValues="@array/smartbar_longpress_delay_values"
-        android:summary="@string/smartbar_longpress_delay_summary" />
+        settings:maximum="10000"
+        settings:minimum="100"
+        settings:units="ms"
+        android:persistent="false" />
 
     <com.android.settings.rr.SeekBarPreference
         android:key="navbar_buttons_alpha"
