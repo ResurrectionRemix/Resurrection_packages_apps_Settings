@@ -49,6 +49,7 @@ import android.view.WindowManagerGlobal;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
+import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
 import com.android.settings.rr.utils.DeviceUtils;
 import com.android.settings.rr.utils.TelephonyUtils;
 import org.cyanogenmod.internal.util.ScreenType;
@@ -79,6 +80,7 @@ public class HWSettings extends ActionFragment implements
     private static final String KEY_VOLUME_CONTROL_RING_STREAM = "volume_keys_control_ring_stream";
     private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
     private static final String KEY_SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
+    private static final String KEY_BUTTON_LIGHT_SCREEN = "button_light_screen";
     private static final String KEY_CAMERA_DOUBLE_TAP_POWER_GESTURE
             = "camera_double_tap_power_gesture";
 
@@ -139,6 +141,7 @@ public class HWSettings extends ActionFragment implements
     private SeekBarPreference mDt2lCameraVibrateConfig;
     private SwitchPreference mEnableHwKeys;
     private SwitchPreference mHwKeyDisable;
+    private SystemSettingSwitchPreference mHwKeyLight;
 
     private PreferenceScreen mNavigationPreferencesCat;
 
@@ -256,11 +259,13 @@ public class HWSettings extends ActionFragment implements
 
         final ButtonBacklightBrightness backlight =
                 (ButtonBacklightBrightness) findPreference(KEY_BUTTON_BACKLIGHT);
-			if (backlight != null) {
-        		if (!backlight.isButtonSupported() && !backlight.isKeyboardSupported() ||needsNavbar) {
+        mHwKeyLight = (SystemSettingSwitchPreference) findPreference(KEY_BUTTON_LIGHT_SCREEN);
+        if (backlight != null) {
+            if (!backlight.isButtonSupported() && !backlight.isKeyboardSupported() ||needsNavbar) {
                     prefScreen.removePreference(backlight);
-		        }
+                    prefScreen.removePreference(mHwKeyLight);
             }
+        }
 
         // let super know we can load ActionPreferences
         onPreferenceScreenLoaded(ActionConstants.getDefaults(ActionConstants.HWKEYS));

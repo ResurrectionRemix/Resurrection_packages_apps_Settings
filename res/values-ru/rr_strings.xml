@@ -132,7 +132,7 @@
   <string name="system_animations">Системные анимации</string>
   <string name="rr_ui_title">Интерфейс</string>
   <string name="rr_dash_board_title">Главное меню настроек</string>
-  <string name="rr_fp_title">Параметры отпечатков пальцев</string>
+  <string name="rr_fp_title">Настройки сканера отпечатка пальцев</string>
   <string name="recents_type_title">Тип меню недавних приложений</string>
   <string name="recents_stock">Заводской AOSP</string>
   <string name="recents_omniswitch">OmniSwitch</string>
@@ -174,7 +174,7 @@
   <string name="gesture_anywhere_summary">Нарисуйте ваши жесты для запуска выбранного приложения/действия</string>
   <string name="app_sidebar_summary">Использовать боковую панель для хранения ваших приложений и активити, которые вы хотели бы запускать быстрее с легкостью</string>
   <string name="app_circle_bar_summary">Использовать круглую боковую панель для хранения ваших быстрых приложений и активити</string>
-  <string name="pa_pie_control_summary">Проведите с края для включения/отключения PIE, состоящего из управления ярлыками и навигацией</string>
+  <string name="pa_pie_control_summary">Свайп с края для включения/отключения PIE, состоящего из управления ярлыками и навигацией</string>
   <string name="rr_navbar_summary">Включить или выключить софт-кнопки и настроить их</string>
   <string name="rr_power_summary">Настроить различные опции, видимые в диалоговом окне меню питания</string>
   <string name="system_animations_summary">Настроить анимации для каждого окна в системе</string>
@@ -188,7 +188,7 @@
   <string name="system_app_remover_summary">Удаление ненужных системных приложений</string>
   <string name="rr_updater_summary">Проверить OTA обновления и другие ссылки</string>
   <string name="rr_notif_settings_summary">Настроить вид ваших уведомлений в панели уведомлений </string>
-  <string name="rr_fp_summary">Настройка различных параметров для датчика отпечатков пальцев</string>
+  <string name="rr_fp_summary">Настроить различные параметры сканера отпечатка пальцев</string>
   <!-- Manage applications: show substratum overlays -->
   <string name="filter_substratum_apps">Слои Substratum</string>
   <string name="menu_show_substratum">Показать слои</string>
@@ -323,6 +323,7 @@
   <string name="force_expanded_notifications_summary">Доступно только для приложений, поддерживающих расширенные уведомления</string>
   <!-- Disabling FC notifications -->
   <string name="disable_fc_notifications_title">Отключить уведомления о принудительном закрытии</string>
+  <string name="disable_fc_notifications_summary">Это скроет все уведомления о принудительном закрытии</string>
   <!-- Disabling immersive mode messages -->
   <string name="disable_immersive_message_title">Отключить сообщения о режиме погружения</string>
   <string name="disable_immersive_message_summary">Это отключит все сообщения о режиме погружения</string>
@@ -1801,7 +1802,10 @@
   <string name="screenshot_delay_title">Задержка скриншота</string>
   <string name="screenshot_delay_summary">
 Регулировка времени захвата скриншота</string>
+  <string name="screenshot_options_summary">Настроить атрибуты скриншота - время, задержка, тип и т.д.</string>
   <!-- Interface -->
+  <string name="interface_other_title">Разное</string>
+  <string name="interface_other_summary">Настроить различные составляющие интерфейса</string>
   <!--Screenshot crop and share -->
   <string name="screenshot_crop_and_share_title">Обрезать скриншот и поделиться</string>
   <string name="screenshot_crop_and_share_summary">Показать окно редактора после создания скриншота для того, чтобы его можно было обрезать, сохранить или поделиться</string>
@@ -1962,7 +1966,7 @@
   <string name="keyboard_rotation_toggle_title">Автоповорот клавиатуры</string>
   <string name="keyboard_rotation_toggle_summary">Принудительный поворот экрана, когда показывается клавиатура</string>
   <string name="keyboard_rotation_timeout_title">Тайм-аут автоповорота</string>
-  <string name="keyboard_rotation_timeout_summary">Отключить датчик автоповорота, спустя <xliff:g id="rotate_timeout">%1$</xliff:g> секунд, после скрытия клавиатуры</string>
+  <string name="keyboard_rotation_timeout_summary">Отключить датчик автоповорота, спустя <xliff:g id="rotate_timeout">%1$s</xliff:g> секунд, после скрытия клавиатуры</string>
   <string name="keyboard_rotation_dialog">Эта функция принудительно включает автоповорот во время отображения клавиатуры и не имеет эффекта, когда автоповорот уже включен.</string>
   <string name="show_enter_key_title">Показывать кнопку ввода</string>
   <string name="show_enter_key_summary">Принудительно показывать кнопку ввода вместо кнопки смайликов</string>
@@ -2225,6 +2229,7 @@
   <string name="data_wifi_activity_arrows_summary">Отображать индикаторы сетевой активности при мобильной передаче данных/Wi-Fi</string>
   <!-- Screen state service -->
   <string name="screen_state_toggles_title">Действия в режиме ожидания</string>
+  <string name="screen_state_toggles_summary">Выберите набор действий при выключении экрана.</string>
   <string name="screen_state_toggles_enable_title">Включить</string>
   <string name="screen_state_toggles_enable_summary">Действия будут выполняться при выключении экрана. При включении экрана будет восстановлено предыдущее состояние.</string>
   <string name="screen_state_toggles_mobile_title">Мобильные сети</string>
@@ -2279,10 +2284,10 @@
   <!-- FP gesture -->
   <string name="quick_pulldown_fp_title">Быстрый доступ про помощи сканера отпечатка пальца</string>
   <string name="quick_pulldown_fp_summary">Расширять панель быстрых настроек с помощью одного свайпа по сканеру отпечатка пальцев</string>
-  <string name="fp_swipe_call_actions_title">Жесты отпечатков пальцев при вызове</string>
-  <string name="fp_swipe_call_actions_disabled">Отключено</string>
-  <string name="fp_swipe_call_actions_updown_answer_call">Смахните вверх или вниз, чтобы ответить на входящие вызовы</string>
-  <string name="fp_swipe_call_actions_up_answer_down_silence">Проведите пальцем вверх для ответа на входящие вызовы, Вниз - что бы выключить звук</string>
+  <string name="fp_swipe_call_actions_title">Жесты сканера отпечатков пальцев во время вызова</string>
+  <string name="fp_swipe_call_actions_disabled">Выключено</string>
+  <string name="fp_swipe_call_actions_updown_answer_call">Свайп вверх или вниз для ответа на входящие вызовы</string>
+  <string name="fp_swipe_call_actions_up_answer_down_silence">Свайп вверх для ответа на входящие вызовы, вниз - чтобы выключить звук</string>
   <string name="recents_lock_icon_title">Значок блокировки</string>
   <string name="recents_lock_icon_summary">Показывать значок блокировки в заголовке приложения в меню недавних приложений</string>
   <string name="nav_button_sounds_title">Звуки нажатия</string>

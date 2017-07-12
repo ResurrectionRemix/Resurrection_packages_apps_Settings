@@ -132,6 +132,7 @@
   <string name="system_animations">Системні анімації</string>
   <string name="rr_ui_title">Інтерфейс</string>
   <string name="rr_dash_board_title">Панель управління</string>
+  <string name="rr_fp_title">Параметри відбитків пальців</string>
   <string name="recents_type_title">Тип нещодавніх</string>
   <string name="recents_stock">Чистий AOSP</string>
   <string name="recents_omniswitch">Omniswitch</string>
@@ -187,6 +188,7 @@
   <string name="system_app_remover_summary">Видалення непотрібних системних додатків</string>
   <string name="rr_updater_summary">Перевірити наявність OTA оновлень, а також інші посилання</string>
   <string name="rr_notif_settings_summary">Налаштувати вигляд ваших сповіщень на панелі сповіщень</string>
+  <string name="rr_fp_summary">Налаштувати різні варіанти датчика відбитків пальців</string>
   <!-- Manage applications: show substratum overlays -->
   <string name="filter_substratum_apps">Шари Substratum</string>
   <string name="menu_show_substratum">Відображати шари</string>
@@ -321,6 +323,7 @@
   <string name="force_expanded_notifications_summary">Лише для додатків, які підтримують розширені сповіщення</string>
   <!-- Disabling FC notifications -->
   <string name="disable_fc_notifications_title">Вимкнути сповіщення про помилку</string>
+  <string name="disable_fc_notifications_summary">Це приховає всі сповіщення про примусове закриття</string>
   <!-- Disabling immersive mode messages -->
   <string name="disable_immersive_message_title">Вимкнути спливаючі повідомлення в повноекранному режимі</string>
   <string name="disable_immersive_message_summary">Це дозволить приховати всі спливаючі повідомлення</string>
@@ -1472,6 +1475,8 @@
   <string name="navbar_button_color">Кнопки панелі навігації</string>
   <string name="navbar_button_custom_icon_switch_title">Додати колірний фільтр до кнопок додатків</string>
   <string name="icon_pack_picker_dialog_title">Набори значків</string>
+  <string name="navigation_bar_left_title">Режим для лівші</string>
+  <string name="navigation_bar_left_summary">Показати панель навігації на лівій стороні в ландшафтному режимі</string>
   <string name="invalid_icon_from_uri">Не вдається завантажити зображення від провайдера</string>
   <string name="picker_activities">Діяльності</string>
   <string name="select_custom_app_title">Вибрати додаток користувача</string>
@@ -1796,7 +1801,10 @@
   <string name="screenshot_options_category">Опції скріншота</string>
   <string name="screenshot_delay_title">Затримка знімку екрану</string>
   <string name="screenshot_delay_summary">Регулювання часу захоплення скріншота</string>
+  <string name="screenshot_options_summary">Налаштувати атрибути скріншота, такі як час, затримка, тип і т.п.</string>
   <!-- Interface -->
+  <string name="interface_other_title">Інше</string>
+  <string name="interface_other_summary">Налаштувати інший контент інтерфейсу</string>
   <!--Screenshot crop and share -->
   <string name="screenshot_crop_and_share_title">Скріншот обрізати &amp; поділитися</string>
   <string name="screenshot_crop_and_share_summary">Показати вікно редактора після створення скріншота для того, щоб зробити деякі операції, такі як кадрування, збереження чи поширення</string>
@@ -2155,6 +2163,7 @@
   <string name="no_iconpacks_summary">Набори іконок не встановлено</string>
   <string name="dialog_pick_iconpack_title">Вибрати набір іконок</string>
   <string name="default_iconpack_title">Стандарті іконки</string>
+  <string name="slim_recents_corner_radius_title">Використовувати круглі кути для карток</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
   <string name="recent_panel_lefty_mode_title">Показати на лівому краю</string>
   <string name="recent_panel_lefty_mode_summary">Показати панель останніх програм на лівому краю</string>
@@ -2220,6 +2229,7 @@
   <string name="data_wifi_activity_arrows_summary">Відображати стрілки активності передачі даних</string>
   <!-- Screen state service -->
   <string name="screen_state_toggles_title">Призупинення дій</string>
+  <string name="screen_state_toggles_summary">Виберіть набір дій, після вимкнення екрана.</string>
   <string name="screen_state_toggles_enable_title">Увімкнути</string>
   <string name="screen_state_toggles_enable_summary">Дії буде виконано при вимкненні екрану. При ввімкнені екрану попередній стан буде відновлено.</string>
   <string name="screen_state_toggles_mobile_title">Мобільні мережі</string>
@@ -2274,6 +2284,12 @@
   <!-- FP gesture -->
   <string name="quick_pulldown_fp_title">Швидкий доступ за допомогою відбитку пальця</string>
   <string name="quick_pulldown_fp_summary">Розгорнути панель швидких налаштувань лише одним проведенням по сенсору відбитків пальців</string>
+  <string name="fp_swipe_call_actions_title">Жести відбитків пальців для виклику</string>
+  <string name="fp_swipe_call_actions_disabled">Вимкнено</string>
+  <string name="fp_swipe_call_actions_updown_answer_call">Проведіть пальцем вгору або вниз, щоб відповісти на вхідний дзвінок</string>
+  <string name="fp_swipe_call_actions_up_answer_down_silence">Проведіть пальцем вгору щоб відповісти і вниз щоб вимкнути звук виклику</string>
   <string name="recents_lock_icon_title">Піктограма блокування</string>
   <string name="recents_lock_icon_summary">Показувати піктограму блокування в заголовку додатку в меню нещодавніх</string>
+  <string name="nav_button_sounds_title">Звук натискання</string>
+  <string name="nav_button_sounds_summary">Відтворювати звук кліку при натисканні smartbar. Тільки в режимі Виклик/Гучний</string>
 </resources>

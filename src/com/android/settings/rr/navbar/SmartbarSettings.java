@@ -47,6 +47,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuInflater;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -73,10 +74,12 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
     private SeekBarPreference mButtonsAlpha;
     private PreferenceScreen mPixel;
     private ColorPickerPreference mNavbuttoncolor;
+    private SeekBarPreference mButtonLongpressDelay;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int MENU_SAVE = Menu.FIRST + 1;
     private static final int MENU_RESTORE = Menu.FIRST + 2;
+    private static final int mSystemLpDelay = ViewConfiguration.getLongPressTimeout();
 
     private static final int DIALOG_RESET_CONFIRM = 1;
     private static final int DIALOG_RESTORE_PROFILE = 2;
@@ -119,7 +122,7 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
         mButtonsAlpha =
                 (SeekBarPreference) findPreference(PREF_NAVBAR_BUTTONS_ALPHA);
         int bAlpha = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.NAVBAR_BUTTONS_ALPHA, 255, UserHandle.USER_CURRENT);
+                "navbar_buttons_alpha", 255, UserHandle.USER_CURRENT);
         mButtonsAlpha.setValue(bAlpha / 1);
         mButtonsAlpha.setOnPreferenceChangeListener(this);
 
@@ -135,6 +138,13 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
         mNavbuttoncolor.setNewPreviewColor(intColor);
 
         updateAnimDurationPref(buttonAnimVal);
+
+        int delay = mSystemLpDelay - 100;
+        int longpressDelayVal = Settings.Secure.getIntForUser(getContentResolver(),
+                "smartbar_longpress_delay", delay, UserHandle.USER_CURRENT);
+        mButtonLongpressDelay = (SeekBarPreference) findPreference("smartbar_longpress_delay");
+        mButtonLongpressDelay.setValue(longpressDelayVal/ 1);
+        mButtonLongpressDelay.setOnPreferenceChangeListener(this);
 
         setHasOptionsMenu(true);
     }
@@ -271,7 +281,12 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
         } else if (preference == mButtonsAlpha) {
             int val = (Integer) newValue;
             Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.NAVBAR_BUTTONS_ALPHA, val * 1, UserHandle.USER_CURRENT);
+                    "navbar_buttons_alpha", val * 1, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mButtonLongpressDelay) {
+            int val = (Integer) newValue;
+            Settings.Secure.putIntForUser(getContentResolver(),
+                    "smartbar_longpress_delay", val * 1, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mNavbuttoncolor) {
             String hex = ColorPickerPreference.convertToARGB(
@@ -323,6 +338,11 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
                 "navbar_buttons_alpha", 255);
         mButtonsAlpha.setValue(255);
         mButtonsAlpha.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                "smartbar_longpress_delay", mSystemLpDelay - 100);
+        mButtonLongpressDelay.setValue(mSystemLpDelay - 100);
+        mButtonLongpressDelay.setOnPreferenceChangeListener(this);
     }
 
     static class ConfigAdapter extends ArrayAdapter<File> {
