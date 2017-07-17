@@ -79,6 +79,15 @@
         android:summary="@string/smartbar_doubletap_sleep_summary"
         android:defaultValue="false" />
 
+
+    <com.android.settings.rr.SeekBarPreference
+        android:key="smartbar_custom_icon_size"
+        android:title="@string/smartbar_custom_icon_size_title"
+        settings:maximum="100"
+        settings:minimum="10"
+        settings:units="%"
+        android:persistent="false" />
+
     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="one_handed_mode_ui"
         android:title="@string/one_handed_mode_title"
