@@ -35,9 +35,13 @@ public class LockScreenUI extends SettingsPreferenceFragment implements
     private static final String TAG = "LockScreenUI";
     private static final String CLOCK_FONT_SIZE  = "lockclock_font_size";
     private static final String DATE_FONT_SIZE  = "lockdate_font_size";
+    private static final String LOCKSCREEN_SECURITY_ALPHA = "lockscreen_security_alpha";
+    private static final String LOCKSCREEN_ALPHA = "lockscreen_alpha";
 
     private SeekBarPreference mClockFontSize;
     private SeekBarPreference mDateFontSize;
+    private SeekBarPreference mLsAlpha;
+    private SeekBarPreference mLsSecurityAlpha;
 
     @Override
     protected int getMetricsCategory() {
@@ -61,9 +65,21 @@ public class LockScreenUI extends SettingsPreferenceFragment implements
         mDateFontSize.setValue(Settings.System.getInt(getContentResolver(),
                 Settings.System.LOCKDATE_FONT_SIZE,14));
         mDateFontSize.setOnPreferenceChangeListener(this);
+
+        mLsSecurityAlpha = (SeekBarPreference) findPreference(LOCKSCREEN_SECURITY_ALPHA);
+        float alpha2 = Settings.System.getFloat(resolver,
+                Settings.System.LOCKSCREEN_SECURITY_ALPHA, 0.75f);
+        mLsSecurityAlpha.setValue((int)(100 * alpha2));
+        mLsSecurityAlpha.setOnPreferenceChangeListener(this);
+
+        mLsAlpha = (SeekBarPreference) findPreference(LOCKSCREEN_ALPHA);
+        float alpha = Settings.System.getFloat(resolver,
+                Settings.System.LOCKSCREEN_ALPHA, 0.45f);
+        mLsAlpha.setValue((int)(100 * alpha));
+        mLsAlpha.setOnPreferenceChangeListener(this);
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) 		{
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
 	ContentResolver resolver = getActivity().getContentResolver();
          if (preference == mClockFontSize) {
             int top = (Integer) objValue;
@@ -74,6 +90,16 @@ public class LockScreenUI extends SettingsPreferenceFragment implements
             int top = (Integer) objValue;
             Settings.System.putInt(getContentResolver(),
                     Settings.System.LOCKDATE_FONT_SIZE, top*1);
+            return true;
+        } else if (preference == mLsSecurityAlpha) {
+            int alpha2 = (Integer) objValue;
+            Settings.System.putFloat(resolver,
+                    Settings.System.LOCKSCREEN_SECURITY_ALPHA, alpha2 / 100.0f);
+            return true;
+        } else if (preference == mLsAlpha) {
+            int alpha = (Integer) objValue;
+            Settings.System.putFloat(resolver,
+                    Settings.System.LOCKSCREEN_ALPHA, alpha / 100.0f);
             return true;
         }
         return true;

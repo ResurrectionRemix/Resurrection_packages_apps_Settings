@@ -98,6 +98,25 @@
                 android:persistent="false"
                 android:dependency="hide_lockscreen_date" />
 
+
+        <com.android.settings.rr.SeekBarPreference
+               android:key="lockscreen_security_alpha"
+               android:title="@string/lockscreen_security_alpha"
+               settings:maximum="100"
+               settings:minimum="0"
+               settings:interval="1"
+               settings:units=""
+               android:persistent="false" />
+
+        <com.android.settings.rr.SeekBarPreference
+               android:key="lockscreen_alpha"
+               android:title="@string/lockscreen_alpha"
+               settings:maximum="100"
+               settings:minimum="0"
+               settings:interval="1"
+               settings:units="%"
+               android:persistent="false" />
+
     	<PreferenceScreen
                 android:key="lock_clock_fonts"
                 android:title="@string/lock_clock_font_title"
