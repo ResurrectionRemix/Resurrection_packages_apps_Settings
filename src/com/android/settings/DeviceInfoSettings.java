@@ -135,6 +135,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
         setValueSummary(KEY_BASEBAND_VERSION, "gsm.version.baseband");
         setValueSummary(KEY_EQUIPMENT_ID, PROPERTY_EQUIPMENT_ID);
+        setStringSummary(KEY_DEVICE_CPU, DeviceInfoUtils.getDeviceProcessorInfo(getActivity()));
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
@@ -142,13 +143,11 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         setValueSummary(KEY_BUILD_TYPE, "rr.build.type");
         setValueSummary(KEY_MAINTAINER, "ro.build.user");
         setValueSummary(KEY_DEVICE_NAME, "ro.rr.device");
-        setValueSummary(KEY_DEVICE_CPU, "ro.product.cpu.abi");
         setValueSummary(KEY_MOD_VERSION, "ro.modversion");
         findPreference(KEY_MOD_VERSION).setEnabled(true);
         findPreference(KEY_BUILD_TYPE).setEnabled(true);
         findPreference(KEY_MAINTAINER).setEnabled(true);
         findPreference(KEY_DEVICE_NAME).setEnabled(true);
-        findPreference(KEY_DEVICE_CPU).setEnabled(true);
         setStringSummary(KEY_KERNEL_VERSION, getFormattedKernelVersion());
         findPreference(KEY_KERNEL_VERSION).setEnabled(true);
 
