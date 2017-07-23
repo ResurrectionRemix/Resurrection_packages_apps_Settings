@@ -15,23 +15,23 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="rr_mod_version">RR-OS version</string>
+  <string name="rr_mod_version">RR-OS-version</string>
   <string name="build_date">Byggdatum</string>
   <string name="mod_version_default">Standard</string>
   <!-- General -->
   <string name="ok">Okej</string>
-  <string name="reset">Nollställ</string>
+  <string name="reset">Återställ</string>
   <string name="dlg_reset_rr">RR</string>
   <string name="dlg_reset_android">Standard</string>
   <string name="default_string">Standard</string>
-  <string name="add">Lägg tilll</string>
+  <string name="add">Lägg till</string>
   <string name="enabled">Aktiverad</string>
   <string name="choose_app">Välj applikation</string>
   <string name="help">Hjälp</string>
-  <string name="reset_message">Återställa alla värden till standard?</string>
-  <string name="attention">Obs</string>
+  <string name="reset_message">Återställa alla poster till standard?</string>
+  <string name="attention">Observera</string>
   <string name="reset">Återställ</string>
-  <string name="restart_systemui">Starta om UI</string>
+  <string name="restart_systemui">Starta om gränssnitt</string>
   <!-- About RR -->
   <string name="about_rr_settings">Om</string>
   <string name="about_rr">Om</string>
@@ -46,10 +46,10 @@
   <string name="github_akhilnarang">https://github.com/akhilnarang</string>
   <string name="github_bdogg718k">https://github.com/bdogg718k</string>
   <string name="rr">Länkar</string>
-  <string name="rr_website_title">Hemsida</string>
+  <string name="rr_website_title">Webbsida</string>
   <string name="rr_website_summary">Få mer information om Resurrection Remix OS</string>
   <string name="rr_forum_title">Forum</string>
-  <string name="rr_forum_summary">Bli medlem i Resurrection forum</string>
+  <string name="rr_forum_summary">Bli medlem på forumet</string>
   <string name="rr_source_title">Github</string>
   <string name="rr_source_summary">Resurrection Remix OS källor</string>
   <string name="rr_facebook_title">Facebook</string>
@@ -158,6 +158,7 @@
   <string name="breathing_notifications_summary">Ge en andningseffekt till notifikationer så som sms, missade samtal och röstbrevlådan</string>
   <string name="rr_trans_summary">Anpassa diverse objekt i aviseringspanelen såsom transparens och stroke</string>
   <string name="rr_volume_summary">Anpassa olika objekt i volymfönstret, så som genomskinlighet och ram</string>
+  <string name="rr_power_summary">Anpassa dämpningen och genomskinligheten i gränssnittet för Power-menyn</string>
   <string name="lockscreen_weather_summary">Anpassa väderlayout på låsskärmen</string>
   <string name="system_app_remover_summary">Ta bort onödiga systemappar</string>
   <!-- Manage applications: show substratum overlays -->
@@ -208,8 +209,12 @@
   <string name="toast_SlideLeft_animation">Svep vänster</string>
   <string name="toast_Xylon_animation">Xylon</string>
   <string name="toast_Toko_animation">Toko</string>
+  <string name="toast_Tn_animation">Tn</string>
   <string name="toast_Honami_animation">Honami</string>
   <string name="toast_FastFade_animation">Tona ut snabbt</string>
+  <string name="toast_GrowFade_animation">Öka toning</string>
+  <string name="toast_GrowFadeCenter_animation">Öka toning från mitten</string>
+  <string name="toast_GrowFadeBottom_animation">Öka toning nerifrån</string>
   <string name="toast_Translucent_animation">Genomskinlig</string>
   <string name="toast_SlideLeftRight_animation">Svep vänster till höger</string>
   <string name="toast_SlideRightLeft_animation">Svep höger till vänster</string>
@@ -232,11 +237,13 @@
   <string name="listview_decelerate_interpolator">Decelerera</string>
   <string name="listview_accelerate_decelerate_interpolator">Påskynda och minska hastigheten</string>
   <string name="listview_anticipate_interpolator">Förutse</string>
+  <string name="listview_overshoot_interpolator">Överskott</string>
   <string name="listview_anticipate_overshoot_interpolator">Förutse och överskrid</string>
   <string name="listview_bounce_interpolator">Studsa</string>
   <!-- Disable animations -->
   <string name="disable_animations">Inaktivera animationer</string>
   <!-- Option to enable/disable scrolling cache -->
+  <string name="pref_scrollingcache_title">Rullningscache</string>
   <string name="pref_scrollingcache_force_enable">Tvinga aktiv</string>
   <string name="pref_scrollingcache_default_enable">Standard aktiverat</string>
   <string name="pref_scrollingcache_default_disable">Standard inaktiverat</string>
@@ -304,6 +311,8 @@
   <string name="palette_material_title">Material</string>
   <string name="palette_rgb_title">RGB</string>
   <string name="reset_color_title">Nollställ</string>
+  <string name="reset_android_title">Androidstandard</string>
+  <string name="reset_title">Resurrectionstandard</string>
   <string name="reset_theme_default_title">Standardtema</string>
   <string name="favorites_title">Favoriter</string>
   <string name="hide_favorites_title">Göm favoriter</string>
@@ -312,6 +321,8 @@
   <string name="show_help_title">Visa hjälp</string>
   <string name="empty_title">Tom</string>
   <!-- Help screen -->
+  <string name="color_picker_help_screen_title">Hjälp för att välja färger</string>
+  <string name="color_picker_help_ab_title">Åtgärdsfält:</string>
   <string name="color_picker_help_ab_back_title">Bakåtknapp</string>
   <string name="color_picker_help_ab_name_title">Titel:</string>
   <string name="color_picker_help_ab_hex_title">HEX värde</string>
@@ -320,6 +331,7 @@
   <string name="color_picker_help_ab_menu_favorites_title">Visa/dölj favoriter:</string>
   <string name="color_picker_help_colors_title">Färger:</string>
   <string name="color_picker_help_picker_view_title">Färgpanel:</string>
+  <string name="color_picker_help_color_buttons_title">Färgknappar:</string>
   <string name="color_picker_help_favorites_title">Favoriter:</string>
   <string name="color_picker_help_do_not_show_title">Visa inte igen</string>
   <string name="color_picker_help_button_ok_title">OK</string>
@@ -327,6 +339,7 @@
   <!-- Power menu Animations  -->
   <string name="powermenu">Avstängningsmeny</string>
   <string name="power_menu_animation_title">Avstängningsmeny - Animering</string>
+  <string name="power_menu_animation_dialog_title">Välj animering för avstängningsmeny</string>
   <string name="power_menu_animation_aosp">AOSP (standard)</string>
   <string name="power_menu_animation_bottom">Botten</string>
   <string name="power_menu_animation_top">Överst</string>
@@ -336,10 +349,17 @@
   <string name="power_menu_animation_slide">Glid</string>
   <string name="power_menu_animation_fly">Glöd</string>
   <string name="power_menu_animation_card">3D</string>
+  <string name="rr_qs_title">Snabbinställningar</string>
   <string name="rr_battery_title">Batteri</string>
+  <string name="rr_qs_animation">Snabbanimationer</string>
+  <string name="rr_qs_pulldown">Snabb neddragning</string>
+  <string name="rr_navbar_title">Navigeringsfält</string>
+  <string name="rr_toast_title">Aviseringsbubbla</string>
   <string name="rr_pm_animations_title">Avstängningsmeny</string>
   <!-- Tiles animation style  -->
   <string name="qs_tiles">QS brickor</string>
+  <string name="qs_tile_animation_style_title">Animeringsstil</string>
+  <string name="qs_tile_animation_duration_title">Animeringslängd</string>
   <string name="qs_tile_animation_style_off">Ingen animering</string>
   <string name="qs_tile_animation_style_flip">Vänd</string>
   <string name="qs_tile_animation_style_rotate">Rotera</string>
@@ -352,11 +372,13 @@
   <string name="qs_tile_animation_interpolator_decelerateInterpolator">Decelerera</string>
   <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Accelerera decelerera</string>
   <string name="qs_tile_animation_interpolator_bounceInterpolator">Studsa</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Överskott</string>
   <string name="qs_tile_animation_interpolator_anticipateInterpolator">Förutse</string>
   <string name="qs_set_animation_style">%1$s</string>
   <string name="qs_set_animation_duration">%1$s</string>
   <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Immersive Recents -->
+  <string name="immersive_recents_dialog_title">Välj senaste-vyn</string>
   <string name="immersive_recents_default">Standard</string>
   <string name="immersive_recents_fullscreen">Helskärm</string>
   <string name="immersive_recents_statusbar">Endast statusfält</string>
@@ -371,6 +393,7 @@
   <string name="gestures_settings">Gester</string>
   <string name="gesture_anywhere_title">Gester varsomhelst</string>
   <string name="gesture_anywhere_enabled_title">Gest varsomhelst</string>
+  <string name="gesture_anywhere_enabled_summary">Aktivera funktionen för gester varsomhelst</string>
   <string name="gesture_anywhere_position_title">Plats</string>
   <string name="gesture_anywhere_position_left">Vänsterkant</string>
   <string name="gesture_anywhere_position_right">Högerkant</string>
@@ -383,15 +406,19 @@
   <!-- Label, button used to cancel the operation of adding a gesture -->
   <string name="ga_button_discard">Förkasta</string>
   <!-- Label, button used to save a gesture newly created -->
+  <string name="ga_button_done">Klar</string>
   <!-- Label, prompt asking the user to enter the name of the gesture -->
   <string name="ga_prompt_gesture_name">Namn</string>
   <!-- Error message, informs the user he needs to enter a name before saving a gesture -->
+  <string name="ga_error_missing_name">Du måste ange ett namn</string>
   <!-- success message, tells the user where the gesture was saved -->
+  <string name="ga_save_success">Gest sparad i %s</string>
   <!-- Buttons in Rename gesture dialog box -->
   <string name="ga_rename_action">OK</string>
   <!-- Buttons in Rename gesture dialog box -->
   <string name="ga_cancel_action">Avbryt</string>
   <!-- Message displayed when the user opens the gestures settings screen -->
+  <string name="ga_gestures_loading">Laddar gester...</string>
   <!-- Message displayed when the user has no gestures -->
   <string name="ga_gestures_empty">Inga gester</string>
   <!-- Title of the screen used to view/manage gestures -->
@@ -407,6 +434,10 @@
   <!-- Label of gesture name field in Rename gesture dialog box -->
   <string name="ga_gestures_rename_label">Namn på gest</string>
   <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
+  <string name="ga_gestures_error_loading">Kunde inte ladda %s. Kontrollera att du har lagringsutrymmet tillgängligt.</string>
+  <string name="trigger_category">Stapelposition</string>
+  <string name="trigger_width_title">Bredd på sidostapel</string>
+  <string name="trigger_width_summary">Justera bredden på stapeln</string>
   <string name="picker_activities">Aktiviteter</string>
   <string name="profile_applist_title">Appar</string>
   <string name="ga_0">0px</string>
@@ -458,6 +489,7 @@
   <string name="double_tap_sleep_anywhere_summary">Dubbeltryck på låsskärmen för att få enheten att somna</string>
   <!-- Battery Bar -->
   <string name="battery_icon">Stil för batteriikon</string>
+  <string name="battery_bar_low_color">Färg vid låg nivå</string>
   <string name="battery_bar_hide">Göm</string>
   <string name="battery_bar_statusbar">Statusfält</string>
   <string name="battery_bar_navbar_top">Toppen av navigationsfält</string>
@@ -465,8 +497,16 @@
   <!-- Doze pulse options -->
   <string name="summary_doze_enabled">Aktiverad</string>
   <string name="summary_doze_disabled">Inaktiverad</string>
+  <string name="doze_overwrite_value_title">Skriva över standardvärden</string>
+  <string name="doze_overwrite_value_summary">Tillåt överskrivning av standardvärden med användarens konfiguration</string>
+  <string name="doze_pulse_title">Användare - konfigurerbara inställningar</string>
   <string name="doze_pulse_duration_in_title">Tona in</string>
+  <string name="doze_pulse_duration_visible_title">Synlig varaktighet</string>
   <string name="doze_pulse_duration_out_title">Tona ut</string>
+  <string name="doze_trigger_pickup_title">Plocka upp sensorutlösare</string>
+  <string name="doze_trigger_pickup_summary_on">Pulsning kommer utlösas av upplockningssensorn</string>
+  <string name="doze_trigger_notification_title">Aviseringstrigger</string>
+  <string name="doze_trigger_notification_summary_on">Pulsen kommer utlösas av aviseringar</string>
   <string name="doze_brightness_level_title">Ljusstyrka</string>
   <string name="onehundred_ms">100 ms</string>
   <string name="twofifty_ms">250 ms</string>
@@ -483,16 +523,25 @@
   <string name="five_second">5 s</string>
   <string name="ambient_display_show_battery_title">Batteristatus</string>
   <!-- Selinux Switch -->
+  <string name="selinux_switch_title">SELinux växlingsalternativ</string>
   <string name="selinux_title">SELinux läge</string>
+  <string name="selinux_permissive_title">Tillåtande</string>
+  <string name="selinux_enforcing_title">Tvingande</string>
   <!-- Slim DSLV -->
   <string name="shortcut_action_none">Inga</string>
+  <string name="shortcut_action_longpress">Långtryck:</string>
   <string name="shortcut_action_select_action_longpress">Välj långtrycksåtgärd:</string>
   <string name="shortcut_action_select_action">Välj åtgärd:</string>
   <string name="shortcut_action_select_action_newaction">Välj ny åtgärd:</string>
   <string name="shortcut_action_reset">Nollställ</string>
   <string name="shortcut_action_add">Lägg tilll</string>
   <string name="shortcut_action_reset_message">Återställa alla värden till standard?</string>
+  <string name="shortcut_action_max">Det högsta antalet objekt har uppnåtts</string>
   <string name="shortcut_action_warning">Varning</string>
+  <string name="shortcut_action_warning_message">Det går inte att ta bort sista posten</string>
+  <string name="shortcut_action_disable_message">Inaktiverad\nLägg till en post för att aktivera denna funktion</string>
+  <string name="shortcut_image_not_valid">Den valda appen returnerade inte en giltig ikon eller stöder inte bildbeskärning. Använd en annan app.</string>
+  <string name="shortcut_duplicate_entry">Den valda åtgärden kan inte läggas till två gånger</string>
   <string name="shortcut_action_help_shortcut">genväg</string>
   <string name="shortcut_action_help_button">knapp</string>
   <string name="shortcut_action_help_app">app</string>
@@ -528,33 +577,45 @@
   <string name="shortcuts_icon_picker_favorite">Favorit</string>
   <string name="shortcuts_icon_picker_file_browser">Filhanterare</string>
   <string name="shortcuts_icon_picker_file_browser2">Filhanterare - Alternativ</string>
+  <string name="shortcuts_icon_picker_fitness">Hälsa</string>
   <string name="shortcuts_icon_picker_gallery">Galleri</string>
+  <string name="shortcuts_icon_picker_gears">Kugghjul</string>
   <string name="shortcuts_icon_picker_google_small">Google</string>
   <string name="shortcuts_icon_picker_gplus">Google+</string>
   <string name="shortcuts_icon_picker_gtalk">Hangouts</string>
   <string name="shortcuts_icon_picker_help">Hjälp</string>
   <string name="shortcuts_icon_picker_joystick">Joystick</string>
+  <string name="shortcuts_icon_picker_key">Nycklar/Konton</string>
   <string name="shortcuts_icon_picker_laptop">Laptop</string>
+  <string name="shortcuts_icon_picker_notes">Anteckningar</string>
   <string name="shortcuts_icon_picker_luggage">Resor</string>
   <string name="shortcuts_icon_picker_maps">Maps</string>
+  <string name="shortcuts_icon_picker_market">Butik</string>
   <string name="shortcuts_icon_picker_movie">Filmer</string>
+  <string name="shortcuts_icon_picker_music">Musik</string>
+  <string name="shortcuts_icon_picker_nav">Navigering</string>
   <string name="shortcuts_icon_picker_phone">Telefon</string>
   <string name="shortcuts_icon_picker_package">Paket</string>
   <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
   <string name="shortcuts_icon_picker_play">Play</string>
   <string name="shortcuts_icon_picker_pocket">Pocket</string>
+  <string name="shortcuts_icon_picker_quicksettings">Snabbinställningar</string>
   <string name="shortcuts_icon_picker_rss">RSS-flöde</string>
   <string name="shortcuts_icon_picker_sdcard">SD-kort</string>
   <string name="shortcuts_icon_picker_search">Sök</string>
+  <string name="shortcuts_icon_picker_sms">Meddelanden</string>
   <string name="shortcuts_icon_picker_tasks">Uppgifter</string>
   <string name="shortcuts_icon_picker_terminal">Terminal</string>
+  <string name="shortcuts_icon_picker_transit">Byte</string>
   <string name="shortcuts_icon_picker_tv">TV</string>
   <string name="shortcuts_icon_picker_twitter">Twitter</string>
   <string name="shortcuts_icon_picker_unlock">Lås upp</string>
+  <string name="shortcut_action_none">Inga</string>
   <string name="shortcut_action_app">Anpassad app</string>
   <string name="shortcut_action_home">Hem</string>
   <string name="shortcut_action_back">Tillbaka</string>
   <string name="shortcut_action_menu">Meny</string>
+  <string name="shortcut_action_ime">Öppna IME-växlare</string>
   <string name="shortcut_action_power_menu">Avstängningsmeny</string>
   <string name="shortcut_action_recent">Senaste appar</string>
   <string name="shortcut_action_power">Skärm av</string>
@@ -570,6 +631,7 @@
   <string name="shortcut_action_longpress">Långtryck:</string>
   <string name="shortcut_action_select_action_longpress">Välj långtrycksåtgärd:</string>
   <string name="shortcut_action_select_action">Välj åtgärd:</string>
+  <string name="shortcut_action_select_action_newaction">Välj ny åtgärd:</string>
   <string name="shortcut_action_add">Lägg till</string>
   <string name="shortcut_action_warning">Varning</string>
   <string name="shortcut_action_help_button">knapp</string>
@@ -624,22 +686,34 @@
   <string name="games">Spel</string>
   <string name="gmail">Gmail</string>
   <string name="docs">Docs</string>
+  <string name="googledrive">Google Drive</string>
+  <string name="googleearth">Google Earth</string>
+  <string name="googlehangouts">Google Hangouts</string>
+  <string name="googlekeep">Google Keep</string>
   <string name="googleplay">Google Play</string>
   <string name="googletranslate">Google Översätt</string>
   <string name="google">Google</string>
+  <string name="googleplus">Google+</string>
   <string name="imdb">imdb</string>
   <string name="instagram">Instagram</string>
   <string name="lastfm">Lastfm</string>
   <string name="maps">Maps</string>
+  <string name="messages">Meddelanden</string>
   <string name="music">Musik</string>
   <string name="mxplayer">Mxplayer</string>
+  <string name="notepad">Direktmeddelande</string>
   <string name="opera">Opera</string>
+  <string name="paint">Färga</string>
   <string name="paypal">Paypal</string>
   <string name="phone">Telefon</string>
   <string name="picasa">Picasa</string>
+  <string name="pictures2">Pictures2</string>
+  <string name="player_pro">Player Pro</string>
+  <string name="playstation">Spelstation</string>
   <string name="reddit">Reddit</string>
   <string name="settings">Inställningar</string>
   <string name="skype">Skype</string>
+  <string name="soundscloud">Ljudmoln</string>
   <string name="spotifiy">Spotifiy</string>
   <string name="tapatalk">Tapatalk</string>
   <string name="tunein">Tunein</string>
@@ -653,13 +727,27 @@
   <string name="youtube">Youtube</string>
   <string name="zedge">Zedge</string>
   <!-- Hide Lockscreen clock & date -->
+  <string name="hide_lockscreen_clock_title">Visa klocka på låsskärm</string>
+  <string name="hide_lockscreen_date_title">Visa datum på låsskärm</string>
+  <string name="lockscreen_alarm_title">Visa alarm på låsskärm</string>
   <!-- Keyguard Statusbar Clock -->
+  <string name="keyguard_statusbar_clock_title">Statusfält för klocka på låsskärm</string>
+  <string name="keyguard_statusbar_clock_summary">Aktiverar statusfältklockan på vänster sida av låsskärm</string>
   <!-- Fingerprint vibrate -->
+  <string name="fprint_sucess_vib_title">Vibration vid fingeravtrycksautentisering</string>
+  <string name="fprint_sucess_vib_summary">Vibrera på lyckad fingeravtrycksautentisering</string>
   <!-- QuickSettings haptic feedback -->
+  <string name="quick_settings_vibrate_title">Vibrera vid tryck</string>
+  <string name="quick_settings_vibrate_summary">Vibrera när du trycker på en bricka</string>
   <!-- Lock Clock Fonts -->
+  <string name="lock_clock_font_title">Typsnittsval</string>
+  <string name="lock_clock_font_summary">Ändra standardtypsnittet för låsskärmens klock-widget</string>
   <string name="lockdate_font_size_title">Datum - Teckenstorlek</string>
   <string name="lockclock_font_size_title">Klocka - Teckenstorlek</string>
+  <string name="lock_date_font_summary">Anpassa datumtypsnitt</string>
   <string name="lock_date_font_title">Datum</string>
+  <string name="lock_clock_font_dialog_title">Välj typsnitt för låsklocka</string>
+  <string name="lock_clock_font_stock">Normal (standard)</string>
   <string name="lock_clock_font_bold">Fet</string>
   <string name="lock_clock_font_light">Ljus</string>
   <string name="lock_clock_font_italic">Kursiv</string>
@@ -667,12 +755,18 @@
   <string name="lock_clock_font_light_italic">Ljus Kursiv</string>
   <string name="lock_clock_font_thin_italic">Tunn Kursiv</string>
   <string name="lock_clock_font_thin">Tunn</string>
+  <string name="lock_clock_font_condensed_normal">Kondenserad</string>
+  <string name="lock_clock_font_condensed_italic">Condensed kursiv</string>
+  <string name="lock_clock_font_condensed_bold">Kondenserad fet</string>
+  <string name="lock_clock_font_condensed_bold_italic">Condensed fet kursiv</string>
   <string name="lock_clock_font_medium_normal">Medium</string>
   <string name="lock_clock_font_medium_italic">Medium Kursiv</string>
   <!-- Screenshot sound -->
   <string name="screenshot_sound_title">Skärmdumpsljud</string>
   <string name="navbar_settings_title">Navigeringsfält</string>
   <!-- kill app long press back -->
+  <string name="kill_app_longpress_back">Döda appar med bakåtknapp</string>
+  <string name="kill_app_longpress_back_summary">Tvångsavsluta appen i förgrunden genom att hålla in bakåtknappen</string>
   <!-- Advanced data tile -->
   <!-- Hardware button navigation -->
   <string name="button_pref_title">Knappar</string>
@@ -682,11 +776,25 @@
   <string name="hardware_keys_appswitch_key_title">Översiktsknapp</string>
   <string name="hardware_keys_back_key_title">Bakåtknapp</string>
   <string name="hardware_keys_camera_key_title">Kameraknapp</string>
+  <string name="hardware_keys_double_tap_summary">Ange dubbeltrycksåtgärd</string>
+  <string name="hardware_keys_single_tap_summary">Ange enkeltrycksåtgärd</string>
+  <string name="hardware_keys_long_press_summary">Ange långtrycksåtgärd</string>
+  <string name="hardware_keys_single_tap_title">Enkeltrycksåtgärd</string>
+  <string name="hardware_keys_long_press_title">Långtrycksåtgärd</string>
+  <string name="hardware_keys_double_tap_title">Dubbeltrycksåtgärd</string>
   <string name="hardware_keys_action_nothing">Ingen åtgärd</string>
   <string name="hardware_keys_action_menu">Öppna/stäng menyn</string>
   <string name="hardware_keys_action_app_switch">Senaste app-växlare</string>
+  <string name="hardware_keys_action_search">Sökassistent</string>
+  <string name="hardware_keys_action_voice_search">Röstsökning</string>
+  <string name="hardware_keys_action_in_app_search">Sökning i app</string>
+  <string name="hardware_keys_action_launch_camera">Starta kamera</string>
+  <string name="hardware_keys_action_sleep">Stäng av skärmen</string>
+  <string name="hardware_keys_action_last_app">Senaste app</string>
   <string name="hardware_keys_category">Hårdvaruknappar</string>
+  <string name="hardware_keys_disable_title">Inaktivera hårdvarutangenter</string>
   <string name="hardware_keys_power_key_title">Strömknapp</string>
+  <string name="camera_sleep_on_release_title">Tjuvkika</string>
   <string name="camera_launch_title">Starta kamera</string>
   <string name="volbtn_cursor_control_off">Inaktiverad</string>
   <string name="power_end_call_title">Avsluta samtal</string>
@@ -719,6 +827,12 @@
   <!-- Volume settings - Volume adjustment sound -->
   <!-- Status bar -->
   <string name="status_bar_title">Statusfält</string>
+  <string name="status_bar_toggle_brightness">Ljusstyrka</string>
+  <string name="status_bar_toggle_brightness_summary">Justera ljusstyrka genom att svepa över statusfältet</string>
+  <string name="status_bar_notif_count_title">Visa notifikationsräknare</string>
+  <string name="status_bar_notif_count_summary">Visa antalet väntande aviseringar</string>
+  <string name="status_bar_quick_qs_pulldown_title">Snabb neddragning</string>
+  <string name="status_bar_quick_qs_pulldown_summary">%1$s kanten av statusfältet drar ner snabba inställningar</string>
   <string name="status_bar_quick_qs_pulldown_summary_left">Vänster</string>
   <string name="status_bar_quick_qs_pulldown_summary_right">Höger</string>
   <string name="status_bar_quick_qs_pulldown_off">Av</string>
@@ -736,13 +850,19 @@
   <string name="status_bar_am_pm_small">Liten</string>
   <string name="status_bar_am_pm_hidden">Gömd</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Batteristil i statusfält</string>
+  <string name="status_bar_battery_style_icon_portrait">Ikon i porträttläge</string>
+  <string name="status_bar_battery_style_icon_landscape">Ikon i landskapsläge</string>
   <string name="status_bar_battery_style_circle">Cirkel</string>
   <string name="status_bar_battery_style_text">Text</string>
   <string name="status_bar_battery_style_hidden">Gömd</string>
+  <string name="status_bar_battery_style_solid">Fast</string>
   <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">Batteriprocent</string>
   <string name="status_bar_battery_percentage_default">Gömd</string>
+  <string name="status_bar_battery_percentage_text_inside">Inuti ikonen</string>
   <string name="status_bar_battery_percentage_text_next">Bredvid ikonen</string>
+  <string name="status_bar_charge_color_title">Ändra färg på batteriikonen i statusfältet</string>
   <string name="text_charging_symbol_default">Inaktiverad</string>
   <string name="text_charging_symbol_flash">Blixt</string>
   <string name="text_charging_symbol_tilde">Tilde</string>
@@ -753,6 +873,7 @@
   <string name="smart_pulldown_off">Av</string>
   <string name="smart_pulldown_none">Inga aviseringar</string>
   <string name="smart_pulldown_dismissable">Inga avfärdbara</string>
+  <string name="smart_pulldown_ongoing">Inga pågående</string>
   <!-- Clock and date immersive recents-->
   <string name="recents_full_screen_clock_title">Visa klocka</string>
   <string name="recents_full_screen_date_title">Visa datum</string>
@@ -788,6 +909,7 @@
   <string name="status_bar_date_style_uppercase">Versaler</string>
   <string name="status_bar_date_format_custom">Anpassat javaformat</string>
   <string name="status_bar_date_string_edittext_title">Måste vara i datumformat MM/dd/yy</string>
+  <string name="status_bar_date_string_edittext_summary">Ange sträng</string>
   <string name="clock_category">Klocka</string>
   <string name="clock_custom">Anpassningar av klocka</string>
   <string name="clock_font_style_title">Typsnitt</string>
@@ -798,15 +920,36 @@
   <string name="clock_font_light">Ljus</string>
   <string name="clock_font_light_italic">Ljus Kursiv</string>
   <string name="clock_font_thin">Tunn</string>
+  <string name="clock_font_thin_italic">Tunn kursiv</string>
+  <string name="clock_font_condensed">Kondenserad</string>
+  <string name="clock_font_condensed_italic">Kondenserad kursiv</string>
+  <string name="clock_font_condensed_light">Kondenserad ljus</string>
+  <string name="clock_font_condensed_light_italic">Kondenserad ljus kursiv</string>
+  <string name="clock_font_condensed_bold">Kondenserad fet</string>
+  <string name="clock_font_condensed_bold_italic">Kondenserad fet kursiv</string>
+  <string name="clock_font_medium">Medium</string>
+  <string name="clock_font_medium_italic">Medium kursiv</string>
   <string name="clock_font_black">Svart</string>
+  <string name="clock_font_black_italic">Svart kursiv</string>
+  <string name="clock_font_dancingscript">DancingScript</string>
+  <string name="clock_font_dancingscript_bold">DancingScript fet</string>
+  <string name="clock_font_comingsoon">Kommer snart</string>
+  <string name="clock_font_notoserif">NotoSerif normal</string>
+  <string name="clock_font_notoserif_italic">NotoSerif kursiv</string>
+  <string name="clock_font_notoserif_bold">NotoSerif fet</string>
+  <string name="clock_font_notoserif_bold_italic">NotoSerif fet kursiv</string>
   <string name="clock_font_size_title">Teckenstorlek</string>
+  <string name="status_bar_clock_seconds_title">Visa sekunder</string>
   <!-- Status bar temperature -->
   <string name="weather_settings_title_cclock">Inställningar för klocka och widget</string>
   <string name="settings_title_cclock">Väderinställningar</string>
   <string name="weather_category">Väderinställningar</string>
   <string name="status_bar_temperature_title">Väder - Temperatur</string>
   <string name="status_bar_temperature_hidden">Dold</string>
+  <string name="status_bar_temperature_show_scale">Visas med skala</string>
+  <string name="status_bar_temperature_hide_scale">Visas utan skala</string>
   <string name="status_bar_temperature_location_title">Placering</string>
+  <string name="status_bar_temperature_location_summary">Välj var temperaturen ska visas i statusfältet</string>
   <string name="status_bar_temperature_location_right">Visa till höger</string>
   <string name="status_bar_temperature_location_left">Visa till vänster</string>
   <string name="status_bar_weather_color_title">Färg på temperatur</string>
@@ -825,6 +968,9 @@
   <string name="status_bar_weather_font_condensed_light">Condensed Tunn</string>
   <string name="status_bar_weather_font_condensed_light_italic">Condensed Tunn Kursiv</string>
   <string name="status_bar_weather_font_condensed_bold">Condensed Fet</string>
+  <string name="status_bar_weather_font_condensed_bold_italic">Kondenserad fet kursiv</string>
+  <string name="status_bar_weather_font_medium">Medium</string>
+  <string name="status_bar_weather_font_medium_italic">Medium kursiv</string>
   <string name="status_bar_weather_font_black">Svart</string>
   <string name="weather_settings_title">Väder</string>
   <!-- Lockscreen weather -->
@@ -860,9 +1006,15 @@
   <string name="float_button_color">Flytande knapp</string>
   <string name="recent_styles">Stil på senaste appar </string>
   <string name="clear_button_color">Rensa alla</string>
+  <string name="recents_rotate_fab">Animera FAB</string>
   <string name="clear_animation_style">Rensa alla animeringar</string>
   <string name="button1">Standard</string>
   <string name="button3">Graf</string>
+  <string name="button6">Urklipp </string>
+  <string name="button7">Färga </string>
+  <string name="button8">Horisontella linjer</string>
+  <string name="button9">Cirkulär kryssruta </string>
+  <string name="button10">Svep för att radera </string>
   <string name="button11">Zzzzz</string>
   <string name="button19">Lager</string>
   <string name="button23">Google</string>
@@ -1136,7 +1288,7 @@
   <string name="show_cpu_info">Visa CPU info</string>
   <!-- Status Bar Battery Icon Large Percentage Text -->
   <!-- Keyboard and Input ASS methods  -->
-  <string name="attention">Obs</string>
+  <string name="attention">Observera</string>
   <!-- XOSP Blur personalizations -->
   <string name="blur_notifications_cat">Aviseringar</string>
   <string name="blur_qs_cat">Snabbinställningar</string>
@@ -1237,4 +1389,15 @@
   <!-- No navigation notification -->
   <!-- Settings header -->
   <!-- FP gesture -->
+  <string name="fp_swipe_call_actions_disabled">Inaktiverad</string>
+  <string name="fp_swipe_call_actions_updown_answer_call">Svep uppåt eller nedåt för att besvara inkommande samtal</string>
+  <string name="fp_swipe_call_actions_up_answer_down_silence">Svep uppåt för att svara på inkommande samtal, ner för att tysta dem</string>
+  <string name="recents_lock_icon_title">Låsikon</string>
+  <string name="recents_lock_icon_summary">Visa senaste lås till aktivitetsikonen i huvudet</string>
+  <string name="nav_button_sounds_title">Tryckljud</string>
+  <string name="nav_button_sounds_summary">Spela klickljud när smartfältet trycks ner. Bara ringer/högljutt läge</string>
+  <string name="status_bar_pulse_charging_battery_title">Pulsera batteriikon vid laddning</string>
+  <string name="button_light_press_title">Lys upp knappar vid användning av ficklampa</string>
+  <string name="button_light_press_summary_off">Knappar tänds när som helst när skärmingång upptäcks.</string>
+  <string name="button_light_press_summary_on">Knapparna lyser endast om hårdvarutangenter trycks.</string>
 </resources>
