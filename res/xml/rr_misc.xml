@@ -77,13 +77,14 @@
         <PreferenceScreen
             android:key="screenstate_category"
             android:title="@string/screen_state_toggles_title"
-            android:summary="@string/screen_state_toggles_summary"
+            android:summary="@string/screen_state_toggles_summary_main"
             android:icon="@drawable/rr_suspend_icon"
             android:fragment="com.android.settings.rr.ScreenStateToggles" />
 
        <!-- System APP Remover -->
        <PreferenceScreen
             android:id="@+id/system_app_remover"
+            android:key="system_app_remover"
             android:title="@string/system_app_remover"
             android:icon="@drawable/rr_system_app_remover_icon"
             android:summary="@string/system_app_remover_summary"

@@ -32,6 +32,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings.Secure;
+import android.provider.Settings.System;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
@@ -65,6 +66,9 @@ public final class PhysicalKeyboardFragment extends SettingsPreferenceFragment
     private static final String SHOW_VIRTUAL_KEYBOARD_SWITCH = "show_virtual_keyboard_switch";
     private static final String KEYBOARD_SHORTCUTS_HELPER = "keyboard_shortcuts_helper";
     private static final String IM_SUBTYPE_MODE_KEYBOARD = "keyboard";
+    private static final String AUTO_REPLACE_SWITCH = "auto_replace";
+    private static final String AUTO_CAPS_SWITCH = "auto_caps";
+    private static final String AUTO_PUNCTUATE_SWITCH = "auto_punctuate";
 
     @NonNull
     private final List<HardKeyboardDeviceInfo> mLastHardKeyboards = new ArrayList<>();
@@ -108,6 +112,46 @@ public final class PhysicalKeyboardFragment extends SettingsPreferenceFragment
                         return true;
                     }
                 });
+
+        Preference.OnPreferenceClickListener textPreferenceClickListener =
+                new Preference.OnPreferenceClickListener() {
+                    @Override
+                    public boolean onPreferenceClick(Preference preference) {
+                        SwitchPreference pref = (SwitchPreference) preference;
+                        if (AUTO_REPLACE_SWITCH.equals(pref.getKey())) {
+                            System.putInt(getContentResolver(), System.TEXT_AUTO_REPLACE,
+                                    pref.isChecked() ? 1 : 0);
+                        } else if (AUTO_CAPS_SWITCH.equals(pref.getKey())) {
+                            System.putInt(getContentResolver(), System.TEXT_AUTO_CAPS,
+                                    pref.isChecked() ? 1 : 0);
+                        } else if (AUTO_PUNCTUATE_SWITCH.equals(pref.getKey())) {
+                            System.putInt(getContentResolver(), System.TEXT_AUTO_PUNCTUATE,
+                                    pref.isChecked() ? 1 : 0);
+                        }
+                        return true;
+                    }
+                };
+
+        SwitchPreference autoReplaceSwitch = Preconditions.checkNotNull(
+                (SwitchPreference) mKeyboardAssistanceCategory.findPreference(
+                        AUTO_REPLACE_SWITCH));
+        autoReplaceSwitch.setChecked(System.getInt(getContentResolver(),
+                System.TEXT_AUTO_REPLACE, 1) > 0);
+        autoReplaceSwitch.setOnPreferenceClickListener(textPreferenceClickListener);
+
+        SwitchPreference autoCapsSwitch = Preconditions.checkNotNull(
+                (SwitchPreference) mKeyboardAssistanceCategory.findPreference(
+                        AUTO_CAPS_SWITCH));
+        autoCapsSwitch.setChecked(System.getInt(getContentResolver(),
+                System.TEXT_AUTO_CAPS, 1) > 0);
+        autoCapsSwitch.setOnPreferenceClickListener(textPreferenceClickListener);
+
+        SwitchPreference autoPunctuateSwitch = Preconditions.checkNotNull(
+                (SwitchPreference) mKeyboardAssistanceCategory.findPreference(
+                        AUTO_PUNCTUATE_SWITCH));
+        autoPunctuateSwitch.setChecked(System.getInt(getContentResolver(),
+                System.TEXT_AUTO_PUNCTUATE, 1) > 0);
+        autoPunctuateSwitch.setOnPreferenceClickListener(textPreferenceClickListener);
     }
 
     @Override
