@@ -61,9 +61,12 @@ import com.android.settings.Utils;
 import com.android.settings.applications.ManageApplications;
 import com.android.settings.deletionhelper.AutomaticStorageManagerSettings;
 import com.android.settings.deviceinfo.StorageSettings.MountTask;
+import com.android.settingslib.deviceinfo.PrivateStorageInfo;
+import com.android.settingslib.deviceinfo.StorageManagerVolumeProvider;
 import com.android.settingslib.deviceinfo.StorageMeasurement;
 import com.android.settingslib.deviceinfo.StorageMeasurement.MeasurementDetails;
 import com.android.settingslib.deviceinfo.StorageMeasurement.MeasurementReceiver;
+
 import com.google.android.collect.Lists;
 
 import java.io.File;
@@ -168,6 +171,13 @@ public class PrivateVolumeSettings extends SettingsPreferenceFragment {
         if (mTotalSize <= 0) {
             mTotalSize = sharedDataSize;
             mSystemSize = 0;
+        }
+
+        if (mStorageManager.getPrimaryPhysicalVolume() != null) {
+            PrivateStorageInfo info = PrivateStorageInfo.getPrivateStorageInfo(
+                    new StorageManagerVolumeProvider(mStorageManager));
+            mTotalSize = info.totalBytes;
+            mSystemSize = mTotalSize - sharedDataSize;
         }
 
         // Find the emulated shared storage layered above this private volume
