@@ -472,6 +472,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                             Settings.System.putInt(mResolver,
                                     Settings.System.STATUSBAR_CLOCK_FONT_SIZE, 14);
                             Settings.System.putInt(mResolver,
+                                    Settings.System.STATUSBAR_CLOCK_COLOR, 0xffffffff);
+                            Settings.System.putInt(mResolver,
                                     Settings.System.STATUS_BAR_DATE, 0);
                             Settings.System.putInt(mResolver,
                                     Settings.System.RECENTS_FULL_SCREEN_DATE, 0);
