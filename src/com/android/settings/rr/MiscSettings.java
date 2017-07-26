@@ -54,6 +54,7 @@ public class MiscSettings extends SettingsPreferenceFragment  implements OnPrefe
     private static final String SELINUX = "selinux";
     private static final String SELINX_PREF ="selinux_switch";
     private static final String APP_REMOVER = "system_app_remover";
+    private static final String ROOT_ACCESS_PROPERTY = "persist.sys.root_access";
     private SwitchPreference mSelinux;
     private Preference mSelinuxPref;
     private PreferenceScreen mAppRemover;
@@ -83,7 +84,7 @@ public class MiscSettings extends SettingsPreferenceFragment  implements OnPrefe
             suSupported = (getPackageManager().getPackageInfo("eu.chainfire.supersu", 0).versionCode >= 185);
         } catch (PackageManager.NameNotFoundException e) {
         }
-        if (magiskSupported || suSupported) {
+        if (magiskSupported || suSupported || isRootForAppsEnabled()) {
             mSelinux.setOnPreferenceChangeListener(this);
             if (CMDProcessor.runShellCommand("getenforce").getStdout().contains("Enforcing")) {
                 mSelinux.setChecked(true);
@@ -101,6 +102,13 @@ public class MiscSettings extends SettingsPreferenceFragment  implements OnPrefe
                 getPreferenceScreen().removePreference(mSelinuxPref);
         }
 
+    }
+
+    public static boolean isRootForAppsEnabled() {
+        int value = SystemProperties.getInt(ROOT_ACCESS_PROPERTY, 0);
+        boolean daemonState =
+                SystemProperties.get("init.svc.su_daemon", "absent").equals("running");
+        return daemonState && (value == 1 || value == 3);
     }
 
     @Override

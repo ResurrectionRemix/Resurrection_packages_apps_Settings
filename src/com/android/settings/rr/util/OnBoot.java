@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
+import android.os.SystemProperties;
 import android.util.Log;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import com.android.settings.util.CMDProcessor;
 public class OnBoot extends BroadcastReceiver {
 
     private static final String TAG = "RR_onboot";
+    private static final String ROOT_ACCESS_PROPERTY = "persist.sys.root_access";
     private boolean mSetupRunning = false;
     private Context mContext;
 
@@ -39,7 +41,7 @@ public class OnBoot extends BroadcastReceiver {
             suSupported = (context.getPackageManager().getPackageInfo("eu.chainfire.supersu", 0).versionCode >= 185);
         } catch (PackageManager.NameNotFoundException e) {
         }
-        if (magiskSupported || suSupported) {
+        if (magiskSupported || suSupported || isRootForAppsEnabled()) {
             if(!mSetupRunning) {
                SharedPreferences sharedpreferences = context.getSharedPreferences("selinux_pref", Context.MODE_PRIVATE);
                String isSelinuxEnforcing = sharedpreferences.getString("selinux", null);
@@ -58,6 +60,13 @@ public class OnBoot extends BroadcastReceiver {
               }
           }
        }     
+    }
+
+    public static boolean isRootForAppsEnabled() {
+        int value = SystemProperties.getInt(ROOT_ACCESS_PROPERTY, 0);
+        boolean daemonState =
+                SystemProperties.get("init.svc.su_daemon", "absent").equals("running");
+        return daemonState && (value == 1 || value == 3);
     }
 
     private void setSelinuxEnabled(String status) {
