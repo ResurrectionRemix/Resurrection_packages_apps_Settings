@@ -89,6 +89,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
     private static final String FILENAME_PROC_MEMINFO = "/proc/meminfo";
     private static final String FILENAME_PROC_CPUINFO = "/proc/cpuinfo";
     private static final String KEY_DEVICE_CPU = "rr_device_cpu";
+    private static final String PROPERTY_DEVICE_CPU = "ro.hardware.alter";
     private static final String KEY_DEVICE_MEMORY = "device_memory";
     private static final String KEY_QGP_VERSION = "qgp_version";
     private static final String PROPERTY_QGP_VERSION = "persist.qgp.version";
@@ -135,7 +136,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
         setValueSummary(KEY_BASEBAND_VERSION, "gsm.version.baseband");
         setValueSummary(KEY_EQUIPMENT_ID, PROPERTY_EQUIPMENT_ID);
-        setStringSummary(KEY_DEVICE_CPU, DeviceInfoUtils.getDeviceProcessorInfo(getActivity()));
+        setValueSummary(KEY_DEVICE_CPU, PROPERTY_DEVICE_CPU);
         setStringSummary(KEY_DEVICE_MODEL, Build.MODEL);
         setStringSummary(KEY_BUILD_NUMBER, Build.DISPLAY);
         setValueSummary(KEY_MOD_BUILD_DATE, "ro.build.date");
@@ -153,7 +154,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
 
         String buildtype = SystemProperties.get("rr.build.type","unofficial");
         if (buildtype.equalsIgnoreCase("unofficial")) {
-        removePreference(KEY_MAINTAINER);
+            removePreference(KEY_MAINTAINER);
         }
         setValueSummary(KEY_QGP_VERSION, PROPERTY_QGP_VERSION);
         // Remove QGP Version if property is not present
@@ -190,6 +191,10 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
         // Remove Equipment id preference if FCC ID is not set by RIL
         removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_EQUIPMENT_ID,
                 PROPERTY_EQUIPMENT_ID);
+
+	// Remove CPU Info if PROPERTY_DEVICE_CPU is not set
+	removePreferenceIfPropertyMissing(getPreferenceScreen(), KEY_DEVICE_CPU,
+                PROPERTY_DEVICE_CPU);
 
         // Remove Baseband version if wifi-only device
         if (Utils.isWifiOnly(getActivity())) {
@@ -547,6 +552,9 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment implements In
                 }
                 if (isPropertyMissing(PROPERTY_EQUIPMENT_ID)) {
                     keys.add(KEY_EQUIPMENT_ID);
+                }
+		if (isPropertyMissing(PROPERTY_DEVICE_CPU)) {
+                    keys.add(KEY_DEVICE_CPU);
                 }
                 // Remove Baseband version if wifi-only device
                 if (Utils.isWifiOnly(context)) {
