@@ -21,12 +21,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_notif_settings_title">
 
-
       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="force_expanded_notifications"
         android:title="@string/force_expanded_notifications_title"
         android:summary="@string/force_expanded_notifications_summary" />
-
 
       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="disable_immersive_message"
@@ -39,6 +37,11 @@
         android:title="@string/disable_fc_notifications_title"
         android:summary="@string/disable_fc_notifications_summary"
         android:defaultValue="false" />
+
+      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="battery_light_allow_on_dnd"
+        android:title="@string/battery_light_allow_on_dnd_title"
+        android:defaultValue="true" />
 
       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="notification_guts_kill_app_button"
