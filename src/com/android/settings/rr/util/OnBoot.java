@@ -47,7 +47,7 @@ public class OnBoot extends BroadcastReceiver {
                String isSelinuxEnforcing = sharedpreferences.getString("selinux", null);
                if (isSelinuxEnforcing != null) {
                    if (isSelinuxEnforcing.equals("true")) {
-                       CMDProcessor.runSuCommand("setenforce 1");
+                       CMDProcessor.runShellCommand("setenforce 1");
                    } else if (isSelinuxEnforcing.equals("false")) {
                        CMDProcessor.runSuCommand("setenforce 0");
                    }
