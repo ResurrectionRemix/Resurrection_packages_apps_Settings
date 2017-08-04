@@ -20,6 +20,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/button_settings">
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="anbi"
+        android:title="@string/anbi_title"
+        android:summary="@string/anbi_summary"
+        android:persistent="false" />
+
     <PreferenceCategory
         android:key="rr_navbar"
         android:title="@string/rr_navbar_title"/>
