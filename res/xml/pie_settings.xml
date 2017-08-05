@@ -18,13 +18,19 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/pie_settings">
 
+   <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+         android:key="pie_state"
+         android:title="@string/pie_enable_title"
+         android:defaultValue="false" />
+
     <ListPreference
         android:key="pie_theme_mode"
         android:title="@string/pie_theme_mode_title"
         android:icon="@drawable/ic_pie_theme"
         android:summary="%s"
         android:entries="@array/pie_theme_mode_entries"
-        android:entryValues="@array/pie_theme_mode_values" />
+        android:entryValues="@array/pie_theme_mode_values"
+        android:dependency="pie_state" />
 
     <ListPreference
         android:key="pie_battery_mode"
@@ -32,7 +38,8 @@
         android:icon="@drawable/ic_pie_battery"
         android:summary="%s"
         android:entries="@array/pie_battery_mode_entries"
-        android:entryValues="@array/pie_battery_mode_values" />
+        android:entryValues="@array/pie_battery_mode_values"      
+        android:dependency="pie_state" />
 
     <ListPreference
         android:key="pie_status_indicator"
@@ -40,7 +47,17 @@
         android:icon="@drawable/ic_pie_status"
         android:summary="%s"
         android:entries="@array/pie_status_mode_entries"
-        android:entryValues="@array/pie_status_mode_values" />
+        android:entryValues="@array/pie_status_mode_values"
+        android:dependency="pie_state" />
+
+    <ListPreference
+        android:key="pa_pie_gravity"
+        android:dialogTitle="@string/pa_pie_gravity_title"
+        android:icon="@drawable/ic_pie_gravity"
+        android:title="@string/pa_pie_gravity_title"
+        android:summary="@string/pa_pie_gravity_summary"
+        android:entries="@array/entries_pa_pie_gravity"
+        android:entryValues="@array/values_pa_pie_gravity"
+        android:dependency="pie_state" />
 
 </PreferenceScreen>
-
