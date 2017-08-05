@@ -20,12 +20,6 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/button_settings">
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="anbi"
-        android:title="@string/anbi_title"
-        android:summary="@string/anbi_summary"
-        android:persistent="false" />
-
     <PreferenceCategory
         android:key="rr_navbar"
         android:title="@string/rr_navbar_title"/>
@@ -175,6 +169,21 @@
                 android:key="volume_steps"
                 android:title="@string/volume_steps_title"
                 android:fragment="com.android.settings.rr.VolumeSteps" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="rr_keys"
+        android:title="@string/rr_keys_title">
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="anbi_enabled"
+        android:title="@string/anbi_title"
+        android:summary="@string/anbi_summary" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="pocket_judge"
+        android:title="@string/pocket_judge_title"
+        android:summary="@string/pocket_judge_summary" />
     </PreferenceCategory>
 
 </PreferenceScreen>
