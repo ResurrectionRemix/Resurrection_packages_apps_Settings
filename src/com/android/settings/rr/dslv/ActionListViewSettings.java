@@ -38,7 +38,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.design.widget.Snackbar;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -53,6 +52,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ListView;
 
 import com.android.internal.util.rr.ActionConfig;
@@ -401,8 +401,8 @@ public class ActionListViewSettings extends ListFragment implements
             } else if (requestCode == REQUEST_PICK_CUSTOM_ICON && mPendingIndex != -1) {
                 if (mImageTmp.length() == 0 || !mImageTmp.exists()) {
                     mPendingIndex = -1;
-                    Snackbar.make(getView(), getString(R.string.shortcut_image_not_valid),
-                            Snackbar.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), getString(R.string.shortcut_image_not_valid), 
+                            Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
@@ -467,8 +467,8 @@ public class ActionListViewSettings extends ListFragment implements
         for (int i = 0; i < mActionConfigs.size(); i++) {
             actionConfig = mActionConfigsAdapter.getItem(i);
             if (actionConfig.getClickAction().equals(action)) {
-                Snackbar.make(getView(), getString(R.string.shortcut_duplicate_entry),
-                        Snackbar.LENGTH_LONG).show();
+                Toast.makeText(getContext(), getString(R.string.shortcut_duplicate_entry), 
+                     Toast.LENGTH_SHORT).show();
                 return true;
             }
         }
