@@ -598,12 +598,27 @@ public class AppOpsState {
         return mPreferences.getBoolean("show_system_apps", true);
     }
 
-    public List<AppOpEntry> buildState(OpsTemplate tpl, int uid, String packageName) {
-        return buildState(tpl, uid, packageName, RECENCY_COMPARATOR);
+    public List<AppOpEntry> buildState(OpsTemplate tpl, int uid, String packageName,
+            boolean showPrivacyGuardOps) {
+        return buildState(tpl, uid, packageName, RECENCY_COMPARATOR, showPrivacyGuardOps);
     }
 
     public List<AppOpEntry> buildState(OpsTemplate tpl, int uid, String packageName,
             Comparator<AppOpEntry> comparator) {
+        return buildState(tpl, uid, packageName, comparator, false);
+    }
+
+    private boolean isPrivacyGuardOp(int op) {
+        for (int privacyGuardOp : AppOpsManager.PRIVACY_GUARD_OP_STATES) {
+            if (privacyGuardOp == op) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public List<AppOpEntry> buildState(OpsTemplate tpl, int uid, String packageName,
+            Comparator<AppOpEntry> comparator, boolean showPrivacyGuardOps) {
         final Context context = mContext;
 
         final HashMap<String, AppEntry> appEntries = new HashMap<String, AppEntry>();
@@ -612,8 +627,16 @@ public class AppOpsState {
         final ArrayList<String> perms = new ArrayList<String>();
         final ArrayList<Integer> permOps = new ArrayList<Integer>();
         final int[] opToOrder = new int[AppOpsManager._NUM_OP];
+
+        final List<Integer> privacyGuardsOps = new ArrayList<>();
+
         for (int i=0; i<tpl.ops.length; i++) {
-            if (tpl.showPerms[i]) {
+            boolean showPermission = tpl.showPerms[i];
+            if (showPrivacyGuardOps && isPrivacyGuardOp(tpl.ops[i])) {
+                showPermission = true;
+                privacyGuardsOps.add(tpl.ops[i]);
+            }
+            if (showPermission) {
                 String perm = AppOpsManager.opToPermission(tpl.ops[i]);
                 if (perm != null && !perms.contains(perm)) {
                     perms.add(perm);
@@ -704,6 +727,23 @@ public class AppOpsState {
                         addOp(entries, pkgOps, appEntry, opEntry, packageName == null,
                                 packageName == null ? 0 : opToOrder[opEntry.getOp()]);
                     }
+                }
+            }
+
+            if (showPrivacyGuardOps) {
+                if (dummyOps == null) {
+                    dummyOps = new ArrayList<AppOpsManager.OpEntry>();
+                    pkgOps = new AppOpsManager.PackageOps(
+                            appInfo.packageName, appInfo.applicationInfo.uid, dummyOps);
+                }
+                for (int op : privacyGuardsOps) {
+                    if (appEntry.hasOp(op)) {
+                        continue;
+                    }
+                    AppOpsManager.OpEntry opEntry = new AppOpsManager.OpEntry(
+                            op, AppOpsManager.MODE_ALLOWED, 0, 0, 0, -1, null, 0, 0);
+                    dummyOps.add(opEntry);
+                    addOp(entries, pkgOps, appEntry, opEntry, false, opToOrder[op]);
                 }
             }
         }

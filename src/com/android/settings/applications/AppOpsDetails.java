@@ -181,7 +181,7 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
                  continue;
             }
             List<AppOpsState.AppOpEntry> entries = mState.buildState(tpl,
-                    mPackageInfo.applicationInfo.uid, mPackageInfo.packageName);
+                    mPackageInfo.applicationInfo.uid, mPackageInfo.packageName, true);
             for (final AppOpsState.AppOpEntry entry : entries) {
                 final AppOpsManager.OpEntry firstOp = entry.getOpEntry(0);
                 Drawable icon = null;
