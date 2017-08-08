@@ -34,6 +34,12 @@
             android:title="@string/selinux_title"
             android:defaultValue="false" />
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="sensor_block"
+            android:title="@string/sensor_block_title"
+            android:summary="@string/sensor_block_summary"
+            android:defaultValue="false" />
+
         <!-- Weather Settings -->
         <Preference
             android:id="@+id/weather_settings"
