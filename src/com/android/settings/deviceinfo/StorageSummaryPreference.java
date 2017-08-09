@@ -43,7 +43,7 @@ public class StorageSummaryPreference extends Preference {
         setEnabled(false);
 
         mThemeEnabled = Settings.Secure.getInt(context.getContentResolver(),
-                Settings.Secure.THEME_ACCENT_COLOR, 1) != 0;
+                Settings.Secure.THEME_ACCENT_COLOR, 0) != 0;
 
         TypedValue typedValue = new TypedValue();
         context.getTheme().resolveAttribute(android.R.attr.textColorSecondary, typedValue, true);

@@ -73,7 +73,7 @@ public class LinearColorBar extends LinearLayout {
         mEdgeGradientPaint.setStrokeWidth(mLineWidth);
         mEdgeGradientPaint.setAntiAlias(true);
         final boolean mThemeEnabled = Settings.Secure.getInt(context.getContentResolver(),
-                Settings.Secure.THEME_ACCENT_COLOR, 1) != 0;
+                Settings.Secure.THEME_ACCENT_COLOR, 0) != 0;
 
         if (mThemeEnabled) {
             mLeftColor = Utils.getColorAccent(context);
