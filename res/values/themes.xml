@@ -168,7 +168,7 @@
         <item name="@*android:errorColor">@color/lock_pattern_view_error_color</item>
     </style>
 
-    <style name="Theme_SubSettings">
+    <style name="Theme.SubSettings" parent="Theme.Settings">
         <!-- Redefine the ActionBar style for contentInsetStart -->
         <item name="android:actionBarStyle">@style/Theme.ActionBar.SubSettings</item>
 
@@ -253,7 +253,7 @@
         <item name="preferenceBackgroundColor">@android:color/transparent</item>
     </style>
 
-    <style name="Theme.ConfirmDeviceCredentials" parent="Theme_SubSettings">
+    <style name="Theme.ConfirmDeviceCredentials" parent="Theme.SubSettings">
         <item name="confirmDeviceCredentialsSideMargin">16dp</item>
         <item name="confirmDeviceCredentialsTopMargin">16dp</item>
     </style>

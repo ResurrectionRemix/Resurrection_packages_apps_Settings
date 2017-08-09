@@ -596,6 +596,29 @@ public class SettingsActivity extends SettingsDrawerActivity
 
     @Override
     protected void onCreate(Bundle savedState) {
+
+        // Should happen before any call to getIntent()
+        getMetaData();
+        final Intent intent = getIntent();
+
+        // This is a "Sub Settings" when:
+        // - this is a real SubSettings
+        // - or :settings:show_fragment_as_subsetting is passed to the Intent
+        final boolean isSubSettings = this instanceof SubSettings ||
+                intent.getBooleanExtra(EXTRA_SHOW_FRAGMENT_AS_SUBSETTING, false);
+
+        boolean themeSet = false;
+        // If this is a sub settings, then apply the SubSettings Theme for the ActionBar content insets
+        if (isSubSettings) {
+            // Check also that we are not a Theme Dialog as we don't want to override them
+            final int themeResId = getThemeResId();
+            if (themeResId != R.style.Theme_DialogWhenLarge &&
+                    themeResId != R.style.Theme_SubSettingsDialogWhenLarge) {
+                setTheme(R.style.Theme_SubSettings);
+                themeSet = true;
+            }
+        }
+
         final int themeMode = Secure.getInt(getContentResolver(),
                 Secure.THEME_PRIMARY_COLOR, 0);
         final int accentColor = Secure.getInt(getContentResolver(),
@@ -604,8 +627,10 @@ public class SettingsActivity extends SettingsDrawerActivity
         if (mThemeManager != null) {
             mThemeManager.addCallback(mThemeCallback);
         }
-        setTheme(R.style.Theme_Settings);
         if (themeMode != 0 || accentColor != 0) {
+            if (!themeSet) {
+                setTheme(R.style.Theme_Settings);
+            }
             getTheme().applyStyle(mTheme, true);
         }
         if (themeMode == 2) {
@@ -614,10 +639,6 @@ public class SettingsActivity extends SettingsDrawerActivity
         super.onCreate(savedState);
         long startTime = System.currentTimeMillis();
 
-        // Should happen before any call to getIntent()
-        getMetaData();
-
-        final Intent intent = getIntent();
         if (intent.hasExtra(EXTRA_LAUNCH_ACTIVITY_ACTION)) {
             if (mActivityAction != null) {
                try{
@@ -656,22 +677,6 @@ public class SettingsActivity extends SettingsDrawerActivity
                 || className.equals(Settings.PersonalSettings.class.getName())
                 || className.equals(Settings.WirelessSettings.class.getName());
 
-        // This is a "Sub Settings" when:
-        // - this is a real SubSettings
-        // - or :settings:show_fragment_as_subsetting is passed to the Intent
-        final boolean isSubSettings = this instanceof SubSettings ||
-                intent.getBooleanExtra(EXTRA_SHOW_FRAGMENT_AS_SUBSETTING, false);
-
-        // If this is a sub settings, then apply the SubSettings Theme for the ActionBar content insets
-        if (isSubSettings) {
-            // Check also that we are not a Theme Dialog as we don't want to override them
-            final int themeResId = getThemeResId();
-            if (themeResId != R.style.Theme_DialogWhenLarge &&
-                    themeResId != R.style.Theme_SubSettingsDialogWhenLarge) {
-                // Don't override theme to retain selected accent colors
-                getTheme().applyStyle(R.style.Theme_SubSettings, true);
-            }
-        }
 
         setContentView(mIsShowingDashboard ?
                 R.layout.settings_main_dashboard : R.layout.settings_main_prefs);
