@@ -31,7 +31,6 @@ import android.os.UserHandle;
 import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
 import android.provider.Settings;
 import com.android.settings.util.Helpers;
@@ -49,14 +48,10 @@ import java.io.DataOutputStream;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
 
-public class MiscSettings extends SettingsPreferenceFragment  implements OnPreferenceChangeListener{
+public class MiscSettings extends SettingsPreferenceFragment {
 
-    private static final String SELINUX = "selinux";
-    private static final String SELINX_PREF ="selinux_switch";
     private static final String APP_REMOVER = "system_app_remover";
     private static final String ROOT_ACCESS_PROPERTY = "persist.sys.root_access";
-    private SwitchPreference mSelinux;
-    private Preference mSelinuxPref;
     private PreferenceScreen mAppRemover;
 
 
@@ -67,10 +62,7 @@ public class MiscSettings extends SettingsPreferenceFragment  implements OnPrefe
         addPreferencesFromResource(R.xml.rr_misc);
   	    final ContentResolver resolver = getActivity().getContentResolver();
 
-	    //SELinux
-        mSelinux = (SwitchPreference) findPreference(SELINUX);
         mAppRemover = (PreferenceScreen) findPreference(APP_REMOVER);
-        mSelinuxPref = (Preference) findPreference(SELINX_PREF);
 
         // Magisk Manager
         boolean magiskSupported = false;
@@ -85,21 +77,9 @@ public class MiscSettings extends SettingsPreferenceFragment  implements OnPrefe
         } catch (PackageManager.NameNotFoundException e) {
         }
         if (magiskSupported || suSupported || isRootForAppsEnabled()) {
-            mSelinux.setOnPreferenceChangeListener(this);
-            if (CMDProcessor.runShellCommand("getenforce").getStdout().contains("Enforcing")) {
-                mSelinux.setChecked(true);
-                mSelinux.setSummary(R.string.selinux_enforcing_title);
-            } else {
-                mSelinux.setChecked(false);
-                mSelinux.setSummary(R.string.selinux_permissive_title);
-            }
         } else {
-            if (mSelinux != null) 
-                getPreferenceScreen().removePreference(mSelinux);
             if (mAppRemover != null)
                 getPreferenceScreen().removePreference(mAppRemover);
-            if (mSelinuxPref != null) 
-                getPreferenceScreen().removePreference(mSelinuxPref);
         }
 
     }
@@ -119,30 +99,6 @@ public class MiscSettings extends SettingsPreferenceFragment  implements OnPrefe
     @Override
     public void onResume() {
         super.onResume();
-    }
-
-    private void setSelinuxEnabled(String status) {
-        SharedPreferences.Editor editor = getContext().getSharedPreferences("selinux_pref", Context.MODE_PRIVATE).edit();
-        editor.putString("selinux", status);
-        editor.apply();
-    }
-
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object value) {
-        ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mSelinux) {
-            if (value.toString().equals("true")) {
-                CMDProcessor.runShellCommand("setenforce 1");
-                setSelinuxEnabled("true");
-                mSelinux.setSummary(R.string.selinux_enforcing_title);
-            } else if (value.toString().equals("false")) {
-                CMDProcessor.runSuCommand("setenforce 0");
-                setSelinuxEnabled("false");
-                mSelinux.setSummary(R.string.selinux_permissive_title);
-            }
-            return true;
-        }
-        return false;
     }
 }
 
