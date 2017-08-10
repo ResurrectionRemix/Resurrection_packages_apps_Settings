@@ -46,8 +46,8 @@ public class ThemeSettings extends PreviewSeekBarPreferenceFragment implements I
 
         mActivityLayoutResId = R.layout.theme_activity;
 
-        mPreviewSampleResIds = new int[]{R.layout.screen_zoom_preview_1,
-                R.layout.screen_zoom_preview_2,
+        mPreviewSampleResIds = new int[]{/*R.layout.screen_zoom_preview_1,
+                R.layout.screen_zoom_preview_2,*/
                 R.layout.screen_zoom_preview_settings};
 
         mEntries = getResources().getStringArray(R.array.color_name);
