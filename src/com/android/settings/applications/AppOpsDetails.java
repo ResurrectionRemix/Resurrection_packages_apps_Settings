@@ -1,5 +1,6 @@
 /**
  * Copyright (C) 2013 The Android Open Source Project
+ * Copyright (C) 2017 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy
@@ -20,6 +21,7 @@ import android.app.Activity;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -28,27 +30,24 @@ import android.content.pm.PermissionInfo;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v14.preference.SwitchPreference;
+import android.support.v7.preference.ListPreference;
+import android.support.v7.preference.Preference;
+import android.support.v7.preference.Preference.OnPreferenceChangeListener;
+import android.support.v7.preference.PreferenceScreen;
+import android.text.TextUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.CompoundButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.Switch;
-import android.widget.TextView;
 
 import com.android.internal.logging.MetricsProto.MetricsEvent;
-import com.android.settings.InstrumentedFragment;
+import com.android.settings.AppHeader;
 import com.android.settings.R;
 import com.android.settings.SettingsActivity;
-import com.android.settings.Utils;
+import com.android.settings.SettingsPreferenceFragment;
 
 import java.util.List;
+import java.util.StringJoiner;
 
-public class AppOpsDetails extends InstrumentedFragment {
+public class AppOpsDetails extends SettingsPreferenceFragment {
     static final String TAG = "AppOpsDetails";
 
     public static final String ARG_PACKAGE_NAME = "package";
@@ -57,13 +56,17 @@ public class AppOpsDetails extends InstrumentedFragment {
     private PackageManager mPm;
     private AppOpsManager mAppOps;
     private PackageInfo mPackageInfo;
-    private LayoutInflater mInflater;
-    private View mRootView;
-    private LinearLayout mOperationsSection;
+    private PreferenceScreen mPreferenceScreen;
 
     private final int MODE_ALLOWED = 0;
     private final int MODE_IGNORED = 1;
     private final int MODE_ASK     = 2;
+
+    private final String[] MODE_ENTRIES = {
+            String.valueOf(MODE_ALLOWED),
+            String.valueOf(MODE_IGNORED),
+            String.valueOf(MODE_ASK)
+    };
 
     private int modeToPosition (int mode) {
         switch(mode) {
@@ -91,18 +94,46 @@ public class AppOpsDetails extends InstrumentedFragment {
         return AppOpsManager.MODE_IGNORED;
     }
 
+    private static final OpIcon[] OP_ICONS = {
+            new OpIcon(AppOpsManager.OP_BOOT_COMPLETED, R.drawable.ic_perm_boot),
+            new OpIcon(AppOpsManager.OP_CHANGE_WIFI_STATE, R.drawable.ic_perm_wifi),
+            new OpIcon(AppOpsManager.OP_GPS, R.drawable.ic_perm_location),
+            new OpIcon(AppOpsManager.OP_MUTE_MICROPHONE, R.drawable.ic_perm_microphone),
+            new OpIcon(AppOpsManager.OP_NFC_CHANGE, R.drawable.ic_perm_nfc),
+            new OpIcon(AppOpsManager.OP_POST_NOTIFICATION, R.drawable.ic_perm_notifications),
+            new OpIcon(AppOpsManager.OP_READ_CLIPBOARD, R.drawable.ic_perm_clipboard),
+            new OpIcon(AppOpsManager.OP_RUN_IN_BACKGROUND, R.drawable.ic_perm_background),
+            new OpIcon(AppOpsManager.OP_SU, R.drawable.ic_perm_su),
+            new OpIcon(AppOpsManager.OP_SYSTEM_ALERT_WINDOW, R.drawable.ic_perm_drawontop),
+            new OpIcon(AppOpsManager.OP_TAKE_AUDIO_FOCUS, R.drawable.ic_perm_audio),
+            new OpIcon(AppOpsManager.OP_VIBRATE, R.drawable.ic_perm_vibrate),
+            new OpIcon(AppOpsManager.OP_WAKE_LOCK, R.drawable.ic_perm_nosleep),
+            new OpIcon(AppOpsManager.OP_WIFI_SCAN, R.drawable.ic_perm_wifi),
+            new OpIcon(AppOpsManager.OP_WRITE_CLIPBOARD, R.drawable.ic_perm_clipboard),
+            new OpIcon(AppOpsManager.OP_WRITE_SETTINGS, R.drawable.ic_perm_settings),
+            new OpIcon(AppOpsManager.OP_WRITE_SMS , R.drawable.ic_perm_sms),
+    };
+
     private boolean isPlatformSigned() {
         final int match = mPm.checkSignatures("android", mPackageInfo.packageName);
         return match >= PackageManager.SIGNATURE_MATCH;
     }
 
     // Utility method to set application label and icon.
-    private void setAppLabelAndIcon(PackageInfo pkgInfo) {
-        final View appSnippet = mRootView.findViewById(R.id.app_snippet);
-        CharSequence label = mPm.getApplicationLabel(pkgInfo.applicationInfo);
-        Drawable icon = mPm.getApplicationIcon(pkgInfo.applicationInfo);
-        InstalledAppDetails.setupAppSnippet(appSnippet, label, icon,
-                pkgInfo != null ? pkgInfo.versionName : null, null);
+    private void setAppHeader(PackageInfo pkgInfo) {
+        ApplicationInfo appInfo = pkgInfo.applicationInfo;
+        String appLabel = mPm.getApplicationLabel(appInfo).toString();
+        Drawable icon = mPm.getApplicationIcon(appInfo);
+        int uid = appInfo.uid;
+        String label;
+        try {
+            label = appInfo.loadLabel(mPm).toString();
+        } catch (Throwable t) {
+            Log.e(TAG, "Error loading application label for " + appLabel, t);
+            label = appLabel;
+        }
+
+        AppHeader.createAppHeader(this, icon, label, appInfo.packageName, uid);
     }
 
     private String retrieveAppEntry() {
@@ -132,12 +163,11 @@ public class AppOpsDetails extends InstrumentedFragment {
             return false;
         }
 
-        setAppLabelAndIcon(mPackageInfo);
+        final Resources res = getActivity().getResources();
 
-        Resources res = getActivity().getResources();
+        mPreferenceScreen.removeAll();
+        setAppHeader(mPackageInfo);
 
-        mOperationsSection.removeAllViews();
-        String lastPermGroup = "";
         boolean isPlatformSigned = isPlatformSigned();
         for (AppOpsState.OpsTemplate tpl : AppOpsState.ALL_TEMPLATES) {
             /* If we are platform signed, only show the root switch, this
@@ -151,76 +181,85 @@ public class AppOpsDetails extends InstrumentedFragment {
                     mPackageInfo.applicationInfo.uid, mPackageInfo.packageName);
             for (final AppOpsState.AppOpEntry entry : entries) {
                 final AppOpsManager.OpEntry firstOp = entry.getOpEntry(0);
-                final View view = mInflater.inflate(R.layout.app_ops_details_item,
-                        mOperationsSection, false);
-                mOperationsSection.addView(view);
-                String perm = AppOpsManager.opToPermission(firstOp.getOp());
+                Drawable icon = null;
+                String perm = null;
+                int op = 0;
+                // Find the first permission with a known name
+                for (int i = 0; i < entry.getNumOpEntry() && perm == null; i++) {
+                    op = entry.getOpEntry(i).getOp();
+                    perm = AppOpsManager.opToPermission(op);
+                }
                 if (perm != null) {
                     try {
                         PermissionInfo pi = mPm.getPermissionInfo(perm, 0);
-                        if (pi.group != null && !lastPermGroup.equals(pi.group)) {
-                            lastPermGroup = pi.group;
+                        if (pi.group != null) {
                             PermissionGroupInfo pgi = mPm.getPermissionGroupInfo(pi.group, 0);
                             if (pgi.icon != 0) {
-                                ((ImageView)view.findViewById(R.id.op_icon)).setImageDrawable(
-                                        pgi.loadIcon(mPm));
+                                icon = pgi.loadIcon(mPm);
                             }
                         }
                     } catch (NameNotFoundException e) {
                     }
                 }
-                ((TextView)view.findViewById(R.id.op_name)).setText(
-                        entry.getSwitchText(mState));
-                ((TextView)view.findViewById(R.id.op_counts)).setText(
-                        entry.getCountsText(res));
-                ((TextView)view.findViewById(R.id.op_time)).setText(
-                        entry.getTimeText(res, true));
+                if (icon == null && op != 0) {
+                    icon = getDrawableForOp(op);
+                }
 
-                Spinner sp = (Spinner) view.findViewById(R.id.spinnerWidget);
-                sp.setVisibility(View.GONE);
-                Switch sw = (Switch) view.findViewById(R.id.switchWidget);
-                sw.setVisibility(View.GONE);
-
+                final AppOpsManager.PackageOps pkgOps = entry.getPackageOps();
+                final int uid = pkgOps.getUid();
+                final String pkgName = pkgOps.getPackageName();
                 final int switchOp = AppOpsManager.opToSwitch(firstOp.getOp());
-                int mode = mAppOps.checkOpNoThrow(switchOp, entry.getPackageOps().getUid(),
-                        entry.getPackageOps().getPackageName());
-                sp.setSelection(modeToPosition(mode));
-                sp.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
-                    boolean firstMode = true;
+                int mode = mAppOps.checkOpNoThrow(switchOp, uid, pkgName);
 
-                    @Override
-                    public void onItemSelected(AdapterView<?> parentView, View selectedItemView,
-                            int position, long id) {
-                        if (firstMode) {
-                            firstMode = false;
-                            return;
-                        }
-                        mAppOps.setMode(switchOp, entry.getPackageOps().getUid(),
-                                entry.getPackageOps().getPackageName(), positionToMode(position));
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parentView) {
-                        // Do nothing
-                    }
-                });
-
-                sw.setChecked(mAppOps.checkOpNoThrow(switchOp, entry.getPackageOps()
-                        .getUid(), entry.getPackageOps().getPackageName()) == AppOpsManager.MODE_ALLOWED);
-                sw.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
-                    public void onCheckedChanged(CompoundButton buttonView,
-                            boolean isChecked) {
-                        mAppOps.setMode(switchOp, entry.getPackageOps()
-                                .getUid(), entry.getPackageOps()
-                                .getPackageName(),
-                                isChecked ? AppOpsManager.MODE_ALLOWED
-                                        : AppOpsManager.MODE_IGNORED);
-                    }
-                });
+                CharSequence opName = entry.getSwitchText(mState);
+                // ListPreference for 3 states: ask, allow, deny
                 if (AppOpsManager.isStrictOp(switchOp)) {
-                    sp.setVisibility(View.VISIBLE);
+                    ListPreference listPref = new ListPreference(getActivity());
+                    listPref.setLayoutResource(R.layout.preference_appops);
+                    listPref.setIcon(icon);
+                    listPref.setTitle(opName);
+                    listPref.setDialogTitle(opName);
+                    listPref.setEntries(R.array.app_ops_permissions);
+                    listPref.setEntryValues(MODE_ENTRIES);
+                    listPref.setValueIndex(modeToPosition(mode));
+                    String summary = getSummary(listPref.getEntry(), entry.getCountsText(res),
+                            entry.getTimeText(res, true));
+                    listPref.setSummary(summary);
+                    listPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+                        @Override
+                        public boolean onPreferenceChange(Preference preference, Object newValue) {
+                            ListPreference listPref = (ListPreference) preference;
+                            String value = newValue.toString();
+                            int selectedIndex = listPref.findIndexOfValue(value);
+                            mAppOps.setMode(switchOp, uid, pkgName, positionToMode(selectedIndex));
+                            String summary = getSummary(MODE_ENTRIES[selectedIndex],
+                                    entry.getCountsText(res), entry.getTimeText(res, true));
+                            listPref.setSummary(summary);
+                            return true;
+                        }
+                    });
+                    mPreferenceScreen.addPreference(listPref);
                 } else {
-                    sw.setVisibility(View.VISIBLE);
+                    SwitchPreference switchPref = new SwitchPreference(getActivity());
+                    switchPref.setLayoutResource(R.layout.preference_appops);
+                    switchPref.setIcon(icon);
+                    switchPref.setTitle(opName);
+                    String summary = getSummary(entry.getCountsText(res),
+                            entry.getTimeText(res, true));
+                    switchPref.setSummary(summary);
+                    switchPref.setChecked(mode == AppOpsManager.MODE_ALLOWED);
+                    switchPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+                        @Override
+                        public boolean onPreferenceChange(Preference preference,
+                                                          Object newValue) {
+                            Boolean isChecked = (Boolean) newValue;
+                            mAppOps.setMode(switchOp, uid, pkgName,
+                                    isChecked ? AppOpsManager.MODE_ALLOWED
+                                            : AppOpsManager.MODE_IGNORED);
+                            return true;
+                        }
+                    });
+                    mPreferenceScreen.addPreference(switchPref);
                 }
             }
         }
@@ -242,23 +281,12 @@ public class AppOpsDetails extends InstrumentedFragment {
 
         mState = new AppOpsState(getActivity());
         mPm = getActivity().getPackageManager();
-        mInflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mAppOps = (AppOpsManager)getActivity().getSystemService(Context.APP_OPS_SERVICE);
-
+        mPreferenceScreen = getPreferenceManager().createPreferenceScreen(getActivity());
         retrieveAppEntry();
 
+        setPreferenceScreen(mPreferenceScreen);
         setHasOptionsMenu(true);
-    }
-
-    @Override
-    public View onCreateView(
-            LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.app_ops_details, container, false);
-        Utils.prepareCustomPreferencesList(container, view, view, false);
-
-        mRootView = view;
-        mOperationsSection = (LinearLayout)view.findViewById(R.id.operations_section);
-        return view;
     }
 
     @Override
@@ -271,6 +299,36 @@ public class AppOpsDetails extends InstrumentedFragment {
         super.onResume();
         if (!refreshUi()) {
             setIntentAndFinish(true, true);
+        }
+    }
+
+    private String getSummary(CharSequence... lines) {
+        StringJoiner sj = new StringJoiner("\n");
+        for (CharSequence line : lines) {
+            if (!TextUtils.isEmpty(line)) {
+                sj.add(line);
+            }
+        }
+        return sj.toString();
+    }
+
+    private Drawable getDrawableForOp(int op) {
+        for (OpIcon opIcon : OP_ICONS) {
+            if (opIcon.mOp == op) {
+                return getActivity().getDrawable(opIcon.mIcon);
+            }
+        }
+
+        return null;
+    }
+
+    private static final class OpIcon {
+        private final int mOp;
+        private final int mIcon;
+
+        private OpIcon(int op, int icon) {
+            mOp = op;
+            mIcon = icon;
         }
     }
 }
