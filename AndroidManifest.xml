@@ -3534,5 +3534,15 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".CarrierSelection"
+            android:label="@string/shortcut_carrier_title"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.NoActionBar"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.android.settings.SHORTCUT" />
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>
