@@ -44,6 +44,7 @@ import com.android.settings.R;
 import com.android.settings.SettingsActivity;
 import com.android.settings.SettingsPreferenceFragment;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -94,25 +95,27 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
         return AppOpsManager.MODE_IGNORED;
     }
 
-    private static final OpIcon[] OP_ICONS = {
-            new OpIcon(AppOpsManager.OP_BOOT_COMPLETED, R.drawable.ic_perm_boot),
-            new OpIcon(AppOpsManager.OP_CHANGE_WIFI_STATE, R.drawable.ic_perm_wifi),
-            new OpIcon(AppOpsManager.OP_GPS, R.drawable.ic_perm_location),
-            new OpIcon(AppOpsManager.OP_MUTE_MICROPHONE, R.drawable.ic_perm_microphone),
-            new OpIcon(AppOpsManager.OP_NFC_CHANGE, R.drawable.ic_perm_nfc),
-            new OpIcon(AppOpsManager.OP_POST_NOTIFICATION, R.drawable.ic_perm_notifications),
-            new OpIcon(AppOpsManager.OP_READ_CLIPBOARD, R.drawable.ic_perm_clipboard),
-            new OpIcon(AppOpsManager.OP_RUN_IN_BACKGROUND, R.drawable.ic_perm_background),
-            new OpIcon(AppOpsManager.OP_SU, R.drawable.ic_perm_su),
-            new OpIcon(AppOpsManager.OP_SYSTEM_ALERT_WINDOW, R.drawable.ic_perm_drawontop),
-            new OpIcon(AppOpsManager.OP_TAKE_AUDIO_FOCUS, R.drawable.ic_perm_audio),
-            new OpIcon(AppOpsManager.OP_VIBRATE, R.drawable.ic_perm_vibrate),
-            new OpIcon(AppOpsManager.OP_WAKE_LOCK, R.drawable.ic_perm_nosleep),
-            new OpIcon(AppOpsManager.OP_WIFI_SCAN, R.drawable.ic_perm_wifi),
-            new OpIcon(AppOpsManager.OP_WRITE_CLIPBOARD, R.drawable.ic_perm_clipboard),
-            new OpIcon(AppOpsManager.OP_WRITE_SETTINGS, R.drawable.ic_perm_settings),
-            new OpIcon(AppOpsManager.OP_WRITE_SMS , R.drawable.ic_perm_sms),
-    };
+    private static HashMap<Integer, Integer> OP_ICONS = new HashMap<>();
+
+    static {
+        OP_ICONS.put(AppOpsManager.OP_BOOT_COMPLETED, R.drawable.ic_perm_boot);
+        OP_ICONS.put(AppOpsManager.OP_CHANGE_WIFI_STATE, R.drawable.ic_perm_wifi);
+        OP_ICONS.put(AppOpsManager.OP_GPS, R.drawable.ic_perm_location);
+        OP_ICONS.put(AppOpsManager.OP_MUTE_MICROPHONE, R.drawable.ic_perm_microphone);
+        OP_ICONS.put(AppOpsManager.OP_NFC_CHANGE, R.drawable.ic_perm_nfc);
+        OP_ICONS.put(AppOpsManager.OP_POST_NOTIFICATION, R.drawable.ic_perm_notifications);
+        OP_ICONS.put(AppOpsManager.OP_READ_CLIPBOARD, R.drawable.ic_perm_clipboard);
+        OP_ICONS.put(AppOpsManager.OP_RUN_IN_BACKGROUND, R.drawable.ic_perm_background);
+        OP_ICONS.put(AppOpsManager.OP_SU, R.drawable.ic_perm_su);
+        OP_ICONS.put(AppOpsManager.OP_SYSTEM_ALERT_WINDOW, R.drawable.ic_perm_drawontop);
+        OP_ICONS.put(AppOpsManager.OP_TAKE_AUDIO_FOCUS, R.drawable.ic_perm_audio);
+        OP_ICONS.put(AppOpsManager.OP_VIBRATE, R.drawable.ic_perm_vibrate);
+        OP_ICONS.put(AppOpsManager.OP_WAKE_LOCK, R.drawable.ic_perm_nosleep);
+        OP_ICONS.put(AppOpsManager.OP_WIFI_SCAN, R.drawable.ic_perm_wifi);
+        OP_ICONS.put(AppOpsManager.OP_WRITE_CLIPBOARD, R.drawable.ic_perm_clipboard);
+        OP_ICONS.put(AppOpsManager.OP_WRITE_SETTINGS, R.drawable.ic_perm_settings);
+        OP_ICONS.put(AppOpsManager.OP_WRITE_SMS , R.drawable.ic_perm_sms);
+    }
 
     private boolean isPlatformSigned() {
         final int match = mPm.checkSignatures("android", mPackageInfo.packageName);
@@ -201,8 +204,8 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
                     } catch (NameNotFoundException e) {
                     }
                 }
-                if (icon == null && op != 0) {
-                    icon = getDrawableForOp(op);
+                if (icon == null && op != 0 && OP_ICONS.containsKey(op)) {
+                    icon = getActivity().getDrawable(OP_ICONS.get(op));
                 }
 
                 final AppOpsManager.PackageOps pkgOps = entry.getPackageOps();
@@ -310,25 +313,5 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
             }
         }
         return sj.toString();
-    }
-
-    private Drawable getDrawableForOp(int op) {
-        for (OpIcon opIcon : OP_ICONS) {
-            if (opIcon.mOp == op) {
-                return getActivity().getDrawable(opIcon.mIcon);
-            }
-        }
-
-        return null;
-    }
-
-    private static final class OpIcon {
-        private final int mOp;
-        private final int mIcon;
-
-        private OpIcon(int op, int icon) {
-            mOp = op;
-            mIcon = icon;
-        }
     }
 }
