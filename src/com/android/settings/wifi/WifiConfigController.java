@@ -400,7 +400,7 @@ public class WifiConfigController implements TextWatcher,
 
         if (mPasswordView != null
                 && ((mAccessPointSecurity == AccessPoint.SECURITY_WEP
-                    && !isWepPskValid(mPasswordView.getText().toString(), mPasswordView.length()))
+                        && mPasswordView.length() == 0)
                     || (mAccessPointSecurity == AccessPoint.SECURITY_PSK
                            && mPasswordView.length() < 8))) {
             passwordInvalid = true;
@@ -497,8 +497,8 @@ public class WifiConfigController implements TextWatcher,
                 if (mPasswordView.length() != 0) {
                     int length = mPasswordView.length();
                     String password = mPasswordView.getText().toString();
-                    // WEP-40, WEP-104, and WEP128
-                    if ((length == 10 || length == 26 || length == 32)
+                    // WEP-40, WEP-104, and 256-bit WEP (WEP-232?)
+                    if ((length == 10 || length == 26 || length == 58)
                             && password.matches("[0-9A-Fa-f]*")) {
                         config.wepKeys[0] = password;
                     } else {
@@ -1328,17 +1328,5 @@ public class WifiConfigController implements TextWatcher,
             }
             mSimDisplayNames.add(displayname);
         }
-    }
-
-    private boolean isWepPskValid(String psk, int pskLength) {
-        if (psk == null || pskLength <= 0) return false;
-
-        // WEP40 or WEP104 or WEP128
-        if (pskLength == 5 || pskLength == 13 || pskLength == 16
-                ||((pskLength == 10 || pskLength == 26 || pskLength == 32)  // HEX format
-                    && psk.matches("[0-9A-Fa-f]*"))) {
-            return true;
-        }
-        return false;
     }
 }
