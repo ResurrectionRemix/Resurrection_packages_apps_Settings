@@ -24,6 +24,15 @@
         android:key="touchscreen_gesture_settings"
         lineage:requiresFeature="cmhardware:FEATURE_TOUCHSCREEN_GESTURES" />
 
+    <cyanogenmod.preference.RemotePreference
+            android:key="device_touchscreen_gesture_settings"
+            android:title="@string/touchscreen_gesture_settings_title"
+            android:summary="@string/touchscreen_gesture_settings_summary"
+            lineage:replacesKey="touchscreen_gesture_settings"
+            lineage:requiresFeature="cmhardware:FEATURE_TOUCHSCREEN_GESTURES">
+        <intent android:action="org.cyanogenmod.settings.device.GESTURE_SETTINGS" />
+    </cyanogenmod.preference.RemotePreference>
+
     <com.android.settings.gestures.GesturePreference
         android:key="gesture_swipe_down_fingerprint"
         android:title="@string/fingerprint_swipe_for_notifications_title"
