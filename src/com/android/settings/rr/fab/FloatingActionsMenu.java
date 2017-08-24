@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.provider.Settings;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
@@ -25,6 +26,7 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.TextView;
 
 import com.android.settings.R;
+import com.android.settings.Utils;
 
 public class FloatingActionsMenu extends ViewGroup {
   public static final int EXPAND_UP = 0;
@@ -62,6 +64,8 @@ public class FloatingActionsMenu extends ViewGroup {
   private int mLabelsPosition;
   private int mButtonsCount;
 
+  private int mAccentColor;
+
   private TouchDelegateGroup mTouchDelegateGroup;
 
   private OnFloatingActionsMenuUpdateListener mListener;
@@ -94,9 +98,8 @@ public class FloatingActionsMenu extends ViewGroup {
     setTouchDelegate(mTouchDelegateGroup);
 
     TypedArray attr = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingActionsMenu, 0, 0);
+    initfabcolor(attr,context);
     mAddButtonPlusColor = attr.getColor(R.styleable.FloatingActionsMenu_fab_addButtonPlusIconColor, getColor(android.R.color.white));
-    mAddButtonColorNormal = attr.getColor(R.styleable.FloatingActionsMenu_fab_addButtonColorNormal, getColor(android.R.color.holo_blue_dark));
-    mAddButtonColorPressed = attr.getColor(R.styleable.FloatingActionsMenu_fab_addButtonColorPressed, getColor(android.R.color.holo_blue_light));
     mAddButtonSize = attr.getInt(R.styleable.FloatingActionsMenu_fab_addButtonSize, FloatingActionButton.SIZE_NORMAL);
     mAddButtonStrokeVisible = attr.getBoolean(R.styleable.FloatingActionsMenu_fab_addButtonStrokeVisible, true);
     mExpandDirection = attr.getInt(R.styleable.FloatingActionsMenu_fab_expandDirection, EXPAND_UP);
@@ -642,5 +645,18 @@ public class FloatingActionsMenu extends ViewGroup {
         return new SavedState[size];
       }
     };
+  }
+
+  public void initfabcolor(TypedArray attr,Context ctx) {
+      final boolean mThemeEnabled = Settings.Secure.getInt(ctx.getContentResolver(),
+          Settings.Secure.THEME_ACCENT_COLOR, 0) != 0;
+      mAccentColor = Utils.getColorAccent(ctx);
+      if (mThemeEnabled) {
+          mAddButtonColorNormal = mAccentColor;
+          mAddButtonColorPressed = mAccentColor;
+      } else {
+          mAddButtonColorNormal = attr.getColor(R.styleable.FloatingActionsMenu_fab_addButtonColorNormal, getColor(android.R.color.holo_blue_dark));
+          mAddButtonColorPressed = attr.getColor(R.styleable.FloatingActionsMenu_fab_addButtonColorPressed, getColor(android.R.color.holo_blue_light));
+      }
   }
 }

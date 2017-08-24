@@ -20,6 +20,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Build;
 import android.os.Build.VERSION_CODES;
+import android.provider.Settings;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.support.annotation.DrawableRes;
@@ -33,6 +34,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 import com.android.settings.R;
+import com.android.settings.Utils;
 
 public class FloatingActionButton extends ImageButton {
 
@@ -47,6 +49,7 @@ public class FloatingActionButton extends ImageButton {
   int mColorNormal;
   int mColorPressed;
   int mColorDisabled;
+  int mAccentColor;
   String mTitle;
   @DrawableRes
   private int mIcon;
@@ -75,9 +78,7 @@ public class FloatingActionButton extends ImageButton {
 
   void init(Context context, AttributeSet attributeSet) {
     TypedArray attr = context.obtainStyledAttributes(attributeSet, R.styleable.FloatingActionButton, 0, 0);
-    mColorNormal = attr.getColor(R.styleable.FloatingActionButton_fab_colorNormal, getColor(android.R.color.holo_blue_dark));
-    mColorPressed = attr.getColor(R.styleable.FloatingActionButton_fab_colorPressed, getColor(android.R.color.holo_blue_light));
-    mColorDisabled = attr.getColor(R.styleable.FloatingActionButton_fab_colorDisabled, getColor(android.R.color.darker_gray));
+    initfabcolor(attr,context);
     mSize = attr.getInt(R.styleable.FloatingActionButton_fab_size, SIZE_NORMAL);
     mIcon = attr.getResourceId(R.styleable.FloatingActionButton_fab_icon, 0);
     mTitle = attr.getString(R.styleable.FloatingActionButton_fab_title);
@@ -428,4 +429,20 @@ public class FloatingActionButton extends ImageButton {
 
     super.setVisibility(visibility);
   }
+
+  public void initfabcolor(TypedArray attr,Context ctx) {
+      final boolean mThemeEnabled = Settings.Secure.getInt(ctx.getContentResolver(),
+          Settings.Secure.THEME_ACCENT_COLOR, 0) != 0;
+      mAccentColor = Utils.getColorAccent(ctx);
+      if (mThemeEnabled) {
+          mColorNormal = mAccentColor;
+          mColorPressed = mAccentColor;
+          mColorDisabled = mAccentColor;
+      } else {
+          mColorNormal = attr.getColor(R.styleable.FloatingActionButton_fab_colorNormal, getColor(android.R.color.holo_blue_dark));
+          mColorPressed = attr.getColor(R.styleable.FloatingActionButton_fab_colorPressed, getColor(android.R.color.holo_blue_light));
+          mColorDisabled = attr.getColor(R.styleable.FloatingActionButton_fab_colorDisabled, getColor(android.R.color.darker_gray));
+      }
+  }
+
 }
