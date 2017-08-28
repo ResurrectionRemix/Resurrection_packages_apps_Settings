@@ -169,6 +169,7 @@ public class Settings extends SettingsActivity {
     public static class SmartbarSettingsActivity extends SettingsActivity {}
     public static class FlingSettingsActivity extends SettingsActivity {}
     public static class PulseSettingsActivity extends SettingsActivity {}
+    public static class PowerMenuSettings extends SettingsActivity { /* empty */ }
 
     public static class MainSettingsLayoutActivity extends SettingsActivity { /* empty */ }
     public static class MainSettingsActivity extends SettingsActivity { /* empty */ }
