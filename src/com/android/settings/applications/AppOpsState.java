@@ -40,7 +40,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class AppOpsState {
     static final String TAG = "AppOpsState";
@@ -599,8 +601,8 @@ public class AppOpsState {
     }
 
     public List<AppOpEntry> buildState(OpsTemplate tpl, int uid, String packageName,
-            boolean showPrivacyGuardOps) {
-        return buildState(tpl, uid, packageName, RECENCY_COMPARATOR, showPrivacyGuardOps);
+            boolean privacyGuard) {
+        return buildState(tpl, uid, packageName, RECENCY_COMPARATOR, privacyGuard);
     }
 
     public List<AppOpEntry> buildState(OpsTemplate tpl, int uid, String packageName,
@@ -618,7 +620,7 @@ public class AppOpsState {
     }
 
     public List<AppOpEntry> buildState(OpsTemplate tpl, int uid, String packageName,
-            Comparator<AppOpEntry> comparator, boolean showPrivacyGuardOps) {
+            Comparator<AppOpEntry> comparator, boolean privacyGuard) {
         final Context context = mContext;
 
         final HashMap<String, AppEntry> appEntries = new HashMap<String, AppEntry>();
@@ -628,15 +630,25 @@ public class AppOpsState {
         final ArrayList<Integer> permOps = new ArrayList<Integer>();
         final int[] opToOrder = new int[AppOpsManager._NUM_OP];
 
-        final List<Integer> privacyGuardsOps = new ArrayList<>();
+        final Set<Integer> privacyGuardOps = new HashSet<>();
 
         for (int i=0; i<tpl.ops.length; i++) {
-            boolean showPermission = tpl.showPerms[i];
-            if (showPrivacyGuardOps && isPrivacyGuardOp(tpl.ops[i])) {
-                showPermission = true;
-                privacyGuardsOps.add(tpl.ops[i]);
+            if (privacyGuard && isPrivacyGuardOp(tpl.ops[i])) {
+                // If there's a permission for this Privacy Guard OP, then
+                // we don't have to treat it in a special way. The application
+                // should have the permission declared if it uses it, so we
+                // will add this later when we query PackageManager
+                String perm = AppOpsManager.opToPermission(tpl.ops[i]);
+                if (perm != null) {
+                    if (DEBUG) Log.d(TAG, "Adding " + AppOpsManager.opToName(tpl.ops[i])
+                            + " (" + tpl.ops[i] + ") to privacyGuardOps");
+                    privacyGuardOps.add(tpl.ops[i]);
+                } else {
+                    if (DEBUG) Log.d(TAG, "Not adding " + AppOpsManager.opToName(tpl.ops[i])
+                            + " (" + tpl.ops[i] + ") with perm " + perm + " to privacyGuardOps");
+                }
             }
-            if (showPermission) {
+            if (tpl.showPerms[i]) {
                 String perm = AppOpsManager.opToPermission(tpl.ops[i]);
                 if (perm != null && !perms.contains(perm)) {
                     perms.add(perm);
@@ -666,6 +678,14 @@ public class AppOpsState {
                 }
                 for (int j=0; j<pkgOps.getOps().size(); j++) {
                     AppOpsManager.OpEntry opEntry = pkgOps.getOps().get(j);
+                    if (privacyGuard && privacyGuardOps.contains(opEntry.getOp())) {
+                        // This OP is here because the user enabled Privacy Guard
+                        // for this application.
+                        if (DEBUG) Log.d(TAG, "Not adding "
+                                + AppOpsManager.opToName(opEntry.getOp())
+                                + " (" + opEntry.getOp() + ")");
+                        continue;
+                    }
                     addOp(entries, pkgOps, appEntry, opEntry, packageName == null,
                             packageName == null ? 0 : opToOrder[opEntry.getOp()]);
                 }
@@ -697,7 +717,7 @@ public class AppOpsState {
             if (appInfo.requestedPermissions != null) {
                 for (int j=0; j<appInfo.requestedPermissions.length; j++) {
                     if (appInfo.requestedPermissionsFlags != null) {
-                        if ((appInfo.requestedPermissionsFlags[j]
+                        if (!privacyGuard && (appInfo.requestedPermissionsFlags[j]
                                 & PackageInfo.REQUESTED_PERMISSION_GRANTED) == 0) {
                             if (DEBUG) Log.d(TAG, "Pkg " + appInfo.packageName + " perm "
                                     + appInfo.requestedPermissions[j] + " not granted; skipping");
@@ -727,23 +747,6 @@ public class AppOpsState {
                         addOp(entries, pkgOps, appEntry, opEntry, packageName == null,
                                 packageName == null ? 0 : opToOrder[opEntry.getOp()]);
                     }
-                }
-            }
-
-            if (showPrivacyGuardOps) {
-                if (dummyOps == null) {
-                    dummyOps = new ArrayList<AppOpsManager.OpEntry>();
-                    pkgOps = new AppOpsManager.PackageOps(
-                            appInfo.packageName, appInfo.applicationInfo.uid, dummyOps);
-                }
-                for (int op : privacyGuardsOps) {
-                    if (appEntry.hasOp(op)) {
-                        continue;
-                    }
-                    AppOpsManager.OpEntry opEntry = new AppOpsManager.OpEntry(
-                            op, AppOpsManager.MODE_ALLOWED, 0, 0, 0, -1, null, 0, 0);
-                    dummyOps.add(opEntry);
-                    addOp(entries, pkgOps, appEntry, opEntry, false, opToOrder[op]);
                 }
             }
         }
