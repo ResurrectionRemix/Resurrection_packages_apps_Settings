@@ -235,7 +235,7 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
                             String value = newValue.toString();
                             int selectedIndex = listPref.findIndexOfValue(value);
                             mAppOps.setMode(switchOp, uid, pkgName, positionToMode(selectedIndex));
-                            String summary = getSummary(MODE_ENTRIES[selectedIndex],
+                            String summary = getSummary(listPref.getEntries()[selectedIndex],
                                     entry.getCountsText(res), entry.getTimeText(res, true));
                             listPref.setSummary(summary);
                             return true;
