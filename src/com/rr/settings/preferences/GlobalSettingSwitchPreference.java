@@ -58,7 +58,7 @@ public class GlobalSettingSwitchPreference extends SwitchPreference {
 
     @Override
     protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-        setChecked(Settings.System.getString(getContext().getContentResolver(), getKey()) != null ? getPersistedBoolean(isChecked())
+        setChecked(Settings.Global.getString(getContext().getContentResolver(), getKey()) != null ? getPersistedBoolean(isChecked())
                 : (Boolean) defaultValue);
     }
 }
