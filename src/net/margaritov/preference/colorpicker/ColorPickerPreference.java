@@ -100,6 +100,13 @@ public class ColorPickerPreference extends Preference implements
         mView = view;
         super.onBindViewHolder(view);
 
+        view.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog(null);
+            }
+        });
+
         widgetFrameView = ((LinearLayout) view
                 .findViewById(android.R.id.widget_frame));
 
