@@ -21,6 +21,7 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.graphics.drawable.Icon;
 import android.os.PersistableBundle;
+import android.provider.Settings;
 
 import android.support.annotation.VisibleForTesting;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -132,7 +133,9 @@ public abstract class Condition {
     }
 
     public boolean shouldShow() {
-        return isActive() && !isSilenced();
+        return isActive() && !isSilenced()
+               && ((Settings.System.getInt(mManager.getContext().getContentResolver(),
+               Settings.System.ENABLE_CONDITIONS, 1) == 1));
     }
 
     long getLastChange() {
