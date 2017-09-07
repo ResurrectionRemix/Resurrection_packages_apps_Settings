@@ -14,14 +14,37 @@
      limitations under the License.
 -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:gravity="center_vertical"
     android:paddingStart="?android:attr/listPreferredItemPaddingStart"
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
-    android:clickable="false" >
+    android:clickable="false"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/text_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="44dp"
+        android:gravity="start|center_vertical"
+        android:orientation="horizontal"
+        android:paddingEnd="12dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp">
+        <TextView
+            android:id="@+id/seekBarPrefValue"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:textAlignment="center"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textAppearance="@android:style/TextAppearance.Material.Body1"
+            android:textColor="?android:attr/textColorSecondary"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,46 +54,39 @@
         android:layout_marginBottom="8dip">
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <TextView android:id="@android:id/title"
-                android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@android:id/title"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:paddingStart="16dp"
                 android:singleLine="true"
                 android:textAppearance="@android:style/TextAppearance.Material.Subhead"
                 android:textColor="?android:attr/textColorPrimary"
                 android:ellipsize="marquee"
-                android:fadingEdge="horizontal" />
+                android:fadingEdge="horizontal"/>
             <!-- Preference should place its actual preference widget here. -->
-            <LinearLayout android:id="@android:id/widget_frame"
+            <LinearLayout
+                android:id="@android:id/widget_frame"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="end|center_vertical"
                 android:paddingStart="16dp"
-                android:orientation="vertical" />
+                android:orientation="vertical"/>
         </LinearLayout>
 
-        <RelativeLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp">
 
-            <TextView android:id="@+id/seekBarPrefValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_alignParentRight="true"
-                android:textAppearance="@android:style/TextAppearance.Material.Body1"
-                android:textColor="?android:attr/textColorSecondary" />
-
             <LinearLayout android:id="@+id/seekBarPrefBarContainer"
-                android:layout_centerInParent="true"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/seekBarPrefValue" />
-        </RelativeLayout>
-
+                android:layout_gravity="center_vertical"
+                android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        </FrameLayout>
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>
