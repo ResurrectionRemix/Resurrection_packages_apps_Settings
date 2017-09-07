@@ -135,6 +135,9 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
         mStatusText.setMinimumWidth(30);
         mSeekBar.setProgress(mCurrentValue - mMin);
         mTitle = (TextView) view.findViewById(android.R.id.title);
+
+        view.setDividerAllowedAbove(false);
+        //view.setDividerAllowedBelow(false);
     }
 
     public void setMax(int max) {
