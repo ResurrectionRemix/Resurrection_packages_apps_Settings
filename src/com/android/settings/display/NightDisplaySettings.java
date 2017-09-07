@@ -21,6 +21,8 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.provider.SearchIndexableResource;
+import android.provider.Settings;
+import android.support.v7.preference.DropDownPreference;
 import android.support.v7.preference.Preference;
 
 import com.android.internal.app.ColorDisplayController;
@@ -39,14 +41,17 @@ import java.util.List;
  * Settings screen for Night display.
  */
 public class NightDisplaySettings extends DashboardFragment
-        implements ColorDisplayController.Callback, Indexable {
+        implements ColorDisplayController.Callback,
+        Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = "NightDisplaySettings";
+    private static final String KEY_NIGHT_BRIGHTNESS_VALUE = "night_brightness_value";
 
     private static final int DIALOG_START_TIME = 0;
     private static final int DIALOG_END_TIME = 1;
 
     private ColorDisplayController mController;
+    private DropDownPreference mNightBrightValue;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,13 @@ public class NightDisplaySettings extends DashboardFragment
 
         final Context context = getContext();
         mController = new ColorDisplayController(context);
+
+        mNightBrightValue = (DropDownPreference) findPreference(KEY_NIGHT_BRIGHTNESS_VALUE);
+        int nightBrightValue = Settings.Secure.getInt(getContentResolver(),
+                Settings.Secure.NIGHT_BRIGHTNESS_VALUE, 2);
+        mNightBrightValue.setValue(Integer.toString(nightBrightValue));
+        mNightBrightValue.setSummary(mNightBrightValue.getEntry());
+        mNightBrightValue.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -153,6 +165,18 @@ public class NightDisplaySettings extends DashboardFragment
     @Override
     protected int getPreferenceScreenResId() {
         return R.xml.night_display_settings;
+    }
+
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mNightBrightValue) {
+            int nightBrightValue = Integer.valueOf((String) newValue);
+            int index = mNightBrightValue.findIndexOfValue((String) newValue);
+            mNightBrightValue.setSummary(mNightBrightValue.getEntries()[index]);
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.NIGHT_BRIGHTNESS_VALUE, nightBrightValue);
+            return true;
+        }
+        return false;
     }
 
     @Override

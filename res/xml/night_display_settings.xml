@@ -55,4 +55,16 @@
         <com.android.settingslib.widget.FooterPreference />
     </PreferenceCategory>
 
+    <PreferenceCategory
+            android:title="@string/night_brightness_category">
+
+        <DropDownPreference
+                android:key="night_brightness_value"
+                android:title="@string/night_brightness_value_title"
+                android:entries="@array/night_brightness_value_entries"
+                android:entryValues="@array/night_brightness_value_values"
+                android:defaultValue="0" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
