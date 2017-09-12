@@ -32,4 +32,13 @@
 
      </PreferenceCategory>
 
+    <Preference
+        android:key="hide_app_from_recents"
+        android:title="@string/hide_apps_from_recents_title"
+        android:summary="@string/hide_apps_from_recents_summary" >
+             <intent android:action="android.intent.action.MAIN"
+                 android:targetPackage="com.android.settings"
+                 android:targetClass="com.rr.settings.hideappfromrecents.HAFRAppListActivity" />
+    </Preference>
+
 </PreferenceScreen>
