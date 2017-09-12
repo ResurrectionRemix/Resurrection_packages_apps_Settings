@@ -14,4 +14,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/animation_title">
+
+    <com.rr.settings.preferences.GlobalSettingSwitchPreference
+        android:key="show_cpu_overlay"
+        android:title="@string/show_cpu_info"
+        android:summary="@string/show_cpu_info_summary" 
+        android:defaultValue="false" />
 </PreferenceScreen>
