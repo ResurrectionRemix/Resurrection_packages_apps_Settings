@@ -1401,7 +1401,12 @@
   <string name="status_bar_logo_position_left">左</string>
   <string name="status_bar_logo_position_center">中央</string>
   <string name="statusbar_weather_title">ステータスバー上の天気</string>
+  <string name="statusbar_weather_dialog_title">ステータスバー上の天気の表示</string>
   <string name="status_bar_weather_hidden">天気を非表示</string>
+  <string name="status_bar_temperature_image_show_scale">単位と画像付きで温度を表示</string>
+  <string name="status_bar_temperature_image_hide_scale">単位と画像なしで温度を表示</string>
+  <string name="status_bar_temperature_show_scale_hide_image">単位付きで温度を表示</string>
+  <string name="status_bar_temperature_hide_scale_hide_image">単位なしで温度を表示</string>
   <string name="status_bar_show_image">画像を表示</string>
   <string name="status_bar_weather_image_color_title">画像の色</string>
   <string name="sb_weather_ic_title">アイコンパック</string>
@@ -1420,6 +1425,8 @@
   <string name="qs_battery_easy_toggle_title">簡単バッテリー タイル切り替え</string>
   <string name="qs_battery_easy_toggle_summary">ワンクリックでバッテリーセーバーをオンまたはオフにするように設定します</string>
   <!-- Location easy toggle -->
+  <string name="qs_location_easy_toggle_title">位置情報簡単切り替え</string>
+  <string name="qs_location_easy_toggle_summary">タップで設定を表示する代わりに直接位置情報をオンまたはオフするように設定します</string>
   <string name="qs_music_tile_track_optional_title">音楽タイルのタイトル表示</string>
   <string name="qs_music_tile_track_optional_summary">音楽タイルに再生中のタイトルを表示する</string>
   <string name="quick_settings_vibrate_title">タッチ時に振動</string>
@@ -1465,8 +1472,10 @@
   <string name="smartbar_interface">ナビバー</string>
   <string name="navbar_tint_switch">Navigation Button Tint</string>
   <string name="navbar_button_color">Navigation Bar Buttons</string>
+  <string name="navbar_button_custom_icon_switch_title">アプリケーションボタンにカラーフィルタを追加する</string>
   <string name="icon_pack_picker_dialog_title">アイコンパック</string>
   <string name="navigation_bar_left_title">左利きモード</string>
+  <string name="navigation_bar_left_summary">横画面でナビゲーションバーを左に表示する</string>
   <string name="invalid_icon_from_uri">コンテンツ プロバイダーからイメージを読み込むことができません。</string>
   <string name="picker_activities">アクティビティ</string>
   <string name="select_custom_app_title">任意のアプリを選択</string>
@@ -1599,6 +1608,7 @@
   <string name="navbar_buttons_alpha_title">Buttons transparency</string>
   <string name="smartbar_longpress_delay_normal">通常の遅延</string>
   <string name="smartbar_longpress_delay_long">長時間の遅延</string>
+  <string name="smartbar_custom_icon_size_title">カスタムアイコンスケーリング</string>
   <string name="rr_navbar_settings">ナビゲーションバー</string>
   <!--Custom logos-->
   <string name="rr_custom_logo_summary">様々なカスタムロゴ/画像の中からステータスバー上に表示するものを選択する</string>
@@ -1684,6 +1694,23 @@
   <string name="show_su_indicator_title">SuperUser インジケーター</string>
   <string name="show_su_indicator_summary">スーパーユーザー権限を使用するセッションがアクティブな時インジケーターを表示する</string>
   <!-- Pie -->
+  <string name="pie_enable_title">Pieコントロールを有効化</string>
+  <string name="pie_settings">Pie設定</string>
+  <string name="pie_enable_title">Pieコントロールを有効化</string>
+  <string name="pie_settings_summary">好みに合わせてPieを調節</string>
+  <string name="pie_theme_mode_title">テーマ</string>
+  <string name="pie_auto">自動</string>
+  <string name="pie_white">ホワイト</string>
+  <string name="pie_dark">ダーク</string>
+  <string name="pie_battery_title">バッテリー残量表示</string>
+  <string name="pie_battery_text">テキストのみ</string>
+  <string name="pie_battery_circle">サークルのみ</string>
+  <string name="pie_battery_both">両方</string>
+  <string name="pie_status_indicator">ネットワーク表示</string>
+  <string name="pie_status_wifi">Wifiのみ</string>
+  <string name="pie_status_mobile">モバイルネットワークのみ</string>
+  <string name="pie_status_none">無し</string>
+  <string name="pie_status_both">両方</string>
   <string name="pa_pie_gravity_title">パイの重力</string>
   <string name="pa_pie_gravity_summary">Pieを配置する場所を選択します。</string>
   <string name="pa_pie_gravity_bottom">下詰め</string>
@@ -1724,6 +1751,8 @@
   <string name="screenshot_delay_title">スクリーンショット遅延時間</string>
   <string name="screenshot_delay_summary">スクリーンショットをキャプチャするときの時間を調整する</string>
   <!-- Interface -->
+  <string name="interface_other_title">その他</string>
+  <string name="interface_other_summary">その他のインターフェイスのカスタマイズ</string>
   <!--Screenshot crop and share -->
   <string name="screenshot_crop_and_share_title">Screenshot crop &amp; share</string>
   <string name="screenshot_crop_and_share_summary">スクリーン ショット撮影後に、トリミング、保存、共有などのいくつかの操作を実行するエディター ウィンドウを表示する</string>
@@ -1777,6 +1806,7 @@
   <string name="custom_summary_randomize_title">ランダム化の概要</string>
   <string name="custom_summary_randomize_explain">あらかじめ書き込まれた要約はランダムに選択され、設定アプリを起動するたびに変更されます。\nこれにより、カスタムサマリーセットがオーバーライドされます。</string>
   <string name="sum1">本当に全部チェックしたのかな？？？</string>
+  <string name="sum2">速報: ドナルド・トランプが髪型を変更！</string>
   <string name="sum3">君、もう10万回も押してるよ。</string>
   <string name="sum4">オプションいっぱい！</string>
   <string name="sum5">かかってこい！</string>
@@ -1792,7 +1822,11 @@
   <string name="sum15">プロユーザー専用。</string>
   <string name="sum16">退屈かい？俺を触るんだ！</string>
   <string name="sum17">おめでとう！ボーナス機能 を てにいれた！</string>
+  <string name="sum18">G+でスパムしてくるの勘弁して</string>
+  <string name="sum19">G+では投稿ルールを守ろう。</string>
   <string name="sum20">素人の入場はお断りさせて頂きます。</string>
+  <string name="sum21">#gotresurrected</string>
+  <string name="sum22">速報: 次期iPhoneはフラッシュライトなしに。</string>
   <string name="sum23">…幸せですか？</string>
   <string name="sum24">押すなよ！絶対に押すなよ！！！</string>
   <string name="sum25">#自慢</string>
@@ -1843,6 +1877,7 @@
   <string name="lock_screen_weather_city_color">Weather City </string>
   <string name="lock_screen_weather_wind_color">Weather Wind</string>
   <string name="yes">はい</string>
+  <string name="battery_tile_style_title">バッテリータイルのスタイル</string>
   <string name="status_bar_battery_style_tile_summary">ステータスバーのバッテリーと同じアイコンのスタイルを設定できるようにする</string>
   <!-- Scrolling Animation Controls -->
   <string name="scrolling_title">Scrolling modifiers</string>
@@ -1958,6 +1993,7 @@
   <string name="custom_header_browse_summary">静止モードで使用する画像を長押し</string>
   <!-- Header Weather -->
   <string name="header_weather_enabled_title">天気</string>
+  <string name="header_weather_image_enabled_title">天気の画像</string>
   <!-- Task Manager -->
   <string name="enable_task_manager_title">タスクマネージャー</string>
   <string name="enable_task_manager_summary">タスクマネージャー ボタンを通知領域のヘッダーに表示します</string>
@@ -1991,9 +2027,13 @@
   <string name="smartbar_doubletap_sleep_title">ダブルタップでスリープ</string>
   <string name="smartbar_doubletap_sleep_summary">ナビゲーション バーの空の領域をダブルタップすると画面オフにする</string>
   <!-- Pixel Animation Duration -->
+  <string name="pixel_anim_title">Pixelのナビバーアニメーション </string>
+  <string name="pixel_anim_summary">Pixelのナビバーアニメーションの様々な要素をカスタマイズ</string>
+  <string name="pixel_anim_warning">Pixelのナビバーアニメーションの様々な要素をカスタマイズ 警告！デフォルトの値を変更するとパフォーマンスが低下する場合があります 自己責任でやってください</string>
   <string name="dot_obey_themes">既定 (テーマの色)</string>
   <string name="dot_custom_color">カスタム</string>
   <string name="dot_random_color">ランダム</string>
+  <string name="dot_color_switch_title">スタイル</string>
   <!--One handed mode -->
   <string name="one_handed_mode_title">片手モード</string>
   <string name="one_handed_mode_summary">ナビゲーション バーをスワイプで片手モードを有効</string>
@@ -2048,6 +2088,13 @@
   <string name="recent_panel_bg_color_title">パネルの背景色</string>
   <string name="recent_card_bg_color_title">カードの背景色</string>
   <string name="recent_card_text_color_title">カードのテキストカラー</string>
+  <string name="slim_recents_mem_display_long_click_clear_title">メモリバーの長押し</string>
+  <string name="slim_recents_mem_display_long_click_clear_summary">メモリバーの長押しで最近のアプリを消去</string>
+  <string name="slim_icon_pack_title">アイコンパック</string>
+  <string name="slim_icon_pack_summary">パネルのアプリのためにカスタムテーマを適用します</string>
+  <string name="no_iconpacks_summary">アイコンパックがインストールされていません</string>
+  <string name="dialog_pick_iconpack_title">アイコンパックを選択</string>
+  <string name="default_iconpack_title">デフォルトアイコン</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
   <string name="recent_panel_lefty_mode_title">左端に表示</string>
   <string name="recent_panel_lefty_mode_summary">画面左に最近使ったアプリパネルを表示</string>
@@ -2072,24 +2119,65 @@
   <!-- Hide Statusbar on Lockscreen -->
   <string name="lockscreen_hide_status_bar_title">ステータスバーを隠す</string>
   <!-- Notification guts kill app button -->
+  <string name="notification_guts_kill_app_button_title">アプリ終了ボタン</string>
   <string name="weather_title">天気</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_summary">すべてのテーマアプリを強制的に承認する</string>
+  <string name="magisk_title">Magisk Manager</string>
   <string name="magisk_summary">ルート管理</string>
   <string name="notif_text_color">文字色</string>
   <!-- Statusbar expanded empty shade view settings -->
+  <string name="empty_shade_view_show_carrier_name_title">キャリア名を表示</string>
+  <string name="empty_shade_view_show_carrier_name_summary">キャリア名の表示を有効化</string>
+  <string name="empty_shade_view_show_wifi_name_title">SSIDの表示</string>
+  <string name="empty_shade_view_show_wifi_name_summary">SSIDの表示を有効化</string>
   <!-- Roaming indicator icon -->
+  <string name="roaming_indicator_icon_title">ローミングインジケーターを表示</string>
+  <string name="roaming_indicator_icon_summary">ローミング中に電波アイコンにローミング表示をする</string>
   <!-- Data disabled icon -->
+  <string name="data_disabled_icon_summary">モバイルデータが無効の場合シグナルバーの隣にXを表示</string>
   <!-- Data/Wifi activity arrows -->
+  <string name="data_wifi_activity_arrows_title">モバイルデータ/WiFI アクティビティ</string>
   <!-- Screen state service -->
+  <string name="screen_state_toggles_title">操作の中断</string>
+  <string name="screen_state_toggles_summary_main">画面オフ時に実行するアクションを選択</string>
+  <string name="screen_state_toggles_enable_title">有効</string>
+  <string name="screen_state_toggles_enable_summary">アクションは画面オフのときに実行されオンにすると以前の状態が復元されます</string>
+  <string name="screen_state_toggles_mobile_title">モバイルネットワーク</string>
+  <string name="screen_state_toggles_location_title">位置</string>
+  <string name="screen_state_toggles_twog">2Gに切り替える</string>
+  <string name="screen_state_toggles_twog_summary">ネットワークモードは画面オフ時に2Gに切り替わります</string>
+  <string name="screen_state_toggles_gps">GPS の無効化</string>
+  <string name="screen_state_toggles_gps_summary">画面オフ時にGPSを使用した位置情報サービスを無効化</string>
+  <string name="screen_state_toggles_mobile_data">モバイルデータの無効化</string>
+  <string name="screen_state_toggles_mobile_data_summary">画面オフ時にモバイルデータが無効</string>
+  <string name="screen_state_off_delay_title">画面オフアクションの遅延</string>
+  <string name="screen_state_off_delay_summary">画面オフアクションを実行する前に待つ秒数</string>
+  <string name="screen_state_on_delay_title">画面オンアクションの遅延</string>
+  <string name="screen_state_on_delay_summary">画面オンアクションを実行する前に待つ秒数</string>
   <!-- In-call DND -->
+  <string name="no_sim_cluster_switch_title">SIMカードが刺さっていないネットワークを非表示</string>
   <!-- Advanced night mode brightness -->
+  <string name="night_brightness_category">画面の明るさ</string>
+  <string name="night_brightness_value_title">読書灯の明るさ</string>
+  <string name="night_bright_min">明るさの最小値</string>
+  <string name="night_bright_low">低輝度</string>
+  <string name="night_bright_medium">中間輝度</string>
   <!-- QS footer warnings -->
   <!-- Incall vibrate options -->
+  <string name="incall_vibrate_connect_title">接続時に振動</string>
   <!-- No navigation notification -->
   <!-- Settings header -->
   <!-- FP gesture -->
   <!-- ANBI -->
+  <string name="rr_keys_title">その他</string>
   <!-- Pocket judge -->
+  <string name="pocket_judge_title">ポケット検出機能</string>
+  <string name="pocket_judge_summary">ポケットに入っているときにタッチやボタン入力を無効化する</string>
   <!-- Sensor block per-package -->
+  <string name="sensor_block_title">パッケージごとのセンサーの無効化</string>
+  <string name="sensor_block_summary">バッテリーを節約するためにアプリから特定のセンサーへのアクセスを無効化</string>
   <!-- Qs easy tile add -->
+  <string name="single_tap_tile_add_title">簡単なタイルの追加</string>
+  <string name="single_tap_tile_add_summary">クイック設定のタイルを編集するときにドラッグする代わりにタップするだけで追加する</string>
 </resources>
