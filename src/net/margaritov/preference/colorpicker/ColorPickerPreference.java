@@ -30,6 +30,7 @@ import android.support.v7.preference.*;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -261,6 +262,8 @@ public class ColorPickerPreference extends Preference implements
             mDialog.onRestoreInstanceState(state);
         }
         mDialog.show();
+        mDialog.getWindow().setSoftInputMode(
+                android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
     }
 
 
