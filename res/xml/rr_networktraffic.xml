@@ -18,14 +18,19 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/rr_statusbar_title">
+    android:title="@string/network_traffic_state_title">
 
-     <PreferenceScreen
-                android:id="@+id/network_traffic_settings"
-                android:title="@string/network_traffic_state_title"
-        	android:summary="@string/network_traffic_summary"
-                android:fragment="com.android.settings.rr.NetworkTraffic"
-                android:icon="@drawable/rr_network_traffic_icon"
-                />
+    <com.rr.settings.preferences.SystemSettingSwitchPreference
+        android:key="network_traffic_state"
+        android:title="@string/network_traffic_state_title"
+        android:summary="@string/network_traffic_state_summary"
+        android:defaultValue="true" />
+    <com.rr.settings.preferences.CustomSeekBarPreference
+        android:key="network_traffic_autohide_threshold"
+        android:title="@string/network_traffic_autohide_threshold_title"
+        android:max="10"
+        settings:min="0"
+        settings:units="" />
 
 </PreferenceScreen>
+
