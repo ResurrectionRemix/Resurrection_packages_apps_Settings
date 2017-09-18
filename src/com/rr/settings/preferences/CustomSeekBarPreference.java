@@ -61,6 +61,10 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
         if (id > 0) {
             mUnits = context.getResources().getString(id);
         }
+        id = a.getResourceId(R.styleable.CustomSeekBarPreference_defaultText, 0);
+        if (id > 0) {
+            mDefaultText = context.getResources().getString(id);
+        }
 
         try {
             String newInterval = attrs.getAttributeValue(SETTINGS_NS, "interval");
