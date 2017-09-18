@@ -35,6 +35,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.android.settings.R;
+
 /**
  * A preference type that allows a user to choose a time
  *
@@ -152,7 +154,7 @@ public class ColorPickerPreference extends Preference implements
 
         widgetFrameView.addView(defView);
         widgetFrameView.setMinimumWidth(0);
-        defView.setBackground(getContext().getDrawable(android.R.drawable.ic_menu_revert));
+        defView.setBackground(getContext().getDrawable(R.drawable.ic_settings_backup_restore));
         defView.setTag("default");
         defView.setOnClickListener(new View.OnClickListener() {
             @Override
