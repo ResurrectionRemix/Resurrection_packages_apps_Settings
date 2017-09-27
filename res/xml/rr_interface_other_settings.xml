@@ -18,6 +18,7 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:cm="http://schemas.android.com/apk/res/cyanogenmod.platform"
     android:title="@string/interface_other_title">
 
 
@@ -34,5 +35,13 @@
             android:summary="@string/rr_ota_fab_summary"
             android:icon="@drawable/rr_fab_enable"
             android:defaultValue="true" />
+
+     <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="systemui_burnin_protection"
+            android:title="@string/burnin_protection_title"
+            android:summary="@string/burnin_protection_summary"
+            android:defaultValue="false"
+            android:icon="@drawable/rr_burn_in_icon"
+            cm:requiresConfig="@*cyanogenmod.platform:bool/config_enableBurnInProtection"/>
 
 </PreferenceScreen>
