@@ -15,6 +15,7 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
         android:title="@string/about_settings">
 
         <!-- System update settings - launches activity -->
@@ -24,6 +25,12 @@
                     android:targetPackage="@string/additional_system_update"
                     android:targetClass="@string/additional_system_update_menu" />
         </Preference>
+
+        <!-- LineageOS updates -->
+        <org.lineageos.internal.preference.deviceinfo.LineageUpdatesPreference
+                android:key="lineage_updates"
+                lineage:requiresOwner="true"
+                lineage:requiresPackage="org.lineageos.updater" />
 
         <!-- Device status - launches activity -->
         <Preference android:key="status_info"
