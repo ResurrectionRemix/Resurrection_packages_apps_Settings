@@ -62,6 +62,8 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
 
     @VisibleForTesting
     final VolumePreferenceCallback mVolumeCallback = new VolumePreferenceCallback();
+    private final IncreasingRingVolumePreferenceCallback mIncreasingRingVolumeCallback =
+            new IncreasingRingVolumePreferenceCallback();
     @VisibleForTesting
     final Handler mHandler = new Handler(Looper.getMainLooper()) {
         @Override
@@ -69,6 +71,7 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
             switch (msg.what) {
                 case STOP_SAMPLE:
                     mVolumeCallback.stopSample();
+                    mIncreasingRingVolumeCallback.stopSample();
                     break;
             }
         }
@@ -108,6 +111,7 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
     public void onPause() {
         super.onPause();
         mVolumeCallback.stopSample();
+        mIncreasingRingVolumeCallback.stopSample();
     }
 
     @Override
@@ -191,6 +195,11 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
             controller.setCallback(mVolumeCallback);
             getSettingsLifecycle().addObserver(controller);
         }
+
+        IncreasingRingVolumePreferenceController irvpc =
+                use(IncreasingRingVolumePreferenceController.class);
+        irvpc.setCallback(mIncreasingRingVolumeCallback);
+        getLifecycle().addObserver(irvpc);
     }
 
     // === Volumes ===
@@ -203,6 +212,7 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
             if (mCurrent != null && mCurrent != sbv) {
                 mCurrent.stopSample();
             }
+            mIncreasingRingVolumeCallback.stopSample();
             mCurrent = sbv;
             if (mCurrent != null) {
                 mHandler.removeMessages(STOP_SAMPLE);
@@ -225,6 +235,26 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
         }
     }
 
+    final class IncreasingRingVolumePreferenceCallback implements
+            IncreasingRingVolumePreference.Callback {
+        private IncreasingRingVolumePreference mPlayingPref;
+
+        @Override
+        public void onSampleStarting(IncreasingRingVolumePreference pref) {
+            mPlayingPref = pref;
+            mVolumeCallback.stopSample();
+            mHandler.removeMessages(STOP_SAMPLE);
+            mHandler.sendEmptyMessageDelayed(STOP_SAMPLE, SAMPLE_CUTOFF);
+        }
+
+        public void stopSample() {
+            if (mPlayingPref != null) {
+                mPlayingPref.stopSample();
+                mPlayingPref = null;
+            }
+        }
+    };
+
     private static List<AbstractPreferenceController> buildPreferenceControllers(Context context,
             SoundSettings fragment, Lifecycle lifecycle) {
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
@@ -235,6 +265,8 @@ public class SoundSettings extends DashboardFragment implements OnActivityResult
         controllers.add(new PhoneRingtonePreferenceController(context));
         controllers.add(new AlarmRingtonePreferenceController(context));
         controllers.add(new NotificationRingtonePreferenceController(context));
+        controllers.add(new IncreasingRingPreferenceController(context));
+        controllers.add(new IncreasingRingVolumePreferenceController(context));
 
         // === Work Sound Settings ===
         controllers.add(new WorkSoundPreferenceController(context, fragment, lifecycle));
