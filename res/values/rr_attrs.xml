@@ -129,12 +129,12 @@
     </declare-styleable>
 
     <!-- For DSLV -->
-    <declare-styleable name="DragSortListViewRecents">
+    <declare-styleable name="DragSortListView">
         <attr name="collapsedHeight" format="dimension" />
         <attr name="dragScrollStart" format="float" />
         <attr name="maxDragScrollSpeed" format="float" />
         <attr name="floatBackgroundColor" format="color" />
-        <attr name="removeMode1">
+        <attr name="removeMode">
             <enum name="clickRemove" value="0" />
             <enum name="flingRemove" value="1" />
         </attr>
@@ -146,7 +146,7 @@
         <attr name="dragEnabled" format="boolean" />
         <attr name="sortEnabled" format="boolean" />
         <attr name="removeEnabled" format="boolean" />
-        <attr name="dragStartMode1">
+        <attr name="dragStartMode">
             <enum name="onDown" value="0" />
             <enum name="onMove" value="1" />
             <enum name="onLongPress" value="2"/>
