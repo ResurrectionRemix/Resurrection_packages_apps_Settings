@@ -20,7 +20,7 @@
   <string name="mod_version_default">Standard</string>
   <!-- General -->
   <string name="ok">Ok</string>
-  <string name="reset">Zurücksetzen</string>
+  <string name="reset">Wiederherstellen</string>
   <string name="dlg_reset_rr">RR</string>
   <string name="dlg_reset_android">Standard</string>
   <string name="default_string">Standard</string>
@@ -179,10 +179,10 @@
   <string name="rr_ls_security_summary">Aktivieren Sie oder deaktivieren Sie diverse Sicherheitsfeatures für den Sperrbildschirm</string>
   <string name="gesture_anywhere_summary">Zeichnen Sie Ihre Gesten, um eine bevorzugte Aktivität zu starten</string>
   <string name="app_sidebar_summary">Eine Seitenleiste für Apps und Aktivitäten, die du leicht und schnell starten kannst, nutzen</string>
-  <string name="app_circle_bar_summary">Nutze ein kreisförmiges Interface für Apps und Aktivitäten</string>
+  <string name="app_circle_bar_summary">Zeigt einen Ring mit Anwendungen bei Berührung des rechten Displayrands</string>
   <string name="pa_pie_control_summary">Wische vom Rand aus um ein kreisförmiges Interface mit coolen Verknüpfungen und Navigationssteuerelementen ein- oder auszublenden</string>
   <string name="rr_navbar_summary">Aktivieren oder Deaktivieren der Softkeys und Anpassen derer</string>
-  <string name="rr_power_summary">Passen Sie verschiedene Optionen im Dialogfeld \"Power Menü\" an</string>
+  <string name="rr_power_summary">Anpassen von Helligkeit und Transparenz im Power-Menü</string>
   <string name="system_animations_summary">Passen Sie einzelne Animationen für jedes Fenster im System an</string>
   <string name="rr_power_anim_summary">Aktivieren Sie oder deaktivieren Sie Animationen im Power-Menü und wählen Sie auch aus einer Liste von Animationen</string>
   <string name="rr_toast_summary">Passen Sie verschiedene Toast Popup-Animationen und Symbole an</string>
@@ -417,7 +417,7 @@
   <string name="power_menu_animation_aosp">AOSP (Standard)</string>
   <string name="power_menu_animation_bottom">Unten</string>
   <string name="power_menu_animation_top">Oben</string>
-  <string name="power_menu_animation_rotate">Bildschirmausrichtung</string>
+  <string name="power_menu_animation_rotate">Rotation</string>
   <string name="power_menu_animation_rotate">Rotation</string>
   <string name="power_menu_animation_xylon">Fliegen</string>
   <string name="power_menu_animation_slide">Gleiten</string>
@@ -518,15 +518,15 @@
   <string name="ga_gestures_error_loading">Konnte %s nicht laden. Bitte stellen Sie sicher, dass der Speicher verfügbar ist.</string>
   <string name="trigger_category">Erkennungsbereich</string>
   <string name="trigger_width_title">Breite des Auslösebereichs</string>
-  <string name="trigger_width_summary">Bestimmung der Breite des Auslöserbereiches</string>
-  <string name="trigger_top_title">Auslöserposition</string>
+  <string name="trigger_width_summary">Breite des Auslösebereichs anpassen</string>
+  <string name="trigger_top_title">Position des Auslösers</string>
   <string name="trigger_top_summary">Bestimmung der vertikalen Postion des Auslöserbereiches</string>
   <string name="trigger_bottom_title">Höhe des Auslösebereichs</string>
   <string name="trigger_bottom_summary">Bestimmung der Höhe des Auslöserbereiches</string>
   <string name="picker_activities">Aktivitäten</string>
   <string name="select_custom_app_title">Benutzerdefinierte App auswählen</string>
   <string name="select_custom_activity_title">Benutzerdefinierte Aktivität auswählen</string>
-  <string name="profile_applist_title">Applikationen</string>
+  <string name="profile_applist_title">Anwendungen</string>
   <string name="ga_0">0px</string>
   <string name="ga_1">1px</string>
   <string name="ga_5">5px</string>
@@ -642,27 +642,27 @@
   <string name="selinux_permissive_title">Moderat</string>
   <string name="selinux_enforcing_title">Strikt</string>
   <!-- Slim DSLV -->
-  <string name="shortcut_action_none">Kein</string>
-  <string name="shortcut_action_longpress">Langes drücken:</string>
-  <string name="shortcut_action_select_action_longpress">Aktion beim lange drücken wählen:</string>
+  <string name="shortcut_action_none">keine</string>
+  <string name="shortcut_action_longpress">Lange drücken:</string>
+  <string name="shortcut_action_select_action_longpress">Aktion für langes Drücken wählen:</string>
   <string name="shortcut_action_select_action">Aktion wählen:</string>
   <string name="shortcut_action_select_action_newaction">Neue Aktion wählen:</string>
   <string name="shortcut_action_reset">Wiederherstellen</string>
   <string name="shortcut_action_add">Hinzufügen</string>
-  <string name="shortcut_action_reset_message">Zurücksetzen alle Einträge auf die Standardwerte?</string>
+  <string name="shortcut_action_reset_message">Alle Einträge auf die Standardwerte zurücksetzen?</string>
   <string name="shortcut_action_max">Das Maximum an Einträgen wurde erreicht</string>
-  <string name="shortcut_action_warning">Warnung</string>
-  <string name="shortcut_action_warning_message">Der letzte Eintrag kann nicht gelöscht werden</string>
-  <string name="shortcut_action_disable_message">Deaktiviert\neinen Eintrag zum Aktivieren dieser Funktion hinzufügen</string>
-  <string name="shortcut_image_not_valid">Die gewählte App besitzt kein gültiges Symbol. Bitte wählen Sie eine andere App.</string>
-  <string name="shortcut_duplicate_entry">Die gewählte Aktion kann nicht zweimal hinzugefügt werden</string>
+  <string name="shortcut_action_warning">ACHTUNG</string>
+  <string name="shortcut_action_warning_message">Es ist nicht möglich den letzten Eintrag zu löschen</string>
+  <string name="shortcut_action_disable_message">Deaktiviert\nFügen sie einen Eintrag hinzu um dieses Feature zu aktivieren</string>
+  <string name="shortcut_image_not_valid">Die ausgewählte App hat kein gültiges Symbol zurückgeliefert oder unterstützt das Zuschneiden von Bildern nicht. Benutzen sie eine andere App.</string>
+  <string name="shortcut_duplicate_entry">Die Ausgewählte Aktion kann nicht zweimal hinzugefügt werden</string>
   <string name="shortcut_action_help_shortcut">Verknüpfung</string>
   <string name="shortcut_action_help_button">Taste</string>
   <string name="shortcut_action_help_app">Anwendung</string>
-  <string name="shortcut_action_help_icon">, während bei Markieren des Symbols individuelle Anpassungsmöglichkeiten eröffnet werden</string>
+  <string name="shortcut_action_help_icon">, während das auswählen des Symbols weitere Anpassungsmöglichkeiten anzeigen wird</string>
   <string name="shortcut_action_help_main">Um eine %1$s hinzuzufügen, auf das \"(+)\"-Symbol drücken. Wenn eine %1$s hinzugefügt wurde, kann diese durch nochmaliges Drücken auf den Eintrag geändert werden%2$s\n\nUm eine %1$s zu löschen, den Eintrag einfach nach links oder rechts aus dem Bildschirm schieben. Um die Position einer %1$s zu ändern, das Symbol auf der linken Seite lange drücken und den Eintrag auf die neue Position verschieben.\n\nZum Löschen auf das \"Zurücksetzen\"-Symbol drücken.</string>
-  <string name="shortcut_action_help_delete_last_entry">Wird jede %1$s in der Liste entfernt, wird das Feature vollständig deaktiviert.</string>
-  <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Entfernen aller %1$s in der Liste wird den zweiten PIE Layer entfernen.</string>
+  <string name="shortcut_action_help_delete_last_entry">Das Entfernen aller %1$s in der Liste deaktiviert das Feature vollständig.</string>
+  <string name="shortcut_action_help_pie_second_layer_delete_last_entry">Das Entfernen aller %1$s in der Liste deaktiviert das zweite Pie Layer vollständig.</string>
   <string name="shortcuts_applications">Applikationen</string>
   <string name="shortcuts_select_custom_app_title">Benutzerdefinierte Anwendung auswählen</string>
   <string name="shortcuts_icon_picker_type">Symbol auswählen:</string>
@@ -892,7 +892,7 @@
   <string name="fprint_sucess_vib_title">Fingerabdruck-Authentifizierungsvibration</string>
   <string name="fprint_sucess_vib_summary">Bei erfolgreicher Fingerabdruck-Erkennung vibrieren</string>
   <!-- QuickSettings haptic feedback -->
-  <string name="quick_settings_vibrate_title">Vibrieren bei Berührung</string>
+  <string name="quick_settings_vibrate_title">Bei Berührung vibrieren</string>
   <string name="quick_settings_vibrate_summary">Bei Berührung der Schaltflächen vibrieren</string>
   <!-- Lock Clock Fonts -->
   <string name="lock_clock_font_title">Schriftoptionen</string>
@@ -988,7 +988,7 @@
   <string name="navigation_bar_category">Navigationsleiste</string>
   <string name="navigation_bar_title">Tasten und Layout</string>
   <string name="navigation_bar_left_title">Linkshänder-Modus</string>
-  <string name="navigation_bar_left_summary">Platziert die Navigationsleiste auf der linken Seite des Bildschirms im Querformat</string>
+  <string name="navigation_bar_left_summary">Navigationsleiste auf der linken Seite im Querformat anzeigen</string>
   <string name="navigation_bar_arrow_keys_title">Zeige Pfeiltasten beim Tippen</string>
   <string name="navigation_bar_arrow_keys_summary">Zeige beim Tippen links und rechts Cursor-Tasten. Überschreibt IME-Switcher.</string>
   <string name="navigation_bar_recents_title">Langes Drücken auf Anwendungsverlauf</string>
@@ -1045,12 +1045,12 @@
   <string name="status_bar_quick_qs_pulldown_left">Links</string>
   <string name="status_bar_quick_qs_pulldown_right">Rechts</string>
   <!-- Status bar - Clock -->
-  <string name="status_bar_clock_style_title">Position der Uhr</string>
+  <string name="status_bar_clock_style_title">Darstellung der Uhr</string>
   <string name="status_bar_clock_style_right">Rechts</string>
   <string name="status_bar_clock_style_left">Links</string>
-  <string name="status_bar_clock_style_center">Zentrieren</string>
+  <string name="status_bar_clock_style_center">Mitte</string>
   <string name="status_bar_clock_style_hidden">Versteckt</string>
-  <string name="status_bar_am_pm_title">AM/PM-Format</string>
+  <string name="status_bar_am_pm_title">AM/PM-Stil</string>
   <string name="status_bar_am_pm_info">24-Stunden Format ist aktiviert</string>
   <string name="status_bar_am_pm_normal">Normal</string>
   <string name="status_bar_am_pm_small">Klein</string>
