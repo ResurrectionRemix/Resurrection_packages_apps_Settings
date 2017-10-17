@@ -49,22 +49,6 @@
         settings:min="5"
         android:max="105" />
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="show_running_tasks"
-        android:title="@string/show_running_tasks_title"
-        android:defaultValue="false" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="recent_panel_show_topmost"
-        android:title="@string/recent_panel_show_topmost_title"
-        android:summary="@string/recent_panel_show_topmost_summary"
-        android:defaultValue="false" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="slim_recents_rr_empty_drawable"
-        android:title="@string/slim_recents_rr_empty_drawable_title"
-        android:summary="@string/slim_recents_rr_empty_drawable_summary"
-        android:defaultValue="true" />
 
     <SwitchPreference
         android:key="recent_panel_lefty_mode"
@@ -81,13 +65,6 @@
         settings:interval="1"
         settings:units="dp" />
 
-    <!-- TODO
-    <Preference
-        android:key="slim_icon_pack"
-        android:title="@string/slim_icon_pack_title"
-        android:summary="@string/slim_icon_pack_summary" />
-    -->
-
     <com.android.settings.rr.Preferences.SystemSettingIntListPreference
         android:key="recent_panel_expanded_mode"
         android:entries="@array/recent_panel_expanded_mode_entries"
@@ -95,6 +72,17 @@
         android:title="@string/recent_panel_expanded_mode_title"
         android:summary="@string/recent_panel_expanded_mode_summary"
         android:defaultValue="0" />
+
+    <Preference
+        android:key="slim_icon_pack"
+        android:title="@string/slim_icon_pack_title"
+        android:summary="@string/slim_icon_pack_summary" />
+
+    <PreferenceScreen
+        android:key="blacklist_fragment"
+        android:fragment="com.android.settings.rr.fragments.SlimRecentsBlacklist"
+        android:title="@string/slim_blacklist_apps_cat_title"
+        android:summary="@string/slim_blacklist_apps_summary" />
 
     <com.android.settings.rr.Preferences.SystemSettingMasterSwitchPreference
         android:key="use_recent_app_sidebar"
