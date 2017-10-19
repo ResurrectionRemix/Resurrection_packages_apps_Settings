@@ -20,6 +20,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/recents_settings_title">
 
+    <PreferenceCategory
+        android:key="stock_recents_category"
+        android:title="@string/stock_recents_category">
+
         <PreferenceScreen
             android:key="clear_all_recents"
             android:fragment="com.android.settings.rr.RecentsClearAll"
@@ -27,6 +31,28 @@
             android:icon="@drawable/rr_recents_clear_all_icon"
             android:summary="@string/recents_clear_all_summary"
             />
+
+        <PreferenceScreen
+            android:key="recents_ui"
+            android:fragment="com.android.settings.rr.RecentsUI"
+            android:title="@string/recents_ui_title"
+            android:icon="@drawable/rr_recents_ui_icom"
+            android:summary="@string/rr_recents_ui_summary"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="alternative_recents_category"
+        android:title="@string/alternative_recents_category">
+
+        <com.android.settings.rr.Preferences.SystemSettingMasterSwitchPreference
+            android:key="use_slim_recents"
+            android:title="@string/slim_recents_title"
+            android:defaultValue="false"
+            android:fragment="com.android.settings.rr.fragments.SlimRecents" />
+
+    </PreferenceCategory>
 
 
 </PreferenceScreen>

@@ -42,13 +42,69 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 public class RecentsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String PREF_STOCK_RECENTS_CATEGORY = "stock_recents_category";
+    private static final String PREF_ALTERNATIVE_RECENTS_CATEGORY = "alternative_recents_category";
 
+    private PreferenceCategory mStockRecentsCategory;
+    private PreferenceCategory mAlternativeRecentsCategory;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_recents);
+
+ 
+         mStockRecentsCategory = (PreferenceCategory) findPreference(PREF_STOCK_RECENTS_CATEGORY);
+         mAlternativeRecentsCategory =
+                 (PreferenceCategory) findPreference(PREF_ALTERNATIVE_RECENTS_CATEGORY);
+ 
+         // Alternative recents en-/disabling
+         Preference.OnPreferenceChangeListener alternativeRecentsChangeListener =
+                 new Preference.OnPreferenceChangeListener() {
+             @Override
+             public boolean onPreferenceChange(Preference preference, Object newValue) {
+                 updateDependencies((Boolean) newValue ? preference : null);
+                 return true;
+             }
+         };
+         for (int i = 0; i < mAlternativeRecentsCategory.getPreferenceCount(); i++) {
+             Preference preference = mAlternativeRecentsCategory.getPreference(i);
+             if (preference instanceof MasterSwitchPreference) {
+                 preference.setOnPreferenceChangeListener(alternativeRecentsChangeListener);
+             }
+         }
     }
+
+     @Override
+     public void onResume() {
+         super.onResume();
+ 
+         for (int i = 0; i < mAlternativeRecentsCategory.getPreferenceCount(); i++) {
+             Preference preference = mAlternativeRecentsCategory.getPreference(i);
+             if (preference instanceof MasterSwitchPreference) {
+                 ((MasterSwitchPreference) preference).reloadValue();
+             }
+         }
+         updateDependencies(null);
+     }
+ 
+     private void updateDependencies(Preference enabledAlternativeRecentsPreference) {
+         boolean alternativeRecentsEnabled = false;
+         for (int i = 0; i < mAlternativeRecentsCategory.getPreferenceCount(); i++) {
+             Preference preference = mAlternativeRecentsCategory.getPreference(i);
+             if (enabledAlternativeRecentsPreference != null
+                     && enabledAlternativeRecentsPreference != preference
+                     && preference instanceof MasterSwitchPreference
+                     && ((MasterSwitchPreference) preference).isChecked()) {
+                 // Only one alternative recents at the time!
+                 ((MasterSwitchPreference) preference).setCheckedPersisting(false);
+             } else if (preference instanceof MasterSwitchPreference
+                     && ((MasterSwitchPreference) preference).isChecked()) {
+                 alternativeRecentsEnabled = true;
+             }
+         }
+         mStockRecentsCategory.setEnabled(!alternativeRecentsEnabled);
+     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {

@@ -100,6 +100,11 @@ public class MasterSwitchPreference extends TwoTargetPreference {
         }
     }
 
+    public void setCheckedPersisting(boolean checked) {
+        setChecked(checked);
+        persistBoolean(checked);
+    }
+
     public void setSwitchEnabled(boolean enabled) {
         mEnableSwitch = enabled;
         if (mSwitch != null) {
