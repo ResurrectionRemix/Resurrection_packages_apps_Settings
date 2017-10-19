@@ -18,7 +18,9 @@ package com.dirtyunicorns.tweaks.tabs;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,12 +42,25 @@ public class Statusbar extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.statusbar, null);
 
+        final boolean batteryoptionsAvailable  = getResources().getBoolean(R.bool.batteryoptionsAvailable);
+        final boolean carrierlabelAvailable  = getResources().getBoolean(R.bool.carrierlabelAvailable);
+        final boolean clockoptionsAvailable  = getResources().getBoolean(R.bool.clockoptionsAvailable);
+        final boolean notificationsAvailable  = getResources().getBoolean(R.bool.notificationsAvailable);
+        final boolean quicksettingsAvailable  = getResources().getBoolean(R.bool.quicksettingsAvailable);
+        final boolean statusbarItemsAvailable  = getResources().getBoolean(R.bool.statusbarItemsAvailable);
+        final boolean tickerAvailable  = getResources().getBoolean(R.bool.tickerAvailable);
+        final boolean trafficAvailable  = getResources().getBoolean(R.bool.trafficAvailable);
+
         ImageView battery_options = root.findViewById(R.id.battery_options_imageview);
         battery_options.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), BatteryOptions.class);
-                startActivity(intent);
+                if (batteryoptionsAvailable) {
+                    Intent intent = new Intent(getActivity(), BatteryOptions.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
@@ -53,8 +68,12 @@ public class Statusbar extends Fragment {
         carrier_label.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CarrierLabel.class);
-                startActivity(intent);
+                if (carrierlabelAvailable) {
+                    Intent intent = new Intent(getActivity(), CarrierLabel.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
@@ -62,8 +81,12 @@ public class Statusbar extends Fragment {
         clock_options.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ClockOptions.class);
-                startActivity(intent);
+                if (clockoptionsAvailable) {
+                    Intent intent = new Intent(getActivity(), ClockOptions.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
@@ -71,8 +94,12 @@ public class Statusbar extends Fragment {
         notifications.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Notifications.class);
-                startActivity(intent);
+                if (notificationsAvailable) {
+                    Intent intent = new Intent(getActivity(), Notifications.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
@@ -80,8 +107,12 @@ public class Statusbar extends Fragment {
         quicksettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), QuickSettings.class);
-                startActivity(intent);
+                if (quicksettingsAvailable) {
+                    Intent intent = new Intent(getActivity(), QuickSettings.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
@@ -89,8 +120,12 @@ public class Statusbar extends Fragment {
         statusbar_items.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), StatusbarItems.class);
-                startActivity(intent);
+                if (statusbarItemsAvailable) {
+                    Intent intent = new Intent(getActivity(), StatusbarItems.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
@@ -98,8 +133,12 @@ public class Statusbar extends Fragment {
         ticker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Ticker.class);
-                startActivity(intent);
+                if (tickerAvailable) {
+                    Intent intent = new Intent(getActivity(), Ticker.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
@@ -107,11 +146,22 @@ public class Statusbar extends Fragment {
         traffic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Traffic.class);
-                startActivity(intent);
+                if (trafficAvailable) {
+                    Intent intent = new Intent(getActivity(), Traffic.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
         return root;
+    }
+
+    public void snackBar() {
+        Snackbar snackbar = Snackbar.make(getActivity().findViewById(R.id.viewSnack), getString(R.string.features_not_available), Snackbar.LENGTH_LONG);
+        View sbView = snackbar.getView();
+        sbView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.NavigationBarColor));
+        snackbar.show();
     }
 }

@@ -19,7 +19,9 @@ package com.dirtyunicorns.tweaks.tabs;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,36 +39,22 @@ public class System extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.system, null);
 
+        final boolean miscellaneousAvailable  = getResources().getBoolean(R.bool.miscellaneousAvailable);
+        final boolean powermenuAvailable  = getResources().getBoolean(R.bool.powermenuAvailable);
+
+
         LinearLayout layout = root.findViewById(R.id.device_extras_layout);
         ImageView device_extras = root.findViewById(R.id.device_extras_imageview);
 
-        boolean OnePlusDevice = Utils.isPackageInstalled("com.cyanogenmod.settings.device", getContext().getPackageManager());
-        boolean MotoActions = Utils.isPackageInstalled("com.dirtyunicorns.settings.device", getContext().getPackageManager());
-        boolean Doze = Utils.isPackageInstalled("com.cyanogenmod.settings.doze", getContext().getPackageManager());
+        boolean deviceExtras = Utils.isPackageInstalled("com.dirtyunicorns.settings.device", getContext().getPackageManager());
 
-        if (!OnePlusDevice && !MotoActions && !Doze) layout.setVisibility(View.GONE);
+        if (!deviceExtras) layout.setVisibility(View.GONE);
 
-        if (OnePlusDevice) device_extras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setComponent(new ComponentName("com.cyanogenmod.settings.device", "com.cyanogenmod.settings.device.TouchscreenGestureSettings"));
-                startActivity(intent);
-            }
-        });
-        if (MotoActions) device_extras.setOnClickListener(new View.OnClickListener() {
+        if (deviceExtras) device_extras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.setComponent(new ComponentName("com.dirtyunicorns.settings.device", "com.dirtyunicorns.settings.device.TouchscreenGestureSettings"));
-                startActivity(intent);
-            }
-        });
-        if (Doze) device_extras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setComponent(new ComponentName("com.cyanogenmod.settings.doze", "com.cyanogenmod.settings.doze.DozeSettings"));
                 startActivity(intent);
             }
         });
@@ -75,8 +63,12 @@ public class System extends Fragment {
         miscellaneous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Miscellaneous.class);
-                startActivity(intent);
+                if (miscellaneousAvailable) {
+                    Intent intent = new Intent(getActivity(), Miscellaneous.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
@@ -84,11 +76,22 @@ public class System extends Fragment {
         powermenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PowerMenu.class);
-                startActivity(intent);
+                if (powermenuAvailable) {
+                    Intent intent = new Intent(getActivity(), PowerMenu.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
         return root;
+    }
+
+    public void snackBar() {
+        Snackbar snackbar = Snackbar.make(getActivity().findViewById(R.id.viewSnack), getString(R.string.features_not_available), Snackbar.LENGTH_LONG);
+        View sbView = snackbar.getView();
+        sbView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.NavigationBarColor));
+        snackbar.show();
     }
 }
