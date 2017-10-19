@@ -18,7 +18,9 @@ package com.dirtyunicorns.tweaks.tabs;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,12 +36,19 @@ public class Navigation extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.navigation, null);
 
+        final boolean buttonsAvailable  = getResources().getBoolean(R.bool.buttonsAvailable);
+        final boolean duiAvailable  = getResources().getBoolean(R.bool.duiAvailable);
+
         ImageView buttons = root.findViewById(R.id.buttons_imageview);
         buttons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Buttons.class);
-                startActivity(intent);
+                if (buttonsAvailable) {
+                    Intent intent = new Intent(getActivity(), Buttons.class);
+                    startActivity(intent);
+                } else {
+                   snackBar();
+                }
             }
         });
 
@@ -47,11 +56,22 @@ public class Navigation extends Fragment {
         navigationbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), NavigationBar.class);
-                startActivity(intent);
+                if (duiAvailable) {
+                    Intent intent = new Intent(getActivity(), NavigationBar.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
         return root;
+    }
+
+    public void snackBar() {
+        Snackbar snackbar = Snackbar.make(getActivity().findViewById(R.id.viewSnack), getString(R.string.features_not_available), Snackbar.LENGTH_LONG);
+        View sbView = snackbar.getView();
+        sbView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.NavigationBarColor));
+        snackbar.show();
     }
 }

@@ -19,7 +19,9 @@ package com.dirtyunicorns.tweaks.tabs;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,22 +39,29 @@ public class Multitasking extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final ViewGroup root = (ViewGroup) inflater.inflate(R.layout.multitasking, null);
 
+        final boolean headsupAvailable  = getResources().getBoolean(R.bool.headsupAvailable);
+        final boolean recentsAvailable  = getResources().getBoolean(R.bool.recentsAvailable);
+
         ImageView headsup = root.findViewById(R.id.headsup_imageview);
         headsup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Headsup.class);
-                startActivity(intent);
+                if (headsupAvailable) {
+                    Intent intent = new Intent(getActivity(), Headsup.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
         LinearLayout layout = root.findViewById(R.id.omniswitch_layout);
         ImageView omniswitch = root.findViewById(R.id.omniswitch_imageview);
 
-        boolean isInstalled = Utils.isPackageInstalled("org.omnirom.omniswitch", getContext().getPackageManager());
-        if (!isInstalled) {
-            layout.setVisibility(View.GONE);
-        }
+        boolean OmniSwitch = Utils.isPackageInstalled("org.omnirom.omniswitch", getContext().getPackageManager());
+
+        if (!OmniSwitch) layout.setVisibility(View.GONE);
+
         omniswitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,11 +75,22 @@ public class Multitasking extends Fragment {
         recents.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Recents.class);
-                startActivity(intent);
+                if (recentsAvailable) {
+                    Intent intent = new Intent(getActivity(), Recents.class);
+                    startActivity(intent);
+                } else {
+                    snackBar();
+                }
             }
         });
 
         return root;
+    }
+
+    public void snackBar() {
+        Snackbar snackbar = Snackbar.make(getActivity().findViewById(R.id.viewSnack), getString(R.string.features_not_available), Snackbar.LENGTH_LONG);
+        View sbView = snackbar.getView();
+        sbView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.NavigationBarColor));
+        snackbar.show();
     }
 }
