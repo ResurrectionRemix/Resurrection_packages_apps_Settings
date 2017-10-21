@@ -28,9 +28,9 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 
-import com.android.settings.rr.R;
+import com.android.settings.R;
 
-import com.android.internal.util.aicp.AppHelper;
+import com.android.internal.util.rr.AppHelper;
 
 import java.util.ArrayList;
 

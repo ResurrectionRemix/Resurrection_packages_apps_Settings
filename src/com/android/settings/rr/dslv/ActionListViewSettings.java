@@ -55,14 +55,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ListView;
 
-import com.android.internal.util.aicp.ActionConfig;
-import com.android.internal.util.aicp.ActionConstants;
-import com.android.internal.util.aicp.ActionHelper;
-import com.android.internal.util.aicp.ImageHelper;
-import com.android.internal.util.aicp.DeviceUtils;
-import com.android.internal.util.aicp.DeviceUtils.FilteredDeviceFeaturesArray;
+import com.android.internal.util.rr.ActionConfig;
+import com.android.internal.util.rr.ActionConstants;
+import com.android.internal.util.rr.ActionHelper;
+import com.android.internal.util.rr.ImageHelper;
+import com.android.internal.util.rr.DeviceUtils;
+import com.android.internal.util.rr.DeviceUtils.FilteredDeviceFeaturesArray;
 
-import com.android.settings.rr.R;
+import com.android.settings.R;
 import com.android.settings.rr.utils.SlimShortcutPickerHelper;
 
 import java.io.File;
@@ -196,16 +196,16 @@ public class ActionListViewSettings extends ListFragment implements
         FilteredDeviceFeaturesArray finalActionDialogArray = new FilteredDeviceFeaturesArray();
         finalActionDialogArray = DeviceUtils.filterUnsupportedDeviceFeatures(mActivity,
             res.getStringArray(res.getIdentifier(
-                    mActionValuesKey, "array", "com.android.settings.rr")),
+                    mActionValuesKey, "array", "com.android.settings")),
             res.getStringArray(res.getIdentifier(
-                    mActionEntriesKey, "array", "com.android.settings.rr")));
+                    mActionEntriesKey, "array", "com.android.settings")));
         mActionDialogValues = finalActionDialogArray.values;
         mActionDialogEntries = finalActionDialogArray.entries;
 
         mPicker = new SlimShortcutPickerHelper(mActivity, this);
 
         File folder = new File(Environment.getExternalStorageDirectory() + File.separator +
-                ".aicp" + File.separator + "icons");
+                ".rr" + File.separator + "icons");
 
         if (!folder.exists()) {
             folder.mkdirs();
@@ -333,7 +333,7 @@ public class ActionListViewSettings extends ListFragment implements
             // Icon is present, save it for future use and add the file path to the action.
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 File folder = new File(Environment.getExternalStorageDirectory() + File.separator +
-                        ".aicp" + File.separator + "icons");
+                        ".rr" + File.separator + "icons");
                 folder.mkdirs();
                 String fileName = folder.toString()
                         + File.separator + "shortcut_" + System.currentTimeMillis() + ".png";
@@ -376,7 +376,7 @@ public class ActionListViewSettings extends ListFragment implements
                 }
                 if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                     File folder = new File(Environment.getExternalStorageDirectory() +
-                            File.separator + ".aicp" + File.separator + "icons");
+                            File.separator + ".rr" + File.separator + "icons");
                     folder.mkdirs();
                     File image = new File(folder.toString() + File.separator
                             + "shortcut_" + System.currentTimeMillis() + ".png");
@@ -609,6 +609,7 @@ public class ActionListViewSettings extends ListFragment implements
             };
             TypedArray ta = context.getTheme().obtainStyledAttributes(attrs);
             mIconColor = ta.getColor(0, 0xff808080);
+            ta.recycle();
         }
 
         public View getView(final int position, View convertView, ViewGroup parent) {

@@ -40,7 +40,7 @@ import android.widget.Checkable;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
-import com.android.settings.rr.R;
+import com.android.settings.R;
 
 import java.io.File;
 import java.io.FileWriter;
