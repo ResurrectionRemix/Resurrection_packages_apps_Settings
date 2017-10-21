@@ -609,6 +609,7 @@ public class ActionListViewSettings extends ListFragment implements
             };
             TypedArray ta = context.getTheme().obtainStyledAttributes(attrs);
             mIconColor = ta.getColor(0, 0xff808080);
+            ta.recycle();
         }
 
         public View getView(final int position, View convertView, ViewGroup parent) {
