@@ -16,4 +16,22 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <Preference
+        android:key="device_extras_category"
+        android:layout="@layout/device_extras">
+        <intent android:action="com.android.settings.action.EXTRA_SETTINGS"
+            android:targetPackage="com.dirtyunicorns.settings.device"
+            android:targetClass="com.dirtyunicorns.settings.device.TouchscreenGestureSettings" />
+    </Preference>
+
+    <Preference
+        android:key="miscellaneous_category"
+        android:fragment="com.dirtyunicorns.tweaks.fragments.Miscellaneous"
+        android:layout="@layout/miscellaneous" />
+
+    <Preference
+        android:key="powermenu_category"
+        android:fragment="com.dirtyunicorns.tweaks.fragments.PowerMenu"
+        android:layout="@layout/powermenu" />
+
 </PreferenceScreen>

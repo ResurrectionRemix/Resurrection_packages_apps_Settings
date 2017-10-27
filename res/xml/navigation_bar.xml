@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-     Copyright (C) 2012-2014 The TeamEos Project
+<!-- Copyright (C) 2017 The Dirty Unicorns Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,84 +14,6 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <SwitchPreference
-        android:key="navbar_visibility"
-        android:title="@string/navbar_visibility" />
-
-    <PreferenceCategory
-        android:key="category_navbar_interface"
-        android:title="@string/navbar_interface_title" >
-
-        <ListPreference
-            android:key="navbar_mode"
-            android:title="@string/navbar_mode"
-            android:summary="@string/navbar_mode_summary"
-            android:entries="@array/systemui_navbar_mode_entries"
-            android:entryValues="@array/systemui_navbar_mode_values" />
-
-        <PreferenceScreen
-            android:key="smartbar_settings"
-            android:title="@string/smartbar_settings_title"
-            android:summary="@string/smartbar_settings_summary"
-            android:fragment="com.android.settings.rr.fragments.SmartbarSettings" />
-
-        <PreferenceScreen
-            android:key="fling_settings"
-            android:title="@string/fling_settings"
-            android:summary="@string/fling_settings_summary"
-            android:fragment="com.android.settings.rr.fragments.FlingSettings" />
-
-        <Preference
-            android:key="default_settings"
-            android:title="@string/default_settings"
-            android:summary="@string/default_settings_summary">
-            <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.tuner.NavBarActivity" />
-        </Preference>
-    </PreferenceCategory>
-    
-    <PreferenceCategory
-        android:key="category_navbar_general"
-        android:title="@string/navbar_general_title" >
-
-           <com.android.settings.rr.Preferences.CustomSeekBarPreference
-                android:key="navbar_height_portrait"
-                android:title="@string/portrait_title"
-                android:max="135"
-                settings:min="65"
-                settings:units="%" />
-
-           <com.android.settings.rr.Preferences.CustomSeekBarPreference
-                android:key="navbar_height_landscape"
-                android:title="@string/land_hor_title"
-                android:max="135"
-                settings:min="65"
-                settings:units="%" />
-
-           <com.android.settings.rr.Preferences.CustomSeekBarPreference
-                android:key="navbar_width"
-                android:title="@string/land_vert_title"
-                android:max="135"
-                settings:min="65"
-                settings:units="%" />
-
-          <!-- Dynamic navbar color -->
-          <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-                android:key="navbar_dynamic"
-                android:title="@string/navbar_dynamic_title"
-                android:summary="@string/navbar_dynamic_summary"
-                android:defaultValue="false" />
-
-          <PreferenceScreen
-                android:key="pulse_settings"
-                android:title="@string/pulse_settings"
-                android:summary="@string/pulse_settings_summary"
-                android:fragment="com.android.settings.rr.fragments.PulseSettings" />
-
-    </PreferenceCategory>
 </PreferenceScreen>
-
