@@ -14,4 +14,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_headsup_cat">
+
+    <com.rr.settings.preferences.GlobalSettingSwitchPreference
+        android:key="heads_up_notifications_enabled"
+        android:title="@string/heads_up_title"
+        android:summaryOn="@string/heads_up_summary_enabled"
+        android:summaryOff="@string/heads_up_summary_disabled"
+        android:defaultValue="true" />
+
 </PreferenceScreen>
