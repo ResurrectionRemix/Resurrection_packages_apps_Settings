@@ -13,4 +13,17 @@
         android:summaryOff="@string/heads_up_summary_disabled"
         android:defaultValue="true" />
 
+    <PreferenceCategory
+        android:title="@string/heads_up_blacklist_title"
+        android:key="blacklist_applications"
+        android:dependency="heads_up_notifications_enabled" >
+
+        <Preference
+            android:key="add_blacklist_packages"
+            android:icon="@drawable/ic_menu_add"
+            android:title="@string/heads_up_blacklist_add_package_title"
+            android:summary="@string/heads_up_blacklist_add_package_summary" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>
