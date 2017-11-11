@@ -100,6 +100,7 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
     static {
         OP_ICONS.put(AppOpsManager.OP_BOOT_COMPLETED, R.drawable.ic_perm_boot);
         OP_ICONS.put(AppOpsManager.OP_CHANGE_WIFI_STATE, R.drawable.ic_perm_wifi);
+        OP_ICONS.put(AppOpsManager.OP_DATA_CONNECT_CHANGE, R.drawable.ic_perm_data);
         OP_ICONS.put(AppOpsManager.OP_GPS, R.drawable.ic_perm_location);
         OP_ICONS.put(AppOpsManager.OP_MUTE_MICROPHONE, R.drawable.ic_perm_microphone);
         OP_ICONS.put(AppOpsManager.OP_NFC_CHANGE, R.drawable.ic_perm_nfc);
