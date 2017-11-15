@@ -679,7 +679,8 @@
             android:label="@string/language_keyboard_settings_title"
             android:icon="@drawable/ic_settings_language"
             android:taskAffinity="com.android.settings"
-            android:parentActivityName="Settings">
+            android:parentActivityName="Settings"
+            android:configChanges="keyboard|keyboardHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.VOICE_LAUNCH" />

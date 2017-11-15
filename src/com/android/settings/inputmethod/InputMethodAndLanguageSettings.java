@@ -84,6 +84,7 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     private static final String KEY_CURRENT_INPUT_METHOD = "current_input_method";
     private static final String KEY_USER_DICTIONARY_SETTINGS = "key_user_dictionary_settings";
     private static final String KEY_PREVIOUSLY_ENABLED_SUBTYPES = "previously_enabled_subtypes";
+    private static final String KEY_PHYSICAL_KEYBOARD = "physical_keyboard";
 
     private PreferenceCategory mGameControllerCategory;
     private Preference mLanguagePref;
@@ -94,6 +95,8 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
     private SettingsObserver mSettingsObserver;
     private Intent mIntentWaitingForResult;
     private InputMethodSettingValuesWrapper mInputMethodSettingValues;
+
+    private PreferenceScreen mPhysicalKeyboard;
 
     @Override
     protected int getMetricsCategory() {
@@ -160,6 +163,15 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             showKeyboardLayoutDialog(identifier);
         }
         updateCurrentImeName();
+
+        mPhysicalKeyboard = (PreferenceScreen) findPreference(KEY_PHYSICAL_KEYBOARD);
+        if (mPhysicalKeyboard != null) {
+            mPhysicalKeyboard.setVisible(hasHardwareKeyboard());
+        }
+    }
+
+    private boolean hasHardwareKeyboard() {
+        return getResources().getConfiguration().keyboard != Configuration.KEYBOARD_NOKEYS;
     }
 
     private void updateUserDictionaryPreference(Preference userDictionaryPreference) {
@@ -439,6 +451,14 @@ public class InputMethodAndLanguageSettings extends SettingsPreferenceFragment
             }
         }
         return false;
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        if (mPhysicalKeyboard != null) {
+            boolean visible = newConfig.hardKeyboardHidden == Configuration.HARDKEYBOARDHIDDEN_NO;
+            mPhysicalKeyboard.setVisible(visible);
+        }
     }
 
     private class SettingsObserver extends ContentObserver {
