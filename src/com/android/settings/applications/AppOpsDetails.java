@@ -167,8 +167,6 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
             return false;
         }
 
-        final Resources res = getActivity().getResources();
-
         mPreferenceScreen.removeAll();
         setAppHeader(mPackageInfo);
 
@@ -184,8 +182,6 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
             List<AppOpsState.AppOpEntry> entries = mState.buildState(tpl,
                     mPackageInfo.applicationInfo.uid, mPackageInfo.packageName, true);
             for (final AppOpsState.AppOpEntry entry : entries) {
-                final AppOpsManager.OpEntry firstOp = entry.getOpEntry(0);
-                Drawable icon = null;
                 String perm = null;
                 int op = 0;
                 // Find the first permission with a known name
@@ -193,91 +189,129 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
                     op = entry.getOpEntry(i).getOp();
                     perm = AppOpsManager.opToPermission(op);
                 }
-                if (perm != null) {
-                    try {
-                        PermissionInfo pi = mPm.getPermissionInfo(perm, 0);
-                        if (pi.group != null) {
-                            PermissionGroupInfo pgi = mPm.getPermissionGroupInfo(pi.group, 0);
-                            if (pgi.icon != 0) {
-                                icon = pgi.loadIcon(mPm);
-                            }
-                        }
-                    } catch (NameNotFoundException e) {
-                    }
-                }
+                Drawable icon = getIconByPermission(perm);
                 if (icon == null && op != 0 && OP_ICONS.containsKey(op)) {
                     icon = getActivity().getDrawable(OP_ICONS.get(op));
                 }
 
-                final AppOpsManager.PackageOps pkgOps = entry.getPackageOps();
-                final int uid = pkgOps.getUid();
-                final String pkgName = pkgOps.getPackageName();
+                final AppOpsManager.OpEntry firstOp = entry.getOpEntry(0);
                 final int switchOp = AppOpsManager.opToSwitch(firstOp.getOp());
-                int mode = mAppOps.checkOpNoThrow(switchOp, uid, pkgName);
 
-                CharSequence opName = entry.getSwitchText(mState);
                 // ListPreference for 3 states: ask, allow, deny
                 if (AppOpsManager.isStrictOp(switchOp)) {
-                    ListPreference listPref = new ListPreference(getActivity());
-                    listPref.setLayoutResource(R.layout.preference_appops);
-                    listPref.setIcon(icon);
-                    listPref.setTitle(opName);
-                    listPref.setDialogTitle(opName);
-                    listPref.setEntries(R.array.app_ops_permissions);
-                    listPref.setEntryValues(MODE_ENTRIES);
-                    listPref.setValueIndex(modeToPosition(mode));
-                    String summary = getSummary(listPref.getEntry(), entry.getCountsText(res),
-                            entry.getTimeText(res, true));
-                    listPref.setSummary(summary);
-                    listPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-                        @Override
-                        public boolean onPreferenceChange(Preference preference, Object newValue) {
-                            ListPreference listPref = (ListPreference) preference;
-                            String value = newValue.toString();
-                            int selectedIndex = listPref.findIndexOfValue(value);
-                            mAppOps.setMode(switchOp, uid, pkgName, positionToMode(selectedIndex));
-                            String summary = getSummary(listPref.getEntries()[selectedIndex],
-                                    entry.getCountsText(res), entry.getTimeText(res, true));
-                            listPref.setSummary(summary);
-                            return true;
-                        }
-                    });
+                    ListPreference listPref = getListPrefForEntry(entry, icon);
                     mPreferenceScreen.addPreference(listPref);
                 } else {
-                    SwitchPreference switchPref = new SwitchPreference(getActivity());
-                    switchPref.setLayoutResource(R.layout.preference_appops);
-                    switchPref.setIcon(icon);
-                    switchPref.setTitle(opName);
-                    String summary = getSummary(entry.getCountsText(res),
-                            entry.getTimeText(res, true));
-                    switchPref.setSummary(summary);
-                    switchPref.setChecked(mode == AppOpsManager.MODE_ALLOWED);
-                    switchPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-                        @Override
-                        public boolean onPreferenceChange(Preference preference,
-                                                          Object newValue) {
-                            Boolean isChecked = (Boolean) newValue;
-                            mAppOps.setMode(switchOp, uid, pkgName,
-                                    isChecked ? AppOpsManager.MODE_ALLOWED
-                                            : AppOpsManager.MODE_IGNORED);
-                            return true;
-                        }
-                    });
+                    SwitchPreference switchPref = getSwitchPrefForEntry(entry, icon);
                     mPreferenceScreen.addPreference(switchPref);
                 }
             }
         }
 
         if (mPreferenceScreen.getPreferenceCount() == 0) {
-            Preference emptyPref = new Preference(getActivity());
-            emptyPref.setTitle(R.string.app_ops_no_blockable_permissions);
-            emptyPref.setSelectable(false);
-            emptyPref.setEnabled(false);
-
-            mPreferenceScreen.addPreference(emptyPref);
+            Preference noBlockablePermissionsPref = getNoBlockablePermissionsPref();
+            mPreferenceScreen.addPreference(noBlockablePermissionsPref);
         }
 
         return true;
+    }
+
+    private Drawable getIconByPermission(String perm) {
+        Drawable icon = null;
+        if (perm != null) {
+            try {
+                PermissionInfo pi = mPm.getPermissionInfo(perm, 0);
+                if (pi.group != null) {
+                    PermissionGroupInfo pgi = mPm.getPermissionGroupInfo(pi.group, 0);
+                    if (pgi.icon != 0) {
+                        icon = pgi.loadIcon(mPm);
+                    }
+                }
+            } catch (NameNotFoundException e) {
+            }
+        }
+        return icon;
+    }
+
+    private ListPreference getListPrefForEntry(final AppOpsState.AppOpEntry entry, Drawable icon) {
+        final Resources res = getActivity().getResources();
+
+        final AppOpsManager.OpEntry firstOp = entry.getOpEntry(0);
+        final AppOpsManager.PackageOps pkgOps = entry.getPackageOps();
+        final int uid = pkgOps.getUid();
+        final String pkgName = pkgOps.getPackageName();
+        final int switchOp = AppOpsManager.opToSwitch(firstOp.getOp());
+        final int mode = mAppOps.checkOpNoThrow(switchOp, uid, pkgName);
+        final CharSequence opName = entry.getSwitchText(mState);
+
+        ListPreference listPref = new ListPreference(getActivity());
+        listPref.setLayoutResource(R.layout.preference_appops);
+        listPref.setIcon(icon);
+        listPref.setTitle(opName);
+        listPref.setDialogTitle(opName);
+        listPref.setEntries(R.array.app_ops_permissions);
+        listPref.setEntryValues(MODE_ENTRIES);
+        listPref.setValueIndex(modeToPosition(mode));
+        String summary = getSummary(listPref.getEntry(), entry.getCountsText(res),
+                entry.getTimeText(res, true));
+        listPref.setSummary(summary);
+        listPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object newValue) {
+                ListPreference listPref = (ListPreference) preference;
+                String value = newValue.toString();
+                int selectedIndex = listPref.findIndexOfValue(value);
+                mAppOps.setMode(switchOp, uid, pkgName, positionToMode(selectedIndex));
+                String summary = getSummary(listPref.getEntries()[selectedIndex],
+                        entry.getCountsText(res), entry.getTimeText(res, true));
+                listPref.setSummary(summary);
+                return true;
+            }
+        });
+
+        return listPref;
+    }
+
+    private SwitchPreference getSwitchPrefForEntry(final AppOpsState.AppOpEntry entry,
+                                                   Drawable icon) {
+        final Resources res = getActivity().getResources();
+
+        final AppOpsManager.OpEntry firstOp = entry.getOpEntry(0);
+        final AppOpsManager.PackageOps pkgOps = entry.getPackageOps();
+        final int uid = pkgOps.getUid();
+        final String pkgName = pkgOps.getPackageName();
+        final int switchOp = AppOpsManager.opToSwitch(firstOp.getOp());
+        final int mode = mAppOps.checkOpNoThrow(switchOp, uid, pkgName);
+        final CharSequence opName = entry.getSwitchText(mState);
+
+        SwitchPreference switchPref = new SwitchPreference(getActivity());
+        switchPref.setLayoutResource(R.layout.preference_appops);
+        switchPref.setIcon(icon);
+        switchPref.setTitle(opName);
+        String summary = getSummary(entry.getCountsText(res), entry.getTimeText(res, true));
+        switchPref.setSummary(summary);
+        switchPref.setChecked(mode == AppOpsManager.MODE_ALLOWED);
+        switchPref.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference,
+                                              Object newValue) {
+                Boolean isChecked = (Boolean) newValue;
+                mAppOps.setMode(switchOp, uid, pkgName,
+                        isChecked ? AppOpsManager.MODE_ALLOWED
+                                : AppOpsManager.MODE_IGNORED);
+                return true;
+            }
+        });
+
+        return switchPref;
+    }
+
+    private Preference getNoBlockablePermissionsPref() {
+        Preference emptyPref = new Preference(getActivity());
+        emptyPref.setTitle(R.string.app_ops_no_blockable_permissions);
+        emptyPref.setSelectable(false);
+        emptyPref.setEnabled(false);
+        return emptyPref;
     }
 
     private void setIntentAndFinish(boolean finish, boolean appChanged) {
