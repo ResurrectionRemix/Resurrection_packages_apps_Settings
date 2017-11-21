@@ -79,6 +79,6 @@ public class NotificationChannelWarningsPreferenceController extends
 
     @VisibleForTesting
     boolean isDebuggable() {
-        return Build.IS_DEBUGGABLE;
+        return Build.TYPE.equals("eng");
     }
 }
