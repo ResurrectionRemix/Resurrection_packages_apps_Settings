@@ -75,6 +75,14 @@
                 android:title="@string/firmware_version"
                 android:summary="@string/summary_placeholder"/>
 
+        <!-- LineageOS version -->
+        <org.lineageos.internal.preference.deviceinfo.LineageVersionPreference
+                android:key="lineage_version" />
+
+        <!-- LineageOS API version -->
+        <org.lineageos.internal.preference.deviceinfo.LineageAPIVersionPreference
+                android:key="lineage_api_level" />
+
         <!-- Security patch level -->
         <Preference android:key="security_patch"
                 android:title="@string/security_patch"
@@ -100,6 +108,10 @@
                 android:key="kernel_version"
                 android:title="@string/kernel_version"
                 android:summary="@string/summary_placeholder"/>
+
+        <!-- Build date -->
+        <org.lineageos.internal.preference.deviceinfo.LineageBuildDatePreference
+                android:key="build_date" />
 
         <!-- Detailed build version -->
         <Preference
