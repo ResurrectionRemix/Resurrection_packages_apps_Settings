@@ -40,6 +40,13 @@
             android:icon="@drawable/rr_ui_settings_icon"/>
 
      <PreferenceScreen
+            android:key="rr_nav_bar"
+            android:fragment="com.android.settings.rr.fragments.NavigationBar"
+            android:summary="@string/rr_navbar_summary"
+            android:icon="@drawable/rr_navbar_icon"
+            android:title="@string/rr_navigation_title"/>
+
+     <PreferenceScreen
             android:key="rr_about"
             android:title="@string/about_rr"
 	   	    android:fragment="com.android.settings.rr.About" 
