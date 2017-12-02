@@ -14,16 +14,57 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
 
-	<PreferenceCategory android:key="hardware_keys"
-		android:title="@string/hardware_keys_category">
+    <PreferenceCategory android:key="hardware_keys"
+	android:title="@string/hardware_keys_category">
+	<SwitchPreference android:key="hardware_keys_disable"
+		android:title="@string/hardware_keys_disable_title" />
+    </PreferenceCategory>
 
-		<SwitchPreference android:key="hardware_keys_disable"
-			android:title="@string/hardware_keys_disable_title" />
-	</PreferenceCategory>
+    <PreferenceCategory
+        android:key="button_backlight_options_category"
+        android:title="@string/button_backlight_options_category" >
 
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="button_backlight_enable"
+            android:title="@string/button_backlight_enable_title"
+            android:defaultValue="true"/>
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="custom_button_use_screen_brightness"
+            android:title="@string/button_link_brightness"
+            android:summary="@string/button_link_brightness_summary"
+            android:defaultValue="false"
+            android:dependency="button_backlight_enable"
+            android:disableDependentsState="true" />
+
+        <com.android.settings.rr.Preferences.CustomSeekBarPreference
+            android:key="button_manual_brightness_new"
+            android:title="@string/button_manual_brightness"
+            android:max="255"
+            settings:min="1"
+            android:persistent="false"
+            android:dependency="custom_button_use_screen_brightness" />
+
+        <com.android.settings.rr.Preferences.CustomSeekBarPreference
+            android:key="button_timeout"
+            android:title="@string/button_timeout_title"
+            android:max="30"
+            settings:min="0"
+            android:persistent="false"
+            android:dependency="button_backlight_enable" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="button_backlight_on_touch_only"
+            android:title="@string/button_backlight_on_touch_only_title"
+            android:summary="@string/button_backlight_on_touch_only_summary"
+            android:defaultValue="false"
+            android:dependency="button_backlight_enable" />
+
+    </PreferenceCategory>
     <PreferenceCategory
         android:key="back_key"
         android:title="@string/hardware_keys_back_key_title" >
@@ -32,7 +73,7 @@
             android:key="hwkeys_button_back_single_tap"
             android:summary="@string/hardware_keys_single_tap_summary"
             android:title="@string/hardware_keys_single_tap_title" >
-        </com.dirtyunicorns.tweaks.preferences.ActionPreference>
+        </com.android.settings.rr.Preferences.ActionPreference>
 
         <com.android.settings.rr.Preferences.ActionPreference
             android:key="hwkeys_button_back_long_press"
@@ -56,7 +97,7 @@
             android:key="hwkeys_button_home_single_tap"
             android:summary="@string/hardware_keys_single_tap_summary"
             android:title="@string/hardware_keys_single_tap_title" >
-        </com.dirtyunicorns.tweaks.preferences.ActionPreference>
+        </com.android.settings.rr.Preferences.ActionPreference>
  
         <com.android.settings.rr.Preferences.ActionPreference
             android:key="hwkeys_button_home_long_press"
