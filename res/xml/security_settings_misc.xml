@@ -15,10 +15,15 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
         android:title="@string/security_settings_title">
 
     <PreferenceCategory android:title="@string/security_passwords_title"
             android:persistent="false">
+
+        <!-- Privacy Guard -->
+        <org.lineageos.internal.lineageparts.LineagePartsPreference
+            android:key="privacy_guard_manager" />
 
         <Preference
             android:key="location"
