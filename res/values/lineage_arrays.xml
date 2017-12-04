@@ -40,4 +40,364 @@
         <item>0</item>
         <item>2</item>
     </string-array>
+
+    <!-- Names of categories of app ops tabs - extension of AOSP -->
+    <string-array name="app_ops_categories_lineage" translatable="false">
+        <item>@string/app_ops_categories_location</item>
+        <item>@string/app_ops_categories_personal</item>
+        <item>@string/app_ops_categories_messaging</item>
+        <item>@string/app_ops_categories_media</item>
+        <item>@string/app_ops_categories_device</item>
+        <item>@string/app_ops_categories_run_in_background</item>
+        <item>@string/app_ops_categories_bootup</item>
+        <item>@string/app_ops_categories_su</item>
+        <item>@string/app_ops_categories_other</item>
+    </string-array>
+
+    <!-- User display names for app ops codes - extension of AOSP -->
+    <string-array name="app_ops_summaries_lineage" translatable="false">
+        <!-- OP_COARSE_LOCATION -->
+        <item>@string/app_ops_summaries_coarse_location</item>
+        <!-- OP_FINE_LOCATION -->
+        <item>@string/app_ops_summaries_fine_location</item>
+        <!-- OP_GPS -->
+        <item>@string/app_ops_summaries_gps</item>
+        <!-- OP_VIBRATE -->
+        <item>@string/app_ops_summaries_use_vibrate</item>
+        <!-- OP_READ_CONTACTS -->
+        <item>@string/app_ops_summaries_read_contacts</item>
+        <!-- OP_WRITE_CONTACTS -->
+        <item>@string/app_ops_summaries_modify_contacts</item>
+        <!-- OP_READ_CALL_LOG -->
+        <item>@string/app_ops_summaries_read_call_log</item>
+        <!-- OP_WRITE_CALL_LOG -->
+        <item>@string/app_ops_summaries_modify_call_log</item>
+        <!-- OP_READ_CALENDAR -->
+        <item>@string/app_ops_summaries_read_calendar</item>
+        <!-- OP_WRITE_CALENDAR -->
+        <item>@string/app_ops_summaries_modify_calendar</item>
+        <!-- OP_WIFI_SCAN -->
+        <item>@string/app_ops_summaries_scan_wifi</item>
+        <!-- OP_POST_NOTIFICATION -->
+        <item>@string/app_ops_summaries_post_notification</item>
+        <!-- OP_NEIGHBORING_CELLS -->
+        <item>@string/app_ops_summaries_neighboring_cells</item>
+        <!-- OP_CALL_PHONE -->
+        <item>@string/app_ops_summaries_make_phone_call</item>
+        <!-- OP_READ_SMS -->
+        <item>@string/app_ops_summaries_read_sms</item>
+        <!-- OP_WRITE_SMS -->
+        <item>@string/app_ops_summaries_write_sms</item>
+        <!-- OP_RECEIVE_SMS -->
+        <item>@string/app_ops_summaries_receive_sms</item>
+        <!-- OPSTR_RECEIVE_EMERGENCY_BROADCAST -->
+        <item>@string/app_ops_summaries_receive_emergency_broadcast</item>
+        <!-- OP_RECEIVE_MMS -->
+        <item>@string/app_ops_summaries_receive_sms</item>
+        <!-- OP_RECEIVE_WAP_PUSH -->
+        <item>@string/app_ops_summaries_receive_sms</item>
+        <!-- OP_SEND_SMS -->
+        <item>@string/app_ops_summaries_send_sms</item>
+        <!-- OP_READ_ICC_SMS -->
+        <item>@string/app_ops_summaries_read_sms</item>
+        <!-- OP_WRITE_ICC_SMS -->
+        <item>@string/app_ops_summaries_write_sms</item>
+        <!-- OP_WRITE_SETTINGS -->
+        <item>@string/app_ops_summaries_modify_settings</item>
+        <!-- OP_SYSTEM_ALERT_WINDOW -->
+        <item>@string/app_ops_summaries_draw_on_top</item>
+        <!-- OP_ACCESS_NOTIFICATIONS -->
+        <item>@string/app_ops_summaries_access_notifications</item>
+        <!-- OP_CAMERA -->
+        <item>@string/app_ops_summaries_access_camera</item>
+        <!-- OP_RECORD_AUDIO -->
+        <item>@string/app_ops_summaries_record_audio</item>
+        <!-- OP_PLAY_AUDIO -->
+        <item>@string/app_ops_summaries_play_audio</item>
+        <!-- OP_READ_CLIPBOARD -->
+        <item>@string/app_ops_summaries_read_clipboard</item>
+        <!-- OP_WRITE_CLIPBOARD -->
+        <item>@string/app_ops_summaries_modify_clipboard</item>
+        <!-- OP_TAKE_MEDIA_BUTTONS -->
+        <item>@string/app_ops_summaries_use_media_buttons</item>
+        <!-- OP_TAKE_AUDIO_FOCUS -->
+        <item>@string/app_ops_summaries_use_audio_focus</item>
+        <!-- OP_AUDIO_MASTER_VOLUME -->
+        <item>@string/app_ops_summaries_use_master_volume</item>
+        <!-- OP_AUDIO_VOICE_VOLUME -->
+        <item>@string/app_ops_summaries_use_voice_volume</item>
+        <!-- OP_AUDIO_RING_VOLUME -->
+        <item>@string/app_ops_summaries_use_ring_volume</item>
+        <!-- OP_AUDIO_MEDIA_VOLUME -->
+        <item>@string/app_ops_summaries_use_media_volume</item>
+        <!-- OP_AUDIO_ALARM_VOLUME -->
+        <item>@string/app_ops_summaries_use_alarm_volume</item>
+        <!-- OP_AUDIO_NOTIFICATION_VOLUME -->
+        <item>@string/app_ops_summaries_use_notification_volume</item>
+        <!-- OP_AUDIO_BLUETOOTH_VOLUME -->
+        <item>@string/app_ops_summaries_use_bluetooth_volume</item>
+        <!-- OP_WAKE_LOCK -->
+        <item>@string/app_ops_summaries_keep_device_awake</item>
+        <!-- OP_MONITOR_LOCATION -->
+        <item>@string/app_ops_summaries_monitor_location</item>
+        <!-- OP_MONITOR_HIGH_POWER_LOCATION -->
+        <item>@string/app_ops_summaries_monitor_high_power_location</item>
+        <!-- OP_GET_USAGE_STATS -->
+        <item>@string/app_ops_summaries_get_usage_stats</item>
+        <!-- OP_MUTE_MICROPHONE -->
+        <item>@string/app_ops_summaries_mute_unmute_microphone</item>
+        <!-- OP_TOAST_WINDOW -->
+        <item>@string/app_ops_summaries_toast_window</item>
+        <!-- OP_PROJECT_MEDIA -->
+        <item>@string/app_ops_summaries_project_media</item>
+        <!-- OP_ACTIVATE_VPN -->
+        <item>@string/app_ops_summaries_activate_vpn</item>
+        <!-- OP_WRITE_WALLPAPER -->
+        <item>@string/app_ops_summaries_change_wallpaper</item>
+        <!-- OP_ASSIST_STRUCTURE -->
+        <item>@string/app_ops_summaries_assist_structure</item>
+        <!-- OP_ASSIST_SCREENSHOT -->
+        <item>@string/app_ops_summaries_assist_screenshot</item>
+        <!-- OP_READ_PHONE_STATE -->
+        <item>@string/app_ops_summaries_read_phone_state</item>
+        <!-- OP_ADD_VOICEMAIL -->
+        <item>@string/app_ops_summaries_add_voicemail</item>
+        <!-- OP_USE_SIP -->
+        <item>@string/app_ops_summaries_make_phone_call</item>
+        <!-- OP_PROCESS_OUTGOING_CALLS -->
+        <item>@string/app_ops_summaries_make_phone_call</item>
+        <!-- OP_USE_FINGERPRINT -->
+        <item>@string/app_ops_summaries_use_fingerprint</item>
+        <!-- OP_BODY_SENSORS -->
+        <item>@string/app_ops_summaries_use_body_sensors</item>
+        <!-- OP_READ_CELL_BROADCASTS -->
+        <item>@string/app_ops_summaries_read_cell_broadcasts</item>
+        <!-- OP_MOCK_LOCATION -->
+        <item>@string/app_ops_summaries_mock_location</item>
+        <!-- OP_READ_EXTERNAL_STORAGE -->
+        <item>@string/app_ops_summaries_read_external_storage</item>
+        <!-- OP_WRITE_EXTERNAL_STORAGE -->
+        <item>@string/app_ops_summaries_write_external_storage</item>
+        <!-- OP_TURN_SCREEN_ON -->
+        <item>@string/app_ops_summaries_turn_on_screen</item>
+        <!-- OP_GET_ACCOUNTS -->
+        <item>@string/app_ops_summaries_get_accounts</item>
+        <!-- OP_RUN_IN_BACKGROUND -->
+        <item>@string/app_ops_summaries_run_in_background</item>
+        <!-- OP_AUDIO_ACCESSIBILITY_VOLUME -->
+        <item>@string/app_ops_summaries_audio_accessibility_volume</item>
+        <!-- OP_READ_PHONE_NUMBERS -->
+        <item>@string/app_ops_summaries_read_phone_numbers</item>
+        <!-- OP_REQUEST_INSTALL_PACKAGES -->
+        <item>@string/app_ops_summaries_install_packages</item>
+        <!-- OP_PICTURE_IN_PICTURE -->
+        <item>@string/app_ops_summaries_picture_in_picture</item>
+        <!-- OP_INSTANT_APP_START_FOREGROUND -->
+        <item>@string/app_ops_summaries_app_start_foreground</item>
+        <!-- OP_ANSWER_PHONE_CALLS -->
+        <item>@string/app_ops_summaries_phone_calls</item>
+        <!-- OP_RUN_ANY_IN_BACKGROUND -->
+        <item>@string/app_ops_summaries_run_any_in_background</item>
+        <!-- OP_CHANGE_WIFI_STATE -->
+        <item>@string/app_ops_summaries_wifi_change</item>
+        <!-- OP_REQUEST_DELETE_PACKAGES -->
+        <item>@string/app_ops_summaries_request_delete_packages</item>
+        <!-- OP_BIND_ACCESSIBILITY_SERVICE -->
+        <item>@string/app_ops_summaries_bind_accessibility_service</item>
+        <!-- OP_ACCEPT_HANDOVER -->
+        <item>@string/app_ops_summaries_accept_handover</item>
+        <!-- OP_MANAGE_IPSEC_TUNNELS -->
+        <item>@string/app_ops_summaries_manage_ipsec_tunnels</item>
+        <!-- OP_START_FOREGROUND -->
+        <item>@string/app_ops_summaries_start_foreground</item>
+        <!-- OP_BLUETOOTH_SCAN -->
+        <item>@string/app_ops_summaries_bluetooth_scan</item>
+        <!-- OP_BLUETOOTH_CHANGE -->
+        <item>@string/app_ops_summaries_toggle_bluetooth</item>
+        <!-- OP_BOOT_COMPLETED -->
+        <item>@string/app_ops_summaries_start_at_bootup</item>
+        <!-- OP_NFC_CHANGE -->
+        <item>@string/app_ops_summaries_toggle_nfc</item>
+        <!-- OP_DATA_CONNECT_CHANGE -->
+        <item>@string/app_ops_summaries_toggle_mobile_data</item>
+        <!-- OP_SU -->
+        <item>@string/app_ops_summaries_su</item>
+    </string-array>
+
+    <!-- User display names for app ops codes - extension of AOSP -->
+    <string-array name="app_ops_labels_lineage" translatable="false">
+        <!-- OP_COARSE_LOCATION -->
+        <item>@string/app_ops_labels_coarse_location</item>
+        <!-- OP_FINE_LOCATION -->
+        <item>@string/app_ops_labels_fine_location</item>
+        <!-- OP_GPS -->
+        <item>@string/app_ops_labels_gps</item>
+        <!-- OP_VIBRATE -->
+        <item>@string/app_ops_labels_use_vibrate</item>
+        <!-- OP_READ_CONTACTS -->
+        <item>@string/app_ops_labels_read_contacts</item>
+        <!-- OP_WRITE_CONTACTS -->
+        <item>@string/app_ops_labels_modify_contacts</item>
+        <!-- OP_READ_CALL_LOG -->
+        <item>@string/app_ops_labels_read_call_log</item>
+        <!-- OP_WRITE_CALL_LOG -->
+        <item>@string/app_ops_labels_modify_call_log</item>
+        <!-- OP_READ_CALENDAR -->
+        <item>@string/app_ops_labels_read_calendar</item>
+        <!-- OP_WRITE_CALENDAR -->
+        <item>@string/app_ops_labels_modify_calendar</item>
+        <!-- OP_WIFI_SCAN -->
+        <item>@string/app_ops_labels_scan_wifi</item>
+        <!-- OP_POST_NOTIFICATION -->
+        <item>@string/app_ops_labels_post_notification</item>
+        <!-- OP_NEIGHBORING_CELLS -->
+        <item>@string/app_ops_labels_neighboring_cells</item>
+        <!-- OP_CALL_PHONE -->
+        <item>@string/app_ops_labels_make_phone_call</item>
+        <!-- OP_READ_SMS -->
+        <item>@string/app_ops_labels_read_sms</item>
+        <!-- OP_WRITE_SMS -->
+        <item>@string/app_ops_labels_write_sms</item>
+        '<!-- OP_RECEIVE_SMS -->
+        <item>@string/app_ops_labels_receive_sms</item>
+        <!-- OPSTR_RECEIVE_EMERGENCY_BROADCAST -->
+        <item>@string/app_ops_labels_receive_emergency_broadcast</item>
+        <!-- OP_RECEIVE_MMS -->
+        <item>@string/app_ops_labels_receive_sms</item>
+        <!-- OP_RECEIVE_WAP_PUSH -->
+        <item>@string/app_ops_labels_receive_sms</item>
+        <!-- OP_SEND_SMS -->
+        <item>@string/app_ops_labels_send_sms</item>
+        <!-- OP_READ_ICC_SMS -->
+        <item>@string/app_ops_labels_read_sms</item>
+        <!-- OP_WRITE_ICC_SMS -->
+        <item>@string/app_ops_labels_write_sms</item>
+        <!-- OP_WRITE_SETTINGS -->
+        <item>@string/app_ops_labels_modify_settings</item>
+        <!-- OP_SYSTEM_ALERT_WINDOW -->
+        <item>@string/app_ops_labels_draw_on_top</item>
+        <!-- OP_ACCESS_NOTIFICATIONS -->
+        <item>@string/app_ops_labels_access_notifications</item>
+        <!-- OP_CAMERA -->
+        <item>@string/app_ops_labels_access_camera</item>
+        <!-- OP_RECORD_AUDIO -->
+        <item>@string/app_ops_labels_record_audio</item>
+        <!-- OP_PLAY_AUDIO -->
+        <item>@string/app_ops_labels_play_audio</item>
+        <!-- OP_READ_CLIPBOARD -->
+        <item>@string/app_ops_labels_read_clipboard</item>
+        <!-- OP_WRITE_CLIPBOARD -->
+        <item>@string/app_ops_labels_modify_clipboard</item>
+        <!-- OP_TAKE_MEDIA_BUTTONS -->
+        <item>@string/app_ops_labels_use_media_buttons</item>
+        <!-- OP_TAKE_AUDIO_FOCUS -->
+        <item>@string/app_ops_labels_use_audio_focus</item>
+        <!-- OP_AUDIO_MASTER_VOLUME -->
+        <item>@string/app_ops_labels_use_master_volume</item>
+        <!-- OP_AUDIO_VOICE_VOLUME -->
+        <item>@string/app_ops_labels_use_voice_volume</item>
+        <!-- OP_AUDIO_RING_VOLUME -->
+        <item>@string/app_ops_labels_use_ring_volume</item>
+        <!-- OP_AUDIO_MEDIA_VOLUME -->
+        <item>@string/app_ops_labels_use_media_volume</item>
+        <!-- OP_AUDIO_ALARM_VOLUME -->
+        <item>@string/app_ops_labels_use_alarm_volume</item>
+        <!-- OP_AUDIO_NOTIFICATION_VOLUME -->
+        <item>@string/app_ops_labels_use_notification_volume</item>
+        <!-- OP_AUDIO_BLUETOOTH_VOLUME -->
+        <item>@string/app_ops_labels_use_bluetooth_volume</item>
+        <!-- OP_WAKE_LOCK -->
+        <item>@string/app_ops_labels_keep_device_awake</item>
+        <!-- OP_MONITOR_LOCATION -->
+        <item>@string/app_ops_labels_monitor_location</item>
+        <!-- OP_MONITOR_HIGH_POWER_LOCATION -->
+        <item>@string/app_ops_labels_monitor_high_power_location</item>
+        <!-- OP_GET_USAGE_STATS -->
+        <item>@string/app_ops_labels_get_usage_stats</item>
+        <!-- OP_MUTE_MICROPHONE -->
+        <item>@string/app_ops_labels_mute_unmute_microphone</item>
+        <!-- OP_TOAST_WINDOW -->
+        <item>@string/app_ops_labels_toast_window</item>
+        <!-- OP_PROJECT_MEDIA -->
+        <item>@string/app_ops_labels_project_media</item>
+        <!-- OP_ACTIVATE_VPN -->
+        <item>@string/app_ops_labels_activate_vpn</item>
+        <!-- OP_WRITE_WALLPAPER -->
+        <item>@string/app_ops_labels_change_wallpaper</item>
+        <!-- OP_ASSIST_STRUCTURE -->
+        <item>@string/app_ops_labels_assist_structure</item>
+        <!-- OP_ASSIST_SCREENSHOT -->
+        <item>@string/app_ops_labels_assist_screenshot</item>
+        <!-- OP_READ_PHONE_STATE -->
+        <item>@string/app_ops_labels_read_phone_state</item>
+        <!-- OP_ADD_VOICEMAIL -->
+        <item>@string/app_ops_labels_add_voicemail</item>
+        <!-- OP_USE_SIP -->
+        <item>@string/app_ops_labels_make_phone_call</item>
+        <!-- OP_PROCESS_OUTGOING_CALLS -->
+        <item>@string/app_ops_labels_make_phone_call</item>
+        <!-- OP_USE_FINGERPRINT -->
+        <item>@string/app_ops_labels_use_fingerprint</item>
+        <!-- OP_BODY_SENSORS -->
+        <item>@string/app_ops_labels_use_body_sensors</item>
+        <!-- OP_READ_CELL_BROADCASTS -->
+        <item>@string/app_ops_labels_read_cell_broadcasts</item>
+        <!-- OP_MOCK_LOCATION -->
+        <item>@string/app_ops_labels_mock_location</item>
+        <!-- OP_READ_EXTERNAL_STORAGE -->
+        <item>@string/app_ops_labels_read_external_storage</item>
+        <!-- OP_WRITE_EXTERNAL_STORAGE -->
+        <item>@string/app_ops_labels_write_external_storage</item>
+        <!-- OP_TURN_SCREEN_ON -->
+        <item>@string/app_ops_labels_turn_on_screen</item>
+        <!-- OP_GET_ACCOUNTS -->
+        <item>@string/app_ops_labels_get_accounts</item>
+        <!-- OP_RUN_IN_BACKGROUND -->
+        <item>@string/app_ops_labels_run_in_background</item>
+        <!-- OP_AUDIO_ACCESSIBILITY_VOLUME -->
+        <item>@string/app_ops_labels_audio_accessibility_volume</item>
+        <!-- OP_READ_PHONE_NUMBERS -->
+        <item>@string/app_ops_labels_read_phone_numbers</item>
+        <!-- OP_REQUEST_INSTALL_PACKAGES -->
+        <item>@string/app_ops_labels_install_packages</item>
+        <!-- OP_PICTURE_IN_PICTURE -->
+        <item>@string/app_ops_labels_picture_in_picture</item>
+        <!-- OP_INSTANT_APP_START_FOREGROUND -->
+        <item>@string/app_ops_labels_app_start_foreground</item>
+        <!-- OP_ANSWER_PHONE_CALLS -->
+        <item>@string/app_ops_labels_phone_calls</item>
+        <!-- OP_RUN_ANY_IN_BACKGROUND -->
+        <item>@string/app_ops_labels_run_any_in_background</item>
+        <!-- OP_CHANGE_WIFI_STATE -->
+        <item>@string/app_ops_labels_wifi_change</item>
+        <!-- OP_REQUEST_DELETE_PACKAGES -->
+        <item>@string/app_ops_labels_request_delete_packages</item>
+        <!-- OP_BIND_ACCESSIBILITY_SERVICE -->
+        <item>@string/app_ops_labels_bind_accessibility_service</item>
+        <!-- OP_ACCEPT_HANDOVER -->
+        <item>@string/app_ops_labels_accept_handover</item>
+        <!-- OP_MANAGE_IPSEC_TUNNELS -->
+        <item>@string/app_ops_labels_manage_ipsec_tunnels</item>
+        <!-- OP_START_FOREGROUND -->
+        <item>@string/app_ops_labels_start_foreground</item>
+        <!-- OP_BLUETOOTH_SCAN -->
+        <item>@string/app_ops_labels_bluetooth_scan</item>
+        <!-- OP_BLUETOOTH_CHANGE -->
+        <item>@string/app_ops_labels_toggle_bluetooth</item>
+        <!-- OP_BOOT_COMPLETED -->
+        <item>@string/app_ops_labels_start_at_bootup</item>
+        <!-- OP_NFC_CHANGE -->
+        <item>@string/app_ops_labels_toggle_nfc</item>
+        <!-- OP_DATA_CONNECT_CHANGE -->
+        <item>@string/app_ops_labels_toggle_mobile_data</item>
+        <!-- OP_SU -->
+        <item>@string/app_ops_labels_su</item>
+    </string-array>
+
+    <!-- App ops permissions -->
+    <string-array name="app_ops_permissions">
+        <item>@string/app_ops_permissions_allowed</item>
+        <item>@string/app_ops_permissions_ignored</item>
+        <item>@string/app_ops_permissions_always_ask</item>
+    </string-array>
 </resources>

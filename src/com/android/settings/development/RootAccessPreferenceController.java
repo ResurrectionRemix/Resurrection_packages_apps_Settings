@@ -108,6 +108,13 @@ public class RootAccessPreferenceController extends DeveloperOptionsPreferenceCo
         updatePreference();
     }
 
+    public static boolean isRootForAppsEnabled() {
+        int value = SystemProperties.getInt(ROOT_ACCESS_PROPERTY, 0);
+        boolean daemonState =
+                SystemProperties.get("init.svc.su_daemon", "absent").equals("running");
+        return daemonState && (value == 1 || value == 3);
+    }
+
     private void writeRootAccessOptions(Object newValue) {
         String oldValue = SystemProperties.get(ROOT_ACCESS_PROPERTY, "0");
         SystemProperties.set(ROOT_ACCESS_PROPERTY, newValue.toString());
