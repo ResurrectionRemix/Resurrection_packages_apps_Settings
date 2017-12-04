@@ -18,6 +18,7 @@ package com.android.settings;
 
 import android.os.Bundle;
 
+import com.android.settings.applications.appops.AppOpsSummary;
 import com.android.settings.enterprise.EnterprisePrivacySettings;
 
 /**
@@ -57,6 +58,15 @@ public class Settings extends SettingsActivity {
     public static class ManageApplicationsActivity extends SettingsActivity { /* empty */ }
     public static class ManageAssistActivity extends SettingsActivity { /* empty */ }
     public static class HighPowerApplicationsActivity extends SettingsActivity { /* empty */ }
+    public static class AppOpsSummaryActivity extends SettingsActivity {
+        @Override
+        public boolean isValidFragment(String className) {
+            if (AppOpsSummary.class.getName().equals(className)) {
+                return true;
+            }
+            return super.isValidFragment(className);
+        }
+    }
     public static class BackgroundCheckSummaryActivity extends SettingsActivity { /* empty */ }
     public static class StorageUseActivity extends SettingsActivity { /* empty */ }
     public static class DevelopmentSettingsDashboardActivity extends SettingsActivity { /* empty */ }

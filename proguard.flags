@@ -29,6 +29,8 @@
     *** get*();
 }
 
+-keep class com.android.settings.lineageos.*Settings
+
 # Keep classes that may be inflated from XML.
 -keepclasseswithmembers class * {
     public <init>(android.content.Context, android.util.AttributeSet);
