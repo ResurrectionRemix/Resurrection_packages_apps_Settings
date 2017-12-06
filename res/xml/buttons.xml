@@ -17,6 +17,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
 
+	<PreferenceCategory android:key="hardware_keys"
+		android:title="@string/hardware_keys_category">
+
+		<SwitchPreference android:key="hardware_keys_disable"
+			android:title="@string/hardware_keys_disable_title" />
+	</PreferenceCategory>
+
     <PreferenceCategory
         android:key="back_key"
         android:title="@string/hardware_keys_back_key_title" >
