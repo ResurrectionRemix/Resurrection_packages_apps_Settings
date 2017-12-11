@@ -31,20 +31,15 @@
         android:icon="@drawable/ic_battery_alert_24dp"
         android:title="@string/power_high_usage_title"/>
 
-    <PreferenceCategory
-        android:key="device_usage_list">
+    <com.android.settings.fuelgauge.PowerGaugePreference
+        android:key="last_full_charge"
+        android:title="@string/battery_last_full_charge"
+        android:selectable="false"/>
 
-        <com.android.settings.fuelgauge.PowerGaugePreference
-            android:key="last_full_charge"
-            android:title="@string/battery_last_full_charge"
-            android:selectable="false"/>
-
-        <com.android.settings.fuelgauge.PowerGaugePreference
-            android:key="screen_usage"
-            android:title="@string/device_screen_usage"
-            android:selectable="false"/>
-
-    </PreferenceCategory>
+    <com.android.settings.fuelgauge.PowerGaugePreference
+        android:key="screen_usage"
+        android:title="@string/device_screen_usage"
+        android:selectable="false"/>
 
     <PreferenceCategory
         android:key="power_management"
