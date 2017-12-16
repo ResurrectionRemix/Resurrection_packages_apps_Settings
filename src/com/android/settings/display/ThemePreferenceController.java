@@ -26,6 +26,7 @@ import android.support.annotation.VisibleForTesting;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.android.settings.R;
 import com.android.settings.core.PreferenceControllerMixin;
@@ -35,6 +36,7 @@ import com.android.settingslib.core.AbstractPreferenceController;
 
 import libcore.util.Objects;
 
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +46,7 @@ public class ThemePreferenceController extends AbstractPreferenceController impl
         PreferenceControllerMixin, Preference.OnPreferenceChangeListener {
 
     private static final String KEY_THEME = "theme";
+    private static final String KEY_THEMES_DISABLED = "default";
 
     private final MetricsFeatureProvider mMetricsFeatureProvider;
     private final OverlayManager mOverlayService;
@@ -78,30 +81,39 @@ public class ThemePreferenceController extends AbstractPreferenceController impl
     @Override
     public void updateState(Preference preference) {
         ListPreference pref = (ListPreference) preference;
-        String[] pkgs = getAvailableThemes();
-        CharSequence[] labels = new CharSequence[pkgs.length];
-        for (int i = 0; i < pkgs.length; i++) {
+        List<String> pkgs = new ArrayList<>(Arrays.asList(getAvailableThemes()));
+        List<CharSequence> labels = new ArrayList<>(pkgs.size());
+        for (String pkg : pkgs) {
+            CharSequence label = null;
             try {
-                labels[i] = mPackageManager.getApplicationInfo(pkgs[i], 0)
-                        .loadLabel(mPackageManager);
+                label = mPackageManager.getApplicationInfo(pkg, 0).loadLabel(mPackageManager);
             } catch (NameNotFoundException e) {
-                labels[i] = pkgs[i];
+                label = pkg;
             }
+            labels.add(label);
         }
-        pref.setEntries(labels);
-        pref.setEntryValues(pkgs);
+        labels.add(mContext.getString(R.string.default_theme));
+        pkgs.add(KEY_THEMES_DISABLED);
+
+        pref.setEntries(labels.toArray(new CharSequence[labels.size()]));
+        pref.setEntryValues(pkgs.toArray(new String[pkgs.size()]));
         String theme = getCurrentTheme();
         CharSequence themeLabel = null;
 
-        for (int i = 0; i < pkgs.length; i++) {
-            if (TextUtils.equals(pkgs[i], theme)) {
-                themeLabel = labels[i];
-                break;
+        if (theme != null) {
+            int i = 0;
+            for (String pkg : pkgs) {
+                if (TextUtils.equals(pkg, theme)) {
+                    themeLabel = labels.get(i);
+                    break;
+                }
+                i++;
             }
         }
 
         if (TextUtils.isEmpty(themeLabel)) {
             themeLabel = mContext.getString(R.string.default_theme);
+            theme = KEY_THEMES_DISABLED;
         }
 
         pref.setSummary(themeLabel);
@@ -115,7 +127,11 @@ public class ThemePreferenceController extends AbstractPreferenceController impl
             return true;
         }
         try {
-            mOverlayService.setEnabledExclusive((String) newValue, true, UserHandle.myUserId());
+            if (newValue.equals(KEY_THEMES_DISABLED)) {
+                disableTheme();
+            } else {
+                mOverlayService.setEnabledExclusive((String) newValue, true, UserHandle.myUserId());
+            }
         } catch (RemoteException e) {
             return false;
         }
@@ -146,11 +162,25 @@ public class ThemePreferenceController extends AbstractPreferenceController impl
         return null;
     }
 
+    private void disableTheme() {
+        try {
+            List<OverlayInfo> infos = mOverlayService.getOverlayInfosForTarget("android",
+                    UserHandle.myUserId());
+            for (int i = 0, size = infos.size(); i < size; i++) {
+                if (infos.get(i).isEnabled() &&
+                        isChangeableOverlay(infos.get(i).packageName)) {
+                    mOverlayService.setEnabled(infos.get(i).packageName, false, UserHandle.myUserId());
+                }
+            }
+        } catch (RemoteException e) {
+        }
+    }
+
     @Override
     public boolean isAvailable() {
         if (mOverlayService == null) return false;
         String[] themes = getAvailableThemes();
-        return themes != null && themes.length > 1;
+        return themes != null && themes.length >= 1;
     }
 
 
@@ -187,6 +217,11 @@ public class ThemePreferenceController extends AbstractPreferenceController impl
         public void setEnabledExclusive(String pkg, boolean enabled, int userId)
                 throws RemoteException {
             mService.setEnabledExclusive(pkg, enabled, userId);
+        }
+
+        public void setEnabled(String pkg, boolean enabled, int userId)
+                throws RemoteException {
+            mService.setEnabled(pkg, enabled, userId);
         }
 
         public List<OverlayInfo> getOverlayInfosForTarget(String target, int userId)
