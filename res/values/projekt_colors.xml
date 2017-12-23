@@ -28,4 +28,27 @@
 
     <!-- Settings switchbar background -->
     <color name="switchbar_background_color">?android:attr/colorSecondary</color>
+
+    <!-- Condition card -->
+    <color name="condition_card_icon_color">@*android:color/accent_device_default_light</color>
+    <color name="condition_card_header_icon_color">@*android:color/accent_device_default_light</color>
+    <color name="condition_card_title_text_color">@*android:color/text_color_primary</color>
+    <color name="condition_card_summary_text_color">@*android:color/text_color_primary</color> <!-- layout adds .7 alpha -->
+    <color name="condition_card_first_button_text_color">@*android:color/text_color_primary</color> <!-- layout adds .8 alpha -->
+    <color name="condition_card_second_button_text_color">@*android:color/text_color_primary</color> <!-- layout adds .8 alpha -->
+    <color name="condition_card_count_text_color">@*android:color/accent_device_default_light</color>
+
+    <!-- Suggestion card -->
+    <color name="suggestion_card_background_color">@android:color/white</color>
+    <color name="suggestion_card_icon_tint_color">@android:color/transparent</color> <!-- kept transparent to retain AOSP default, themer can direct it to any color -->
+    <color name="suggestion_card_title_text_color">@*android:color/text_color_primary</color>
+    <color name="suggestion_card_summary_text_color">@*android:color/text_color_secondary</color>
+    <color name="suggestion_card_collapsed_summary_text_color">@android:color/black</color>
+    <color name="suggestion_card_collapsed_title_text_color">@android:color/black</color>
+    <color name="suggestion_card_more_text_color">@android:color/black</color>
+
+    <!-- Suggestion and Condition card header -->
+    <color name="suggestion_condition_card_header_title_text_color">@*android:color/accent_device_default_light</color>
+    <color name="suggestion_condition_card_header_summary_text_color">@*android:color/accent_device_default_light</color>
+
 </resources>

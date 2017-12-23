@@ -35,7 +35,7 @@
             android:layout_marginTop="12dp"
             android:layout_marginStart="14dp"
             android:layout_marginEnd="24dp"
-            android:tint="?android:attr/colorAccent" />
+            android:tint="@color/condition_card_icon_color" />
 
         <TextView
             android:id="@android:id/title"
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="?android:attr/textColorPrimary" />
+            android:textColor="@color/condition_card_title_text_color" />
 
     </LinearLayout>
 
@@ -56,7 +56,7 @@
         android:paddingBottom="8dp"
         android:textAppearance="?android:attr/textAppearanceListItemSecondary"
         android:alpha=".7"
-        android:textColor="?android:attr/textColorPrimary" />
+        android:textColor="@color/condition_card_summary_text_color" />
 
     <android.support.v7.widget.ButtonBarLayout
         android:id="@+id/buttonBar"
@@ -75,7 +75,7 @@
             android:paddingStart="0dp"
             android:alpha=".8"
             android:textAlignment="viewStart"
-            android:textColor="?android:attr/textColorPrimary"
+            android:textColor="@color/condition_card_first_button_text_color"
             style="?android:attr/buttonBarButtonStyle" />
 
         <Button
@@ -85,7 +85,7 @@
             android:layout_weight="1"
             android:alpha=".8"
             android:textAlignment="viewStart"
-            android:textColor="?android:attr/textColorPrimary"
+            android:textColor="@color/condition_card_second_button_text_color"
             style="?android:attr/buttonBarButtonStyle" />
 
     </android.support.v7.widget.ButtonBarLayout>
