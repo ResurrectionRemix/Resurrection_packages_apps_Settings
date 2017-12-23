@@ -377,7 +377,8 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         }
 
         if (data.hiddenSuggestionCount > 0) {
-            holder.summary.setTextColor(Color.BLACK);
+            holder.summary.setTextColor(mContext.getColor(
+                    R.color.suggestion_card_collapsed_summary_text_color));
             if (curMode == DashboardData.HEADER_MODE_COLLAPSED) {
                 if (data.conditionCount > 0) {
                     holder.summary.setText(mContext.getResources().getQuantityString(
@@ -387,7 +388,8 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
                     holder.title.setText(mContext.getResources().getQuantityString(
                             R.plurals.suggestions_collapsed_title,
                             data.hiddenSuggestionCount, data.hiddenSuggestionCount));
-                    holder.title.setTextColor(Color.BLACK);
+                    holder.title.setTextColor(mContext.getColor(
+                            R.color.suggestion_card_collapsed_title_text_color));
                     holder.summary.setText(null);
                 }
             } else if (curMode == DashboardData.HEADER_MODE_DEFAULT) {
@@ -397,12 +399,14 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
                 } else {
                     holder.title.setText(mContext.getString(
                             R.string.suggestions_more_title, data.hiddenSuggestionCount));
-                    holder.title.setTextColor(Color.BLACK);
+                    holder.title.setTextColor(mContext.getColor(
+                            R.color.suggestion_card_more_text_color));
                     holder.summary.setText(null);
                 }
             }
         } else if (data.conditionCount > 1) {
-            holder.summary.setTextColor(Utils.getColorAccent(mContext));
+            holder.summary.setTextColor(mContext.getColor(
+                    R.color.condition_card_count_text_color));
             holder.summary.setText(
                     mContext.getString(R.string.condition_summary, data.conditionCount));
         } else {
