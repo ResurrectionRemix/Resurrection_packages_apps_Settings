@@ -21,6 +21,7 @@ import android.os.Build;
 import android.text.BidiFormatter;
 
 import com.android.settings.core.BasePreferenceController;
+import com.android.settings.deviceinfo.VersionUtils;
 
 public class SimpleBuildNumberPreferenceController extends BasePreferenceController {
 
@@ -36,6 +37,13 @@ public class SimpleBuildNumberPreferenceController extends BasePreferenceControl
 
     @Override
     public CharSequence getSummary() {
-        return BidiFormatter.getInstance().unicodeWrap(Build.DISPLAY);
+        StringBuilder sb = new StringBuilder();
+        sb.append(BidiFormatter.getInstance().unicodeWrap(Build.DISPLAY));
+        String resurrectionRemixVersion = VersionUtils.getResurrectionRemixVersion();
+        if (!resurrectionRemixVersion.equals("")){
+            sb.append("\n");
+            sb.append(resurrectionRemixVersion);
+        }
+        return sb.toString();
     }
 }
