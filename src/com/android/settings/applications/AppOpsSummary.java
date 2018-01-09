@@ -134,7 +134,7 @@ public class AppOpsSummary extends InstrumentedFragment {
         mRootView = rootView;
 
         CharSequence[] pageNames = getResources().getTextArray(R.array.app_ops_categories_cm);
-        AppOpsState.OpsTemplate[] templates = AppOpsState.ALL_TEMPLATES;
+        AppOpsState.OpsTemplate[] templates = AppOpsState.ALL_PERMS_TEMPLATES;
         assert(pageNames.length == templates.length);
 
         int specificTab = -1;

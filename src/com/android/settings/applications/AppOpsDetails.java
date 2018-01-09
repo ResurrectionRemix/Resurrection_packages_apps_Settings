@@ -1,6 +1,6 @@
 /**
  * Copyright (C) 2013 The Android Open Source Project
- * Copyright (C) 2017 The LineageOS Project
+ * Copyright (C) 2017-2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy
@@ -170,15 +170,8 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
         mPreferenceScreen.removeAll();
         setAppHeader(mPackageInfo);
 
-        boolean isPlatformSigned = isPlatformSigned();
-        for (AppOpsState.OpsTemplate tpl : AppOpsState.ALL_TEMPLATES) {
-            /* If we are platform signed, only show the root switch, this
-             * one is safe to toggle while other permission-based ones could
-             * certainly cause system-wide problems
-             */
-            if (isPlatformSigned && tpl != AppOpsState.SU_TEMPLATE) {
-                 continue;
-            }
+        AppOpsState.OpsTemplate[] allTemplates = getTemplates();
+        for (AppOpsState.OpsTemplate tpl : allTemplates) {
             List<AppOpsState.AppOpEntry> entries = mState.buildState(tpl,
                     mPackageInfo.applicationInfo.uid, mPackageInfo.packageName, true);
             for (final AppOpsState.AppOpEntry entry : entries) {
@@ -214,6 +207,31 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
         }
 
         return true;
+    }
+
+    private AppOpsState.OpsTemplate[] getTemplates() {
+        /* If we are platform signed, only show the root switch, this
+         * one is safe to toggle while other permission-based ones could
+         * certainly cause system-wide problems
+         */
+        if (isPlatformSigned()) {
+            return new AppOpsState.OpsTemplate[]{ AppOpsState.SU_TEMPLATE };
+        }
+
+        int length = AppOpsState.ALL_PERMS_TEMPLATES.length;
+        AppOpsState.OpsTemplate[] allTemplates = new AppOpsState.OpsTemplate[length];
+        // Loop all existing templates and set the visibility of each perm to true
+        for (int i = 0; i < length; i++) {
+            AppOpsState.OpsTemplate tpl = AppOpsState.ALL_PERMS_TEMPLATES[i];
+            for (int j = 0; j < tpl.ops.length; j++) {
+                // we only want to use the template's orderings, not the visibility
+                tpl.showPerms[j] = true;
+            }
+
+            allTemplates[i] = tpl;
+        }
+
+        return allTemplates;
     }
 
     private Drawable getIconByPermission(String perm) {
