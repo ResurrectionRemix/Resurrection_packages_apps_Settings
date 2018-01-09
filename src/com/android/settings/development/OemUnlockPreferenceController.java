@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.service.oemlock.OemLockManager;
@@ -72,7 +73,8 @@ public class OemUnlockPreferenceController extends DeveloperOptionsPreferenceCon
 
     @Override
     public boolean isAvailable() {
-        return mOemLockManager != null;
+        return mOemLockManager != null &&
+                SystemProperties.getBoolean("ro.oem_unlock_supported", false);
     }
 
     @Override
