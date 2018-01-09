@@ -461,7 +461,8 @@ public class DevelopmentSettings extends RestrictedSettingsFragment
         mKeepScreenOn = (RestrictedSwitchPreference) findAndInitSwitchPref(KEEP_SCREEN_ON);
         mBtHciSnoopLog = findAndInitSwitchPref(BT_HCI_SNOOP_LOG);
         mEnableOemUnlock = (RestrictedSwitchPreference) findAndInitSwitchPref(ENABLE_OEM_UNLOCK);
-        if (!showEnableOemUnlockPreference(getActivity())) {
+        if (!showEnableOemUnlockPreference(getActivity()) ||
+                !SystemProperties.getBoolean("ro.oem_unlock_supported", false)) {
             removePreference(mEnableOemUnlock);
             mEnableOemUnlock = null;
         }
