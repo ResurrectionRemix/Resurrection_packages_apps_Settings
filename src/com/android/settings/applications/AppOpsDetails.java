@@ -98,9 +98,12 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
     private static HashMap<Integer, Integer> OP_ICONS = new HashMap<>();
 
     static {
+        OP_ICONS.put(AppOpsManager.OP_AUDIO_ALARM_VOLUME, R.drawable.ic_perm_alarm);
+        OP_ICONS.put(AppOpsManager.OP_BLUETOOTH_CHANGE, R.drawable.ic_perm_bluetooth);
         OP_ICONS.put(AppOpsManager.OP_BOOT_COMPLETED, R.drawable.ic_perm_boot);
         OP_ICONS.put(AppOpsManager.OP_CHANGE_WIFI_STATE, R.drawable.ic_perm_wifi);
         OP_ICONS.put(AppOpsManager.OP_DATA_CONNECT_CHANGE, R.drawable.ic_perm_data);
+        OP_ICONS.put(AppOpsManager.OP_GET_USAGE_STATS, R.drawable.ic_perm_data);
         OP_ICONS.put(AppOpsManager.OP_GPS, R.drawable.ic_perm_location);
         OP_ICONS.put(AppOpsManager.OP_MUTE_MICROPHONE, R.drawable.ic_perm_microphone);
         OP_ICONS.put(AppOpsManager.OP_NFC_CHANGE, R.drawable.ic_perm_nfc);
@@ -110,6 +113,7 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
         OP_ICONS.put(AppOpsManager.OP_SU, R.drawable.ic_perm_su);
         OP_ICONS.put(AppOpsManager.OP_SYSTEM_ALERT_WINDOW, R.drawable.ic_perm_drawontop);
         OP_ICONS.put(AppOpsManager.OP_TAKE_AUDIO_FOCUS, R.drawable.ic_perm_audio);
+        OP_ICONS.put(AppOpsManager.OP_TOAST_WINDOW, R.drawable.ic_perm_notifications);
         OP_ICONS.put(AppOpsManager.OP_VIBRATE, R.drawable.ic_perm_vibrate);
         OP_ICONS.put(AppOpsManager.OP_WAKE_LOCK, R.drawable.ic_perm_nosleep);
         OP_ICONS.put(AppOpsManager.OP_WIFI_SCAN, R.drawable.ic_perm_wifi);
