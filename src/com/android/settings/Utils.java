@@ -791,7 +791,7 @@ public final class Utils extends com.android.settingslib.Utils {
     static boolean isOemUnlockEnabled(Context context) {
         PersistentDataBlockManager manager =(PersistentDataBlockManager)
                 context.getSystemService(Context.PERSISTENT_DATA_BLOCK_SERVICE);
-        return manager.getOemUnlockEnabled();
+        return manager != null && manager.getOemUnlockEnabled();
     }
 
     /**
