@@ -225,6 +225,7 @@ public class SoundSettings extends DashboardFragment {
         controllers.add(
                 new NotificationVolumePreferenceController(context, callback, lifecycle));
         controllers.add(new RingVolumePreferenceController(context, callback, lifecycle));
+        controllers.add(new LinkedVolumesPreferenceController(context));
         controllers.add(new IncreasingRingPreferenceController(context));
         controllers.add(new IncreasingRingVolumePreferenceController(
                     context, incCallback, lifecycle));
@@ -273,6 +274,8 @@ public class SoundSettings extends DashboardFragment {
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
                     if (!Utils.isVoiceCapable(context)) {
+                        keys.add((new LinkedVolumesPreferenceController(
+                                context)).getPreferenceKey());
                         keys.add((new IncreasingRingPreferenceController(
                                 context)).getPreferenceKey());
                     }
