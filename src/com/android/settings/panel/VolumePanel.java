@@ -20,6 +20,7 @@ import static com.android.settings.slices.CustomSliceRegistry.MEDIA_OUTPUT_INDIC
 import static com.android.settings.slices.CustomSliceRegistry.VOLUME_ALARM_URI;
 import static com.android.settings.slices.CustomSliceRegistry.VOLUME_CALL_URI;
 import static com.android.settings.slices.CustomSliceRegistry.VOLUME_MEDIA_URI;
+import static com.android.settings.slices.CustomSliceRegistry.VOLUME_NOTIFICATION_URI;
 import static com.android.settings.slices.CustomSliceRegistry.VOLUME_REMOTE_MEDIA_URI;
 import static com.android.settings.slices.CustomSliceRegistry.VOLUME_RINGER_URI;
 
@@ -30,7 +31,10 @@ import android.net.Uri;
 import android.provider.Settings;
 
 import com.android.settings.R;
+import com.android.settings.Utils;
 import com.android.settings.notification.RemoteVolumePreferenceController;
+
+import lineageos.providers.LineageSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +66,10 @@ public class VolumePanel implements PanelContent {
         uris.add(MEDIA_OUTPUT_INDICATOR_SLICE_URI);
         uris.add(VOLUME_CALL_URI);
         uris.add(VOLUME_RINGER_URI);
+        if (Utils.isVoiceCapable(mContext) && LineageSettings.Secure.getInt(
+                mContext.getContentResolver(), "volume_link_notification", 1) == 0) {
+            uris.add(VOLUME_NOTIFICATION_URI);
+        }
         uris.add(VOLUME_ALARM_URI);
         return uris;
     }
