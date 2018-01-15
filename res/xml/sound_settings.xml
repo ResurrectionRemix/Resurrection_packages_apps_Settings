@@ -63,21 +63,28 @@
         android:order="-160"
         settings:controller="com.android.settings.notification.RingVolumePreferenceController"/>
 
-    <!-- Alarm volume -->
-    <com.android.settings.notification.VolumeSeekBarPreference
-        android:key="alarm_volume"
-        android:icon="@*android:drawable/ic_audio_alarm"
-        android:title="@string/alarm_volume_option_title"
-        android:order="-150"
-        settings:controller="com.android.settings.notification.AlarmVolumePreferenceController"/>
-
     <!-- Notification volume -->
     <com.android.settings.notification.VolumeSeekBarPreference
         android:key="notification_volume"
         android:icon="@drawable/ic_notifications"
         android:title="@string/notification_volume_option_title"
-        android:order="-140"
+        android:order="-150"
         settings:controller="com.android.settings.notification.NotificationVolumePreferenceController"/>
+
+    <!-- Link ringtone and notification volumes -->
+    <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+        android:key="volume_link_notification"
+        android:title="@string/volume_link_notification_title"
+        android:defaultValue="true"
+        android:order="-140"/>
+
+    <!-- Alarm volume -->
+    <com.android.settings.notification.VolumeSeekBarPreference
+        android:key="alarm_volume"
+        android:icon="@*android:drawable/ic_audio_alarm"
+        android:title="@string/alarm_volume_option_title"
+        android:order="-133"
+        settings:controller="com.android.settings.notification.AlarmVolumePreferenceController"/>
 
     <!-- Increasing ring -->
     <lineageos.preference.LineageSystemSettingSwitchPreference
