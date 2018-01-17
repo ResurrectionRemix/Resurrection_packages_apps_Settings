@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2014-2015 RR
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<resources>
+     
+    <!-- Base attributes available to CustomSeekBarPreference. -->
+    <declare-styleable name="SeekBarPreference">
+       <attr name="interval" format="integer" />
+        <attr name="minimum" format="integer" />
+        <attr name="unitsLeft" format="string|reference" />
+        <attr name="unitsRight" format="string|reference" />
+        <attr name="defaultVal" format="integer" />
+        <attr name="maximum" format="integer" />
+        <attr name="units" format="string|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="IntervalSeekBar">
+        <attr name="minI" format="float" />
+        <attr name="maxI" format="float" />
+        <attr name="defaultValuePure" format="float" />
+        <attr name="digits" format="integer" />
+    </declare-styleable>
+
+     <!-- Color picker preference -->
+    <declare-styleable name="ColorPickerPreference">
+        <attr name="defaultColor" format="color" />
+        <attr name="resetColor1" format="color" />
+        <attr name="resetColor2" format="color" />
+        <attr name="resetColor1Title" format="string" />
+        <attr name="resetColor2Title" format="string" />
+        <attr name="alphaSliderVisible" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="IconPreferenceScreen">
+        <attr name="icon" />
+    </declare-styleable>
+
+    <!-- For Search -->
+    <declare-styleable name="Preference">
+        <attr name="keywords" format="string" />
+    </declare-styleable>
+
+    <!-- For DotsPageIndicator -->
+    <declare-styleable name="DotsPageIndicator">
+        <attr name="dotDiameter" format="dimension" />
+        <attr name="dotGap" format="dimension" />
+        <attr name="animationDuration" format="integer" />
+        <attr name="pageIndicatorColor" format="color" />
+        <attr name="currentPageIndicatorColor" format="color" />
+    </declare-styleable>
+
+    <attr name="switchBarTheme" format="reference" />
+    <attr name="switchBarMarginStart" format="dimension" />
+    <attr name="switchBarMarginEnd" format="dimension" />
+    <attr name="switchBarBackgroundColor" format="color" />
+
+    <attr name="preferenceBackgroundColor" format="color" />
+
+    <declare-styleable name="DividerPreference">
+        <attr name="allowDividerAbove" format="boolean" />
+        <attr name="allowDividerBelow" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="PagerSlidingTabStrip">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsDividerWidth" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsPaddingMiddle" format="boolean" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsTabTextSize" format="dimension" />
+        <attr name="pstsTabTextColor" format="reference" />
+        <attr name="pstsTabTextStyle" format="reference">
+            <flag name="normal" value="0x0" />
+            <flag name="bold" value="0x1" />
+            <flag name="italic" value="0x2" />
+        </attr>
+        <attr name="pstsTabTextAllCaps" format="boolean" />
+        <attr name="pstsTabTextAlpha" format="integer" />
+        <attr name="pstsTabTextFontFamily" format="string" />
+     </declare-styleable>
+
+     <declare-styleable name="DeveloperPreference">
+         <attr name="gplusHandle" format="string" />
+         <attr name="nameDev" format="string"/>
+         <attr name="donateLink" format="string" />
+         <attr name="emailDev" format="string" />
+     </declare-styleable>
+ 
+     <declare-styleable name="ImageListPreference">
+         <attr name="summaryImage" format="reference" />
+         <attr name="entryImages" format="reference" />
+     </declare-styleable>
+
+    <declare-styleable name="FloatingActionButton">
+        <attr name="fab_colorPressed" format="color"/>
+        <attr name="fab_colorDisabled" format="color"/>
+        <attr name="fab_colorNormal" format="color"/>
+        <attr name="fab_icon" format="reference"/>
+        <attr name="fab_size" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="mini" value="1"/>
+        </attr>
+        <attr name="fab_title" format="string"/>
+        <attr name="fab_stroke_visible" format="boolean"/>
+    </declare-styleable>
+    <declare-styleable name="AddFloatingActionButton">
+        <attr name="fab_plusIconColor" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="FloatingActionsMenu">
+        <attr name="fab_addButtonColorPressed" format="color"/>
+        <attr name="fab_addButtonColorNormal" format="color"/>
+        <attr name="fab_addButtonSize" format="enum">
+            <enum name="normal" value="0"/>
+            <enum name="mini" value="1"/>
+        </attr>
+        <attr name="fab_addButtonPlusIconColor" format="color"/>
+        <attr name="fab_addButtonStrokeVisible" format="boolean"/>
+        <attr name="fab_labelStyle" format="reference"/>
+        <attr name="fab_labelsPosition" format="enum">
+            <enum name="left" value="0"/>
+            <enum name="right" value="1"/>
+        </attr>
+        <attr name="fab_expandDirection" format="enum">
+            <enum name="up" value="0"/>
+            <enum name="down" value="1"/>
+            <enum name="left" value="2"/>
+            <enum name="right" value="3"/>
+        </attr>
+    </declare-styleable>
+
+    <!-- For DSLV -->
+    <declare-styleable name="DragSortListViewRecents">
+        <attr name="collapsedHeight" format="dimension" />
+        <attr name="dragScrollStart" format="float" />
+        <attr name="maxDragScrollSpeed" format="float" />
+        <attr name="floatBackgroundColor" format="color" />
+        <attr name="removeMode1">
+            <enum name="clickRemove" value="0" />
+            <enum name="flingRemove" value="1" />
+        </attr>
+        <attr name="trackDragSort" format="boolean"/>
+        <attr name="floatAlpha" format="float"/>
+        <attr name="slideShuffleSpeed" format="float"/>
+        <attr name="removeAnimationDuration" format="integer"/>
+        <attr name="dropAnimationDuration" format="integer"/>
+        <attr name="dragEnabled" format="boolean" />
+        <attr name="sortEnabled" format="boolean" />
+        <attr name="removeEnabled" format="boolean" />
+        <attr name="dragStartMode1">
+            <enum name="onDown" value="0" />
+            <enum name="onMove" value="1" />
+            <enum name="onLongPress" value="2"/>
+        </attr>
+        <attr name="dragHandleId" format="integer" />
+        <attr name="flingHandleId" format="integer" />
+        <attr name="clickRemoveId" format="integer" />
+        <attr name="useDefaultController" format="boolean" />
+    </declare-styleable>
+
+</resources>
