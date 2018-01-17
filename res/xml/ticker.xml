@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/ticker_screen_title">
+
+        <ListPreference
+            android:entries="@array/ticker_mode_entries"
+            android:entryValues="@array/ticker_mode_values"
+            android:key="status_bar_show_ticker"
+            android:summary="%s"
+            android:title="@string/ticker_title" />
+
+</PreferenceScreen>
