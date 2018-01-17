@@ -28,6 +28,12 @@
                 />
 
     <PreferenceScreen
+            android:id="@+id/qs_customizations"
+            android:title="@string/rr_qs_title"
+            android:fragment="com.android.settings.rr.QsPanel" 
+	    	android:icon="@drawable/rr_quick_settings_icon" />
+
+    <PreferenceScreen
             android:key="rr_ui"
             android:title="@string/rr_ui_title"
             android:fragment="com.android.settings.rr.UISettings" 
