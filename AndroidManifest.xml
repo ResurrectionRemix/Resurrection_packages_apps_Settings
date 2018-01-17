@@ -2373,6 +2373,21 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
+        <activity android:name="Settings$MainSettingsLayoutActivity"
+                android:label="@string/rr_title"
+                android:icon="@drawable/rr_main_conf_icon"
+                android:taskAffinity="">
+            <intent-filter android:priority="10">
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.homepage" />
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.MainSettingsLayout" />
+            <meta-data android:name="com.android.settings.summary"
+                android:resource="@string/rr_config_main_title" />
+        </activity>
+
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
                 android:label="@string/crypt_keeper_encrypt_title">

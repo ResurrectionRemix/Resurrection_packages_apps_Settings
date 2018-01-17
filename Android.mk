@@ -26,6 +26,7 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     android-support-v7-cardview \
     android-support-v7-preference \
     android-support-v7-recyclerview \
+    android-support-design \
     android-support-v14-preference
 
 LOCAL_JAVA_LIBRARIES := \
@@ -33,6 +34,8 @@ LOCAL_JAVA_LIBRARIES := \
     core-oj \
     telephony-common \
     ims-common
+
+LOCAL_JAVA_LIBRARIES += org.apache.http.legacy
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     jsr305 \

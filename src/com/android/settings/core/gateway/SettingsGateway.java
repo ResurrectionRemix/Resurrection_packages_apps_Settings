@@ -132,6 +132,8 @@ import com.android.settings.wifi.WifiInfo;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 
+import com.android.settings.rr.MainSettingsLayout;
+
 public class SettingsGateway {
 
     /**
@@ -252,7 +254,8 @@ public class SettingsGateway {
             WebViewAppPicker.class.getName(),
             LockscreenDashboardFragment.class.getName(),
             BluetoothDeviceDetailsFragment.class.getName(),
-            DataUsageList.class.getName()
+            DataUsageList.class.getName(),
+            MainSettingsLayout.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -291,5 +294,6 @@ public class SettingsGateway {
             Settings.DateTimeSettingsActivity.class.getName(),
             Settings.DeviceInfoSettingsActivity.class.getName(),
             Settings.EnterprisePrivacySettingsActivity.class.getName(),
+            Settings.MainSettingsLayoutActivity.class.getName(),
     };
 }
