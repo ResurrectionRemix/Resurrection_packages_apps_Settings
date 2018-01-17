@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2014 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fl_interceptor"
+    android:descendantFocusability="blocksDescendants"
+    android:background="@drawable/rr_fab_overlay_bg"
+    tools:context="in.city.bytes.view.MainActivity">
+
+<com.android.settings.rr.fab.FloatingActionsMenu
+    android:id="@+id/fab_menu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right|bottom"
+    fab:fab_addButtonColorNormal="@color/fab_rr_bg"
+    fab:fab_addButtonPlusIconColor="@color/fab_button_icon_color"
+    fab:fab_addButtonStrokeVisible="false"
+    fab:fab_labelStyle="@style/menu_labels_style"
+    fab:fab_labelsPosition="left">
+
+    <com.android.settings.rr.fab.FloatingActionButton
+        android:id="@+id/fab_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_colorNormal="@color/fab_rr_bg"
+        fab:fab_plusIconColor="@color/fab_button_icon_color"
+        fab:fab_icon="@drawable/rr_ota_icon_fab"
+        fab:fab_size="mini"
+        fab:fab_title="@string/fab_updates" />
+
+    <com.android.settings.rr.fab.FloatingActionButton
+        android:id="@+id/fab_restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_colorNormal="@color/fab_rr_bg"
+        fab:fab_plusIconColor="@color/fab_button_icon_color"
+        fab:fab_icon="@drawable/rr_restart_ui_icon"
+        fab:fab_size="mini"
+        fab:fab_title="@string/fab_restartui" />
+
+    <com.android.settings.rr.fab.FloatingActionButton
+        android:id="@+id/fab_reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_colorNormal="@color/fab_rr_bg"
+        fab:fab_plusIconColor="@color/fab_button_icon_color"
+        fab:fab_icon="@drawable/rr_reset_icon"
+        fab:fab_size="mini"
+        fab:fab_title="@string/fab_reset" />
+
+    <com.android.settings.rr.fab.FloatingActionButton
+        android:id="@+id/fab_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_colorNormal="@color/fab_rr_bg"
+        fab:fab_plusIconColor="@color/fab_button_icon_color"
+        fab:fab_icon="@drawable/rr_info_icon"
+        fab:fab_size="mini"
+        fab:fab_title="@string/fab_about" />
+
+    <com.android.settings.rr.fab.FloatingActionButton
+        android:id="@+id/fab_config"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_colorNormal="@color/fab_rr_bg"
+        fab:fab_plusIconColor="@color/fab_button_icon_color"
+        fab:fab_icon="@drawable/rr_tools_fab_toggle"
+        fab:fab_size="mini"
+        fab:fab_title="@string/fab_layout" />
+
+</com.android.settings.rr.fab.FloatingActionsMenu>
+
+</FrameLayout>
+

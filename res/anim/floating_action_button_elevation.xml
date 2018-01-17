@@ -1,0 +1,16 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <objectAnimator
+            android:propertyName="translationZ"
+            android:duration="@android:integer/config_shortAnimTime"
+            android:valueTo="@dimen/fab_elevation_pressed"
+            android:valueType="floatType"/>
+    </item>
+    <item>
+        <objectAnimator
+            android:propertyName="translationZ"
+            android:duration="@android:integer/config_shortAnimTime"
+            android:valueTo="0dp"
+            android:valueType="floatType"/>
+    </item>
+</selector>

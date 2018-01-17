@@ -1,0 +1,37 @@
+<!-- Copyright (C) 2016 RR
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+	<style name="menu_labels_style">
+   		<item name="android:background">@drawable/fab_label_background</item>
+   		<item name="android:textColor">@color/secondary_text</item>
+	</style>
+
+    <style name="floating_action_button">
+        <item name="android:layout_width">@dimen/fab_size</item>
+        <item name="android:layout_height">@dimen/fab_size</item>
+        <item name="android:layout_margin">@dimen/fab_margin</item>
+        <item name="android:background">@drawable/floating_action_button</item>
+        <item name="android:stateListAnimator">@anim/floating_action_button_elevation</item>
+        <item name="android:elevation">@dimen/fab_elevation_normal</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_gravity">bottom|right</item>
+    </style>
+
+    <style name="floating_action_button_image">
+        <item name="android:layout_width">@dimen/fab_icon_size</item>
+        <item name="android:layout_height">@dimen/fab_icon_size</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@android:color/transparent</item>
+	</style>
+
+</resources>
