@@ -14,7 +14,7 @@
  * limitations under the License
  */
 
-package com.android.settings.rr.preferences;
+package com.android.settings.rr.Preferences;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -20,5 +20,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_statusbar_title">
 
+   	<PreferenceScreen
+        android:key="network_traffic_settings"
+        android:title="@string/network_traffic_title"
+		android:icon="@drawable/rr_network_traffic_icon"
+        android:summary="@string/network_traffic_summary"
+        android:fragment="com.android.settings.rr.NetworkTrafficSettings" />
+
 
 </PreferenceScreen>
