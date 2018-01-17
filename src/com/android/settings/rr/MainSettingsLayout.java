@@ -233,7 +233,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                     Settings.System.RR_CONFIG_STYLE, 0);
         	if (which == 0) {
             frags[0] = new StatusBarSettings();
-            frags[1] = new About();
+            frags[1] = new UISettings();
+            frags[2] = new About();
         	} else {
             frags[0] = new MainSettings();
         	}
@@ -262,6 +263,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         if (which == 0) {
         titleString = new String[]{
                 getString(R.string.rr_statusbar_title),
+                getString(R.string.rr_ui_title),
                 getString(R.string.about_rr_settings)};
         } else {
                 titleString = new String[]{
