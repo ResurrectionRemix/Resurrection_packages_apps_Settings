@@ -34,11 +34,14 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     androidx.recyclerview_recyclerview \
     com.google.android.material_material \
     setupcompat \
-    setupdesign
+    setupdesign \
+    android-support-design
 
 LOCAL_JAVA_LIBRARIES := \
     telephony-common \
     ims-common
+
+LOCAL_JAVA_LIBRARIES += org.apache.http.legacy
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     androidx-constraintlayout_constraintlayout-solver \

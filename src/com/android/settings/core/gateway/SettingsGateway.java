@@ -148,6 +148,8 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.wifi.savedaccesspoints.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
+import com.android.settings.rr.MainSettingsLayout;
+
 public class SettingsGateway {
 
     /**
@@ -283,6 +285,7 @@ public class SettingsGateway {
             BatterySaverScheduleSettings.class.getName(),
             MobileNetworkListFragment.class.getName(),
             GlobalActionsPanelSettings.class.getName(),
+            MainSettingsLayout.class.getName(),
             DarkModeSettingsFragment.class.getName()
     };
 
@@ -322,5 +325,6 @@ public class SettingsGateway {
             Settings.MyDeviceInfoActivity.class.getName(),
             Settings.ModuleLicensesActivity.class.getName(),
             UserBackupSettingsActivity.class.getName(),
+            Settings.MainSettingsLayoutActivity.class.getName(),
     };
 }
