@@ -42,6 +42,14 @@
             android:summary="@string/rr_heads_up_summary"
             android:fragment="com.android.settings.rr.Headsup" />
 
+        <PreferenceScreen
+            android:key="rr_volume"
+            android:fragment="com.android.settings.rr.VolumePanelSettings"
+            android:title="@string/rr_volume_title"
+            android:summary="@string/rr_volume_summary"
+            android:icon="@drawable/rr_volume_icon"
+          />
+
         <!-- Sound -->
         <PreferenceScreen
             android:key="rr_sound"
