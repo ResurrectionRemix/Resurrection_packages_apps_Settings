@@ -36,12 +36,12 @@
         android:key="power_key"
         android:title="@string/hardware_keys_power_key_title" >
 
-        <!--
         <PreferenceScreen
             android:key="power_menu"
-            android:title="@string/power_menu_title"
-            android:fragment="org.lineageos.lineageparts.input.PowerMenuActions" />
-        -->
+            android:title="@string/powermenu_title"
+            android:icon="@drawable/rr_power_menu_icon"
+            android:summary="@string/rr_power_summary"                 
+            android:fragment="com.android.settings.rr.PowerMenuSettings" />
 
         <SwitchPreference
             android:key="power_end_call"
