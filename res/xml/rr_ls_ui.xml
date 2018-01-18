@@ -13,22 +13,12 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/rr_lockscreen_title" >
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
 
-       <PreferenceScreen
-        android:key="rr_ls_security"
-        android:icon="@drawable/rr_security_icon"
-        android:title="@string/rr_ls_security"
-        android:summary="@string/rr_ls_security_summary"
-        android:fragment="com.android.settings.rr.LockScreenSecurity" />
-
-        <PreferenceScreen
-         android:key="rr_ls_ui"
-         android:title="@string/rr_ls_ui"
-         android:fragment="com.android.settings.rr.LockScreenUI"
-         android:summary="@string/rr_ls_ui_summary"
-         android:icon="@drawable/rr_ls_ui_icon" />
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+         android:key="lockscreen_battery_info"
+         android:title="@string/lockscreen_battery_info_title"
+         android:summary="@string/lockscreen_battery_info_summary"
+         android:defaultValue="false" />
 
 </PreferenceScreen>
-
