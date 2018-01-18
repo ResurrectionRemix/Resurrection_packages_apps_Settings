@@ -46,6 +46,12 @@
             android:icon="@drawable/rr_ui_settings_icon"/>
 
      <PreferenceScreen
+            android:key="rr_lockscreen"
+            android:title="@string/rr_lockscreen_title"
+	   	    android:fragment="com.android.settings.rr.LockScreenSettings" 
+	   		android:icon="@drawable/rr_lock_icon"/>
+
+     <PreferenceScreen
             android:key="rr_nav_bar"
             android:fragment="com.android.settings.rr.fragments.NavigationBar"
             android:summary="@string/rr_navbar_summary"
