@@ -27,6 +27,12 @@
             android:max="6"
             settings:min="3" />
 
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_quickbar_scroll_enabled"
+            android:title="@string/qqs_scroll_title"
+            android:summary="@string/qqs_scroll_summary"
+            android:defaultValue="false"/>
+
         <lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="qs_show_brightness_slider"
             android:title="@string/status_bar_brightness_slider_title"
