@@ -20,6 +20,14 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_ui_title">
 
+    <ListPreference
+        android:key="systemui_theme_style"
+        android:title="@string/systemui_theme_style_title"
+        android:entries="@array/systemui_theme_style_entries"
+        android:entryValues="@array/systemui_theme_style_values"
+        android:icon="@drawable/rr_sysui_theme_icon"
+        android:persistent="false" />
+
         <PreferenceScreen
             android:key="rr_fp"
             android:title="@string/rr_fp_title"

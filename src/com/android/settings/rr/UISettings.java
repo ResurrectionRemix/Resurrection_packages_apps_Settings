@@ -40,23 +40,12 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-import com.android.settings.rr.SeekBarPreference;
-import com.android.settings.PreviewSeekBarPreferenceFragment;
-
 public class UISettings extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
     private static final String TAG = "UI";
-    private static final String KEY_FONT_SIZE = "font_size";
-    private static final String KEY_DOZE_FRAGMENT = "doze_fragment";
-    private static final String RR_INCALL = "rr_incall";
-    private static final String KEY_THEME = "theme";
+    private static final String SYSTEMUI_THEME_STYLE = "systemui_theme_style";
 
-    private Preference mFontSizePref;
-    private PreferenceScreen mDozeFragement;
-    private FingerprintManager mFingerprintManager;
-    private PreferenceScreen mFingerprint;
-    private PreferenceScreen mIncall;
-    private ThemePreference mThemePreference;
+    private ListPreference mSystemUIThemeStyle;
 
     @Override
     protected int getMetricsCategory() {
@@ -70,40 +59,13 @@ public class UISettings extends SettingsPreferenceFragment implements
 		ContentResolver resolver = getActivity().getContentResolver();
 
         addPreferencesFromResource(R.xml.rr_ui_settings);
- 		mFontSizePref = findPreference(KEY_FONT_SIZE);
 
-        mDozeFragement = (PreferenceScreen) findPreference(KEY_DOZE_FRAGMENT);
-        if (!isDozeAvailable(activity)) {
-            getPreferenceScreen().removePreference(mDozeFragement);
-            mDozeFragement = null;
-        }
-
-        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);        
-        mFingerprint = (PreferenceScreen) findPreference("rr_fp");
-        if (!mFingerprintManager.isHardwareDetected()){
-             getPreferenceScreen().removePreference(mFingerprint);
-        }
-
-        PreferenceScreen mIncall = (PreferenceScreen) findPreference(RR_INCALL);
-        if (!isVoiceCapable(getActivity())) {
-            getPreferenceScreen().removePreference(mIncall);
-        }
-
-        mThemePreference = (ThemePreference) findPreference(KEY_THEME);
-        if (mThemePreference != null) {
-            final int accentColorValue = Settings.Secure.getInt(getContext().getContentResolver(),
-                    Settings.Secure.THEME_ACCENT_COLOR, 0);
-            final int primaryColorValue = Settings.Secure.getInt(getContext().getContentResolver(),
-                    Settings.Secure.THEME_PRIMARY_COLOR, 0);
-            mThemePreference.setSummary(PreviewSeekBarPreferenceFragment.getInfoText(getContext(),
-                    false, accentColorValue, primaryColorValue) + ", " +
-                    PreviewSeekBarPreferenceFragment.getInfoText(getContext(), true,
-                    accentColorValue, primaryColorValue));
-            if (ThemeManager.isOverlayEnabled()) {
-                mThemePreference.setEnabled(false);
-                mThemePreference.setSummary(R.string.oms_enabled);
-            }
-        }
+        mSystemUIThemeStyle = (ListPreference) findPreference(SYSTEMUI_THEME_STYLE);
+        int systemUIThemeStyle = Settings.System.getInt(resolver,
+                Settings.System.SYSTEM_UI_THEME, 0);
+        mSystemUIThemeStyle.setValue(String.valueOf(systemUIThemeStyle));
+        mSystemUIThemeStyle.setSummary(mSystemUIThemeStyle.getEntry());
+        mSystemUIThemeStyle.setOnPreferenceChangeListener(this);
     }
 
     private void updateFontSizeSummary() {
@@ -135,24 +97,16 @@ public class UISettings extends SettingsPreferenceFragment implements
 	}
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        final String key = preference.getKey();
-        if (mThemePreference != null) {
-            final int accentColorValue = Settings.Secure.getInt(getContext().getContentResolver(),
-                    Settings.Secure.THEME_ACCENT_COLOR, 0);
-            final int primaryColorValue = Settings.Secure.getInt(getContext().getContentResolver(),
-                    Settings.Secure.THEME_PRIMARY_COLOR, 0);
-            mThemePreference.setSummary(PreviewSeekBarPreferenceFragment.getInfoText(getContext(),
-                    false, accentColorValue, primaryColorValue) + ", " +
-                    PreviewSeekBarPreferenceFragment.getInfoText(getContext(), true,
-                    accentColorValue, primaryColorValue));
-            if (ThemeManager.isOverlayEnabled()) {
-                mThemePreference.setEnabled(false);
-                mThemePreference.setSummary(R.string.oms_enabled);
-            }
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mSystemUIThemeStyle) {
+            String value = (String) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.SYSTEM_UI_THEME, Integer.valueOf(value));
+            int valueIndex = mSystemUIThemeStyle.findIndexOfValue(value);
+            mSystemUIThemeStyle.setSummary(mSystemUIThemeStyle.getEntries()[valueIndex]);
+            return true;
         }
-
-        return true;
+        return false;
     }
 
     public void updateThemesPref() {
