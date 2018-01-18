@@ -14,8 +14,7 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
-
+<PreferenceScreen xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_buttons_title">
@@ -30,6 +29,97 @@
             android:summary="@string/rr_hw_keys_summary"
             android:icon="@drawable/rr_hw_keys_icon"
             android:title="@string/hardware_keys_category"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="power_key"
+        android:title="@string/hardware_keys_power_key_title" >
+
+        <!--
+        <PreferenceScreen
+            android:key="power_menu"
+            android:title="@string/power_menu_title"
+            android:fragment="org.lineageos.lineageparts.input.PowerMenuActions" />
+        -->
+
+        <SwitchPreference
+            android:key="power_end_call"
+            android:title="@string/power_end_call_title"
+            android:summary="@string/power_end_call_summary"
+            android:persistent="false"/>
+
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="torch_long_press_power_gesture"
+            android:title="@string/torch_long_press_power_gesture_title"
+            android:summary="@string/torch_long_press_power_gesture_desc"
+            android:defaultValue="false"
+            lineage:requiresConfig="@*android:bool/config_supportLongPressPowerWhenNonInteractive" />
+
+        <ListPreference
+            android:key="torch_long_press_power_timeout"
+            android:dialogTitle="@string/torch_long_press_power_timeout_title"
+            android:title="@string/torch_long_press_power_timeout_title"
+            android:entries="@array/torch_long_press_power_timeout_entries"
+            android:entryValues="@array/torch_long_press_power_timeout_values"
+            android:dependency="torch_long_press_power_gesture"
+            android:persistent="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="volume_keys"
+        android:title="@string/hardware_keys_volume_keys_title" >
+
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="volume_wake_screen"
+            android:title="@string/button_wake_title"
+            android:defaultValue="false" />
+
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="volume_answer_call"
+            android:title="@string/volume_answer_call_title"
+            android:summary="@string/volume_answer_call_summary"
+            android:defaultValue="false" />
+
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="volbtn_music_controls"
+            android:title="@string/volbtn_music_controls_title"
+            android:summary="@string/volbtn_music_controls_summary"
+            android:defaultValue="true" />
+
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="volume_keys_control_ring_stream"
+            android:title="@string/volume_keys_control_ring_stream_title"
+            android:summaryOn="@string/volume_keys_control_ring_stream_summary_on"
+            android:summaryOff="@string/volume_keys_control_ring_stream_summary_off"
+            android:defaultValue="true" />
+
+        <ListPreference
+            android:key="volume_key_cursor_control"
+            android:dialogTitle="@string/volbtn_cursor_control_title"
+            android:title="@string/volbtn_cursor_control_title"
+            android:entries="@array/volbtn_cursor_control_entries"
+            android:entryValues="@array/volbtn_cursor_control_values"
+            android:persistent="false" />
+
+        <SwitchPreference
+            android:key="swap_volume_buttons"
+            android:title="@string/swap_volume_buttons_title"
+            android:summary="@string/swap_volume_buttons_summary" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="extras_category"
+        android:title="@string/extras_title" >
+
+        <lineageos.preference.RemotePreference
+            android:key="additional_buttons"
+            android:title="@string/additional_buttons_title"
+            lineage:requiresAction="org.lineageos.settings.device.ADDITIONAL_BUTTONS_SETTINGS">
+            <intent
+                android:action="org.lineageos.settings.device.ADDITIONAL_BUTTONS_SETTINGS" />
+        </lineageos.preference.RemotePreference>
 
     </PreferenceCategory>
 

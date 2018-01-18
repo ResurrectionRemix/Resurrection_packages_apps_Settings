@@ -48,18 +48,14 @@ public class QsLayout extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_qs_layout);
 
-		mContext = getActivity().getApplicationContext();
-
-        mContentRes = getActivity().getContentResolver();
 		final Resources res = getResources();
 		int defaultValue;
-
 		PreferenceScreen prefs = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
 
         mQsColumns = (CustomSeekBarPreference) findPreference(PREF_COLUMNS);
-        int columnsQs = Settings.System.getInt(resolver,
-                Settings.System.QS_LAYOUT_COLUMNS, 3);
+        int columnsQs = Settings.Secure.getInt(resolver,
+                Settings.Secure.QS_LAYOUT_COLUMNS, 3);
         mQsColumns.setValue(columnsQs / 1);
         mQsColumns.setOnPreferenceChangeListener(this);
     }
@@ -72,8 +68,8 @@ public class QsLayout extends SettingsPreferenceFragment implements
 		final Resources res = getResources();
         if (preference == mQsColumns) {
             int qsColumns = (Integer) objValue;
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.QS_LAYOUT_COLUMNS, qsColumns * 1);
+            Settings.Secure.putInt(getActivity().getContentResolver(),
+                    Settings.Secure.QS_LAYOUT_COLUMNS, qsColumns * 1);
             return true;
         }
         return false;

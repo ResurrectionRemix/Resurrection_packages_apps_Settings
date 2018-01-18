@@ -29,7 +29,7 @@ import com.android.internal.utils.du.Config.ActionConfig;
 import com.android.internal.utils.du.Config.ButtonConfig;
 
 import com.android.settings.rr.ShortcutPickHelper;
-import com.android.settings.rr.preferences.ActionPreference;
+import com.android.settings.rr.Preferences.ActionPreference;
 import com.android.settings.rr.CustomActionListAdapter;
 
 import android.app.AlertDialog;

@@ -34,6 +34,12 @@
 	    	android:icon="@drawable/rr_quick_settings_icon" />
 
     <PreferenceScreen
+            android:id="@+id/rr_recents"
+            android:title="@string/rr_recents_title"
+            android:fragment="com.android.settings.rr.RecentsSettings" 
+            android:icon="@drawable/rr_recents_icon" />
+
+    <PreferenceScreen
             android:key="rr_ui"
             android:title="@string/rr_ui_title"
             android:fragment="com.android.settings.rr.UISettings" 

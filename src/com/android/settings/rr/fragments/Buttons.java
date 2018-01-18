@@ -37,7 +37,9 @@ import com.android.settings.Utils;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.utils.du.ActionConstants;
 import com.android.internal.utils.du.DUActionUtils;
-import com.dirtyunicorns.tweaks.preferences.CustomSeekBarPreference;
+import com.android.settings.rr.Preferences.CustomSeekBarPreference;
+import com.android.settings.rr.utils.TelephonyUtils;
+import lineageos.providers.LineageSettings;
 
 public class Buttons extends ActionFragment implements Preference.OnPreferenceChangeListener {
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
@@ -51,6 +53,7 @@ public class Buttons extends ActionFragment implements Preference.OnPreferenceCh
     private static final String CATEGORY_APPSWITCH = "app_switch_key";
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String CATEGORY_POWER = "power_key";
+    private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
     private static final String KEY_BUTTON_MANUAL_BRIGHTNESS_NEW = "button_manual_brightness_new";
     private static final String KEY_BUTTON_TIMEOUT = "button_timeout";
     private static final String KEY_BUTON_BACKLIGHT_OPTIONS = "button_backlight_options_category";
@@ -70,6 +73,7 @@ public class Buttons extends ActionFragment implements Preference.OnPreferenceCh
     private CustomSeekBarPreference mButtonTimoutBar;
     private CustomSeekBarPreference mManualButtonBrightness;
     private PreferenceCategory mButtonBackLightCategory;
+    private SwitchPreference mHomeAnswerCall;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -100,6 +104,8 @@ public class Buttons extends ActionFragment implements Preference.OnPreferenceCh
                 com.android.internal.R.bool.config_button_brightness_support);
 
         mButtonBackLightCategory = (PreferenceCategory) findPreference(KEY_BUTON_BACKLIGHT_OPTIONS);
+        // Home button answers calls.
+        mHomeAnswerCall = (SwitchPreference) findPreference(KEY_HOME_ANSWER_CALL);
 
         if (!enableBacklightOptions) {
             prefScreen.removePreference(mButtonBackLightCategory);
@@ -143,6 +149,11 @@ public class Buttons extends ActionFragment implements Preference.OnPreferenceCh
                 .findPreference(CATEGORY_ASSIST);
         final PreferenceCategory appSwitchCategory = (PreferenceCategory) prefScreen
                 .findPreference(CATEGORY_APPSWITCH);
+
+        if (!TelephonyUtils.isVoiceCapable(getActivity())) {
+            homeCategory.removePreference(mHomeAnswerCall);
+            mHomeAnswerCall = null;
+        }
 
         // back key
         if (!hasBackKey) {
@@ -203,7 +214,25 @@ public class Buttons extends ActionFragment implements Preference.OnPreferenceCh
     }
 
     @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mHomeAnswerCall) {
+            handleToggleHomeButtonAnswersCallPreferenceClick();
+            return true;
+        }
+
+        return super.onPreferenceTreeClick(preference);
+    }
+
+    @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.RESURRECTED;
     }
+
+    private void handleToggleHomeButtonAnswersCallPreferenceClick() {
+        LineageSettings.Secure.putInt(getContentResolver(),
+                LineageSettings.Secure.RING_HOME_BUTTON_BEHAVIOR, (mHomeAnswerCall.isChecked()
+                        ? LineageSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER
+                        : LineageSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING));
+    }
+
 }

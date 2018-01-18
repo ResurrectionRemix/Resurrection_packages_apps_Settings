@@ -237,10 +237,11 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         	if (which == 0) {
             frags[0] = new StatusBarSettings();
             frags[1] = new QsPanel();
-            frags[2] = new UISettings();
-            frags[3] = new ButtonSettings();
-            frags[4] = new NavigationBar();
-            frags[5] = new About();
+            frags[2] = new RecentsSettings();
+            frags[3] = new UISettings();
+            frags[4] = new ButtonSettings();
+            frags[5] = new NavigationBar();
+            frags[6] = new About();
         	} else {
             frags[0] = new MainSettings();
         	}
@@ -270,6 +271,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         titleString = new String[]{
                 getString(R.string.rr_statusbar_title),
                 getString(R.string.rr_qs_title),
+                getString(R.string.rr_recents_title),
                 getString(R.string.rr_ui_title),
                 getString(R.string.rr_buttons_title),
                 getString(R.string.rr_navigation_title),

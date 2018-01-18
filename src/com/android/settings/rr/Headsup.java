@@ -47,8 +47,8 @@ import java.util.Map;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
-public class Headsup extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+public class Headsup extends SettingsPreferenceFragment implements 
+    Preference.OnPreferenceClickListener {
 
  
     private static final int DIALOG_BLACKLIST_APPS = 0;
@@ -65,9 +65,9 @@ public class Headsup extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.headsup);
+        addPreferencesFromResource(R.xml.rr_heads_up);
 
-        getActivity().getActionBar().setTitle(R.string.headsup_title);
+        getActivity().getActionBar().setTitle(R.string.heads_up_title);
 
         mPackageManager = getPackageManager();
         mPackageAdapter = new PackageListAdapter(getActivity());

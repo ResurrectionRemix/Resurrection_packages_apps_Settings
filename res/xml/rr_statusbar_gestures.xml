@@ -18,22 +18,21 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/rr_qs_title">
+    android:title="@string/rr_sb_gestures_title">
 
-        <PreferenceScreen
-            android:key="rr_qs_pulldown"
-            android:fragment="com.android.settings.rr.QsPullDown"
-            android:title="@string/rr_qs_pulldown"
-            android:summary="@string/rr_qs_pulldown_summary"
-			android:icon="@drawable/rr_qs_pulldown_icon"
-            />
+    <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="status_bar_brightness_control"
+            android:title="@string/status_bar_toggle_brightness"
+            android:summary="@string/status_bar_toggle_brightness_summary"
+            android:defaultValue="false" />
 
-        <PreferenceScreen
-            android:key="rr_qs_layout"
-            android:fragment="com.android.settings.rr.QsLayout"
-            android:title="@string/qs_tile_layout"
-            android:summary="@string/qs_tile_layout_summary"
-			android:icon="@drawable/rr_qs_layout_icon"
-            />
+    <!-- Double tap to sleep -->
+    <lineageos.preference.LineageSystemSettingSwitchPreference
+        android:key="double_tap_sleep_gesture"
+        android:title="@string/status_bar_double_tap_to_sleep_title"
+        android:summary="@string/status_bar_double_tap_to_sleep_summary"
+        android:defaultValue="true" />
+
+
 
 </PreferenceScreen>

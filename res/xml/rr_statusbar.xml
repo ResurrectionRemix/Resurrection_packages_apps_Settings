@@ -34,6 +34,21 @@
         android:summary="@string/ticker_screen_summary"
         android:icon="@drawable/rr_ticker_icon" />
 
+   	<PreferenceScreen
+        android:key="rr_sb_gestures"
+        android:title="@string/rr_sb_gestures_title"
+		android:icon="@drawable/rr_statusbar_gestures_icon"
+        android:summary="@string/rr_sb_gestures_summary"
+        android:fragment="com.android.settings.rr.StatusBarGestures" />
+
+        <PreferenceScreen
+            android:key="status_bar_icons"
+            android:title="@string/status_bar_system_icons_title"
+            android:icon="@drawable/rr_tuner_icon"
+            android:summary="@string/status_bar_system_icons_summary">
+            <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
+        </PreferenceScreen>
+
 
 
 </PreferenceScreen>

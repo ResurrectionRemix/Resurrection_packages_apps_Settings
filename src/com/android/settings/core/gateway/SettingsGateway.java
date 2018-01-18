@@ -259,7 +259,7 @@ public class SettingsGateway {
             LockscreenDashboardFragment.class.getName(),
             BluetoothDeviceDetailsFragment.class.getName(),
             DataUsageList.class.getName(),
-            MainSettingsLayout.class.getName()
+            MainSettingsLayout.class.getName(),
             NavigationBar.class.getName(),
             FlingSettings.class.getName(),
             SmartbarSettings.class.getName(),

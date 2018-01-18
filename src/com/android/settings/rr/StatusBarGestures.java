@@ -13,13 +13,7 @@
 */
 package com.android.settings.rr;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.ContentResolver;
-import android.content.res.Resources;
-import android.provider.Settings;
 import android.os.Bundle;
-import android.os.UserHandle;
 import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
@@ -30,10 +24,11 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
 
-public class FingerPrintSettings extends SettingsPreferenceFragment implements
+public class StatusBarGestures extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String TAG = "FingerPrintSettings";
+    private static final String TAG = "StatusBarGestures";
 
     @Override
     public int getMetricsCategory() {
@@ -44,12 +39,10 @@ public class FingerPrintSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.rr_fp_settings);
-
+        addPreferencesFromResource(R.xml.rr_statusbar_gestures);
     }
 
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-		ContentResolver resolver = getActivity().getContentResolver();
-        return false;
+    public boolean onPreferenceChange(Preference preference, Object objValue) 		{
+        return true;
     }
 }

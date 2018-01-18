@@ -44,7 +44,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment implement
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.traffic_indicators);
+        addPreferencesFromResource(R.xml.network_traffic_settings);
 
         final ContentResolver resolver = getActivity().getContentResolver();
 
@@ -61,7 +61,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment implement
         mThreshold.setOnPreferenceChangeListener(this);
         mThreshold.setEnabled(isNetMonitorEnabled);
 
-        getActivity().getActionBar().setTitle(R.string.traffic_title);
+        getActivity().getActionBar().setTitle(R.string.network_traffic_title);
     }
 
     @Override

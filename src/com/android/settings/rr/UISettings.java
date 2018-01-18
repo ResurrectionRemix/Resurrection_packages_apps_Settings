@@ -14,7 +14,6 @@
 package com.android.settings.rr;
 
 import android.app.Activity;
-import android.app.ThemeManager;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -34,8 +33,7 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
 
-import com.android.internal.logging.MetricsProto.MetricsEvent;
-import com.android.settings.display.ThemePreference;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -48,7 +46,7 @@ public class UISettings extends SettingsPreferenceFragment implements
     private ListPreference mSystemUIThemeStyle;
 
     @Override
-    protected int getMetricsCategory() {
+    public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
     }
 
@@ -68,36 +66,9 @@ public class UISettings extends SettingsPreferenceFragment implements
         mSystemUIThemeStyle.setOnPreferenceChangeListener(this);
     }
 
-    private void updateFontSizeSummary() {
-        final Context context = mFontSizePref.getContext();
-        final float currentScale = Settings.System.getFloat(context.getContentResolver(),
-                Settings.System.FONT_SCALE, 1.0f);
-        final Resources res = context.getResources();
-        final String[] entries = res.getStringArray(R.array.entries_font_size_percent);
-        final String[] strEntryValues = res.getStringArray(R.array.entryvalues_font_size);
-        final int index = ToggleFontSizePreferenceFragment.fontSizeValueToIndex(currentScale,
-                strEntryValues);
-        mFontSizePref.setSummary(entries[index]);
-    }
-
-    private static boolean isDozeAvailable(Context context) {
-        String name = Build.IS_DEBUGGABLE ? SystemProperties.get("debug.doze.component") : null;
-        if (TextUtils.isEmpty(name)) {
-            name = context.getResources().getString(
-                    com.android.internal.R.string.config_dozeComponent);
-        }
-        return !TextUtils.isEmpty(name);
-     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        updateFontSizeSummary();
-        updateThemesPref();
-	}
-
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+		ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mSystemUIThemeStyle) {
             String value = (String) newValue;
             Settings.System.putInt(resolver,
@@ -107,31 +78,5 @@ public class UISettings extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
-    }
-
-    public void updateThemesPref() {
-        if (mThemePreference != null) {
-            final int accentColorValue = Settings.Secure.getInt(getContext().getContentResolver(),
-                    Settings.Secure.THEME_ACCENT_COLOR, 0);
-            final int primaryColorValue = Settings.Secure.getInt(getContext().getContentResolver(),
-                    Settings.Secure.THEME_PRIMARY_COLOR, 0);
-            mThemePreference.setSummary(PreviewSeekBarPreferenceFragment.getInfoText(getContext(),
-                    false, accentColorValue, primaryColorValue) + ", " +
-                    PreviewSeekBarPreferenceFragment.getInfoText(getContext(), true,
-                    accentColorValue, primaryColorValue));
-            if (ThemeManager.isOverlayEnabled()) {
-                mThemePreference.setEnabled(false);
-                mThemePreference.setSummary(R.string.oms_enabled);
-            }
-       }
-    }
-
-    /**
-     * Returns whether the device is voice-capable (meaning, it is also a phone).
-     */
-    public static boolean isVoiceCapable(Context context) {
-        TelephonyManager telephony =
-                (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        return telephony != null && telephony.isVoiceCapable();
     }
 }

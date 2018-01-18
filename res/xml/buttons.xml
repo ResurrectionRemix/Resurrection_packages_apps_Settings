@@ -93,6 +93,12 @@
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >
 
+        <SwitchPreference
+            android:key="home_answer_call"
+            android:title="@string/home_answer_call_title"
+            android:summary="@string/home_answer_call_summary"
+            android:persistent="false"/>
+
         <com.android.settings.rr.Preferences.ActionPreference
             android:key="hwkeys_button_home_single_tap"
             android:summary="@string/hardware_keys_single_tap_summary"
