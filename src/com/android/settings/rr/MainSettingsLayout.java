@@ -65,7 +65,9 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.rr.fab.FloatingActionsMenu;
 import com.android.settings.rr.fab.FloatingActionButton;
-import com.android.settings.fragments.NavigationBar;
+import com.android.settings.rr.fragments.Buttons;
+import com.android.settings.rr.fragments.NavigationBar;
+
 
 import java.util.Random;
 
@@ -236,8 +238,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             frags[0] = new StatusBarSettings();
             frags[1] = new QsPanel();
             frags[2] = new UISettings();
-            frags[3] = new NavigationBar();
-            frags[4] = new About();
+            frags[3] = new ButtonSettings();
+            frags[4] = new NavigationBar();
+            frags[5] = new About();
         	} else {
             frags[0] = new MainSettings();
         	}
@@ -268,6 +271,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 getString(R.string.rr_statusbar_title),
                 getString(R.string.rr_qs_title),
                 getString(R.string.rr_ui_title),
+                getString(R.string.rr_buttons_title),
                 getString(R.string.rr_navigation_title),
                 getString(R.string.about_rr_settings)};
         } else {
