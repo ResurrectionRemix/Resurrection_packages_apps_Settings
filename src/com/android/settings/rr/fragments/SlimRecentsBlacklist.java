@@ -46,7 +46,7 @@ import java.util.List;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.rr.utils.PackageListAdapter;
-import com.android.settings.rr.PackageListAdapter.PackageItem;
+import com.android.settings.rr.utils.PackageListAdapter.PackageItem;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 
@@ -74,7 +74,7 @@ public class SlimRecentsBlacklist extends SettingsPreferenceFragment implements
         initializeAllPreferences();
     }
 
-    private void showDialog(int dialogId) {
+    protected void showDialog(int dialogId) {
         switch (dialogId) {
             case DIALOG_BLACKLIST_APPS: {
                 Dialog dialog;
@@ -277,6 +277,6 @@ public class SlimRecentsBlacklist extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.RESURRECTED;
+        return MetricsEvent.RESURRECTED;
     }
 }

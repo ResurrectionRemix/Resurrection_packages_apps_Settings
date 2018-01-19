@@ -51,17 +51,6 @@ public abstract class Util {
     public static final String PROPERTY_DEVICE = "ro.rr.device";
     public static final String PROPERTY_DEVICE_EXT = "ro.product.device";
 
-    public static boolean onPreferenceTreeClick(PreferenceFragment fragment,
-                                                Preference preference) {
-        Activity activity = fragment.getActivity();
-        if (activity instanceof SettingsActivity) {
-            return ((SettingsActivity) activity).onPreferenceClick(preference);
-        } else {
-            Log.w(TAG, "Activity not instanceof SettingsActivity, ignoring preference click");
-            return false;
-        }
-    }
-
 
     public static void setSummaryToValue(ListPreference pref) {
         pref.setSummary(pref.getEntry());
@@ -150,8 +139,8 @@ public abstract class Util {
 
     public static void showSystemUiRestartDialog(Context context) {
         new AlertDialog.Builder(context)
-                .setTitle(R.string.systemui_restart_title)
-                .setMessage(R.string.systemui_restart_message)
+                .setTitle(R.string.restart_systemui)
+                .setMessage(R.string.restart_systemui)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         restartSystemUi(context);

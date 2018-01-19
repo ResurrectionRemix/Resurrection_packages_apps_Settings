@@ -14,6 +14,12 @@
 package com.android.settings.rr;
 
 import android.os.Bundle;
+import android.app.Activity;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.provider.Settings;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
@@ -123,7 +129,8 @@ public class NotificationPanel extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) { 
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mDaylightHeaderPack) {
             String value = (String) newValue;
             Settings.System.putString(resolver,
@@ -201,5 +208,4 @@ public class NotificationPanel extends SettingsPreferenceFragment implements
     public boolean onPreferenceTreeClick(Preference preference) {
         return super.onPreferenceTreeClick(preference);
     }
-}
 }

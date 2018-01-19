@@ -35,11 +35,9 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-import cyanogenmod.providers.CMSettings;
-
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
-import com.android.internal.logging.MetricsProto.MetricsEvent;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 public class BatterySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -70,12 +68,17 @@ public class BatterySettings extends SettingsPreferenceFragment implements
         }
     }
 
+    @Override
+    public int getMetricsCategory() {
+        return MetricsEvent.RESURRECTED;
+    }
+
     private void updateBatteryBarDependencies(int batteryBarPosition) {
         // All preferences within this screen that don't have explicitely set a dependency
         // except the position preference depend on the battery bar position preference
         boolean enabled = batteryBarPosition != 0;
         PreferenceScreen preferenceScreen = getPreferenceScreen();
-        for (int i = 0; i < preferenceScreen.getPreferenceCount(); i) {
+        for (int i = 0; i < preferenceScreen.getPreferenceCount(); i++) {
             Preference preference = preferenceScreen.getPreference(i);
             if (preference != mBatteryBarPosition && preference.getDependency() == null) {
                 preference.setEnabled(enabled);

@@ -58,7 +58,7 @@ public class Weather extends SettingsPreferenceFragment
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.RESURRECTED;
+        return MetricsEvent.RESURRECTED;
     }
 
     @Override

@@ -44,12 +44,9 @@ public class QsPullDown extends SettingsPreferenceFragment implements
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
-    private static final String KEY_FPC_QUICK_PULLDOWN = "status_bar_quick_qs_pulldown_fp";
 
     private ListPreference mQuickPulldown;
     private ListPreference mSmartPulldown;
-    private SwitchPreference mFPQuickPullDown;
-
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
@@ -76,12 +73,6 @@ public class QsPullDown extends SettingsPreferenceFragment implements
                 Settings.System.QS_SMART_PULLDOWN, 0);
         updateSmartPulldownSummary(smartPulldown);
         mSmartPulldown.setOnPreferenceChangeListener(this);
-
-        mFPQuickPullDown = (SwitchPreference) findPreference(KEY_FPC_QUICK_PULLDOWN);
-        if(!DeviceUtils.deviceSupportsFingerPrint(getActivity())){
-            mFPQuickPullDown.getParent().removePreference(mFPQuickPullDown);
-        }
-
     }
 
     @Override
@@ -97,7 +88,7 @@ public class QsPullDown extends SettingsPreferenceFragment implements
                     mQuickPulldown.getEntries()[index]);
             return true;
         } else if (preference == mSmartPulldown) {
-            int value = Integer.parseInt((String) newValue);
+            value = Integer.parseInt((String) newValue);
             updateSmartPulldownSummary(value);
             return true;
         }

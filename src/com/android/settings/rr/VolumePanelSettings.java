@@ -20,7 +20,7 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
-import com.android.settings.rr.SeekBarPreference;
+import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 
 public class VolumePanelSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -86,4 +86,11 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
             mVolumeDialogDashWidth.setEnabled(true);
             mVolumeDialogDashGap.setEnabled(true);
         }
+     }
+
+    @Override
+    public int getMetricsCategory() {
+        return MetricsEvent.RESURRECTED;
+    }
+
 }

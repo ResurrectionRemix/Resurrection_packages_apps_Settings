@@ -16,7 +16,7 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aicpextras="http://schemas.android.com/apk/res/com.aicp.extras"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -41,7 +41,7 @@
         android:text="@string/shortcut_action_disable_message"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:visibility="gone" />
-    <com.aicp.extras.dslv.DragSortListView
+    <com.android.settings.rr.dslv.DragSortListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -50,18 +50,18 @@
         android:paddingLeft="0dp"
         android:layout_margin="0dp"
         android:dividerHeight="1dp"
-        aicpextras:dragEnabled="true"
-        aicpextras:collapsedHeight="2dp"
-        aicpextras:dragScrollStart="0.33"
-        aicpextras:maxDragScrollSpeed="0.5"
-        aicpextras:floatAlpha="0.6"
-        aicpextras:slideShuffleSpeed="0.3"
-        aicpextras:trackDragSort="false"
-        aicpextras:useDefaultController="true"
-        aicpextras:dragHandleId="@id/drag_handle"
-        aicpextras:sortEnabled="true"
-        aicpextras:removeEnabled="true"
-        aicpextras:dragStartMode="onMove"
-        aicpextras:removeMode="flingRemove"
-        aicpextras:floatBackgroundColor="?android:attr/colorBackgroundFloating" />
+        settings:dragEnabled="true"
+        settings:collapsedHeight="2dp"
+        settings:dragScrollStart="0.33"
+        settings:maxDragScrollSpeed="0.5"
+        settings:floatAlpha="0.6"
+        settings:slideShuffleSpeed="0.3"
+        settings:trackDragSort="false"
+        settings:useDefaultController="true"
+        settings:dragHandleId="@id/drag_handle"
+        settings:sortEnabled="true"
+        settings:removeEnabled="true"
+        settings:dragStartMode="onMove"
+        settings:removeMode="flingRemove"
+        settings:floatBackgroundColor="?android:attr/colorBackgroundFloating" />
 </LinearLayout>
