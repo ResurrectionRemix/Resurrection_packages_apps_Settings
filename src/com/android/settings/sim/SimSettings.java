@@ -476,7 +476,11 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
                 mSwitch.setVisibility(View.GONE);
             } else {
                 mSwitch.setVisibility(View.VISIBLE);
-                mSwitch.setEnabled(!isAirplaneModeOn() || isValid());
+                if (isAirplaneModeOn() || (!isCurrentSubValid())) {
+                    mSwitch.setEnabled(false);
+                } else {
+                    mSwitch.setEnabled(true);
+                }
                 setChecked(getProvisionStatus(mSlotId) == PROVISIONED);
             }
         }
@@ -505,9 +509,21 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
 
         // This method returns true if SubScription record corresponds to this
         // Preference screen has a valid SIM and slot index/SubId.
-        @Override
-        protected boolean isValid() {
-            return super.isValid() && getProvisionStatus(mSlotId) >= 0;
+        private boolean isCurrentSubValid() {
+            boolean isSubValid = false;
+            if (hasCard()) {
+                SubscriptionInfo sir = mSubscriptionManager.
+                        getActiveSubscriptionInfoForSimSlotIndex(mSlotId);
+                if (sir != null ) {
+                    mSubInfoRecord = sir;
+                    if (SubscriptionManager.isValidSubscriptionId(mSubInfoRecord.getSubscriptionId()) &&
+                            mSubInfoRecord.getSimSlotIndex() >= 0 &&
+                            getProvisionStatus(mSubInfoRecord.getSimSlotIndex()) >= 0) {
+                        isSubValid = true;
+                    }
+                }
+            }
+            return isSubValid;
         }
 
         // Based on the received SIM provision state this method
