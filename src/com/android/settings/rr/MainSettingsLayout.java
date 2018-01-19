@@ -237,15 +237,16 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                     Settings.System.RR_CONFIG_STYLE, 0);
         	if (which == 0) {
             frags[0] = new StatusBarSettings();
-            frags[1] = new QsPanel();
-            frags[2] = new RecentsSettings();
-            frags[3] = new UISettings();
-            frags[4] = new LockScreenSettings();
-            frags[5] = new ButtonSettings();
-            frags[6] = new NavigationBar();
-            frags[7] = new AnimationSettings();
-            frags[8] = new MiscSettings();
-            frags[9] = new About();
+            frags[1] = new StatusBarSettings();
+            frags[2] = new QsPanel();
+            frags[3] = new RecentsSettings();
+            frags[4] = new UISettings();
+            frags[5] = new LockScreenSettings();
+            frags[6] = new ButtonSettings();
+            frags[7] = new NavigationBar();
+            frags[8] = new AnimationSettings();
+            frags[9] = new MiscSettings();
+            frags[10] = new About();
         	} else {
             frags[0] = new MainSettings();
         	}
@@ -274,6 +275,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         if (which == 0) {
         titleString = new String[]{
                 getString(R.string.rr_statusbar_title),
+                getString(R.string.rr_notification_panel_title),
                 getString(R.string.rr_qs_title),
                 getString(R.string.rr_recents_title),
                 getString(R.string.rr_ui_title),

@@ -27,6 +27,12 @@
             android:icon="@drawable/rr_statusbar_icon" />
 
     <PreferenceScreen
+            android:id="@+id/rr_panels"
+            android:title="@string/rr_notification_panel_title"
+            android:fragment="com.android.settings.rr.PanelSettings" 
+	    	android:icon="@drawable/rr_panel_icon" />
+
+    <PreferenceScreen
             android:id="@+id/qs_customizations"
             android:title="@string/rr_qs_title"
             android:fragment="com.android.settings.rr.QsPanel" 
