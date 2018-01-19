@@ -48,7 +48,6 @@ public class Weather extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
     private static final String TAG = "OmniJawsSettings";
-    private static final String CATEGORY_WEATHER = "weather_category";
     private static final String WEATHER_ICON_PACK = "weather_icon_pack";
     private static final String DEFAULT_WEATHER_ICON_PACKAGE = "org.omnirom.omnijaws";
     private static final String WEATHER_SERVICE_PACKAGE = "org.omnirom.omnijaws";
@@ -72,10 +71,7 @@ public class Weather extends SettingsPreferenceFragment
         final ContentResolver resolver = getActivity().getContentResolver();
         final PackageManager pm = getActivity().getPackageManager();
 
-        mWeatherCategory = (PreferenceCategory) prefSet.findPreference(CATEGORY_WEATHER);
-        if (mWeatherCategory != null && (!Util.isPackageInstalled(WEATHER_SERVICE_PACKAGE, pm))) {
-            prefSet.removePreference(mWeatherCategory);
-        } else {
+        if (Util.isPackageInstalled(WEATHER_SERVICE_PACKAGE, pm)) {
             String settingsJaws = Settings.System.getString(resolver,
                     Settings.System.OMNIJAWS_WEATHER_ICON_PACK);
             if (settingsJaws == null) {
@@ -103,6 +99,7 @@ public class Weather extends SettingsPreferenceFragment
         }
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mWeatherIconPack) {
             String value = (String) objValue;
