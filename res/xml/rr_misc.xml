@@ -27,7 +27,13 @@
             android:summary="@string/sensor_block_summary"
             android:defaultValue="false" />
 
-        <PreferenceScreen
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="three_finger_gesture"
+            android:title="@string/three_finger_gesture"
+            android:summary="@string/three_finger_gesture_summary"
+            android:defaultValue="false" />
+
+     <PreferenceScreen
             android:title="@string/weather_title"
             android:summary="@string/weather_config_title"
             android:icon="@drawable/ic_settings_weather"
