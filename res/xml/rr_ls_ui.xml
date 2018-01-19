@@ -15,10 +15,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-         android:key="lockscreen_battery_info"
-         android:title="@string/lockscreen_battery_info_title"
-         android:summary="@string/lockscreen_battery_info_summary"
-         android:defaultValue="false" />
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_battery_info"
+        android:title="@string/lockscreen_battery_info_title"
+        android:summary="@string/lockscreen_battery_info_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="lock_screen_custom_notif"
+        android:title="@string/lockscreen_maxnotif_title"
+        android:summary="@string/lockscreen_maxnotif_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="lockscreen_max_notif_config"
+        android:title="@string/lockscreen_maxnotif_config"
+        settings:min="1"
+        android:max="8"
+        android:defaultValue="5"
+        settings:units=""
+        android:dependency="lock_screen_custom_notif"/>
+
 
 </PreferenceScreen>
