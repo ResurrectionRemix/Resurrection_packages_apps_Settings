@@ -41,12 +41,13 @@ public class QsPullDown extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "QsPullDown";
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
+    private static final String SMART_PULLDOWN = "qs_smart_pulldown";
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
 
-
     private ListPreference mQuickPulldown;
+    private ListPreference mSmartPulldown;
 
     @Override
     public int getMetricsCategory() {
@@ -58,6 +59,7 @@ public class QsPullDown extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.rr_qs_pulldown);
+        ContentResolver resolver = getActivity().getContentResolver();
 
         mQuickPulldown =
                 (ListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
@@ -67,6 +69,12 @@ public class QsPullDown extends SettingsPreferenceFragment implements
                 0, UserHandle.USER_CURRENT);
         mQuickPulldown.setValue(String.valueOf(mode));
         mQuickPulldown.setSummary(mQuickPulldown.getEntry());
+
+        mSmartPulldown = (ListPreference) findPreference(SMART_PULLDOWN);
+        int smartPulldown = Settings.System.getInt(resolver,
+                Settings.System.QS_SMART_PULLDOWN, 0);
+        updateSmartPulldownSummary(smartPulldown);
+        mSmartPulldown.setOnPreferenceChangeListener(this);
 
     }
 
@@ -82,6 +90,10 @@ public class QsPullDown extends SettingsPreferenceFragment implements
             mQuickPulldown.setSummary(
                     mQuickPulldown.getEntries()[index]);
             return true;
+        } else if (preference == mSmartPulldown) {
+            int value = Integer.parseInt((String) newValue);
+            updateSmartPulldownSummary(value);
+            return true;
         }
 		return false;
     }
@@ -89,5 +101,21 @@ public class QsPullDown extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+   private void updateSmartPulldownSummary(int value) {
+        Resources res = getResources();
+
+        if (value == 0) {
+            // Smart pulldown deactivated
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_off_summary));
+        } else if (value == 3) {
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_none_summary));
+        } else {
+            String type = res.getString(value == 1
+                    ? R.string.smart_pulldown_dismissable
+                    : R.string.smart_pulldown_ongoing);
+            mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
+        }
     }
 }
