@@ -44,8 +44,7 @@ public class SystemUiThemePreferenceController extends BasePreferenceController
 
     @Override
     public int getAvailabilityStatus() {
-        boolean enabled = FeatureFlagUtils.isEnabled(mContext, "settings_systemui_theme");
-        return enabled ? AVAILABLE : CONDITIONALLY_UNAVAILABLE;
+        return UNSUPPORTED_ON_DEVICE;
     }
 
     @Override
