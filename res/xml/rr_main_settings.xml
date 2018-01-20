@@ -59,7 +59,6 @@
     <PreferenceScreen
             android:key="rr_nav_bar"
             android:fragment="com.android.settings.rr.fragments.NavigationBar"
-            android:summary="@string/rr_navbar_summary"
             android:icon="@drawable/rr_navbar_icon"
             android:title="@string/rr_navigation_title" />
 
@@ -68,6 +67,12 @@
             android:title="@string/button_settings"
             android:fragment="com.android.settings.rr.ButtonSettings" 
             android:icon="@drawable/rr_buttons_icon" />
+
+     <PreferenceScreen
+            android:key="gestures"
+            android:title="@string/gesture_anywhere_gestures_title"
+	   	    android:fragment="com.android.settings.rr.RRGestures" 
+	   		android:icon="@drawable/rr_gestures_icon"/>
 
     <PreferenceScreen
             android:key="animation_settings"

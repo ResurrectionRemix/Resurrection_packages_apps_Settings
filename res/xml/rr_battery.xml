@@ -19,11 +19,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/battery_bar_title">
 
-    <com.android.settings.rr.Preferences.SystemSettingMasterSwitchPreference
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:title="@string/battery_bar_title"
         android:key="statusbar_battery_bar"
-        android:defaultValue="false"
-        android:fragment="com.android.settings.rr.BatterySettings" />
+        android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="statusbar_battery_bar_color"
