@@ -237,7 +237,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                     Settings.System.RR_CONFIG_STYLE, 0);
         	if (which == 0) {
             frags[0] = new StatusBarSettings();
-            frags[1] = new StatusBarSettings();
+            frags[1] = new PanelSettings();
             frags[2] = new QsPanel();
             frags[3] = new RecentsSettings();
             frags[4] = new UISettings();

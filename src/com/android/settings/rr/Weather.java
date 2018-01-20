@@ -15,7 +15,7 @@
  */
 
 
-package com.android.settings.rr.fragments;
+package com.android.settings.rr;
 
 import android.app.Activity;
 import android.content.ContentResolver;
