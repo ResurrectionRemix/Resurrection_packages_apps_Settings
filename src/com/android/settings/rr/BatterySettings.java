@@ -36,13 +36,13 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
-
+import com.android.settings.rr.Preferences.SystemSettingMasterSwitchPreference;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 public class BatterySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private ListPreference mBatteryBarPosition;
+    private SystemSettingMasterSwitchPreference mBatteryBarPosition;
 
 
     @Override
@@ -50,40 +50,16 @@ public class BatterySettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_battery);
 
-
-        mBatteryBarPosition =
-                (ListPreference) findPreference(Settings.System.STATUSBAR_BATTERY_BAR);
-        mBatteryBarPosition.setOnPreferenceChangeListener(this);
-
-        updateBatteryBarDependencies(Integer.parseInt(mBatteryBarPosition.getValue()));
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mBatteryBarPosition) {
-            updateBatteryBarDependencies(Integer.parseInt((String) newValue));
-            return true;
-        } else {
-            return false;
-        }
+        return false;
     }
 
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
-    }
-
-    private void updateBatteryBarDependencies(int batteryBarPosition) {
-        // All preferences within this screen that don't have explicitely set a dependency
-        // except the position preference depend on the battery bar position preference
-        boolean enabled = batteryBarPosition != 0;
-        PreferenceScreen preferenceScreen = getPreferenceScreen();
-        for (int i = 0; i < preferenceScreen.getPreferenceCount(); i++) {
-            Preference preference = preferenceScreen.getPreference(i);
-            if (preference != mBatteryBarPosition && preference.getDependency() == null) {
-                preference.setEnabled(enabled);
-            }
-        }
     }
 
 }
