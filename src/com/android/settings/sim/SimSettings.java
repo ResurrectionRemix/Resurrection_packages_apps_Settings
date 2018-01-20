@@ -608,7 +608,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
             if (!mIsChecked) {
                 if (getNumOfSubsProvisioned() > 1) {
                     logd("More than one sub is active, Deactivation possible.");
-                    showAlertDialog(CONFIRM_ALERT_DLG_ID, 0);
+                    sendUiccProvisioningRequest();
                 } else {
                     logd("Only one sub is active. Deactivation not possible.");
                     showAlertDialog(ERROR_ALERT_DLG_ID, R.string.sim_enabler_both_inactive);
@@ -809,7 +809,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
                                 showAlertDialog(ERROR_ALERT_DLG_ID, msgId);
                             } else {
                                 mCurrentUiccProvisionState = newProvisionedState == PROVISIONED;
-                                showAlertDialog(RESULT_ALERT_DLG_ID, 0);
+                                cleanUpPendingDialogs();
                             }
                             mHandler.removeMessages(EVT_PROGRESS_DLG_TIME_OUT);
                             break;
