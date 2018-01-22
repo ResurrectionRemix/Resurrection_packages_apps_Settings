@@ -18,6 +18,7 @@ package com.android.settings.gestures;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.VisibleForTesting;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
@@ -34,9 +35,19 @@ import com.android.settingslib.core.lifecycle.events.OnPause;
 import com.android.settingslib.core.lifecycle.events.OnResume;
 import com.android.settingslib.core.lifecycle.events.OnSaveInstanceState;
 
+import static android.provider.Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS;
+import static android.provider.Settings.Secure.SYSTEM_NAVIGATION_KEYS_ENABLED;
+
 public abstract class GesturePreferenceController extends AbstractPreferenceController
         implements PreferenceControllerMixin, Preference.OnPreferenceChangeListener,
         LifecycleObserver, OnResume, OnPause, OnCreate, OnSaveInstanceState  {
+
+    private static final int ON = 1;
+    private static final int OFF = 0;
+
+    private static final String KEY_SWIPE_DOWN = "gesture_swipe_down_fingerprint_input_summary";
+    private static final String SECURE_KEY = SYSTEM_NAVIGATION_KEYS_ENABLED;
+    private static final String SECURE_KEY_OTHER = FP_SWIPE_TO_DISMISS_NOTIFICATIONS;
 
     @VisibleForTesting
     static final String KEY_VIDEO_PAUSED = "key_video_paused";
@@ -68,9 +79,15 @@ public abstract class GesturePreferenceController extends AbstractPreferenceCont
             if (preference instanceof TwoStatePreference) {
                 ((TwoStatePreference) preference).setChecked(isEnabled);
             } else {
-                preference.setSummary(isEnabled
-                        ? R.string.gesture_setting_on
-                        : R.string.gesture_setting_off);
+                if (preference.getKey().equals(KEY_SWIPE_DOWN)) {
+                    preference.setSummary(isSwipeOrDismissOn(mContext)
+                            ? R.string.gesture_setting_on
+                            : R.string.gesture_setting_off);
+                } else {
+                    preference.setSummary(isEnabled
+                            ? R.string.gesture_setting_on
+                            : R.string.gesture_setting_off);
+                }
             }
             // Different meanings of "Enabled" for the Preference and Controller.
             preference.setEnabled(canHandleClicks());
@@ -110,5 +127,11 @@ public abstract class GesturePreferenceController extends AbstractPreferenceCont
 
     protected boolean canHandleClicks() {
         return true;
+    }
+
+    private static boolean isSwipeOrDismissOn(Context context) {
+        // check both features to correctly set the main gesture pref summary in GesturePreferenceController
+        return Settings.Secure.getInt(context.getContentResolver(), SECURE_KEY_OTHER, OFF) == ON
+                || Settings.Secure.getInt(context.getContentResolver(), SECURE_KEY, OFF) == ON;
     }
 }
