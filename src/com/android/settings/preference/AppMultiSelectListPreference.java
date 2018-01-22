@@ -20,6 +20,7 @@ package com.android.settings.preference;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.ActivityInfo;
@@ -40,18 +41,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.settings.R;
-import com.android.settings.CustomDialogPreference;
+import com.android.settings.rr.Preferences.LegacyCustomDialogPreference;
 
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
+import java.util.Comparator;import android.content.DialogInterface;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class AppMultiSelectListPreference extends CustomDialogPreference {
+
+public class AppMultiSelectListPreference extends LegacyCustomDialogPreference {
     private final List<MyApplicationInfo> mPackageInfoList = new ArrayList<MyApplicationInfo>();
     private AppListAdapter mAdapter;
     private CharSequence[] mEntries;
@@ -85,6 +87,8 @@ public class AppMultiSelectListPreference extends CustomDialogPreference {
 			mPackageInfoList.add(info);
 
 		}
+        setPositiveButtonText(android.R.string.ok);
+        setNegativeButtonText(android.R.string.cancel);
         List<CharSequence> entries = new ArrayList<CharSequence>();
 		List<CharSequence> entryValues = new ArrayList<CharSequence>();
         Collections.sort(mPackageInfoList, sDisplayNameComparator);
@@ -102,6 +106,18 @@ public class AppMultiSelectListPreference extends CustomDialogPreference {
     public void setValues(Collection<String> values) {
         mValues.clear();
         mValues.addAll(values);
+    }
+
+    @Override
+    protected void onPrepareDialogBuilder(AlertDialog.Builder builder,
+            DialogInterface.OnClickListener listener) {
+            showDialog(builder, listener);
+    }
+
+    private void showDialog(AlertDialog.Builder builder,
+            DialogInterface.OnClickListener listener) {
+        builder.setPositiveButton(R.string.okay, listener);
+        builder.setNegativeButton(R.string.cancel, null);
     }
 
 
@@ -267,5 +283,3 @@ public class AppMultiSelectListPreference extends CustomDialogPreference {
         }
     };
 }
-
-

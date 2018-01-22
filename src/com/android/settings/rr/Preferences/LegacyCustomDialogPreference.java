@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.android.settings;
+package com.android.settings.rr.Preferences;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -25,24 +25,24 @@ import android.support.v7.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class CustomDialogPreference extends DialogPreference {
+public class LegacyCustomDialogPreference extends DialogPreference {
 
     private CustomPreferenceDialogFragment mFragment;
 
-    public CustomDialogPreference(Context context, AttributeSet attrs, int defStyleAttr,
+    public LegacyCustomDialogPreference(Context context, AttributeSet attrs, int defStyleAttr,
             int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    public CustomDialogPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LegacyCustomDialogPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public CustomDialogPreference(Context context, AttributeSet attrs) {
+    public LegacyCustomDialogPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public CustomDialogPreference(Context context) {
+    public LegacyCustomDialogPreference(Context context) {
         super(context);
     }
 
@@ -92,8 +92,8 @@ public class CustomDialogPreference extends DialogPreference {
             return fragment;
         }
 
-        private CustomDialogPreference getCustomizablePreference() {
-            return (CustomDialogPreference) getPreference();
+        private LegacyCustomDialogPreference getCustomizablePreference() {
+            return (LegacyCustomDialogPreference) getPreference();
         }
 
         private class OnDismissListener implements View.OnClickListener {
