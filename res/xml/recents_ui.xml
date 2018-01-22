@@ -27,5 +27,20 @@
             android:summaryOff="@string/systemui_recents_mem_display_summaryOff"
             android:defaultValue="false" />
 
+        <Preference
+            android:key="recents_icon_pack"
+            android:title="@string/recents_icon_pack_title"
+            android:summary="@string/recents_icon_pack_summary" />
+
+        <com.android.settings.rr.Preferences.SystemSettingListPreference
+            android:key="immersive_recents"
+            android:title="@string/immersive_recents_title"
+            android:summary="@string/immersive_recents_summary"
+            android:dialogTitle="@string/immersive_recents_title"
+            android:entries="@array/immersive_recents_entries"
+            android:entryValues="@array/immersive_recents_values"
+            ndroid:persistent="false" />
+
+
 
 </PreferenceScreen>
