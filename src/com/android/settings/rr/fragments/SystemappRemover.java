@@ -45,9 +45,13 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+
+import com.android.settings.SettingsPreferenceFragment;
+
 import com.android.settings.R;
 
-public class SystemappRemover extends Fragment {
+public class SystemappRemover extends SettingsPreferenceFragment {
     private final int STARTUP_DIALOG = 1;
     private final int DELETE_DIALOG = 2;
     private final int DELETE_MULTIPLE_DIALOG = 3;
@@ -64,6 +68,11 @@ public class SystemappRemover extends Fragment {
          View view = inflater.inflate(R.layout.slim_sizer, container, false);
          return view;
      }
+
+    @Override
+    public int getMetricsCategory() {
+        return MetricsEvent.RESURRECTED;
+    }
 
     @Override
       public void setUserVisibleHint(boolean isVisibleToUser) {
@@ -100,6 +109,9 @@ public class SystemappRemover extends Fragment {
         safetyList.add("SettingsProvider.apk");
         safetyList.add("SystemUI.apk");
         safetyList.add("TeleService.apk");
+        safetyList.add("ResurrectionStats.apk");
+        safetyList.add("OmniJaws.apk");
+        safetyList.add("ResurrectionOTA.apk");
 
        // create arraylist from /system/app and /system/priv-app content
         File system = new File(systemPath);

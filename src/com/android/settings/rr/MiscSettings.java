@@ -48,6 +48,7 @@ public class MiscSettings extends SettingsPreferenceFragment {
     private static final String APP_REMOVER = "system_app_remover";
     private static final String ROOT_ACCESS_PROPERTY = "persist.sys.root_access";
 
+    private PreferenceScreen mAppRemover;
 
 
     @Override
@@ -74,7 +75,13 @@ public class MiscSettings extends SettingsPreferenceFragment {
             if (mAppRemover != null)
                 getPreferenceScreen().removePreference(mAppRemover);
         }
+    }
 
+    public static boolean isRootForAppsEnabled() {
+        int value = SystemProperties.getInt(ROOT_ACCESS_PROPERTY, 0);
+        boolean daemonState =
+                SystemProperties.get("init.svc.su_daemon", "absent").equals("running");
+        return daemonState && (value == 1 || value == 3);
     }
 
 
