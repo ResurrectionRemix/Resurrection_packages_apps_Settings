@@ -2395,12 +2395,23 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>    
-            <meta-data android:name="com.android.settings.category"
-                android:value="com.android.settings.category.rr" />  
+            </intent-filter>
 		<meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.rr.About" />
 		</activity>
+
+        <!-- PA Pie settings activity. -->
+        <activity android:name="Settings$PieControlSettingsActivity"
+                android:label="@string/pa_pie_control_title"
+                android:excludeFromRecents="true">
+            <intent-filter android:priority="1">
+                <action android:name="com.android.settings.PIE_SETTINGS" />
+                <action android:name="android.settings.PIE_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.pie.PieSettings" />
+        </activity>
 
        <!-- Global navbar settings -->
         <activity android:name="Settings$NavigationSettingsActivity"

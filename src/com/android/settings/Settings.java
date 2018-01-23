@@ -198,4 +198,5 @@ public class Settings extends SettingsActivity {
     public static class PulseSettingsActivity extends SettingsActivity { /* empty */ }
     public static class AboutSettingsActivity extends SettingsActivity { /* empty */ }
     public static class GestureAnywhereBuilderActivity extends SettingsActivity { /* empty */ }
+    public static class PieControlSettingsActivity extends SettingsActivity { /* empty */ }
 }

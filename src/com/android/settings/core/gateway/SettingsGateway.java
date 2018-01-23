@@ -137,6 +137,10 @@ import com.android.settings.rr.fragments.FlingSettings;
 import com.android.settings.rr.fragments.NavigationBar;
 import com.android.settings.rr.fragments.PulseSettings;
 import com.android.settings.rr.fragments.SmartbarSettings;
+import com.android.settings.rr.About;
+import com.android.settings.rr.pie.PieSettings;
+
+
 
 public class SettingsGateway {
 
@@ -263,7 +267,9 @@ public class SettingsGateway {
             NavigationBar.class.getName(),
             FlingSettings.class.getName(),
             SmartbarSettings.class.getName(),
-            PulseSettings.class.getName()
+            PulseSettings.class.getName(),
+            About.class.getName(),
+            PieSettings.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -306,6 +312,8 @@ public class SettingsGateway {
             Settings.NavigationSettingsActivity.class.getName(),
             Settings.FlingSettingsActivity.class.getName(),
             Settings.SmartbarSettingsActivity.class.getName(),
-            Settings.PulseSettingsActivity.class.getName()
+            Settings.PulseSettingsActivity.class.getName(),
+            Settings.AboutSettingsActivity.class.getName(),
+            Settings.PieControlSettingsActivity.class.getName()
     };
 }
