@@ -42,8 +42,11 @@ public class UISettings extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
     private static final String TAG = "UI";
     private static final String SYSTEMUI_THEME_STYLE = "systemui_theme_style";
+    private static final String RR_FP = "rr_fp";
 
+    private PreferenceScreen mFpFragment;
     private ListPreference mSystemUIThemeStyle;
+    private FingerprintManager mFingerprintManager
 
     @Override
     public int getMetricsCategory() {
@@ -55,6 +58,7 @@ public class UISettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         final Activity activity = getActivity(); 
 		ContentResolver resolver = getActivity().getContentResolver();
+        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         addPreferencesFromResource(R.xml.rr_ui_settings);
 
@@ -64,6 +68,12 @@ public class UISettings extends SettingsPreferenceFragment implements
         mSystemUIThemeStyle.setValue(String.valueOf(systemUIThemeStyle));
         mSystemUIThemeStyle.setSummary(mSystemUIThemeStyle.getEntry());
         mSystemUIThemeStyle.setOnPreferenceChangeListener(this);
+
+        mFpFragment = (PreferenceScreen) findPreference(RR_FP);
+        if (!mFingerprintManager.isHardwareDetected()) {
+            getPreferenceScreen().removePreference(mFpFragment);
+        }
+
     }
 
     @Override
