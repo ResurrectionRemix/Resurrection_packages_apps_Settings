@@ -158,6 +158,7 @@ public class InstalledAppDetails extends AppInfoBase
     private static final String KEY_BATTERY = "battery";
     private static final String KEY_MEMORY = "memory";
     private static final String KEY_VERSION = "app_version";
+    private static final String KEY_PACKAGE_NAME = "app_package_name";
     private static final String KEY_INSTANT_APP_SUPPORTED_LINKS =
             "instant_app_launch_supported_domain_urls";
 
@@ -177,6 +178,7 @@ public class InstalledAppDetails extends AppInfoBase
     private Preference mDataPreference;
     private Preference mMemoryPreference;
     private Preference mVersionPreference;
+    private Preference mPackageNamePreference;
     private AppDomainsPreference mInstantAppDomainsPreference;
     private DevelopmentSettingsEnabler mDevelopmentSettingsEnabler;
     private boolean mDisableAfterUninstall;
@@ -458,6 +460,7 @@ public class InstalledAppDetails extends AppInfoBase
         mMemoryPreference.setOnPreferenceClickListener(this);
         mMemoryPreference.setVisible(mDevelopmentSettingsEnabler.getLastEnabledState());
         mVersionPreference = findPreference(KEY_VERSION);
+        mPackageNamePreference = findPreference(KEY_PACKAGE_NAME);
         mInstantAppDomainsPreference =
                 (AppDomainsPreference) findPreference(KEY_INSTANT_APP_SUPPORTED_LINKS);
         mLaunchPreference = findPreference(KEY_LAUNCH);
@@ -619,6 +622,7 @@ public class InstalledAppDetails extends AppInfoBase
                 .done(activity, false /* rebindActions */);
         mVersionPreference.setSummary(getString(R.string.version_text,
                 BidiFormatter.getInstance().unicodeWrap(pkgInfo.versionName)));
+        mPackageNamePreference.setSummary(pkgInfo.packageName);
     }
 
     @VisibleForTesting
