@@ -154,6 +154,7 @@ public class AppInfoDashboardFragment extends DashboardFragment
                 .setParentFragment(this);
         use(AppStoragePreferenceController.class).setParentFragment(this);
         use(AppVersionPreferenceController.class).setParentFragment(this);
+        use(AppPackageNamePreferenceController.class).setParentFragment(this);
         use(InstantAppDomainsPreferenceController.class).setParentFragment(this);
 
         final WriteSystemSettingsPreferenceController writeSystemSettings =
