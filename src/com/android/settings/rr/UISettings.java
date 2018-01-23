@@ -46,7 +46,7 @@ public class UISettings extends SettingsPreferenceFragment implements
 
     private PreferenceScreen mFpFragment;
     private ListPreference mSystemUIThemeStyle;
-    private FingerprintManager mFingerprintManager
+    private FingerprintManager mFingerprintManager;
 
     @Override
     public int getMetricsCategory() {
