@@ -105,16 +105,16 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mInterceptorFrame.getBackground().setAlpha(0);
         int which = Settings.System.getInt(getActivity().getContentResolver(),
                     Settings.System.RR_CONFIG_STYLE, 0);
+
+        boolean isShowing =   Settings.System.getInt(resolver,
+                 Settings.System.RR_OTA_FAB, 1) == 1;
         if (which == 1) {
-        mTabs.setVisibility(View.GONE);
-        mFab5.setTitle(getString(R.string.fab_layout_toggle));
+            mTabs.setVisibility(View.GONE);
+            mFab5.setTitle(getString(R.string.fab_layout_toggle));
         } else if (which == 0) {
-        mTabs.setVisibility(View.VISIBLE);
-        mFab5.setTitle(getString(R.string.fab_layout_update));
+                   mTabs.setVisibility(View.VISIBLE);
+                   mFab5.setTitle(getString(R.string.fab_layout_update));
         }
-
-        boolean isShowing =  true;
-
         mFab1.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
@@ -177,9 +177,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         });
 
         if (isShowing) {
-        mFab.setVisibility(View.VISIBLE);
+            mFab.setVisibility(View.VISIBLE);
         } else {
-        mFab.setVisibility(View.GONE);
+            mFab.setVisibility(View.GONE);
         }
 
         mFab.setOnFloatingActionsMenuUpdateListener(new FloatingActionsMenu.OnFloatingActionsMenuUpdateListener() {
