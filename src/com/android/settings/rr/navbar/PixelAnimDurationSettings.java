@@ -37,7 +37,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.settings.rr.Preferenences.CustomSeekBarPreference;
+import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
@@ -327,7 +327,7 @@ public class PixelAnimDurationSettings extends SettingsPreferenceFragment implem
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(0, MENU_RESET, 0, R.string.reset)
-                .setIcon(R.drawable.ic_action_reset) // use the KitKat reset icon
+                .setIcon(com.android.internal.R.drawable.ic_menu_refresh) // use the KitKat reset icon
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
     }
 
@@ -371,7 +371,7 @@ public class PixelAnimDurationSettings extends SettingsPreferenceFragment implem
                 case DLG_RESET:
                     return new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.reset)
-                    .setMessage(R.string.animation_settings_reset_message)
+                    .setMessage(R.string.smartbar_factory_reset_title)
                     .setNegativeButton(R.string.cancel, null)
                     .setNeutralButton(R.string.dlg_reset_android,
                         new DialogInterface.OnClickListener() {

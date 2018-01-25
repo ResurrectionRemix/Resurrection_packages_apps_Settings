@@ -32,6 +32,7 @@ import android.os.Environment;
 import android.os.UserHandle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
+import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -64,6 +65,7 @@ public class SmartbarSettings extends SettingsPreferenceFragment implements
     private ListPreference mButtonLongpressDelay;
     private CustomSeekBarPreference mButtonsAlpha;
     private CustomSeekBarPreference mCustomButtonScaling;
+    private PreferenceScreen mPixel;
 
     private static final int MENU_RESET = Menu.FIRST;
     private static final int MENU_SAVE = Menu.FIRST + 1;
