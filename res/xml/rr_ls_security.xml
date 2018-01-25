@@ -22,8 +22,12 @@
             android:summary="@string/powermenu_lockscreen_summary"
             android:defaultValue="true" />
 
-
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_media_metadata"
+            android:title="@string/lockscreen_media_art_title"
+            android:defaultValue="true" />
+
+        <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
             android:key="lockscreen_qs_disabled"
             android:title="@string/lockscreen_qs_disabled_title"
             android:summary="@string/lockscreen_qs_disabled_summary"
