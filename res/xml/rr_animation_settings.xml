@@ -46,11 +46,12 @@
             android:icon="@drawable/rr_scroll_icon"
             android:entryValues="@array/values_scrollingcache" />
 
-        <com.android.settings.rr.Preferences.SystemSettingListPreference
+        <ListPreference
             android:key="tabs_effect"
             android:title="@string/tabs_effect_title"
             android:entries="@array/tabs_effect_entries"
             android:entryValues="@array/tabs_effect_values"
+            android:icon="@drawable/rr_transition_icon"
             android:persistent="false" />
 
 </PreferenceScreen>
