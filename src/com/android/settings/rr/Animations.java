@@ -62,6 +62,7 @@ public class Animations extends SettingsPreferenceFragment implements
     private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
     private static final String SCROLLINGCACHE_DEFAULT = "2";
+    private static final String KEY_SS_TABS_EFFECT = "tabs_effect";
 
     private ListPreference mScreenOffAnimation;
     private ListPreference mToastAnimation;
@@ -69,6 +70,7 @@ public class Animations extends SettingsPreferenceFragment implements
     private ListPreference mListViewInterpolator;
     private ListPreference mScrollingCachePref;
     private Context mContext;
+    ListPreference mListViewTabsEffect;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -144,6 +146,13 @@ public class Animations extends SettingsPreferenceFragment implements
             if (newValue != null) {
                 SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
             }
+            return true;
+        } else if (preference == mListViewTabsEffect) {
+            int value = Integer.valueOf((String) newValue);
+            int index = mListViewTabsEffect.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                     Settings.System.RR_SETTINGS_TABS_EFFECT, value);
+            mListViewTabsEffect.setSummary(mListViewTabsEffect.getEntries()[index]);
             return true;
         }
 	return false;
