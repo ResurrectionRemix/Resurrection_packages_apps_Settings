@@ -22,12 +22,11 @@
     android:title="@string/interface_other_title">
 
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="battery_save_mode_color"
-            android:title="@string/battery_saver_color_title"
-            android:summary="@string/battery_saver_color_summary"
-            android:icon="@drawable/rr_battery_saver_icon"
-            android:defaultValue="true" />
+    <com.android.settings.rr.Preferences.SecureSettingColorPickerPreference
+         android:key="status_bar_battery_saver_color"
+         android:title="@string/status_bar_battery_saver_color_title"
+         android:summary="@string/status_bar_battery_saver_color_summary"
+         android:defaultValue="0xfff4511e" /> <!-- deep orange 600 -->
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="rr_ota_fab"
