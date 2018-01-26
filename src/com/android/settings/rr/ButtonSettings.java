@@ -41,7 +41,6 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.rr.utils.DeviceUtils;
 import com.android.settings.rr.utils.TelephonyUtils;
-import org.lineageos.internal.util.QSUtils;
 import org.lineageos.internal.util.ScreenType;
 
 import com.android.settings.SettingsPreferenceFragment;
@@ -124,9 +123,9 @@ public class ButtonSettings extends SettingsPreferenceFragment implements
         if (mSwapVolumeButtons != null) {
                 mSwapVolumeButtons.setChecked(swapVolumeKeys > 0);
         }
-              
 
-        if (!QSUtils.deviceSupportsFlashLight(getActivity())) {
+
+        if (!DeviceUtils.deviceSupportsFlashLight(getActivity())) {
             powerCategory.removePreference(mTorchLongPressPowerGesture);
             powerCategory.removePreference(mTorchLongPressPowerTimeout);
         }
