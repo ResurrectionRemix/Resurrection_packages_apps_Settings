@@ -36,6 +36,13 @@
             android:icon="@drawable/rr_toast_icon"
             />
 
+        <PreferenceScreen
+            android:key="interface_animation_scroll"
+            android:fragment="com.android.settings.rr.ScrollAnimationInterfaceSettings"
+            android:title="@string/scrolling_title"
+            android:summary="@string/scrolling_summary" 
+            android:icon="@drawable/rr_velocity_settings_icon"/> 
+
          <!-- Scrolling cache -->
          <ListPreference
             android:key="pref_scrollingcache"
