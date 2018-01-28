@@ -31,6 +31,14 @@
         android:entryValues="@array/pulse_render_mode_values"
         android:dependency="eos_fling_show_pulse" />
 
+
+     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+         android:key="pulse_auto_color"
+         android:title="@string/pulse_auto_color_title"
+         android:summary="@string/pulse_auto_color_summary"
+         android:dependency="eos_fling_show_pulse"
+         android:defaultValue="false" />
+
     <net.margaritov.preference.colorpicker.ColorPickerPreference
         android:key="eos_fling_pulse_color"
         android:title="@string/fling_pulse_color"
