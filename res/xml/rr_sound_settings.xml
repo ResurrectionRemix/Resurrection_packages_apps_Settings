@@ -34,5 +34,14 @@
             android:summary="@string/screenshot_sound_summary"
             android:defaultValue="true" />
 
+       <com.android.settings.rr.Preferences.SystemSettingIntListPreference
+            android:key="notification_sound_vib_screen_on"
+            android:entries="@array/notification_sound_vib_screen_on_entries"
+            android:entryValues="@array/notification_sound_vib_screen_on_values"
+            android:title="@string/notification_sound_vib_screen_on_title"
+            android:dialogTitle="@string/notification_sound_vib_screen_on_display_title"
+            android:summary="%s"
+            android:defaultValue="1" />
+
 
 </PreferenceScreen>
