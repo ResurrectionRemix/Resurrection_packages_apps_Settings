@@ -119,6 +119,13 @@
         android:key="extras_category"
         android:title="@string/extras_title" >
 
+     <!-- Accidental touch -->
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+         android:key="anbi_enabled"
+         android:title="@string/anbi_enabled_title"
+         android:summary="@string/anbi_enabled_summary"
+         android:defaultValue="false" />
+
         <lineageos.preference.RemotePreference
             android:key="additional_buttons"
             android:title="@string/additional_buttons_title"
