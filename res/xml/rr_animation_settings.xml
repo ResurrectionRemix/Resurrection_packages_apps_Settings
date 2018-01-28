@@ -53,6 +53,17 @@
             android:icon="@drawable/rr_scroll_icon"
             android:entryValues="@array/values_scrollingcache" />
 
+         <com.android.settings.rr.Preferences.SystemSettingIntListPreference
+            android:key="screen_off_animation"
+            android:title="@string/screen_off_animation_title"
+            android:dialogTitle="@string/screen_off_animation_title"
+            android:entries="@array/screen_off_animation_entries"
+            android:entryValues="@array/screen_off_animation_values"
+            android:icon="@drawable/rr_screen_off_animations_icon"
+            android:summary="%s"
+            android:defaultValue="0" />
+ 
+
         <ListPreference
             android:key="tabs_effect"
             android:title="@string/tabs_effect_title"
