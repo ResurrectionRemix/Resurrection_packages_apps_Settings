@@ -36,17 +36,19 @@ import android.text.TextUtils;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
+import com.android.settings.utils.TelephonyUtils;
 
 public class UISettings extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
     private static final String TAG = "UI";
     private static final String SYSTEMUI_THEME_STYLE = "systemui_theme_style";
     private static final String RR_FP = "rr_fp";
+    private static final String INCALL_VIB_OPTIONS = "rr_incall";
 
     private PreferenceScreen mFpFragment;
     private ListPreference mSystemUIThemeStyle;
     private FingerprintManager mFingerprintManager;
+    private PreferenceScreen mInCallFragment;
 
     @Override
     public int getMetricsCategory() {
@@ -72,6 +74,11 @@ public class UISettings extends SettingsPreferenceFragment implements
         mFpFragment = (PreferenceScreen) findPreference(RR_FP);
         if (!mFingerprintManager.isHardwareDetected()) {
             getPreferenceScreen().removePreference(mFpFragment);
+        }
+
+        mInCallFragment = (PreferenceScreen) findPreference(INCALL_VIB_OPTIONS);
+        if (!TelephonyUtils.isVoiceCapable(getActivity())) {
+            getPreferenceScreen().removePreference(mInCallFragment);
         }
 
     }
