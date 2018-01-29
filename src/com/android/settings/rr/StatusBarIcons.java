@@ -13,29 +13,40 @@
 */
 package com.android.settings.rr;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
-import android.telephony.TelephonyManager;
-import android.telephony.SubscriptionManager;
-
+import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MenuInflater;
+import android.util.Log;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
+import com.android.settings.rr.utils.Helpers;
 
 public class StatusBarIcons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "StatusBarIcons";
-    private static final String SIM_EMPTY_SWITCH = "no_sim_cluster_switch";
-    private SubscriptionManager mSm;
 
-
-    private SwitchPreference mNoSims;
+    private static final String NO_SIM_CLUSTER = "no_sim_cluster_switch";
+   
+    private SwitchPreference mNoSimCluster;
 
     @Override
     public int getMetricsCategory() {
@@ -46,18 +57,16 @@ public class StatusBarIcons extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_system_icons);
-        mNoSims = (SwitchPreference) findPreference(SIM_EMPTY_SWITCH);
-        mSm = (SubscriptionManager) getSystemService(getContext().TELEPHONY_SUBSCRIPTION_SERVICE);
-
-        if (mNoSims != null) { 
-            if (!TelephonyManager.getDefault().isMultiSimEnabled() || mSm.getActiveSubscriptionInfoCount() <= 0){
-                getPreferenceScreen().removePreference(mNoSims);
-            }
-        }
+        mNoSimCluster = (SwitchPreference) findPreference (NO_SIM_CLUSTER);
+        mNoSimCluster.setOnPreferenceChangeListener(this);
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) 		{
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mNoSimCluster) {
+            Helpers.showSystemUIrestartDialog(getActivity());
+            return true;
+        }
         return false;
     }
 }
