@@ -61,11 +61,15 @@ public class RecentsUI extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener , DialogInterface.OnDismissListener {
     private static final String TAG = "RecentsUI";
     private static final String IMMERSIVE_RECENTS = "immersive_recents";
+    private static final String RECENTS_DATE = "recents_full_screen_date";
+    private static final String RECENTS_CLOCK = "recents_full_screen_clock";
 
     private ListPreference mImmersiveRecents;
+    private SwitchPreference mClock;
+    private SwitchPreference mDate;
 
 
-    private final static String[] sSupportedActions = new String[] {
+    private final String[] sSupportedActions = new String[] {
         "org.adw.launcher.THEMES",
         "com.gau.go.launcherex.theme"
     };
@@ -90,10 +94,15 @@ public class RecentsUI extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.recents_ui);
         ContentResolver resolver = getActivity().getContentResolver();
         mImmersiveRecents = (ListPreference) findPreference(IMMERSIVE_RECENTS);
-        mImmersiveRecents.setValue(String.valueOf(Settings.System.getInt(
-                resolver, Settings.System.IMMERSIVE_RECENTS, 0)));
+        int mode = Settings.System.getInt(getContentResolver(),
+                Settings.System.IMMERSIVE_RECENTS, 0);
+        mImmersiveRecents.setValue(String.valueOf(mode));
         mImmersiveRecents.setSummary(mImmersiveRecents.getEntry());
         mImmersiveRecents.setOnPreferenceChangeListener(this);
+
+        mClock = (SwitchPreference) findPreference(RECENTS_CLOCK);
+        mDate = (SwitchPreference) findPreference(RECENTS_DATE);
+        updateDisablestate(mode);
     }
 
 
@@ -106,13 +115,25 @@ public class RecentsUI extends SettingsPreferenceFragment implements
         return super.onPreferenceTreeClick(preference);
     }
 
+    public void updateDisablestate(int mode) {
+        if (mode == 0 || mode == 2) {
+           mClock.setEnabled(false);
+           mDate.setEnabled(false);
+        } else {
+           mClock.setEnabled(true);
+           mDate.setEnabled(true);
+        }
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mImmersiveRecents) {
+            int mode = Integer.valueOf((String) newValue);
             Settings.System.putInt(getContentResolver(), Settings.System.IMMERSIVE_RECENTS,
                     Integer.valueOf((String) newValue));
             mImmersiveRecents.setValue(String.valueOf(newValue));
             mImmersiveRecents.setSummary(mImmersiveRecents.getEntry());
+            updateDisablestate(mode);
             return true;
          }
         return false;
