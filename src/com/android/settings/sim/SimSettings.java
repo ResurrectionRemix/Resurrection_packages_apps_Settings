@@ -41,6 +41,7 @@ import android.support.v7.preference.PreferenceGroup;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.PreferenceViewHolder;
+import android.support.v14.preference.SwitchPreference;
 import android.telecom.PhoneAccount;
 import android.telecom.PhoneAccountHandle;
 import android.telecom.TelecomManager;
@@ -73,7 +74,9 @@ import java.lang.NoClassDefFoundError;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimSettings extends RestrictedSettingsFragment implements Indexable {
+import com.android.settings.rr.utils.Helpers;
+
+public class SimSettings extends RestrictedSettingsFragment implements Indexable , Preference.OnPreferenceChangeListener {
     private static final String TAG = "SimSettings";
     private static final boolean DBG = false;
 
@@ -84,6 +87,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private static final int INVALID_STATE = -1;
     private static final int CARD_NOT_PRESENT = -2;
 
+    private static final String SIM_EMPTY_SWITCH = "no_sim_cluster_switch";
     private static final String DISALLOW_CONFIG_SIM = "no_config_sim";
     private static final String SIM_CARD_CATEGORY = "sim_cards";
     private static final String KEY_CELLULAR_DATA = "sim_cellular_data";
@@ -105,6 +109,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
     private int mNumSlots;
     private Context mContext;
     private IExtTelephony mExtTelephony;
+    private SwitchPreference mNoSims;
 
     private int mPhoneCount = TelephonyManager.getDefault().getPhoneCount();
     private int[] mCallState = new int[mPhoneCount];
@@ -150,6 +155,9 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
         mSelectableSubInfos = new ArrayList<SubscriptionInfo>();
         SimSelectNotification.cancelNotification(getActivity());
 
+        mNoSims = (SwitchPreference) findPreference(SIM_EMPTY_SWITCH);
+        mNoSims.setOnPreferenceChangeListener(this);
+
         IntentFilter intentFilter = new IntentFilter(ACTION_UICC_MANUAL_PROVISION_STATUS_CHANGED);
         mContext.registerReceiver(mReceiver, intentFilter);
     }
@@ -171,6 +179,15 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
             }
         }
     };
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference == mNoSims) {
+            Helpers.showSystemUIrestartDialog(getActivity());
+            return true;
+        }
+        return false;
+    }
 
     private void updateSubscriptions() {
         mSubInfoList = mSubscriptionManager.getActiveSubscriptionInfoList();

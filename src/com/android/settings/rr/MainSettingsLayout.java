@@ -63,6 +63,7 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.rr.utils.Helpers;
 import com.android.settings.rr.fab.FloatingActionsMenu;
 import com.android.settings.rr.fab.FloatingActionButton;
 import com.android.settings.rr.fragments.Buttons;
@@ -132,7 +133,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mFab2.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-             //Helpers.showSystemUIrestartDialog(getActivity());
+                  Helpers.showSystemUIrestartDialog(getActivity());
              }
         });
 
