@@ -33,6 +33,13 @@
             />
 
         <PreferenceScreen
+            android:key="recent_styles"
+            android:title="@string/recent_styles"
+            android:fragment="com.android.settings.rr.RecentsStyles"
+            android:icon="@drawable/rr_recents_style_icon"
+            android:summary="@string/recent_styles_summary"/>
+
+        <PreferenceScreen
             android:key="recents_ui"
             android:fragment="com.android.settings.rr.RecentsUI"
             android:title="@string/recents_ui_title"

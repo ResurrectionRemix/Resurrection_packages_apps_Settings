@@ -55,6 +55,13 @@
 		android:fragment="com.android.settings.rr.LogoSettings"
 		android:icon="@drawable/rr_statusbar_logo_icon" />
 
+    <PreferenceScreen
+        android:key="custom_logo"
+        android:title="@string/sb_custom_logos"
+        android:summary="@string/sb_custom_logos_summary"
+		android:fragment="com.android.settings.rr.CustomLogo"
+		android:icon="@drawable/rr_custom_logo_icon" />
+
      <PreferenceScreen
         android:key="rr_icons"
 		android:fragment="com.android.settings.rr.StatusBarIcons"
