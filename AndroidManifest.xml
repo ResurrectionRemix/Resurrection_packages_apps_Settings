@@ -2373,9 +2373,11 @@
             android:theme="@style/CryptKeeperBlankTheme"
         />
 
+       <!-- GA -->
         <activity android:name=".rr.gesture.GestureAnywhereBuilderActivity" />
         <activity android:name=".rr.gesture.GestureAnywhereCreateGestureActivity" />   
 
+       <!-- Mainsettings -->
         <activity android:name="Settings$MainSettingsLayoutActivity"
                 android:label="@string/rr_title"
                 android:icon="@drawable/rr_main_conf_icon"
@@ -2391,6 +2393,7 @@
                 android:resource="@string/rr_config_main_title" />
         </activity>
 
+       <!-- About RR -->
 	    <activity android:name="Settings$AboutSettingsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -2399,6 +2402,18 @@
 		<meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.rr.About" />
 		</activity>
+
+       <!-- Expanded Desktop -->
+        <activity android:name="Settings$ExpandedDesktopSettingsActivity"
+                android:label="@string/expanded_desktop_title"
+                android:excludeFromRecents="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.DEFAULT" />
+             </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.ExpandedDesktopPreferenceFragment" />
+        </activity>
 
         <!-- PA Pie settings activity. -->
         <activity android:name="Settings$PieControlSettingsActivity"

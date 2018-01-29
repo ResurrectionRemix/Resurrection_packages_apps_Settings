@@ -139,7 +139,7 @@ import com.android.settings.rr.fragments.PulseSettings;
 import com.android.settings.rr.fragments.SmartbarSettings;
 import com.android.settings.rr.About;
 import com.android.settings.rr.pie.PieSettings;
-
+import com.android.settings.rr.ExpandedDesktopPreferenceFragment;
 
 
 public class SettingsGateway {
@@ -269,7 +269,8 @@ public class SettingsGateway {
             SmartbarSettings.class.getName(),
             PulseSettings.class.getName(),
             About.class.getName(),
-            PieSettings.class.getName()
+            PieSettings.class.getName(),
+            ExpandedDesktopPreferenceFragment.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -314,6 +315,7 @@ public class SettingsGateway {
             Settings.SmartbarSettingsActivity.class.getName(),
             Settings.PulseSettingsActivity.class.getName(),
             Settings.AboutSettingsActivity.class.getName(),
-            Settings.PieControlSettingsActivity.class.getName()
+            Settings.PieControlSettingsActivity.class.getName(),
+            Settings.ExpandedDesktopSettingsActivity.class.getName()
     };
 }
