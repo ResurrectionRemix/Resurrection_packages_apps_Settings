@@ -35,17 +35,13 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import com.android.settings.SettingsPreferenceFragment;
 
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
-
 public class CustomLogo extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
     public static final String TAG = "Logo";
 
-    private static final String KEY_CUSTOM_LOGO_COLOR = "custom_logo_color";
     private static final String KEY_CUSTOM_LOGO_STYLE = "custom_logo_style";
     private static final String KEY_CUSTOM_LOGO_POS = "custom_logo_position";
 
-    private ColorPickerPreference mCustomLogoColor;
     private ListPreference mCustomLogoStyle;
     private ListPreference mCustomLogoPos;
 
@@ -56,16 +52,6 @@ public class CustomLogo extends SettingsPreferenceFragment implements Preference
         addPreferencesFromResource(R.xml.custom_logo);
 
         PreferenceScreen prefSet = getPreferenceScreen();
-
-        // custom logo color
-        mCustomLogoColor =
-            (ColorPickerPreference) prefSet.findPreference(KEY_CUSTOM_LOGO_COLOR);
-        mCustomLogoColor.setOnPreferenceChangeListener(this);
-        int intColor = Settings.System.getInt(getContentResolver(),
-                Settings.System.CUSTOM_LOGO_COLOR, 0xffffffff);
-        String hexColor = String.format("#%08x", (0xffffffff & intColor));
-            mCustomLogoColor.setSummary(hexColor);
-            mCustomLogoColor.setNewPreviewColor(intColor);
 
 
             mCustomLogoStyle = (ListPreference) findPreference(KEY_CUSTOM_LOGO_STYLE);
@@ -86,16 +72,9 @@ public class CustomLogo extends SettingsPreferenceFragment implements Preference
 
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mCustomLogoColor) {
-            String hex = ColorPickerPreference.convertToARGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
-            int intHex = ColorPickerPreference.convertToColorInt(hex);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.CUSTOM_LOGO_COLOR, intHex);
-            return true;
-        }  else if (preference == mCustomLogoStyle) {
+        if (preference == mCustomLogoStyle) {
                 int LogoStyle = Integer.valueOf((String) newValue);
                 int index = mCustomLogoStyle.findIndexOfValue((String) newValue);
                 Settings.System.putIntForUser(getContentResolver(), 

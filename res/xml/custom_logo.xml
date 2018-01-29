@@ -23,33 +23,21 @@
         android:key="custom_logo_cat"
         android:title="@string/sb_custom_logos" />
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="show_custom_logo"
-            android:title="@string/show_custom_logo_title"
-            android:summary="@string/show_custom_logo_summary"
-            android:defaultValue="false" />
-
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="custom_logo_color"
-            android:title="@string/custom_logo_color"
-            android:defaultValue="0xffffffff"
-            android:dependency="show_custom_logo" />
-
-    <ListPreference
-           android:key="custom_logo_style"
-           android:title="@string/custom_logo_style"
-           android:dialogTitle="@string/custom_logos"
-           android:entries="@array/custom_logo_entries"
-           android:entryValues="@array/custom_logo_values"
-           android:dependency="show_custom_logo" />
 
     <ListPreference
            android:key="custom_logo_position"
            android:title="@string/custom_logo_position"
            android:dialogTitle="@string/custom_logo_position"
            android:entries="@array/custom_logo_position_entries"
-           android:entryValues="@array/custom_logo_position_values"
-           android:dependency="show_custom_logo" />
+           android:entryValues="@array/custom_logo_position_values" />
+
+
+    <ListPreference
+           android:key="custom_logo_style"
+           android:title="@string/custom_logo_style"
+           android:dialogTitle="@string/custom_logos"
+           android:entries="@array/custom_logo_entries"
+           android:entryValues="@array/custom_logo_values"/>
 
 </PreferenceScreen>
 
