@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2017 Darkkat
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/status_bar_clock_date_settings_title">
+
+    <ListPreference
+        android:key="clock_date_position"
+        android:dialogTitle="@string/position_title"
+        android:title="@string/position_title"
+        android:entries="@array/clock_date_position_entries"
+        android:entryValues="@array/clock_date_position_values" />
+
+    <SwitchPreference
+        android:key="clock_date_show_seconds"
+        android:title="@string/clock_date_show_seconds_title"
+        android:summary="@string/clock_date_show_seconds_summary" />
+
+    <SwitchPreference
+        android:key="clock_date_show_date"
+        android:title="@string/clock_date_show_date_title"
+        android:summary="@string/clock_date_show_date_summary" />
+
+    <PreferenceCategory
+        android:key="clock_date_cat_date"
+        android:title="@string/clock_date_cat_date_title">
+
+        <ListPreference
+            android:key="clock_date_date_format"
+            android:title="@string/clock_date_date_format_title"
+            android:summary="@string/list_preference_default_summary"
+            android:entries="@array/clock_date_date_format_entries"
+            android:entryValues="@array/clock_date_date_format_values" /> 
+
+        <ListPreference
+            android:key="clock_date_date_style"
+            android:title="@string/clock_date_date_style_title"
+            android:entries="@array/clock_date_date_style_entries"
+            android:entryValues="@array/clock_date_date_style_values" />
+
+        <SwitchPreference
+            android:key="clock_date_date_size_small"
+            android:title="@string/clock_date_date_size_small_title"
+            android:summary="@string/clock_date_date_size_small_summary" />
+
+    </PreferenceCategory>
+</PreferenceScreen>
