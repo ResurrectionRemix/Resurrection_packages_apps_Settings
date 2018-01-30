@@ -16,6 +16,11 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_ls_security" >
 
+       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="lockscreen_quick_unlock_control"
+            android:title="@string/unlock_quick_unlock_control_title"
+            android:summary="@string/unlock_quick_unlock_control_summary" />
+
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="powermenu_lockscreen"
             android:title="@string/powermenu_lockscreen_title"
