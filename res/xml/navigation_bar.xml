@@ -79,11 +79,19 @@
                 android:max="135"
                 settings:min="65"
                 settings:units="%" />
-        <PreferenceScreen
-            android:key="pulse_settings"
-            android:title="@string/pulse_settings"
-            android:summary="@string/pulse_settings_summary"
-            android:fragment="com.android.settings.rr.fragments.PulseSettings" />
+
+          <!-- Dynamic navbar color -->
+          <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+                android:key="navbar_dynamic"
+                android:title="@string/navbar_dynamic_title"
+                android:summary="@string/navbar_dynamic_summary"
+                android:defaultValue="false" />
+
+          <PreferenceScreen
+                android:key="pulse_settings"
+                android:title="@string/pulse_settings"
+                android:summary="@string/pulse_settings_summary"
+                android:fragment="com.android.settings.rr.fragments.PulseSettings" />
 
     </PreferenceCategory>
 </PreferenceScreen>
