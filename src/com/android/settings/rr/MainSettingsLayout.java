@@ -467,7 +467,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                     Settings.System.RR_SETTINGS_TABS_EFFECT, 0,
                     UserHandle.USER_CURRENT);
                 switch (effect) {
-                    case 0:mFab.setVisibility(View.GONE);
+                    case 0:
                         mViewPager.setPageTransformer(true, new DefaultTransformer());
                         break;
                     case 1:
@@ -503,7 +503,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                     case 11:
                         mViewPager.setPageTransformer(true, new ScaleInOutTransformer());
                         break;
-                    case 12:mFab.setVisibility(View.GONE);
+                    case 12:
                         mViewPager.setPageTransformer(true, new StackTransformer());
                         break;
                     case 13:
