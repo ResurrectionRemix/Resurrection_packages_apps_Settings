@@ -132,6 +132,7 @@ import com.android.settings.wifi.WifiInfo;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 
+import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.MainSettingsLayout;
 import com.android.settings.rr.fragments.FlingSettings;
 import com.android.settings.rr.fragments.NavigationBar;
@@ -264,6 +265,7 @@ public class SettingsGateway {
             BluetoothDeviceDetailsFragment.class.getName(),
             DataUsageList.class.getName(),
             MainSettingsLayout.class.getName(),
+            MainSettings.class.getName(),
             NavigationBar.class.getName(),
             FlingSettings.class.getName(),
             SmartbarSettings.class.getName(),
@@ -310,7 +312,7 @@ public class SettingsGateway {
             Settings.DeviceInfoSettingsActivity.class.getName(),
             Settings.EnterprisePrivacySettingsActivity.class.getName(),
             Settings.MainSettingsLayoutActivity.class.getName(),
-            Settings.NavigationSettingsActivity.class.getName(),
+            Settings.MainSettingsActivity.class.getName(),
             Settings.FlingSettingsActivity.class.getName(),
             Settings.SmartbarSettingsActivity.class.getName(),
             Settings.PulseSettingsActivity.class.getName(),

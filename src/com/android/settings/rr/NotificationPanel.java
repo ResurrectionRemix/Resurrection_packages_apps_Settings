@@ -55,6 +55,7 @@ public class NotificationPanel extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String CUSTOM_HEADER_ENABLED = "status_bar_custom_header";
     private static final String FILE_HEADER_SELECT = "file_header_select";
+    private static final String SYSTEMUI_THEME_STYLE = "systemui_theme_style";
 
     private static final int REQUEST_PICK_IMAGE = 0;
 
@@ -66,6 +67,7 @@ public class NotificationPanel extends SettingsPreferenceFragment implements
     private SwitchPreference mHeaderEnabled;
     private Preference mFileHeader;
     private String mFileHeaderProvider;
+    private ListPreference mSystemUIThemeStyle;
 
     @Override
     public int getMetricsCategory() {
@@ -119,6 +121,13 @@ public class NotificationPanel extends SettingsPreferenceFragment implements
 
         mFileHeader = findPreference(FILE_HEADER_SELECT);
         mFileHeader.setEnabled(providerName.equals(mFileHeaderProvider));
+
+        mSystemUIThemeStyle = (ListPreference) findPreference(SYSTEMUI_THEME_STYLE);
+        int systemUIThemeStyle = Settings.System.getInt(resolver,
+                Settings.System.SYSTEM_UI_THEME, 0);
+        mSystemUIThemeStyle.setValue(String.valueOf(systemUIThemeStyle));
+        mSystemUIThemeStyle.setSummary(mSystemUIThemeStyle.getEntry());
+        mSystemUIThemeStyle.setOnPreferenceChangeListener(this);
     }
 
     private void updateHeaderProviderSummary(boolean headerEnabled) {
@@ -169,6 +178,13 @@ public class NotificationPanel extends SettingsPreferenceFragment implements
         } else if (preference == mHeaderEnabled) {
             Boolean headerEnabled = (Boolean) newValue;
             updateHeaderProviderSummary(headerEnabled);
+            return true;
+        } else if (preference == mSystemUIThemeStyle) {
+            String value = (String) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.SYSTEM_UI_THEME, Integer.valueOf(value));
+            int valueIndex = mSystemUIThemeStyle.findIndexOfValue(value);
+            mSystemUIThemeStyle.setSummary(mSystemUIThemeStyle.getEntries()[valueIndex]);
             return true;
         }
         return false;
