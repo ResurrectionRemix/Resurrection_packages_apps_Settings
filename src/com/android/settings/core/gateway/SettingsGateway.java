@@ -148,6 +148,7 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.wifi.savedaccesspoints.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
+import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.MainSettingsLayout;
 
 public class SettingsGateway {
@@ -326,5 +327,6 @@ public class SettingsGateway {
             Settings.ModuleLicensesActivity.class.getName(),
             UserBackupSettingsActivity.class.getName(),
             Settings.MainSettingsLayoutActivity.class.getName(),
+            Settings.MainSettingsActivity.class.getName(),
     };
 }
