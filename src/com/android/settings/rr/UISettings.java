@@ -41,12 +41,10 @@ import com.android.settings.rr.utils.TelephonyUtils;
 public class UISettings extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
     private static final String TAG = "UI";
-    private static final String SYSTEMUI_THEME_STYLE = "systemui_theme_style";
     private static final String RR_FP = "rr_fp";
     private static final String INCALL_VIB_OPTIONS = "rr_incall";
 
     private PreferenceScreen mFpFragment;
-    private ListPreference mSystemUIThemeStyle;
     private FingerprintManager mFingerprintManager;
     private PreferenceScreen mInCallFragment;
 
@@ -64,13 +62,6 @@ public class UISettings extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.rr_ui_settings);
 
-        mSystemUIThemeStyle = (ListPreference) findPreference(SYSTEMUI_THEME_STYLE);
-        int systemUIThemeStyle = Settings.System.getInt(resolver,
-                Settings.System.SYSTEM_UI_THEME, 0);
-        mSystemUIThemeStyle.setValue(String.valueOf(systemUIThemeStyle));
-        mSystemUIThemeStyle.setSummary(mSystemUIThemeStyle.getEntry());
-        mSystemUIThemeStyle.setOnPreferenceChangeListener(this);
-
         mFpFragment = (PreferenceScreen) findPreference(RR_FP);
         if (!mFingerprintManager.isHardwareDetected()) {
             getPreferenceScreen().removePreference(mFpFragment);
@@ -85,15 +76,6 @@ public class UISettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-		ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mSystemUIThemeStyle) {
-            String value = (String) newValue;
-            Settings.System.putInt(resolver,
-                    Settings.System.SYSTEM_UI_THEME, Integer.valueOf(value));
-            int valueIndex = mSystemUIThemeStyle.findIndexOfValue(value);
-            mSystemUIThemeStyle.setSummary(mSystemUIThemeStyle.getEntries()[valueIndex]);
-            return true;
-        }
         return false;
     }
 }

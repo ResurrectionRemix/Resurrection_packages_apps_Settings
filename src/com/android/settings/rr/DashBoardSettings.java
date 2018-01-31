@@ -86,13 +86,13 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         final ContentResolver resolver = getActivity().getContentResolver();
            if (preference == mConfig) {
+            int style = Integer.parseInt((String) objValue);
             Settings.System.putInt(getContentResolver(), Settings.System.RR_CONFIG_STYLE,
             Integer.valueOf((String) objValue));
             mConfig.setValue(String.valueOf(objValue));
             mConfig.setSummary(mConfig.getEntry());
-            finish();
             Intent fabIntent = new Intent();
-            fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$MainSettingsLayoutActivity");
+            fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$MainSettingsActivity");
             startActivity(fabIntent);
             return true;
         } /*else if (preference == mDashboardPortraitColumns) {
