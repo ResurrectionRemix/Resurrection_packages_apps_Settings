@@ -28,23 +28,31 @@
 
        <com.android.settings.applications.LayoutPreference
             android:key="rr_lockscreen"
-            android:title="@string/rr_lockscreen_title"
 	   	    android:fragment="com.android.settings.rr.LockScreenSettings" 
 	   		android:layout="@layout/rr_lockscreen_layout" />
+
+       <com.android.settings.applications.LayoutPreference
+            android:key="font_size"
+            android:fragment="com.android.settings.accessibility.ToggleFontSizePreferenceFragment"
+            android:layout="@layout/rr_font_size_layout"  />
+
+        <com.android.settings.display.ScreenZoomPreference
+            android:key="screen_zoom"
+            android:layout="@layout/rr_density_layout" />
 
        <com.android.settings.applications.LayoutPreference
             android:key="pa_pie_control"
             android:fragment="com.android.settings.rr.pie.PieSettings"
             android:layout="@layout/rr_pie_layout" />
 
-    <!-- Gesture anywhere -->
-    <com.android.settings.applications.LayoutPreference
+       <!-- Gesture anywhere -->
+       <com.android.settings.applications.LayoutPreference
             android:key="gesture_anywhere"
             android:fragment="com.android.settings.rr.gesture.GestureAnywhereSettings"
             android:layout="@layout/rr_gesture_anywhere_layout" />
 
-    <!-- App Circle Bar -->
-    <com.android.settings.applications.LayoutPreference
+       <!-- App Circle Bar -->
+       <com.android.settings.applications.LayoutPreference
             android:key="app_circle_bar"
             android:fragment="com.android.settings.rr.AppCircleBar"
             android:layout="@layout/rr_appcirclebar_layout"/>
