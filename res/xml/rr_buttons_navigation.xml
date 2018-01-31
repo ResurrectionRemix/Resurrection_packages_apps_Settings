@@ -23,14 +23,22 @@
         android:layout="@layout/rr_buttons_layout" />
 
     <com.android.settings.applications.LayoutPreference
+        android:key="power_menu"
+        android:layout="@layout/rr_power_menu_layout"
+        android:fragment="com.android.settings.rr.PowerMenuSettings" />
+
+    <com.android.settings.applications.LayoutPreference
         android:key="navbar_category"
         android:fragment="com.android.settings.rr.fragments.NavigationBar"
         android:layout="@layout/rr_navbar_layout" />
 
     <com.android.settings.applications.LayoutPreference
-        android:key="power_menu"
-        android:layout="@layout/rr_power_menu_layout"
-        android:fragment="com.android.settings.rr.PowerMenuSettings" />
+            android:key="stock"
+            android:layout="@layout/rr_stock_navbar_layout">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.NavBarActivity" />
+     </com.android.settings.applications.LayoutPreference>
 
     <com.android.settings.applications.LayoutPreference
         android:key="smartbar_settings"
