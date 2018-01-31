@@ -48,7 +48,7 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_interface_other_settings);
         mConfig = (SwitchPreference) findPreference(RR_OTA);
         mConfig.setChecked((Settings.System.getInt(getContentResolver(),
-                            Settings.System.RR_OTA_FAB, 0) == 1));
+                            Settings.System.RR_OTA_FAB, 1) == 1));
         mConfig.setOnPreferenceChangeListener(this);
     }
 
