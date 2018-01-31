@@ -92,7 +92,7 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
             mConfig.setValue(String.valueOf(objValue));
             mConfig.setSummary(mConfig.getEntry());
             Intent fabIntent = new Intent();
-            fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$MainSettingsActivity");
+            fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$MainSettingsLayoutActivity");
             startActivity(fabIntent);
             return true;
         } /*else if (preference == mDashboardPortraitColumns) {
