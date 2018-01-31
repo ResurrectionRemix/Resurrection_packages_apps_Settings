@@ -38,7 +38,7 @@ import com.android.settings.applications.LayoutPreference;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.rr.utils.TelephonyUtils;
+//import com.android.settings.rr.utils.TelephonyUtils;
 
 public class UISettingsNav extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
@@ -65,14 +65,15 @@ public class UISettingsNav extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_ui_settings_navigation);
 
         mFpFragment = (LayoutPreference) findPreference(RR_FP);
-        if (!mFingerprintManager.isHardwareDetected()) {
+        if (mFingerprintManager == null) {
             getPreferenceScreen().removePreference(mFpFragment);
         }
 
         mInCallFragment = (LayoutPreference) findPreference(INCALL_VIB_OPTIONS);
+       /*
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
             getPreferenceScreen().removePreference(mInCallFragment);
-        }
+        } */
 
     }
 
