@@ -27,6 +27,24 @@
         android:summary="@string/lockscreen_maxnotif_summary"
         android:defaultValue="false" />
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="hide_lockscreen_clock"
+        android:title="@string/hide_lockscreen_clock_title"
+        android:summary="@string/hide_lockscreen_clock_summary"
+        android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="hide_lockscreen_date"
+        android:title="@string/hide_lockscreen_date_title"
+        android:summary="@string/hide_lockscreen_date_summary"
+        android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="hide_lockscreen_alarm"
+        android:title="@string/hide_lockscreen_alarm_title"
+        android:summary="@string/hide_lockscreen_alarm_summary"
+        android:defaultValue="true" />
+
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="lockscreen_max_notif_config"
         android:title="@string/lockscreen_maxnotif_config"
