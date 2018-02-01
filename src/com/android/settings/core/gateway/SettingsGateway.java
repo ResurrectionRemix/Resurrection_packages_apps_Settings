@@ -313,6 +313,7 @@ public class SettingsGateway {
             Settings.EnterprisePrivacySettingsActivity.class.getName(),
             Settings.MainSettingsLayoutActivity.class.getName(),
             Settings.MainSettingsActivity.class.getName(),
+            Settings.NavigationSettingsActivity.class.getName(),
             Settings.FlingSettingsActivity.class.getName(),
             Settings.SmartbarSettingsActivity.class.getName(),
             Settings.PulseSettingsActivity.class.getName(),
