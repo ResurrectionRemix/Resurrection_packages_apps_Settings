@@ -102,6 +102,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     LayoutInflater mInflater;
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
+    private int mNavColor;
+    private boolean mNavColorEnabled;
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mStyle = Settings.System.getInt(getActivity().getContentResolver(),
@@ -247,8 +249,15 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         view = mInflater.inflate(R.layout.main_settings_navigation, mContainer, false);
         final BottomNavigationViewCustom navigation = view.findViewById(R.id.navigation);
         mViewPager = view.findViewById(R.id.viewpager);
-
-        navigation.setBackground(new ColorDrawable(getResources().getColor(R.color.BottomBarBackgroundColor)));
+        mNavColor = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.RR_CONFIG_NAVIGATION_COLOR, getResources().getColor(R.color.BottomBarBackgroundColor));
+        mNavColorEnabled = Settings.System.getInt(getActivity().getContentResolver(),
+                    Settings.System.RR_CONFIG_NAVIGATION_COLOR_ENABLE, 0) == 1;
+        if (mNavColorEnabled) {
+            navigation.setBackground(new ColorDrawable(mNavColor));
+        } else {
+            navigation.setBackground(new ColorDrawable(getResources().getColor(R.color.BottomBarBackgroundColor)));
+        }
         mPagerAdapter = new PagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mPagerAdapter);
         ContentResolver resolver = getActivity().getContentResolver();
