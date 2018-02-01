@@ -66,6 +66,13 @@
             android:icon="@drawable/rr_sound_icon"
             />
 
+        <PreferenceScreen
+            android:key="rr_themes"
+            android:title="@string/rr_theme_title"
+            android:summary="@string/rr_theme_summary"
+            android:fragment="com.android.settings.rr.ThemeSettings" 
+            android:icon="@drawable/rr_sysui_theme_icon" />
+
         <Preference
             android:key="expanded_desktop"
             android:title="@string/power_menu_expanded_desktop"
