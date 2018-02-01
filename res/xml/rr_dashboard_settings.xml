@@ -31,6 +31,18 @@
             	android:entryValues="@array/rr_config_style_values" />
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+                android:key="rr_config_navigation_color_enable"
+                android:title="@string/rr_config_navigation_color_enable_title"
+                android:summary="@string/rr_config_navigation_color_enabled"
+                android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+            	android:key="rr_config_navigation_color"
+            	android:title="@string/rr_config_navigation_color_title"
+            	android:defaultValue="0xffffffff"
+                android:dependency="rr_config_navigation_color_enable" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="enable_conditions"
                 android:title="@string/dashboard_conditions_title"
                 android:summaryOn="@string/summary_dashboard_conditions_enabled"
