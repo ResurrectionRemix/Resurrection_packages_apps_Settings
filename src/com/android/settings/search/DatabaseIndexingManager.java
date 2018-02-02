@@ -101,7 +101,7 @@ public class DatabaseIndexingManager {
                 mContext.getPackageManager().queryIntentContentProviders(intent, 0);
 
         final String localeStr = Locale.getDefault().toString();
-        final String fingerprint = Build.FINGERPRINT;
+        final String fingerprint = Build.DATE;
         final String providerVersionedNames =
                 IndexDatabaseHelper.buildProviderVersionedNames(providers);
 
