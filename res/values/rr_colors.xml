@@ -73,31 +73,34 @@
     <color name="switch_accent_color">@color/theme_accent</color>
 
     <!-- RR Configuration tab settings colors -->
-    <color name="card_background">#fffafafa</color>
-    <color name="card_background_grey">#eeeeee</color>
-    <color name="fab_label_background">@color/card_background</color>
-    <color name="secondary_text">@*android:color/secondary_text_default_material_light</color>
+    <color name="card_background">@color/suggestion_condition_background</color>
+    <color name="card_background_grey">@color/suggestion_condition_background</color>
+    <color name="fab_label_background">@color/condition_card_background</color>
+    <color name="secondary_text">@color/bottom_nav_text_icon_inactive</color>
     <color name="fab_button_icon_color">#FFFFFF</color>
     <color name="fab_rr_color_ripple">#ff7a7a7a</color>
     <color name="fab_rr_bg">@color/theme_accent</color>
     <color name="fab_shape">@color/theme_accent</color>
-    <color name="fab_gradient_overlay_start">@color/card_background_grey</color>
-    <color name="fab_gradient_overlay_center">@color/card_background_grey</color>
-    <color name="fab_gradient_overlay_end">@color/card_background_grey</color>
-    <color name="rr_config_tab_color">@*android:color/secondary_device_default_settings_light</color><!-- Tab bg color -->
-    <color name="rr_config_tab_text_color">@*android:color/secondary_text_default_material_light</color>
-    <color name="rr_config_icon_tint">?android:attr/colorControlNormal</color>
+    <color name="fab_gradient_overlay_start">@color/suggestion_condition_background</color>
+    <color name="fab_gradient_overlay_center">@color/suggestion_condition_background</color>
+    <color name="fab_gradient_overlay_end">@color/suggestion_condition_background</color>
+    <color name="rr_config_tab_color">@color/suggestion_condition_background</color><!-- Top tab bg color -->
+    <color name="rr_config_tab_text_color">@color/bottom_nav_text_icon_inactive</color>
+    <color name="rr_config_icon_tint">?android:attr/colorControlNormal</color><!-- All configurations icon colors -->
 
     <!-- RR configurations Bottom navigation -->
-    <color name="preference_background_color">#ffeeeeee</color>
-    <color name="BottomBarBackgroundColor">@android:color/white</color>
+    <color name="preference_background_color">@color/condition_card_background</color><!-- Tiles bg color -->
+    <color name="BottomBarBackgroundColor">@color/suggestion_condition_background</color><!-- Bottom tab bg color -->
     <color name="bottom_nav_text_icon_active">@color/theme_accent</color>
     <color name="bottom_nav_text_icon_inactive">@*android:color/hint_foreground_light</color>
 
     <color name="fab_ripple">#1fffffff</color><!-- 12% white -->
-
+    
+    <!-- Multi SİM color picker and spinner text color-->
+    <color name="sim_color_picker_text">@color/bottom_nav_text_icon_inactive</color>
+    
     <!-- Expanded desktop -->
-    <drawable name="expanded_item_bg_activated">#ffEEEEEE</drawable>
+    <drawable name="expanded_item_bg_activated">@color/condition_card_background</drawable>
     <drawable name="expanded_item_bg">@android:color/background_light</drawable>
     <color name="expanded_button_color_normal">@*android:color/accent_material_light</color>
     <color name="expanded_button_color_close">@*android:color/accent_material_light</color>
