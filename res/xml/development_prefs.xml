@@ -121,6 +121,16 @@
             android:targetClass="com.android.settings.qstile.DevelopmentTileConfigActivity" />
     </Preference>
 
+    <ListPreference
+        android:key="root_access"
+        android:title="@string/root_access"
+        android:persistent="false" />
+
+    <Preference
+        android:key="root_appops"
+        android:title="@string/root_appops_title"
+        android:summary="@string/root_appops_summary" />
+
     <PreferenceCategory android:key="debug_debugging_category"
             android:title="@string/debug_debugging_category">
 

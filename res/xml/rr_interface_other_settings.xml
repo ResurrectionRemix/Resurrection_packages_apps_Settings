@@ -18,7 +18,6 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    xmlns:cm="http://schemas.android.com/apk/res/cyanogenmod.platform"
     android:title="@string/interface_other_title">
 
 
@@ -50,11 +49,11 @@
             android:defaultValue="false" 
             android:icon="@drawable/rr_three_finger_gesture_icon"/>
 
-
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="sensor_block"
             android:title="@string/sensor_block_title"
             android:summary="@string/sensor_block_summary"
+            android:icon="@drawable/rr_sensor_icon"
             android:defaultValue="false" />
 
 </PreferenceScreen>

@@ -34,9 +34,6 @@ import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 
 public class QsLayout extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String PREF_COLUMNS = "qs_layout_columns";
-
-    private CustomSeekBarPreference mQsColumns;
 
     @Override
     public int getMetricsCategory() {
@@ -52,26 +49,10 @@ public class QsLayout extends SettingsPreferenceFragment implements
 		int defaultValue;
 		PreferenceScreen prefs = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
-
-        mQsColumns = (CustomSeekBarPreference) findPreference(PREF_COLUMNS);
-        int columnsQs = Settings.Secure.getInt(resolver,
-                Settings.Secure.QS_LAYOUT_COLUMNS, 3);
-        mQsColumns.setValue(columnsQs / 1);
-        mQsColumns.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-		int intValue;
-        int index;
-		ContentResolver resolver = getActivity().getContentResolver();
-		final Resources res = getResources();
-        if (preference == mQsColumns) {
-            int qsColumns = (Integer) objValue;
-            Settings.Secure.putInt(getActivity().getContentResolver(),
-                    Settings.Secure.QS_LAYOUT_COLUMNS, qsColumns * 1);
-            return true;
-        }
         return false;
     }
 }

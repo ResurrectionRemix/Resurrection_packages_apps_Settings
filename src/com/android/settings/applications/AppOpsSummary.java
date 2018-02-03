@@ -1,5 +1,6 @@
 /**
  * Copyright (C) 2013 The Android Open Source Project
+ * Copyright (C) 2016 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy
@@ -16,20 +17,37 @@
 
 package com.android.settings.applications;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AppOpsManager;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.res.TypedArray;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.res.Resources;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceFrameLayout;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
+import android.util.Pair;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.core.InstrumentedPreferenceFragment;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import com.android.settings.development.DevelopmentSettings;
 import com.android.settings.R;
 
 public class AppOpsSummary extends InstrumentedPreferenceFragment {
@@ -40,41 +58,40 @@ public class AppOpsSummary extends InstrumentedPreferenceFragment {
     private View mRootView;
     private ViewPager mViewPager;
 
-    CharSequence[] mPageNames;
-    static AppOpsState.OpsTemplate[] sPageTemplates = new AppOpsState.OpsTemplate[] {
-        AppOpsState.LOCATION_TEMPLATE,
-        AppOpsState.PERSONAL_TEMPLATE,
-        AppOpsState.MESSAGING_TEMPLATE,
-        AppOpsState.MEDIA_TEMPLATE,
-        AppOpsState.DEVICE_TEMPLATE
-    };
+    private MyPagerAdapter mAdapter;
 
-    int mCurPos;
+    private Activity mActivity;
+    private SharedPreferences mPreferences;
 
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.APP_OPS_SUMMARY;
     }
 
-    class MyPagerAdapter extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
+    static class MyPagerAdapter extends FragmentPagerAdapter
+            implements ViewPager.OnPageChangeListener {
+        private List<Pair<CharSequence, AppOpsState.OpsTemplate>> mPageData;
+        private int mCurPos;
 
-        public MyPagerAdapter(FragmentManager fm) {
+        public MyPagerAdapter(FragmentManager fm,
+                List<Pair<CharSequence, AppOpsState.OpsTemplate>> data) {
             super(fm);
+            mPageData = data;
         }
 
         @Override
         public Fragment getItem(int position) {
-            return new AppOpsCategory(sPageTemplates[position]);
+            return new AppOpsCategory(mPageData.get(position).second);
         }
 
         @Override
         public int getCount() {
-            return sPageTemplates.length;
+            return mPageData.size();
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return mPageNames[position];
+            return mPageData.get(position).first;
         }
 
         @Override
@@ -86,12 +103,24 @@ public class AppOpsSummary extends InstrumentedPreferenceFragment {
             mCurPos = position;
         }
 
+        public int getCurrentPage() {
+            return mCurPos;
+        }
+
         @Override
         public void onPageScrollStateChanged(int state) {
             if (state == ViewPager.SCROLL_STATE_IDLE) {
                 //updateCurrentTab(mCurPos);
             }
         }
+    }
+
+    private void resetAdapter() {
+        // trigger adapter load, preserving the selected page
+        int curPos = mAdapter.getCurrentPage();
+        mViewPager.setAdapter(mAdapter);
+        mViewPager.setOnPageChangeListener(mAdapter);
+        mViewPager.setCurrentItem(curPos);
     }
 
     @Override
@@ -104,22 +133,36 @@ public class AppOpsSummary extends InstrumentedPreferenceFragment {
         mContentContainer = container;
         mRootView = rootView;
 
-        mPageNames = getResources().getTextArray(R.array.app_ops_categories);
+        CharSequence[] pageNames = getResources().getTextArray(R.array.app_ops_categories_lineage);
+        AppOpsState.OpsTemplate[] templates = AppOpsState.ALL_PERMS_TEMPLATES;
+        assert(pageNames.length == templates.length);
+
+        int specificTab = -1;
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            specificTab = Arrays.asList(pageNames).indexOf(bundle.getString("appops_tab", ""));
+        }
+
+        List<Pair<CharSequence, AppOpsState.OpsTemplate>> pageData = new ArrayList<>();
+        for (int i = 0; i < pageNames.length; i++) {
+            pageData.add(Pair.create(pageNames[i], templates[i]));
+        }
+        filterPageData(pageData, specificTab);
 
         mViewPager = (ViewPager) rootView.findViewById(R.id.pager);
-        MyPagerAdapter adapter = new MyPagerAdapter(getChildFragmentManager());
-        mViewPager.setAdapter(adapter);
-        mViewPager.setOnPageChangeListener(adapter);
+        mAdapter = new MyPagerAdapter(getChildFragmentManager(), pageData);
+        mViewPager.setAdapter(mAdapter);
+        mViewPager.setOnPageChangeListener(mAdapter);
         PagerTabStrip tabs = (PagerTabStrip) rootView.findViewById(R.id.tabs);
 
-        // This should be set in the XML layout, but PagerTabStrip lives in
-        // support-v4 and doesn't have styleable attributes.
-        final TypedArray ta = tabs.getContext().obtainStyledAttributes(
-                new int[] { android.R.attr.colorAccent });
-        final int colorAccent = ta.getColor(0, 0);
-        ta.recycle();
+        // HACK - https://code.google.com/p/android/issues/detail?id=213359
+        ((ViewPager.LayoutParams)tabs.getLayoutParams()).isDecor = true;
 
-        tabs.setTabIndicatorColorResource(colorAccent);
+        Resources.Theme theme = tabs.getContext().getTheme();
+        TypedValue typedValue = new TypedValue();
+        theme.resolveAttribute(android.R.attr.colorAccent, typedValue, true);
+        final int colorAccent = getContext().getColor(typedValue.resourceId);
+        tabs.setTabIndicatorColor(colorAccent);
 
         // We have to do this now because PreferenceFrameLayout looks at it
         // only when the view is added.
@@ -127,6 +170,103 @@ public class AppOpsSummary extends InstrumentedPreferenceFragment {
             ((PreferenceFrameLayout.LayoutParams) rootView.getLayoutParams()).removeBorders = true;
         }
 
+        mActivity = getActivity();
+
         return rootView;
+    }
+
+    private void filterPageData(List<Pair<CharSequence, AppOpsState.OpsTemplate>> data, int tab) {
+        if (tab >= 0 && tab < data.size()) {
+            Pair<CharSequence, AppOpsState.OpsTemplate> item = data.get(tab);
+            data.clear();
+            data.add(item);
+        } else if (!DevelopmentSettings.isRootForAppsEnabled()) {
+            for (Pair<CharSequence, AppOpsState.OpsTemplate> item : data) {
+                if (item.second == AppOpsState.SU_TEMPLATE) {
+                    data.remove(item);
+                    return;
+                }
+            }
+        }
+    }
+
+    private boolean shouldShowUserApps() {
+        return mPreferences.getBoolean("show_user_apps", true);
+    }
+
+    private boolean shouldShowSystemApps() {
+        return mPreferences.getBoolean("show_system_apps", true);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        // get shared preferences
+        mPreferences = mActivity.getSharedPreferences("appops_manager", Activity.MODE_PRIVATE);
+
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.appops_manager, menu);
+        menu.findItem(R.id.show_user_apps).setChecked(shouldShowUserApps());
+        menu.findItem(R.id.show_system_apps).setChecked(shouldShowSystemApps());
+    }
+
+    private void resetCounters() {
+        final AppOpsManager appOps =
+                (AppOpsManager) mActivity.getSystemService(Context.APP_OPS_SERVICE);
+        if (appOps == null) {
+            return;
+        }
+        appOps.resetCounters();
+        // reload content
+        resetAdapter();
+    }
+
+    private void resetCountersConfirm() {
+        new AlertDialog.Builder(getActivity())
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .setTitle(R.string.app_ops_reset_confirm_title)
+            .setMessage(R.string.app_ops_reset_confirm_mesg)
+            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        resetCounters();
+                    }
+                })
+            .setNegativeButton(android.R.string.cancel, null)
+            .show();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.show_user_apps:
+                final String prefNameUserApps = "show_user_apps";
+                // set the menu checkbox and save it in shared preference
+                item.setChecked(!item.isChecked());
+                mPreferences.edit().putBoolean(prefNameUserApps, item.isChecked()).commit();
+                // reload content
+                resetAdapter();
+                return true;
+            case R.id.show_system_apps:
+                final String prefNameSysApps = "show_system_apps";
+                // set the menu checkbox and save it in shared preference
+                item.setChecked(!item.isChecked());
+                mPreferences.edit().putBoolean(prefNameSysApps, item.isChecked()).commit();
+                // reload view content
+                resetAdapter();
+                return true;
+            case R.id.reset_counters:
+                resetCountersConfirm();
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
     }
 }
