@@ -167,5 +167,6 @@ public class Settings extends SettingsActivity {
     public static class SystemDashboardActivity extends SettingsActivity {}
 
     public static class MainSettingsLayoutActivity extends SettingsActivity { /* empty */ }
+    public static class AboutSettingsActivity extends SettingsActivity { /* empty */ }
 
 }

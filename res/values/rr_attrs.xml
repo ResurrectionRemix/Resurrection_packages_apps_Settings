@@ -178,4 +178,16 @@
         <attr name="useDefaultController" format="boolean" />
     </declare-styleable>
 
+    <!-- DevicePreference -->
+    <declare-styleable name="DevicePreference">
+        <attr name="codename" format="string" />
+        <attr name="maintainer" format="string" />
+        <attr name="type" format="integer">
+            <enum name="phone" value="0" />
+            <enum name="tablet" value="1" />
+            <enum name="other" value="2" />
+        </attr>
+    </declare-styleable>
+
+
 </resources>

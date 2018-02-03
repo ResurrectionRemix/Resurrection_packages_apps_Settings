@@ -1,0 +1,1581 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:title="Tmp">
+    <Preference
+         style="?android:preferenceInformationStyle"
+         android:title="@string/maintainers_note_title"
+         android:summary="@string/maintainers_note_title_summary"
+         android:selectable="false" />
+
+    <PreferenceCategory
+        android:id="@+id/device_category_generic"
+	android:title="@string/device_category_generic_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_genericarm64aonly"
+            android:title="@string/device_genericarm64aonly"
+            app:codename="@string/device_genericarm64aonly_codename"
+            app:maintainer="@string/device_genericarm64aonly_maintainer"
+	    app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_genericarm64ab"
+            android:title="@string/device_genericarm64ab"
+            app:codename="@string/device_genericarm64ab_codename"
+            app:maintainer="@string/device_genericarm64ab_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_genericarmaonly"
+            android:title="@string/device_genericarmaonly"
+            app:codename="@string/device_genericarmaonly_codename"
+            app:maintainer="@string/device_genericarmaonly_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_generichkirin"
+            android:title="@string/device_generichkirin"
+            app:codename="@string/device_generichkirin_codename"
+            app:maintainer="@string/device_generichkirin_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_lg"
+        android:title="@string/device_category_lg_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_bullhead"
+            android:title="@string/device_bullhead"
+            app:codename="@string/device_bullhead_codename"
+            app:maintainer="@string/device_bullhead_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g5"
+            android:title="@string/device_g5"
+            app:codename="@string/device_g5_codename"
+            app:maintainer="@string/device_g5_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g5_tmo"
+            android:title="@string/device_g5_tmo"
+            app:codename="@string/device_g5_tmo_codename"
+            app:maintainer="@string/device_g5_tmo_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g4"
+            android:title="@string/device_g4"
+            app:codename="@string/device_g4_codename"
+            app:maintainer="@string/device_g4_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g2_vs980"
+            android:title="@string/device_g2_vs980"
+            app:codename="@string/device_g2_vs980_codename"
+            app:maintainer="@string/device_g2_vs980_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g3"
+            android:title="@string/device_g3"
+            app:codename="@string/device_g3_codename"
+            app:maintainer="@string/device_g3_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g3_tmo"
+            android:title="@string/device_g3_tmo"
+            app:codename="@string/device_g3_tmo_codename"
+            app:maintainer="@string/device_g3_tmo_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_att_g3"
+            android:title="@string/device_att_g3"
+            app:codename="@string/device_att_g3_codename"
+            app:maintainer="@string/device_att_g3_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g3_kr"
+            android:title="@string/device_g3_kr"
+            app:codename="@string/device_g3_kr_codename"
+            app:maintainer="@string/device_g3_kr_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g3_spr"
+            android:title="@string/device_g3_spr"
+            app:codename="@string/device_g3_spr_codename"
+            app:maintainer="@string/device_g3_spr_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g3_vzw"
+            android:title="@string/device_g3_vzw"
+            app:codename="@string/device_g3_vzw_codename"
+            app:maintainer="@string/device_g3_vzw_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g3_beat"
+            android:title="@string/device_g3_beat"
+            app:codename="@string/device_g3_beat_codename"
+            app:maintainer="@string/device_g3_beat_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g2"
+            android:title="@string/device_g2"
+            app:codename="@string/device_g2_codename"
+            app:maintainer="@string/device_g2_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g2_spr"
+            android:title="@string/device_g2_spr"
+            app:codename="@string/device_g2_spr_codename"
+            app:maintainer="@string/device_g2_spr_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_g2m"
+            android:title="@string/device_g2m"
+            app:codename="@string/device_g2m_codename"
+            app:maintainer="@string/device_g2m_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_n5"
+            android:title="@string/device_n5"
+            app:codename="@string/device_n5_codename"
+            app:maintainer="@string/device_n5_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_n4"
+            android:title="@string/device_n4"
+            app:codename="@string/device_n4_codename"
+            app:maintainer="@string/device_n4_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_l9"
+            android:title="@string/device_l9"
+            app:codename="@string/device_l9_codename"
+            app:maintainer="@string/device_l9_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_og"
+            android:title="@string/device_og"
+            app:codename="@string/device_og_codename"
+            app:maintainer="@string/device_og_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_o4x"
+            android:title="@string/device_o4x"
+            app:codename="@string/device_o4x_codename"
+            app:maintainer="@string/device_o4x_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_v521"
+            android:title="@string/device_v521"
+            app:codename="@string/device_v521_codename"
+            app:maintainer="@string/device_v521_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_l70pn"
+            android:title="@string/device_l70pn"
+            app:codename="@string/device_l70pn_codename"
+            app:maintainer="@string/device_l70pn_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_motorola"
+        android:title="@string/device_category_motorola_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_n6"
+            android:title="@string/device_n6"
+            app:codename="@string/device_n6_codename"
+            app:maintainer="@string/device_n6_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_falcon"
+            android:title="@string/device_falcon"
+            app:codename="@string/device_falcon_codename"
+            app:maintainer="@string/device_falcon_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_condor"
+            android:title="@string/device_condor"
+            app:codename="@string/device_condor_codename"
+            app:maintainer="@string/device_condor_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_otus"
+            android:title="@string/device_otus"
+            app:codename="@string/device_otus_codename"
+            app:maintainer="@string/device_otus_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_surnia"
+            android:title="@string/device_surnia"
+            app:codename="@string/device_surnia_codename"
+            app:maintainer="@string/device_surnia_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_peregrine"
+            android:title="@string/device_peregrine"
+            app:codename="@string/device_peregrine_codename"
+            app:maintainer="@string/device_peregrine_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_merlin"
+            android:title="@string/device_merlin"
+            app:codename="@string/device_merlin_codename"
+            app:maintainer="@string/device_merlin_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_moto_x14"
+            android:title="@string/device_moto_x14"
+            app:codename="@string/device_moto_x14_codename"
+            app:maintainer="@string/device_moto_x14_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_moto_x"
+            android:title="@string/device_moto_x"
+            app:codename="@string/device_moto_x_codename"
+            app:maintainer="@string/device_moto_x_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_moto_x_clark"
+            android:title="@string/device_moto_x_clark"
+            app:codename="@string/device_moto_x_clark_codename"
+            app:maintainer="@string/device_moto_x_clark_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_titan"
+            android:title="@string/device_titan"
+            app:codename="@string/device_titan_codename"
+            app:maintainer="@string/device_titan_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_thea"
+            android:title="@string/device_thea"
+            app:codename="@string/device_thea_codename"
+            app:maintainer="@string/device_thea_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_osprey"
+            android:title="@string/device_osprey"
+            app:codename="@string/device_osprey_codename"
+            app:maintainer="@string/device_osprey_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_athene"
+            android:title="@string/device_athene"
+            app:codename="@string/device_athene_codename"
+            app:maintainer="@string/device_athene_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_potter"
+            android:title="@string/device_potter"
+            app:codename="@string/device_potter_codename"
+            app:maintainer="@string/device_potter_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_sanders"
+            android:title="@string/device_sanders"
+            app:codename="@string/device_sanders_codename"
+            app:maintainer="@string/device_sanders_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_lux_x"
+            android:title="@string/device_lux_x"
+            app:codename="@string/device_lux_x_codename"
+            app:maintainer="@string/device_lux_x_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_quark"
+            android:title="@string/device_quark"
+            app:codename="@string/device_quark_codename"
+            app:maintainer="@string/device_quark_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_harpia"
+            android:title="@string/device_harpia"
+            app:codename="@string/device_harpia_codename"
+            app:maintainer="@string/device_harpia_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_taido_row"
+            android:title="@string/device_taido_row"
+            app:codename="@string/device_taido_row_codename"
+            app:maintainer="@string/device_taido_row_maintainer"
+            app:type="phone" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_zte"
+        android:title="@string/device_category_zte_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_axon7"
+            android:title="@string/device_axon7"
+            app:codename="@string/device_axon7_codename"
+            app:maintainer="@string/device_axon7_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_a610"
+            android:title="@string/device_a610"
+            app:codename="@string/device_a610_codename"
+            app:maintainer="@string/device_a610_maintainer"
+            app:type="phone" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_coolpad"
+        android:title="@string/device_category_coolpad_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_CP8676_I02"
+            android:title="@string/device_CP8676_I02"
+            app:codename="@string/device_CP8676_I02_codename"
+            app:maintainer="@string/device_CP8676_I02_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_CP8298_I00"
+            android:title="@string/device_CP8298_I00"
+            app:codename="@string/device_CP8298_I00_codename"
+            app:maintainer="@string/device_CP8298_I00_maintainer"
+            app:type="phone" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_lenovo"
+        android:title="@string/device_category_lenovo_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_A6020"
+            android:title="@string/device_A6020"
+            app:codename="@string/device_A6020_codename"
+            app:maintainer="@string/device_A6020_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_a6000"
+            android:title="@string/device_a6000"
+            app:codename="@string/device_a6000_codename"
+            app:maintainer="@string/device_a6000_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_aio_row"
+            android:title="@string/device_aio_row"
+            app:codename="@string/device_aio_row_codename"
+            app:maintainer="@string/device_aio_row_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_aio_otfp"
+            android:title="@string/device_aio_otfp"
+            app:codename="@string/device_aio_otfp_codename"
+            app:maintainer="@string/device_aio_otfp_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_A7010a48"
+            android:title="@string/device_A7010a48"
+            app:codename="@string/device_A7010a48_codename"
+            app:maintainer="@string/device_A7010a48_maintainer"
+            app:type="phone" />
+
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_K33"
+            android:title="@string/device_K33"
+            app:codename="@string/device_K33_codename"
+            app:maintainer="@string/device_K33_maintainer"
+            app:type="phone" />
+
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_p2a42"
+            android:title="@string/device_p2a42"
+            app:codename="@string/device_p2a42_codename"
+            app:maintainer="@string/device_p2a42_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_lenovo_P1a42"
+            android:title="@string/device_lenovo_P1a42"
+            app:codename="@string/device_lenovo_P1a42_codename"
+            app:maintainer="@string/device_lenovo_P1a42_maintainer"
+            app:type="phone" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_samsung"
+        android:title="@string/device_category_samsung_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_manta"
+            android:title="@string/device_manta"
+            app:codename="@string/device_manta_codename"
+            app:maintainer="@string/device_manta_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_d2lte"
+            android:title="@string/device_d2lte"
+            app:codename="@string/device_d2lte_codename"
+            app:maintainer="@string/device_d2lte_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_herolte"
+            android:title="@string/device_herolte"
+            app:codename="@string/device_herolte_codename"
+            app:maintainer="@string/device_herolte_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_hero2lte"
+            android:title="@string/device_hero2lte"
+            app:codename="@string/device_hero2lte_codename"
+            app:maintainer="@string/device_hero2lte_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_zerofltexx"
+            android:title="@string/device_zerofltexx"
+            app:codename="@string/device_zerofltexx_codename"
+            app:maintainer="@string/device_zerofltexx_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_zeroltexx"
+            android:title="@string/device_zeroltexx"
+            app:codename="@string/device_zeroltexx_codename"
+            app:maintainer="@string/device_zeroltexx_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_dreamlte"
+            android:title="@string/device_dreamlte"
+            app:codename="@string/device_dreamlte_codename"
+            app:maintainer="@string/device_dreamlte_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_dream2lte"
+            android:title="@string/device_dream2lte"
+            app:codename="@string/device_dream2lte_codename"
+            app:maintainer="@string/device_dream2lte_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_greatlte"
+            android:title="@string/device_greatlte"
+            app:codename="@string/device_greatlte_codename"
+            app:maintainer="@string/device_greatlte_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_starlte"
+            android:title="@string/device_starlte"
+            app:codename="@string/device_starlte_codename"
+            app:maintainer="@string/device_starlte_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_sltexx"
+            android:title="@string/device_sltexx"
+            app:codename="@string/device_sltexx_codename"
+            app:maintainer="@string/device_sltexx_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_serrano3gxx"
+            android:title="@string/device_serrano3gxx"
+            app:codename="@string/device_serrano3gxx_codename"
+            app:maintainer="@string/device_serrano3gxx_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_serranodsdd"
+            android:title="@string/device_serranodsdd"
+            app:codename="@string/device_serranodsdd_codename"
+            app:maintainer="@string/device_serranodsdd_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_serranoltexx"
+            android:title="@string/device_serranoltexx"
+            app:codename="@string/device_serranoltexx_codename"
+            app:maintainer="@string/device_serranoltexx_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_fortuna3g"
+            android:title="@string/device_fortuna3g"
+            app:codename="@string/device_fortuna3g_codename"
+            app:maintainer="@string/device_fortuna3g_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_fortunave3g"
+            android:title="@string/device_fortunave3g"
+            app:codename="@string/device_fortunave3g_codename"
+            app:maintainer="@string/device_fortunave3g_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_fortunafz"
+            android:title="@string/device_fortunafz"
+            app:codename="@string/device_fortunafz_codename"
+            app:maintainer="@string/device_fortunafz_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_grandprimeve3g"
+            android:title="@string/device_grandprimeve3g"
+            app:codename="@string/device_grandprimeve3g_codename"
+            app:maintainer="@string/device_grandprimeve3g_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_j5ltexx"
+            android:title="@string/device_j5ltexx"
+            app:codename="@string/device_j5ltexx_codename"
+            app:maintainer="@string/device_j5ltexx_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_a3xelte"
+            android:title="@string/device_a3xelte"
+            app:codename="@string/device_a3xelte_codename"
+            app:maintainer="@string/device_a3xelte_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_a3y17lte"
+            android:title="@string/device_a3y17lte"
+            app:codename="@string/device_a3y17lte_codename"
+            app:maintainer="@string/device_a3y17lte_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_a5y17lte"
+            android:title="@string/device_a5y17lte"
+            app:codename="@string/device_a5y17lte_codename"
+            app:maintainer="@string/device_a5y17lte_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_a7y17lte"
+            android:title="@string/device_a7y17lte"
+            app:codename="@string/device_a7y17lte_codename"
+            app:maintainer="@string/device_a7y17lte_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_maguro"
+            android:title="@string/device_maguro"
+            app:codename="@string/device_maguro_codename"
+            app:maintainer="@string/device_maguro_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_i9300"
+            android:title="@string/device_i9300"
+            app:codename="@string/device_i9300_codename"
+            app:maintainer="@string/device_i9300_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_i9305"
+            android:title="@string/device_i9305"
+            app:codename="@string/device_i9305_codename"
+            app:maintainer="@string/device_i9305_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_jf"
+            android:title="@string/device_jf"
+            app:codename="@string/device_jf_codename"
+            app:maintainer="@string/device_jf_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_ja3gxx"
+            android:title="@string/device_ja3gxx"
+            app:codename="@string/device_ja3gxx_codename"
+            app:maintainer="@string/device_ja3gxx_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_klte"
+            android:title="@string/device_klte"
+            app:codename="@string/device_klte_codename"
+            app:maintainer="@string/device_klte_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_k3gxx"
+            android:title="@string/device_k3gxx"
+            app:codename="@string/device_k3gxx_codename"
+            app:maintainer="@string/device_k3gxx_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_i9100"
+            android:title="@string/device_i9100"
+            app:codename="@string/device_i9100_codename"
+            app:maintainer="@string/device_i9100_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_i9001"
+            android:title="@string/device_i9001"
+            app:codename="@string/device_i9001_codename"
+            app:maintainer="@string/device_i9001_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_w"
+            android:title="@string/device_w"
+            app:codename="@string/device_w_codename"
+            app:maintainer="@string/device_w_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_n7100"
+            android:title="@string/device_n7100"
+            app:codename="@string/device_n7100_codename"
+            app:maintainer="@string/device_n7100_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_hlte"
+            android:title="@string/device_hlte"
+            app:codename="@string/device_hlte_codename"
+            app:maintainer="@string/device_hlte_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_ha3g"
+            android:title="@string/device_ha3g"
+            app:codename="@string/device_ha3g_codename"
+            app:maintainer="@string/device_ha3g_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_t0ltexx"
+            android:title="@string/device_t0ltexx"
+            app:codename="@string/device_t0ltexx_codename"
+            app:maintainer="@string/device_t0ltexx_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_n7000"
+            android:title="@string/device_n7000"
+            app:codename="@string/device_n7000_codename"
+            app:maintainer="@string/device_n7000_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_i9082"
+            android:title="@string/device_i9082"
+            app:codename="@string/device_i9082_codename"
+            app:maintainer="@string/device_i9082_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_i9105p"
+            android:title="@string/device_i9105p"
+            app:codename="@string/device_i9105p_codename"
+            app:maintainer="@string/device_i9105p_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_i9515"
+            android:title="@string/device_i9515"
+            app:codename="@string/device_i9515_codename"
+            app:maintainer="@string/device_i9515_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_mega"
+            android:title="@string/device_mega"
+            app:codename="@string/device_mega_codename"
+            app:maintainer="@string/device_mega_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_i9200"
+            android:title="@string/device_i9200"
+            app:codename="@string/device_i9200_codename"
+            app:maintainer="@string/device_i9200_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_i9205"
+            android:title="@string/device_i9205"
+            app:codename="@string/device_i9205_codename"
+            app:maintainer="@string/device_i9205_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_tblte"
+            android:title="@string/device_tblte"
+            app:codename="@string/device_tblte_codename"
+            app:maintainer="@string/device_tblte_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_trltexx"
+            android:title="@string/device_trltexx"
+            app:codename="@string/device_trltexx_codename"
+            app:maintainer="@string/device_trltexx_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_treltexx"
+            android:title="@string/device_treltexx"
+            app:codename="@string/device_treltexx_codename"
+            app:maintainer="@string/device_treltexx_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_smp601"
+            android:title="@string/device_smp601"
+            app:codename="@string/device_smp601_codename"
+            app:maintainer="@string/device_smp601_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_a7"
+            android:title="@string/device_a7"
+            app:codename="@string/device_a7_codename"
+            app:maintainer="@string/device_a7_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_sm_t217s"
+            android:title="@string/device_sm_t217s"
+            app:codename="@string/device_sm_t217s_codename"
+            app:maintainer="@string/device_sm_t217s_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_n5100"
+            android:title="@string/device_n5100"
+            app:codename="@string/device_n5100_codename"
+            app:maintainer="@string/device_n5100_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_n5110"
+            android:title="@string/device_n5110"
+            app:codename="@string/device_n5110_codename"
+            app:maintainer="@string/device_n5110_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_n5120"
+            android:title="@string/device_n5120"
+            app:codename="@string/device_n5120_codename"
+            app:maintainer="@string/device_n5120_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_ms013g"
+            android:title="@string/device_ms013g"
+            app:codename="@string/device_ms013g_codename"
+            app:maintainer="@string/device_ms013g_maintainer"
+            app:type="phone" />
+        
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_on7xelte"
+            android:title="@string/device_on7xelte"
+            app:codename="@string/device_on7xelte_codename"
+            app:maintainer="@string/device_on7xelte_maintainer"
+            app:type="phone" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_htc"
+        android:title="@string/device_category_htc_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_flounder"
+            android:title="@string/device_flounder"
+            app:codename="@string/device_flounder_codename"
+            app:maintainer="@string/device_flounder_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_m9"
+            android:title="@string/device_m9"
+            app:codename="@string/device_m9_codename"
+            app:maintainer="@string/device_m9_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_m8"
+            android:title="@string/device_m8"
+            app:codename="@string/device_m8_codename"
+            app:maintainer="@string/device_m8_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_m7"
+            android:title="@string/device_m7"
+            app:codename="@string/device_m7_codename"
+            app:maintainer="@string/device_m7_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_htc_10"
+            android:title="@string/device_htc_10"
+            app:codename="@string/device_htc_10_codename"
+            app:maintainer="@string/device_htc_10_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_ville"
+            android:title="@string/device_ville"
+            app:codename="@string/device_ville_codename"
+            app:maintainer="@string/device_ville_maintainer"
+            app:type="phone" />
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_hp"
+        android:title="@string/device_category_hp_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_tenderloin"
+            android:title="@string/device_tenderloin"
+            app:codename="@string/device_tenderloin_codename"
+            app:maintainer="@string/device_tenderloin_maintainer"
+            app:type="tablet" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_sony"
+        android:title="@string/device_category_sony_title">
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_huashan"
+            android:title="@string/device_huashan"
+            app:codename="@string/device_huashan_codename"
+            app:maintainer="@string/device_huashan_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_honami"
+            android:title="@string/device_honami"
+            app:codename="@string/device_honami_codename"
+            app:maintainer="@string/device_honami_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_amami"
+            android:title="@string/device_amami"
+            app:codename="@string/device_amami_codename"
+            app:maintainer="@string/device_amami_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_togari"
+            android:title="@string/device_togari"
+            app:codename="@string/device_togari_codename"
+            app:maintainer="@string/device_togari_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_sirius"
+            android:title="@string/device_sirius"
+            app:codename="@string/device_sirius_codename"
+            app:maintainer="@string/device_sirius_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_yuga"
+            android:title="@string/device_yuga"
+            app:codename="@string/device_yuga_codename"
+            app:maintainer="@string/device_yuga_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_odin"
+            android:title="@string/device_odin"
+            app:codename="@string/device_odin_codename"
+            app:maintainer="@string/device_odin_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_dogo"
+            android:title="@string/device_dogo"
+            app:codename="@string/device_dogo_codename"
+            app:maintainer="@string/device_dogo_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_neov"
+            android:title="@string/device_neov"
+            app:codename="@string/device_neov_codename"
+            app:maintainer="@string/device_neov_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_taoshan"
+            android:title="@string/device_taoshan"
+            app:codename="@string/device_taoshan_codename"
+            app:maintainer="@string/device_taoshan_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_nicki"
+            android:title="@string/device_nicki"
+            app:codename="@string/device_nicki_codename"
+            app:maintainer="@string/device_nicki_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_mint"
+            android:title="@string/device_mint"
+            app:codename="@string/device_mint_codename"
+            app:maintainer="@string/device_mint_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_hayabusa"
+            android:title="@string/device_hayabusa"
+            app:codename="@string/device_hayabusa_codename"
+            app:maintainer="@string/device_hayabusa_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_tsubasa"
+            android:title="@string/device_tsubasa"
+            app:codename="@string/device_tsubasa_codename"
+            app:maintainer="@string/device_tsubasa_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_z3c"
+            android:title="@string/device_z3c"
+            app:codename="@string/device_z3c_codename"
+            app:maintainer="@string/device_z3c_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_anzu"
+            android:title="@string/device_anzu"
+            app:codename="@string/device_anzu_codename"
+            app:maintainer="@string/device_anzu_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_coconut"
+            android:title="@string/device_coconut"
+            app:codename="@string/device_coconut_codename"
+            app:maintainer="@string/device_coconut_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_hallon"
+            android:title="@string/device_hallon"
+            app:codename="@string/device_hallon_codename"
+            app:maintainer="@string/device_hallon_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_iyokan"
+            android:title="@string/device_iyokan"
+            app:codename="@string/device_iyokan_codename"
+            app:maintainer="@string/device_iyokan_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_mango"
+            android:title="@string/device_mango"
+            app:codename="@string/device_mango_codename"
+            app:maintainer="@string/device_mango_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_phoenix"
+            android:title="@string/device_phoenix"
+            app:codename="@string/device_phoenix_codename"
+            app:maintainer="@string/device_phoenix_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_satsuma"
+            android:title="@string/device_satsuma"
+            app:codename="@string/device_satsuma_codename"
+            app:maintainer="@string/device_satsuma_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_smultron"
+            android:title="@string/device_smultron"
+            app:codename="@string/device_smultron_codename"
+            app:maintainer="@string/device_smultron_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_urushi"
+            android:title="@string/device_urushi"
+            app:codename="@string/device_urushi_codename"
+            app:maintainer="@string/device_urushi_maintainer"
+            app:type="phone" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_oneplus"
+        android:title="@string/device_category_oneplus_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_oneplus"
+            android:title="@string/device_oneplus"
+            app:codename="@string/device_oneplus_codename"
+            app:maintainer="@string/device_oneplus_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_oneplus2"
+            android:title="@string/device_oneplus2"
+            app:codename="@string/device_oneplus2_codename"
+            app:maintainer="@string/device_oneplus2_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_onyx"
+            android:title="@string/device_onyx"
+            app:codename="@string/device_onyx_codename"
+            app:maintainer="@string/device_onyx_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_oneplus3"
+            android:title="@string/device_oneplus3"
+            app:codename="@string/device_oneplus3_codename"
+            app:maintainer="@string/device_oneplus3_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_oneplus5"
+            android:title="@string/device_oneplus5"
+            app:codename="@string/device_oneplus5_codename"
+            app:maintainer="@string/device_oneplus5_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_oneplus5t"
+            android:title="@string/device_oneplus5t"
+            app:codename="@string/device_oneplus5t_codename"
+            app:maintainer="@string/device_oneplus5t_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_oneplus6"
+            android:title="@string/device_oneplus6"
+            app:codename="@string/device_oneplus6_codename"
+            app:maintainer="@string/device_oneplus6_maintainer"
+            app:type="phone" />
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_yu"
+        android:title="@string/device_category_yu_title">
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_tomato"
+            android:title="@string/device_tomato"
+            app:codename="@string/device_tomato_codename"
+            app:maintainer="@string/device_tomato_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_lettuce"
+            android:title="@string/device_lettuce"
+            app:codename="@string/device_lettuce_codename"
+            app:maintainer="@string/device_lettuce_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_sambar"
+            android:title="@string/device_sambar"
+            app:codename="@string/device_sambar_codename"
+            app:maintainer="@string/device_sambar_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_jalebi"
+            android:title="@string/device_jalebi"
+            app:codename="@string/device_jalebi_codename"
+            app:maintainer="@string/device_jalebi_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_garlic"
+            android:title="@string/device_garlic"
+            app:codename="@string/device_garlic_codename"
+            app:maintainer="@string/device_garlic_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_taco"
+            android:title="@string/device_taco"
+            app:codename="@string/device_taco_codename"
+            app:maintainer="@string/device_taco_maintainer"
+            app:type="phone" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_xiaomi"
+        android:title="@string/device_category_xiaomi_title">
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_armani"
+            android:title="@string/device_armani"
+            app:codename="@string/device_armani_codename"
+            app:maintainer="@string/device_armani_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_cancro"
+            android:title="@string/device_cancro"
+            app:codename="@string/device_cancro_codename"
+            app:maintainer="@string/device_cancro_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_gemini"
+            android:title="@string/device_gemini"
+            app:codename="@string/device_gemini_codename"
+            app:maintainer="@string/device_gemini_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_capricorn"
+            android:title="@string/device_capricorn"
+            app:codename="@string/device_capricorn_codename"
+            app:maintainer="@string/device_capricorn_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_natrium"
+            android:title="@string/device_natrium"
+            app:codename="@string/device_natrium_codename"
+            app:maintainer="@string/device_natrium_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_sagit"
+            android:title="@string/device_sagit"
+            app:codename="@string/device_sagit_codename"
+            app:maintainer="@string/device_sagit_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_scorpio"
+            android:title="@string/device_scorpio"
+            app:codename="@string/device_scorpio_codename"
+            app:maintainer="@string/device_scorpio_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_lithium"
+            android:title="@string/device_lithium"
+            app:codename="@string/device_lithium_codename"
+            app:maintainer="@string/device_lithium_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_dior"
+            android:title="@string/device_dior"
+            app:codename="@string/device_dior_codename"
+            app:maintainer="@string/device_dior_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_ferrari"
+            android:title="@string/device_ferrari"
+            app:codename="@string/device_ferrari_codename"
+            app:maintainer="@string/device_ferrari_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_hydrogen"
+            android:title="@string/device_hydrogen"
+            app:codename="@string/device_hydrogen_codename"
+            app:maintainer="@string/device_hydrogen_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_helium"
+            android:title="@string/device_helium"
+            app:codename="@string/device_helium_codename"
+            app:maintainer="@string/device_helium_maintainer"
+            app:type="phone" />
+          <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_oxygen"
+            android:title="@string/device_oxygen"
+            app:codename="@string/device_oxygen_codename"
+            app:maintainer="@string/device_oxygen_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_kenzo"
+            android:title="@string/device_kenzo"
+            app:codename="@string/device_kenzo_codename"
+            app:maintainer="@string/device_kenzo_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_mido"
+            android:title="@string/device_mido"
+            app:codename="@string/device_mido_codename"
+            app:maintainer="@string/device_mido_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_vince"
+            android:title="@string/device_vince"
+            app:codename="@string/device_vince_codename"
+            app:maintainer="@string/device_vince_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_whyred"
+            android:title="@string/device_whyred"
+            app:codename="@string/device_whyred_codename"
+            app:maintainer="@string/device_whyred_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_libra"
+            android:title="@string/device_libra"
+            app:codename="@string/device_libra_codename"
+            app:maintainer="@string/device_libra_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_redmi2"
+            android:title="@string/device_redmi2"
+            app:codename="@string/device_redmi2_codename"
+            app:maintainer="@string/device_redmi2_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_redmi3"
+            android:title="@string/device_redmi3"
+            app:codename="@string/device_redmi3_codename"
+            app:maintainer="@string/device_redmi3_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_land"
+            android:title="@string/device_land"
+            app:codename="@string/device_land_codename"
+            app:maintainer="@string/device_land_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_santoni"
+            android:title="@string/device_santoni"
+            app:codename="@string/device_santoni_codename"
+            app:maintainer="@string/device_santoni_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_rolex"
+            android:title="@string/device_rolex"
+            app:codename="@string/device_rolex_codename"
+            app:maintainer="@string/device_rolex_maintainer"
+            app:type="phone" />			
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_tissot"
+            android:title="@string/device_tissot"
+            app:codename="@string/device_tissot_codename"
+            app:maintainer="@string/device_tissot_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_one"
+        android:title="@string/device_category_one_title">
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_sprout4"
+            android:title="@string/device_sprout4"
+            app:codename="@string/device_sprout4_codename"
+            app:maintainer="@string/device_sprout4_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_sprout8"
+            android:title="@string/device_sprout8"
+            app:codename="@string/device_sprout8_codename"
+            app:maintainer="@string/device_sprout8_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_seed"
+            android:title="@string/device_seed"
+            app:codename="@string/device_seed_codename"
+            app:maintainer="@string/device_seed_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_shamrock"
+            android:title="@string/device_shamrock"
+            app:codename="@string/device_shamrock_codename"
+            app:maintainer="@string/device_shamrock_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_leeco"
+        android:title="@string/device_category_leeco_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_s2"
+            android:title="@string/device_s2"
+            app:codename="@string/device_s2_codename"
+            app:maintainer="@string/device_s2_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_X3"
+            android:title="@string/device_X3"
+            app:codename="@string/device_X3_codename"
+            app:maintainer="@string/device_X3_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_x2"
+            android:title="@string/device_x2"
+            app:codename="@string/device_x2_codename"
+            app:maintainer="@string/device_x2_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_zl1"
+            android:title="@string/device_zl1"
+            app:codename="@string/device_zl1_codename"
+            app:maintainer="@string/device_zl1_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_oppo"
+        android:title="@string/device_category_oppo_title">
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_find7"
+            android:title="@string/device_find7"
+            app:codename="@string/device_find7_codename"
+            app:maintainer="@string/device_find7_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_find7a"
+            android:title="@string/device_find7a"
+            app:codename="@string/device_find7a_codename"
+            app:maintainer="@string/device_find7a_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_r7plus"
+            android:title="@string/device_r7plus"
+            app:codename="@string/device_r7plus_codename"
+            app:maintainer="@string/device_r7plus_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_huawei"
+        android:title="@string/device_category_huawei_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_u9500"
+            android:title="@string/device_u9500"
+            app:codename="@string/device_u9500_codename"
+            app:maintainer="@string/device_u9500_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_kiwi"
+            android:title="@string/device_kiwi"
+            app:codename="@string/device_kiwi_codename"
+            app:maintainer="@string/device_kiwi_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_angler"
+            android:title="@string/device_angler"
+            app:codename="@string/device_angler_codename"
+            app:maintainer="@string/device_angler_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_asus"
+        android:title="@string/device_category_asus_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_nexus7"
+            android:title="@string/device_nexus7"
+            app:codename="@string/device_nexus7_codename"
+            app:maintainer="@string/device_nexus7_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_z012d"
+            android:title="@string/device_z012d"
+            app:codename="@string/device_z012d_codename"
+            app:maintainer="@string/device_z012d_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_z00a"
+            android:title="@string/device_z00a"
+            app:codename="@string/device_z00a_codename"
+            app:maintainer="@string/device_z00a_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_z008"
+            android:title="@string/device_z008"
+            app:codename="@string/device_z008_codename"
+            app:maintainer="@string/device_z008_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_T00F"
+            android:title="@string/device_T00F"
+            app:codename="@string/device_T00F_codename"
+            app:maintainer="@string/device_T00F_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_z00t"
+            android:title="@string/device_z00t"
+            app:codename="@string/device_z00t_codename"
+            app:maintainer="@string/device_z00t_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_z00l"
+            android:title="@string/device_z00l"
+            app:codename="@string/device_z00l_codename"
+            app:maintainer="@string/device_z00l_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_Z00D"
+            android:title="@string/device_Z00D"
+            app:codename="@string/device_Z00D_codename"
+            app:maintainer="@string/device_Z00D_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_X00TD"
+            android:title="@string/device_X00TD"
+            app:codename="@string/device_X00TD_codename"
+            app:maintainer="@string/device_X00TD_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_zenfone3"
+            android:title="@string/device_zenfone3"
+            app:codename="@string/device_zenfone3_codename"
+            app:maintainer="@string/device_zenfone3_maintainer"
+            app:type="phone" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_wfx"
+        android:title="@string/device_category_wfx_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_wfxs"
+            android:title="@string/device_wfxs"
+            app:codename="@string/device_wfxs_codename"
+            app:maintainer="@string/device_wfxs_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_wfxk"
+            android:title="@string/device_wfxk"
+            app:codename="@string/device_wfxk_codename"
+            app:maintainer="@string/device_wfxk_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_nvidia"
+        android:title="@string/device_category_nvidia_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_shieldtablet"
+            android:title="@string/device_shieldtablet"
+            app:codename="@string/device_shieldtablet_codename"
+            app:maintainer="@string/device_shieldtablet_maintainer"
+            app:type="tablet" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:id="@+id/device_category_bq"
+        android:title="@string/device_category_bq_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_paella"
+            android:title="@string/device_paella"
+            app:codename="@string/device_paella_codename"
+            app:maintainer="@string/device_paella_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_piccolo"
+            android:title="@string/device_piccolo"
+            app:codename="@string/device_piccolo_codename"
+            app:maintainer="@string/device_piccolo_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_zuk"
+        android:title="@string/device_category_zuk_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_ham"
+            android:title="@string/device_ham"
+            app:codename="@string/device_ham_codename"
+            app:maintainer="@string/device_ham_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_z2_plus"
+            android:title="@string/device_z2_plus"
+            app:codename="@string/device_z2_plus_codename"
+            app:maintainer="@string/device_z2_plus_maintainer"
+            app:type="phone" />
+        
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_z2_row"
+            android:title="@string/device_z2_row"
+            app:codename="@string/device_z2_row_codename"
+            app:maintainer="@string/device_z2_row_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_nubia"
+        android:title="@string/device_category_nubia_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_nubia_nx531j"
+            android:title="@string/device_nubia_nx531j"
+            app:codename="@string/device_nubia_nx531j_codename"
+            app:maintainer="@string/device_nubia_nx531j_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_nubia_nx511j"
+            android:title="@string/device_nubia_nx511j"
+            app:codename="@string/device_nubia_nx511j_codename"
+            app:maintainer="@string/device_nubia_nx511j_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_nubia_nx512j"
+            android:title="@string/device_nubia_nx512j"
+            app:codename="@string/device_nubia_nx512j_codename"
+            app:maintainer="@string/device_nubia_nx512j_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_vega"
+        android:title="@string/device_category_vega_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_vega_A910"
+            android:title="@string/device_vega_A910"
+            app:codename="@string/device_vega_A910_codename"
+            app:maintainer="@string/device_vega_A910_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_vega_A900"
+            android:title="@string/device_vega_A900"
+            app:codename="@string/device_vega_A900_codename"
+            app:maintainer="@string/device_vega_A900_maintainer"
+            app:type="phone" />
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_vega_A890"
+            android:title="@string/device_vega_A890"
+            app:codename="@string/device_vega_A890_codename"
+            app:maintainer="@string/device_vega_A890_maintainer"
+            app:type="phone" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_jiayu"
+        android:title="@string/device_category_jiayu_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_s3_h560"
+            android:title="@string/device_s3_h560"
+            app:codename="@string/device_s3_h560_codename"
+            app:maintainer="@string/device_s3_h560_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_nextbit"
+        android:title="@string/device_category_nextbit_title">
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_nextbit_ether"
+            android:title="@string/device_nextbit_ether"
+            app:codename="@string/device_nextbit_ether_codename"
+            app:maintainer="@string/device_nextbit_ether_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:id="@+id/device_category_google"
+        android:title="@string/device_category_google_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_google_marlin"
+            android:title="@string/device_google_marlin"
+            app:codename="@string/device_google_marlin_codename"
+            app:maintainer="@string/device_google_marlin_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_google_dragon"
+            android:title="@string/device_google_dragon"
+            app:codename="@string/device_google_dragon_codename"
+            app:maintainer="@string/device_google_dragon_maintainer"
+            app:type="tablet" />
+    </PreferenceCategory>
+</PreferenceScreen>
