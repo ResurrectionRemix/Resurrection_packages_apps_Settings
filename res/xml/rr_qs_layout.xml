@@ -21,11 +21,37 @@
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     android:title="@string/qs_tile_layout">
 
-        <com.android.settings.rr.Preferences.CustomSeekBarPreference
-            android:key="qs_layout_columns"
-            android:title="@string/qs_columns_title"
-            android:max="6"
-            settings:min="3" />
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="qs_rows_portrait"
+            android:title="@string/qs_rows_portrait_title"
+            android:max="5"
+            settings:min="1"
+            settings:units=""
+            android:defaultValue="3" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="qs_rows_landscape"
+            android:title="@string/qs_rows_landscape_title"
+            android:max="3"
+            settings:min="1"
+            settings:units=""
+            android:defaultValue="2" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="qs_columns_portrait"
+            android:title="@string/qs_columns_portrait_title"
+            android:max="7"
+            settings:min="1"
+            settings:units=""
+            android:defaultValue="3" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="qs_columns_landscape"
+            android:title="@string/qs_columns_landscape_title"
+            android:max="9"
+            settings:min="1"
+            settings:units=""
+            android:defaultValue="3" />
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="qs_quickbar_scroll_enabled"
