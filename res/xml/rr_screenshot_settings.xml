@@ -26,4 +26,13 @@
             android:key="screenshot_type"
             android:title="@string/screenshot_type_title" />
 
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="screenshot_delay"
+            android:title="@string/screenshot_delay_title"
+            android:max="10000"
+            settings:min="100"
+            settings:interval="100"
+            android:defaultValue="100"
+            settings:units="ms"/>
+
 </PreferenceScreen>
