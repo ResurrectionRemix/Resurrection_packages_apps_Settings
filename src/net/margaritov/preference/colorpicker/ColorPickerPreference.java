@@ -92,7 +92,7 @@ public class ColorPickerPreference extends Preference implements
         mDensity = getContext().getResources().getDisplayMetrics().density;
         setOnPreferenceClickListener(this);
         if (attrs != null) {
-            mAlphaSliderEnabled = attrs.getAttributeBooleanValue(null, "alphaSlider", false);
+            mAlphaSliderEnabled = attrs.getAttributeBooleanValue(null, "alphaSlider", true);
             int defVal = attrs.getAttributeIntValue(SETTINGS_NS, "defaultColorValue", DEF_VALUE_DEFAULT);
             if (defVal != DEF_VALUE_DEFAULT) {
                 mUsesDefaultButton =  true;
