@@ -29,8 +29,9 @@
             android:key="changelog"
             android:title="@string/changelog_title"
             android:icon="@drawable/rr_changelog_icon"
-            android:summary="@string/changelog_title_summary"
-            android:fragment="com.android.settings.rr.ChangeLog" />
+            android:summary="@string/changelog_title_summary">
+           <intent android:action="com.android.settings.rr.ViewChangelog" />
+        </PreferenceScreen>
 
         <!-- Features -->
         <PreferenceScreen 
