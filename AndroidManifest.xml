@@ -2423,6 +2423,16 @@
                 android:resource="@string/rr_config_main_title" />
         </activity>
 
+        <!-- Changelog -->
+        <activity
+            android:name="com.android.settings.rr.changelog.ChangelogActivity"
+            android:label="@string/changelog_name">
+            <intent-filter>
+                <action android:name="com.android.settings.rr.ViewChangelog" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <!-- Mainsettings -->
         <activity android:name="Settings$MainSettingsActivity"
                 android:label="@string/rr_title"
