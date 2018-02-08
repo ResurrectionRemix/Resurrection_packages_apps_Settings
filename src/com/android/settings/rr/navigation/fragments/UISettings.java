@@ -65,8 +65,10 @@ public class UISettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_ui_settings_navigation);
 
         mFpFragment = (LayoutPreference) findPreference(RR_FP);
-        if (!mFingerprintManager.isHardwareDetected()) {
-            getPreferenceScreen().removePreference(mFpFragment);
+        if (mFingerprintManager != null) {
+            if (!mFingerprintManager.isHardwareDetected()) {
+                getPreferenceScreen().removePreference(mFpFragment);
+            }
         }
 
         mInCallFragment = (LayoutPreference) findPreference(INCALL_VIB_OPTIONS);
