@@ -36,10 +36,11 @@
             android:icon="@drawable/ic_bugreport"
             android:dialogTitle="@*android:string/bugreport_title" />
 
-    <lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="advanced_reboot"
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="powermenu_advanced_reboot"
             android:title="@string/advanced_reboot_title"
-            android:summary="@string/advanced_reboot_summary" />
+            android:summary="@string/advanced_reboot_summary"
+            android:defaultValue="false" />
 
     <Preference
             android:key="local_backup_password"
