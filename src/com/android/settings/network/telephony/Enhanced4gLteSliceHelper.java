@@ -165,7 +165,7 @@ public class Enhanced4gLteSliceHelper {
      */
     private Slice getEnhanced4gLteSlice(Uri sliceUri, boolean isEnhanced4gLteEnabled, int subId) {
         final IconCompat icon = IconCompat.createWithResource(mContext,
-                R.drawable.ic_launcher_settings);
+                R.mipmap.ic_launcher);
 
         return new ListBuilder(mContext, sliceUri, ListBuilder.INFINITY)
                 .setAccentColor(Utils.getColorAccentDefaultColor(mContext))

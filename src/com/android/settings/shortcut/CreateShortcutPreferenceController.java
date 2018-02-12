@@ -149,7 +149,7 @@ public class CreateShortcutPreferenceController extends BasePreferenceController
             intent = new Intent();
         }
         intent.putExtra(Intent.EXTRA_SHORTCUT_ICON_RESOURCE,
-                Intent.ShortcutIconResource.fromContext(mContext, R.mipmap.ic_launcher_settings))
+                Intent.ShortcutIconResource.fromContext(mContext, R.mipmap.ic_launcher))
                 .putExtra(Intent.EXTRA_SHORTCUT_INTENT, shortcutIntent)
                 .putExtra(Intent.EXTRA_SHORTCUT_NAME, label);
 
@@ -220,7 +220,7 @@ public class CreateShortcutPreferenceController extends BasePreferenceController
                     R.layout.shortcut_badge_maskable,
                     context.getResources().getDimensionPixelSize(R.dimen.shortcut_size_maskable)));
         } else {
-            maskableIcon = Icon.createWithResource(context, R.drawable.ic_launcher_settings);
+            maskableIcon = Icon.createWithResource(context, R.mipmap.ic_launcher);
         }
         final String shortcutId = SHORTCUT_ID_PREFIX +
                 shortcutIntent.getComponent().flattenToShortString();
@@ -252,7 +252,7 @@ public class CreateShortcutPreferenceController extends BasePreferenceController
             ((ImageView) view.findViewById(android.R.id.icon)).setImageDrawable(iconDrawable);
         } catch (PackageManager.NameNotFoundException e) {
             Log.w(TAG, "Cannot load icon from app " + app + ", returning a default icon");
-            Icon icon = Icon.createWithResource(context, R.drawable.ic_launcher_settings);
+            Icon icon = Icon.createWithResource(context, R.mipmap.ic_launcher);
             ((ImageView) view.findViewById(android.R.id.icon)).setImageIcon(icon);
         }
 
