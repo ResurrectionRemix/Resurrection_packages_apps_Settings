@@ -58,16 +58,14 @@ public class UISettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         final Activity activity = getActivity(); 
 		ContentResolver resolver = getActivity().getContentResolver();
-        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+        /*mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);*/
 
         addPreferencesFromResource(R.xml.rr_ui_settings);
 
-        mFpFragment = (PreferenceScreen) findPreference(RR_FP);
-        if (mFingerprintManager != null) {
-            if (!mFingerprintManager.isHardwareDetected()) {
-                getPreferenceScreen().removePreference(mFpFragment);
-            }
-        }
+        /*mFpFragment = (PreferenceScreen) findPreference(RR_FP);
+        if (mFingerprintManager == null) {
+            getPreferenceScreen().removePreference(mFpFragment);
+        }*/
 
         mInCallFragment = (PreferenceScreen) findPreference(INCALL_VIB_OPTIONS);
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {

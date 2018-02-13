@@ -65,9 +65,10 @@ public class UISettingsNav extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_ui_settings_navigation);
 
         mFpFragment = (LayoutPreference) findPreference(RR_FP);
-        if (!mFingerprintManager.isHardwareDetected()) {
+        if (mFingerprintManager == null) {
             getPreferenceScreen().removePreference(mFpFragment);
         }
+
 
         mInCallFragment = (LayoutPreference) findPreference(INCALL_VIB_OPTIONS);
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
