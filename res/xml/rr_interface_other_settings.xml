@@ -56,4 +56,13 @@
             android:icon="@drawable/rr_sensor_icon"
             android:defaultValue="false" />
 
+    <PreferenceScreen
+            android:id="@+id/ime_settings"
+            android:key="ime_settings"
+            android:title="@string/keyboard_ime_title"
+            android:icon="@drawable/rr_ime_settings"
+            android:summary="@string/keyboard_ime_summury"
+            android:fragment="com.android.settings.rr.fragments.IMESettings" />
+
+
 </PreferenceScreen>
