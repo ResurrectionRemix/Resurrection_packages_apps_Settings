@@ -21,6 +21,22 @@
             android:title="@string/unlock_quick_unlock_control_title"
             android:summary="@string/unlock_quick_unlock_control_summary" />
 
+       <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+            android:key="face_auto_unlock"
+            android:title="@string/face_auto_unlock_title"
+            android:summary="@string/face_auto_unlock_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+            android:key="lockscreen_qs_disabled"
+            android:title="@string/lockscreen_qs_disabled_title"
+            android:summary="@string/lockscreen_qs_disabled_summary"
+            android:defaultValue="false" />
+
+    <PreferenceCategory
+        android:key="ls_power_menu"
+        android:title="@string/rr_power_panel_title">
+
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="powermenu_lockscreen"
             android:title="@string/powermenu_lockscreen_title"
@@ -76,15 +92,6 @@
              android:dependency="powermenu_lockscreen"
              android:defaultValue="true" />
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_media_metadata"
-            android:title="@string/lockscreen_media_art_title"
-            android:defaultValue="true" />
-
-        <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
-            android:key="lockscreen_qs_disabled"
-            android:title="@string/lockscreen_qs_disabled_title"
-            android:summary="@string/lockscreen_qs_disabled_summary"
-            android:defaultValue="false" />
+    </PreferenceCategory>
 
 </PreferenceScreen>

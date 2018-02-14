@@ -22,10 +22,9 @@
         android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="lock_screen_custom_notif"
-        android:title="@string/lockscreen_maxnotif_title"
-        android:summary="@string/lockscreen_maxnotif_summary"
-        android:defaultValue="false" />
+        android:key="lockscreen_media_metadata"
+        android:title="@string/lockscreen_media_art_title"
+        android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="hide_lockscreen_clock"
@@ -44,6 +43,12 @@
         android:title="@string/hide_lockscreen_alarm_title"
         android:summary="@string/hide_lockscreen_alarm_summary"
         android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="lock_screen_custom_notif"
+        android:title="@string/lockscreen_maxnotif_title"
+        android:summary="@string/lockscreen_maxnotif_summary"
+        android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="lockscreen_max_notif_config"
