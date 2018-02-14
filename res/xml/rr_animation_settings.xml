@@ -27,7 +27,16 @@
             android:summary="@string/system_animations_summary"
             android:icon="@drawable/rr_animations_icon"
             />
- 
+
+            
+        <PreferenceScreen
+            android:key="listview_animation"
+            android:fragment="com.android.settings.rr.animation.ListViewAnimation"
+            android:title="@string/listview_title"
+            android:summary="@string/listview_summary"
+            android:icon="@drawable/rr_list_animation"
+            />
+  
         <PreferenceScreen
             android:key="rr_toast"
             android:fragment="com.android.settings.rr.animation.ToastAnimations"
