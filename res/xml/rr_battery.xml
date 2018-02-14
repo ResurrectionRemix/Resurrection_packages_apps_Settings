@@ -19,6 +19,27 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/battery_bar_title">
 
+    <PreferenceCategory
+        android:key="battery_settings"
+        android:title="@string/battery_style_category"/>
+
+     <ListPreference
+       android:key="battery_style"
+        android:title="@string/battery_style_title"
+        android:summary="@string/battery_style_summary"
+        android:entries="@array/battery_style_entries"
+        android:entryValues="@array/battery_style_values" />
+
+     <SwitchPreference
+         android:key="show_battery_percent"
+         android:title="@string/show_battery_percent_title"
+         android:summary="@string/show_battery_percent_summary"
+         android:defaultValue="true" />
+
+      <PreferenceCategory
+        android:key="battery_bar"
+        android:title="@string/battery_bar_category"/>
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:title="@string/battery_bar_title"
         android:key="statusbar_battery_bar"
