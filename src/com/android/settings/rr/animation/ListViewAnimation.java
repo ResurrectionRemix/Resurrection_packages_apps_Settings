@@ -38,7 +38,7 @@ import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.PreferenceScreen;
 
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.unleash.Preferences.CustomSeekBarPreference;
+import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 import com.android.settings.R;
 import android.provider.Settings;
 import android.view.Gravity;
@@ -119,7 +119,7 @@ public class ListViewAnimation extends SettingsPreferenceFragment
     
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.UNLEASH;
+        return MetricsProto.MetricsEvent.RESURRECTED;
     }
 
 }
