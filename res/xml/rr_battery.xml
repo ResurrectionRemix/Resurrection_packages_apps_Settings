@@ -26,15 +26,15 @@
      <ListPreference
        android:key="battery_style"
         android:title="@string/battery_style_title"
-        android:summary="@string/battery_style_summary"
         android:entries="@array/battery_style_entries"
         android:entryValues="@array/battery_style_values" />
 
-     <SwitchPreference
+     <ListPreference
          android:key="show_battery_percent"
          android:title="@string/show_battery_percent_title"
-         android:summary="@string/show_battery_percent_summary"
-         android:defaultValue="true" />
+         android:entries="@array/battery_percent_entries"
+         android:entryValues="@array/battery_percent_values" />
+  
 
       <PreferenceCategory
         android:key="battery_bar"
