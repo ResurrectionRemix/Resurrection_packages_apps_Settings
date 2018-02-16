@@ -176,4 +176,15 @@
     <attr name="changelog_color_commit_message" format="color" />
     <attr name="changelog_color_commit_bg" format="color" />
 
+    <!-- DevicePreference -->
+    <declare-styleable name="DevicePreference">
+        <attr name="codename" format="string" />
+        <attr name="maintainer" format="string" />
+        <attr name="type" format="integer">
+            <enum name="phone" value="0" />
+            <enum name="tablet" value="1" />
+            <enum name="other" value="2" />
+        </attr>
+    </declare-styleable>
+
 </resources>
