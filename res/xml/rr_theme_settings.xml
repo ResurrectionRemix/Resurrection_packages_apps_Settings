@@ -15,12 +15,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
 
-    <ListPreference
-        android:key="systemui_theme_style"
-        android:title="@string/systemui_theme_style_title"
-        android:entries="@array/systemui_theme_style_entries"
-        android:entryValues="@array/systemui_theme_style_values"
-        android:persistent="false" />
+        <PreferenceScreen
+            android:key="rr_tuner"
+            android:title="@string/systemui_theme_style_title"
+            android:summary="@string/rr_theme_summary">
+            <intent android:action="org.lineageos.lineageparts.STYLE_SETTINGS" />
+        </PreferenceScreen>
 
 </PreferenceScreen>
 
