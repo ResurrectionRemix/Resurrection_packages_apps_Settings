@@ -82,7 +82,7 @@
   <string name="drill_summary">Лог или GTFO</string>
   <!-- Changelog -->
   <string name="changelog_name">Список изменений</string>
-  <string name="commit_id">Идентификатор изменения</string>
+  <string name="commit_id">Идентификатор блокировки экрана</string>
   <string name="commit_message">Описание изменения</string>
   <!-- RR Feature lists-->
   <string name="features_title">Возможности</string>
@@ -197,11 +197,6 @@
   <string name="network_traffic_autohide_threshold">Порог неактивности</string>
   <string name="headset_connect_player_title">Запускать музыкальное приложение при подключении наушников</string>
   <string name="headset_connect_player_disabled">Выключено</string>
-  <string name="headset_connect_player_wired">Когда проводные наушники подключены</string>
-  <string name="headset_connect_player_bt_no_carkit">Когда BT наушники (не автомобиль) подключены</string>
-  <string name="headset_connect_player_bt">Когда BT наушники подключены</string>
-  <string name="headset_connect_player_both_no_carkit">Когда проводные или BT наушники (не автомобиль) подключены</string>
-  <string name="headset_connect_player_both">Когда проводные или BT наушники подключены</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_title">Текст уведомлений</string>
   <string name="ticker_title">Старый вид уведомлений в строке состояния</string>
@@ -278,9 +273,13 @@
   <string name="file_header_provider_title">Пользовательское изображение</string>
   <!-- Smart pulldown-->
   <string name="smart_pulldown_title">Умный доступ</string>
+  <string name="smart_pulldown_off">Выкл</string>
+  <string name="smart_pulldown_none">Нет уведомлений</string>
+  <string name="smart_pulldown_dismissable">Нет закреплённых уведомлений</string>
+  <string name="smart_pulldown_ongoing">Нет входящих уведомлений</string>
   <string name="smart_pulldown_summary">Открыть панель быстрых настроек, когда там %1$s</string>
   <string name="smart_pulldown_none_summary">Открывать панель быстрых настроек когда уведомления отсутствуют</string>
-  <string name="smart_pulldown_off_summary">выключено</string>
+  <string name="smart_pulldown_off_summary">Выключено</string>
   <!-- Status bar - icons -->
   <string name="status_bar_icons_title">Значки в строке состояния</string>
   <string name="status_bar_notif_count_title">Показать счетчик уведомлений</string>
@@ -1110,7 +1109,7 @@
   <string name="blur_notice">О функции «Размытие»</string>
   <string name="blur_notice_summary">Размытие отключено во время просмотра на экране блокировки! Работают только полупрозрачные уведомления!</string>
   <string name="blur_colors_notice">Что делают эти цвета?</string>
-  <string name="blur_colors_notice_summary">Это цвета, которые окрашивают фон размытия. Вместо обычного серого, вы можете выбрать цвета, которые нравятся Вам. \n Существуют три цветовых фильтра: один для светлых фонов, другой для темных и третий для смешанных. \n Но как эти цвета работают?? \n Очень просто, как и говорит их название, светлый фильтр используется для более светлых фонов, темный для темных и смешанный фильтр будет использоватся для промежуточных фонов, т. е. не слишком темных и не слишком светлых. \n Эти цвета используются для двух фонов размытия: строки состояния и для меню недавних приложений</string>
+  <string name="blur_colors_notice_summary">Это цвета, которые окрашивают фон размытия. Вместо обычного серого, вы можете выбрать цвета, которые нравятся Вам. \n Существуют три цветовых фильтра: один для светлых фонов, другой для темных и третий для смешанных. \n Но как эти цвета работают?? \n Очень просто, как и говорит их название, светлый фильтр используется для более светлых фонов, темный для темных и смешанный фильтр будет использоватся для промежуточных фонов, т. е. не слишком темных и не слишком светлых. \n Эти цвета используются для двух фонов размытия: строки состояния и для меню недавних приложений </string>
   <string name="blur_expstatus_cat">Расширенная строка состояния </string>
   <string name="blur_notifications_cat">Уведомления</string>
   <string name="blur_qs_cat">Быстрые настройки</string>
@@ -1503,6 +1502,7 @@
   <string name="animation0">Переворот</string>
   <string name="animation1">Закрытие меню недавних приложений</string>
   <string name="animation2">Полупрозрачный выход </string>
+  <string name="animation3">Полупрозрачный выход лентой</string>
   <string name="animation4">Тост выход</string>
   <string name="animation5">Выдвижение вниз</string>
   <string name="animation6">Xylon выход</string>
@@ -1561,6 +1561,7 @@
   <string name="print_restart">Перезагрузить</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Быстрая разблокировка</string>
+  <string name="unlock_quick_unlock_control_summary">Разблокировать автоматически, когда PIN/пароль введён верно. Используйте PIN длиной меньше 6 цифр, иначе вы не сможете разблокировать смартфон. Мы вас предупредили</string>
   <!-- Hide Apps from Recents -->
   <string name="hide_apps_from_recents_title">Скрытые приложения</string>
   <string name="hide_from_recents_add_app">Добавить приложение</string>
@@ -1587,6 +1588,7 @@
   <string name="clock_date_date_style_lowercase">В нижнем регистре</string>
   <string name="clock_date_date_style_uppercase">Заглавные</string>
   <string name="clock_date_date_size_small_title">Маленькие</string>
+  <string name="clock_date_date_size_small_summary">Включить отображение даты маленьким шрифтом</string>
   <string name="status_bar_clock_font_size_title">Размер шрифта</string>
   <!-- Dynamic Navbar -->
   <string name="navbar_dynamic_title">Динамический цвет панели навигации</string>
@@ -1653,4 +1655,6 @@
   <string name="screenshot_options_summary">Настроить атрибуты скриншота - время, задержка, тип и т.д.</string>
   <string name="screenshot_delay_title">Задержка скриншота</string>
   <!-- Face unlock auto -->
+  <string name="face_auto_unlock_title">Автоматическая разблокировка лицом</string>
+  <string name="face_auto_unlock_summary">Пропустить экран блокировки после разблокирования смартфона лицом. Для этого включите разблокировку лицом</string>
 </resources>

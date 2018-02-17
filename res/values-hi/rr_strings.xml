@@ -54,6 +54,7 @@
   <string name="rr_source_summary">रेसुर्रेक्शन रीमिक्स OS स्रोतों</string>
   <string name="rr_facebook_title">फेसबुक</string>
   <string name="rr_facebook_summary">फ़ेसबुक समुदाय</string>
+  <string name="rr_google_plus_title">गूगल</string>
   <string name="rr_google_plus_summary">गूगल+ समुदाय</string>
   <string name="maintainer_categorie_title">सरकारी उपकरणों</string>
   <string name="title_about">विवरण</string>
@@ -63,17 +64,18 @@
   <string name="rr_ls_ui">लाक UI</string>
   <string name="rr_ls_security">सुरक्षा</string>
   <string name="updater_title">अपडेट</string>
-  <string name="altankrk_summary">● सह संस्थापक \ ● प्रधान इंजीनियर \ ● UX designer \ ● देख रेख कर्ता</string>
-  <string name="varun_summary">● सिर डेवलपर \n● UX डिजाइनर \n● अनुरक्षक</string>
-  <string name="andres_summary">● डेवलपर \n● अनुरक्षक</string>
-  <string name="brian_summary">● डेवलपर \n● अनुरक्षक</string>
+  <string name="support_team_title">मॉडरेटर टैग</string>
   <string name="device_maintainers_title">उपकरणों और अनुरक्षक</string>
   <string name="device_maintainers_title_summary">उपकरणों की सूची और उनके अनुरक्षक</string>
   <string name="maintainers_note_title">नोट</string>
+  <string name="maintainers_note_title_summary">यदि आप किसी निश्चित डिवाइस के लिए एक अनुरक्षक होने के लिए आवेदन करना चाहते हैं, तो अपने डिवाइस के विरुद्ध अपने नाम के साथ सेटिंग ऐप पर पुल का अनुरोध करें</string>
   <!-- The Drill -->
   <string name="rr_drill_title">ड्रिल</string>
   <string name="drill_summary">Logcat or GTFO</string>
   <!-- Changelog -->
+  <string name="changelog_name">परिवर्तन लॉग</string>
+  <string name="commit_id">लॉकस्क्रीन कमिट आईडी</string>
+  <string name="commit_message">संदेश कमिट</string>
   <!-- RR Feature lists-->
   <string name="features_title">विशेषताएँ</string>
   <string name="features_title_summary">उपलब्ध रोम सुविधाएँ दृश्य करे</string>
@@ -81,8 +83,10 @@
   <string name="features_error">सूची लोड करने में असमर्थ</string>
   <string name="features_unknown">अज्ञात</string>
   <string name="features_version">1.0</string>
+  <string name="powermenu_onthego_title">गतिमय</string>
   <string name="rr_volume_title">वॉल्यूम पैनल</string>
   <string name="rr_power_title">सत्ता संवाद</string>
+  <string name="rr_lockscreen_target_title">नीचे शॉर्टकट</string>
   <!-- Share RR ROM -->
   <string name="share_rr">शेयर करें</string>
   <string name="share_rr_summary">लोगों को बताना की आप रेसुर्रेक्शन रोम का उपयोग करते है</string>
@@ -100,6 +104,10 @@
   <string name="fab_restartui">UI को पुन: आरभं करें</string>
   <string name="fab_reset">रीसेट करें</string>
   <string name="fab_about">RR-OS के बारे में</string>
+  <string name="fab_layout">लेआउट अपडेट करें</string>
+  <string name="fab_layout_tabs">टैब लेआउट टॉगल करें</string>
+  <string name="fab_layout_update">क्लासिक लेआउट टॉगल करें</string>
+  <string name="fab_layout_toggle">नेविगेशन लेआउट टॉगल करें</string>
   <string name="rr_reset_message">सभी कॉन्फ़िगरेशन डिफ़ॉल्ट मानों के लिए रीसेट करें?</string>
   <string name="rr_reset_settings">सेटिंग्स रीसेट करें</string>
   <string name="rr_reset_yes">हां</string>
@@ -109,6 +117,7 @@
   <string name="rr_title_summary">विभिन्न अनुकूलन</string>
   <string name="rr_config_main_title">RR-OS</string>
   <string name="rr_ota_fab_title">फ़्लोटिंग बटन दिखाएँ</string>
+  <string name="rr_ota_fab_summary">कॉन्फ़िगरेशन में फ़्लोटिंग बटन दिखाने / छुपाए जाने के लिए सक्षम / अक्षम करें। उपयोग किए जाने पर एक बार प्रवेश / प्रस्थान करें</string>
   <string name="rr_statusbar_title">स्थिति पट्टी</string>
   <string name="rr_sb_gestures_title">स्थिति पट्टी इशारों</string>
   <string name="qs_advanced_title">उन्नत</string>
@@ -118,53 +127,117 @@
   <string name="rr_battery">बैटरी</string>
   <string name="rr_sb_icons">सिस्टम आइकन</string>
   <string name="rr_sb_battery">स्थिति पट्टी</string>
+  <string name="notification_drawer_title">सुचना पट्टी</string>
   <string name="recents_settings_title">हाल ही के</string>
+  <string name="recents_ui_title">सामान्‍य यूआई</string>
   <string name="animation_title">एनिमेशन</string>
   <string name="button_settings">बटन</string>
   <string name="rr_misc_title">विविध</string>
+  <string name="rr_navigation_title">पथ प्रदर्शन</string>
+  <string name="rr_buttons_title">बटन</string>
+  <string name="rr_qs_title">शीग्र सेटिंग्स</string>
+  <string name="rr_recents_title">हाल ही के</string>
+  <string name="qs_tile_layout">टाइल लेआउट</string>
+  <string name="qs_columns_title">स्तंभ</string>
+  <string name="heads_up_settings">हेड्स अप।</string>
+  <string name="system_animations">सिस्टम एनिमेशन</string>
   <string name="rr_ui_title">इंटरफ़ेस</string>
   <string name="rr_dash_board_title">नियंत्रण-पट्ट</string>
+  <string name="rr_fp_title">फ़िंगरप्रिंट सेटिंग</string>
+  <string name="rr_sound_title">ध्वनि</string>
+  <string name="rr_qs_pulldown">क्विक पुलडाउन</string>
+  <string name="rr_header_title">शीर्षक</string>
+  <string name="rr_power_panel_title">पावर मेनू</string>
+  <string name="rr_toast_title">टोस्ट</string>
+  <string name="recents_type_title">हाल के प्रकार</string>
+  <string name="recents_stock">स्टॉक AOSP</string>
+  <string name="recents_omniswitch">ओमनीस्विच</string>
+  <string name="recents_grid">ग्रिड</string>
+  <string name="recents_slim">पतला</string>
+  <string name="bottom_nav_navigation_title">पथ प्रदर्शन</string>
   <string name="rr_notif_settings_title">सूचनाएँ</string>
   <!-- Interface -->
+  <string name="interface_other_title">विविध</string>
+  <string name="interface_other_summary">इंटरफ़ेस की विविध सामग्रियों को अनुकूलित करें</string>
   <string name="toast">टोस्ट</string>
   <string name="listview">सूची दृश्य</string>
   <string name="icons">चिह्न</string>
   <string name="general">सामान्‍य</string>
   <string name="ka_title">प्रदर्शन</string>
   <!-- Show VoLTE icon on statusbar -->
+  <string name="volte_icon_title">वोल्ट चिह्न</string>
+  <string name="volte_icon_summary">जब उपलब्ध हो तो वोल्ट चिह्न प्रदर्शित करें</string>
   <!-- Network traffic -->
+  <string name="network_traffic_state_title">स्थिति पट्टी में नेट गतिविधि</string>
+  <string name="network_traffic_title">नेटवर्क यातायात</string>
+  <string name="network_traffic_autohide_threshold_title">नेट गतिविधि स्वतः छुपाएँ थ्रेशोल्ड (KB/s)</string>
+  <string name="show_network_traffic_state">स्टेटस बार यातायात निगरानी</string>
+  <string name="show_network_traffic_unit">प्रदर्शन इकाई</string>
+  <string name="show_network_traffic_frequency">नवीनतम बनाने का अन्तराल</string>
+  <string name="show_network_traffic_disable">अक्षम कर दिया गया</string>
   <string name="show_network_traffic_500">500 ms</string>
   <string name="show_network_traffic_1000">1000 ms</string>
   <string name="show_network_traffic_1500">1500 ms</string>
   <string name="show_network_traffic_2000">2000 ms</string>
   <string name="network_traffic_autohide">स्वतः छुपाना</string>
+  <string name="headset_connect_player_disabled">अक्षम कर दिया गया</string>
   <!-- Status Bar Ticker -->
+  <string name="icon_title">आइकॉन</string>
+  <string name="colors_title">रंग</string>
   <!-- Heads up -->
+  <string name="heads_up_blacklist_add_package_title">ऐप जोड़ें</string>
+  <string name="heads_up_blacklist_choose_app">ऐप का चयन करें</string>
+  <string name="heads_up_blacklist_dialog_delete_title">हटाएं</string>
+  <string name="heads_up_blacklist_dialog_delete_message">चयनित आइटम निकालें?</string>
   <!-- Fingerprint authentication vibration -->
   <!-- QS quick pulldown using fpc -->
   <!-- QuickSettings haptic feedback -->
   <!-- Lockscreen battery info indicator  -->
+  <string name="lockscreen_battery_info_title">बैटरी की जानकारी</string>
   <!-- Wake on plugged  -->
   <!-- Custom LCD density -->
   <!-- Status bar -->
+  <string name="status_bar_quick_qs_pulldown_summary_right">दायां</string>
+  <string name="status_bar_quick_qs_pulldown_off">बंद</string>
+  <string name="status_bar_quick_qs_pulldown_left">बाएँ</string>
+  <string name="status_bar_quick_qs_pulldown_right">दायां</string>
+  <string name="status_bar_double_tap_to_sleep_title">सुलाने के लिए डबल-टैप करे</string>
+  <string name="status_bar_double_tap_to_sleep_summary">डिस्प्ले को बंद करने के लिए स्थिति पट्टी पर दो बार टैप करें</string>
   <!-- QS Headers -->
+  <string name="header_provider_disabled">अक्षम कर दिया गया</string>
+  <string name="file_header_select_title">छवि चुने</string>
   <!-- Smart pulldown-->
   <!-- Status bar - icons -->
   <!-- Status bar - Clock -->
+  <string name="status_bar_clock_title">घड़ी</string>
+  <string name="status_bar_clock_position_title">घड़ी की स्थिति</string>
+  <string name="status_bar_clock_position_right">दाईं </string>
+  <string name="status_bar_clock_position_left">बाएँ</string>
+  <string name="status_bar_clock_position_center">मध्य</string>
+  <string name="status_bar_am_pm_info">24 घंटे की घड़ी सक्षम है</string>
+  <string name="status_bar_am_pm_normal">सामान्य</string>
+  <string name="status_bar_am_pm_small">छोटा</string>
   <!-- Status bar - Battery -->
   <!--RR statusbar logo -->
   <!-- Status bar - Battery percentage -->
+  <string name="status_bar_battery_percentage_text_inside">आइकन के अंदर</string>
+  <string name="status_bar_battery_percentage_text_next">आइकन के आगे</string>
   <!-- Status bar - Brightness -->
+  <string name="status_bar_brightness_category">चमक</string>
   <!-- Carrier Label -->
   <!-- Battery bar -->
+  <string name="battery_bar_color_title">रंग</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">स्थिति पट्टी घड़ी और तारीख के विभिन्न तत्वों</string>
   <!-- QS rows and columns -->
   <!-- Color Picker -->
   <!-- Sensor block per-package -->
   <!-- Weather - OmniJaws Settings -->
+  <string name="weather_title">मौसम</string>
+  <string name="weather_config_title">सेवा की व्यवस्था</string>
   <!-- Lockscreen Weather -->
   <!-- Power Menu -->
+  <string name="powermenu_flashlight">टॉर्च</string>
   <!-- Lockscreen notif count -->
   <!-- Toast icon switch -->
   <!-- Toast Animation -->
@@ -183,12 +256,25 @@
   <!-- Volume dialog opacity -->
   <!-- Recents Membar -->
   <!-- Slim recents -->
+  <string name="recent_panel_expanded_mode_disabled">अक्षम कर दिया गया</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
+  <string name="recent_panel_lefty_mode_title">बाईं किनारे पर दिखाएं</string>
+  <string name="profile_choose_app">ऐप चुनें</string>
+  <string name="dialog_delete_title">हटाएं</string>
+  <string name="dialog_delete_message">चयनित आइटम निकालें?</string>
+  <string name="slim_blacklist_add_apps_title">ऐप जोड़ें</string>
   <!-- Slim Recent App Sidebar  -->
   <!-- Slim recents membar -->
   <!-- Power Menu on Lock screen -->
   <!-- Disable QS on secure Lockscreen -->
+  <string name="volbtn_cursor_control_off">अक्षम कर दिया गया</string>
+  <string name="torch_long_press_power_timeout_1min">1 मिनट</string>
+  <string name="torch_long_press_power_timeout_2min">2 मिनट</string>
+  <string name="torch_long_press_power_timeout_5min">5 मिनट</string>
+  <string name="torch_long_press_power_timeout_10min">10 मिनट</string>
   <!-- StatusBar weather settings -->
+  <string name="status_bar_weather_hidden">मौसम छुपाएं</string>
+  <string name="status_bar_show_image">छवि दिखाएं</string>
   <!-- DUI -->
   <!-- Actions dialog and default task values set in ActionPreference xml-->
   <!-- Fling -->
@@ -205,6 +291,7 @@
   <string name="animation_duration_default">डिफ़ाल्ट</string>
   <!-- Power menu and dialogs opacity -->
   <!-- Screen state service -->
+  <string name="screen_state_toggles_mobile_data">मोबाइल डेटा अक्षम करें</string>
   <!-- Volume Steps -->
   <string name="volume_steps_60">60</string>
   <string name="volume_steps_45">45</string>
@@ -218,6 +305,7 @@
   <!-- Label, button used to save a gesture newly created -->
   <!-- Label, prompt asking the user to enter the name of the gesture -->
   <!-- Error message, informs the user he needs to enter a name before saving a gesture -->
+  <string name="ga_error_missing_name">आपको नाम दर्ज करना होगा</string>
   <!-- success message, tells the user where the gesture was saved -->
   <!-- Buttons in Rename gesture dialog box -->
   <!-- Buttons in Rename gesture dialog box -->
@@ -231,8 +319,12 @@
   <!-- Label of gesture name field in Rename gesture dialog box -->
   <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
   <!-- Immersive Recents -->
+  <string name="show_4g_title">4G दिखाएं</string>
   <!-- Circle app bar -->
   <!-- Pie -->
+  <string name="pie_status_wifi">केवल Wi-Fi</string>
+  <string name="pie_status_none">कुछ नहीं</string>
+  <string name="pie_status_both">दोनों</string>
   <!-- Force expanded notifications -->
   <!-- Disabling immersive mode messages -->
   <!-- SlimSizer  -->

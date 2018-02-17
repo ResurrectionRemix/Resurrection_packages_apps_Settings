@@ -197,11 +197,6 @@
   <string name="network_traffic_autohide_threshold">Hareketsizlik eşiği</string>
   <string name="headset_connect_player_title">Kulaklık bağlandığında müzik uygulamasını başlat</string>
   <string name="headset_connect_player_disabled">Devre dışı</string>
-  <string name="headset_connect_player_wired">Kablolu kulaklık takıldığında</string>
-  <string name="headset_connect_player_bt_no_carkit">BT kulaklık seti (araç kiti değil) takıldığında</string>
-  <string name="headset_connect_player_bt">BT kulaklık seti takıldığında</string>
-  <string name="headset_connect_player_both_no_carkit">Kablolu veya BT kulaklık seti (araç kiti değil) takıldığında</string>
-  <string name="headset_connect_player_both">Kablolu veya BT kulaklık seti takıldığında</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_title">Bildirim şeridi</string>
   <string name="ticker_title">Durum çubuğu şeridi</string>
@@ -279,9 +274,13 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <string name="file_header_provider_title">Özel görüntü</string>
   <!-- Smart pulldown-->
   <string name="smart_pulldown_title">Akıllı aşağı çekme</string>
-  <string name="smart_pulldown_summary">%1$s hızlı ayarları aç</string>
-  <string name="smart_pulldown_none_summary">Hiçbir bildirim olmadığında hızlı ayarları açın</string>
-  <string name="smart_pulldown_off_summary">kapatıldı</string>
+  <string name="smart_pulldown_off">Kapalı</string>
+  <string name="smart_pulldown_none">Bildirim yoksa</string>
+  <string name="smart_pulldown_dismissable">Kapatılabilir bildirim yoksa</string>
+  <string name="smart_pulldown_ongoing">Devam eden bildirim yoksa</string>
+  <string name="smart_pulldown_summary">%1$s hızlı ayarları açar</string>
+  <string name="smart_pulldown_none_summary">Hiçbir bildirim olmadığında hızlı ayarları açar</string>
+  <string name="smart_pulldown_off_summary">Kapatıldı</string>
   <!-- Status bar - icons -->
   <string name="status_bar_icons_title">Durum çubuğu simgeleri</string>
   <string name="status_bar_notif_count_title">Bildirim sayısını göster</string>
@@ -295,7 +294,7 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <string name="status_bar_clock_position_left">Sol</string>
   <string name="status_bar_clock_position_center">Orta</string>
   <string name="status_bar_am_pm_title">ÖÖ/ÖS biçimi</string>
-  <string name="status_bar_am_pm_info">24 saat biçimi etkinleştirildi</string>
+  <string name="status_bar_am_pm_info">24 saat biçimi etkin</string>
   <string name="status_bar_am_pm_normal">Normal</string>
   <string name="status_bar_am_pm_small">Küçük</string>
   <string name="status_bar_am_pm_hidden">Gizle</string>
@@ -1112,7 +1111,7 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <string name="blur_notice_summary">Bulanıklık kişiselleştirmeleri, kilit ekranında devre dışı bırakılmıştır!
 Sadece yarı saydam bildirimler etkin!</string>
   <string name="blur_colors_notice">Bu renkler ne işe yarar?</string>
-  <string name="blur_colors_notice_summary">Bu renkler, bulanıklığı arka plana boyayan renklerdir. Normal gri yerine, artık renkleri istediğiniz gibi seçebilirsiniz. \n Üç renk filtresi vardır: Biri açık renkli arka planlar için, biri koyu arka planlar için kullanılırken diğeri ise açık/koyu arka planlar için kullanılır. \n Peki bu renkler nasıl çalışıyor??? \n Basit olarak, başlıkta da söylendiği gibi, ışık filtresi daha açık arka planlar için, karanlık filtre koyu arka planlar için ve karışık filtre arka planlar için çok karanlık değil ama çok hafif olacak şekilde kullanılacaktır. \n Bu renkler her iki Bulanık Arka Planı için de kullanılır: biri Durum çubuğu diğeri Son kullanılanlar </string>
+  <string name="blur_colors_notice_summary">Bu renkler, bulanıklığı arka plana boyayan renklerdir. Normal gri yerine, artık renkleri istediğiniz gibi seçebilirsiniz.\nÜç renk filtresi vardır: Biri açık renkli arka planlar için, biri koyu arka planlar için kullanılırken diğeri ise açık/koyu arka planlar için kullanılır.\nPeki bu renkler nasıl çalışıyor??\nBasit olarak, başlıkta da söylendiği gibi, ışık filtresi daha açık arka planlar için, karanlık filtre koyu arka planlar için ve karışık filtre arka planlar için çok karanlık değil ama çok hafif olacak şekilde kullanılacaktır.\nBu renkler her iki Bulanık Arka Planı için de kullanılır: biri Durum çubuğu diğeri Son kullanılanlar </string>
   <string name="blur_expstatus_cat">Genişletilmiş durum çubuğu </string>
   <string name="blur_notifications_cat">Bildirimler</string>
   <string name="blur_qs_cat">Hızlı ayarlar</string>
@@ -1197,7 +1196,7 @@ Sadece yarı saydam bildirimler etkinleştirildi!</string>
   <string name="shortcut_action_home">Ana sayfa</string>
   <string name="shortcut_action_back">Geri</string>
   <string name="shortcut_action_menu">Menü</string>
-  <string name="shortcut_action_ime">Klavye Seçiciyi Aç</string>
+  <string name="shortcut_action_ime">Klavye Değiştirici\'yi Aç</string>
   <string name="shortcut_action_power_menu">Güç Menüsü</string>
   <string name="shortcut_action_recent">Son Kullanılanlar</string>
   <string name="shortcut_action_power">Ekranı Kapat</string>
@@ -1506,6 +1505,7 @@ Sadece yarı saydam bildirimler etkinleştirildi!</string>
   <string name="animation0">Döndür </string>
   <string name="animation1">Son Kullanılanlardan Çıkış</string>
   <string name="animation2">Yarı Saydam Çıkış </string>
+  <string name="animation3">Şeffaf Çıkış Şeridi</string>
   <string name="animation4">Bildirim çıkışı</string>
   <string name="animation5">Aşağı Dışarı Kaydır </string>
   <string name="animation6">Xylon Çıkış </string>
@@ -1564,6 +1564,7 @@ Sadece yarı saydam bildirimler etkinleştirildi!</string>
   <string name="print_restart">Yeniden başlat</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Hızlı kilit açma</string>
+  <string name="unlock_quick_unlock_control_summary">Doğru PIN/şifre girildiğinde otomatik olarak kilidi açar. 6 basamaktan az bir PIN kullanmanız önerilir. PIN 6 basamağı geçerse cihazınız kilitli kalabilir. Sizi uyarıyoruz</string>
   <!-- Hide Apps from Recents -->
   <string name="hide_apps_from_recents_title">Uygulamaları gizle</string>
   <string name="hide_from_recents_add_app">Uygulama ekle</string>
@@ -1590,6 +1591,7 @@ Sadece yarı saydam bildirimler etkinleştirildi!</string>
   <string name="clock_date_date_style_lowercase">Küçük harf</string>
   <string name="clock_date_date_style_uppercase">Büyük harf</string>
   <string name="clock_date_date_size_small_title">Küçük</string>
+  <string name="clock_date_date_size_small_summary">Küçük boyutlu tarihi görüntülemek için etkinleştirin</string>
   <string name="status_bar_clock_font_size_title">Yazı tipi boyutu</string>
   <!-- Dynamic Navbar -->
   <string name="navbar_dynamic_title">Dinamik gezinme çubuğu rengi</string>
@@ -1656,4 +1658,6 @@ Sadece yarı saydam bildirimler etkinleştirildi!</string>
   <string name="screenshot_options_summary">Zaman, gecikme, tür gibi ekran görüntüsü özelliklerini özelleştirin</string>
   <string name="screenshot_delay_title">Ekran görüntüsü gecikmesi</string>
   <!-- Face unlock auto -->
+  <string name="face_auto_unlock_title">Yüz ile otomatik kilit açma</string>
+  <string name="face_auto_unlock_summary">Kilitleme ekranını, yüz kilidini açtıktan sonra kapatır. Bunun için yüz kilidi açma/güvenilen yüz\'ü etkinleştirmeniz gerekir</string>
 </resources>

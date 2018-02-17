@@ -64,14 +64,6 @@
   <string name="rr_ls_ui">Blocca UI</string>
   <string name="rr_ls_security">Sicurezza</string>
   <string name="updater_title">Aggiornamenti</string>
-  <string name="altankrk_summary">● Co-fondatore \n● Capo sviluppatore \n● UX progettista\n● Manutentore</string>
-  <string name="varun_summary">● Capo sviluppatore \n● UX designer \n● Manutentore</string>
-  <string name="andres_summary">● Sviluppatore \n● Manutentore</string>
-  <string name="akhil_summary">● Sviluppatore \n● Manutentore \n● Script master</string>
-  <string name="brian_summary">● Sviluppatore \n● Manutentore</string>
-  <string name="christopher_kardas_summary">● Moderatore \n● Redattore\n● Collaboratore</string>
-  <string name="matt_summary">● Moderatore \n● Redattore\n● Collaboratore</string>
-  <string name="justen_summary">● Moderatore \n● Redattore\n● Collaboratore</string>
   <string name="support_team_title">Tag del moderatore</string>
   <string name="device_maintainers_title">Dispositivi e manutentori</string>
   <string name="device_maintainers_title_summary">Elenco dei dispositivi e dei loro manutentori ufficiali della RR-OS</string>
@@ -197,11 +189,6 @@
   <string name="network_traffic_autohide_threshold">Soglia di inattività</string>
   <string name="headset_connect_player_title">Avvia l\'app musicale quando vengono collegate le cuffie</string>
   <string name="headset_connect_player_disabled">Disabilitato</string>
-  <string name="headset_connect_player_wired">Quando è collegato l\'auricolare con cavo</string>
-  <string name="headset_connect_player_bt_no_carkit">Quando è collegato auricolare BT (nessun kit per auto)</string>
-  <string name="headset_connect_player_bt">Quando è collegato auricolare BT</string>
-  <string name="headset_connect_player_both_no_carkit">Quando è collegato l\'auricolare col cavo o BT (nessun kit per auto)</string>
-  <string name="headset_connect_player_both">Quando è collegato l\'auricolare col cavo o BT</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_title">Ticker di notifica</string>
   <string name="ticker_title">Ticker barra di stato</string>
@@ -279,9 +266,12 @@
   <string name="file_header_provider_title">Immagine personalizzata</string>
   <!-- Smart pulldown-->
   <string name="smart_pulldown_title">Discesa intelligente</string>
+  <string name="smart_pulldown_none">Nessuna notifica</string>
+  <string name="smart_pulldown_dismissable">Nessuna notifica removibile</string>
+  <string name="smart_pulldown_ongoing">Nessuna notifica in corso</string>
   <string name="smart_pulldown_summary">Apri le impostazioni rapide quando ci sono %1$s</string>
   <string name="smart_pulldown_none_summary">Apri le impostazioni rapide quando non ci sono notifiche presenti</string>
-  <string name="smart_pulldown_off_summary">è spento</string>
+  <string name="smart_pulldown_off_summary">È spento</string>
   <!-- Status bar - icons -->
   <string name="status_bar_icons_title">Icone della barra di stato</string>
   <string name="status_bar_notif_count_title">Mostra contatore notifiche</string>
@@ -1111,7 +1101,7 @@
   <string name="blur_notice">Info sulla funzione di sfocatura</string>
   <string name="blur_notice_summary">Le personalizzazioni di sfocatura sono disabilitate quando è visualizzata la tastiera! Solo le notifiche traslucide sono abilitate!</string>
   <string name="blur_colors_notice">Cosa fanno questi colori?</string>
-  <string name="blur_colors_notice_summary">Questi colori sono la tinta dei colori di sfondo della sfocatura. Anziché il normale grigio, è ora possibile scegliere il colore che più preferisci. \n Ci sono 3 filtri colore: Uno usato per sfondi chiari, uno usato per sfondi scuri e uno usato per sfondi misti. \n Ma come funzionano questi colori? \n Semplice, come dice il titolo, il filtro chiaro viene usato sugli sfondi più chiari, il filtro scuro viene usato sugli sfondi più scuri e il filtro misto viene usato nelle situazioni in cui lo sfondo non è ne troppo chiaro e ne troppo scuro. \n Questi colori sono usati sia nella barra di stato che nel pannello delle applicazioni recenti </string>
+  <string name="blur_colors_notice_summary">Questi colori sono quelli che colorano lo sfondo sfocato. Invece del normale grigio, ora puoi scegliere i colori nel modo che preferisci. \nCi sono tre filtri colore: uno usato per sfondi chiari, uno usato per sfondi scuri e uno usato per sfondi chiari / scuri.\nCome lavorano questi colori?? \nSemplice, come dice il titolo, verrà utilizzato il filtro chiaro per sfondi più chiari, filtro scuro per sfondi scuri e il filtro misto uno verrà utilizzato per gli sfondi non troppo scuri ma neanche troppo chiari. \nQuesti colori saranno utilizzati per entrambi gli sfondi sfocati: Barra di stato e Recenti </string>
   <string name="blur_expstatus_cat">Barra di stato estesa </string>
   <string name="blur_notifications_cat">Notifiche</string>
   <string name="blur_qs_cat">Impostazioni rapide</string>
@@ -1504,6 +1494,7 @@
   <string name="animation0">Rotazione </string>
   <string name="animation1">Uscita app recenti</string>
   <string name="animation2">Uscita traslucido </string>
+  <string name="animation3">Uscita nastro translucido</string>
   <string name="animation4">Uscita toast</string>
   <string name="animation5">Scorri dal basso </string>
   <string name="animation6">Uscita Xylon </string>
@@ -1562,6 +1553,7 @@
   <string name="print_restart">Riavvia</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Sblocco veloce</string>
+  <string name="unlock_quick_unlock_control_summary">Sblocca automaticamente quando viene immesso il PIN/password corretta. È consigliabile utilizzare un pin di 6 cifre. Se il PIN incrocia 6 cifre, potrebbe essere bloccato. Sei stato avvertito</string>
   <!-- Hide Apps from Recents -->
   <string name="hide_apps_from_recents_title">App nascoste</string>
   <string name="hide_from_recents_add_app">Aggiungi app</string>
@@ -1588,6 +1580,7 @@
   <string name="clock_date_date_style_lowercase">Minuscolo</string>
   <string name="clock_date_date_style_uppercase">Maiuscolo</string>
   <string name="clock_date_date_size_small_title">Piccolo</string>
+  <string name="clock_date_date_size_small_summary">Consente di visualizzare la data di piccole dimensioni</string>
   <string name="status_bar_clock_font_size_title">Dimensione carattere</string>
   <!-- Dynamic Navbar -->
   <string name="navbar_dynamic_title">Colore barra di navigazione dinamico</string>
@@ -1654,4 +1647,6 @@
   <string name="screenshot_options_summary">Personalizza attributi screenshot come tempo, ritardo, tipo ecc</string>
   <string name="screenshot_delay_title">Ritardo screenshot</string>
   <!-- Face unlock auto -->
+  <string name="face_auto_unlock_title">Sblocco automatico con viso</string>
+  <string name="face_auto_unlock_summary">Sblocca automaticamente il dispositivo quando viene riconosciuto il viso. È necessario abilitare lo sblocco del viso attendibile</string>
 </resources>

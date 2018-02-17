@@ -64,14 +64,14 @@
   <string name="rr_ls_ui">Interface de l\'écran de verrouillage</string>
   <string name="rr_ls_security">Sécurité</string>
   <string name="updater_title">Mises à jour</string>
-  <string name="altankrk_summary">● Co-fondateur \n● Chef développeur \n● Concepteur UX \n● Mainteneur</string>
-  <string name="varun_summary">● Développeur principal \n● Concepteur UX \n● Mainteneur</string>
-  <string name="andres_summary">● Développeur \n● Mainteneur</string>
-  <string name="akhil_summary">● Développeur \n● mainteneur \n● Javascript master</string>
-  <string name="brian_summary">● Développeur \n● mainteneur</string>
-  <string name="christopher_kardas_summary">● Modérateur \n● Éditeur\n● Contributeur</string>
-  <string name="matt_summary">● Modérateur \n● Éditeur\n● Contributeur</string>
-  <string name="justen_summary">● Modérateur \n● Éditeur\n● Contributeur</string>
+  <string name="altankrk_summary">● Co-fondateur \n● Développeur en chef \n● Concepteur UX \n● Mainteneur</string>
+  <string name="varun_summary">● Développeur en chef \n● Concepteur UX \n● Mainteneur</string>
+  <string name="andres_summary">● Développeur \n● Maintenance</string>
+  <string name="akhil_summary">● Développeur \n● Maintenance \n● Maître des scripts</string>
+  <string name="brian_summary">● Développeur\n● Mainteneur</string>
+  <string name="christopher_kardas_summary">● Modérateur\n● Éditeur\n● Contributeur</string>
+  <string name="matt_summary">● Modérateur\n● Éditeur\n● Contributeur</string>
+  <string name="justen_summary">● Modérateur\n● Éditeur\n● Contributeur</string>
   <string name="support_team_title">Moderator Tag</string>
   <string name="device_maintainers_title">Appareils et mainteneurs</string>
   <string name="device_maintainers_title_summary">Liste des appareils et de leurs mainteneurs officiels RR-OS</string>
@@ -174,7 +174,7 @@
   <string name="ka_title">Performances</string>
   <!-- Show VoLTE icon on statusbar -->
   <string name="volte_icon_title">Icône VoLTE</string>
-  <string name="volte_icon_summary">Afficher l\'icône VoLTE quand disponible</string>
+  <string name="volte_icon_summary">Afficher l\'icône VoLTE lorsque la fonction est disponible</string>
   <!-- Network traffic -->
   <string name="network_traffic_state_title">Afficher l\'activité réseau dans la barre d\'état</string>
   <string name="network_traffic_title">Trafic réseau</string>
@@ -197,11 +197,6 @@
   <string name="network_traffic_autohide_threshold">Seuil d\'inactivité</string>
   <string name="headset_connect_player_title">Lancer l\'application musicale lors de la connexion casque</string>
   <string name="headset_connect_player_disabled">Désactivé</string>
-  <string name="headset_connect_player_wired">Quand un casque filaire est connecté</string>
-  <string name="headset_connect_player_bt_no_carkit">Quand un casque BT (sauf kits mains-libres) est connecté</string>
-  <string name="headset_connect_player_bt">Quand un casque BT est connecté</string>
-  <string name="headset_connect_player_both_no_carkit">Quand un casque filière ou BT (sauf kit mains-libres) est connecté</string>
-  <string name="headset_connect_player_both">Quand un casque filaire ou BT est connecté</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_title">Notifications animées</string>
   <string name="ticker_title">Paramétrage de la barre d\'état</string>
@@ -216,7 +211,9 @@
   <!-- Heads up -->
   <string name="heads_up_title">Autoriser les entêtes</string>
   <string name="heads_up_summary_enabled">Notifications flottantes activées</string>
+  <string name="heads_up_summary_disabled">Les notifications pop-up sont activées</string>
   <string name="heads_up_blacklist_add_package_title">Ajouter une application</string>
+  <string name="heads_up_blacklist_add_package_summary">Désactiver les notifications pop-up dans ces applications</string>
   <string name="heads_up_blacklist_title">Liste noire</string>
   <string name="heads_up_blacklist_choose_app">Selectionner l\'application</string>
   <string name="heads_up_blacklist_dialog_delete_title">Supprimer</string>
@@ -277,13 +274,19 @@
   <string name="file_header_provider_title">Image personnalisée</string>
   <!-- Smart pulldown-->
   <string name="smart_pulldown_title">Déroulement intelligent</string>
+  <string name="smart_pulldown_off">Off</string>
+  <string name="smart_pulldown_none">Pas de notifications</string>
+  <string name="smart_pulldown_dismissable">Pas de notifications effaçables</string>
+  <string name="smart_pulldown_ongoing">Pas de notifications en cours</string>
+  <string name="smart_pulldown_summary">Ouvrir les réglages rapides quand il y a %1$s</string>
   <string name="smart_pulldown_none_summary">Ouvrir les réglages rapides quand aucune notification n\'est présente</string>
-  <string name="smart_pulldown_off_summary">est éteint</string>
+  <string name="smart_pulldown_off_summary">Est éteint</string>
   <!-- Status bar - icons -->
   <string name="status_bar_icons_title">Icônes de la barre d\'état</string>
   <string name="status_bar_notif_count_title">Afficher le compteur de notification</string>
   <string name="status_bar_notif_count_summary">Afficher le nombre de notifications en attente</string>
   <string name="status_bar_system_icons_title">Icônes système</string>
+  <string name="status_bar_system_icons_summary">Contrôle quelles icônes de la barre d’état sont affichées</string>
   <!-- Status bar - Clock -->
   <string name="status_bar_clock_title">Horloge</string>
   <string name="status_bar_clock_position_title">Position de l’horloge</string>
@@ -323,6 +326,7 @@
   <string name="status_bar_toggle_brightness">Réglage de la luminosité</string>
   <string name="status_bar_toggle_brightness_summary">Ajuster la luminosité en faisant glisser votre doigt sur la barre d\'état</string>
   <!-- Carrier Label -->
+  <string name="carrier_options">Sélectionnez les emplacements d’affichage</string>
   <string name="custom_carrier_label_title">Éditer le nom de l\'opérateur</string>
   <string name="custom_carrier_label_explain">Saisir manuellement un nom. Laissez vide pour utiliser celui diffuser par votre réseau mobile</string>
   <string name="custom_carrier_label_notset">Texte non défini</string>
@@ -442,6 +446,12 @@
   <string name="status_bar_weather_font_notoserif_bold">NotoSerif Gras</string>
   <string name="status_bar_weather_font_notoserif_bold_italic">NotoSerif Gras Italique</string>
   <!-- Lockscreen Weather -->
+  <string name="lock_screen_weather_category_title">Écran de verrouillage</string>
+  <string name="lock_screen_show_weather_title">Affichage de la météo</string>
+  <string name="lock_screen_show_weather_summaryOn">La météo s\'affiche sur l\'écran de verouillage</string>
+  <string name="lock_screen_show_location_title">Affichage de la position</string>
+  <string name="lock_screen_show_location_summaryOn">Position actuelle affichée sur l\'écran de verrouillage</string>
+  <string name="lock_screen_show_location_summaryOff">Position actuelle cachée sur l\'écran de verrouillage</string>
   <!-- Power Menu -->
   <string name="powermenu_title">Menu Marche/Arrêt</string>
   <string name="powermenu_reboot_title">Redémarrer</string>
@@ -454,7 +464,13 @@
   <string name="powermenu_ls_reboot_summary">Afficher les options de redémarrage sur l\'écran de verrouillage</string>
   <string name="powermenu_ls_advanced_reboot_summary">Afficher les options de redémarrage avancé sur l\'écran de verrouillage</string>
   <string name="powermenu_ls_screenshot_summary">Afficher l\'option de capture d\'écran sur l\'écran de verrouillage</string>
+  <string name="powermenu_ls_airplane_summary">Afficher l\'option de mode avion sur l\'écran de verrouillage</string>
+  <string name="powermenu_ls_flashlight_summary">Afficher l\'option de lampe-torche sur l\'écran de verrouillage</string>
+  <string name="powermenu_ls_screenrecord_summary">Afficher l\'option d\'enregistrement d\'écran sur l\'écran de verrouillage</string>
   <!-- Lockscreen notif count -->
+  <string name="lockscreen_maxnotif_title">Nombre de notifications</string>
+  <string name="lockscreen_maxnotif_summary">Modifier le compteur de notifications</string>
+  <string name="lockscreen_maxnotif_config">Nombre maximal de notifications autorisées</string>
   <!-- Toast icon switch -->
   <string name="toast_icon_title">Icône des notifications contextuelles</string>
   <string name="toast_icon_summary">Afficher l\'icône de l\'application correspondant à la notification contextuelle</string>
@@ -531,6 +547,7 @@
   <string name="recent_app_sidebar_open_simultaneously_title">Ouvrir en même temps que les récents</string>
   <string name="recent_app_sidebar_open_simultaneously_summary">Réduire le ralentissement à l\'ouverture des récents en désactivant ceci</string>
   <!-- Slim recents membar -->
+  <string name="slim_recents_mem_display_category_title">Barre de mémoire (Ram)</string>
   <string name="slim_recents_mem_display_title">Afficher la barre d\'utilisation mémoire</string>
   <string name="slim_recents_mem_display_summaryOn">Barre de mémoire activée</string>
   <string name="slim_recents_mem_display_summaryOff">Barre de mémoire désactivée</string>
@@ -595,6 +612,7 @@
   <string name="select_custom_app_title">Sélectionner une application personnalisée</string>
   <string name="select_custom_activity_title">Choisir une activité personnalisée</string>
   <string name="profile_applist_title">Applications</string>
+  <string name="default_settings">Paramètres d\'origine</string>
   <string name="default_settings_summary">Barre de navigation stock AOSP</string>
   <string name="default_navbar_title">Barre de navigation stock</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
@@ -766,6 +784,7 @@
   <string name="power_menu_dialog_dim">Transparence des dialogues du menu Marche/Arrêt</string>
   <!-- Screen state service -->
   <string name="screen_state_toggles_summary">\@null</string>
+  <string name="screen_state_toggles_title">Suspendre les actions</string>
   <string name="screen_state_toggles_enable_title">Activer</string>
   <string name="screen_state_toggles_enable_summary">Les actions seront exécutées lorsque l\'écran sera éteint. Écran allumé, l\'état précédent sera restauré.</string>
   <string name="screen_state_toggles_mobile_title">Réseaux mobiles</string>
@@ -796,6 +815,7 @@
   <string name="volume_steps_5">5</string>
   <!-- Screenshot sound -->
   <string name="screenshot_sound_title">Son de capture d\'écran</string>
+  <string name="screenshot_sound_summary">Jouer un son lors de la prise de capture d\'écran</string>
   <!-- Gesture Anywhere -->
   <string name="gesture_anywhere_title">Gestes n\'importe où</string>
   <string name="gesture_anywhere_enabled_title">Gestes n\'importe où</string>
@@ -856,6 +876,7 @@
   <string name="show_4g_summary">Afficher 4G au lieu LTE « icône du signal réseau »</string>
   <!-- Circle app bar -->
   <string name="category_app_circle_bar_title">Lanceur d\'applications</string>
+  <string name="app_circle_bar_title">Barre circulaire d\'applications</string>
   <string name="app_circle_bar_included_apps_title">Applications incluses</string>
   <string name="app_circle_bar_included_apps_summary">Applications qui vont s\'afficher dans la barre d\'application circulaire</string>
   <!-- Pie -->
@@ -996,7 +1017,6 @@
   <string name="blur_notice">À propos de l\'effet de flou</string>
   <string name="blur_notice_summary">Les effets de flou sont désactivés sur l\'écran de verrouillage! Seules les notifications transparentes sont activées !</string>
   <string name="blur_colors_notice">Que font ces couleurs ?</string>
-  <string name="blur_colors_notice_summary">Ces couleurs sont celles qui teintent le fond flouté. Au lieu du gris par défaut, vous pouvez maintenant choisir les couleurs que vous souhaitez. \n Il y a trois filtres de couleur : l\'un est utilisé pour les fonds clairs, l\'autre pour les fonds foncés et le dernier pour les fonds mixtes. \n Alors, comment fonctionnent ces couleurs ? \n C\'est simple, comme le précise les intitulés, le filtre éclaircir sera utilisé pour les fonds plus clairs, le filtre assombrir pour les fonds plus foncés et le filtre mixte pour les fonds ni trop sombres ni trop clairs. \n Ces couleurs sont utilisées à la fois pour les fonds floutés de la barre d\'état et des applications récentes </string>
   <string name="blur_expstatus_cat">Barre d\'état déroulée </string>
   <string name="blur_notifications_cat">Notifications</string>
   <string name="blur_qs_cat">Réglages rapides</string>
@@ -1235,7 +1255,9 @@
   <string name="scroll_disclaimer_summary">Remarque : La plupart des applications doivent être redémarrées pour que les modifications prennent effet</string>
   <string name="animation_settings_reset_message">Rétablir tous les paramètres d\'animation à leur valeur par défaut ?</string>
   <!-- Screen Off animation -->
+  <string name="screen_off_animation_title">Animation à l\'extinction de l\'écran</string>
   <string name="screen_off_animation_default">Par défaut</string>
+  <string name="screen_off_animation_crt">CRT</string>
   <string name="screen_off_animation_scale">Échelle</string>
   <!-- Suppress notification sound/vibration -->
   <string name="notification_sound_vib_screen_on_never">Jamais</string>
@@ -1375,6 +1397,7 @@
   <string name="button27">Resurrection</string>
   <string name="button28">Android (Stock)</string>
   <string name="button29">Resurrection Lollipop</string>
+  <string name="button30">Resurrection Nougat</string>
   <string name="animation0">Rotation </string>
   <string name="animation1">Sortie des récents</string>
   <string name="animation2">Sortie Translucide </string>
