@@ -18,7 +18,12 @@ package com.android.settings;
 
 import android.app.settings.SettingsEnums;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.SystemProperties;
 import android.provider.SearchIndexableResource;
+import android.util.Log;
+import androidx.preference.Preference;
 
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -33,6 +38,9 @@ public class LegalSettings extends DashboardFragment {
 
     private static final String TAG = "LegalSettings";
 
+    private static final String PROPERTY_LINEAGELICENSE_URL = "ro.lineagelegal.url";
+    private static final String KEY_LINEAGE_LICENSE = "lineagelicense";
+
     @Override
     public int getMetricsCategory() {
         return SettingsEnums.ABOUT_LEGAL_SETTINGS;
@@ -41,6 +49,22 @@ public class LegalSettings extends DashboardFragment {
     @Override
     protected String getLogTag() {
         return TAG;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference.getKey().equals(KEY_LINEAGE_LICENSE)) {
+            String userLineageLicenseUrl = SystemProperties.get(PROPERTY_LINEAGELICENSE_URL);
+            final Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.addCategory(Intent.CATEGORY_DEFAULT);
+            intent.setData(Uri.parse(userLineageLicenseUrl));
+            try {
+                startActivity(intent);
+            } catch (Exception e) {
+                Log.e(TAG, "Unable to start activity " + intent.toString());
+            }
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     @Override
