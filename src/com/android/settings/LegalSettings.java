@@ -22,10 +22,15 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemProperties;
 import android.provider.SearchIndexableResource;
 import android.support.annotation.VisibleForTesting;
+import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
+import android.support.v7.preference.PreferenceScreen;
+import android.util.Log;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
@@ -37,11 +42,14 @@ import java.util.List;
 
 public class LegalSettings extends SettingsPreferenceFragment implements Indexable {
 
+    private static final String LOG_TAG = "LegalSettings";
     private static final String KEY_TERMS = "terms";
     private static final String KEY_LICENSE = "license";
     private static final String KEY_COPYRIGHT = "copyright";
     private static final String KEY_WEBVIEW_LICENSE = "webview_license";
     @VisibleForTesting static final String KEY_WALLPAPER_ATTRIBUTIONS = "wallpaper_attributions";
+    private static final String PROPERTY_LINEAGELICENSE_URL = "ro.lineagelegal.url";
+    private static final String KEY_LINEAGE_LICENSE = "lineagelicense";
 
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -60,6 +68,22 @@ public class LegalSettings extends SettingsPreferenceFragment implements Indexab
                 Utils.UPDATE_PREFERENCE_FLAG_SET_TITLE_TO_MATCHING_ACTIVITY);
 
         checkWallpaperAttributionAvailability(act);
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference.getKey().equals(KEY_LINEAGE_LICENSE)) {
+            String userLineageLicenseUrl = SystemProperties.get(PROPERTY_LINEAGELICENSE_URL);
+            final Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.addCategory(Intent.CATEGORY_DEFAULT);
+            intent.setData(Uri.parse(userLineageLicenseUrl));
+            try {
+                startActivity(intent);
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
+            }
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     @Override
