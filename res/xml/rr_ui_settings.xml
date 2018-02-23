@@ -19,6 +19,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_ui_title">
+    
+        <PreferenceScreen
+            android:key="rr_tuner"
+            android:title="@string/rr_tuner"
+            android:icon="@drawable/rr_tuner_icon"
+            android:summary="@string/rr_tuner_summary">
+            <intent android:action="com.android.settings.action.TUNER"
+                    android:targetPackage="com.android.systemui"
+                    android:targetClass="com.android.systemui.tuner.TunerActivity"/>
+        </PreferenceScreen>
 
 
         <PreferenceScreen

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+        android:key="edge_gestures_enabled"
+        android:title="@string/edge_gestures_title"
+        android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SecureSettingIntListPreference
+        android:key="edge_gestures_feedback_duration"
+        android:entries="@array/edge_gestures_feedback_time_labels"
+        android:entryValues="@array/edge_gestures_feedback_time"
+        android:title="@string/edge_gestures_feedback_duration_title"
+        android:dialogTitle="@string/edge_gestures_feedback_duration_title"
+        android:summary="%s"
+        android:defaultValue="100" />
+
+    <com.android.settings.rr.Preferences.SecureSettingIntListPreference
+        android:key="edge_gestures_long_press_duration"
+        android:entries="@array/edge_gestures_long_press_time_labels"
+        android:entryValues="@array/edge_gestures_long_press_time"
+        android:title="@string/edge_gestures_long_press_delay_title"
+        android:dialogTitle="@string/edge_gestures_long_press_delay_title"
+        android:summary="%s"
+        android:defaultValue="500" />
+
+    <Preference android:key="edge_gestures_description"
+        android:summary="Swipe from bottom to trigger Home gesture, keep it pressed to open recents. Swipe from bottom left or bottom right to go back." />
+
+    <PreferenceCategory
+        android:key="edge_gestures_category_back"
+        android:title="@string/edge_gestures_back_category_title">
+
+        <com.android.settings.rr.Preferences.SecureSettingIntListPreference
+            android:key="edge_gestures_back_edges"
+            android:title="@string/edge_gestures_back_edges_title"
+            android:entries="@array/edge_gestures_back_edges_labels"
+            android:entryValues="@array/edge_gestures_back_edges_values"
+            android:summary="%s"
+            android:defaultValue="5" />
+
+        <com.android.settings.rr.Preferences.SecureSettingIntListPreference
+            android:key="edge_gestures_landscape_back_edges"
+            android:title="@string/edge_gestures_landscape_back_edges_title"
+            android:entries="@array/edge_gestures_back_edges_labels"
+            android:entryValues="@array/edge_gestures_back_edges_values"
+            android:summary="%s"
+            android:defaultValue="5" />
+
+        <com.android.settings.rr.Preferences.SecureSettingSeekBarPreference
+            android:key="edge_gestures_back_screen_percent"
+            android:title="@string/edge_gestures_back_screen_percent_summary"
+            android:min="0"
+            android:max="90"
+            settings:defaultText="60 %"
+            settings:units="%"
+            android:defaultValue="60" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
