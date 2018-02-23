@@ -16,6 +16,16 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/gesture_anywhere_gestures_title" >
 
+        <!-- Edge gestures -->
+
+        <PreferenceScreen
+            android:id="@+id/edge_gestures"
+            android:key="edge_gestures"
+            android:fragment="com.android.settings.rr.gesture.EdgeGesturesSettings"
+            android:title="@string/edge_gestures_title"
+            android:summary="@string/edge_gestures_summary"
+            android:icon="@drawable/ic_edge_gestures"/>
+
         <!-- Gesture anywhere -->
         <PreferenceScreen
 	    	android:id="@+id/gesture_anywhere"	
