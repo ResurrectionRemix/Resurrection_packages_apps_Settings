@@ -17,11 +17,19 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="other">还需 <xliff:g id="step_count">%1$d</xliff:g> 步就可以启用开发者选项。</item>
+  </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
+  <string name="show_dev_on_cm">您已经启用了开发者选项！</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+  <string name="show_dev_already_cm">不用了，您已启用开发者选项。</string>
   <!-- Launch Dev Tools -->
   <string name="development_tools_title">开发工具</string>
   <!-- Advanced restart options -->
   <string name="advanced_reboot_title">高级重启</string>
-  <string name="advanced_reboot_summary">设备已解锁时，在电源菜单的重启选项下加入重启至恢复模式与引导程序的选项</string>
+  <string name="advanced_reboot_summary">设备已解锁时，在电源菜单的重启选项下加入重启至恢复模式或引导程序的选项</string>
   <!-- Setting checkbox title for root access -->
   <string name="root_access">Root 授权</string>
   <string name="root_access_warning_title">允许 Root 授权请求？</string>
@@ -34,7 +42,7 @@
   <string name="root_appops_title">管理 Root 访问</string>
   <string name="root_appops_summary">查看和控制 Root 规则</string>
   <!-- Double tap to sleep on status bar or lockscreen -->
-  <string name="status_bar_double_tap_to_sleep_title">触击以休眠</string>
+  <string name="status_bar_double_tap_to_sleep_title">点按以睡眠</string>
   <string name="status_bar_double_tap_to_sleep_summary">双击状态栏或锁屏以关闭屏幕</string>
   <!-- Touchscreen gesture settings -->
   <string name="touchscreen_gesture_settings_title">触摸屏手势</string>
@@ -186,9 +194,9 @@
   <string name="app_ops_summaries_turn_screen_on">点亮屏幕</string>
   <string name="app_ops_summaries_get_accounts">获得帐户</string>
   <string name="app_ops_summaries_run_in_background">在后台运行</string>
-  <string name="app_ops_summaries_accessibility_volume">音频辅助功能类音量</string>
+  <string name="app_ops_summaries_accessibility_volume">音频辅助功能音量</string>
   <string name="app_ops_summaries_read_phone_numbers">读取电话号码</string>
-  <string name="app_ops_summaries_request_install_packages">请求安装文件包</string>
+  <string name="app_ops_summaries_request_install_packages">请求安装软件包</string>
   <string name="app_ops_summaries_picture_in_picture">使用画中画</string>
   <string name="app_ops_summaries_instant_app_start_foreground">在前台启动即时应用</string>
   <string name="app_ops_summaries_answer_phone_calls">应答电话呼叫</string>
@@ -263,7 +271,7 @@
   <string name="app_ops_labels_turn_screen_on">点亮屏幕</string>
   <string name="app_ops_labels_get_accounts">获得帐户</string>
   <string name="app_ops_labels_run_in_background">在后台运行</string>
-  <string name="app_ops_labels_accessibility_volume">音频辅助功能类音量</string>
+  <string name="app_ops_labels_accessibility_volume">音频辅助功能音量</string>
   <string name="app_ops_labels_read_phone_numbers">读取电话号码</string>
   <string name="app_ops_labels_request_install_packages">请求安装包</string>
   <string name="app_ops_labels_picture_in_picture">使用画中画</string>
@@ -292,4 +300,6 @@
   <string name="app_ops_reset_confirm_title">确认重置计数器</string>
   <string name="app_ops_reset_confirm_mesg">您确定要重置计数器？</string>
   <string name="ok">确定</string>
+  <!-- LineageOS legal -->
+  <string name="lineagelicense_title">LineageOS 法律信息</string>
 </resources>

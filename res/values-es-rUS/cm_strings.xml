@@ -17,6 +17,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">Estás a <xliff:g id="step_count">%1$d</xliff:g> paso de activar los ajustes de desarrollo.</item>
+    <item quantity="other">Estás a <xliff:g id="step_count">%1$d</xliff:g> pasos de activar los ajustes de desarrollo.</item>
+  </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
+  <string name="show_dev_on_cm">¡Has activado los ajustes de desarrollo!</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+  <string name="show_dev_already_cm">No es necesario. Los ajustes de desarrollo ya están activos.</string>
   <!-- Launch Dev Tools -->
   <string name="development_tools_title">Herramientas de desarrollo</string>
   <!-- Advanced restart options -->
@@ -189,7 +198,7 @@
   <string name="app_ops_summaries_accessibility_volume">volumen de accesibilidad del audio</string>
   <string name="app_ops_summaries_read_phone_numbers">leer números de teléfono</string>
   <string name="app_ops_summaries_request_install_packages">solicitud de instalación de paquetes</string>
-  <string name="app_ops_summaries_picture_in_picture">usar picture in picture</string>
+  <string name="app_ops_summaries_picture_in_picture">usar «Picture-in-Picture»</string>
   <string name="app_ops_summaries_instant_app_start_foreground">iniciar aplicación instantánea en primer plano</string>
   <string name="app_ops_summaries_answer_phone_calls">contestar llamadas telefónicas</string>
   <string name="app_ops_summaries_toggle_wifi">alternar Wi-Fi</string>
@@ -266,7 +275,7 @@
   <string name="app_ops_labels_accessibility_volume">Volumen de accesibilidad del audio</string>
   <string name="app_ops_labels_read_phone_numbers">Leer números de teléfono</string>
   <string name="app_ops_labels_request_install_packages">Solicitar instalación de paquetes</string>
-  <string name="app_ops_labels_picture_in_picture">Usar picture in picture</string>
+  <string name="app_ops_labels_picture_in_picture">Usar «Picture-in-Picture»</string>
   <string name="app_ops_labels_instant_app_start_foreground">Iniciar aplicación instantánea en primer plano</string>
   <string name="app_ops_labels_answer_phone_calls">Contestar llamadas telefónicas</string>
   <string name="app_ops_labels_toggle_wifi">Alternar Wi-Fi</string>
@@ -292,4 +301,6 @@
   <string name="app_ops_reset_confirm_title">Confirmar restablecimiento de contadores</string>
   <string name="app_ops_reset_confirm_mesg">¿Estás seguro de que deseas restablecer los contadores?</string>
   <string name="ok">Aceptar</string>
+  <!-- LineageOS legal -->
+  <string name="lineagelicense_title">Licencia de LineageOS</string>
 </resources>

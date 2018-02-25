@@ -17,10 +17,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">Garatzaileen aukerak gaitzeko urrats <xliff:g id="step_count">%1$d</xliff:g>era zaude.</item>
+    <item quantity="other">Garatzaileen aukerak gaitzeko <xliff:g id="step_count">%1$d</xliff:g> urratsera zaude.</item>
+  </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
+  <string name="show_dev_on_cm">Garatzaileen aukerak gaitu dituzu!</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+  <string name="show_dev_already_cm">Ez da behar, aurretik gaitu dituzu garatzaileek aukerak.</string>
   <!-- Launch Dev Tools -->
   <string name="development_tools_title">Garapen tresnak</string>
   <!-- Advanced restart options -->
   <string name="advanced_reboot_title">Berrabiarazte aurreratua</string>
+  <string name="advanced_reboot_summary">Desblokeatutako gailuetan, berreskuratze eta abiarazle moduetan berrabiatzeko aukerak gehitu itzaltze menuan</string>
   <!-- Setting checkbox title for root access -->
   <string name="root_access">Root sarbidea</string>
   <string name="root_access_warning_title">Baimendu root sarbidea?</string>
@@ -33,15 +43,23 @@
   <string name="root_appops_title">Kudeatu root sarbideak</string>
   <string name="root_appops_summary">Ikusi eta kontrolatu root arauak</string>
   <!-- Double tap to sleep on status bar or lockscreen -->
+  <string name="status_bar_double_tap_to_sleep_title">Sakatu lokartzeko</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Sakatu birritan egoera-barra edo blokeo-pantaila pantaila itzaltzeko</string>
   <!-- Touchscreen gesture settings -->
+  <string name="touchscreen_gesture_settings_title">Ukitze-pantailaren keinuak</string>
+  <string name="touchscreen_gesture_settings_summary">Egin ukimen-pantailako keinuak ekintza azkarretarako</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Eragotzi ustekabeko esnatzea</string>
+  <string name="proximity_wake_summary">Kontsultatu gertutasun sentsorea pantaila piztu baino lehen</string>
   <!-- Whether the keyguard will directly show the password entry -->
   <string name="lock_directly_show_password">Zuzenean bistaratu pasahitzaren sarrera</string>
+  <string name="lock_directly_show_password_summary">Saltatu pasatu hatza desblokeatzeko pantaila eta zuzenean pasahitza sartzen hasi</string>
   <!-- Whether the keyguard will directly show the pattern view -->
   <string name="lock_directly_show_pattern">Zuzenean bistaratu eredu ikuspegia</string>
+  <string name="lock_directly_show_pattern_summary">Saltatu pasatu hatza desblokeatzeko pantaila eta zuzenean eredua sartzen hasi</string>
   <!-- Whether the keyguard will directly show the PIN entry -->
   <string name="lock_directly_show_pin">Zuzenean bistaratu PIN sarrera</string>
+  <string name="lock_directly_show_pin_summary">Saltatu pasatu hatza desblokeatzeko pantaila eta zuzenean PIN-a sartzen hasi</string>
   <!-- PIN scramble -->
   <string name="unlock_scramble_pin_layout_title">Zorizko diseinua</string>
   <string name="unlock_scramble_pin_layout_summary">PIN zenbakiaren antolaketa nahastu gailua desblokeatzean</string>
@@ -83,6 +101,7 @@
   <string name="increasing_ring_min_volume_title">Hasierako bolumena</string>
   <string name="increasing_ring_ramp_up_time_title">Maldaren iraupena</string>
   <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Lotu dei doinuaren eta jakinarazpenen bolumenak</string>
   <!-- Memory -->
   <string name="memory_startup_apps_title">Abioan abiarazitako aplikazioak</string>
   <!-- Manual provisioning support -->
@@ -176,6 +195,12 @@
   <string name="app_ops_summaries_turn_screen_on">pantaila piztu</string>
   <string name="app_ops_summaries_get_accounts">kontuak eskuratu</string>
   <string name="app_ops_summaries_run_in_background">exekutatu bigarren planoan</string>
+  <string name="app_ops_summaries_accessibility_volume">audio irisgarritasun bolumena</string>
+  <string name="app_ops_summaries_read_phone_numbers">irakurri telefono zenbakiak</string>
+  <string name="app_ops_summaries_request_install_packages">paketeak instalatzea eskatu</string>
+  <string name="app_ops_summaries_picture_in_picture">erabili irudia irudian</string>
+  <string name="app_ops_summaries_instant_app_start_foreground">abiatu berehalako aplikazioa lehen planoan</string>
+  <string name="app_ops_summaries_answer_phone_calls">erantzun telefono deiak</string>
   <string name="app_ops_summaries_toggle_wifi">Wi-Fia txandakatu</string>
   <string name="app_ops_summaries_toggle_bluetooth">bluetooth txandakatu</string>
   <string name="app_ops_summaries_start_at_boot">abioan hasi</string>
@@ -247,6 +272,12 @@
   <string name="app_ops_labels_turn_screen_on">Pantaila piztu</string>
   <string name="app_ops_labels_get_accounts">Kontuak eskuratu</string>
   <string name="app_ops_labels_run_in_background">Exekutatu bigarren planoan</string>
+  <string name="app_ops_labels_accessibility_volume">Audio irisgarritasun bolumena</string>
+  <string name="app_ops_labels_read_phone_numbers">Irakurri telefono zenbakiak</string>
+  <string name="app_ops_labels_request_install_packages">Paketeak instalatzea eskatu</string>
+  <string name="app_ops_labels_picture_in_picture">Erabili irudia irudian</string>
+  <string name="app_ops_labels_instant_app_start_foreground">Abiatu berehalako aplikazioa lehen planoan</string>
+  <string name="app_ops_labels_answer_phone_calls">Erantzun telefono deiak</string>
   <string name="app_ops_labels_toggle_wifi">Wi-Fia txandakatu</string>
   <string name="app_ops_labels_toggle_bluetooth">Bluetooth txandakatu</string>
   <string name="app_ops_labels_start_at_boot">Abioan hasi</string>
@@ -270,4 +301,6 @@
   <string name="app_ops_reset_confirm_title">Zenbatzaileak berrezarri</string>
   <string name="app_ops_reset_confirm_mesg">Ziur kontagailuak hustu nahi dituzula?</string>
   <string name="ok">Ados</string>
+  <!-- LineageOS legal -->
+  <string name="lineagelicense_title">LineageOS lizentzia</string>
 </resources>

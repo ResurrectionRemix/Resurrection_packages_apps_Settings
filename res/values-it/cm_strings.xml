@@ -17,10 +17,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">Ora sei ad <xliff:g id="step_count">%1$d</xliff:g> passo dall\'attivare le impostazioni di sviluppo.</item>
+    <item quantity="other">Ora sei a <xliff:g id="step_count">%1$d</xliff:g> passi dall\'attivare le impostazioni di sviluppo.</item>
+  </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
+  <string name="show_dev_on_cm">Hai attivato le impostazioni di sviluppo!</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+  <string name="show_dev_already_cm">Non è necessario, hai già attivato le impostazioni di sviluppo.</string>
   <!-- Launch Dev Tools -->
   <string name="development_tools_title">Strumenti di sviluppo</string>
   <!-- Advanced restart options -->
   <string name="advanced_reboot_title">Riavvio avanzato</string>
+  <string name="advanced_reboot_summary">Quando sbloccato, mostra le opzioni per il riavvio in recovery o bootloader nel menù di accensione</string>
   <!-- Setting checkbox title for root access -->
   <string name="root_access">Accesso root</string>
   <string name="root_access_warning_title">Permetti l\'accesso come root?</string>
@@ -33,15 +43,23 @@
   <string name="root_appops_title">Gestione accesso root</string>
   <string name="root_appops_summary">Visualizza e controlla l\'utilizzo dei permessi root</string>
   <!-- Double tap to sleep on status bar or lockscreen -->
+  <string name="status_bar_double_tap_to_sleep_title">Tocca per spegnere lo schermo</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Tocca due volte la barra di stato o la schermata di sblocco per spegnere lo schermo</string>
   <!-- Touchscreen gesture settings -->
+  <string name="touchscreen_gesture_settings_title">Gesture sullo schermo</string>
+  <string name="touchscreen_gesture_settings_summary">Esegui varie gesture sullo schermo per azioni rapide</string>
   <!-- Proximity wake -->
   <string name="proximity_wake_title">Previeni risvegli accidentali</string>
+  <string name="proximity_wake_summary">Controlla il sensore di prossimità prima di accendere lo schermo</string>
   <!-- Whether the keyguard will directly show the password entry -->
   <string name="lock_directly_show_password">Mostra immissione password direttamente</string>
+  <string name="lock_directly_show_password_summary">Salta lo scorrimento per sbloccare lo schermo e mostra immediatamente l\'immissione della password</string>
   <!-- Whether the keyguard will directly show the pattern view -->
   <string name="lock_directly_show_pattern">Mostra immissione sequenza direttamente</string>
+  <string name="lock_directly_show_pattern_summary">Salta lo scorrimento per sbloccare lo schermo e mostra immediatamente l\'immissione della sequenza</string>
   <!-- Whether the keyguard will directly show the PIN entry -->
   <string name="lock_directly_show_pin">Mostra immissione pin direttamente</string>
+  <string name="lock_directly_show_pin_summary">Salta lo scorrimento per sbloccare lo schermo e mostra immediatamente l\'immissione del PIN</string>
   <!-- PIN scramble -->
   <string name="unlock_scramble_pin_layout_title">Mescola disposizione</string>
   <string name="unlock_scramble_pin_layout_summary">Mescola la disposizione del tastierino PIN per lo sblocco del dispositivo</string>
@@ -83,6 +101,7 @@
   <string name="increasing_ring_min_volume_title">Volume iniziale</string>
   <string name="increasing_ring_ramp_up_time_title">Tempo di aumento</string>
   <!-- Volume link notification -->
+  <string name="volume_link_notification_title">Collega volume suoneria e notifiche</string>
   <!-- Memory -->
   <string name="memory_startup_apps_title">App avviate all\'accensione</string>
   <!-- Manual provisioning support -->
@@ -176,6 +195,12 @@
   <string name="app_ops_summaries_turn_screen_on">accendi schermo</string>
   <string name="app_ops_summaries_get_accounts">acquisisci accounts</string>
   <string name="app_ops_summaries_run_in_background">esegui in background</string>
+  <string name="app_ops_summaries_accessibility_volume">volume accessibilità</string>
+  <string name="app_ops_summaries_read_phone_numbers">lettura numeri di telefono</string>
+  <string name="app_ops_summaries_request_install_packages">richiesta installazione pacchetti</string>
+  <string name="app_ops_summaries_picture_in_picture">utilizzo modalità picture in picture</string>
+  <string name="app_ops_summaries_instant_app_start_foreground">avvio app in primo piano</string>
+  <string name="app_ops_summaries_answer_phone_calls">rispondere alle telefonate</string>
   <string name="app_ops_summaries_toggle_wifi">modifica Wi-Fi</string>
   <string name="app_ops_summaries_toggle_bluetooth">modifica bluetooth</string>
   <string name="app_ops_summaries_start_at_boot">esecuzione all\'avvio</string>
@@ -247,6 +272,12 @@
   <string name="app_ops_labels_turn_screen_on">Accensione schermo</string>
   <string name="app_ops_labels_get_accounts">Ottieni account</string>
   <string name="app_ops_labels_run_in_background">Esegui in background</string>
+  <string name="app_ops_labels_accessibility_volume">Accesso volume audio</string>
+  <string name="app_ops_labels_read_phone_numbers">Lettura numeri di telefono</string>
+  <string name="app_ops_labels_request_install_packages">Richiesta installazione pacchetti</string>
+  <string name="app_ops_labels_picture_in_picture">Utilizzo modalità picture in picture</string>
+  <string name="app_ops_labels_instant_app_start_foreground">Avvio app istantanee</string>
+  <string name="app_ops_labels_answer_phone_calls">Rispondere alle telefonate</string>
   <string name="app_ops_labels_toggle_wifi">Modifica Wi-Fi</string>
   <string name="app_ops_labels_toggle_bluetooth">Modifica bluetooth</string>
   <string name="app_ops_labels_start_at_boot">Esecuzione all\'avvio</string>
@@ -270,4 +301,6 @@
   <string name="app_ops_reset_confirm_title">Conferma ripristino contatori</string>
   <string name="app_ops_reset_confirm_mesg">Sei sicuro di voler reimpostare i contatori?</string>
   <string name="ok">OK</string>
+  <!-- LineageOS legal -->
+  <string name="lineagelicense_title">Note legali LineageOS</string>
 </resources>

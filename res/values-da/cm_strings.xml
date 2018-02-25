@@ -17,6 +17,15 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+  <plurals name="show_dev_countdown_cm">
+    <item quantity="one">Du er nu <xliff:g id="step_count">%1$d</xliff:g> skridt fra at aktivere Indstillinger for udviklere.</item>
+    <item quantity="other">Du er nu <xliff:g id="step_count">%1$d</xliff:g> skridt fra at aktivere Indstillinger for udviklere.</item>
+  </plurals>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
+  <string name="show_dev_on_cm">Du har aktiveret Instillinger for udviklere!</string>
+  <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+  <string name="show_dev_already_cm">Du behøves ikke gøre dette. Du har allerede aktiveret Indstillinger for udviklere.</string>
   <!-- Launch Dev Tools -->
   <string name="development_tools_title">Udviklingsværktøjer</string>
   <!-- Advanced restart options -->
@@ -269,4 +278,6 @@
   <string name="app_ops_reset_confirm_title">Bekræft nulstilling af tællere</string>
   <string name="app_ops_reset_confirm_mesg">Er du sikker på, du vil nulstille tællere?</string>
   <string name="ok">OK</string>
+  <!-- LineageOS legal -->
+  <string name="lineagelicense_title">Juridisk information for LineageOS</string>
 </resources>
