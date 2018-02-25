@@ -39,6 +39,10 @@
   <string name="rr_donate">Wspomóż twórców</string>
   <string name="rr_donate_summary">Wesprzyj Resurrection Remix OS</string>
   <string name="app_name">Resurrection Remix OS</string>
+  <!-- Battery Styles -->
+  <!-- ListView animation -->
+  <!-- ListView interpolator -->
+  <!-- Keyboard and IME  -->
   <string name="devs">Tag dewelopera</string>
   <string name="github_westcrip">https://github.com/westcripp</string>
   <string name="github_varund7726">https://github.com/varund7726</string>
@@ -77,6 +81,7 @@
   <string name="device_maintainers_title_summary">Lista urządzeń i ich oficjalnych opiekunów</string>
   <string name="maintainers_note_title">Uwagi</string>
   <string name="maintainers_note_title_summary">Aby zostać opiekunem swojego urządzenia, dokonaj pull requesta w apliakcji Ustawienia</string>
+  <string name="device_summary"><xliff:g example="goldfish" id="codename">%1$s</xliff:g>\nOpiekun - <xliff:g example="deletescape" id="maintainer">%2$s</xliff:g></string>
   <!-- The Drill -->
   <string name="rr_drill_title">Wiadomość od deweloperów</string>
   <string name="drill_summary">Logcat albo wypierd....</string>
@@ -197,6 +202,11 @@
   <string name="network_traffic_autohide_threshold">Próg bezczynności</string>
   <string name="headset_connect_player_title">Uruchom aplikację do słuchania muzyki przy podłączeniu zestawu słuchawkowego</string>
   <string name="headset_connect_player_disabled">Wyłączony</string>
+  <string name="headset_connect_player_wired">Kiedy podłączony jest zestaw słuchawkowy</string>
+  <string name="headset_connect_player_bt_no_carkit">Kiedy jest połączony zestaw BT (nie zestaw samochodowy)</string>
+  <string name="headset_connect_player_bt">Kiedy jest połączony zestaw BT</string>
+  <string name="headset_connect_player_both_no_carkit">Kiedy podłączony jest zestaw słuchawkowy lub połączony zestaw BT (nie zestaw samochodowy)</string>
+  <string name="headset_connect_player_both">Kiedy podłączony jest zestaw słuchawkowy lub połączony zestaw BT</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_title">Pasek powiadomień</string>
   <string name="ticker_title">Zegar paska statusu</string>
@@ -802,12 +812,10 @@
   <string name="smartbar_double_tap_sleep_title">Stuknij dwukrotnie aby uśpić</string>
   <string name="smartbar_double_tap_sleep_summary">Dotknij dwukrotnie na pustym obszarze aby uśpić</string>
   <!-- SystemUI theme -->
-  <string name="systemui_theme_style_title">Motyw interfejsu systemu</string>
   <string name="systemui_theme_style_auto">Automatycznie (według tapety)</string>
   <string name="systemui_theme_style_light">Jasny</string>
   <string name="systemui_theme_style_dark">Ciemny</string>
   <string name="rr_theme_title">Motywy</string>
-  <string name="rr_theme_summary">Dostosuj kompozycję SystemUI do koloru ciemnego lub jasnego. To nie jest dla aplikacji ustawień</string>
   <!-- Hardware button navigation -->
   <!-- Button brightness -->
   <string name="button_backlight_options_category">Opcje podświetlenia</string>
@@ -1110,6 +1118,7 @@
   <string name="blur_notice">O funkcji rozmycie</string>
   <string name="blur_notice_summary">Rozmycia są wyłączone w widoku klawiatury! Włączone są tylko przeźroczyste powiadomienia!</string>
   <string name="blur_colors_notice">Co robią te kolory?</string>
+  <string name="blur_colors_notice_summary">Te kolory służą do barwienia rozmytych teł. Zamiast normalnych szarości, można teraz wybrać dowolny kolor.\nSą tam trzy filtry kolorów: jeden dla jasnych teł, inny dla ciemnego tła i ostatni dla tła jasny/ciemny.\nZatem jak działają te kolory?\nJest to proste, tak jak mówią tytuły, filtr jasnego jest używany do jasnych teł, filtr ciemnego dla ciemnych teł, a filtr mix dla teł nie za ciemnych, ale też nie za jasnych.\nTe kolory są używane dla obu rozmytych teł: paska stanu i ostatnich aplikacji, </string>
   <string name="blur_expstatus_cat">Rozszerzony pasek stanu</string>
   <string name="blur_notifications_cat">Powiadomienia</string>
   <string name="blur_qs_cat">Szybkie ustawienia</string>
@@ -1502,6 +1511,7 @@
   <string name="animation0">Rotacja</string>
   <string name="animation1">Wyjście z ostatnio używanych aplikacji</string>
   <string name="animation2">Prześwitujące wyjście </string>
+  <string name="animation3">Przezroczysta wstążka wyjścia</string>
   <string name="animation4">Wyjście z powiadomienia</string>
   <string name="animation5">Przesunięcie z dołu </string>
   <string name="animation6">Wyjście Xylon </string>
@@ -1560,6 +1570,7 @@
   <string name="print_restart">Uruchom ponownie</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Szybkie odblokowanie</string>
+  <string name="unlock_quick_unlock_control_summary">Odblokuj automatycznie kiedy wpiszesz poprawny PIN lub hasło. Zalecane jest aby używać pinu krótszego niż 6 cyfr. Jeśli użyjesz pinu dłuższego niż 6 cyfr możesz być zablokowany. Zostałeś ostrzeżony</string>
   <!-- Hide Apps from Recents -->
   <string name="hide_apps_from_recents_title">Ukryte aplikacje</string>
   <string name="hide_from_recents_add_app">Dodaj aplikację</string>
@@ -1586,6 +1597,7 @@
   <string name="clock_date_date_style_lowercase">Małe litery</string>
   <string name="clock_date_date_style_uppercase">Duże litery</string>
   <string name="clock_date_date_size_small_title">Mały </string>
+  <string name="clock_date_date_size_small_summary">Włącz wyświetlanie małego rozmiaru daty</string>
   <string name="status_bar_clock_font_size_title">Rozmiar czcionki</string>
   <!-- Dynamic Navbar -->
   <string name="navbar_dynamic_title">Dynamiczny kolor paska nawigacji</string>
@@ -1652,4 +1664,8 @@
   <string name="screenshot_options_summary">Dostosuj atrybuty zrzutu ekranu, takie jak czas, opóźnienie, typ itp</string>
   <string name="screenshot_delay_title">Opóźnienie zrzutu ekranu</string>
   <!-- Face unlock auto -->
+  <string name="face_auto_unlock_title">Odblokuj automatycznie twarzą</string>
+  <string name="face_auto_unlock_summary">Nie pokazuj ekrany blokady po odblokowaniu twarzą. Musisz włączyć odblokowywanie zaufaną twarzą aby tego użyć</string>
+  <!-- Browser not found -->
+  <!-- Seekbar default text -->
 </resources>

@@ -39,6 +39,10 @@
   <string name="rr_donate">Пожертва розробнику</string>
   <string name="rr_donate_summary">Показати свою підтримку Resurrection Remix OS</string>
   <string name="app_name">Resurrection Remix OS</string>
+  <!-- Battery Styles -->
+  <!-- ListView animation -->
+  <!-- ListView interpolator -->
+  <!-- Keyboard and IME  -->
   <string name="devs">Розробка і Підтримка</string>
   <string name="github_westcrip">https://github.com/westcripp</string>
   <string name="github_varund7726">https://github.com/varund7726</string>
@@ -64,11 +68,20 @@
   <string name="rr_ls_ui">Блокування інтерфейсу</string>
   <string name="rr_ls_security">Безпека</string>
   <string name="updater_title">Оновлення</string>
+  <string name="altankrk_summary">● Головний розробник\n● UX дизайнер\n● Підтримка моделі</string>
+  <string name="varun_summary">● Головний розробник\n● UX дизайнер\n● Підтримка моделі</string>
+  <string name="andres_summary">● Розробник\n● Підтримка моделі</string>
+  <string name="akhil_summary">● Розробник\n● Підтримка моделі\n● Script Майстер</string>
+  <string name="brian_summary">● Розробник\n● Підтримка моделі</string>
+  <string name="christopher_kardas_summary">● Модератор\n● Редактор\n● Співучасник</string>
+  <string name="matt_summary">● Модератор\n● Редактор\n● Співучасник</string>
+  <string name="justen_summary">● Модератор\n● Редактор\n● Співучасник</string>
   <string name="support_team_title">Модератор тег</string>
   <string name="device_maintainers_title">Пристрої та розробники</string>
-  <string name="device_maintainers_title_summary">Список пристроїв, що працюють на RR-OS, і людей, які підтримують ці пристрої</string>
+  <string name="device_maintainers_title_summary">Список пристроїв та їх супроводжуючих розробників</string>
   <string name="maintainers_note_title">Примітка</string>
   <string name="maintainers_note_title_summary">Зробіть запит в додатку Налаштування зі своїм ім\'ям на своєму пристрою, якщо ви хочете подати заявку на підтримку певного пристрою</string>
+  <string name="device_summary"><xliff:g example="goldfish" id="codename">%1$s</xliff:g>\nMaintainer - <xliff:g example="deletescape" id="maintainer">%2$s</xliff:g></string>
   <!-- The Drill -->
   <string name="rr_drill_title">Послання від розробників</string>
   <string name="drill_summary">Logcat або GTFO</string>
@@ -189,6 +202,11 @@
   <string name="network_traffic_autohide_threshold">Поріг неактивності</string>
   <string name="headset_connect_player_title">Запуск музичного додатку при підключенні гарнітури</string>
   <string name="headset_connect_player_disabled">Вимкнено</string>
+  <string name="headset_connect_player_wired">Коли дротова гарнітура підключена</string>
+  <string name="headset_connect_player_bt_no_carkit">Коли BT гарнітура (не автомобільна) підключена</string>
+  <string name="headset_connect_player_bt">Коли підключена BT гарнітура</string>
+  <string name="headset_connect_player_both_no_carkit">Коли дротова або BT гарнітура (не автомобільна) підключена</string>
+  <string name="headset_connect_player_both">Коли дротова або BT гарнітура підключена</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_title">Текст сповіщень</string>
   <string name="ticker_title">Рухомий рядок в статус барі</string>
@@ -266,8 +284,13 @@
   <string name="file_header_provider_title">Користувацьке зображення</string>
   <!-- Smart pulldown-->
   <string name="smart_pulldown_title">\"Розумне\" витягування</string>
+  <string name="smart_pulldown_off">Вимкнено</string>
+  <string name="smart_pulldown_none">Немає сповіщень</string>
+  <string name="smart_pulldown_dismissable">Немає відхилених повідомлень</string>
+  <string name="smart_pulldown_ongoing">Немає поточних сповіщень</string>
   <string name="smart_pulldown_summary">Відкрити швидкі налаштування при %1$s сповіщеннях</string>
   <string name="smart_pulldown_none_summary">Відкрити швидкі налаштування коли немає сповіщень</string>
+  <string name="smart_pulldown_off_summary">Вимкнено</string>
   <!-- Status bar - icons -->
   <string name="status_bar_icons_title">Значки статус бару</string>
   <string name="status_bar_notif_count_title">Показати лічильник сповіщень</string>
@@ -789,12 +812,10 @@
   <string name="smartbar_double_tap_sleep_title">Подвійне натискання для сну</string>
   <string name="smartbar_double_tap_sleep_summary">Подвійне натискання на порожню область панелі навігації для сну</string>
   <!-- SystemUI theme -->
-  <string name="systemui_theme_style_title">Налаштування системного інтерфейсу</string>
   <string name="systemui_theme_style_auto">Автоматично (на основі шпалер)</string>
   <string name="systemui_theme_style_light">Світлий</string>
   <string name="systemui_theme_style_dark">Темний</string>
   <string name="rr_theme_title">Теми</string>
-  <string name="rr_theme_summary">Налаштуйте тему системного інтерфейсу темною чи світлою. Це не для налаштувань програми</string>
   <!-- Hardware button navigation -->
   <!-- Button brightness -->
   <string name="button_backlight_options_category">Налаштування підсвічування</string>
@@ -1097,6 +1118,7 @@
   <string name="blur_notice">Про функції «Розмиття»</string>
   <string name="blur_notice_summary">Розмиття вимкнено під час перегляду на екрані блокування! Працюють тільки напівпрозорі сповіщення!</string>
   <string name="blur_colors_notice">Що роблять ці кольори?</string>
+  <string name="blur_colors_notice_summary">Це кольори, які фарбують фон розмиття. Замість звичайного сірого, ви можете вибрати кольори, які подобаються Вам.\n Існують три кольорових фільтри: Один для світлих фонів, інший для темних і третій для змішаних.\n Але як ці кольори працюють??\n Дуже просто, як і говорить їх назва, Світлий фільтр використовується для більш світлих фонів, Темний для темних і змішаний фільтр буде використовуватись для проміжних фонів. І не світлих, але і не темних.\n Ці кольори використовуються для обох фонів розмиття: Рядка стану і для Нещодавніх додатків </string>
   <string name="blur_expstatus_cat">Розширений рядок стану </string>
   <string name="blur_notifications_cat">Сповіщення</string>
   <string name="blur_qs_cat">Швидкі налаштування</string>
@@ -1489,6 +1511,7 @@
   <string name="animation0">Поворот екрану </string>
   <string name="animation1">Закриття нещодавніх</string>
   <string name="animation2">Напівпрозорий вихід </string>
+  <string name="animation3">Напівпрозорий вихід стрічкою</string>
   <string name="animation4">Toast вихід</string>
   <string name="animation5">Висунення вниз </string>
   <string name="animation6">Xylon вихід </string>
@@ -1547,6 +1570,7 @@
   <string name="print_restart">Перезавантажити</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Швидке розблокування</string>
+  <string name="unlock_quick_unlock_control_summary">Розблокувати автоматично, коли PIN/пароль введений вірно. Використовуйте PIN довжиною менше 6 цифр, інакше ви не зможете розблокувати смартфон. Ми вас попередили</string>
   <!-- Hide Apps from Recents -->
   <string name="hide_apps_from_recents_title">Приховані програми</string>
   <string name="hide_from_recents_add_app">Додати додаток</string>
@@ -1573,6 +1597,7 @@
   <string name="clock_date_date_style_lowercase">Нижній регістр</string>
   <string name="clock_date_date_style_uppercase">Верхній регістр</string>
   <string name="clock_date_date_size_small_title">Маленький</string>
+  <string name="clock_date_date_size_small_summary">Включити відображення дати маленьким шрифтом</string>
   <string name="status_bar_clock_font_size_title">Розмір шрифту</string>
   <!-- Dynamic Navbar -->
   <string name="navbar_dynamic_title">Динамічний колір навігаційного бару</string>
@@ -1639,4 +1664,8 @@
   <string name="screenshot_options_summary">Налаштувати атрибути скріншота, такі як час, затримка, тип і т.п.</string>
   <string name="screenshot_delay_title">Затримка знімку екрану</string>
   <!-- Face unlock auto -->
+  <string name="face_auto_unlock_title">Автоматичне розблокування обличчям</string>
+  <string name="face_auto_unlock_summary">Пропустити екран блокування після розблокування смартфона обличчям. Для цього включіть розблокування обличчям</string>
+  <!-- Browser not found -->
+  <!-- Seekbar default text -->
 </resources>
