@@ -158,7 +158,6 @@ public class ClockDateSettings extends SettingsPreferenceFragment implements
             removePreference(PREF_CAT_DATE);
         }
 
-        setHasOptionsMenu(true);
     }
 
     @Override
