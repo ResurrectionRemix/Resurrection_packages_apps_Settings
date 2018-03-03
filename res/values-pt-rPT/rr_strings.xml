@@ -40,9 +40,60 @@
   <string name="rr_donate_summary">Mostre o seu apoio à Resurrection Remix OS</string>
   <string name="app_name">Resurrection Remix OS</string>
   <!-- Battery Styles -->
+  <string name="battery_style_title">Estilo do indicador da bateria</string>
+  <string name="battery_style_port">Retrato</string>
+  <string name="battery_style_land">Paisagem</string>
+  <string name="battery_style_circle">Círculo</string>
+  <string name="battery_style_dotted_circle">Círculo pontilhado</string>
+  <string name="battery_style_big_circle">Círculo grande</string>
+  <string name="battery_style_big_dotted_circle">Círculo pontilhado grande</string>
+  <string name="battery_style_text">Texto</string>
+  <string name="battery_style_hidden">Oculto</string>
+  <string name="battery_style_category">Estado da bateria</string>
+  <string name="battery_bar_category">Barra de bateria</string>
+  <string name="show_battery_percent_title">Mostrar a percentagem da bateria</string>
+  <string name="battery_style_category_title">Nível da bateria</string>
+  <string name="battery_percent_none">Não mostrar</string>
+  <string name="battery_percent_outside">Mostrar junto ao ícone</string>
+  <string name="battery_percent_inside">Mostrar dentro do ícone</string>
   <!-- ListView animation -->
+  <string name="listview_animation_title">Animação das listas de seleção</string>
+  <string name="listview_off">Predefinição</string>
+  <string name="listview_wave_left">Onda (da esquerda)</string>
+  <string name="listview_wave_right">Onda (da direita)</string>
+  <string name="listview_alpha">Alfa</string>
+  <string name="listview_scale">Escala</string>
+  <string name="listview_stack_top">Pilha (parte superior)</string>
+  <string name="listview_stack_bottom">Pilha (parte inferior)</string>
+  <string name="listview_unfold">Desdobrar</string>
+  <string name="listview_fold">Dobrar</string>
+  <string name="listview_translate_left">Deslizar (da esquerda)</string>
+  <string name="listview_translate_right">Deslizar (da direita)</string>
+  <string name="listview_title">Animação das listas</string>
+  <string name="listview_summary">Definir animação e interpolador das listas de seleção </string>
   <!-- ListView interpolator -->
+  <string name="listview_interpolator_title">Interpolador das listas de seleção</string>
+  <string name="listview_accelerate_interpolator">Acelerar</string>
+  <string name="listview_decelerate_interpolator">Desacelerar</string>
+  <string name="listview_accelerate_decelerate_interpolator">Acelerar e desacelerar</string>
+  <string name="listview_anticipate_interpolator">Antecipar</string>
+  <string name="listview_overshoot_interpolator">Adiantar</string>
+  <string name="listview_anticipate_overshoot_interpolator">Antecipar e adiantar</string>
+  <string name="listview_bounce_interpolator">Saltar</string>
   <!-- Keyboard and IME  -->
+  <string name="disable_fullscreen_keyboard_title">Desativar o teclado em ecrã completo</string>
+  <string name="disable_fullscreen_keyboard_summary">O teclado em modo paisagem nunca ocupará o ecrã completo</string>
+  <string name="keyboard_rotation_toggle_title">Rotação automática do teclado</string>
+  <string name="keyboard_rotation_toggle_summary">Forçar rotação automática quando o teclado é mostrado</string>
+  <string name="keyboard_rotation_timeout_title">Tempo limite para rotação automática</string>
+  <string name="keyboard_rotation_timeout_summary">Desativa o sensor de auto-rotação <xliff:g id="rotate_timeout">%1$s</xliff:g> segundos após o teclado ser ocultado</string>
+  <string name="keyboard_rotation_dialog">Esta funcionalidade força a ativação da rotação automática temporariamente enquanto o teclado é mostrado.  Não tem efeito quando a rotação automática já está ativada.</string>
+  <string name="show_enter_key_title">Mostrar a tecla Enter</string>
+  <string name="show_enter_key_summary">Forçar teclado a apresentar a tecla Enter em vez da tecla de emoticons</string>
+  <string name="keyboard_ime_title">Definições do método de entrada</string>
+  <string name="keyboard_ime_summury">Definições avançadas do método de entrada</string>
+  <string name="ime_switcher_notify">Notificação de seletor de método de entrada</string>
+  <string name="ime_switcher_notify_summary">Mostrar notificação do seletor método de entrada</string>
   <string name="devs">Etiqueta do programador</string>
   <string name="github_westcrip">https://github.com/westcripp</string>
   <string name="github_varund7726">https://github.com/varund7726</string>
@@ -112,6 +163,16 @@
   <string name="changelog_error">Não foi possível carregar a lista de alterações</string>
   <string name="changelog_unknown">Desconhecido</string>
   <string name="changelog_version">Versão</string>
+  <string name="changelog_time_today">Hoje</string>
+  <string name="changelog_time_yesterday">Ontem</string>
+  <string name="changelog_time_2_days">Dois dias atrás</string>
+  <string name="changelog_time_3_days">Três dias atrás</string>
+  <string name="changelog_time_4_days">Quatro dias atrás</string>
+  <string name="changelog_time_5_days">Cinco dias atrás</string>
+  <string name="changelog_time_6_days">Seis dias atrás</string>
+  <string name="changelog_time_1_week">Uma semana trás</string>
+  <string name="changelog_time_2_weeks">Duas semanas atrás</string>
+  <string name="changelog_time_3_weeks">Três semanas atrás</string>
   <!--RR Configurations-->
   <string name="fab_updates">Atualizações</string>
   <string name="fab_restartui">Reiniciar a IU</string>
@@ -726,7 +787,6 @@
   <string name="fling_longpress_title">Atraso da pressão longa</string>
   <string name="fling_longpress_summary">Aumentar ou diminuir o tempo necessário para executar uma pressão longa</string>
   <string name="fling_keyboard_cursors_title">Ação dos cursores dinâmicos do teclado</string>
-  <string name="fling_keyboard_cursors_summary">O toque duplo nas ações de direita ou esquerda transformam-se em cursores de teclado para a direita ou esquerda quando o teclado estiver aberto</string>
   <string name="fling_logo_opacity_title">Opacidade do logo Fling</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">O Pulse não funciona com algumas fontes de áudio ao ouvir no altifalante do dispositivo</string>
@@ -812,10 +872,12 @@
   <string name="smartbar_double_tap_sleep_title">Toque duplo para desligar ecrã</string>
   <string name="smartbar_double_tap_sleep_summary">Toque duplo numa área vazia da barra de navegação para desligar ecrã</string>
   <!-- SystemUI theme -->
+  <string name="systemui_theme_style_title">Tema</string>
   <string name="systemui_theme_style_auto">Automático (baseado na imagem de fundo)</string>
   <string name="systemui_theme_style_light">Claro</string>
   <string name="systemui_theme_style_dark">Escuro</string>
   <string name="rr_theme_title">Temas</string>
+  <string name="rr_theme_summary">Personalize o seu tema</string>
   <!-- Hardware button navigation -->
   <!-- Button brightness -->
   <string name="button_backlight_options_category">Opções das luzes de fundo</string>
@@ -1666,6 +1728,11 @@
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Desbloqueio automático com o rosto</string>
   <string name="face_auto_unlock_summary">Dispensa o ecrã de bloqueio ao desbloquear com o rosto. Deve definir um rosto fidedigno para isto funcionar</string>
+  <string name="incall_notifications_vibrate">Menos notificações importunas em chamada</string>
+  <string name="incall_notifications_vibrate_summary">Vibrar em vez de reproduzir um som para notificações durante as chamadas</string>
   <!-- Browser not found -->
+  <string name="browser_not_found_toast">Navegador predefinido não encontrado</string>
   <!-- Seekbar default text -->
+  <string name="custom_seekbar_default_text">Predefinição</string>
+  <!-- Notification guts kill app button -->
 </resources>

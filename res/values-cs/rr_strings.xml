@@ -40,9 +40,60 @@
   <string name="rr_donate_summary">Projevte nám svou podporu pro Resurrection Remix OS</string>
   <string name="app_name">Resurrection Remix OS</string>
   <!-- Battery Styles -->
+  <string name="battery_style_title">Styl ikony baterie</string>
+  <string name="battery_style_port">Na výšku</string>
+  <string name="battery_style_land">Na šířku</string>
+  <string name="battery_style_circle">Kruh</string>
+  <string name="battery_style_dotted_circle">Tečkovaný kruh</string>
+  <string name="battery_style_big_circle">Velký kruh</string>
+  <string name="battery_style_big_dotted_circle">Velký tečkovaný kruh</string>
+  <string name="battery_style_text">Text</string>
+  <string name="battery_style_hidden">Nezobrazovat</string>
+  <string name="battery_style_category">Styl baterie</string>
+  <string name="battery_bar_category">Pruh baterie</string>
+  <string name="show_battery_percent_title">Zobrazit stav baterie v procentech</string>
+  <string name="battery_style_category_title">Úroveň baterie</string>
+  <string name="battery_percent_none">Nezobrazovat</string>
+  <string name="battery_percent_outside">Zobrazit vedle ikony</string>
+  <string name="battery_percent_inside">Zobrazit uvnitř ikony</string>
   <!-- ListView animation -->
+  <string name="listview_animation_title">Animace zobrazení seznamu</string>
+  <string name="listview_off">Výchozí</string>
+  <string name="listview_wave_left">Vlna (vlevo)</string>
+  <string name="listview_wave_right">Vlna (vpravo)</string>
+  <string name="listview_alpha">Alpha</string>
+  <string name="listview_scale">Měřítko</string>
+  <string name="listview_stack_top">Zásobník (nahoře)</string>
+  <string name="listview_stack_bottom">Zásobník (dole)</string>
+  <string name="listview_unfold">Rozbalení</string>
+  <string name="listview_fold">Sbalení</string>
+  <string name="listview_translate_left">Přeložení (vlevo)</string>
+  <string name="listview_translate_right">Přeložení (vpravo)</string>
+  <string name="listview_title">Animace seznamu</string>
+  <string name="listview_summary">Animace zobrazení seznamu a interpolace </string>
   <!-- ListView interpolator -->
+  <string name="listview_interpolator_title">Interpolace zobrazení seznamu</string>
+  <string name="listview_accelerate_interpolator">Zrychlení</string>
+  <string name="listview_decelerate_interpolator">Zpomalení</string>
+  <string name="listview_accelerate_decelerate_interpolator">Zrychlení a zpomalení</string>
+  <string name="listview_anticipate_interpolator">Předbíhání</string>
+  <string name="listview_overshoot_interpolator">Překročení</string>
+  <string name="listview_anticipate_overshoot_interpolator">Předbíhání a překročení</string>
+  <string name="listview_bounce_interpolator">Odskočení</string>
   <!-- Keyboard and IME  -->
+  <string name="disable_fullscreen_keyboard_title">Zákazat klávesnici přes celou obrazovku</string>
+  <string name="disable_fullscreen_keyboard_summary">Klávesnice na šířku nikdy nezabere celou obrazovku</string>
+  <string name="keyboard_rotation_toggle_title">Automatické otáčení klávesnice</string>
+  <string name="keyboard_rotation_toggle_summary">Vynucení automatického otočení klávesnice v případě, že je zobrazena</string>
+  <string name="keyboard_rotation_timeout_title">Časový limit pro automatické otáčení</string>
+  <string name="keyboard_rotation_timeout_summary">Zakáže senzoru automaticky otáčet <xliff:g id="rotate_timeout"> %1$s </xliff:g> sekund poté, co je klávesnice skrytá</string>
+  <string name="keyboard_rotation_dialog">Tato funkce vynutí dočasné automatické otočení, když bude zobrazena klávesnice. Nastavení nemá vliv v případě, že je povoleno automatické otáčení.</string>
+  <string name="show_enter_key_title">Zobrazit klávesu Enter</string>
+  <string name="show_enter_key_summary">Vynutí zobrazení klávesy Enter místo klávesy emotikonu</string>
+  <string name="keyboard_ime_title">Nastavení IME</string>
+  <string name="keyboard_ime_summury">Pokročilé nastavení IME</string>
+  <string name="ime_switcher_notify">Výběr oznámení</string>
+  <string name="ime_switcher_notify_summary">Zobrazit oznámení výběru vstupní metody</string>
   <string name="devs">Štítek vývojáře</string>
   <string name="github_westcrip">https://github.com/westcripp</string>
   <string name="github_varund7726">https://github.com/varund7726</string>
@@ -112,6 +163,16 @@
   <string name="changelog_error">Nelze načíst seznam změn</string>
   <string name="changelog_unknown">Neznámý</string>
   <string name="changelog_version">Verze</string>
+  <string name="changelog_time_today">Dnes</string>
+  <string name="changelog_time_yesterday">Včera</string>
+  <string name="changelog_time_2_days">Před dvěma dny</string>
+  <string name="changelog_time_3_days">Před třemi dny</string>
+  <string name="changelog_time_4_days">Před čtyřmi dny</string>
+  <string name="changelog_time_5_days">Před pěti dny</string>
+  <string name="changelog_time_6_days">Před šesti dny</string>
+  <string name="changelog_time_1_week">Před týdnem</string>
+  <string name="changelog_time_2_weeks">Před dvěma týdny</string>
+  <string name="changelog_time_3_weeks">Před třemi týdny</string>
   <!--RR Configurations-->
   <string name="fab_updates">Aktualizace</string>
   <string name="fab_restartui">Restartovat UI</string>
@@ -726,7 +787,6 @@
   <string name="fling_longpress_title">Zpoždění dlouhým stiskem</string>
   <string name="fling_longpress_summary">Zvýšit nebo snížit dobu potřebnou k provedení akce dlouhým stisknutím</string>
   <string name="fling_keyboard_cursors_title">Akce dynamických kurzorů klávesnice</string>
-  <string name="fling_keyboard_cursors_summary">Dvojím poklepáním doleva a doprava se pohybují kurzorové klávesy vlevo a vpravo při otevřené klávesnici</string>
   <string name="fling_logo_opacity_title">Průhlednost loga Fling</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse nefunguje s některými zvukovými zdroji při poslechu z reproduktoru zařízení</string>
@@ -812,10 +872,12 @@
   <string name="smartbar_double_tap_sleep_title">Dvojím klepnutím uspat</string>
   <string name="smartbar_double_tap_sleep_summary">Dvojím klepnutím na prázdné místo navigačního panelu uspat zařízení</string>
   <!-- SystemUI theme -->
+  <string name="systemui_theme_style_title">Motiv</string>
   <string name="systemui_theme_style_auto">Automatický (založeno na tapetě)</string>
   <string name="systemui_theme_style_light">Světlý</string>
   <string name="systemui_theme_style_dark">Tmavý</string>
   <string name="rr_theme_title">Nastavení motivu</string>
+  <string name="rr_theme_summary">Vlastní nastavení motivu</string>
   <!-- Hardware button navigation -->
   <!-- Button brightness -->
   <string name="button_backlight_options_category">Možnosti podsvícení</string>
@@ -1666,6 +1728,11 @@
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Automatické odemčení pomocí obličeje</string>
   <string name="face_auto_unlock_summary">Odstraní zamykací obrazovku po odemknutí obličejem. Musíte povolit odemknutí obličejem/důvěryhodný obličej</string>
+  <string name="incall_notifications_vibrate">Méně obtěžující oznámení během hovoru</string>
+  <string name="incall_notifications_vibrate_summary">Vibrace namísto přehrávání zvuku pro oznámení během hovoru</string>
   <!-- Browser not found -->
+  <string name="browser_not_found_toast">Výchozí prohlížeč nebyl nalezen</string>
   <!-- Seekbar default text -->
+  <string name="custom_seekbar_default_text">Výchozí</string>
+  <!-- Notification guts kill app button -->
 </resources>

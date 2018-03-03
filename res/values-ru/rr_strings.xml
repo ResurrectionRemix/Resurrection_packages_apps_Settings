@@ -40,9 +40,60 @@
   <string name="rr_donate_summary">Покажите вашу поддержку Resurrection Remix OS</string>
   <string name="app_name">Resurrection Remix OS</string>
   <!-- Battery Styles -->
+  <string name="battery_style_title">Стиль значка батареи</string>
+  <string name="battery_style_port">Портреная ориентация</string>
+  <string name="battery_style_land">Ландшафтная ориентация</string>
+  <string name="battery_style_circle">Круглый значок</string>
+  <string name="battery_style_dotted_circle">Точечный круг</string>
+  <string name="battery_style_big_circle">Большой круг</string>
+  <string name="battery_style_big_dotted_circle">Большой точечный круг</string>
+  <string name="battery_style_text">Текст</string>
+  <string name="battery_style_hidden">Скрыт</string>
+  <string name="battery_style_category">Стиль батареи</string>
+  <string name="battery_bar_category">Панель заряда батареи</string>
+  <string name="show_battery_percent_title">Показывать процент заряда</string>
+  <string name="battery_style_category_title">Уровень заряда батареи</string>
+  <string name="battery_percent_none">Не показывать</string>
+  <string name="battery_percent_outside">Показать значок рядом</string>
+  <string name="battery_percent_inside">Показать значок внутри</string>
   <!-- ListView animation -->
+  <string name="listview_animation_title">Анимация списков</string>
+  <string name="listview_off">По умолчанию</string>
+  <string name="listview_wave_left">Волна (слева)</string>
+  <string name="listview_wave_right">Волна (справа)</string>
+  <string name="listview_alpha">Альфа</string>
+  <string name="listview_scale">Маштабирование</string>
+  <string name="listview_stack_top">Стек (сверху)</string>
+  <string name="listview_stack_bottom">Стек (снизу)</string>
+  <string name="listview_unfold">Разворачивание</string>
+  <string name="listview_fold">Сворачивание</string>
+  <string name="listview_translate_left">Переход (слева)</string>
+  <string name="listview_translate_right">Переход (справа)</string>
+  <string name="listview_title">Анимация списков</string>
+  <string name="listview_summary">Установить эффект анимации и интерполяции </string>
   <!-- ListView interpolator -->
+  <string name="listview_interpolator_title">Эффекты анимации списка</string>
+  <string name="listview_accelerate_interpolator">Ускорение</string>
+  <string name="listview_decelerate_interpolator">Замедление</string>
+  <string name="listview_accelerate_decelerate_interpolator">Ускорение и замедление</string>
+  <string name="listview_anticipate_interpolator">Опережение</string>
+  <string name="listview_overshoot_interpolator">Перекрытие</string>
+  <string name="listview_anticipate_overshoot_interpolator">Опережение и перекрытие</string>
+  <string name="listview_bounce_interpolator">Отскок</string>
   <!-- Keyboard and IME  -->
+  <string name="disable_fullscreen_keyboard_title">Отключить полноэкранную клавиатуру</string>
+  <string name="disable_fullscreen_keyboard_summary">В ландшафтном режиме клавиатура не будет разворачиваться на весь экран</string>
+  <string name="keyboard_rotation_toggle_title">Автоповорот клавиатуры</string>
+  <string name="keyboard_rotation_toggle_summary">Принудительный поворот экрана, когда показывается клавиатура</string>
+  <string name="keyboard_rotation_timeout_title">Задержка автоповорота</string>
+  <string name="keyboard_rotation_timeout_summary">Отключить датчик автоповорота, спустя <xliff:g id="rotate_timeout">%1$s</xliff:g> секунд, после скрытия клавиатуры</string>
+  <string name="keyboard_rotation_dialog">Эта функция принудительно включает автоповорот во время отображения клавиатуры и не имеет эффекта, когда автоповорот уже включен.</string>
+  <string name="show_enter_key_title">Показывать кнопку ввода</string>
+  <string name="show_enter_key_summary">Принудительно показывать кнопку ввода вместо кнопки смайликов</string>
+  <string name="keyboard_ime_title">Настройки IME</string>
+  <string name="keyboard_ime_summury">Расширенные настройки IME</string>
+  <string name="ime_switcher_notify">Уведомление о выборе</string>
+  <string name="ime_switcher_notify_summary">Отображать переключатель метода ввода</string>
   <string name="devs">Разработка и поддержка</string>
   <string name="github_westcrip">https://github.com/westcripp</string>
   <string name="github_varund7726">https://github.com/varund7726</string>
@@ -112,6 +163,16 @@
   <string name="changelog_error">Невозможно загрузить список изменений</string>
   <string name="changelog_unknown">Неизвестно</string>
   <string name="changelog_version">Версия</string>
+  <string name="changelog_time_today">Сегодня</string>
+  <string name="changelog_time_yesterday">Вчера</string>
+  <string name="changelog_time_2_days">Два дня назад</string>
+  <string name="changelog_time_3_days">Три дня назад</string>
+  <string name="changelog_time_4_days">Четыре дня назад</string>
+  <string name="changelog_time_5_days">Пять дней назад</string>
+  <string name="changelog_time_6_days">Шесть дней назад</string>
+  <string name="changelog_time_1_week">Неделю назад</string>
+  <string name="changelog_time_2_weeks">2 недели назад</string>
+  <string name="changelog_time_3_weeks">Три недели назад</string>
   <!--RR Configurations-->
   <string name="fab_updates">Обновления</string>
   <string name="fab_restartui">Перезапустить пользовательский интерфейс</string>
@@ -725,7 +786,6 @@
   <string name="fling_longpress_title">Задержка длительного нажатия</string>
   <string name="fling_longpress_summary">Увеличить или уменьшить время, необходимое для длительного нажатия</string>
   <string name="fling_keyboard_cursors_title">Перемещение курсора клавиатуры</string>
-  <string name="fling_keyboard_cursors_summary">Двойные нажатия слева/справа управляют движениями курсора влево/вправо при открытой клавиатуре</string>
   <string name="fling_logo_opacity_title">Прозрачность логотипа Fling</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse не работает с некоторыми источниками аудио во время прослушивания через динамик</string>
@@ -811,10 +871,12 @@
   <string name="smartbar_double_tap_sleep_title">Двойное нажатие для отключения экрана</string>
   <string name="smartbar_double_tap_sleep_summary">Двойное нажатие на пустую область панели навигации для сна</string>
   <!-- SystemUI theme -->
+  <string name="systemui_theme_style_title">Тема</string>
   <string name="systemui_theme_style_auto">Автоматическая (на основе обои)</string>
   <string name="systemui_theme_style_light">Светлая</string>
   <string name="systemui_theme_style_dark">Тёмная</string>
   <string name="rr_theme_title">Темы</string>
+  <string name="rr_theme_summary">Настроить свою тему</string>
   <!-- Hardware button navigation -->
   <!-- Button brightness -->
   <string name="button_backlight_options_category">Настройки подсветки кнопок</string>
@@ -1665,6 +1727,11 @@
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Автоматическая разблокировка сканированием лица</string>
   <string name="face_auto_unlock_summary">Пропустить экран блокировки после разблокирования смартфона лицом. Для этого включите разблокировку лицом</string>
+  <string name="incall_notifications_vibrate">Меньше раздражающих уведомлений о звонках</string>
+  <string name="incall_notifications_vibrate_summary">Вибрация вместо воспроизведения звука для входящих уведомлений</string>
   <!-- Browser not found -->
+  <string name="browser_not_found_toast">Браузер по умолчанию не найден</string>
   <!-- Seekbar default text -->
+  <string name="custom_seekbar_default_text">По умолчанию</string>
+  <!-- Notification guts kill app button -->
 </resources>
