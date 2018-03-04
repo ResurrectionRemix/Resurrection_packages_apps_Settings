@@ -37,14 +37,16 @@
     <style name="Theme.SmartBar.Dialog" parent="@*android:style/Theme.DeviceDefault.Light.Dialog.Alert" />
 
     <style name="ChangelogTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="changelog_color_bg">?android:attr/colorBackground</item>
-        <item name="changelog_color_header_back">?android:attr/colorBackground</item>
-        <item name="changelog_color_commit_message">?android:attr/textColorPrimary</item>
+        <item name="changelog_color_bg">@color/rr_changelog_actionbar_bg</item>
+        <item name="changelog_color_header_back">@color/rr_changelog_actionbar_bg</item>
+        <item name="changelog_color_commit_message">@*android:color/accent_material_dark</item>
         <item name="changelog_color_commit_bg">@color/rr_changelog_commit_bg</item>
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textColor">@*android:color/accent_material_dark</item>
+        <item name="android:textColorPrimary">@*android:color/accent_material_dark</item>
+        <item name="android:textColorSecondary">@*android:color/accent_material_dark</item>
         <item name="android:colorPrimaryDark">@color/rr_changelog_actionbar_bg</item>
         <item name="android:statusBarColor">@color/rr_changelog_actionbar_bg</item>
-        <item name="android:navigationBarColor">?android:attr/colorBackground</item>
+        <item name="android:navigationBarColor">@color/rr_changelog_actionbar_bg</item>
     </style>
 
 </resources>
