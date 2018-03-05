@@ -16,7 +16,7 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/fling_interface" >
 
     <PreferenceCategory
@@ -91,7 +91,7 @@
         <SwitchPreference
             android:key="fling_keyboard_cursors"
             android:title="@string/fling_keyboard_cursors_title"
-            android:summary="@string/fling_keyboard_cursors_summary" />
+            android:summary="@string/fling_keyboard_cursors_move_summary" />
 
         <com.android.settings.rr.Preferences.ActionPreference
             android:key="long_right_press"

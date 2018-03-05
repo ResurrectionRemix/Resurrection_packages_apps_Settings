@@ -49,25 +49,25 @@ public class ChangelogActivity extends BaseChangelogActivity {
                         final long diff = now - time;
                         String timeString;
                         if (diff < 1000 * 60 * 60 * 24) {
-                            timeString = "Today";
+                            timeString = getResources().getString(R.string.changelog_time_today);
                         } else if (diff < 1000 * 60 * 60 * 24 * 2) {
-                            timeString = "Yesterday";
+                            timeString = getResources().getString(R.string.changelog_time_yesterday);
                         } else if (diff < 1000 * 60 * 60 * 24 * 3) {
-                            timeString = "Two days ago";
+                            timeString = getResources().getString(R.string.changelog_time_2_days);
                         } else if (diff < 1000 * 60 * 60 * 24 * 4) {
-                            timeString = "Three days ago";
+                            timeString = getResources().getString(R.string.changelog_time_3_days);
                         } else if (diff < 1000 * 60 * 60 * 24 * 5) {
-                            timeString = "Four days ago";
+                            timeString = getResources().getString(R.string.changelog_time_4_days);
                         } else if (diff < 1000 * 60 * 60 * 24 * 6) {
-                            timeString = "Five days ago";
+                            timeString = getResources().getString(R.string.changelog_time_5_days);
                         } else if (diff < 1000 * 60 * 60 * 24 * 7) {
-                            timeString = "Six days ago";
+                            timeString = getResources().getString(R.string.changelog_time_6_days);
                         } else if (diff < 1000 * 60 * 60 * 24 * 14) {
-                            timeString = "A week ago";
+                            timeString = getResources().getString(R.string.changelog_time_1_week);
                         } else if (diff < 1000 * 60 * 60 * 24 * 21) {
-                            timeString = "Two weeks ago";
+                            timeString = getResources().getString(R.string.changelog_time_2_weeks);
                         } else if (diff < 1000L * 60 * 60 * 24 * 28) {
-                            timeString = "Three weeks ago";
+                            timeString = getResources().getString(R.string.changelog_time_3_weeks);
                         } else {
                             timeString = line.trim().replaceAll("-", "/");
                         }

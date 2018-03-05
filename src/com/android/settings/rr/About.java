@@ -144,9 +144,14 @@ private static final String RR_ROM_SHARE = "share";
          return true; 
     }
     private void launchUrl(String url) {
-        Uri uriUrl = Uri.parse(url);
-        Intent donate = new Intent(Intent.ACTION_VIEW, uriUrl);
-        getActivity().startActivity(donate);
+        try {
+            Uri uriUrl = Uri.parse(url);
+            Intent donate = new Intent(Intent.ACTION_VIEW, uriUrl);
+            getActivity().startActivity(donate);
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getActivity(), getActivity().getString(R.string.browser_not_found_toast), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

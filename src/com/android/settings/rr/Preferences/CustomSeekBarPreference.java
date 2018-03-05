@@ -58,7 +58,7 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
             mDefaultValue = mMax;
         }
         mUnits = getAttributeStringValue(attrs, SETTINGS_NS, "units", "");
-        mDefaultText = getAttributeStringValue(attrs, SETTINGS_NS, "defaultText", "Def");
+        mDefaultText = getAttributeStringValue(attrs, SETTINGS_NS, "defaultText", context.getResources().getString(R.string.custom_seekbar_default_text));
 
         Integer id = a.getResourceId(R.styleable.CustomSeekBarPreference_units, 0);
         if (id > 0) {

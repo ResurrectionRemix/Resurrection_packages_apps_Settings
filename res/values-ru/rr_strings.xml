@@ -39,6 +39,61 @@
   <string name="rr_donate">Пожертвовать на разработку</string>
   <string name="rr_donate_summary">Покажите вашу поддержку Resurrection Remix OS</string>
   <string name="app_name">Resurrection Remix OS</string>
+  <!-- Battery Styles -->
+  <string name="battery_style_title">Стиль значка батареи</string>
+  <string name="battery_style_port">Вертикальный</string>
+  <string name="battery_style_land">Горизонтальный</string>
+  <string name="battery_style_circle">Круг</string>
+  <string name="battery_style_dotted_circle">Точечный круг</string>
+  <string name="battery_style_big_circle">Большой круг</string>
+  <string name="battery_style_big_dotted_circle">Большой точечный круг</string>
+  <string name="battery_style_text">Текст</string>
+  <string name="battery_style_hidden">Не показывать значок</string>
+  <string name="battery_style_category">Стиль батареи</string>
+  <string name="battery_bar_category">Панель заряда батареи</string>
+  <string name="show_battery_percent_title">Показывать процент заряда батареи</string>
+  <string name="battery_style_category_title">Уровень заряда батареи</string>
+  <string name="battery_percent_none">Не показывать</string>
+  <string name="battery_percent_outside">Показывать рядом со значком</string>
+  <string name="battery_percent_inside">Показывать внутри значка</string>
+  <!-- ListView animation -->
+  <string name="listview_animation_title">Анимация при просмотре списков</string>
+  <string name="listview_off">По умолчанию</string>
+  <string name="listview_wave_left">Волна (слева)</string>
+  <string name="listview_wave_right">Волна (справа)</string>
+  <string name="listview_alpha">Альфа</string>
+  <string name="listview_scale">Маштабирование</string>
+  <string name="listview_stack_top">Стек (сверху)</string>
+  <string name="listview_stack_bottom">Стек (снизу)</string>
+  <string name="listview_unfold">Разворачивание</string>
+  <string name="listview_fold">Сворачивание</string>
+  <string name="listview_translate_left">Переход (слева)</string>
+  <string name="listview_translate_right">Переход (справа)</string>
+  <string name="listview_title">Анимация списков</string>
+  <string name="listview_summary">Установить эффект анимации и интерполяции </string>
+  <!-- ListView interpolator -->
+  <string name="listview_interpolator_title">Эффекты анимации списка</string>
+  <string name="listview_accelerate_interpolator">Ускорение</string>
+  <string name="listview_decelerate_interpolator">Замедление</string>
+  <string name="listview_accelerate_decelerate_interpolator">Ускорение и замедление</string>
+  <string name="listview_anticipate_interpolator">Опережение</string>
+  <string name="listview_overshoot_interpolator">Перекрытие</string>
+  <string name="listview_anticipate_overshoot_interpolator">Опережение и перекрытие</string>
+  <string name="listview_bounce_interpolator">Отскок</string>
+  <!-- Keyboard and IME  -->
+  <string name="disable_fullscreen_keyboard_title">Отключить полноэкранную клавиатуру</string>
+  <string name="disable_fullscreen_keyboard_summary">В ландшафтном режиме клавиатура не будет разворачиваться на весь экран</string>
+  <string name="keyboard_rotation_toggle_title">Автоповорот клавиатуры</string>
+  <string name="keyboard_rotation_toggle_summary">Принудительный поворот экрана, когда показывается клавиатура</string>
+  <string name="keyboard_rotation_timeout_title">Тайм-аут автоповорота</string>
+  <string name="keyboard_rotation_timeout_summary">Отключить датчик автоповорота, спустя <xliff:g id="rotate_timeout">%1$s</xliff:g> секунд, после скрытия клавиатуры</string>
+  <string name="keyboard_rotation_dialog">Эта функция принудительно включает автоповорот во время отображения клавиатуры и не имеет эффекта, когда автоповорот уже включен.</string>
+  <string name="show_enter_key_title">Показывать кнопку ввода</string>
+  <string name="show_enter_key_summary">Принудительно показывать кнопку ввода вместо кнопки смайликов</string>
+  <string name="keyboard_ime_title">Настройки IME</string>
+  <string name="keyboard_ime_summury">Расширенные настройки IME</string>
+  <string name="ime_switcher_notify">Уведомление о выборе</string>
+  <string name="ime_switcher_notify_summary">Отображать переключатель метода ввода</string>
   <string name="devs">Разработка и поддержка</string>
   <string name="github_westcrip">https://github.com/westcripp</string>
   <string name="github_varund7726">https://github.com/varund7726</string>
@@ -64,19 +119,20 @@
   <string name="rr_ls_ui">Интерфейс экрана блокировки</string>
   <string name="rr_ls_security">Безопасность</string>
   <string name="updater_title">Обновления</string>
-  <string name="altankrk_summary">● Сооснователь \n● Главный разработчик \n● UX дизайнер \n● Поддерживающий</string>
-  <string name="varun_summary">● Главный разработчик \n● UX дизайнер \n● Поддерживающий</string>
-  <string name="andres_summary">● Разработчик \n● Поддерживающий</string>
-  <string name="akhil_summary">● Разработчик \n● Поддерживающий \n● Script мастер</string>
-  <string name="brian_summary">● Разработчик \n● Поддерживающий</string>
-  <string name="christopher_kardas_summary">● Модератор \n● Редактор\n● Соучастник</string>
-  <string name="matt_summary">● Модератор \n● Редактор\n● Соучастник</string>
-  <string name="justen_summary">● Модератор \n● Редактор\n● Соучастник</string>
+  <string name="altankrk_summary">● Сооснователь\n● Главный разработчик\n● UX дизайнер\n● Поддерживающий</string>
+  <string name="varun_summary">● Главный разработчик\n● UX дизайнер\n● Поддерживающий</string>
+  <string name="andres_summary">● Разработчик\n● Поддерживающий</string>
+  <string name="akhil_summary">● Разработчик\n● Поддерживающий\n● Script мастер</string>
+  <string name="brian_summary">● Разработчик\n● Поддерживающий</string>
+  <string name="christopher_kardas_summary">● Модератор\n● Редактор\n● Помощник</string>
+  <string name="matt_summary">● Модератор\n● Редактор\n● Помощник</string>
+  <string name="justen_summary">● Модератор\n● Редактор\n● Соучастник</string>
   <string name="support_team_title">Тег модератора</string>
   <string name="device_maintainers_title">Устройства и разработчики</string>
   <string name="device_maintainers_title_summary">Список устройств, работающих на RR-OS, и людей, поддерживающих эти устройства</string>
   <string name="maintainers_note_title">Примечание</string>
   <string name="maintainers_note_title_summary">Если вы хотите поддерживать прошивку для определённой модели, отправьте запрос с вашим именем через приложение Настройки</string>
+  <string name="device_summary"><xliff:g example="goldfish" id="codename">%1$s</xliff:g>\nПоддержка модели - <xliff:g example="deletescape" id="maintainer">%2$s</xliff:g></string>
   <!-- The Drill -->
   <string name="rr_drill_title">Послание от разработчиков</string>
   <string name="drill_summary">Лог или GTFO</string>
@@ -107,6 +163,16 @@
   <string name="changelog_error">Невозможно загрузить список изменений</string>
   <string name="changelog_unknown">Неизвестно</string>
   <string name="changelog_version">Версия</string>
+  <string name="changelog_time_today">Сегодня</string>
+  <string name="changelog_time_yesterday">Вчера</string>
+  <string name="changelog_time_2_days">2 дня назад</string>
+  <string name="changelog_time_3_days">3 дня назад</string>
+  <string name="changelog_time_4_days">4 дня назад</string>
+  <string name="changelog_time_5_days">5 дней назад</string>
+  <string name="changelog_time_6_days">6 дней назад</string>
+  <string name="changelog_time_1_week">Неделю назад</string>
+  <string name="changelog_time_2_weeks">2 недели назад</string>
+  <string name="changelog_time_3_weeks">3 недели назад</string>
   <!--RR Configurations-->
   <string name="fab_updates">Обновления</string>
   <string name="fab_restartui">Перезапустить пользовательский интерфейс</string>
@@ -197,6 +263,11 @@
   <string name="network_traffic_autohide_threshold">Порог неактивности</string>
   <string name="headset_connect_player_title">Запускать музыкальное приложение при подключении наушников</string>
   <string name="headset_connect_player_disabled">Выключено</string>
+  <string name="headset_connect_player_wired">Когда проводная гарнитура подключена</string>
+  <string name="headset_connect_player_bt_no_carkit">Когда BT-гарнитура (не в режиме автомобиля) подключена</string>
+  <string name="headset_connect_player_bt">Когда BT-гарнитура подключена</string>
+  <string name="headset_connect_player_both_no_carkit">Когда проводная или BT-гарнитура (не в режиме автомобиля) подключена</string>
+  <string name="headset_connect_player_both">Когда проводная или BT-гарнитура подключена</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_title">Текст уведомлений</string>
   <string name="ticker_title">Старый вид уведомлений в строке состояния</string>
@@ -275,7 +346,7 @@
   <string name="smart_pulldown_title">Умный доступ</string>
   <string name="smart_pulldown_off">Выкл</string>
   <string name="smart_pulldown_none">Нет уведомлений</string>
-  <string name="smart_pulldown_dismissable">Нет закреплённых уведомлений</string>
+  <string name="smart_pulldown_dismissable">Нет неудаляемых уведомлений</string>
   <string name="smart_pulldown_ongoing">Нет входящих уведомлений</string>
   <string name="smart_pulldown_summary">Открыть панель быстрых настроек, когда там %1$s</string>
   <string name="smart_pulldown_none_summary">Открывать панель быстрых настроек когда уведомления отсутствуют</string>
@@ -328,7 +399,7 @@
   <!-- Carrier Label -->
   <string name="carrier_options">Выбрать место отображения</string>
   <string name="custom_carrier_label_title">Пользовательское имя оператора</string>
-  <string name="custom_carrier_label_explain">Введите свое название оператора. Оставьте пустым, чтобы использовать текущее имя сети</string>
+  <string name="custom_carrier_label_explain">Введите свое имя оператора. Оставьте пустым, чтобы использовать имя вашей сети</string>
   <string name="custom_carrier_label_notset">Имя оператора в данный момент не установлено</string>
   <string name="show_carrier_title">Имя оператора</string>
   <string name="show_carrier_disabled">Выключено</string>
@@ -338,7 +409,7 @@
   <string name="status_bar_carrier_size">Размер шрифта имени оператора</string>
   <string name="status_bar_carrier_font_style_title">Шрифт текста имени оператора</string>
   <!-- Battery bar -->
-  <string name="battery_bar_title">Индикатор батареи</string>
+  <string name="battery_bar_title">Полоса заряда батареи</string>
   <string name="battery_bar_position_title">Расположение</string>
   <string name="battery_bar_position_hidden">Скрыт</string>
   <string name="battery_bar_position_statusbar">Строка состояния</string>
@@ -377,7 +448,7 @@
   <string name="omniswitch_summary">Заменить стоковое меню недавних приложений на меню недавних Omni</string>
   <string name="rr_qs_animation_summary">Включить или выключить анимации при нажатии плиток быстрых настроек и настроить их</string>
   <string name="rr_qs_pulldown_summary">Настройте параметры опускания панели быстрых настроек</string>
-  <string name="qs_tile_layout_summary">Настроить расположение названий плиток быстрых настроек</string>
+  <string name="qs_tile_layout_summary">Настроить расположение плиток быстрых настроек</string>
   <string name="qs_advanced_summary">Прочие настройки панели быстрых настроек</string>
   <string name="rr_ls_gesture_summary">Выберите различные жесты на экране блокировки</string>
   <string name="rr_ls_ui_summary">Включить, выключить и настроить различные элементы, представленные на экране блокировки</string>
@@ -463,9 +534,9 @@
   <string name="lock_screen_show_weather_title">Отображение прогноза погоды</string>
   <string name="lock_screen_show_weather_summaryOn">Погода отображается на экране блокировки</string>
   <string name="lock_screen_show_weather_summaryOff">Погода скрыта на экране блокировки</string>
-  <string name="lock_screen_show_location_title">Метоположение на экране блокировки</string>
-  <string name="lock_screen_show_location_summaryOn">Метоположение отображается на экране блокировки</string>
-  <string name="lock_screen_show_location_summaryOff">Метоположение скрыто на экране блокировки</string>
+  <string name="lock_screen_show_location_title">Местоположение на экране блокировки</string>
+  <string name="lock_screen_show_location_summaryOn">Местоположение отображается на экране блокировки</string>
+  <string name="lock_screen_show_location_summaryOff">Местоположение скрыто на экране блокировки</string>
   <string name="lock_screen_weather_condition_icon_title">Иконка погоды на экране блокировки</string>
   <string name="lock_screen_weather_condition_icon_summaryOn">Иконка погоды отображается на экране блокировки</string>
   <string name="lock_screen_weather_condition_icon_summaryOff">Иконка погоды скрыта на экране блокировки</string>
@@ -473,13 +544,13 @@
   <string name="powermenu_title">Меню кнопки питания</string>
   <string name="powermenu_reboot_title">Перезагрузка</string>
   <string name="powermenu_advanced_reboot_title">Расширенная перезагрузка</string>
-  <string name="powermenu_advanced_reboot_summary">Включить расширенную перезагрузку для перезагрузки в режим восстановления или загрузчика, перезагрузки системного интерфейса или быстрой перезагрузки</string>
+  <string name="powermenu_advanced_reboot_summary">Включить расширенное меню перезагрузки с возможностью перехода в режим восстановления или загрузчика, перезагрузки системного интерфейса или быстрой перезагрузки</string>
   <string name="powermenu_screenshot_title">Скриншот</string>
   <string name="powermenu_airplane_title">Режим полёта</string>
   <string name="powermenu_screenrecord_title">Запись экрана</string>
   <string name="powermenu_flashlight">Фонарик</string>
   <string name="powermenu_ls_reboot_summary">Показывать меню перезагрузки на экране блокировки</string>
-  <string name="powermenu_ls_advanced_reboot_summary">Показывать меню перезагрузки на экране блокировки</string>
+  <string name="powermenu_ls_advanced_reboot_summary">Показывать расширенное меню перезагрузки на экране блокировки</string>
   <string name="powermenu_ls_screenshot_summary">Показывать опцию скриншота на экране блокировки</string>
   <string name="powermenu_ls_airplane_summary">Показывать опцию режима полёта на экране блокировки</string>
   <string name="powermenu_ls_flashlight_summary">Показывать опцию фонарика на экране блокировки</string>
@@ -550,7 +621,7 @@
   <string name="no_iconpacks_summary">Ни одного набора значков не установлено</string>
   <string name="dialog_pick_iconpack_title">Выберите набор значков</string>
   <string name="default_iconpack_title">Значки по умолчанию</string>
-  <string name="slim_recents_corner_radius_title">Радиус закругления карточки</string>
+  <string name="slim_recents_corner_radius_title">Радиус скругления углов панели</string>
   <string name="recent_panel_expanded_mode_disabled">Выключено</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
   <string name="recent_panel_lefty_mode_title">Показывать с левого края</string>
@@ -579,7 +650,7 @@
   <string name="recent_app_sidebar_open_simultaneously_title">Открывать одновременно с меню недавних приложений</string>
   <string name="recent_app_sidebar_open_simultaneously_summary">Уменьшить \"лаги\" при открытии меню недавних приложений, отключив это</string>
   <!-- Slim recents membar -->
-  <string name="slim_recents_mem_display_category_title">Полоса использования ОЗУ</string>
+  <string name="slim_recents_mem_display_category_title">Шкала использования ОЗУ</string>
   <string name="slim_recents_mem_display_title">Показывать шкалу использования ОЗУ</string>
   <string name="slim_recents_mem_display_summaryOn">Включить отображение шкалы использования ОЗУ</string>
   <string name="slim_recents_mem_display_summaryOff">Отключить отображение шкалы использования ОЗУ</string>
@@ -636,7 +707,7 @@
   <string name="navbar_interface_title">Интерфейс</string>
   <string name="navbar_size">Размер панели навигации</string>
   <string name="navbar_mode">Режим навигации</string>
-  <string name="navbar_mode_summary">Выберите режим навигации для устройстве</string>
+  <string name="navbar_mode_summary">Выберите режим панели навигации для использования на вашем устройстве</string>
   <string name="navbar_visibility">Включить панель навигации</string>
   <string name="navigationbar_settings_title">Панель навигации</string>
   <string name="navigationbar_settings_summary">Настроить стиль и поведение панели навигации</string>
@@ -665,7 +736,7 @@
   <string name="fling_interface">Fling</string>
   <string name="fling_enable_title">Включить Fling</string>
   <string name="fling_back_home_policy">Кнопки \"Назад\" и \"Домой\" должны быть всегда установлены. Чтобы изменить назначение \"Назад\" или \"Домой\", сначала установите нужное назначение.\n\nК тому же настройка двойного нажатия немного замедлит одиночное нажатие.</string>
-  <string name="fling_split_bar_policy">Когда назначено действие только справа или слева, оно применяется ко всей панели.</string>
+  <string name="fling_split_bar_policy">Когда назначено действие только справа или слева, оно выполняется на всей панели.</string>
   <string name="fling_def_summary">Действие не установлено</string>
   <string name="fling_swipe_actions">Свайп-жесты</string>
   <string name="fling_tap_actions">Тап-жесты</string>
@@ -714,8 +785,8 @@
   <string name="fling_longpress_timeout_label_right">Большая задержка</string>
   <string name="fling_longpress_title">Задержка длительного нажатия</string>
   <string name="fling_longpress_summary">Увеличить или уменьшить время, необходимое для длительного нажатия</string>
-  <string name="fling_keyboard_cursors_title">Динамическое действие курсора клавиатуры</string>
-  <string name="fling_keyboard_cursors_summary">Двойные нажатие слева и справа управляют движениями курсора клавиатуры влево и вправо при открытой клавиатуре</string>
+  <string name="fling_keyboard_cursors_title">Перемещение курсора клавиатуры</string>
+  <string name="fling_keyboard_cursors_move_summary">Когда клавиатура отображается, удерживайте влево или вправо для перемещения курсора.\nПродолжайте удерживать для того, чтобы курсор продолжал перемещаться, нажмите один раз на панель, чтобы вернуться на домашний экран.</string>
   <string name="fling_logo_opacity_title">Прозрачность логотипа Fling</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse не работает с некоторыми источниками аудио во время прослушивания через динамик</string>
@@ -758,7 +829,7 @@
   <string name="smartbar_settings_title">Настройки SmartBar</string>
   <string name="smartbar_settings_summary">Настраиваемая панель навигации</string>
   <string name="smartbar_editor_title">Запустить режим редактирования</string>
-  <string name="smartbar_editor_summary">Редактор кнопок смартбара</string>
+  <string name="smartbar_editor_summary">Открыть редактор кнопок SmartBar</string>
   <string name="smartbar_help_policy_notice_summary">Находясь в режиме редактирования, нажмите и перетащите кнопку, чтобы изменить её положение, или нажмите, удерживая, кнопку для отображения меню редактирования. Положение кнопки может быть изменено во время отображения меню.\n\nНастройка двойного нажатия немного замедлит одиночное нажатие.</string>
   <string name="smartbar_context_menu_position_title">Расположение контекстных кнопок</string>
   <string name="smartbar_context_menu_position_summary">Установить расположение контекстных кнопок, таких как меню и выбор способа ввода</string>
@@ -801,12 +872,12 @@
   <string name="smartbar_double_tap_sleep_title">Двойное нажатие для отключения экрана</string>
   <string name="smartbar_double_tap_sleep_summary">Двойное нажатие на пустую область панели навигации для сна</string>
   <!-- SystemUI theme -->
-  <string name="systemui_theme_style_title">Тема системного интерфейса</string>
-  <string name="systemui_theme_style_auto">Автоматическая (на основе обои)</string>
+  <string name="systemui_theme_style_title">Тема</string>
+  <string name="systemui_theme_style_auto">Автоматический (на основе обоев)</string>
   <string name="systemui_theme_style_light">Светлая</string>
   <string name="systemui_theme_style_dark">Тёмная</string>
   <string name="rr_theme_title">Темы</string>
-  <string name="rr_theme_summary">Настройте свою тему SystemUI на темное или светлое. Это не для приложения настроек</string>
+  <string name="rr_theme_summary">Настройте свою тему</string>
   <!-- Hardware button navigation -->
   <!-- Button brightness -->
   <string name="button_backlight_options_category">Настройки подсветки кнопок</string>
@@ -816,7 +887,7 @@
   <string name="button_manual_brightness">Уровень яркости</string>
   <string name="button_timeout_title">Длительность подсветки кнопок</string>
   <string name="button_backlight_on_touch_only_title">Подсветка кнопок при касании</string>
-  <string name="button_backlight_on_touch_only_summary">Включать подсветку сенсорных кнопок только при касании.</string>
+  <string name="button_backlight_on_touch_only_summary">Подсвечивать кнопки только при касании, а не всё время. Тайм-аут подсветки влияет на эту функцию.</string>
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">Аппаратные кнопки</string>
   <string name="hw_keys_summary">Включить аппаратные кнопки</string>
@@ -855,8 +926,8 @@
   <string name="summary_animation_no_override">Запретить приложениям переопределять переходы</string>
   <string name="animation_duration_default">По умолчанию</string>
   <!-- Power menu and dialogs opacity -->
-  <string name="power">Настройки меню питания</string>
-  <string name="power_menu_transparency">Прозрачность меню питания</string>
+  <string name="power">Настройки меню кнопки питания</string>
+  <string name="power_menu_transparency">Прозрачность меню кнопки питания</string>
   <string name="power_menu_dialog_dim">Затемнение фона при отображении меню питания/перезагрузки</string>
   <!-- Screen state service -->
   <string name="screen_state_toggles_summary">\@null</string>
@@ -1035,7 +1106,7 @@
   <string name="dot_color_switch_title">Стиль</string>
   <!-- Status bar - Battery saver color -->
   <string name="status_bar_battery_saver_color_title">Цвет строки состояния при активном режиме энергосбережения</string>
-  <string name="status_bar_battery_saver_color_summary">Примечание: Если включен режим энергосбережения батареи, то для активации нового цвета индикатора необходимо выключить и снова включить режим энергосбережения!</string>
+  <string name="status_bar_battery_saver_color_summary">Примечание: Если режим энергосбережения батареи уже включен, то для активации нового цвета индикатора необходимо выключить и снова включить режим энергосбережения!</string>
   <!-- Fingerprint unlock keystore -->
   <string name="fp_unlock_keystore_title">Разблокировка отпечатком пальца</string>
   <string name="fp_unlock_keystore_summary">Разблокировка по сканеру отпечатка пальцев после перезагрузки без ввода ПИН-кода/Пароля/Графического ключа\nПримечание: используйте на свой страх и риск!</string>
@@ -1045,7 +1116,7 @@
   <string name="force_ambient_for_media_off">Выключено</string>
   <string name="force_ambient_for_media_on">Включено</string>
   <string name="force_ambient_for_media_on_forced">Включено принудительно</string>
-  <string name="force_ambient_for_media_on_forced_clean">Включено принудительно минимально</string>
+  <string name="force_ambient_for_media_on_forced_clean">Принудительная минимизация включена</string>
   <!-- Scrolling Cache -->
   <string name="pref_scrollingcache_title">Кэш прокрутки</string>
   <string name="pref_scrollingcache_summary">Кэш прокрутки может повысить плавность прокрутки за счёт использования ОЗУ</string>
@@ -1353,7 +1424,7 @@
   <!-- Screen Off animation -->
   <string name="screen_off_animation_title">Анимация выключения экрана</string>
   <string name="screen_off_animation_default">По умолчанию</string>
-  <string name="screen_off_animation_crt">Эффект телевизора</string>
+  <string name="screen_off_animation_crt">Эффект \"старого\" телевизора</string>
   <string name="screen_off_animation_scale">Масштабирование</string>
   <!-- Suppress notification sound/vibration -->
   <string name="notification_sound_vib_screen_on_title">Уведомления при включенном экране</string>
@@ -1519,7 +1590,7 @@
   <string name="rr_config_style_title">Стиль расширенных настроек</string>
   <string name="rr_config_n">Вкладки</string>
   <string name="rr_config_mm">Классический</string>
-  <string name="rr_config_o">Нижняя часть панели навигации</string>
+  <string name="rr_config_o">Вкладки снизу</string>
   <!-- Dashboard settings-->
   <string name="dashboard_category">Опции меню настроек</string>
   <string name="dashboard_conditions_title">Уведомления в меню настроек</string>
@@ -1550,7 +1621,7 @@
   <string name="expanded_desktop_title">Настройки расширенного рабочего стола</string>
   <!-- no network switch -->
   <string name="no_sim_cluster_switch_title">Скрыть надпись \"Нет сети\"</string>
-  <string name="no_sim_cluster_switch_summary">Скрыть панель сети, если подпись SIM-карты неактивна или отключена. Если SIM-карта не отключена, данный переключатель не будет работать. Примечание: необходима перезагрузка интерфейса</string>
+  <string name="no_sim_cluster_switch_summary">Скрыть значок сети, если SIM-карта неактивна или отключена. Если SIM-карта не отключена, данный переключатель не будет работать. Примечание: необходима перезагрузка интерфейса</string>
   <!-- no sim icon switch -->
   <string name="disable_no_sim_title">Отключить значок \"Нет SIM-карты\"</string>
   <string name="disable_no_sim_summary">Отключить значок \"Нет SIM-карты\", если SIM-карта отсутствует</string>
@@ -1561,7 +1632,7 @@
   <string name="print_restart">Перезагрузить</string>
   <!-- Quick unlock -->
   <string name="unlock_quick_unlock_control_title">Быстрая разблокировка</string>
-  <string name="unlock_quick_unlock_control_summary">Разблокировать автоматически, когда PIN/пароль введён верно. Используйте PIN длиной меньше 6 цифр, иначе вы не сможете разблокировать смартфон. Мы вас предупредили</string>
+  <string name="unlock_quick_unlock_control_summary">Автоматическая разблокировка, когда PIN-код/пароль введён верно. Используйте PIN-код не более 6 цифр. Если PIN-код состоит более чем из 6 цифр, вы можете не разблокировать устройство. Вы были предупреждены!</string>
   <!-- Hide Apps from Recents -->
   <string name="hide_apps_from_recents_title">Скрытые приложения</string>
   <string name="hide_from_recents_add_app">Добавить приложение</string>
@@ -1570,13 +1641,13 @@
   <string name="position_title">Расположение</string>
   <string name="position_right_title">Справа</string>
   <string name="position_centered_title">По центру</string>
-  <string name="normal_title">Нормально</string>
+  <string name="normal_title">Стандартный</string>
   <string name="hidden_title">Скрытая</string>
   <string name="status_bar_clock_date_settings_title">Часы &amp; дата</string>
-  <string name="status_bar_clock_date_settings_summary">Выберите способ отображения часы и Дата в строке состояния</string>
+  <string name="status_bar_clock_date_settings_summary">Выберите способ отображения времени и даты в строке состояния</string>
   <string name="list_preference_default_summary">%s</string>
   <string name="clock_date_cat_date_title">Дата</string>
-  <string name="clock_date_show_seconds_title">Отображать секунды</string>
+  <string name="clock_date_show_seconds_title">Показывать секунды</string>
   <string name="clock_date_show_seconds_summary">Показывать секунды в строке состояния</string>
   <string name="clock_date_show_date_title">Показывать дату</string>
   <string name="clock_date_show_date_summary">Показывать дату рядом с часами в строке состояния</string>
@@ -1586,7 +1657,7 @@
   <string name="clock_date_date_string_edittext_summary">Введите правильное значение параметра формата даты, например ММ/ДД/ГГ</string>
   <string name="clock_date_date_style_title">Стиль</string>
   <string name="clock_date_date_style_lowercase">В нижнем регистре</string>
-  <string name="clock_date_date_style_uppercase">Заглавные</string>
+  <string name="clock_date_date_style_uppercase">Прописные буквы</string>
   <string name="clock_date_date_size_small_title">Маленькие</string>
   <string name="clock_date_date_size_small_summary">Включить отображение даты маленьким шрифтом</string>
   <string name="status_bar_clock_font_size_title">Размер шрифта</string>
@@ -1596,11 +1667,11 @@
   <string name="restart_app_required">Перезапустите соответствующее приложение, чтобы увидеть эффект</string>
   <!-- RR config options -->
   <string name="rr_config_tabs_update_message">Вы собираетесь изменить макет на вкладки (как на nougat), который присутствовал в предыдущих версиях RR-OS и является стандартным. Вы уверен, что хотите продолжить?</string>
-  <string name="rr_config_classic_update_message">Вы собираетесь изменить внешний вид настроек RRS-OS (Marshmallow) как было в предыдущих версиях по умолчанию. Вы уверен, что хотите продолжить?</string>
-  <string name="rr_config_navigation_update_message">Вы собираетесь изменить внешний вид настроек RRS-OS на панель с нижней навигацией (Oreo), который появился в текущей версии. Вы уверен, что хотите продолжить?</string>
+  <string name="rr_config_classic_update_message">Вы собираетесь изменить внешний вид настроек  на классический (Marshmallow) как было в предыдущих версиях RR-OS по умолчанию. Вы уверены, что хотите продолжить?</string>
+  <string name="rr_config_navigation_update_message">Вы собираетесь изменить внешний вид настроек RR-OS на панель с нижней навигацией (Oreo), который появился в текущей версии. Вы уверен, что хотите продолжить?</string>
   <string name="rr_config_navigation_color_enable_title">Свой цвет панели навигации</string>
-  <string name="rr_config_navigation_color_enabled">Собственный цвет для нижней панели навигации настроек RR</string>
-  <string name="rr_config_navigation_color_title">Свой цвет панели настроек</string>
+  <string name="rr_config_navigation_color_enabled">Свой цвет для нижней панели навигации настроек RR</string>
+  <string name="rr_config_navigation_color_title">Свой цвет панели навигации</string>
   <!-- RR summary text -->
   <string name="rr_settings_summary_title">Свой текст описания настроек RR в настройках</string>
   <string name="custom_summary_title">Настраиваемая сводка</string>
@@ -1638,10 +1709,10 @@
   <string name="hide_lockscreen_clock_summary">Изменить видимость виджета часов</string>
   <string name="hide_lockscreen_date_title">Виджет даты</string>
   <string name="hide_lockscreen_date_summary">Изменить видимость даты под виджетом часов</string>
-  <string name="hide_lockscreen_alarm_title">Текст на случай потери телефона</string>
-  <string name="hide_lockscreen_alarm_summary">Изменить видимость текста о потери телефона под виджетом часов</string>
+  <string name="hide_lockscreen_alarm_title">Текст будильника</string>
+  <string name="hide_lockscreen_alarm_summary">Изменить видимость текста будильника под виджетом часов</string>
   <string name="less_notification_sounds_title">Звуки \"умных\" уведомлений</string>
-  <string name="less_notification_sounds_summary">Ограничить частоту звука уведомления каждого приложения только одним разом за выбранный период времени</string>
+  <string name="less_notification_sounds_summary">Проигрывать звук уведомления для каждого приложения только один раз</string>
   <string name="less_notification_sounds_default">Приложение по умолчанию</string>
   <string name="less_notification_sounds_10s">Каждые 10 секунд</string>
   <string name="less_notification_sounds_30s">Каждые 30 секунд</string>
@@ -1657,4 +1728,13 @@
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Автоматическая разблокировка лицом</string>
   <string name="face_auto_unlock_summary">Пропустить экран блокировки после разблокирования смартфона лицом. Для этого включите разблокировку лицом</string>
+  <string name="incall_notifications_vibrate">Меньше раздражающих уведомлений во время вызова</string>
+  <string name="incall_notifications_vibrate_summary">Вибрация вместо воспроизведения звука для уведомлений во время вызова</string>
+  <!-- Browser not found -->
+  <string name="browser_not_found_toast">Браузер по умолчанию не найден</string>
+  <!-- Seekbar default text -->
+  <string name="custom_seekbar_default_text">По умолчанию</string>
+  <!-- Notification guts kill app button -->
+  <string name="notification_guts_kill_app_button_title">Кнопка закрытия приложения</string>
+  <string name="notification_guts_kill_app_button_summary">Показывать кнопку закрытия приложения в меню при долгом нажатии на уведомление</string>
 </resources>
