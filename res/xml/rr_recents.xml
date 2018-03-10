@@ -81,6 +81,14 @@
         android:defaultValue="3"
         android:dependency="show_clear_all_recents" />
 
+    <ListPreference
+        android:key="recents_layout_style"
+        android:title="@string/recents_type_title"
+        android:dialogTitle="@string/recents_type_title"
+        android:entries="@array/recents_type_title_entries"
+        android:defaultValue="0"
+        android:entryValues="@array/recents_type_title_values"/>
+
      </PreferenceCategory>
 
 </PreferenceScreen>
