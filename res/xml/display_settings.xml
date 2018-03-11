@@ -170,6 +170,13 @@
         android:defaultValue="@*lineageos.platform:bool/config_proximityCheckOnWakeEnabledByDefault"
         lineage:requiresConfig="@*lineageos.platform:bool/config_proximityCheckOnWake" />
 
+    <lineageos.preference.LineageSystemSettingSwitchPreference
+        android:key="high_touch_sensitivity_enable"
+        android:title="@string/high_touch_sensitivity_title"
+        android:summary="@string/high_touch_sensitivity_summary"
+        android:defaultValue="false"
+        lineage:requiresFeature="lineagehardware:FEATURE_HIGH_TOUCH_SENSITIVITY" />
+
     <ListPreference
         android:key="theme"
         android:title="@string/device_theme"
