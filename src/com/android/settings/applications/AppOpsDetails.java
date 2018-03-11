@@ -202,7 +202,12 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
                 if (icon == null && op != 0 && OP_ICONS.containsKey(op)) {
                     icon = getActivity().getDrawable(OP_ICONS.get(op));
                 }
-                icon.setTint(Utils.getColorAttr(getActivity(), android.R.attr.colorControlNormal));
+                if (icon == null) {
+                    Log.e(TAG, "Failed to retrieve icon for permission: " + perm);
+                } else {
+                    icon.setTint(Utils.getColorAttr(getActivity(),
+                            android.R.attr.colorControlNormal));
+                }
 
                 final AppOpsManager.OpEntry firstOp = entry.getOpEntry(0);
                 final int switchOp = AppOpsManager.opToSwitch(firstOp.getOp());
