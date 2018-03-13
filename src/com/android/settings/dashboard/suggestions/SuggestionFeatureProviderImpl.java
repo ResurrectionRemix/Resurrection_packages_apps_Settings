@@ -86,7 +86,8 @@ public class SuggestionFeatureProviderImpl implements SuggestionFeatureProvider 
         } else if (className.equals(WifiCallingSuggestionActivity.class.getName())) {
             return WifiCallingSuggestionActivity.isSuggestionComplete(context);
         } else if (className.equals(NightDisplaySuggestionActivity.class.getName())) {
-            return NightDisplayPreferenceController.isSuggestionComplete(context);
+            return context.getPackageManager().hasSystemFeature("org.lineageos.livedisplay")
+                    || NightDisplayPreferenceController.isSuggestionComplete(context);
         } else if (className.equals(NewDeviceIntroSuggestionActivity.class.getName())) {
             return NewDeviceIntroSuggestionActivity.isSuggestionComplete(context);
         } else if (className.equals(ZenSuggestionActivity.class.getName())) {
