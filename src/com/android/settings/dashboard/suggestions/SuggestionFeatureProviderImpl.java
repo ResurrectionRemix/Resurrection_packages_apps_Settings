@@ -78,7 +78,8 @@ public class SuggestionFeatureProviderImpl implements SuggestionFeatureProvider 
     public boolean isSuggestionCompleted(Context context, @NonNull ComponentName component) {
         final String className = component.getClassName();
         if (className.equals(NightDisplaySuggestionActivity.class.getName())) {
-            return hasUsedNightDisplay(context);
+            return context.getPackageManager().hasSystemFeature("org.lineageos.livedisplay")
+                    || hasUsedNightDisplay(context);
         }
         if (className.equals(NewDeviceIntroSuggestionActivity.class.getName())) {
             return NewDeviceIntroSuggestionActivity.isSuggestionComplete(context);
