@@ -9,4 +9,11 @@
             android:summary="%s"
             android:title="@string/ticker_title" />
 
+        <com.android.settings.rr.Preferences.SystemSettingListPreference
+            android:key="status_bar_ticker_animation_mode"
+            android:title="@string/ticker_animation_mode_title"
+            android:entries="@array/ticker_animation_mode_entries"
+            android:entryValues="@array/ticker_animation_mode_values"
+            android:defaultValue="1" />
+
 </PreferenceScreen>
