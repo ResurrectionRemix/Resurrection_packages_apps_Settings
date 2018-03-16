@@ -183,14 +183,14 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
                     mPackageInfo.applicationInfo.uid, mPackageInfo.packageName, true);
             for (final AppOpsState.AppOpEntry entry : entries) {
                 String perm = null;
-                int op = 0;
+                int op = -1;
                 // Find the first permission with a known name
                 for (int i = 0; i < entry.getNumOpEntry() && perm == null; i++) {
                     op = entry.getOpEntry(i).getOp();
                     perm = AppOpsManager.opToPermission(op);
                 }
                 Drawable icon = getIconByPermission(perm);
-                if (icon == null && op != 0 && OP_ICONS.containsKey(op)) {
+                if (icon == null && op != -1 && OP_ICONS.containsKey(op)) {
                     icon = getActivity().getDrawable(OP_ICONS.get(op));
                 }
 
