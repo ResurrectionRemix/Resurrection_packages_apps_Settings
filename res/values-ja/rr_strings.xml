@@ -40,9 +40,57 @@
   <string name="rr_donate_summary">Resurrection Remix OSへの支援を表明して</string>
   <string name="app_name">Resurrection Remix OS</string>
   <!-- Battery Styles -->
+  <string name="battery_style_title">バッテリーアイコンのスタイル</string>
+  <string name="battery_style_port">縦</string>
+  <string name="battery_style_land">横</string>
+  <string name="battery_style_circle">サークル</string>
+  <string name="battery_style_dotted_circle">点付きのサークル</string>
+  <string name="battery_style_big_circle">大きいサークル</string>
+  <string name="battery_style_big_dotted_circle">大きい点付きのサークル</string>
+  <string name="battery_style_text">文字</string>
+  <string name="battery_style_hidden">非表示</string>
+  <string name="battery_style_category">バッテリースタイル</string>
+  <string name="battery_bar_category">バッテリーバー</string>
+  <string name="show_battery_percent_title">バッテリーのパーセント表示</string>
+  <string name="battery_style_category_title">バッテリー残量</string>
+  <string name="battery_percent_none">表示しない</string>
+  <string name="battery_percent_outside">アイコンの近くに表示する</string>
+  <string name="battery_percent_inside">アイコンの中に表示する</string>
   <!-- ListView animation -->
+  <string name="listview_animation_title">リストビューアニメーション</string>
+  <string name="listview_off">デフォルト</string>
+  <string name="listview_wave_left">ウェーブ (左から)</string>
+  <string name="listview_wave_right">ウェーブ (右から)</string>
+  <string name="listview_alpha">アルファ</string>
+  <string name="listview_scale">スケール</string>
+  <string name="listview_stack_top">スタック (上から)</string>
+  <string name="listview_stack_bottom">スタック (下から)</string>
+  <string name="listview_unfold">展開</string>
+  <string name="listview_fold">折り畳む</string>
+  <string name="listview_translate_left">スライド (左から)</string>
+  <string name="listview_translate_right">スライド (右から)</string>
+  <string name="listview_title">リストアニメーション</string>
+  <string name="listview_summary">リストビューのアニメーションと補完を設定 </string>
   <!-- ListView interpolator -->
+  <string name="listview_interpolator_title">リストビューの補完</string>
+  <string name="listview_accelerate_interpolator">加速</string>
+  <string name="listview_decelerate_interpolator">減速</string>
+  <string name="listview_accelerate_decelerate_interpolator">加速と減速</string>
+  <string name="listview_overshoot_interpolator">行き過ぎる</string>
+  <string name="listview_bounce_interpolator">跳ねる</string>
   <!-- Keyboard and IME  -->
+  <string name="disable_fullscreen_keyboard_title">全画面キーボードを無効化</string>
+  <string name="disable_fullscreen_keyboard_summary">横向画面時にキーボードが画面全体を占有しないようにする</string>
+  <string name="keyboard_rotation_toggle_title">キーボードの自動回転</string>
+  <string name="keyboard_rotation_toggle_summary">キーボードが表示されている間、強制的にディスプレイの自動回転を有効にします</string>
+  <string name="keyboard_rotation_timeout_title">自動回転のタイムアウト</string>
+  <string name="keyboard_rotation_timeout_summary">キーボードが表示されなくなってから<xliff:g id="rotate_timeout">%1$s</xliff:g>秒後に自動回転が無効になります</string>
+  <string name="keyboard_rotation_dialog">この機能はキーボードが表示されている間、一時的にディスプレイの自動回転を有効化します。既に自動回転が有効な場合、この機能に効果はありません</string>
+  <string name="show_enter_key_title">Enterキーを表示する</string>
+  <string name="show_enter_key_summary">絵文字キーの代わりにEnterを強制表示する</string>
+  <string name="keyboard_ime_title">IME設定</string>
+  <string name="keyboard_ime_summury">IMEの詳細設定</string>
+  <string name="ime_switcher_notify">IME選択の通知</string>
   <string name="devs">デベロッパー タグ</string>
   <string name="github_westcrip">https://github.com/westcripp</string>
   <string name="github_varund7726">https://github.com/varund7726</string>
@@ -184,6 +232,14 @@
   <string name="ticker_enabled">通知ティッカー</string>
   <string name="ticker_media_enabled">通知および音楽ティッカー</string>
   <!-- Heads up -->
+  <string name="heads_up_summary_enabled">ヘッドアップ通知は有効です</string>
+  <string name="heads_up_summary_disabled">ヘッドアップ通知は無効です</string>
+  <string name="heads_up_blacklist_add_package_title">アプリを追加</string>
+  <string name="heads_up_blacklist_add_package_summary">これらのアプリ起動中にはヘッドアップ通知を無効化する</string>
+  <string name="heads_up_blacklist_title">ブラックリスト</string>
+  <string name="heads_up_blacklist_choose_app">アプリを選択</string>
+  <string name="heads_up_blacklist_dialog_delete_title">削除</string>
+  <string name="heads_up_blacklist_dialog_delete_message">選択した項目を削除しますか？</string>
   <!-- Fingerprint authentication vibration -->
   <string name="fprint_sucess_vib_title">指紋認証のバイブレーション</string>
   <string name="fprint_sucess_vib_summary">指紋認証に成功した際にバイブレーションを作動させる</string>
@@ -223,12 +279,19 @@
   <string name="status_bar_notif_count_title">通知の数を表示</string>
   <string name="status_bar_notif_count_summary">保留中の通知の数を表示する</string>
   <!-- Status bar - Clock -->
+  <string name="status_bar_clock_title">時計</string>
+  <string name="status_bar_clock_position_title">時計の位置</string>
+  <string name="status_bar_clock_position_right">右寄り</string>
+  <string name="status_bar_clock_position_left">左寄り</string>
+  <string name="status_bar_clock_position_center">中央</string>
   <string name="status_bar_am_pm_title">AM/PMのスタイル</string>
   <string name="status_bar_am_pm_info">24時間表示を有効にする</string>
   <string name="status_bar_am_pm_normal">標準</string>
   <string name="status_bar_am_pm_small">小型</string>
   <string name="status_bar_am_pm_hidden">非表示</string>
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_title">バッテリー残量表示</string>
+  <string name="status_bar_battery_style_title">バッテリー表示のスタイル</string>
   <string name="status_bar_battery_style_icon_portrait">縦向きのアイコン</string>
   <string name="status_bar_battery_style_icon_landscape">横向きのアイコン</string>
   <string name="status_bar_battery_style_circle">サークル</string>
@@ -238,12 +301,16 @@
   <string name="status_bar_logo_title">RRブランドロゴ</string>
   <string name="status_bar_rr_logo_position">ロゴの位置</string>
   <string name="status_bar_rr_logo_position_summary">どこにロゴを表示するか選択してください</string>
+  <string name="status_bar_logo_right">右寄り</string>
+  <string name="status_bar_logo_left">左寄り</string>
+  <string name="status_bar_logo_disabled">無効</string>
   <!-- Status bar - Battery percentage -->
   <string name="status_bar_battery_percentage_title">バッテリー残量表示のスタイル</string>
   <string name="status_bar_battery_percentage_default">非表示</string>
   <string name="status_bar_battery_percentage_text_inside">アイコンの中</string>
   <string name="status_bar_battery_percentage_text_next">アイコンの隣</string>
   <!-- Status bar - Brightness -->
+  <string name="status_bar_brightness_category">画面の明るさ</string>
   <string name="status_bar_toggle_brightness">明るさのコントロール</string>
   <string name="status_bar_toggle_brightness_summary">ステータスバーの上をスライドして明るさを調整する</string>
   <!-- Carrier Label -->
@@ -258,6 +325,9 @@
   <string name="battery_bar_style_regular">標準 （左寄せ）</string>
   <string name="battery_bar_style_center_mirrored">中央寄せ</string>
   <string name="battery_bar_style_reversed">反転</string>
+  <string name="battery_bar_blend_color_title">色のブレンド</string>
+  <string name="battery_bar_blend_color_summary">バッテリー残量に応じてフル/残量低下時の色をブレンドする</string>
+  <string name="battery_bar_blend_color_reverse_title">色の順番を逆転させる</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">ステータスバーの時計と日付のさまざまな要素をカスタマイズします。</string>
   <string name="status_bar_logo_summary">ステータスバーにおけるResurrectionロゴの表示有無、色と位置をカスタマイズします</string>
@@ -304,6 +374,13 @@
   <string name="rr_fp_summary">指紋センサーのさまざまなオプションをカスタマイズする</string>
   <!-- QS rows and columns -->
   <!-- Color Picker -->
+  <string name="dialog_color_picker">カラーピッカー</string>
+  <string name="arrow_right">→</string>
+  <string name="arrow_down">↓</string>
+  <string name="hex">Hex:</string>
+  <string name="hex_hint">#ff000000</string>
+  <string name="set">設定</string>
+  <string name="color_default">デフォルト</string>
   <!-- Sensor block per-package -->
   <string name="sensor_block_title">パッケージごとのセンサーの無効化</string>
   <string name="sensor_block_summary">バッテリーを節約するためにアプリから特定のセンサーへのアクセスを無効化</string>
@@ -340,6 +417,12 @@
   <string name="status_bar_weather_font_notoserif_bold_italic">NotoSerif Bold Italic</string>
   <!-- Lockscreen Weather -->
   <!-- Power Menu -->
+  <string name="powermenu_title">電源メニュー</string>
+  <string name="powermenu_reboot_title">再起動</string>
+  <string name="powermenu_advanced_reboot_title">高度な再起動</string>
+  <string name="powermenu_airplane_title">機内モード</string>
+  <string name="powermenu_screenrecord_title">画面の録画</string>
+  <string name="powermenu_flashlight">ライト</string>
   <!-- Lockscreen notif count -->
   <!-- Toast icon switch -->
   <string name="toast_icon_title">トーストアイコン</string>
