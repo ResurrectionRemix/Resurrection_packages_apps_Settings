@@ -55,12 +55,8 @@ public class BatteryMeterView extends ImageView {
         mErrorColorFilter = new PorterDuffColorFilter(
                 context.getColor(R.color.battery_icon_color_error), PorterDuff.Mode.SRC_IN);
 
-        int userStyle = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.STATUS_BAR_BATTERY_STYLE, BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT);
-        if (userStyle >= BatteryMeterDrawableBase.BATTERY_STYLE_SQUARE) {
-             userStyle = BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT;
-        }
-        mDrawable = new BatteryMeterDrawable(context, frameColor, userStyle);
+        mDrawable = new BatteryMeterDrawable(context, frameColor);
+        mDrawable.setShowPercent(false);
         mDrawable.setBatteryColorFilter(mAccentColorFilter);
         mDrawable.setWarningColorFilter(
                 new PorterDuffColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN));
