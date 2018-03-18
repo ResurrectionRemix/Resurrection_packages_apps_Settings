@@ -42,4 +42,39 @@
         android:summary="@string/app_notification_override_dnd_summary"
         settings:useAdditionalSummary="true" />
 
+    <PreferenceCategory
+        android:key="light_customization"
+        android:title="@string/light_customization">
+    <!-- Custom led color -->
+        <com.android.settingslib.RestrictedSwitchPreference
+            android:key="lights"
+            android:title="@string/notification_show_lights_title" />
+
+	<SwitchPreference
+            android:key="show_light_on_zen"
+            android:title="@string/show_light_on_zen_title" />
+
+        <net.margaritov.preference.colorpicker.ColorPickerPreference
+            android:key="custom_light"
+            android:title="@string/custom_light_title"
+            settings:defaultColorValue="0xFFFFFFFF" />
+
+        <com.nitrogen.settings.preferences.CustomSeekBarPreference
+            android:key="custom_light_on_time"
+            android:title="@string/custom_light_on_time_title"
+            settings:defaultText="@string/value_equals_default"
+            settings:min="0"
+            android:max="10000"
+            settings:interval="100"
+            settings:units="" />
+
+        <com.nitrogen.settings.preferences.CustomSeekBarPreference
+            android:key="custom_light_off_time"
+            android:title="@string/custom_light_off_time_title"
+            settings:defaultText="@string/value_equals_default"
+            settings:min="0"
+            android:max="10000"
+            settings:interval="100"
+            settings:units="" />
+    </PreferenceCategory>
 </PreferenceScreen>
