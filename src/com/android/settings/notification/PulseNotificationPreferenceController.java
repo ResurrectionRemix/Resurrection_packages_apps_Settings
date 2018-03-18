@@ -83,13 +83,9 @@ public class PulseNotificationPreferenceController extends AbstractPreferenceCon
 
     @Override
     public void updateState(Preference preference) {
-        try {
-            final boolean checked = Settings.System.getInt(mContext.getContentResolver(),
-                    NOTIFICATION_LIGHT_PULSE) == 1;
-            ((TwoStatePreference) preference).setChecked(checked);
-        } catch (Settings.SettingNotFoundException snfe) {
-            Log.e(TAG, NOTIFICATION_LIGHT_PULSE + " not found");
-        }
+       final boolean checked = Settings.System.getInt(mContext.getContentResolver(),
+                NOTIFICATION_LIGHT_PULSE, 1) == 1;
+        ((TwoStatePreference) preference).setChecked(checked);
     }
 
     @Override
