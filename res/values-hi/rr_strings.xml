@@ -279,6 +279,9 @@
   <string name="ticker_disabled">कोई टिकर नहीं</string>
   <string name="ticker_enabled">सूचना टिकर</string>
   <string name="ticker_media_enabled">सूचनाएँ और संगीत टिकर</string>
+  <string name="ticker_animation_mode_title">टिकर ऐनिमेशन शैली</string>
+  <string name="ticker_animation_mode_alpha_fade">फीका</string>
+  <string name="ticker_animation_mode_scroll">स्क्रॉल </string>
   <!-- Heads up -->
   <string name="heads_up_title">प्रमुखों को अनुमति दें</string>
   <string name="heads_up_summary_enabled">सचेत सूचनाएं सछम है</string>
@@ -378,22 +381,82 @@
   <string name="status_bar_battery_style_text">शब्द</string>
   <string name="status_bar_battery_style_hidden">छिपा हुआ</string>
   <!--RR statusbar logo -->
+  <string name="status_bar_logo_title">ब्रांड लोगो</string>
+  <string name="status_bar_rr_logo_position">लोगो स्थान</string>
+  <string name="status_bar_rr_logo_position_summary">लोगो बाएँ या दाएँ प्रदर्शित करने के लिए पक्ष का चुनाव करे</string>
+  <string name="status_bar_logo_right">दाएँ</string>
+  <string name="status_bar_logo_left">बायां</string>
+  <string name="status_bar_logo_disabled">अक्षम कर दिया गया</string>
   <!-- Status bar - Battery percentage -->
+  <string name="status_bar_battery_percentage_title">बैटरी प्रतिशत</string>
+  <string name="status_bar_battery_percentage_default">छिपा हुआ</string>
   <string name="status_bar_battery_percentage_text_inside">आइकन के अंदर</string>
   <string name="status_bar_battery_percentage_text_next">आइकन के आगे</string>
   <!-- Status bar - Brightness -->
   <string name="status_bar_brightness_category">चमक</string>
+  <string name="status_bar_brightness_slider_title">चमक स्लाइडर</string>
+  <string name="status_bar_brightness_slider_summary">त्वरित सेटिंग से चमक समायोजित करें</string>
+  <string name="status_bar_brightness_slider_auto_title">ऑटो चमक</string>
+  <string name="status_bar_brightness_slider_auto_summary">स्लाइडर के पास स्वीकार्य चमक के लिए टॉगल दिखाएं</string>
+  <string name="status_bar_toggle_brightness">चमक नियंत्रण</string>
+  <string name="status_bar_toggle_brightness_summary">स्टेटस बार पर स्लाइड करने से चमक समायोजित करें</string>
   <!-- Carrier Label -->
+  <string name="carrier_options">प्रदर्शन स्थानों का चयन करें</string>
+  <string name="custom_carrier_label_title">कस्टम वाहक लेबल</string>
+  <string name="custom_carrier_label_explain">कोई कस्टम लेबल दर्ज करें । अपने नेटवर्क नाम का उपयोग करने के लिए रिक्त छोड़ें</string>
+  <string name="custom_carrier_label_notset">वर्तमान में कस्टम लेबल सेट नहीं</string>
+  <string name="show_carrier_title">कैरियर लेबल</string>
+  <string name="show_carrier_disabled">अक्षम कर दिया गया</string>
+  <string name="show_carrier_keyguard">लॉकस्क्रीन</string>
+  <string name="show_carrier_statusbar">स्थिति पट्टी</string>
+  <string name="show_carrier_enabled">दोनों</string>
+  <string name="status_bar_carrier_size">वाहक लेबल पाठ का आकार</string>
+  <string name="status_bar_carrier_font_style_title">कैरियर लेबल</string>
   <!-- Battery bar -->
+  <string name="battery_bar_title">बैटरी बार</string>
+  <string name="battery_bar_position_title">स्थान</string>
+  <string name="battery_bar_position_hidden">छुपा हुआ</string>
+  <string name="battery_bar_position_statusbar">स्थिति पट्टी</string>
   <string name="battery_bar_color_title">रंग</string>
+  <string name="battery_bar_charging_color_title">चार्ज रंग</string>
+  <string name="battery_bar_battery_low_color_title">कम बैटरी रंग</string>
+  <string name="battery_bar_style_title">अलाइनमेंट</string>
+  <string name="battery_bar_thickness_title">मोटाई</string>
+  <string name="battery_bar_animate_title">चार्जिंग एनीमेशन</string>
+  <string name="battery_bar_style_regular">नियमित</string>
+  <string name="battery_bar_style_center_mirrored">केंद्र में नजर आता</string>
+  <string name="battery_bar_style_reversed">उल्टा</string>
+  <string name="battery_bar_use_charging_color_title">कस्टम चार्जिंग रंग</string>
+  <string name="battery_bar_blend_color_title">रंग मिश्रण</string>
+  <string name="battery_bar_blend_color_summary">बैटरी प्रतिशत के अनुसार पूर्ण/खाली रंग मिलाएं</string>
+  <string name="battery_bar_blend_color_reverse_title">रंग दिशा उल्टा करे</string>
+  <string name="battery_bar_blend_color_reverse_summary_off">पूर्ण → खाली: लाल ← ग्रीन ← नीले ← लाल</string>
+  <string name="battery_bar_blend_color_reverse_summary_on">पूर्ण → खाली: लाल ← ग्रीन ← नीले ← लाल</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">स्थिति पट्टी घड़ी और तारीख के विभिन्न तत्वों</string>
+  <string name="status_bar_logo_summary">सक्षम या प्रस्थिति में जी उठने लोगो को निष्क्रिय । रंग और स्थिति अनुकूलित करें</string>
+  <string name="sb_custom_logos_summary">सक्षम या स्थिति में चिह्न अक्षम करें । अपने तत्वों और स्थिति को अनुकूलित</string>
+  <string name="rr_battery_summary">स्थिति में बैटरी तत्वों को अनुकूलित और भी batterybar अनुकूलित</string>
+  <string name="rr_sb_icons_summary">स्थिति में अपनी पसंद के चिह्नों को सक्षम या अक्षम करें</string>
   <!-- QS rows and columns -->
   <!-- Color Picker -->
+  <string name="arrow_right">→</string>
+  <string name="arrow_down">↓</string>
+  <string name="hex">हेक्स:</string>
+  <string name="hex_hint">#ff000000</string>
+  <string name="set">स्थापित करे</string>
+  <string name="color_default">डिफ़ाल्ट</string>
   <!-- Sensor block per-package -->
+  <string name="sensor_block_title">प्रति पैकेज के लिए सेंसर वर्जित करे</string>
+  <string name="sensor_block_summary">कुछ अनुप्रयोगों को बैटरी बचाने के लिए कुछ सेंसरों तक पहुँच वर्जित करे।</string>
   <!-- Weather - OmniJaws Settings -->
   <string name="weather_title">मौसम</string>
   <string name="weather_config_title">सेवा की व्यवस्था</string>
+  <string name="header_weather_title">शीर्ष लेख दृश्य मौसम</string>
+  <string name="header_weather_summary">सूचना पैनल शीर्षक छवि को सक्षम करें</string>
+  <string name="weather_icon_pack_title">स्थिति चिह्न की गड्डी</string>
+  <string name="weather_icon_pack_note">Note\u003a आप \"Chronus icons\" के लिए खोज से play स्टोर से नए आइकन पैक स्थापित कर सकते हैं</string>
+  <string name="status_bar_weather_size_title">फ़ॉन्ट का आकार</string>
   <!-- Lockscreen Weather -->
   <!-- Power Menu -->
   <string name="powermenu_flashlight">टॉर्च</string>
