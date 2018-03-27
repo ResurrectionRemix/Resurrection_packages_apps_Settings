@@ -70,8 +70,30 @@
   <string name="listview_translate_left">Käännös (vasemmalta)</string>
   <string name="listview_translate_right">Käännös (oikealta)</string>
   <string name="listview_title">Listan Animaatio</string>
+  <string name="listview_summary">Lista animaatioista ja muutosnopeuksista </string>
   <!-- ListView interpolator -->
+  <string name="listview_interpolator_title">Lista muutosnopeuksista</string>
+  <string name="listview_accelerate_interpolator">Kiihdytä</string>
+  <string name="listview_decelerate_interpolator">Hidasta</string>
+  <string name="listview_accelerate_decelerate_interpolator">Kiihdytä ja hidasta</string>
+  <string name="listview_anticipate_interpolator">Ennakoi</string>
+  <string name="listview_overshoot_interpolator">Yliammu</string>
+  <string name="listview_anticipate_overshoot_interpolator">Ennakoi ja yliammu</string>
+  <string name="listview_bounce_interpolator">Pompauta</string>
   <!-- Keyboard and IME  -->
+  <string name="disable_fullscreen_keyboard_title">Poista koko näytön näppäimistö käytöstä</string>
+  <string name="disable_fullscreen_keyboard_summary">Vaakasuuntainen näppäimistö ei koskaan täytä koko näyttöä</string>
+  <string name="keyboard_rotation_toggle_title">Automaattinen näpääimistön kierto</string>
+  <string name="keyboard_rotation_toggle_summary">Pakota automaattinen kierto kun näppäimistö on esillä</string>
+  <string name="keyboard_rotation_timeout_title">Automaattisen kierron aikakatkaisu</string>
+  <string name="keyboard_rotation_timeout_summary">Poista automaattinen kierto päältä <xliff:g id="rotate_timeout"> %1$s </xliff:g> sekuntia näppäimistön piilotuksen jälkeen</string>
+  <string name="keyboard_rotation_dialog">Tämä toiminto pakottaa automaattisen kierron väliaikaisesti päälle näppäimistön ollessa näkyvillä.  Jos automaattinen kierto on jo käytössä, asetuksella ei ole vaikutusta.</string>
+  <string name="show_enter_key_title">Näytä enter-näppäin</string>
+  <string name="show_enter_key_summary">Pakota näppäimistö näyttämään enter-näppäin hymiö-näppäimen sijaan</string>
+  <string name="keyboard_ime_title">IME-asetukset</string>
+  <string name="keyboard_ime_summury">Edistyneet IME-asetukset</string>
+  <string name="ime_switcher_notify">Tyhjennä ilmoitukset</string>
+  <string name="ime_switcher_notify_summary">Näytä käytettävän syöttötavan valitsin ilmoituksissa</string>
   <string name="devs">Kehittäjän nimike</string>
   <string name="github_westcrip">https://github.com/westcripp</string>
   <string name="github_varund7726">https://github.com/varund7726</string>
@@ -97,15 +119,27 @@
   <string name="rr_ls_ui">Lukitse käyttöliittymä</string>
   <string name="rr_ls_security">Turvallisuus</string>
   <string name="updater_title">Päivitykset</string>
+  <string name="altankrk_summary">● Perustaja \n● Pääkehittäjä \n● UX suunittelija \n● Ylläpitäjä</string>
+  <string name="varun_summary">● Pääkehittäjä \n● UX Suunnittelija \n● Ylläpitäjä</string>
+  <string name="andres_summary">● Kehittäjä \n● Ylläpitäjä</string>
+  <string name="akhil_summary">● Kehittäjä \n● Ylläpitäjä \n● Scripti mestari</string>
+  <string name="brian_summary">● Kehittäjä \n● Ylläpitäjä</string>
+  <string name="christopher_kardas_summary">● Moderaattori \n● Editori \n● Avustaja</string>
+  <string name="matt_summary">● Moderaattori \n● Editori \n● Avustaja</string>
+  <string name="justen_summary">● Moderaattori \n● Editori \n● Avustaja</string>
   <string name="support_team_title">Moderaattorin nimike</string>
   <string name="device_maintainers_title">Laitteet ja ylläpitäjät</string>
   <string name="device_maintainers_title_summary">Luettelo laitteista ja niiden virallisista RR-OS ylläpitäjistä</string>
   <string name="maintainers_note_title">Huomautus</string>
+  <string name="maintainers_note_title_summary">Tee pull-pyyntö nimelläsi ja laitteen tyypillä asetuksissa, jos haluat hakea ylläpitäjäksi tälle laitteelle</string>
+  <string name="device_summary"><xliff:g example="goldfish" id="codename">%1$s</xliff:g>\nYlläpitäjä - <xliff:g example="deletescape" id="maintainer">%2$s</xliff:g></string>
   <!-- The Drill -->
   <string name="rr_drill_title">Tomintatapamme</string>
   <string name="drill_summary">Logcat or GTFO</string>
   <!-- Changelog -->
   <string name="changelog_name">Muutokset</string>
+  <string name="commit_id">Lukitusnäyttö Syötä ID</string>
+  <string name="commit_message">Syötä viesti</string>
   <!-- RR Feature lists-->
   <string name="features_title">Ominaisuudet</string>
   <string name="features_title_summary">Näytä saatavilla olevat ominaisuudet</string>
@@ -113,7 +147,10 @@
   <string name="features_error">Listaa ei voitu ladata</string>
   <string name="features_unknown">Tuntematon</string>
   <string name="features_version">1.0</string>
+  <string name="powermenu_onthego_title">OntheGo</string>
   <string name="rr_volume_title">Äänenvoimakkuuspaneeli</string>
+  <string name="rr_power_title">Power-valintaikkuna</string>
+  <string name="rr_lockscreen_target_title">Alareunan pikakuvakkeet</string>
   <!-- Share RR ROM -->
   <string name="share_rr">Jaa</string>
   <string name="share_rr_summary">Kerro muille että käytät Resurrection Remix OS</string>
@@ -126,13 +163,25 @@
   <string name="changelog_error">Muutoslokin lataaminen epäonnistui</string>
   <string name="changelog_unknown">Tuntematon</string>
   <string name="changelog_version">Versio</string>
+  <string name="changelog_time_today">Tänään</string>
+  <string name="changelog_time_yesterday">Eilen</string>
+  <string name="changelog_time_2_days">Toissapäivänä</string>
+  <string name="changelog_time_3_days">Kolme päivää sitten</string>
+  <string name="changelog_time_4_days">Neljä päivää sitten</string>
+  <string name="changelog_time_5_days">Viisi päivää sitten</string>
+  <string name="changelog_time_6_days">Kuusi päivää sitten</string>
+  <string name="changelog_time_1_week">Viikko sitten</string>
+  <string name="changelog_time_2_weeks">Kaksi viikkoa sitten</string>
+  <string name="changelog_time_3_weeks">Kolme viikkoa sitten</string>
   <!--RR Configurations-->
   <string name="fab_updates">Päivitykset</string>
   <string name="fab_restartui">Käynnistä UI uudelleen</string>
   <string name="fab_reset">Palauta oletukset</string>
   <string name="fab_about">Tietoja RR-OS</string>
   <string name="fab_layout">Päivitä layout</string>
+  <string name="fab_layout_tabs">Vaihda välilehtien asettelu</string>
   <string name="fab_layout_update">Vaihda klassiseen layoutiin</string>
+  <string name="fab_layout_toggle">Vaihda siirtymisen asettelua</string>
   <string name="rr_reset_message">Palauta kaikki muutokset oletusarvoihin?</string>
   <string name="rr_reset_settings">Palauta asetukset</string>
   <string name="rr_reset_yes">Kyllä</string>
@@ -158,44 +207,173 @@
   <string name="animation_title">Animaatiot</string>
   <string name="button_settings">Painikkeet</string>
   <string name="rr_misc_title">Sekalaista</string>
+  <string name="rr_navigation_title">Siirtyminen</string>
+  <string name="rr_buttons_title">Painikkeet</string>
+  <string name="rr_qs_title">Pika-asetukset</string>
+  <string name="rr_recents_title">Viimeisimmät</string>
+  <string name="qs_tile_layout">Tiili-asettelu</string>
+  <string name="qs_columns_title">Sarakkeet</string>
+  <string name="heads_up_settings">Heads up</string>
   <string name="system_animations">Järjestelmän animaatiot</string>
   <string name="rr_ui_title">Käyttöliittymä</string>
   <string name="rr_dash_board_title">Ohjauspaneeli</string>
   <string name="rr_fp_title">Sormenjälki asetukset</string>
+  <string name="rr_sound_title">Ääni</string>
+  <string name="rr_qs_pulldown">Nopea alasveto</string>
+  <string name="rr_header_title">Otsikko</string>
+  <string name="rr_power_panel_title">Virtavalikko</string>
+  <string name="rr_toast_title">Toast ilmoitus</string>
   <string name="recents_type_title">Viimeisimmät tyyli</string>
   <string name="recents_stock">Vakio AOSP</string>
   <string name="recents_omniswitch">Omniswitch</string>
   <string name="recents_grid">Ruudukko</string>
   <string name="recents_slim">Slim</string>
+  <string name="bottom_nav_navigation_title">Siirtyminen</string>
   <string name="rr_notif_settings_title">Ilmoitukset</string>
   <!-- Interface -->
+  <string name="interface_other_title">Muut</string>
+  <string name="interface_other_summary">Muokkaa sekalaisia ulkonäön muutoksia</string>
   <string name="toast">Toast-ilmoitus</string>
   <string name="listview">Lista näkymä</string>
   <string name="icons">Kuvakkeet</string>
   <string name="general">Yleinen</string>
   <string name="ka_title">Suorityskyky</string>
   <!-- Show VoLTE icon on statusbar -->
+  <string name="volte_icon_title">VoLTE kuvake</string>
+  <string name="volte_icon_summary">Näytä VoLTE kuvake kun mahdollista</string>
   <!-- Network traffic -->
+  <string name="network_traffic_state_title">Näytä netin aktiivisuus statusbar: ssa</string>
   <string name="network_traffic_title">Verkkoliikenne</string>
+  <string name="network_traffic_autohide_threshold_title">Netin aktiivisuuden automaattisen piilotuksen raja (KB/s)</string>
+  <string name="show_network_traffic_state">Ilmoitusvalikon verkkoliikenteen valvonta</string>
+  <string name="show_network_traffic_unit">Näyttöyksikkö</string>
+  <string name="show_network_traffic_frequency">Päivitysväli</string>
+  <string name="show_network_traffic_disable">Poissa käytöstä</string>
+  <string name="show_network_traffic_up">Lähtevät</string>
+  <string name="show_network_traffic_down">Saapuvat</string>
+  <string name="show_network_traffic_all">Tulveat ja lähtevät</string>
+  <string name="show_network_traffic_bit">Bittiä sekunnissa</string>
+  <string name="show_network_traffic_byte">Tavua sekunnissa</string>
+  <string name="show_network_traffic_500">500 ms</string>
+  <string name="show_network_traffic_1000">1000 ms</string>
+  <string name="show_network_traffic_1500">1500 ms</string>
+  <string name="show_network_traffic_2000">2000 ms</string>
+  <string name="network_traffic_autohide">Autiomaattinen piilotus</string>
+  <string name="network_traffic_autohide_summary">Piilota netinliikenteen valvoja jos ei liikennettä</string>
+  <string name="network_traffic_autohide_threshold">Toimeettomuuden kynnys</string>
+  <string name="headset_connect_player_title">Avaa musiikki sovellus jos kuulokkeet yhdistetään</string>
+  <string name="headset_connect_player_disabled">Ei käytössä</string>
+  <string name="headset_connect_player_wired">Kun kuulokkeet on yhdistetty</string>
+  <string name="headset_connect_player_bt_no_carkit">Kun BT kuulokkeet (ei autosarja) yhdistetty</string>
+  <string name="headset_connect_player_bt">Kun BT kuulokkeet on yhdistetty</string>
+  <string name="headset_connect_player_both_no_carkit">Kun langallinen tai BT kuulokkeet (ei autosarja) on yhdistetty</string>
+  <string name="headset_connect_player_both">Kun langallinen tai BT on yhdistetty</string>
   <!-- Status Bar Ticker -->
+  <string name="ticker_screen_title">Ilmoitusvalikko</string>
+  <string name="ticker_title">Tilapalkin valikko</string>
+  <string name="ticker_summary">Hyväksy vanha tilapalkin valikko</string>
+  <string name="ticker_restore_defaults_title">Palauta oletus</string>
+  <string name="text_title">Teksti</string>
+  <string name="icon_title">Kuvake</string>
+  <string name="colors_title">Värit</string>
+  <string name="ticker_disabled">Ei valikkoa</string>
+  <string name="ticker_enabled">Ilmoitus valikko</string>
+  <string name="ticker_media_enabled">Ilmoitus ja musiikki valikko</string>
   <!-- Heads up -->
+  <string name="heads_up_title">Hyväksy Heads up</string>
+  <string name="heads_up_summary_enabled">Heads-up ilmoitukset on hyväksytty</string>
+  <string name="heads_up_summary_disabled">Heads-up ilmoitukset ovat pois päältä</string>
+  <string name="heads_up_blacklist_add_package_title">Lisää sovellus</string>
+  <string name="heads_up_blacklist_add_package_summary">Poista heads-up Ilmoitukset näistä sovelluksista</string>
+  <string name="heads_up_blacklist_title">Mustalista</string>
+  <string name="heads_up_blacklist_choose_app">Valitse sovellus</string>
+  <string name="heads_up_blacklist_dialog_delete_title">Poista</string>
+  <string name="heads_up_blacklist_dialog_delete_message">Poista valittu-kohde?</string>
   <!-- Fingerprint authentication vibration -->
+  <string name="fprint_sucess_vib_title">Soremenjälkilukian todentamisen tärinä</string>
+  <string name="fprint_sucess_vib_summary">Tärisee onnistuneesta sormenjäljen tunnistamisesta</string>
   <!-- QS quick pulldown using fpc -->
+  <string name="status_bar_quick_qs_pulldown_fp_title">Nopea pyyhkäisy sormenjäljestä</string>
+  <string name="status_bar_quick_qs_pulldown_fp_summary">Kahden pyyhkäisyn sijaan pyyhkäise kerran nähdäksesi ilmoituksen</string>
   <!-- QuickSettings haptic feedback -->
+  <string name="quick_settings_vibrate_title">Värisee kosketuksesta</string>
+  <string name="quick_settings_vibrate_summary">Värisee kun koskee QS kuvaketta</string>
   <!-- Lockscreen battery info indicator  -->
+  <string name="lockscreen_battery_info_title">Akun tiedot</string>
+  <string name="lockscreen_battery_info_summary">Näytä tämän hetkinen laturin virta, jännite ja akun lämpötila lukitusnäytöllä akun latautuessa</string>
   <!-- Wake on plugged  -->
+  <string name="wake_plugged_title">Herää kytkettäessä laturiin</string>
+  <string name="wake_plugged_summary">Laite herää kun se laitetaan laturiin</string>
   <!-- Custom LCD density -->
+  <string name="custom_density_settings">Kustomoitu LCD näytön pixeli määrä</string>
+  <string name="custom_density_summary">
+<xliff:g id="Id_1">%d</xliff:g> dp</string>
+  <string name="rr_custom_density_summary">Aseta oma LCD näytön pixeli määrä</string>
   <!-- Status bar -->
+  <string name="status_bar_title">Tilapalkki</string>
+  <string name="status_bar_quick_qs_pulldown_title">Nopea alasveto</string>
+  <string name="status_bar_quick_qs_pulldown_summary">Näytä pika-asetukset vedettäessä ilmoitusvalikko alas näytön %1$s reunasta</string>
+  <string name="status_bar_quick_qs_pulldown_summary_left">Vasen</string>
+  <string name="status_bar_quick_qs_pulldown_summary_right">Oikea</string>
+  <string name="status_bar_quick_qs_pulldown_off">Pois päältä</string>
   <!-- QS Headers -->
   <!-- Smart pulldown-->
   <!-- Status bar - icons -->
   <!-- Status bar - Clock -->
   <!-- Status bar - Battery -->
+  <string name="status_bar_battery_style_title">Akkukuvakkeen tyyli</string>
+  <string name="status_bar_battery_style_icon_portrait">Kuvake (pysty)</string>
+  <string name="status_bar_battery_style_icon_landscape">Kuvake (vaaka)</string>
+  <string name="status_bar_battery_style_circle">Ympyrä</string>
+  <string name="status_bar_battery_style_text">Teksti</string>
+  <string name="status_bar_battery_style_hidden">Piilotettu</string>
   <!--RR statusbar logo -->
+  <string name="status_bar_logo_title">Tuotemerkin logo</string>
+  <string name="status_bar_rr_logo_position">Logon sijainti</string>
+  <string name="status_bar_rr_logo_position_summary">Valita, millä puolella näyttää logo, vasemmalle tai oikealle</string>
+  <string name="status_bar_logo_right">Oikea</string>
+  <string name="status_bar_logo_left">Vasen</string>
+  <string name="status_bar_logo_disabled">Poissa käytöstä</string>
   <!-- Status bar - Battery percentage -->
+  <string name="status_bar_battery_percentage_title">Akun prosenttimäärä</string>
+  <string name="status_bar_battery_percentage_default">Piilotettu</string>
+  <string name="status_bar_battery_percentage_text_inside">Kuvakkeen sisällä</string>
+  <string name="status_bar_battery_percentage_text_next">Kuvakkeen vieressä</string>
   <!-- Status bar - Brightness -->
+  <string name="status_bar_brightness_category">Kirkkaus</string>
+  <string name="status_bar_brightness_slider_title">Kirkkauden säätö</string>
+  <string name="status_bar_brightness_slider_summary">Säädä kirkkautta Pika-asetuksista</string>
+  <string name="status_bar_brightness_slider_auto_title">Automaattinen kirkkaus</string>
+  <string name="status_bar_brightness_slider_auto_summary">Näytä automaattisen kirkkauden valinta liukusäätimen vieressä</string>
+  <string name="status_bar_toggle_brightness">Kirkkauden säätö</string>
+  <string name="status_bar_toggle_brightness_summary">Säädä kirkkautta liu\'ttamalla tilapalkkia pitkin</string>
   <!-- Carrier Label -->
+  <string name="carrier_options">Valitse sijainti näytössä</string>
+  <string name="custom_carrier_label_title">Mukautettu operaattorin ilmaisin</string>
+  <string name="custom_carrier_label_explain">Kirjoita Mukautettu otsikko. Jätä tyhjäksi jos haluat käyttää verkkonimi</string>
+  <string name="custom_carrier_label_notset">Mukautettua ilmaisinta ei asetettu</string>
+  <string name="show_carrier_title">Carrier Label</string>
+  <string name="show_carrier_disabled">Poissa käytöstä</string>
+  <string name="show_carrier_keyguard">Lukitusnäyttö</string>
+  <string name="show_carrier_statusbar">Tilapalkki</string>
+  <string name="show_carrier_enabled">Molemmat</string>
   <!-- Battery bar -->
+  <string name="battery_bar_title">Akkupalkki</string>
+  <string name="battery_bar_position_title">Sijainti</string>
+  <string name="battery_bar_position_hidden">Piilotettu</string>
+  <string name="battery_bar_position_statusbar">Tilapalkki</string>
+  <string name="battery_bar_color_title">Väri</string>
+  <string name="battery_bar_charging_color_title">Latauksen väri</string>
+  <string name="battery_bar_battery_low_color_title">Vähäisen akun väri</string>
+  <string name="battery_bar_style_title">Tasaus</string>
+  <string name="battery_bar_thickness_title">Paksuus</string>
+  <string name="battery_bar_animate_title">Lataus animaatio</string>
+  <string name="battery_bar_style_regular">Tavallinen</string>
+  <string name="battery_bar_style_center_mirrored">Keskitettu-heijastava</string>
+  <string name="battery_bar_style_reversed">Käänteinen</string>
+  <string name="battery_bar_use_charging_color_title">Kustomoitu lataustilan väri</string>
+  <string name="battery_bar_blend_color_title">Sekoita värit</string>
+  <string name="battery_bar_blend_color_summary">Sekoita täysi/tyhjä värit vastaamaan akun määrää</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">Mukauta useita tilapalkin kellon ja päivämäärän elementtejä</string>
   <string name="status_bar_logo_summary">Ota tai poista käytöstä tilapalkin Resurrection logo. Mukauta väriä ja sijaintia</string>
@@ -211,6 +389,10 @@
   <string name="rr_trans_summary">Mukauta useita ilmoituslistan elementtejä, kuten läpikuultavuutta ja vetoa</string>
   <!-- QS rows and columns -->
   <!-- Color Picker -->
+  <string name="hex">Hex:</string>
+  <string name="hex_hint">#ff000000</string>
+  <string name="set">Aseta</string>
+  <string name="color_default">Oletus</string>
   <!-- Sensor block per-package -->
   <!-- Weather - OmniJaws Settings -->
   <!-- Lockscreen Weather -->
