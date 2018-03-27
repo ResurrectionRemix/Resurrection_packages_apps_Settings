@@ -32,7 +32,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-
+import android.provider.Settings;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,7 +41,11 @@ import java.util.ArrayList;
 public class StatusBarWeather extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "StatusBarWeather";
+    private static final String LOCATION = "status_bar_show_weather_location";
+    private static final String WEATHER = "status_bar_show_weather_temp";
 
+    private ListPreference mWeather;
+    private ListPreference mLocation;
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
@@ -52,10 +56,31 @@ public class StatusBarWeather extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.statusbar_weather);
+        int loc = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, 0);
+        mWeather =
+                (ListPreference) findPreference(WEATHER);
+        mLocation =
+                (ListPreference) findPreference(LOCATION);
+        mWeather.setOnPreferenceChangeListener(this);
+        updateprefs(loc);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        return true;
+        if (preference == mWeather) {
+             int value = Integer.parseInt((String) objValue);
+             updateprefs(value);
+             return true;
+        } 
+        return false;
+    }
+
+    public void updateprefs(int enabled) {
+       if (enabled == 0) {
+           mLocation.setEnabled(false);
+       } else {
+           mLocation.setEnabled(true);
+       }
     }
 
     /**

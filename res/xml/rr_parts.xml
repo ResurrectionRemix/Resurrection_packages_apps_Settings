@@ -88,6 +88,13 @@
         android:title="@string/developer_smallest_width" />
 
     <Preference
+        android:key="time_in_state"
+        android:title="@string/time_in_state_title"
+        android:icon="@drawable/rr_memory_icon"
+        android:summary="@string/time_in_state_summary"
+        android:fragment="com.android.settings.rr.fragments.TimeInState" />
+
+    <Preference
         android:key="stock_tuner"
         android:enabled="true"
         android:icon="@drawable/rr_tuner_parts_activity_icon"

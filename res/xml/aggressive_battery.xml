@@ -18,7 +18,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="agressive_battery_fragment"
-    android:title="@string/aggressive_battery_title" >
+    android:title="@string/rr_battery_saving" >
+
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_sensor_layout"
+        android:selectable="false"/>
+
+    <PreferenceCategory
+        android:title="@string/sensors_title">
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="sensor_block"
@@ -26,6 +33,11 @@
         android:icon="@drawable/rr_sensor_icon"
         android:summary="@string/sensor_block_summary"
         android:defaultValue="false" />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="@string/aggressive_battery_title">
 
     <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference
         android:key="aggressive_idle_enabled"
@@ -50,6 +62,6 @@
         android:icon="@drawable/rr_battery_style_icon"
         android:defaultValue="true"
         android:disableDependentsState="true" />
-
+    </PreferenceCategory>
 </PreferenceScreen>
 

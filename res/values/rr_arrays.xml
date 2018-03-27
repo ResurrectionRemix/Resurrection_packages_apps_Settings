@@ -2081,6 +2081,142 @@
 	    <item>52</item>
     </string-array>
 
+    <!-- QS SystemInfo -->
+    <string-array name="qs_system_info_entries">
+        <item>@string/qs_system_info_off</item>
+        <item>@string/qs_system_info_cpu_temp</item>
+        <item>@string/qs_system_info_battery_temp</item>
+        <item>@string/qs_system_info_gpu_clock</item>
+        <item>@string/qs_system_info_gpu_busy</item>
+    </string-array>
+    <string-array name="qs_system_info_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="period_type_entries">
+        <item>@string/since_reset</item>
+        <item>@string/since_boot</item>
+    </string-array>
+    <string-array name="wakelock_period_type_entries">
+        <item>@string/since_reset</item>
+        <item>@string/since_unplug</item>
+    </string-array>
+    <string-array name="list_type_entries">
+        <item>@string/other</item>
+        <item>@string/kernel_wakelocks</item>
+        <item>@string/partial_wakelocks</item>
+        <item>@string/app_wakelocks</item>
+    </string-array>
+    <string-array name="state_time_entries">
+        <item>@string/total_time</item>
+        <item>@string/wakelock_time</item>
+    </string-array>
+
+    <!-- Doze settings editor -->
+    <string-array name="idle_config_keys" translatable="false">
+        <item>light_after_inactive_to</item>
+        <item>light_pre_idle_to</item>
+        <item>light_idle_to</item>
+        <item>light_idle_factor</item>
+        <item>light_max_idle_to</item>
+        <item>light_idle_maintenance_min_budget</item>
+        <item>light_idle_maintenance_max_budget</item>
+        <item>min_light_maintenance_time</item>
+        <item>min_deep_maintenance_time</item>
+        <item>inactive_to</item>
+        <item>sensing_to</item>
+        <item>locating_to</item>
+        <item>location_accuracy</item>
+        <item>motion_inactive_to</item>
+        <item>idle_after_inactive_to</item>
+        <item>idle_pending_to</item>
+        <item>max_idle_pending_to</item>
+        <item>idle_pending_factor</item>
+        <item>idle_to</item>
+        <item>max_idle_to</item>
+        <item>idle_factor</item>
+        <item>min_time_to_alarm</item>
+        <item>max_temp_app_whitelist_duration</item>
+        <item>mms_temp_app_whitelist_duration</item>
+        <item>sms_temp_app_whitelist_duration</item>
+        <item>notification_whitelist_duration</item>
+    </string-array>
+
+    <string-array name="idle_config_keys_basic" translatable="false">
+        <item>light_after_inactive_to</item>
+        <item>light_pre_idle_to</item>
+        <item>light_idle_to</item>
+        <item>inactive_to</item>
+        <item>sensing_to</item>
+        <item>locating_to</item>
+        <item>motion_inactive_to</item>
+        <item>idle_after_inactive_to</item>
+        <item>idle_pending_to</item>
+        <item>idle_to</item>
+    </string-array>
+
+    <string-array name="idle_config_desc" translatable="false">
+        <item>@string/DESC_LIGHT_IDLE_AFTER_INACTIVE_TIMEOUT</item>
+        <item>@string/DESC_LIGHT_PRE_IDLE_TIMEOUT</item>
+        <item>@string/DESC_LIGHT_IDLE_TIMEOUT</item>
+        <item>@string/DESC_LIGHT_IDLE_FACTOR</item>
+        <item>@string/DESC_LIGHT_MAX_IDLE_TIMEOUT</item>
+        <item>@string/DESC_LIGHT_IDLE_MAINTENANCE_MIN_BUDGET</item>
+        <item>@string/DESC_LIGHT_IDLE_MAINTENANCE_MAX_BUDGET</item>
+        <item>@string/DESC_MIN_LIGHT_MAINTENANCE_TIME</item>
+        <item>@string/DESC_MIN_DEEP_MAINTENANCE_TIME</item>
+        <item>@string/DESC_INACTIVE_TIMEOUT</item>
+        <item>@string/DESC_SENSING_TIMEOUT</item>
+        <item>@string/DESC_LOCATING_TIMEOUT</item>
+        <item>@string/DESC_LOCATION_ACCURACY</item>
+        <item>@string/DESC_MOTION_INACTIVE_TIMEOUT</item>
+        <item>@string/DESC_IDLE_AFTER_INACTIVE_TIMEOUT</item>
+        <item>@string/DESC_IDLE_PENDING_TIMEOUT</item>
+        <item>@string/DESC_MAX_IDLE_PENDING_TIMEOUT</item>
+        <item>@string/DESC_IDLE_PENDING_FACTOR</item>
+        <item>@string/DESC_IDLE_TIMEOUT</item>
+        <item>@string/DESC_MAX_IDLE_TIMEOUT</item>
+        <item>@string/DESC_IDLE_FACTOR</item>
+        <item>@string/DESC_MIN_TIME_TO_ALARM</item>
+        <item>@string/DESC_MAX_TEMP_APP_WHITELIST_DURATION</item>
+        <item>@string/DESC_MMS_TEMP_APP_WHITELIST_DURATION</item>
+        <item>@string/DESC_SMS_TEMP_APP_WHITELIST_DURATION</item>
+        <item>@string/DESC_KEY_NOTIFICATION_WHITELIST_DURATION</item>
+    </string-array>
+
+    <string-array name="idle_config_short" translatable="false">
+        <item>@string/SHORT_LIGHT_IDLE_AFTER_INACTIVE_TIMEOUT</item>
+        <item>@string/SHORT_LIGHT_PRE_IDLE_TIMEOUT</item>
+        <item>@string/SHORT_LIGHT_IDLE_TIMEOUT</item>
+        <item>@string/SHORT_LIGHT_IDLE_FACTOR</item>
+        <item>@string/SHORT_LIGHT_MAX_IDLE_TIMEOUT</item>
+        <item>@string/SHORT_LIGHT_IDLE_MAINTENANCE_MIN_BUDGET</item>
+        <item>@string/SHORT_LIGHT_IDLE_MAINTENANCE_MAX_BUDGET</item>
+        <item>@string/SHORT_MIN_LIGHT_MAINTENANCE_TIME</item>
+        <item>@string/SHORT_MIN_DEEP_MAINTENANCE_TIME</item>
+        <item>@string/SHORT_INACTIVE_TIMEOUT</item>
+        <item>@string/SHORT_SENSING_TIMEOUT</item>
+        <item>@string/SHORT_LOCATING_TIMEOUT</item>
+        <item>@string/SHORT_LOCATION_ACCURACY</item>
+        <item>@string/SHORT_MOTION_INACTIVE_TIMEOUT</item>
+        <item>@string/SHORT_IDLE_AFTER_INACTIVE_TIMEOUT</item>
+        <item>@string/SHORT_IDLE_PENDING_TIMEOUT</item>
+        <item>@string/SHORT_MAX_IDLE_PENDING_TIMEOUT</item>
+        <item>@string/SHORT_IDLE_PENDING_FACTOR</item>
+        <item>@string/SHORT_IDLE_TIMEOUT</item>
+        <item>@string/SHORT_MAX_IDLE_TIMEOUT</item>
+        <item>@string/SHORT_IDLE_FACTOR</item>
+        <item>@string/SHORT_MIN_TIME_TO_ALARM</item>
+        <item>@string/SHORT_MAX_TEMP_APP_WHITELIST_DURATION</item>
+        <item>@string/SHORT_MMS_TEMP_APP_WHITELIST_DURATION</item>
+        <item>@string/SHORT_SMS_TEMP_APP_WHITELIST_DURATION</item>
+        <item>@string/SHORT_KEY_NOTIFICATION_WHITELIST_DURATION</item>
+    </string-array>
+
     <!-- Themes -->
     <string-array name="theme_type_titles">
         <item>@string/theme_type_light</item>

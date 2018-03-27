@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright (C) 2019 ExtendedUI
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+         http://www.apache.org/licenses/LICENSE-2.0
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingTop="@dimen/ambient_light_preview_paddingVertical"
+    android:paddingLeft="@dimen/ambient_light_preview_paddingHorizontal"
+    android:paddingRight="@dimen/ambient_light_preview_paddingHorizontal"
+    android:paddingBottom="@dimen/ambient_light_preview_paddingVertical" >
+
+    <LinearLayout
+        android:layout_width="@dimen/ambient_light_preview_layout_width"
+        android:layout_height="@dimen/ambient_light_preview_layout_height"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_phone"
+        android:paddingLeft="@dimen/ambient_light_preview_imageview_marginHorizontal"
+        android:paddingRight="@dimen/ambient_light_preview_imageview_marginHorizontal"
+        android:paddingTop="@dimen/ambient_light_preview_imageview_marginVertical"
+        android:paddingBottom="@dimen/ambient_light_preview_imageview_marginVertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:tint="@color/rr_accent"
+            android:src="@drawable/rr_sensor_icon" />
+
+    </LinearLayout>
+</LinearLayout>
