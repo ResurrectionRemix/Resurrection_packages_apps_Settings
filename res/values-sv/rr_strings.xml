@@ -63,19 +63,37 @@
   <string name="listview_wave_right">Våg (höger)</string>
   <string name="listview_alpha">Alfa</string>
   <string name="listview_scale">Skala</string>
+  <string name="listview_stack_top">Stapla (Överst)</string>
+  <string name="listview_stack_bottom">Stapla (nederst)</string>
   <string name="listview_unfold">Vik ut</string>
   <string name="listview_fold">Vik ihop</string>
   <string name="listview_translate_left">Översätt (vänster)</string>
   <string name="listview_translate_right">Översätt (höger)</string>
+  <string name="listview_title">Lista Animering</string>
+  <string name="listview_summary">Ställ in Listview-animering och interpolator </string>
   <!-- ListView interpolator -->
+  <string name="listview_interpolator_title">ListView interpolator</string>
   <string name="listview_accelerate_interpolator">Accelerera</string>
   <string name="listview_decelerate_interpolator">Minska hastigheten</string>
+  <string name="listview_accelerate_decelerate_interpolator">Accelerera och decelerera</string>
   <string name="listview_anticipate_interpolator">Förutse</string>
+  <string name="listview_overshoot_interpolator">Överskrida</string>
+  <string name="listview_anticipate_overshoot_interpolator">Förutse och överskrida</string>
   <string name="listview_bounce_interpolator">Studsa</string>
   <!-- Keyboard and IME  -->
   <string name="disable_fullscreen_keyboard_title">Inaktivera fullskärmstangentbord</string>
+  <string name="disable_fullscreen_keyboard_summary">Landskapstangentbord tar aldrig upp hela skärmen</string>
+  <string name="keyboard_rotation_toggle_title">Automatisk tangentbordsrotation</string>
+  <string name="keyboard_rotation_toggle_summary">Tvinga automatisk rotation när tangentbordet visas</string>
+  <string name="keyboard_rotation_timeout_title">Time-out för automatisk rotation</string>
+  <string name="keyboard_rotation_timeout_summary">Inaktiverar automatisk rotationssensor<xliff:g id="rotate_timeout">%1$s</xliff:g>sekunder efter tangentbordet är dolt</string>
+  <string name="keyboard_rotation_dialog">Den här funktionen tvingar automatisk rotation att aktiveras tillfälligt medan tangentbordet visas. Det har ingen funktion när automatisk rotation redan är aktiverat.</string>
   <string name="show_enter_key_title">Visa enter-tangenten</string>
+  <string name="show_enter_key_summary">Tvinga tangentbordet för att visa enter istället för emojiknapp</string>
   <string name="keyboard_ime_title">IME-inställningar</string>
+  <string name="keyboard_ime_summury">Avancerade IME-inställningar</string>
+  <string name="ime_switcher_notify">Inmatningsnotifiering</string>
+  <string name="ime_switcher_notify_summary">Visa inmatningsväxlaren för notifieringen</string>
   <string name="devs">Dev tagg</string>
   <string name="github_westcrip">https://github.com/westcripp</string>
   <string name="github_varund7726">https://github.com/varund7726</string>
@@ -145,6 +163,16 @@
   <string name="changelog_error">Kan inte ladda ändringsloggen</string>
   <string name="changelog_unknown">Okänd</string>
   <string name="changelog_version">Version</string>
+  <string name="changelog_time_today">Idag</string>
+  <string name="changelog_time_yesterday">Igår</string>
+  <string name="changelog_time_2_days">Två dagar sedan</string>
+  <string name="changelog_time_3_days">Tre dagar sedan</string>
+  <string name="changelog_time_4_days">Fyra dagar sedan</string>
+  <string name="changelog_time_5_days">Fem dagar sedan</string>
+  <string name="changelog_time_6_days">Sex dagar sedan</string>
+  <string name="changelog_time_1_week">En vecka sedan</string>
+  <string name="changelog_time_2_weeks">Två veckor sedan</string>
+  <string name="changelog_time_3_weeks">Tre veckor sedan</string>
   <!--RR Configurations-->
   <string name="fab_updates">Uppdateringar</string>
   <string name="fab_restartui">Starta om UI</string>
@@ -242,10 +270,18 @@
   <string name="headset_connect_player_both">När ett trådbundet eller BT headset ansluts</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_title">Aviserings ticker</string>
+  <string name="ticker_title">Status bar aviseringsfunktion</string>
+  <string name="ticker_summary">Aktivera den gamla status bar ticker</string>
   <string name="ticker_restore_defaults_title">Återställ till standardinställningar</string>
   <string name="text_title">Text</string>
   <string name="icon_title">Ikon</string>
   <string name="colors_title">Färger</string>
+  <string name="ticker_disabled">Ingen ticker</string>
+  <string name="ticker_enabled">Aviserings ticker</string>
+  <string name="ticker_media_enabled">Avisering och musik ticker</string>
+  <string name="ticker_animation_mode_title">Animerad ticker stil</string>
+  <string name="ticker_animation_mode_alpha_fade">Tona</string>
+  <string name="ticker_animation_mode_scroll">Skrolla</string>
   <!-- Heads up -->
   <string name="heads_up_title">Tillåt Heads up</string>
   <string name="heads_up_summary_enabled">Heads-up notifikationer är aktiverade</string>
@@ -261,6 +297,7 @@
   <string name="fprint_sucess_vib_summary">Vibrera på lyckad fingeravtrycksautentisering</string>
   <!-- QS quick pulldown using fpc -->
   <string name="status_bar_quick_qs_pulldown_fp_title">Snabbsvep med fingeravtryck</string>
+  <string name="status_bar_quick_qs_pulldown_fp_summary">Istället för att gestikulera ned två gånger för meddelanden aktiverar du bara den här funktionen och ett svep kommer att räcka</string>
   <!-- QuickSettings haptic feedback -->
   <string name="quick_settings_vibrate_title">Vibrera vid tryck</string>
   <string name="quick_settings_vibrate_summary">Vibrera när du trycker på en bricka</string>
@@ -306,6 +343,7 @@
   <string name="smart_pulldown_dismissable">Inga avvisningsbara aviseringar</string>
   <string name="smart_pulldown_ongoing">Inga pågående aviseringar</string>
   <string name="smart_pulldown_summary">Öppna snabbinställningarna när det är %1$s</string>
+  <string name="smart_pulldown_off_summary">Är avstängd</string>
   <!-- Status bar - icons -->
   <string name="status_bar_icons_title">Statusfältikoner</string>
   <string name="status_bar_notif_count_title">Visa notifikationsräknare</string>
@@ -374,6 +412,8 @@
   <string name="battery_bar_style_center_mirrored">Center - Speglad</string>
   <string name="battery_bar_style_reversed">Omvänd</string>
   <string name="battery_bar_blend_color_title">Blanda färger</string>
+  <string name="battery_bar_blend_color_reverse_summary_off">Fullt → tom: röd ← grön ← blå ← röd</string>
+  <string name="battery_bar_blend_color_reverse_summary_on">Fullt → tom: röd → grön → blå → röd</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">Anpassa olika delar av klocka och datum i statusfältet</string>
   <string name="status_bar_logo_summary">Aktivera eller inaktivera Resurrection-loggan i statusfältet. Anpassa färg och plats</string>
@@ -514,6 +554,7 @@
   <string name="recent_panel_expanded_mode_never">Aldrig</string>
   <string name="slim_icon_pack_title">Ikonpack</string>
   <string name="default_iconpack_title">Standardikoner</string>
+  <string name="recent_panel_expanded_mode_disabled">Inaktiverad</string>
   <!-- ATTENTION: RTL languages need to replace left with right -->
   <string name="recent_panel_lefty_mode_title">Visa på den vänstra kanten</string>
   <string name="profile_choose_app">Välj app</string>
@@ -528,12 +569,26 @@
   <string name="recent_app_sidebar_scale_title">Storlek</string>
   <!-- Slim recents membar -->
   <!-- Power Menu on Lock screen -->
+  <string name="powermenu_category_other">Annat</string>
+  <string name="powermenu_lockscreen_title">Låsskärmens synlighet</string>
   <!-- Disable QS on secure Lockscreen -->
   <string name="volbtn_cursor_control_off">Inaktiverad</string>
   <string name="power_end_call_title">Avsluta samtal</string>
   <string name="swap_volume_buttons_title">Omorientera</string>
+  <string name="button_wake_title">Väck upp enhet</string>
   <string name="volume_answer_call_title">Besvara samtal</string>
+  <string name="volume_answer_call_summary">Svara på inkommande samtal genom att trycka på volymknapparna</string>
   <string name="home_answer_call_title">Besvara samtal</string>
+  <string name="home_answer_call_summary">Besvara inkommande samtal genom att trycka på hem-knappen</string>
+  <string name="extras_title">Tillval</string>
+  <string name="hardware_keys_power_key_title">Avstängningsknapp</string>
+  <string name="additional_buttons_title">Ytterligare knappar</string>
+  <string name="torch_long_press_power_timeout_never">Aldrig</string>
+  <string name="torch_long_press_power_timeout_1min">1 minut</string>
+  <string name="torch_long_press_power_timeout_2min">2 minuter</string>
+  <string name="torch_long_press_power_timeout_5min">5 minuter</string>
+  <string name="torch_long_press_power_timeout_10min">10 minuter</string>
+  <string name="volume_keys_control_ring_stream_title">Kontrollera ringsignalsvolym</string>
   <!-- StatusBar weather settings -->
   <string name="status_bar_weather_hidden">Göm väder</string>
   <string name="status_bar_temperature_image_show_scale">Visa temp med skala och bild</string>
@@ -564,9 +619,13 @@
   <string name="long_swipe_landscape_title">Landskap</string>
   <string name="long_swipe_reset">Nollställ</string>
   <string name="fling_advanced">Avancerat</string>
+  <string name="fling_appearance">Utseende</string>
+  <string name="fling_animate_logo_title">Animera logotyp</string>
   <string name="fling_longpress_timeout_label_left">Mindre fördröjning</string>
   <string name="fling_longpress_timeout_label_right">Mer fördröjning</string>
   <!-- Pulse navigation bar music visualizer -->
+  <string name="pulse_render_mode_title">Renderingsläge</string>
+  <string name="pulse_render_mode_solid_lines">Fasta rader</string>
   <string name="eos_fling_lavalamp_title">Slå på lavalampa</string>
   <string name="pulse_advanced_category">Avancerat</string>
   <!-- Pulse config -->
@@ -579,9 +638,12 @@
   <!-- SmartBar -->
   <string name="smartbar_category">SmartBar</string>
   <string name="smartbar_settings_title">Smartbar - Inställningar</string>
+  <string name="smartbar_editor_title">Starta redigeringsläge</string>
   <string name="smartbar_right">Höger</string>
   <string name="smartbar_left">Vänster</string>
+  <string name="smartbar_button_animation_spring">Vår</string>
   <string name="smartbar_ime_action_none">Inga</string>
+  <string name="smartbar_ime_action_arrows">Infoga pilar</string>
   <string name="smartbar_backup_current_config_title">Spara profil</string>
   <string name="smartbar_restore_config_title">Återställ profil</string>
   <!-- SystemUI theme -->
