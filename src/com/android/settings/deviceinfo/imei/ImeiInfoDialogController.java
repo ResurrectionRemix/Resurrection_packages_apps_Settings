@@ -89,7 +89,8 @@ public class ImeiInfoDialogController {
 
     private void updateDialogForCdmaPhone() {
         final Resources res = mDialog.getContext().getResources();
-        mDialog.setText(ID_MEID_NUMBER_VALUE, getMeid());
+        mDialog.setText(ID_MEID_NUMBER_VALUE,
+                mSubscriptionInfo != null ? getMeid() : "");
         mDialog.setText(ID_MIN_NUMBER_VALUE,
                 mSubscriptionInfo != null ? mTelephonyManager.getCdmaMin(
                         mSubscriptionInfo.getSubscriptionId()) : "");
@@ -114,9 +115,13 @@ public class ImeiInfoDialogController {
     }
 
     private void updateDialogForGsmPhone() {
-        mDialog.setText(ID_IMEI_VALUE, getTextAsDigits(mTelephonyManager.getImei(mSlotId)));
+        mDialog.setText(ID_IMEI_VALUE,
+                mSubscriptionInfo != null ?
+                getTextAsDigits(mTelephonyManager.getImei(mSlotId)) : "");
         mDialog.setText(ID_IMEI_SV_VALUE,
-                getTextAsDigits(mTelephonyManager.getDeviceSoftwareVersion(mSlotId)));
+                mSubscriptionInfo != null ?
+                getTextAsDigits(mTelephonyManager.
+                        getDeviceSoftwareVersion(mSlotId)) : "");
         // device is not CDMA, do not display CDMA features
         mDialog.removeViewFromScreen(ID_CDMA_SETTINGS);
     }
@@ -127,8 +132,12 @@ public class ImeiInfoDialogController {
         if (subscriptionInfoList == null) {
             return null;
         }
-
-        return subscriptionInfoList.get(slotId);
+        for (SubscriptionInfo info : subscriptionInfoList) {
+            if (slotId == info.getSimSlotIndex()) {
+                return info;
+            }
+        }
+        return null;
     }
 
     @VisibleForTesting
