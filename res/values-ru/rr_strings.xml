@@ -76,7 +76,7 @@
   <string name="listview_accelerate_interpolator">Ускорение</string>
   <string name="listview_decelerate_interpolator">Замедление</string>
   <string name="listview_accelerate_decelerate_interpolator">Ускорение и замедление</string>
-  <string name="listview_anticipate_interpolator">Опережение</string>
+  <string name="listview_anticipate_interpolator">Ускорение</string>
   <string name="listview_overshoot_interpolator">Перекрытие</string>
   <string name="listview_anticipate_overshoot_interpolator">Опережение и перекрытие</string>
   <string name="listview_bounce_interpolator">Отскок</string>
@@ -90,10 +90,10 @@
   <string name="keyboard_rotation_dialog">Эта функция принудительно включает автоповорот во время отображения клавиатуры и не имеет эффекта, когда автоповорот уже включен.</string>
   <string name="show_enter_key_title">Показывать кнопку ввода</string>
   <string name="show_enter_key_summary">Принудительно показывать кнопку ввода вместо кнопки смайликов</string>
-  <string name="keyboard_ime_title">Настройки метода ввода</string>
-  <string name="keyboard_ime_summury">Расширенные настройки IME</string>
-  <string name="ime_switcher_notify">Уведомление о выборе</string>
-  <string name="ime_switcher_notify_summary">Отображать переключатель метода ввода</string>
+  <string name="keyboard_ime_title">Настройки IME</string>
+  <string name="keyboard_ime_summury">Расширенные настройки метода ввода</string>
+  <string name="ime_switcher_notify">Уведомление о выборе метода ввода</string>
+  <string name="ime_switcher_notify_summary">Отображать уведомление переключателя метода ввода</string>
   <string name="devs">Разработка и поддержка</string>
   <string name="github_westcrip">https://github.com/westcripp</string>
   <string name="github_varund7726">https://github.com/varund7726</string>
@@ -131,7 +131,7 @@
   <string name="device_maintainers_title">Устройства и разработчики</string>
   <string name="device_maintainers_title_summary">Список устройств, работающих на RR-OS, и людей, поддерживающих эти устройства</string>
   <string name="maintainers_note_title">Примечание</string>
-  <string name="maintainers_note_title_summary">Если вы хотите поддерживать прошивку для определённой модели, отправьте запрос с вашим именем через приложение Настройки</string>
+  <string name="maintainers_note_title_summary">Сделайте запрос для приложения настроек на GitHub с вашим именем напротив названия устройства, если вы хотите поддерживать определенное устройство</string>
   <string name="device_summary"><xliff:g example="goldfish" id="codename">%1$s</xliff:g>\nПоддержка модели - <xliff:g example="deletescape" id="maintainer">%2$s</xliff:g></string>
   <!-- The Drill -->
   <string name="rr_drill_title">Послание от разработчиков</string>
@@ -261,12 +261,12 @@
   <string name="network_traffic_autohide">Скрывать автоматически</string>
   <string name="network_traffic_autohide_summary">Скрывать индикатор сетевого трафика, если нет активности</string>
   <string name="network_traffic_autohide_threshold">Порог неактивности</string>
-  <string name="headset_connect_player_title">Запускать музыкальное приложение при подключении наушников</string>
+  <string name="headset_connect_player_title">Запускать музыкальный плеер при подключении наушников</string>
   <string name="headset_connect_player_disabled">Выключено</string>
   <string name="headset_connect_player_wired">Когда проводная гарнитура подключена</string>
-  <string name="headset_connect_player_bt_no_carkit">Когда BT-гарнитура (не в режиме автомобиля) подключена</string>
+  <string name="headset_connect_player_bt_no_carkit">Когда BT-гарнитура (не автомобиль) подключена</string>
   <string name="headset_connect_player_bt">Когда BT-гарнитура подключена</string>
-  <string name="headset_connect_player_both_no_carkit">Когда проводная или BT-гарнитура (не в режиме автомобиля) подключена</string>
+  <string name="headset_connect_player_both_no_carkit">Когда проводная или BT-гарнитура (не автомобиль) подключена</string>
   <string name="headset_connect_player_both">Когда проводная или BT-гарнитура подключена</string>
   <!-- Status Bar Ticker -->
   <string name="ticker_screen_title">Текст уведомлений</string>
@@ -347,13 +347,13 @@
   <string name="file_header_provider_title">Пользовательское изображение</string>
   <!-- Smart pulldown-->
   <string name="smart_pulldown_title">Умный доступ</string>
-  <string name="smart_pulldown_off">Выкл</string>
+  <string name="smart_pulldown_off">Выключен</string>
   <string name="smart_pulldown_none">Нет уведомлений</string>
-  <string name="smart_pulldown_dismissable">Нет неудаляемых уведомлений</string>
-  <string name="smart_pulldown_ongoing">Нет входящих уведомлений</string>
+  <string name="smart_pulldown_dismissable">Нет неочищаемых уведомлений</string>
+  <string name="smart_pulldown_ongoing">Нет постоянных уведомлений</string>
   <string name="smart_pulldown_summary">Открыть панель быстрых настроек, когда там %1$s</string>
   <string name="smart_pulldown_none_summary">Открывать панель быстрых настроек когда уведомления отсутствуют</string>
-  <string name="smart_pulldown_off_summary">Выключено</string>
+  <string name="smart_pulldown_off_summary">Выключен</string>
   <!-- Status bar - icons -->
   <string name="status_bar_icons_title">Значки в строке состояния</string>
   <string name="status_bar_notif_count_title">Показать счетчик уведомлений</string>
@@ -396,7 +396,7 @@
   <string name="status_bar_brightness_slider_title">Слайдер яркости</string>
   <string name="status_bar_brightness_slider_summary">Регулировка яркости в быстрых настройках</string>
   <string name="status_bar_brightness_slider_auto_title">Автоматическая яркость</string>
-  <string name="status_bar_brightness_slider_auto_summary">Переключатель адаптивной регулировки яркости рядом с ползунком</string>
+  <string name="status_bar_brightness_slider_auto_summary">Переключатель адаптивной регулировки яркости рядом со слайдером яркости</string>
   <string name="status_bar_toggle_brightness">Управление яркостью</string>
   <string name="status_bar_toggle_brightness_summary">Регулировать яркость экрана движением пальца по строке состояния</string>
   <!-- Carrier Label -->
@@ -504,7 +504,7 @@
   <string name="header_weather_title">Погода в заголовке панели уведомлений</string>
   <string name="header_weather_summary">Включить отображение погоды в заголовке панели уведомлений</string>
   <string name="weather_icon_pack_title">Стиль значков</string>
-  <string name="weather_icon_pack_note">Примечание\u003a вы можете установить новые пакеты значков из Магазина приложений при помощи поиска \"Chronus icons\"</string>
+  <string name="weather_icon_pack_note">Примечание\u003a Вы можете установить новые наборы значков из Google Play путём поиска \"Chromous icons\"</string>
   <string name="status_bar_weather_size_title">Размер шрифта</string>
   <string name="status_bar_weather_font_style_title">Шрифт</string>
   <string name="status_bar_weather_font_normal">Нормальный</string>
@@ -547,7 +547,7 @@
   <string name="powermenu_title">Меню кнопки питания</string>
   <string name="powermenu_reboot_title">Перезагрузка</string>
   <string name="powermenu_advanced_reboot_title">Расширенная перезагрузка</string>
-  <string name="powermenu_advanced_reboot_summary">Включить расширенное меню перезагрузки с возможностью перехода в режим восстановления или загрузчика, перезагрузки системного интерфейса или быстрой перезагрузки</string>
+  <string name="powermenu_advanced_reboot_summary">Включить расширенное меню перезагрузки с возможностью перезагрузки в режим восстановления или обновления ПО, перезагрузки системного интерфейса или быстрой перезагрузки</string>
   <string name="powermenu_screenshot_title">Скриншот</string>
   <string name="powermenu_airplane_title">Режим полёта</string>
   <string name="powermenu_screenrecord_title">Запись экрана</string>
@@ -560,8 +560,8 @@
   <string name="powermenu_ls_screenrecord_summary">Показывать опцию записи экрана на экране блокировки</string>
   <string name="powermenu_ls_onthego_summary">Показывать опцию На ходу на экране блокировки</string>
   <!-- Lockscreen notif count -->
-  <string name="lockscreen_maxnotif_title">Счетчик уведомлений</string>
-  <string name="lockscreen_maxnotif_summary">Настройка счётчика уведомлений</string>
+  <string name="lockscreen_maxnotif_title">Счётчик уведомлений</string>
+  <string name="lockscreen_maxnotif_summary">Настроить счётчик уведомлений</string>
   <string name="lockscreen_maxnotif_config">Максимальное количество разрешенных уведомлений</string>
   <!-- Toast icon switch -->
   <string name="toast_icon_title">Значок тост-уведомления</string>
@@ -670,7 +670,7 @@
   <string name="torch_long_press_power_gesture_desc">Включать фонарик долгим нажатием кнопки питания при выключенном экране</string>
   <string name="torch_long_press_power_timeout_title">Автоматическое выключение фонарика</string>
   <string name="volbtn_music_controls_title">Управление воспроизведением</string>
-  <string name="volbtn_music_controls_summary">Переключать музыкальные треки долгим нажатием кнопок громкости при выключенном экране</string>
+  <string name="volbtn_music_controls_summary">Переключать музыкальные треки долгим нажатием кнопок громкости когда экран выключен</string>
   <string name="volbtn_cursor_control_title">Управления курсором клавиатуры</string>
   <string name="volbtn_cursor_control_off">Выключено</string>
   <string name="volbtn_cursor_control_on">Кнопка «+» двигает курсор влево, «-» — вправо</string>
@@ -698,7 +698,7 @@
   <!-- StatusBar weather settings -->
   <string name="rr_weather_title">Погода в строке состояния</string>
   <string name="statusbar_weather_title">Погода в строке состояния</string>
-  <string name="statusbar_weather_summary">Настройте через быстрые настройки/Погода</string>
+  <string name="statusbar_weather_summary">Настройте через Быстрые настройки/Погода</string>
   <string name="statusbar_weather_dialog_title">Стиль погоды в строке состояния</string>
   <string name="status_bar_weather_hidden">Скрыть погоду</string>
   <string name="status_bar_temperature_image_show_scale">Показывать температуру с единицами измерения и изображением</string>
@@ -710,7 +710,7 @@
   <string name="navbar_interface_title">Интерфейс</string>
   <string name="navbar_size">Размер панели навигации</string>
   <string name="navbar_mode">Режим навигации</string>
-  <string name="navbar_mode_summary">Выберите режим панели навигации для использования на вашем устройстве</string>
+  <string name="navbar_mode_summary">Выберите какой режим навигации будет использоваться на вашем устройстве</string>
   <string name="navbar_visibility">Включить панель навигации</string>
   <string name="navigationbar_settings_title">Панель навигации</string>
   <string name="navigationbar_settings_summary">Настроить стиль и поведение панели навигации</string>
@@ -807,7 +807,7 @@
   <string name="pulse_advanced_category">Дополнительные настройки</string>
   <string name="pulse_legacy_mode_advanced_category">Настройки режима затухающих блоков</string>
   <string name="pulse_custom_fudge_factor">Уровень чувствительности</string>
-  <string name="lavamp_solid_speed_title">Скорость Лавовой лампы</string>
+  <string name="lavamp_solid_speed_title">Скорость Lava Lamp</string>
   <string name="pulse_solid_units_count">Количество сплошных линий</string>
   <string name="pulse_solid_lines_count">Количество сплошных линий</string>
   <string name="pulse_solid_units_opacity">Прозрачность сплошных линий</string>
@@ -873,7 +873,7 @@
   <string name="one_handed_mode_title">Режим \"Управление одной рукой\"</string>
   <string name="one_handed_mode_summary">Позволяет свайпом по панели навигации включать режим \"Управление одной рукой\"</string>
   <string name="smartbar_double_tap_sleep_title">Двойное нажатие для отключения экрана</string>
-  <string name="smartbar_double_tap_sleep_summary">Двойное нажатие на пустую область панели навигации для сна</string>
+  <string name="smartbar_double_tap_sleep_summary">Двойное нажатие на пустую область панели навигации для отключения экрана</string>
   <!-- SystemUI theme -->
   <string name="systemui_theme_style_title">Тема</string>
   <string name="systemui_theme_style_auto">Автоматический (на основе обоев)</string>
@@ -946,9 +946,9 @@
   <string name="screen_state_toggles_mobile_data">Отключить мобильную передачу данных</string>
   <string name="screen_state_toggles_mobile_data_summary">Мобильная передача данных будет отключена при выключении экрана</string>
   <string name="screen_state_off_delay_title">Задержка выполнения действий при выключении экрана</string>
-  <string name="screen_state_off_delay_summary">Отложить действия при выключении экрана на указанное количество секунд</string>
+  <string name="screen_state_off_delay_summary">Отложить действия при выключении экрана на указанное количество минут</string>
   <string name="screen_state_on_delay_title">Задержка выполнения действий при включении экрана</string>
-  <string name="screen_state_on_delay_summary">Отложить действия при включении экрана на указанное количество секунд</string>
+  <string name="screen_state_on_delay_summary">Отложить действия при включении экрана на указанное количество минут</string>
   <!-- Volume Steps -->
   <string name="volume_steps_title">Уровни громкости</string>
   <string name="volume_steps_alarm_title">Уровни громкости: Будильник</string>
@@ -967,7 +967,7 @@
   <string name="volume_steps_5">5</string>
   <!-- Screenshot sound -->
   <string name="screenshot_sound_title">Звук скриншота</string>
-  <string name="screenshot_sound_summary">Проигрывать звук при скриншоте</string>
+  <string name="screenshot_sound_summary">Проигрывать звук при создании скриншота</string>
   <!-- Gesture Anywhere -->
   <string name="gesture_anywhere_title">Жесты везде</string>
   <string name="gesture_anywhere_enabled_title">Жесты везде</string>
@@ -1021,15 +1021,15 @@
   <string name="trigger_bottom_title">Высота области вызова</string>
   <string name="trigger_bottom_summary">Установите высоту области вызова</string>
   <!-- Immersive Recents -->
-  <string name="immersive_recents_title">Просмотры</string>
+  <string name="immersive_recents_title">Вид меню недавних приложений</string>
   <string name="immersive_recents_summary">Изменить вид меню недавних приложений</string>
   <string name="immersive_recents_dialog_title">Выберите вид меню недавних приложений</string>
   <string name="immersive_recents_default">По умолчанию</string>
   <string name="immersive_recents_fullscreen">Во весь экран</string>
   <string name="immersive_recents_statusbar">Только строка состояния</string>
   <string name="immersive_recents_navbar">Только панель навигации</string>
-  <string name="recents_icon_pack_title">Иконки в панели недавних приложений</string>
-  <string name="recents_icon_pack_summary">В режиме просмотра выбирайте стиль иконки приложений, используя пакеты иконок, входящих в ваш телефон</string>
+  <string name="recents_icon_pack_title">Значки меню недавних приложений</string>
+  <string name="recents_icon_pack_summary">При просмотре недавних приложений, выберите стиль значков приложений, используя наборы значков, установленных на вашем устройстве</string>
   <string name="show_4g_title">Показывать 4G</string>
   <string name="show_4g_summary">Показывать 4G вместо LTE в значках сети</string>
   <!-- Circle app bar -->
@@ -1115,7 +1115,7 @@
   <string name="fp_unlock_keystore_summary">Разблокировка по сканеру отпечатка пальцев после перезагрузки без ввода ПИН-кода/Пароля/Графического ключа\nПримечание: используйте на свой страх и риск!</string>
   <!-- Ambient Music Ticker -->
   <string name="force_ambient_for_media_title">Функция «Now Playing»</string>
-  <string name="force_ambient_for_media_summary">Информация о музыкальном треке на Ambient Display</string>
+  <string name="force_ambient_for_media_summary">Информация о музыкальном треке на экране Ambient Display</string>
   <string name="force_ambient_for_media_off">Выключено</string>
   <string name="force_ambient_for_media_on">Включено</string>
   <string name="force_ambient_for_media_on_forced">Включено принудительно</string>
@@ -1131,9 +1131,9 @@
   <string name="qs_footer_warnings_title">Предупреждение в нижней части быстрых настроек</string>
   <string name="qs_footer_warnings_summary">Показывать предупреждение в нижней панели быстрых настроек, когда сеть контролируется посторонними приложениями или VPN</string>
   <!-- [CHAR LIMIT=80]-->
-  <string name="fp_swipe_to_dismiss_notifications_title">Проведите пальцем по сканеру отпечатка пальца влево или вправо, чтобы убрать уведомления</string>
+  <string name="fp_swipe_to_dismiss_notifications_title">Проведите пальцем по сканеру отпечатка пальца влево или вправо, чтобы очистить уведомления</string>
   <!--  [CHAR LIMIT=160]-->
-  <string name="fp_swipe_to_dismiss_notifications_summary">Чтобы убрать ваши уведомления, проведите пальцем влево или право по сканеру отпечатка пальца.</string>
+  <string name="fp_swipe_to_dismiss_notifications_summary">Чтобы очистить ваши уведомления, проведите пальцем влево или право по сканеру отпечатка пальца.</string>
   <!-- Qs easy tile add -->
   <string name="single_tap_tile_add_title">Быстрое добавление плитки</string>
   <string name="single_tap_tile_add_summary">Добавляйте плитки быстрее из настройщика быстрых настроек простым нажатием на них вместо перетаскивания</string>
@@ -1436,8 +1436,8 @@
   <string name="notification_sound_vib_screen_on_always">Всегда (по умолчанию)</string>
   <string name="notification_sound_vib_screen_on_nomedia">Когда медиа не вопроизводится</string>
   <!-- Accidental Touch -->
-  <string name="anbi_enabled_title">Предотвращать случайное включение экрана</string>
-  <string name="anbi_enabled_summary">Если включено, предотвращает случайное касание аппаратных кнопок во время использования сенсорного экрана.</string>
+  <string name="anbi_enabled_title">Предотвращать случайные касания</string>
+  <string name="anbi_enabled_summary">Если включено, предотвращает случайное касание аппаратных кнопок или кнопок панели навигации, когда экран используется.</string>
   <!-- Pocket judge -->
   <string name="pocket_judge_title">Режим \"В кармане\"</string>
   <string name="pocket_judge_summary">Блокировать экран и кнопки, когда устройство находится в кармане</string>
@@ -1683,7 +1683,7 @@
   <string name="custom_summary_randomize_explain">Предварительно написанные сводки будут выбраны случайно и будут меняться каждый раз, когда вы запускаете настройки.\nЭто заменит любые пользовательские значения.</string>
   <string name="sum1">Вы проверили все настройки?</string>
   <string name="sum2">Срочные новости: Дональд Трамп меняет причёску!</string>
-  <string name="sum3">Вы нажали почти 100 тысяч раз.</string>
+  <string name="sum3">Вы нажали почти 100к раз.</string>
   <string name="sum4">Много опций!</string>
   <string name="sum5">Нажми на меня!</string>
   <string name="sum6">Что еще?</string>
