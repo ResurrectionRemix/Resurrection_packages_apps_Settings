@@ -50,7 +50,7 @@ public class QsLayout extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.RESURRECTED;
+        return MetricsProto.MetricsEvent.RESURRECTED;
     }
 
     @Override
