@@ -36,6 +36,11 @@
         android:title="@string/connected_device_connected_title"
         settings:controller="com.android.settings.connecteddevice.ConnectedDeviceGroupController"/>
 
+    <PreferenceCategory
+        android:key="saved_tws_device_list"
+        android:title="@string/connected_tws_device_saved_title"
+        settings:controller="com.android.settings.connecteddevice.SavedTwsDeviceGroupController"/>
+
     <com.android.settingslib.RestrictedPreference
         android:key="add_bt_devices"
         android:title="@string/bluetooth_pairing_pref_title"

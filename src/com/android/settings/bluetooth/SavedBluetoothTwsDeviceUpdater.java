@@ -48,46 +48,44 @@
  */
 package com.android.settings.bluetooth;
 
+import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
-import android.util.Log;
-
-import androidx.preference.Preference;
 
 import com.android.settings.connecteddevice.DevicePreferenceCallback;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settingslib.bluetooth.CachedBluetoothDevice;
+import com.android.settingslib.bluetooth.LocalBluetoothManager;
 
 /**
- * Maintain and update saved bluetooth devices(bonded but not connected)
+ * Maintain and update saved TWS+ bluetooth devices(bonded but not connected)
  */
-public class SavedBluetoothDeviceUpdater extends BluetoothDeviceUpdater
-        implements Preference.OnPreferenceClickListener {
-    private static final String TAG = "SavedBluetoothDeviceUpdater";
-    private static final boolean DBG = false;
+public class SavedBluetoothTwsDeviceUpdater extends BluetoothDeviceUpdater {
 
-    public SavedBluetoothDeviceUpdater(Context context, DashboardFragment fragment,
+    public SavedBluetoothTwsDeviceUpdater(Context context, DashboardFragment fragment,
             DevicePreferenceCallback devicePreferenceCallback) {
         super(context, fragment, devicePreferenceCallback);
+    }
+
+    SavedBluetoothTwsDeviceUpdater(DashboardFragment fragment,
+            DevicePreferenceCallback devicePreferenceCallback,
+            LocalBluetoothManager localBluetoothManager) {
+        super(fragment, devicePreferenceCallback, localBluetoothManager);
+    }
+
+    @Override
+    public void onConnectionStateChanged(CachedBluetoothDevice cachedDevice, int state) {
+        if (state == BluetoothAdapter.STATE_CONNECTED) {
+            removePreference(cachedDevice);
+        } else if (state == BluetoothAdapter.STATE_DISCONNECTED) {
+            addPreference(cachedDevice);
+        }
     }
 
     @Override
     public boolean isFilterMatched(CachedBluetoothDevice cachedDevice) {
         final BluetoothDevice device = cachedDevice.getDevice();
-        if (DBG) {
-            Log.d(TAG, "isFilterMatched() device name : " + cachedDevice.getName() +
-                    ", is connected : " + device.isConnected() + ", is profile connected : "
-                    + cachedDevice.isConnected() +
-                    ", is twsplusdevice : " + device.isTwsPlusDevice());
-        }
-        return device.getBondState() == BluetoothDevice.BOND_BONDED && !device.isConnected() && !device.isTwsPlusDevice();
-    }
-
-    @Override
-    public boolean onPreferenceClick(Preference preference) {
-        final CachedBluetoothDevice device = ((BluetoothDevicePreference) preference)
-                .getBluetoothDevice();
-        device.connect(true);
-        return true;
+        return device.getBondState() == BluetoothDevice.BOND_BONDED &&
+            !device.isConnected() && device.isTwsPlusDevice();
     }
 }
