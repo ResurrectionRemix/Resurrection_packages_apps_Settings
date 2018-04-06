@@ -16,8 +16,6 @@
 
 package com.android.settings.fuelgauge;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.LoaderManager;
@@ -32,7 +30,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Process;
-import android.os.SystemClock;
 import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import android.support.annotation.VisibleForTesting;
@@ -49,7 +46,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
-import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.android.internal.hardware.AmbientDisplayConfiguration;
@@ -99,10 +95,6 @@ public class PowerUsageSummary extends PowerUsageBase implements
     private static final String KEY_SHOW_ALL_APPS = "show_all_apps";
     private static final int MAX_ITEMS_TO_LIST = USE_FAKE_DATA ? 30 : 10;
     private static final int MIN_AVERAGE_POWER_THRESHOLD_MILLI_AMP = 10;
-    private static final int BATTERY_ANIMATION_DURATION_MS_PER_LEVEL = 30;
-
-    @VisibleForTesting
-    static final String ARG_BATTERY_LEVEL = "key_battery_level";
 
     private static final String KEY_SCREEN_USAGE = "screen_usage";
     private static final String KEY_TIME_SINCE_LAST_FULL_CHARGE = "last_full_charge";
@@ -129,8 +121,6 @@ public class PowerUsageSummary extends PowerUsageBase implements
     public static final int DEBUG_INFO_LOADER = 3;
 
     @VisibleForTesting
-    int mBatteryLevel;
-    @VisibleForTesting
     boolean mShowAllApps = false;
     @VisibleForTesting
     PowerGaugePreference mScreenUsagePref;
@@ -151,6 +141,7 @@ public class PowerUsageSummary extends PowerUsageBase implements
     @VisibleForTesting
     PreferenceGroup mAppListGroup;
     @VisibleForTesting
+    BatteryHeaderPreferenceController mBatteryHeaderPreferenceController;
     private AnomalySummaryPreferenceController mAnomalySummaryPreferenceController;
     private int mStatsType = BatteryStats.STATS_SINCE_CHARGED;
 
@@ -192,7 +183,7 @@ public class PowerUsageSummary extends PowerUsageBase implements
 
                 @Override
                 public void onLoadFinished(Loader<BatteryInfo> loader, BatteryInfo batteryInfo) {
-                    updateHeaderPreference(batteryInfo);
+                    mBatteryHeaderPreferenceController.updateHeaderPreference(batteryInfo);
                 }
 
                 @Override
@@ -250,9 +241,6 @@ public class PowerUsageSummary extends PowerUsageBase implements
         initFeatureProvider();
         mBatteryLayoutPref = (LayoutPreference) findPreference(KEY_BATTERY_HEADER);
 
-        mBatteryLevel = getContext().getResources().getInteger(
-                com.android.internal.R.integer.config_criticalBatteryWarningLevel) + 1;
-
         mAppListGroup = (PreferenceGroup) findPreference(KEY_APP_LIST);
         mScreenUsagePref = (PowerGaugePreference) findPreference(KEY_SCREEN_USAGE);
         mLastFullChargePref = (PowerGaugePreference) findPreference(
@@ -268,23 +256,8 @@ public class PowerUsageSummary extends PowerUsageBase implements
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        if (savedInstanceState != null) {
-            mBatteryLevel = savedInstanceState.getInt(ARG_BATTERY_LEVEL);
-        }
-    }
-
-    @Override
     public int getMetricsCategory() {
         return MetricsEvent.FUELGAUGE_POWER_USAGE_SUMMARY;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        initHeaderPreference();
     }
 
     @Override
@@ -306,7 +279,6 @@ public class PowerUsageSummary extends PowerUsageBase implements
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putBoolean(KEY_SHOW_ALL_APPS, mShowAllApps);
-        outState.putInt(ARG_BATTERY_LEVEL, mBatteryLevel);
     }
 
     @Override
@@ -341,8 +313,11 @@ public class PowerUsageSummary extends PowerUsageBase implements
     @Override
     protected List<AbstractPreferenceController> getPreferenceControllers(Context context) {
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
-        //controllers.add(new AutoBrightnessPreferenceController(context, KEY_AUTO_BRIGHTNESS));
-        //controllers.add(new TimeoutPreferenceController(context, KEY_SCREEN_TIMEOUT));
+        mBatteryHeaderPreferenceController = new BatteryHeaderPreferenceController(
+                context, getActivity(), this /* host */, getLifecycle());
+        controllers.add(mBatteryHeaderPreferenceController);
+        controllers.add(new AutoBrightnessPreferenceController(context, KEY_AUTO_BRIGHTNESS));
+        controllers.add(new TimeoutPreferenceController(context, KEY_SCREEN_TIMEOUT));
         controllers.add(new BatterySaverController(context, getLifecycle()));
         controllers.add(new AmbientDisplayPreferenceController(
                 context,
@@ -595,13 +570,6 @@ public class PowerUsageSummary extends PowerUsageBase implements
                 : R.string.power_usage_list_summary;
         mAppListGroup.setTitle(TextUtils.expandTemplate(getText(resId), timeSequence));
 
-        final long elapsedRealtimeUs = SystemClock.elapsedRealtime() * 1000;
-        Intent batteryBroadcast = context.registerReceiver(null,
-                new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
-        BatteryInfo batteryInfo = BatteryInfo.getBatteryInfoOld(context, batteryBroadcast,
-                mStatsHelper.getStats(), elapsedRealtimeUs, false);
-        updateHeaderPreference(batteryInfo);
-
         refreshAppListGroup();
     }
 
@@ -760,58 +728,6 @@ public class PowerUsageSummary extends PowerUsageBase implements
         }
         getLoaderManager().restartLoader(DEBUG_INFO_LOADER, Bundle.EMPTY,
                 mBatteryInfoDebugLoaderCallbacks);
-    }
-
-    @VisibleForTesting
-    void updateHeaderPreference(BatteryInfo info) {
-        final Context context = getContext();
-        if (context == null) {
-            return;
-        }
-        final BatteryMeterView batteryView = (BatteryMeterView) mBatteryLayoutPref
-                .findViewById(R.id.battery_header_icon);
-        final TextView timeText = (TextView) mBatteryLayoutPref.findViewById(R.id.battery_percent);
-        final TextView summary1 = (TextView) mBatteryLayoutPref.findViewById(R.id.summary1);
-        if (info.remainingLabel == null ) {
-            summary1.setText(info.statusLabel);
-        } else {
-            summary1.setText(info.remainingLabel);
-        }
-        batteryView.setCharging(!info.discharging);
-        startBatteryHeaderAnimationIfNecessary(batteryView, timeText, mBatteryLevel,
-                info.batteryLevel);
-    }
-
-    @VisibleForTesting
-    void initHeaderPreference() {
-        final BatteryMeterView batteryView = (BatteryMeterView) mBatteryLayoutPref
-                .findViewById(R.id.battery_header_icon);
-        final TextView timeText = (TextView) mBatteryLayoutPref.findViewById(R.id.battery_percent);
-
-        batteryView.setBatteryLevel(mBatteryLevel);
-        timeText.setText(Utils.formatPercentage(mBatteryLevel));
-    }
-
-    @VisibleForTesting
-    void startBatteryHeaderAnimationIfNecessary(BatteryMeterView batteryView, TextView timeTextView,
-            int prevLevel, int currentLevel) {
-        mBatteryLevel = currentLevel;
-        final int diff = Math.abs(prevLevel - currentLevel);
-        if (diff != 0) {
-            final ValueAnimator animator = ValueAnimator.ofInt(prevLevel, currentLevel);
-            animator.setDuration(BATTERY_ANIMATION_DURATION_MS_PER_LEVEL * diff);
-            animator.setInterpolator(AnimationUtils.loadInterpolator(getContext(),
-                    android.R.interpolator.fast_out_slow_in));
-            animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    final Integer level = (Integer) animation.getAnimatedValue();
-                    batteryView.setBatteryLevel(level);
-                    timeTextView.setText(Utils.formatPercentage(level));
-                }
-            });
-            animator.start();
-        }
     }
 
     @VisibleForTesting
@@ -983,6 +899,9 @@ public class PowerUsageSummary extends PowerUsageBase implements
 
     void restartBatteryStatsLoader(boolean clearHeader) {
         super.restartBatteryStatsLoader();
+        if (clearHeader) {
+            mBatteryHeaderPreferenceController.quickUpdateHeaderPreference();
+        }
     }
 
     private static class SummaryProvider implements SummaryLoader.SummaryProvider {
