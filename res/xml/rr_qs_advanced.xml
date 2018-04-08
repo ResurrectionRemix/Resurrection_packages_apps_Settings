@@ -38,6 +38,12 @@
             android:summary="@string/quick_settings_vibrate_summary"
             android:defaultValue="false" />
 
-
+	<com.android.settings.rr.Preferences.CustomSeekBarPreference
+            android:key="qs_panel_alpha"
+            android:title="@string/qs_panel_alpha_title"
+            android:max="255"
+            settings:min="0"
+            settings:units=""
+            android:persistent="false" />
 
 </PreferenceScreen>

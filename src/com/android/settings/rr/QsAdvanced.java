@@ -28,6 +28,7 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
@@ -41,10 +42,14 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 
 public class QsAdvanced extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
         private static final String TAG = "QsAdvanced";
+    private static final String QS_PANEL_ALPHA = "qs_panel_alpha";
+
+    private CustomSeekBarPreference mQsPanelAlpha;
 
 
     @Override
@@ -56,10 +61,26 @@ public class QsAdvanced extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_qs_advanced);
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        mQsPanelAlpha = (CustomSeekBarPreference) findPreference(QS_PANEL_ALPHA);
+        int qsPanelAlpha = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_PANEL_BG_ALPHA, 255, UserHandle.USER_CURRENT);
+        mQsPanelAlpha.setValue(qsPanelAlpha);
+        mQsPanelAlpha.setOnPreferenceChangeListener(this);
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mQsPanelAlpha) {
+            int bgAlpha = (Integer) newValue;
+            Settings.System.putIntForUser(resolver,
+                    Settings.System.QS_PANEL_BG_ALPHA, bgAlpha,
+                    UserHandle.USER_CURRENT);
+            return true;
+       
+        }
       return false;
     }
 }
