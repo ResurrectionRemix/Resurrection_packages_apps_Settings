@@ -17,9 +17,11 @@
 package com.android.settings.fuelgauge;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.LoaderManager;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Loader;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -62,6 +64,7 @@ import com.android.settings.dashboard.SummaryLoader;
 import com.android.settings.display.AmbientDisplayPreferenceController;
 import com.android.settings.display.AutoBrightnessPreferenceController;
 import com.android.settings.display.BatteryPercentagePreferenceController;
+import com.android.settings.display.BatteryChargeAlertPreferenceController;
 import com.android.settings.display.TimeoutPreferenceController;
 import com.android.settings.fuelgauge.anomaly.Anomaly;
 import com.android.settings.fuelgauge.anomaly.AnomalyDetectionPolicy;
@@ -108,13 +111,14 @@ public class PowerUsageSummary extends PowerUsageBase implements
     @VisibleForTesting
     static final int BATTERY_INFO_LOADER = 2;
     private static final int MENU_STATS_TYPE = Menu.FIRST;
+    private static final int MENU_STATS_RESET = Menu.FIRST + 3;
     @VisibleForTesting
-    static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 3;
+    static final int MENU_HIGH_POWER_APPS = Menu.FIRST + 4;
     @VisibleForTesting
-    static final int MENU_ADDITIONAL_BATTERY_INFO = Menu.FIRST + 4;
+    static final int MENU_ADDITIONAL_BATTERY_INFO = Menu.FIRST + 5;
     @VisibleForTesting
-    static final int MENU_TOGGLE_APPS = Menu.FIRST + 5;
-    private static final int MENU_HELP = Menu.FIRST + 6;
+    static final int MENU_TOGGLE_APPS = Menu.FIRST + 6;
+    private static final int MENU_HELP = Menu.FIRST + 7;
     public static final int DEBUG_INFO_LOADER = 3;
 
     @VisibleForTesting
@@ -320,6 +324,7 @@ public class PowerUsageSummary extends PowerUsageBase implements
                 context,
                 new AmbientDisplayConfiguration(context),
                 KEY_AMBIENT_DISPLAY));
+        controllers.add(new BatteryChargeAlertPreferenceController(context));
         return controllers;
     }
 
@@ -330,6 +335,11 @@ public class PowerUsageSummary extends PowerUsageBase implements
                     .setIcon(com.android.internal.R.drawable.ic_menu_info_details)
                     .setAlphabeticShortcut('t');
         }
+
+        MenuItem reset = menu.add(0, MENU_STATS_RESET, 0, R.string.menu_stats_reset)
+                .setIcon(R.drawable.ic_delete)
+                .setAlphabeticShortcut('d');
+        reset.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
         menu.add(Menu.NONE, MENU_HIGH_POWER_APPS, Menu.NONE, R.string.high_power_apps);
 
@@ -345,6 +355,23 @@ public class PowerUsageSummary extends PowerUsageBase implements
         super.onCreateOptionsMenu(menu, inflater);
     }
 
+    private void resetStats() {
+        AlertDialog dialog = new AlertDialog.Builder(getActivity())
+            .setTitle(R.string.menu_stats_reset)
+            .setMessage(R.string.reset_stats_msg)
+            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // Reset stats
+                    mStatsHelper.resetStatistics();
+                    refreshUi();
+                }
+            })
+            .setNegativeButton(R.string.cancel, null)
+            .create();
+        dialog.show();
+    }
+
     @Override
     protected int getHelpResource() {
         return R.string.help_url_battery;
@@ -358,6 +385,9 @@ public class PowerUsageSummary extends PowerUsageBase implements
                 FeatureFactory.getFactory(context).getMetricsFeatureProvider();
 
         switch (item.getItemId()) {
+            case MENU_STATS_RESET:
+                resetStats();
+                return true;
             case MENU_STATS_TYPE:
                 if (mStatsType == BatteryStats.STATS_SINCE_CHARGED) {
                     mStatsType = BatteryStats.STATS_SINCE_UNPLUGGED;
