@@ -60,6 +60,13 @@
             android:key="perf_profile_settings"
             lineage:replacesKey="battery_saver_summary" />
 
+        <ListPreference
+            android:key="alert_on_charged_level"
+            android:title="@string/alert_on_charged_level_title"
+            android:summary="@string/alert_on_charged_level_summary"
+            android:entries="@array/alert_on_charged_entries"
+            android:entryValues="@array/alert_on_charged_level_values" />
+
         <!-- Cross-listed item, if you change this, also change it in display_settings.xml -->
         <SwitchPreference
             android:key="auto_brightness_battery"
