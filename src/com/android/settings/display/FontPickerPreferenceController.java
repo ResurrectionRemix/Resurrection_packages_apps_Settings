@@ -13,7 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package com.android.settings.display;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -41,14 +43,16 @@ import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.Preference.OnPreferenceClickListener;
 import android.text.TextUtils;
 import android.util.Log;
- public class FontPickerPreferenceController extends AbstractPreferenceController
+
+public class FontPickerPreferenceController extends AbstractPreferenceController
         implements PreferenceControllerMixin, LifecycleObserver, OnResume {
     private static final String TAG = "FontPickerPreferenceController";
     private static final String KEY_FONT_PICKER_FRAGMENT_PREF = "custom_font";
-    private static final String SUBS_PACKAGE = "projekt.substratum";
-     private FontDialogPreference mFontPreference;
+
+    private FontDialogPreference mFontPreference;
     private IFontService mFontService;
-     public FontPickerPreferenceController(Context context, Lifecycle lifecycle, Fragment parent) {
+
+    public FontPickerPreferenceController(Context context, Lifecycle lifecycle) {
         super(context);
         if (lifecycle != null) {
             lifecycle.addObserver(this);
@@ -56,49 +60,40 @@ import android.util.Log;
         mFontService = IFontService.Stub.asInterface(
                 ServiceManager.getService("dufont"));
     }
-     @Override
+
+    @Override
     public void onResume() {
         if (mFontPreference == null) {
             return;
         }
-        if (!isPackageInstalled(SUBS_PACKAGE, mContext)) {
-            mFontPreference.setSummary(getCurrentFontInfo().fontName.replace("_", " "));
-        } else {
-            mFontPreference.setSummary(mContext.getString(
-                    com.android.settings.R.string.disable_fonts_installed_title));
-        }
+        mFontPreference.setSummary(getCurrentFontInfo().fontName.replace("_", " "));
     }
-     @Override
+
+    @Override
     public void displayPreference(PreferenceScreen screen) {
         mFontPreference = (FontDialogPreference) screen.findPreference(KEY_FONT_PICKER_FRAGMENT_PREF);
-        if (!isPackageInstalled(SUBS_PACKAGE, mContext)) {
-            mFontPreference.setEnabled(true);
-        } else {
-            mFontPreference.setEnabled(false);
-        }
+        mFontPreference.setEnabled(true);
     }
-     @Override
+
+    @Override
     public boolean isAvailable() {
         return true;
     }
-     @Override
+
+    @Override
     public String getPreferenceKey() {
         return KEY_FONT_PICKER_FRAGMENT_PREF;
     }
-     private FontInfo getCurrentFontInfo() {
+
+    private FontInfo getCurrentFontInfo() {
         try {
             return mFontService.getFontInfo();
         } catch (RemoteException e) {
             return FontInfo.getDefaultFontInfo();
         }
     }
-     private boolean isPackageInstalled(String package_name, Context context) {
-        try {
-            PackageManager pm = context.getPackageManager();
-            pm.getPackageInfo(package_name, PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
+
+    public void stopProgress() {
+        mFontPreference.stopProgress();
     }
 }
