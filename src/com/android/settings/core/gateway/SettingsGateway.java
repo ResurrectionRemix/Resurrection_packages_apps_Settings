@@ -154,6 +154,7 @@ import com.android.settings.rr.ColorSettings;
 import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.MainSettingsLayout;
 import com.android.settings.rr.SmartPixels;
+import com.android.settings.rr.gestureanywhere.GestureAnywhereSettings;
 import com.android.settings.rr.fragments.GamingMode;
 import com.android.settings.rr.fragments.PulseSettings;
 import com.android.settings.rr.omnigears.interfacesettings.LockscreenItemSettings;
@@ -300,6 +301,7 @@ public class SettingsGateway {
             LockscreenItemSettings.class.getName(),
             MainSettingsLayout.class.getName(),
             MainSettings.class.getName(),
+            GestureAnywhereSettings.class.getName(),
             PulseSettings.class.getName(),
             SmartPixels.class.getName(),
             DarkModeSettingsFragment.class.getName()
@@ -350,5 +352,6 @@ public class SettingsGateway {
             Settings.MainSettingsActivity.class.getName(),
             Settings.SmartPixelsActivity.class.getName(),
             Settings.AccentColorSettingsActivity.class.getName(),
+            Settings.GestureAnywhereSettingsActivity.class.getName(),
     };
 }

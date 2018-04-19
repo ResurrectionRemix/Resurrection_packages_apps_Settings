@@ -59,6 +59,13 @@
         android:fragment="com.android.settings.rr.VibrationSettingsPreferenceFragment" />
 
     <Preference
+        android:key="gesture_anywhere"
+        android:title="@string/gesture_anywhere_title"
+        android:icon="@drawable/rr_gesture_anywhere_icon"
+        android:summary="@string/gesture_anywhere_summary"
+        android:fragment="com.android.settings.rr.gestureanywhere.GestureAnywhereSettings" />
+
+    <Preference
         android:key="pulse"
         android:title="@string/pulse_settings"
         android:icon="@drawable/rr_pulse_settings_icon"
