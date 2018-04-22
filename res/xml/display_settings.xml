@@ -96,6 +96,10 @@
         android:title="@string/show_operator_name_title"
         android:summary="@string/show_operator_name_summary" />
 
+    <org.lineageos.internal.lineageparts.LineagePartsPreference
+        android:key="long_screen_settings"
+        lineage:requiresConfig="@*lineageos.platform:bool/config_haveHigherAspectRatioScreen" />
+
     <Preference
         android:key="screensaver"
         android:title="@string/screensaver_settings_title"
