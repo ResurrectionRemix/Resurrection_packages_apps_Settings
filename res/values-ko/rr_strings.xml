@@ -47,6 +47,7 @@
   <string name="battery_style_dotted_circle">점선 원</string>
   <string name="battery_style_big_circle">큰 원</string>
   <string name="battery_style_big_dotted_circle">큰 점선 원</string>
+  <string name="battery_style_square">사각형</string>
   <string name="battery_style_text">텍스트</string>
   <string name="battery_style_hidden">아이콘 숨김</string>
   <string name="battery_style_category">배터리 스타일</string>
@@ -111,6 +112,10 @@
   <string name="rr_facebook_summary">Facebook 커뮤니티</string>
   <string name="rr_google_plus_title">Google</string>
   <string name="rr_google_plus_summary">Google+ 커뮤니티</string>
+  <string name="rr_pb_title">PitchBlack 테마</string>
+  <string name="rr_pb_summary">RR롬 공식 테마</string>
+  <string name="rr_twitter_title">트위터</string>
+  <string name="rr_twitter_summary">트위터 계정</string>
   <string name="maintainer_categorie_title">공식 지원 기기</string>
   <string name="title_about">정보</string>
   <string name="dev_categorie_title">개발자 태그</string>
@@ -131,6 +136,8 @@
   <string name="device_maintainers_title">기기 및 메인테이너</string>
   <string name="device_maintainers_title_summary">기기 목록 및 기기 공식 RR-OS 관리자</string>
   <string name="maintainers_note_title">참고</string>
+  <string name="maintainers_note_title_summary">설정에서 Pull Request를 생성하여 기기 메인테이너에 지원하세요.</string>
+  <string name="device_summary"><xliff:g example="goldfish" id="codename">%1$s</xliff:g>\n메인테이너- <xliff:g example="deletescape" id="maintainer">%2$s</xliff:g></string>
   <!-- The Drill -->
   <string name="rr_drill_title">The Drill</string>
   <string name="drill_summary">Logcat or GTFO</string>
@@ -145,6 +152,7 @@
   <string name="features_error">목록을 불러올 수 없음</string>
   <string name="features_unknown">알 수 없음</string>
   <string name="features_version">1.0</string>
+  <string name="powermenu_onthego_title">OntheGo</string>
   <string name="rr_volume_title">음량 조절 창</string>
   <string name="rr_power_title">전원 메뉴</string>
   <string name="rr_lockscreen_target_title">하단 바로가기</string>
@@ -276,6 +284,9 @@
   <string name="ticker_disabled">자막 알림 사용 안함</string>
   <string name="ticker_enabled">알림에만 사용</string>
   <string name="ticker_media_enabled">알림과 음악에 사용</string>
+  <string name="ticker_animation_mode_title">티커 애니메이션 스타일</string>
+  <string name="ticker_animation_mode_alpha_fade">페이드</string>
+  <string name="ticker_animation_mode_scroll">스크롤</string>
   <!-- Heads up -->
   <string name="heads_up_title">Allow Heads up</string>
   <string name="heads_up_summary_enabled">헤드 업 알림이 활성화됨</string>
@@ -414,10 +425,17 @@
   <string name="battery_bar_charging_color_title">충전중 색상</string>
   <string name="battery_bar_battery_low_color_title">적은 배터리 색상</string>
   <string name="battery_bar_style_title">위치</string>
+  <string name="battery_bar_thickness_title">두께</string>
   <string name="battery_bar_animate_title">충전 애니메이션</string>
   <string name="battery_bar_style_regular">보통</string>
   <string name="battery_bar_style_center_mirrored">중앙 정렬</string>
   <string name="battery_bar_style_reversed">반전</string>
+  <string name="battery_bar_use_charging_color_title">배터리 상태바 색상 변경</string>
+  <string name="battery_bar_blend_color_title">혼합 색상</string>
+  <string name="battery_bar_blend_color_summary">배터리 퍼센트를 구성하는 최대/최소 색상 혼합</string>
+  <string name="battery_bar_blend_color_reverse_title">색상 방향 반전</string>
+  <string name="battery_bar_blend_color_reverse_summary_off">완충 → 방전: 빨강 ← 초록 ← 파랑 ← 빨강</string>
+  <string name="battery_bar_blend_color_reverse_summary_on">완충 → 방전: 빨강 → 초록 → 파랑 → 빨강</string>
   <!--RR Configurations Summaries-->
   <string name="clock_custom_summary">상태표시줄의 시계와 날짜 구성 요소를 설정합니다.</string>
   <string name="status_bar_logo_summary">상태표시줄에 RR 로고 표시 여부와 색, 위치를 설정합니다.</string>
@@ -444,6 +462,7 @@
   <string name="rr_ls_ui_summary">잠금화면에 표시할 다양한 구성 요소를 설정합니다.</string>
   <string name="lockscreen_targets_summary">잠금화면 아래 양쪽 바로가기를 설정합니다.</string>
   <string name="lockscreen_weather_summary">잠금화면의 날씨 알림을 설정합니다.</string>
+  <string name="sb_weather_summary">상태 표시줄 날씨 정보 스타일 설정</string>
   <string name="rr_ls_security_summary">잠금화면에 사용할 보안 기능을 설정합니다.</string>
   <string name="gesture_anywhere_summary">제스처를 그려 사용자 지정 액티비티를 실행합니다.</string>
   <string name="app_sidebar_summary">사이드 바를 사용하여 앱과 액티비티를 빠르게 실행합니다.</string>
@@ -462,15 +481,37 @@
   <string name="rr_updater_summary">OTA 업데이트와 기타 링크를 확인합니다.</string>
   <string name="rr_notif_settings_summary">알림 패널의 알림 스타일을 설정합니다.</string>
   <string name="rr_fp_summary">지문 센서에 대한 여러 옵션을 설정합니다.</string>
+  <string name="rr_sound_summary">음악 사용자 설정</string>
+  <string name="rr_np_summary">알림 패널 설정</string>
+  <string name="rr_density_summary">화면의 밀도를 변경하여 화면을 확장합니다.</string>
+  <string name="rr_fonts_summary">폰트 사이즈 선택</string>
+  <string name="stock_recents_category">순정 최신</string>
   <!-- QS rows and columns -->
+  <string name="qs_rows_portrait_title">세로에서 타일 행 수</string>
+  <string name="qs_rows_landscape_title">가로에서 타일 행 수</string>
+  <string name="qs_columns_portrait_title">세로에서 타일 열 수</string>
+  <string name="qs_columns_landscape_title">가로에서 타일 열 수</string>
+  <!-- QuickSettings Panel Transparency -->
   <!-- Color Picker -->
+  <string name="dialog_color_picker">색상 선택기</string>
+  <string name="press_color_to_apply">적용할 색상을 아래에서 선택하세요.</string>
+  <string name="arrow_right">→</string>
+  <string name="arrow_down">↓</string>
+  <string name="hex">16진수:</string>
+  <string name="set">설정</string>
+  <string name="color_default">기본값</string>
   <!-- Sensor block per-package -->
   <string name="sensor_block_title">패키지별 센서 차단</string>
   <string name="sensor_block_summary">배터리 절약을 위해 일부 앱들이 특정 센서에 접근하는 것을 방지합니다.</string>
   <!-- Weather - OmniJaws Settings -->
   <string name="weather_title">날씨</string>
   <string name="weather_config_title">서비스 설정</string>
+  <string name="header_weather_title">날씨 보기</string>
+  <string name="header_weather_summary">날씨 알림 패널 표시</string>
   <string name="weather_icon_pack_title">날씨 아이콘 팩</string>
+  <string name="weather_icon_pack_note">알림\u003a 플레이 스토어에 \"Chronus 아이콘\"을 검색하여 새로운 아이콘 팩을 설치할 수 있습니다.
+ 
+</string>
   <string name="status_bar_weather_size_title">글자 크기</string>
   <string name="status_bar_weather_font_style_title">폰트</string>
   <string name="status_bar_weather_font_normal">보통</string>
@@ -499,7 +540,16 @@
   <string name="status_bar_weather_font_notoserif_bold">굵은 NotoSerif</string>
   <string name="status_bar_weather_font_notoserif_bold_italic">굵은 이탤릭 NotoSerif</string>
   <!-- Lockscreen Weather -->
+  <string name="lock_screen_weather_category_title">잠금 화면</string>
+  <string name="lock_screen_show_weather_title">날씨 표시</string>
+  <string name="lock_screen_show_weather_summaryOn">잠금 화면에 날씨가 표시됩니다.</string>
+  <string name="lock_screen_show_weather_summaryOff">잠금 화면에 날씨가 표시되지 않습니다.</string>
+  <string name="lock_screen_show_location_title">위치 표시</string>
+  <string name="lock_screen_show_location_summaryOn">잠금 화면에 위치 표시</string>
+  <string name="lock_screen_show_location_summaryOff">잠금 화면에 위치 숨기기</string>
+  <string name="lock_screen_weather_condition_icon_title">화면 아이콘 팩</string>
   <!-- Power Menu -->
+  <string name="powermenu_reboot_title">다시 시작</string>
   <string name="powermenu_ls_advanced_reboot_summary">잠금화면에 고급 부팅 옵션 표시</string>
   <string name="powermenu_ls_screenshot_summary">잠금화면에 화면 캡처 옵션을 표시</string>
   <string name="powermenu_ls_airplane_summary">잠금화면에 비행기 모드 옵션 표시</string>
