@@ -371,7 +371,6 @@
         <activity android:name="Settings$ApnSettingsActivity"
                 android:label="@string/apn_settings"
                 android:launchMode="singleTask"
-                android:taskAffinity="com.android.settings"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:parentActivityName="Settings$NetworkDashboardActivity"
                 android:process="com.android.phone">
@@ -2363,7 +2362,7 @@
                   android:launchMode="singleTop"
                   android:excludeFromRecents="true"
                   android:theme="@style/Theme.CryptKeeper"
-                  android:configChanges="mnc|mcc|keyboard|keyboardHidden|uiMode"
+                  android:configChanges="mnc|mcc|keyboard|keyboardHidden|uiMode|touchscreen"
                   android:windowSoftInputMode="adjustResize"
                   android:screenOrientation="nosensor"
                   android:process=":CryptKeeper">
@@ -3036,7 +3035,6 @@
         </activity>
 
         <activity android:name=".sim.SimDialogActivity"
-                android:theme="@*android:style/Theme.DeviceDefault.Settings.Dialog.NoActionBar"
                 android:label="@string/sim_settings_title"
                 android:excludeFromRecents="true">
             <intent-filter>
@@ -3223,7 +3221,7 @@
                 <category android:name="android.intent.category.VOICE_LAUNCH" />
             </intent-filter>
             <intent-filter android:priority="60">
-                <action android:name="com.android.settings.action.SETTINGS" />
+                <!--action android:name="com.android.settings.action.SETTINGS" /-->
             </intent-filter>
             <meta-data android:name="com.android.settings.summary"
                        android:resource="@string/summary_empty"/>

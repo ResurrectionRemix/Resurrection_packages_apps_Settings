@@ -205,8 +205,10 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
     }
 
     public void setPinnedHeaderView(View pinnedHeader) {
-        mPinnedHeaderFrameLayout.addView(pinnedHeader);
-        mPinnedHeaderFrameLayout.setVisibility(View.VISIBLE);
+        if (mPinnedHeaderFrameLayout != null) {
+            mPinnedHeaderFrameLayout.addView(pinnedHeader);
+            mPinnedHeaderFrameLayout.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

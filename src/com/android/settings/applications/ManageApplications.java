@@ -381,6 +381,7 @@ public class ManageApplications extends InstrumentedPreferenceFragment
             lv.setSaveEnabled(true);
             lv.setItemsCanFocus(true);
             lv.setTextFilterEnabled(true);
+            lv.setFastScrollEnabled(true);
             mListView = lv;
             mApplications = new ApplicationsAdapter(mApplicationsState, this, mFilter);
             if (savedInstanceState != null) {
