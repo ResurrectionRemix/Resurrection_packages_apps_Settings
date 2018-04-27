@@ -64,4 +64,26 @@
             settings:units=""
             android:persistent="false" />
 
+      <PreferenceCategory
+        android:key="quick_settings_animations"
+        android:title="@string/qs_tiles">
+
+        <com.android.settings.rr.Preferences.SystemSettingIntListPreference
+            android:key="anim_tile_style"
+            android:title="@string/qs_tile_animation_style_title"
+            android:entries="@array/qs_tile_animation_style_entries"
+            android:entryValues="@array/qs_tile_animation_style_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
+        <com.android.settings.rr.Preferences.SystemSettingIntListPreference
+            android:key="anim_tile_duration"
+            android:title="@string/qs_tile_animation_duration_title"
+            android:entries="@array/qs_tile_animation_duration_entries"
+            android:entryValues="@array/qs_tile_animation_duration_values"
+            android:summary="%s"
+            android:defaultValue="1" />
+
+      </PreferenceCategory>
+
 </PreferenceScreen>
