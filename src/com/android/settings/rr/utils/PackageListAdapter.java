@@ -44,13 +44,6 @@ public class PackageListAdapter extends BaseAdapter implements Runnable {
     private LayoutInflater mInflater;
     private final List<PackageItem> mInstalledPackages = new LinkedList<PackageItem>();
 
-    // Packages which don't have launcher icons, but which we want to show nevertheless
-    private static final String[] PACKAGE_WHITELIST = new String[] {
-        "android",                          /* system server */
-        "com.android.systemui",             /* system UI */
-        "com.android.providers.downloads"   /* download provider */
-    };
-
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -58,8 +51,6 @@ public class PackageListAdapter extends BaseAdapter implements Runnable {
             int index = Collections.binarySearch(mInstalledPackages, item);
             if (index < 0) {
                 mInstalledPackages.add(-index - 1, item);
-            } else {
-                mInstalledPackages.get(index).activityTitles.addAll(item.activityTitles);
             }
             notifyDataSetChanged();
         }
@@ -68,7 +59,6 @@ public class PackageListAdapter extends BaseAdapter implements Runnable {
     public static class PackageItem implements Comparable<PackageItem> {
         public final String packageName;
         public final CharSequence title;
-        private final TreeSet<CharSequence> activityTitles = new TreeSet<CharSequence>();
         public final Drawable icon;
 
         PackageItem(String packageName, CharSequence title, Drawable icon) {
@@ -122,27 +112,12 @@ public class PackageListAdapter extends BaseAdapter implements Runnable {
             holder = new ViewHolder();
             convertView.setTag(holder);
             holder.title = (TextView) convertView.findViewById(com.android.internal.R.id.title);
-            holder.summary = (TextView) convertView.findViewById(com.android.internal.R.id.summary);
             holder.icon = (ImageView) convertView.findViewById(R.id.icon);
         }
 
         PackageItem applicationInfo = getItem(position);
         holder.title.setText(applicationInfo.title);
         holder.icon.setImageDrawable(applicationInfo.icon);
-
-        boolean needSummary = applicationInfo.activityTitles.size() > 0;
-        if (applicationInfo.activityTitles.size() == 1) {
-            if (TextUtils.equals(applicationInfo.title, applicationInfo.activityTitles.first())) {
-                needSummary = false;
-            }
-        }
-
-        if (needSummary) {
-            holder.summary.setText(TextUtils.join(", ", applicationInfo.activityTitles));
-            holder.summary.setVisibility(View.VISIBLE);
-        } else {
-            holder.summary.setVisibility(View.GONE);
-        }
 
         return convertView;
     }
@@ -154,33 +129,18 @@ public class PackageListAdapter extends BaseAdapter implements Runnable {
 
     @Override
     public void run() {
-        final Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
-        mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        List<ResolveInfo> installedAppsInfo = mPm.queryIntentActivities(mainIntent, 0);
-
-        for (ResolveInfo info : installedAppsInfo) {
-            ApplicationInfo appInfo = info.activityInfo.applicationInfo;
-            final PackageItem item = new PackageItem(appInfo.packageName,
-                    appInfo.loadLabel(mPm), appInfo.loadIcon(mPm));
-            item.activityTitles.add(info.loadLabel(mPm));
-            mHandler.obtainMessage(0, item).sendToTarget();
-        }
-
-        for (String packageName : PACKAGE_WHITELIST) {
-            try {
-                ApplicationInfo appInfo = mPm.getApplicationInfo(packageName, 0);
+        List<ApplicationInfo> installedAppsInfo = mPm.getInstalledApplications(PackageManager.GET_META_DATA);
+        for (ApplicationInfo appInfo : installedAppsInfo) {
+            if (appInfo.icon != 0) {
                 final PackageItem item = new PackageItem(appInfo.packageName,
                         appInfo.loadLabel(mPm), appInfo.loadIcon(mPm));
                 mHandler.obtainMessage(0, item).sendToTarget();
-            } catch (PackageManager.NameNotFoundException ignored) {
-                // package not present, so nothing to add -> ignore it
             }
         }
     }
 
     private static class ViewHolder {
         TextView title;
-        TextView summary;
         ImageView icon;
     }
 }
