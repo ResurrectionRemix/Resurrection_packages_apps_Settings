@@ -276,9 +276,12 @@ public class ShortcutPickHelper {
 
     private void completeSetCustomShortcut(Intent data) {
         Intent intent = data.getParcelableExtra(Intent.EXTRA_SHORTCUT_INTENT);
-        /* preserve shortcut name, we want to restore it later */
+        if (intent == null) return;
+        // preserve shortcut name, we want to restore it later
         intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, data.getStringExtra(Intent.EXTRA_SHORTCUT_NAME));
-        String appUri = intent.toUri(0);
+        // standardize the uri scheme to be sure we can launch it
+        // TODO: add compatibility for apps that use ACTION_CONFIRM_PIN_SHORTCUT (drag widget on the home screen)
+        String appUri = intent.toUri(Intent.URI_INTENT_SCHEME);
         appUri = appUri.replaceAll("com.android.contacts.action.QUICK_CONTACT", "android.intent.action.VIEW");
         mListener.shortcutPicked(appUri, getFriendlyShortcutName(intent), false);
     }
