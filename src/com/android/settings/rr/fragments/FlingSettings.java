@@ -16,6 +16,10 @@
 
 package com.android.settings.rr.fragments;
 
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
@@ -31,9 +35,13 @@ import com.android.settings.R;
 import com.android.settings.rr.IconPickHelper;
 import com.android.settings.rr.Preferences.ActionPreference;
 
-import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.Environment;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -44,14 +52,40 @@ import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MenuInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class FlingSettings extends ActionFragment implements
         Preference.OnPreferenceChangeListener, IconPickHelper.OnPickListener {
     private static final String TAG = FlingSettings.class.getSimpleName();
     public static final String FLING_LOGO_URI = "fling_custom_icon_config";
 
+    private static final int MENU_RESET = Menu.FIRST;
+    private static final int MENU_SAVE = Menu.FIRST + 1;
+    private static final int MENU_RESTORE = Menu.FIRST + 2;
+
+    private static final int DIALOG_RESET_CONFIRM = 1;
+    private static final int DIALOG_RESTORE_PROFILE = 2;
+    private static final int DIALOG_SAVE_PROFILE = 3;
+    private static final String CONFIG_STORAGE = Environment.getExternalStorageDirectory()
+            + File.separator
+            + "fling_configs";
+    private static final String FLING_CONFIGS_PREFIX = "fling_config_";
+    private static final String KEY_FLING_BACKUP = "fling_profile_save";
+    private static final String KEY_FLING_RESTORE = "fling_profile_restore";
+
     Context mContext;
     IconPickHelper mIconPickHelper;
+    boolean mIsTablet;
 
     SwitchPreference mShowLogo;
     SwitchPreference mAnimateLogo;
@@ -132,19 +166,19 @@ public class FlingSettings extends ActionFragment implements
         mLongPressTimeout.setValue(val);
         mLongPressTimeout.setOnPreferenceChangeListener(this);
 
-        final boolean isTablet = !DUActionUtils.navigationBarCanMove();
+        mIsTablet = !DUActionUtils.navigationBarCanMove();
 
         mSwipePortRight = (CustomSeekBarPreference) findPreference("du_fling_longswipe_port_right");
         val = Settings.Secure.getIntForUser(
                 getContentResolver(), Settings.Secure.FLING_LONGSWIPE_THRESHOLD_RIGHT_PORT,
-                isTablet ? 30 : 40, UserHandle.USER_CURRENT);
+                mIsTablet ? 30 : 40, UserHandle.USER_CURRENT);
         mSwipePortRight.setValue(val);
         mSwipePortRight.setOnPreferenceChangeListener(this);
 
         mSwipePortLeft = (CustomSeekBarPreference) findPreference("du_fling_longswipe_port_left");
         val = Settings.Secure.getIntForUser(
                 getContentResolver(), Settings.Secure.FLING_LONGSWIPE_THRESHOLD_LEFT_PORT,
-                isTablet ? 30 : 40, UserHandle.USER_CURRENT);
+                mIsTablet ? 30 : 40, UserHandle.USER_CURRENT);
         mSwipePortLeft.setValue(val);
         mSwipePortLeft.setOnPreferenceChangeListener(this);
 
@@ -156,7 +190,7 @@ public class FlingSettings extends ActionFragment implements
         PreferenceCategory longSwipeCategory = (PreferenceCategory) getPreferenceScreen()
                 .findPreference("eos_long_swipe_category");
 
-        if (isTablet) {
+        if (mIsTablet) {
             longSwipeCategory.removePreference(mSwipeVertUp);
             longSwipeCategory.removePreference(mSwipeVertDown);
             val = Settings.Secure.getIntForUser(
@@ -200,6 +234,315 @@ public class FlingSettings extends ActionFragment implements
         mLogoOpacity.setOnPreferenceChangeListener(this);
 
         onPreferenceScreenLoaded(ActionConstants.getDefaults(ActionConstants.FLING));
+
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public Dialog onCreateDialog(int dialogId) {
+        switch (dialogId) {
+            case DIALOG_RESET_CONFIRM: {
+                Dialog dialog;
+                AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+                alertDialog.setTitle(R.string.fling_factory_reset_title);
+                alertDialog.setMessage(R.string.fling_factory_reset_confirm);
+                alertDialog.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        resetFling();
+                    }
+                });
+                alertDialog.setNegativeButton(R.string.write_settings_off, null);
+                dialog = alertDialog.create();
+                return dialog;
+            }
+            case DIALOG_RESTORE_PROFILE: {
+                Dialog dialog;
+                final ConfigAdapter configAdapter = new ConfigAdapter(getActivity(),
+                        getConfigFiles(CONFIG_STORAGE));
+                AlertDialog.Builder configDialog = new AlertDialog.Builder(getActivity());
+                configDialog.setTitle(R.string.fling_config_dialog_title);
+                configDialog.setNegativeButton(getString(android.R.string.cancel), null);
+                configDialog.setAdapter(configAdapter, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        String resultMsg;
+                        try {
+                            File configFile = (File) configAdapter.getItem(item);
+                            String config = getFlingConfigFromStorage(configFile);
+                            restoreConfig(getActivity(), config);
+                            loadAndSetConfigs();
+                            onActionPolicyEnforced(mPrefHolder);
+                            resultMsg = getString(R.string.fling_config_restore_success_toast);
+                        } catch (Exception e) {
+                            resultMsg = getString(R.string.fling_config_restore_error_toast);
+                        }
+                        Toast.makeText(getActivity(), resultMsg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+                dialog = configDialog.create();
+                return dialog;
+            }
+            case DIALOG_SAVE_PROFILE: {
+                Dialog dialog;
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                final EditText input = new EditText(getActivity());
+                builder.setTitle(getString(R.string.fling_config_name_edit_dialog_title));
+                builder.setMessage(R.string.fling_config_name_edit_dialog_message);
+                builder.setView(input);
+                builder.setNegativeButton(getString(android.R.string.cancel), null);
+                builder.setPositiveButton(android.R.string.ok,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                String inputText = input.getText().toString();
+                                if (TextUtils.isEmpty(inputText)) {
+                                    inputText = String.valueOf(android.text.format.DateFormat
+                                            .format("yyyy-MM-dd_hh:mm:ss", new java.util.Date()));
+                                }
+                                String resultMsg;
+                                try {
+                                    String currentConfig = getCurrentConfig(getActivity());
+                                    backupFlingConfig(currentConfig, inputText);
+                                    resultMsg = getString(R.string.fling_config_backup_success_toast);
+                                } catch (Exception e) {
+                                    resultMsg = getString(R.string.fling_config_backup_error_toast);
+                                }
+                                Toast.makeText(getActivity(), resultMsg, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                dialog = builder.create();
+                dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+                return dialog;
+            }
+            default: {
+                return super.onCreateDialog(dialogId);
+            }
+        }
+    }
+
+    @Override
+    public int getDialogMetricsCategory(int dialogId) {
+        switch (dialogId) {
+            case DIALOG_RESET_CONFIRM:
+            case DIALOG_RESTORE_PROFILE:
+            case DIALOG_SAVE_PROFILE:
+                return MetricsProto.MetricsEvent.RESURRECTED;
+            default:
+                return super.getDialogMetricsCategory(dialogId);
+        }
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        menu.add(0, MENU_RESET, 0, R.string.reset)
+                .setIcon(com.android.internal.R.drawable.ic_menu_refresh)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(0, MENU_SAVE, 0, R.string.fling_backup_current_config_title)
+                .setIcon(R.drawable.ic_fling_save_profile)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        menu.add(0, MENU_RESTORE, 0, R.string.fling_restore_config_title)
+                .setIcon(R.drawable.ic_fling_restore_profile)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_RESET:
+                showDialog(DIALOG_RESET_CONFIRM);
+                return true;
+            case MENU_SAVE:
+                showDialog(DIALOG_SAVE_PROFILE);
+                return true;
+            case MENU_RESTORE:
+                showDialog(DIALOG_RESTORE_PROFILE);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+    private void resetFling() {
+        restoreConfig(getActivity(), getDefaultConfig(getActivity()));
+        loadAndSetConfigs();
+        onActionPolicyEnforced(mPrefHolder);
+
+        ButtonConfig logoConfig = ButtonConfig.getButton(mContext, FLING_LOGO_URI, true);
+        logoConfig.clearCustomIconIconUri();
+        ButtonConfig.setButton(mContext, logoConfig, FLING_LOGO_URI, true);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_LOGO_VISIBLE, 1);
+        mShowLogo.setChecked(true);
+        mShowLogo.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_LOGO_ANIMATES, 1);
+        mAnimateLogo.setChecked(true);
+        mAnimateLogo.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_RIPPLE_ENABLED, 1);
+        mShowRipple.setChecked(true);
+        mShowRipple.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_RIPPLE_COLOR, Color.WHITE);
+        mRippleColor.setNewPreviewColor(Color.WHITE);
+        mRippleColor.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_LONGPRESS_TIMEOUT, 250);
+        mLongPressTimeout.setValue(250+100);
+        mLongPressTimeout.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_LONGSWIPE_THRESHOLD_RIGHT_PORT, mIsTablet ? 30 : 40);
+        mSwipePortRight.setValue(mIsTablet ? 30 : 40);
+        mSwipePortRight.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_LONGSWIPE_THRESHOLD_LEFT_PORT, mIsTablet ? 30 : 40);
+        mSwipePortLeft.setValue(mIsTablet ? 30 : 40);
+        mSwipePortLeft.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_LONGSWIPE_THRESHOLD_RIGHT_LAND, 25);
+        mSwipeLandRight.setValue(25);
+        mSwipeLandRight.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_LONGSWIPE_THRESHOLD_LEFT_LAND, 25);
+        mSwipeLandLeft.setValue(25);
+        mSwipeLandLeft.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_LONGSWIPE_THRESHOLD_UP_LAND, 40);
+        mSwipeVertUp.setValue(40);
+        mSwipeVertUp.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_LONGSWIPE_THRESHOLD_DOWN_LAND, 40);
+        mSwipeVertDown.setValue(40);
+        mSwipeVertDown.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_KEYBOARD_CURSORS, 1);
+        mKbCursors.setChecked(true);
+        mKbCursors.setOnPreferenceChangeListener(this);
+
+        Settings.Secure.putInt(getContentResolver(),
+                Settings.Secure.FLING_LOGO_OPACITY, 255);
+        mLogoOpacity.setValue(255);
+        mLogoOpacity.setOnPreferenceChangeListener(this);
+    }
+
+    static class ConfigAdapter extends ArrayAdapter<File> {
+        private final ArrayList<File> mConfigFiles;
+        private final Context mContext;
+
+        public ConfigAdapter(Context context, ArrayList<File> files) {
+            super(context, android.R.layout.select_dialog_item, files);
+            mContext = context;
+            mConfigFiles = files;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View itemRow = convertView;
+            File f = mConfigFiles.get(position);
+            itemRow = ((LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE))
+                    .inflate(android.R.layout.select_dialog_item, null);
+            String name = f.getName();
+            if (name.startsWith(FLING_CONFIGS_PREFIX)) {
+                name = f.getName().substring(FLING_CONFIGS_PREFIX.length(), f.getName().length());
+            }
+            ((TextView) itemRow.findViewById(android.R.id.text1)).setText(name);
+
+            return itemRow;
+        }
+    }
+
+    private static class StartsWithFilter implements FileFilter {
+        private String[] mStartsWith;
+
+        public StartsWithFilter(String[] startsWith) {
+            mStartsWith = startsWith;
+        }
+
+        @Override
+        public boolean accept(File file) {
+            for (String extension : mStartsWith) {
+                if (file.getName().toLowerCase().startsWith(extension)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    static String getCurrentConfig(Context ctx) {
+        String config = Settings.Secure.getStringForUser(
+                ctx.getContentResolver(), ActionConstants.getDefaults(ActionConstants.FLING)
+                        .getUri(),
+                UserHandle.USER_CURRENT);
+        if (TextUtils.isEmpty(config)) {
+            config = getDefaultConfig(ctx);
+        }
+        return config;
+    }
+
+    static String getDefaultConfig(Context ctx) {
+        return ActionConstants.getDefaults(ActionConstants.FLING).getDefaultConfig();
+    }
+
+    static void restoreConfig(Context context, String config) {
+        Settings.Secure.putStringForUser(context.getContentResolver(),
+                ActionConstants.getDefaults(ActionConstants.FLING)
+                        .getUri(), config,
+                UserHandle.USER_CURRENT);
+    }
+
+    static void backupFlingConfig(String config, String suffix) {
+        File dir = new File(CONFIG_STORAGE);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        File configFile = new File(dir, FLING_CONFIGS_PREFIX + suffix);
+        FileOutputStream stream;
+        try {
+            stream = new FileOutputStream(configFile);
+            stream.write(config.getBytes());
+            stream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String getFlingConfigFromStorage(File file) {
+        int length = (int) file.length();
+        byte[] bytes = new byte[length];
+        FileInputStream in;
+        try {
+            in = new FileInputStream(file);
+            in.read(bytes);
+            in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String contents = new String(bytes);
+        return contents;
+    }
+
+    public static ArrayList<File> getConfigFiles(String path) {
+        File dir = new File(path);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        ArrayList<File> list = new ArrayList<File>();
+        for (File tmp : dir.listFiles(new StartsWithFilter(new String[] {
+                FLING_CONFIGS_PREFIX
+        }))) {
+            list.add(tmp);
+        }
+        return list;
     }
 
     @Override
