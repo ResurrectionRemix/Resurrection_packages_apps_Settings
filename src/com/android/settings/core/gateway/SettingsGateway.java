@@ -274,7 +274,7 @@ public class SettingsGateway {
             PulseSettings.class.getName(),
             About.class.getName(),
             PieSettings.class.getName(),
-            SmartPixels.class.getName()
+            SmartPixels.class.getName(),
             RunningServices.class.getName()
     };
 
@@ -322,7 +322,7 @@ public class SettingsGateway {
             Settings.PulseSettingsActivity.class.getName(),
             Settings.AboutSettingsActivity.class.getName(),
             Settings.PieControlSettingsActivity.class.getName(),
-            Settings.SmartPixelsActivity.class.getName()
+            Settings.SmartPixelsActivity.class.getName(),
             Settings.DevRunningServicesActivity.class.getName()
     };
 }
