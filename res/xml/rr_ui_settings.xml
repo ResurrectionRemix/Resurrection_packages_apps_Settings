@@ -85,6 +85,13 @@
             android:icon="@drawable/rr_sysui_theme_icon" />
 
         <Preference
+            android:key="smart_pixels"
+            android:title="@string/smart_pixels_title"
+            android:summary="@string/smart_pixels_summary"
+            android:fragment="com.android.settings.rr.fragments.SmartPixels" 
+            android:icon="@drawable/rr_suspend_icon"/>
+
+        <Preference
             android:key="expanded_desktop"
             android:title="@string/power_menu_expanded_desktop"
             android:icon="@drawable/rr_expanded_desktop_icon"

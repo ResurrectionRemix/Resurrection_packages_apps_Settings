@@ -40,6 +40,13 @@
 
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="recents_lock_icon"
+            android:title="@string/recents_lock_title"
+            android:summary="@string/recents_lock_summary"
+            android:defaultValue="false"
+            android:dependency="clear_recents_style_enable" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="recents_rotate_fab"
             android:title="@string/recents_rotate_fab"
             android:summary="@string/recents_rotate_fab_summary"
@@ -54,6 +61,12 @@
             android:defaultValue="0"
             android:dependency="recents_rotate_fab" />
 
+       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="recents_grid"
+            android:title="@string/recents_grid_title"
+            android:summary="@string/recents_grid_summary"
+            android:defaultValue="false"
+            android:dependency="clear_recents_style_enable" />
 
            </PreferenceCategory>
 

@@ -38,6 +38,24 @@
             android:summary="@string/quick_settings_vibrate_summary"
             android:defaultValue="false" />
 
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_warnings"
+            android:title="@string/qs_footer_warnings_title"
+            android:summary="@string/qs_footer_warnings_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_settings"
+            android:title="@string/qs_footer_settings_title"
+            android:summary="@string/qs_footer_settings_summary"
+            android:defaultValue="true" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_footer_show_services"
+            android:title="@string/qs_footer_services_title"
+            android:summary="@string/qs_footer_services_summary"
+            android:defaultValue="false" />
+
 	<com.android.settings.rr.Preferences.CustomSeekBarPreference
             android:key="qs_panel_alpha"
             android:title="@string/qs_panel_alpha_title"
@@ -45,5 +63,35 @@
             settings:min="0"
             settings:units=""
             android:persistent="false" />
+
+      <PreferenceCategory
+        android:key="quick_settings_animations"
+        android:title="@string/qs_tiles">
+
+        <com.android.settings.rr.Preferences.SystemSettingIntListPreference
+            android:key="anim_tile_style"
+            android:title="@string/qs_tile_animation_style_title"
+            android:entries="@array/qs_tile_animation_style_entries"
+            android:entryValues="@array/qs_tile_animation_style_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
+        <com.android.settings.rr.Preferences.SystemSettingIntListPreference
+            android:key="anim_tile_duration"
+            android:title="@string/qs_tile_animation_duration_title"
+            android:entries="@array/qs_tile_animation_duration_entries"
+            android:entryValues="@array/qs_tile_animation_duration_values"
+            android:summary="%s"
+            android:defaultValue="1" />
+
+        <com.android.settings.rr.Preferences.SystemSettingIntListPreference
+            android:key="anim_tile_interpolator"
+            android:title="@string/qs_tile_animation_interpolator_title"
+            android:entries="@array/qs_tile_animation_interpolator_entries"
+            android:entryValues="@array/qs_tile_animation_interpolator_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
+      </PreferenceCategory>
 
 </PreferenceScreen>

@@ -210,7 +210,7 @@ public class ActionFragment extends SettingsPreferenceFragment implements
         loadAndSetConfigs();
     }
 
-    private void loadAndSetConfigs() {
+    protected void loadAndSetConfigs() {
         mButtons = Config.getConfig(getActivity(), mDefaults);
         mDefaultButtons = Config.getDefaultConfig(getActivity(), mDefaults);
         for (ActionPreference pref : mPrefHolder) {

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2012-2014 The CyanogenMod Project
+ * Copyright (C) 2018 ABC rom
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.rr.utils;
+package com.android.settings.rr;
 
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +25,7 @@ import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
-import android.text.TextUtils;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,11 +36,10 @@ import android.widget.TextView;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.TreeSet;
 
 import com.android.settings.R;
 
-public class PackageListAdapter extends BaseAdapter implements Runnable {
+public class ScreenshotEditPackageListAdapter extends BaseAdapter implements Runnable {
     private PackageManager mPm;
     private LayoutInflater mInflater;
     private final List<PackageItem> mInstalledPackages = new LinkedList<PackageItem>();
@@ -74,7 +74,7 @@ public class PackageListAdapter extends BaseAdapter implements Runnable {
         }
     }
 
-    public PackageListAdapter(Context context) {
+    public ScreenshotEditPackageListAdapter(Context context) {
         mPm = context.getPackageManager();
         mInflater = LayoutInflater.from(context);
         reloadList();
@@ -108,10 +108,10 @@ public class PackageListAdapter extends BaseAdapter implements Runnable {
         if (convertView != null) {
             holder = (ViewHolder) convertView.getTag();
         } else {
-            convertView = mInflater.inflate(R.layout.applist_preference_icon, null, false);
+            convertView = mInflater.inflate(R.layout.preference_icon, null, false);
             holder = new ViewHolder();
             convertView.setTag(holder);
-            holder.title = (TextView) convertView.findViewById(com.android.internal.R.id.title);
+            holder.title = (TextView) convertView.findViewById(R.id.title);
             holder.icon = (ImageView) convertView.findViewById(R.id.icon);
         }
 
@@ -129,13 +129,18 @@ public class PackageListAdapter extends BaseAdapter implements Runnable {
 
     @Override
     public void run() {
-        List<ApplicationInfo> installedAppsInfo = mPm.getInstalledApplications(PackageManager.GET_META_DATA);
-        for (ApplicationInfo appInfo : installedAppsInfo) {
-            if (appInfo.icon != 0) {
-                final PackageItem item = new PackageItem(appInfo.packageName,
-                        appInfo.loadLabel(mPm), appInfo.loadIcon(mPm));
-                mHandler.obtainMessage(0, item).sendToTarget();
-            }
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_EDIT);
+        // setData is needed because some apps like PhotoEditor need an uri for the EDIT intent action,
+        // otherwise they don't answer to the intent query. So we give them the generic EXTERNAL_CONTENT_URI
+        // as a fake uri here.
+        intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/png");
+        List<ResolveInfo> installedAppsInfo = mPm.queryIntentActivities(intent, 0);
+        for (ResolveInfo info : installedAppsInfo) {
+            ApplicationInfo appInfo = info.activityInfo.applicationInfo;
+            final PackageItem item = new PackageItem(appInfo.packageName,
+                    appInfo.loadLabel(mPm), appInfo.loadIcon(mPm));
+            mHandler.obtainMessage(0, item).sendToTarget();
         }
     }
 
