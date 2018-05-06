@@ -799,6 +799,17 @@
   <string name="fling_keyboard_cursors_title">Akcie kurzorov dynamickej klávesnice</string>
   <string name="fling_keyboard_cursors_move_summary">Keď je klávesnica zobrazená, dlho stlačte doľava alebo doprava, aby ste posunuli textový kurzor doľava alebo doprava..\nPokračovaním v dlhom stlačení sa bude kurzor stále posúvať. Kliknite raz na panel pre návrat na domovskú obrazovku.</string>
   <string name="fling_logo_opacity_title">Priehľadnosť loga Fling</string>
+  <string name="fling_factory_reset_title">Obnoviť predvolené</string>
+  <string name="fling_factory_reset_confirm">Naozaj chcete obnoviť nastavenia Fling lišty na predvolené hodnoty?</string>
+  <string name="fling_backup_current_config_title">Uložiť profil</string>
+  <string name="fling_restore_config_title">Obnoviť profil</string>
+  <string name="fling_config_name_edit_dialog_title">Názov profilu Fling</string>
+  <string name="fling_config_name_edit_dialog_message">Zadajte meno alebo ponechajte prázdne</string>
+  <string name="fling_config_dialog_title">Fling profily</string>
+  <string name="fling_config_backup_success_toast">Profil Fling bol úspešne uložený</string>
+  <string name="fling_config_restore_success_toast">Profil Fling bol úspešne obnovený</string>
+  <string name="fling_config_backup_error_toast">Chyba pri ukladaní profilu Fling</string>
+  <string name="fling_config_restore_error_toast">Chyba pri obnovení profilu Fling</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse nefunguje s niektorými zvukovými zdrojmi pri počúvaní z reproduktora zariadenia</string>
   <string name="pulse_settings">Pulse</string>
@@ -1743,6 +1754,9 @@
   <string name="screenshot_options_category">Možnosti snímky obrazovky</string>
   <string name="screenshot_options_summary">Prispôsobiť atribúty obrazovky, ako je čas, oneskorenie, typ atď.</string>
   <string name="screenshot_delay_title">Oneskorenie snímky obrazovky</string>
+  <string name="screenshot_edit_app">Editor snímok obrazovky</string>
+  <string name="screenshot_edit_app_summary">Vyberte, ktorá aplikácia by sa mala spustiť pri stlačení tlačidla \"Upraviť\" v upozornení na obrazovke</string>
+  <string name="screenshot_edit_app_no_editor">Nie je k dispozícii žiadny editor obrázkov</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Automatické odomknutie pomocou tváre</string>
   <string name="face_auto_unlock_summary">Odstráni obrazovku uzamknutia po odomknutí tvárou. Musíte povoliť odomknutie tvárou/dôveryhodnú tvár</string>
@@ -1756,11 +1770,54 @@
   <string name="notification_guts_kill_app_button_title">Tlačidlo \"Ukončiť aplikáciu\"</string>
   <string name="notification_guts_kill_app_button_summary">Zobraziť tlačidlo \"Ukončiť aplikáciu\" v ponuke akcií pri dlhom stlačení</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Smart Pixels</string>
+  <string name="smart_pixels_summary">Ušetrite batériu vypnutím ďalších pixelov</string>
+  <string name="smart_pixels_enable_title">Povoliť Smart Pixels</string>
+  <string name="smart_pixels_enable_summary">Vypnite pixely, aby ste znížili spotrebu energie</string>
+  <string name="smart_pixels_on_power_save_title">Automatické zapnutie pri spustení šetriča batérie</string>
+  <string name="smart_pixels_on_power_save_summary">Zapnúť Smart Pixels ak je aktivovaný šetrič batérie</string>
+  <string name="smart_pixels_percent">Percento pixelov, ktoré chcete zakázať</string>
+  <string name="smart_pixels_shift">Zabráňte vypáleniu posunutím všetkých pixelov o interval</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Ukázať spustené služby</string>
+  <string name="qs_footer_services_summary">Zobrazenie ikon spustených služieb v päte Rýchlych nastavení</string>
+  <string name="qs_footer_settings_title">Zobraziť ikonu Nastavenia</string>
+  <string name="qs_footer_settings_summary">Zobraziť ikonu Nastavenia v päte Rýchlych nastavení</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_title">Mriežka Nedávnych aplikácií</string>
+  <string name="recents_grid_summary">Zobraziť Stock Nedávne aplikácie v štýle mriežky</string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_title">Zamknúť Nedávne aplikácie</string>
+  <string name="recents_lock_summary">Zobraziť ikonu zámku v hlavičke nedávnej (poslednej) aplikácie</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tiles">Ikony rýchlych nastavení</string>
+  <string name="qs_tile_animation_style_title">Štýl animácie</string>
+  <string name="qs_tile_animation_duration_title">Trvanie animácie</string>
+  <string name="qs_tile_animation_interpolator_title">Interpolácia animácie dlaždíc</string>
+  <string name="qs_tile_animation_style_off">Bez animácie</string>
+  <string name="qs_tile_animation_style_flip">Preklopenie</string>
+  <string name="qs_tile_animation_style_rotate">Otočenie</string>
+  <string name="qs_tile_animation_duration_low">Krátke</string>
+  <string name="qs_tile_animation_duration_default">Predvolené</string>
+  <string name="qs_tile_animation_duration_fast">Rýchle</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Lineárna</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Zrýchlenie</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Spomalenie</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Zrýchlenie a spomalenie</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Odrazenie</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Prekročenie</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Predbiehanie</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Predbiehnanie a prekročenie</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Procesy na pozadí</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Vyžadovať povolenie pre každú tému</string>
+  <string name="force_authorize_substratum_packages_summary">Povoliť inštaláciu tém z neznámych zdrojov</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Substratum prekrytia</string>
+  <string name="menu_show_substratum">Zobraziť prekrytia</string>
+  <string name="menu_hide_substratum">Skryť prekrytia</string>
 </resources>

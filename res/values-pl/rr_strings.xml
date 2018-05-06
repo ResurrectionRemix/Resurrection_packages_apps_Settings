@@ -799,6 +799,17 @@
   <string name="fling_keyboard_cursors_title">Dynamiczne działanie kursorów klawiatury</string>
   <string name="fling_keyboard_cursors_move_summary">Gdy klawiatura jest wyświetlana, długie naciśnięcie po prawej lub lewej stronie powoduje przesunięcie kursora tekstowego. \nPrzytrzymaj aby sterować kursorem, naciśnij na pasek, aby powrócić do ekranu głównego.</string>
   <string name="fling_logo_opacity_title">Przezroczystość loga Fling</string>
+  <string name="fling_factory_reset_title">Przywróć domyślny</string>
+  <string name="fling_factory_reset_confirm">Czy na pewno chcesz przywrócić Fling do ustawień domyślnych?</string>
+  <string name="fling_backup_current_config_title">Zapisz profil</string>
+  <string name="fling_restore_config_title">Przywróć profil</string>
+  <string name="fling_config_name_edit_dialog_title">Nazwa profilu Fling</string>
+  <string name="fling_config_name_edit_dialog_message">Wprowadź nazwę lub pozostaw puste</string>
+  <string name="fling_config_dialog_title">Nazwa profilu Fling</string>
+  <string name="fling_config_backup_success_toast">Ustawienia Fling zapisane pomyślnie</string>
+  <string name="fling_config_restore_success_toast">Ustawienia Fling przywrócone pomyślnie</string>
+  <string name="fling_config_backup_error_toast">Wystąpił błąd podczas zapisywania ustawień Fling</string>
+  <string name="fling_config_restore_error_toast">Wystąpił błąd podczas zapisywania ustawień Fling</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse nie działa z niektórymi źródłami dźwięku kiedy głośnik urządenia jest w użyciu</string>
   <string name="pulse_settings">Pulse</string>
@@ -1743,6 +1754,9 @@
   <string name="screenshot_options_category">Opcje zrzutu ekranu</string>
   <string name="screenshot_options_summary">Dostosuj atrybuty zrzutu ekranu, takie jak czas, opóźnienie, typ itp</string>
   <string name="screenshot_delay_title">Opóźnienie zrzutu ekranu</string>
+  <string name="screenshot_edit_app">Edytor zrzutów ekranu</string>
+  <string name="screenshot_edit_app_summary">Wybierz aplikację która ma być uruchomiona gdy zostanie naciśnięty przycisk edycji zrzutu ekranu</string>
+  <string name="screenshot_edit_app_no_editor">Brak dostępnych aplikacji edycji zrzutów ekranu</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Odblokuj automatycznie twarzą</string>
   <string name="face_auto_unlock_summary">Nie pokazuj ekrany blokady po odblokowaniu twarzą. Musisz włączyć odblokowywanie zaufaną twarzą aby tego użyć</string>
@@ -1756,11 +1770,54 @@
   <string name="notification_guts_kill_app_button_title">Przycisk zabijania aplikacji</string>
   <string name="notification_guts_kill_app_button_summary">Pokaż przycisk zabijania aplikacji po długim przytrzymaniu w menu powiadomień</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Smart Pixels</string>
+  <string name="smart_pixels_summary">Oszczędzaj baterię poprzez wyłączanie dodatkowych pikseli</string>
+  <string name="smart_pixels_enable_title">Włącz Smart Pixels</string>
+  <string name="smart_pixels_enable_summary">Wyłącz piksele w celu redukcji zużycia energii</string>
+  <string name="smart_pixels_on_power_save_title">Automatyczne włączanie oszczędzania baterii</string>
+  <string name="smart_pixels_on_power_save_summary">Włącz Smart Pixels gdy oszczędzanie baterii jest włączone</string>
+  <string name="smart_pixels_percent">Procent pikseli do wyłączenia</string>
+  <string name="smart_pixels_shift">Zapobiegaj wypalaniu pikseli poprzez przesuwanie ich</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Pokaż ikonę uruchomionych usług</string>
+  <string name="qs_footer_services_summary">Wyświetl ikonę uruchomionych usług w stopce szybkich ustawień</string>
+  <string name="qs_footer_settings_title">Pokaż ikonę ustawień</string>
+  <string name="qs_footer_settings_summary">Wyświetl ikonę ustawień w stopce szybkich ustawień</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_title">Siatka ostatnich</string>
+  <string name="recents_grid_summary">Wyświetlaj ostatnie w stylu siatki</string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_title">Blokowanie ostatnich</string>
+  <string name="recents_lock_summary">Wyświetl ikonę kłódki w nagłówku ostatnich aplikacji</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tiles">Kafelki szybkich skrótów</string>
+  <string name="qs_tile_animation_style_title">Styl animacji</string>
+  <string name="qs_tile_animation_duration_title">Czas trwania animacji</string>
+  <string name="qs_tile_animation_interpolator_title">Animacja interpolacji kafelka</string>
+  <string name="qs_tile_animation_style_off">Brak animacji</string>
+  <string name="qs_tile_animation_style_flip">Kręcenie</string>
+  <string name="qs_tile_animation_style_rotate">Obrót</string>
+  <string name="qs_tile_animation_duration_low">Powoli</string>
+  <string name="qs_tile_animation_duration_default">Domyślne</string>
+  <string name="qs_tile_animation_duration_fast">Szybko</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Liniowe</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Przyspieszanie</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Zwalnianie</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Przyspiesz / Zwolnij</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Podskok</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Przestrzelenie</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Przewiduj</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Przewiduj / Przestrzel</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Procesy pracujące w tle</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Wymuś autoryzację każdego motywu</string>
+  <string name="force_authorize_substratum_packages_summary">Zezwalaj na instalowanie motywów z nieznanych źródeł</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Nakładki Substratum</string>
+  <string name="menu_show_substratum">Pokaż nakładki</string>
+  <string name="menu_hide_substratum">Ukryj nakładki</string>
 </resources>

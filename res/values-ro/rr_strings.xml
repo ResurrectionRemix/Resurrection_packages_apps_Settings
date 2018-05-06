@@ -799,6 +799,17 @@
   <string name="fling_keyboard_cursors_title">Acțiune cursor de tastatură dinamică</string>
   <string name="fling_keyboard_cursors_move_summary">Când tastatura este aratata, apasarea lunga in stanga sau dreapta pentru a muta cursorul textului la stanga sau dreapta.\n tine apasare lunga ca sa pastreze miscarea cursorului, o singura apasare pe bara te duce in ecranul principal.</string>
   <string name="fling_logo_opacity_title">Opacitate logo de decolorare</string>
+  <string name="fling_factory_reset_title">Resetează la valorile implicite</string>
+  <string name="fling_factory_reset_confirm">Ești sigur că vrei să resetezi Smartbar la valorile implicite?</string>
+  <string name="fling_backup_current_config_title">Salvați profilul</string>
+  <string name="fling_restore_config_title">Restabilire profil</string>
+  <string name="fling_config_name_edit_dialog_title">Nume profil Cam</string>
+  <string name="fling_config_name_edit_dialog_message">Introduceţi numele sau lăsaţi necompletat</string>
+  <string name="fling_config_dialog_title">Profil Cam</string>
+  <string name="fling_config_backup_success_toast">Profilul SmartBar salvat cu succes</string>
+  <string name="fling_config_restore_success_toast">Profilul SmartBar restaurat cu succes</string>
+  <string name="fling_config_backup_error_toast">Eroare la salvarea profilului SmartBar</string>
+  <string name="fling_config_restore_error_toast">Eroare la salvarea profilului SmartBar</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulsul nu funcționează cu unele surse audio atunci când ascultați la difuzorul dispozitivului</string>
   <string name="pulse_settings">Pulse</string>
@@ -1743,6 +1754,9 @@
   <string name="screenshot_options_category">Setări captură de ecran</string>
   <string name="screenshot_options_summary">Personalizați atributele de ecran cum ar fi timp, întârziere, tip etc</string>
   <string name="screenshot_delay_title">Întârziere captură de ecran</string>
+  <string name="screenshot_edit_app">Editor captură de ecran</string>
+  <string name="screenshot_edit_app_summary">Alegeti ce app sa fie lansat când apasati pe butonul de editare din captura ecran</string>
+  <string name="screenshot_edit_app_no_editor">Nici un editor de imagine disponibilă</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Auto deblocare fata</string>
   <string name="face_auto_unlock_summary">Respingerea lockscreen după deblocarea fata. Trebuie să activaţi fata debloca/încredere faţă de acest lucru</string>
@@ -1756,11 +1770,54 @@
   <string name="notification_guts_kill_app_button_title">Buton închide aplicația</string>
   <string name="notification_guts_kill_app_button_summary">Afișează unu buton pentru închiderea aplicaţiei în meniul notificării apăsării lungi</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Pixeli inteligenti</string>
+  <string name="smart_pixels_summary">Salveaza bateria prin închiderea altor pixeli suplimentari</string>
+  <string name="smart_pixels_enable_title">Auto-permitere pixeli inteligenti</string>
+  <string name="smart_pixels_enable_summary">Inchide pixelii pentru a reduce consumul de curent</string>
+  <string name="smart_pixels_on_power_save_title">Auto-permite salvarea bateriei</string>
+  <string name="smart_pixels_on_power_save_summary">Permite pixeli inteligenti când salvarea bateriei este permisa</string>
+  <string name="smart_pixels_percent">Procentajul de pixeli pentru dezactivare</string>
+  <string name="smart_pixels_shift">Împiedicați arderea prin deplasarea oricăror pixeli</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Pictograma servicii în execuţie</string>
+  <string name="qs_footer_services_summary">Afișați pictograma Running Services în setările rapide din subsol</string>
+  <string name="qs_footer_settings_title">Afișați pictograma Setări</string>
+  <string name="qs_footer_settings_summary">Afișați pictograma Running Services în setările rapide din subsol</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_title">Ieșire Recente</string>
+  <string name="recents_grid_summary">Afișați stocul recent în stil grilă</string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_title">Blocari recente</string>
+  <string name="recents_lock_summary">Afișați pictograma blocare în antetul aplicației recente</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tiles">Dale QS</string>
+  <string name="qs_tile_animation_style_title">Stil animație</string>
+  <string name="qs_tile_animation_duration_title">Durata animaţiei</string>
+  <string name="qs_tile_animation_interpolator_title">Dale interpolator animație</string>
+  <string name="qs_tile_animation_style_off">Fără animaţie</string>
+  <string name="qs_tile_animation_style_flip">Răsucire</string>
+  <string name="qs_tile_animation_style_rotate">Rotire</string>
+  <string name="qs_tile_animation_duration_low">Scăzută</string>
+  <string name="qs_tile_animation_duration_default">Implicit</string>
+  <string name="qs_tile_animation_duration_fast">Rapidă</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Linear</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Accelerare</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Decelerare</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Accelerare si Decelerare</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Saritura</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Depăşire</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Anticipare</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Anticipează depăşiri</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Procesele de fundal</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Autorizare forţată a fiecărei aplicație de temă</string>
+  <string name="force_authorize_substratum_packages_summary">Permiteţi aplicații teme din surse necunoscute</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Suprapuneri de substrat</string>
+  <string name="menu_show_substratum">Arată suprapuneri</string>
+  <string name="menu_hide_substratum">Ascundeţi suprapunerile</string>
 </resources>

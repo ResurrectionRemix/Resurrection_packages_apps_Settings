@@ -800,6 +800,17 @@
   <string name="fling_keyboard_cursors_title">Acció del cursor de teclat dinàmic</string>
   <string name="fling_keyboard_cursors_move_summary">Quan es mostri el teclat, premeu la tecla esquerra o cap a la dreta per moure el cursor de text cap a l\'esquerra o cap a la dreta.\nMantingueu l\'expressió prolongada per continuar movent el cursor, només toqueu la barra per anar a la pantalla d\'inici.</string>
   <string name="fling_logo_opacity_title">Opacitat del logotip de Fling</string>
+  <string name="fling_factory_reset_title">Restablir a valors per defecte</string>
+  <string name="fling_factory_reset_confirm">Esteu segur que voleu reiniciar \"Fling\" a la configuració per defecte?</string>
+  <string name="fling_backup_current_config_title">Desa el perfil</string>
+  <string name="fling_restore_config_title">Restaurar el perfil</string>
+  <string name="fling_config_name_edit_dialog_title">Nom del perfil Fling</string>
+  <string name="fling_config_name_edit_dialog_message">Introduïu el nom o deixeu-lo en blanc</string>
+  <string name="fling_config_dialog_title">Perfils Fling</string>
+  <string name="fling_config_backup_success_toast">El perfil s\'ha guardat correctament</string>
+  <string name="fling_config_restore_success_toast">El perfil s\'ha restaurat correctament</string>
+  <string name="fling_config_backup_error_toast">Error al desar el perfil</string>
+  <string name="fling_config_restore_error_toast">Error al restaurar el perfil</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse no funciona amb algunes fonts d\'àudio quan s\'escolta en l\'altaveu del dispositiu</string>
   <string name="pulse_settings">Pulse</string>
@@ -1744,6 +1755,9 @@
   <string name="screenshot_options_category">Opcions de captura de pantalla</string>
   <string name="screenshot_options_summary">Personalitzeu els atributs de la captura de pantalla com ara el temps, el retard, el tipus, etc</string>
   <string name="screenshot_delay_title">Retard de la captura de pantalla</string>
+  <string name="screenshot_edit_app">Editor de captures de pantalla</string>
+  <string name="screenshot_edit_app_summary">Trieu l\'aplicació que s\'ha d\'iniciar quan toqueu el botó d\'edició de notificació de la captura de pantalla</string>
+  <string name="screenshot_edit_app_no_editor">No hi ha cap editor d\'imatges disponible</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Desbloqueig automàtic facial</string>
   <string name="face_auto_unlock_summary">No mostris la pantalla de bloqueig després de desbloquejar la cara. Heu d\'habilitar la cara de desbloqueig/cara de confiança per això</string>
@@ -1757,11 +1771,51 @@
   <string name="notification_guts_kill_app_button_title">Botó d\'aturar aplicació</string>
   <string name="notification_guts_kill_app_button_summary">Mostra un botó per matar aplicacions en una pulsació llarga al menú</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Píxels intel·ligents</string>
+  <string name="smart_pixels_summary">Estalvia bateria apagant píxels addicionals</string>
+  <string name="smart_pixels_enable_title">Habilita els píxels intel·ligents</string>
+  <string name="smart_pixels_enable_summary">Apagueu píxels per reduir el consum d\'energia</string>
+  <string name="smart_pixels_on_power_save_title">Activa automàticament en el estalvi de la bateria</string>
+  <string name="smart_pixels_on_power_save_summary">Activeu els \"Smart Píxels\" quan estigui habilitat l\'estalvi de la bateria</string>
+  <string name="smart_pixels_percent">Percentatge de píxels a desactivar</string>
+  <string name="smart_pixels_shift">Eviteu la creació de cremades desplaçant els píxels</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Mostra la icona de serveis en execució</string>
+  <string name="qs_footer_services_summary">Mostrar icones de serveis en execució en el peu de pàgina de configuració ràpida</string>
+  <string name="qs_footer_settings_title">Mostra la icona de configuració</string>
+  <string name="qs_footer_settings_summary">Icona de configuració de la pantalla en el peu de pàgina de configuració ràpida</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_summary">Mostra els recents en un estil de quadrícula</string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_summary">Mostra la icona de bloqueig al capçalera de l\'aplicació recent</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tile_animation_style_title">Estil de l\'animació</string>
+  <string name="qs_tile_animation_duration_title">Durada de l\'animació</string>
+  <string name="qs_tile_animation_interpolator_title">Interpolador d\'animació de rajoles</string>
+  <string name="qs_tile_animation_style_off">No hi ha animació</string>
+  <string name="qs_tile_animation_style_flip">Gira</string>
+  <string name="qs_tile_animation_style_rotate">Rotar</string>
+  <string name="qs_tile_animation_duration_low">Lenta</string>
+  <string name="qs_tile_animation_duration_default">Per defecte</string>
+  <string name="qs_tile_animation_duration_fast">Ràpida</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Lineal</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Accelerar</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Desaccelerar</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Accelerar desaccelerar</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Rebot</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Avançar-se</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Anticipar-se</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Anticipa la sobrecàrrega</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Processos de fons</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Forçar autoritzar totes les aplicacions del tema</string>
+  <string name="force_authorize_substratum_packages_summary">Permetre aplicacions de temes de fonts desconegudes</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Superposicions de Substratum</string>
+  <string name="menu_show_substratum">Mostra les superposicions</string>
+  <string name="menu_hide_substratum">Amaga les superposicions</string>
 </resources>

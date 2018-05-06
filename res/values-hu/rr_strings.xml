@@ -799,6 +799,17 @@
   <string name="fling_keyboard_cursors_title">Dinamikus billentyűzet kurzorok</string>
   <string name="fling_keyboard_cursors_move_summary">Amikor a billentyűzet megjelenik, hosszan nyomja meg balra vagy jobbra gombot a kurzor balra vagy jobbra mozgatásához.\nTartsa nyomva a kurzor mozgatásához, érintse meg a sávot a kezdőképernyőre lépéshez.</string>
   <string name="fling_logo_opacity_title">Fling logó átlátszatlansága</string>
+  <string name="fling_factory_reset_title">Gyári beállítások visszaállítása</string>
+  <string name="fling_factory_reset_confirm">Biztos, hogy visszaállítja a Fling gyári állapotát?</string>
+  <string name="fling_backup_current_config_title">Profil mentése</string>
+  <string name="fling_restore_config_title">Profil visszaállítása</string>
+  <string name="fling_config_name_edit_dialog_title">A Fling profil neve</string>
+  <string name="fling_config_name_edit_dialog_message">Adjon meg nevet, vagy hagyja üresen</string>
+  <string name="fling_config_dialog_title">Fling profilok</string>
+  <string name="fling_config_backup_success_toast">A Fling profil sikeresen mentésre került</string>
+  <string name="fling_config_restore_success_toast">A Fling profil sikeresen visszaállításra került</string>
+  <string name="fling_config_backup_error_toast">Hiba keletkezett a Fling profil mentésekor</string>
+  <string name="fling_config_restore_error_toast">Hiba keletkezett a Fling profil visszaállításakor</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">A Pulse nem működik bizonyos források esetén, amikor a készülék hangszóróján szól a média</string>
   <string name="pulse_settings">Pulse</string>
@@ -1743,6 +1754,9 @@
   <string name="screenshot_options_category">Képernyőmentési beállítások</string>
   <string name="screenshot_options_summary">Testreszabhatja a képernyőmentés beállításait, mint az idő, a késeleltetés, a típusa, stb.</string>
   <string name="screenshot_delay_title">Képernyőmentés késleltetés</string>
+  <string name="screenshot_edit_app">Képernyőmentés-szerkesztő</string>
+  <string name="screenshot_edit_app_summary">Válassza ki, melyik alkalmazás induljon el, ha megérinti a Képernyőmentés-szerkesztő gombot</string>
+  <string name="screenshot_edit_app_no_editor">Nem található képszerkesztő</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Automatikus arcfeloldás</string>
   <string name="face_auto_unlock_summary">Zárképernyő elvetése az arcfelismeréssel való feloldás után. Ehhez engedélyeznie kell az arcfelismeréses feloldást/megbízható arcot</string>
@@ -1756,11 +1770,54 @@
   <string name="notification_guts_kill_app_button_title">Alkalmazás leállítása gomb</string>
   <string name="notification_guts_kill_app_button_summary">Az értesítés hosszan nyomási menüjében az alkalmazás leállítása gomb megjelenítése</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Intelligens pixelek</string>
+  <string name="smart_pixels_summary">Akkumulátorkímélés extra képpontok kikapcsolásával</string>
+  <string name="smart_pixels_enable_title">Intelligens pixelek engedélyezése</string>
+  <string name="smart_pixels_enable_summary">Képpontok kikapcsolása az akkufogyasztás csökkentése érdekében</string>
+  <string name="smart_pixels_on_power_save_title">Automatikus engedélyezés akkumulátorkímélő-üzemmódban</string>
+  <string name="smart_pixels_on_power_save_summary">Engedélyezze az Intelligens pixelek funkciót, ha az akkumulátorkímélő-üzemmód be van kapcsolva</string>
+  <string name="smart_pixels_percent">A képpontok százalékos letiltása</string>
+  <string name="smart_pixels_shift">A beégés megelőzéséért mozgassa meg a képpontokat a következő időközönként</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Futó szolgáltatások ikonjának megjelenítése</string>
+  <string name="qs_footer_services_summary">Megjeleníti a Futó szolgáltatások ikonját a gyorsbeállítások láblécében</string>
+  <string name="qs_footer_settings_title">Beállítások ikonjának megjelenítése</string>
+  <string name="qs_footer_settings_summary">Megjeleníti a Beállítások ikonját a gyorsbeállítások láblécében</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_title">Előzmények-rács</string>
+  <string name="recents_grid_summary">Rácsos stílusban jeleníti meg az előzményeket</string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_title">Előzmények zárolása</string>
+  <string name="recents_lock_summary">Az alkalmazáselőzmények fejlécében jelenítse meg a zárolóikont</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tiles">Gyorsbeállítás-csempék</string>
+  <string name="qs_tile_animation_style_title">Az animáció stílusa</string>
+  <string name="qs_tile_animation_duration_title">Az animáció hossza</string>
+  <string name="qs_tile_animation_interpolator_title">Csempeanimáció közbeiktató</string>
+  <string name="qs_tile_animation_style_off">Nincs animáció</string>
+  <string name="qs_tile_animation_style_flip">Fordulás</string>
+  <string name="qs_tile_animation_style_rotate">Forgatás</string>
+  <string name="qs_tile_animation_duration_low">Lassú</string>
+  <string name="qs_tile_animation_duration_default">Alapértelmezett</string>
+  <string name="qs_tile_animation_duration_fast">Gyors</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Egyenletes</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Gyorsuló</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Lassuló</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Gyorsuló/Lassuló</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Ugráló</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Túlzó</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Sejtető</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Sejtető (túllövéssel)</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Háttérfolyamatok</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Minden témaalkalmazás kényszerített hitelesítése</string>
+  <string name="force_authorize_substratum_packages_summary">Ismeretlen forrásból származó témák telepítésének engedélyezése</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Substratum fedvények</string>
+  <string name="menu_show_substratum">Fedvények megjelenítése</string>
+  <string name="menu_hide_substratum">Fedvények elrejtése</string>
 </resources>

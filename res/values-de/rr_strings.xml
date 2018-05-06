@@ -112,7 +112,7 @@
   <string name="rr_facebook_summary">Facebook Community</string>
   <string name="rr_google_plus_title">Google</string>
   <string name="rr_google_plus_summary">Google+ Community</string>
-  <string name="rr_pb_title">PitchBlack Design</string>
+  <string name="rr_pb_title">PitchBlack Thema</string>
   <string name="rr_pb_summary">Offizielles Substratum Theme Resurrection Remix OS</string>
   <string name="rr_twitter_title">Twitter</string>
   <string name="rr_twitter_summary">Twitter-Konto</string>
@@ -799,6 +799,17 @@
   <string name="fling_keyboard_cursors_title">Dynamische Cursor-Aktionen (Tastatur)</string>
   <string name="fling_keyboard_cursors_move_summary">Wenn die Tastatur angezeigt wird, drücken Sie lange nach links oder rechts, um den Textcursor nach links oder rechts zu bewegen.\nHalten Sie lange gedrückt, um den Cursor weiter zu bewegen.\nTippen Sie einmal auf die Leiste, um zum Startbildschirm zu gelangen.</string>
   <string name="fling_logo_opacity_title">Deckkraft des Fling-Logos</string>
+  <string name="fling_factory_reset_title">Auf Grundeinstellung zurücksetzen</string>
+  <string name="fling_factory_reset_confirm">Sind Sie sicher, dass Sie Fling auf die Grundeinstellungen zurücksetzen möchten?</string>
+  <string name="fling_backup_current_config_title">Profil speichern</string>
+  <string name="fling_restore_config_title">Profil wiederherstellen</string>
+  <string name="fling_config_name_edit_dialog_title">Fling-Profilname</string>
+  <string name="fling_config_name_edit_dialog_message">Namen eingeben oder leer lassen</string>
+  <string name="fling_config_dialog_title">Fling-Profile</string>
+  <string name="fling_config_backup_success_toast">Fling-Profil erfolgreich gespeichert</string>
+  <string name="fling_config_restore_success_toast">Fling-Profil erfolgreich wiederhergestellt</string>
+  <string name="fling_config_backup_error_toast">Fehler beim Speichern des Fling-Profils</string>
+  <string name="fling_config_restore_error_toast">Fehler beim Wiederherstellen des Fling-Profils</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse funktioniert mit einigen Audioquellen nicht, wenn die Ausgabe über die Gerätelautsprecher erfolgt</string>
   <string name="pulse_settings">Pulse</string>
@@ -1743,6 +1754,9 @@
   <string name="screenshot_options_category">Screenshot Optionen</string>
   <string name="screenshot_options_summary">Verschiedene Screenshot Eigenschaften wie Zeit, Verzögerung, Typ etc. anpassen</string>
   <string name="screenshot_delay_title">Screenshot Verzögerung</string>
+  <string name="screenshot_edit_app">Screenshot-Editor</string>
+  <string name="screenshot_edit_app_summary">Auswahl der zu öffnenden App, wenn \"Bearbeiten\" in der Benachrichtigung angetippt wird</string>
+  <string name="screenshot_edit_app_no_editor">Kein Foto-Editor verfügbar</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Entsperren per Gesichtserkennung</string>
   <string name="face_auto_unlock_summary">Sperrbildschirm wird beim Erkennen des Gesichts direkt ausgeblendet. Du musst entsperren per Gesichtserkennung aktivieren</string>
@@ -1756,11 +1770,54 @@
   <string name="notification_guts_kill_app_button_title">\"App beenden\" – Taste</string>
   <string name="notification_guts_kill_app_button_summary">Zeige eine Taste zum Beenden der App durch Gedrückthalten der Benachrichtigung</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Smart Pixels</string>
+  <string name="smart_pixels_summary">Batterie sparen durch Abschalten von zusätzlichen Pixeln</string>
+  <string name="smart_pixels_enable_title">Smart Pixels einschalten</string>
+  <string name="smart_pixels_enable_summary">Pixel zur Reduzierung des Stromverbrauchs abschalten</string>
+  <string name="smart_pixels_on_power_save_title">Bei Energiesparmodus automatisch einschalten</string>
+  <string name="smart_pixels_on_power_save_summary">Smart Pixels einschalten wenn Energiesparmodus eingeschaltet ist</string>
+  <string name="smart_pixels_percent">Prozentsatz der abzuschaltenden Pixel</string>
+  <string name="smart_pixels_shift">Burn-In verhindern durch Verschieben von Pixeln</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Icon für laufende Prozesse anzeigen</string>
+  <string name="qs_footer_services_summary">In der Fußzeile der Schnelleinstellungen das Symbol Laufende Dienste anzeigen</string>
+  <string name="qs_footer_settings_title">Symbol für Einstellungen anzeigen</string>
+  <string name="qs_footer_settings_summary">In der Fußzeile der Schnelleinstellungen das Symbol für Einstellungen anzeigen</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_title">Darstellung des Anwendungsverlaufs </string>
+  <string name="recents_grid_summary">Stelle den Anwendungsverlauf in Blöcken dar </string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_title">Anwendungsverlauf sperren</string>
+  <string name="recents_lock_summary">Sperrsymbol in der letzten App-Kopfzeile anzeigen</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tiles">Schnelleinstellungs-Kacheln</string>
+  <string name="qs_tile_animation_style_title">Animationsstil</string>
+  <string name="qs_tile_animation_duration_title">Animationsdauer</string>
+  <string name="qs_tile_animation_interpolator_title">Kachel Animationen interpolieren</string>
+  <string name="qs_tile_animation_style_off">Keine Animation</string>
+  <string name="qs_tile_animation_style_flip">Umdrehen</string>
+  <string name="qs_tile_animation_style_rotate">Drehen</string>
+  <string name="qs_tile_animation_duration_low">Gering</string>
+  <string name="qs_tile_animation_duration_default">Standard</string>
+  <string name="qs_tile_animation_duration_fast">Schnell</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Linear</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Beschleunigen</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Verlangsamen</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Beschleunigen Verlangsamen</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Hüpfen</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Übersteuern</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Vorraussehen</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Vorraussehend Überschwingen</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Hintergrundprozesse</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Erzwinge Autorisierung jeder Themen App</string>
+  <string name="force_authorize_substratum_packages_summary">Erlaube Theme Apps von unbekannten Quellen</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Substratum Overlays</string>
+  <string name="menu_show_substratum">Overlays anzeigen</string>
+  <string name="menu_hide_substratum">Overlays verstecken</string>
 </resources>

@@ -799,6 +799,17 @@
   <string name="fling_keyboard_cursors_title">Dinamična radnja kursora tipkovnice</string>
   <string name="fling_keyboard_cursors_move_summary">Kad je tipkovnica otvorena, pritisnite i držite lijevu ili desnu stranu za pomicanje pokazivača teksta ulijevo ili udesno.\nNastavite držati da biste nastavili micati pokazivač. Dodirnite samo jednom na traku za početni zaslon.</string>
   <string name="fling_logo_opacity_title">Prozirnost Fling loga</string>
+  <string name="fling_factory_reset_title">Vrati na zadano</string>
+  <string name="fling_factory_reset_confirm">Jeste li sigurni da želite vratiti Fling na zadane postavke?</string>
+  <string name="fling_backup_current_config_title">Spremi profil</string>
+  <string name="fling_restore_config_title">Vrati profil</string>
+  <string name="fling_config_name_edit_dialog_title">Naziv Fling profila</string>
+  <string name="fling_config_name_edit_dialog_message">Unesite ime ili ostavite prazno</string>
+  <string name="fling_config_dialog_title">Fling profili</string>
+  <string name="fling_config_backup_success_toast">Fling profil je uspješno spremljen</string>
+  <string name="fling_config_restore_success_toast">Fling profil je uspješno vraćen</string>
+  <string name="fling_config_backup_error_toast">Greška pri spremanju Fling profila</string>
+  <string name="fling_config_restore_error_toast">Greška pri vraćanju Fling profila</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Puls ne radi s nekim izvorima zvuka kad reproducirate glazbu na zvučnike uređaja</string>
   <string name="pulse_settings">Puls</string>
@@ -1743,6 +1754,9 @@
   <string name="screenshot_options_category">Opcije snimke zaslona</string>
   <string name="screenshot_options_summary">Prilagodite svojstva snimke zaslona poput vremena, kašnjenja, vrste, itd.</string>
   <string name="screenshot_delay_title">Kašnjenje snimke zaslona</string>
+  <string name="screenshot_edit_app">Uređivanje snimke zaslona</string>
+  <string name="screenshot_edit_app_summary">Odaberite koja će se aplikacija pokrenuti pri dodiru gumba za uređivanje snimke zaslona</string>
+  <string name="screenshot_edit_app_no_editor">Nema dostupnog uređivača slika</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Automatsko otključavanje licem</string>
   <string name="face_auto_unlock_summary">Zaključani zaslon odbacit će se nakon otključavanja licem. Za ovo morate prvo omogućiti otključavanje licem/pouzdano lice.</string>
@@ -1756,11 +1770,54 @@
   <string name="notification_guts_kill_app_button_title">Gumb za zatvaranje aplikacija</string>
   <string name="notification_guts_kill_app_button_summary">Prikazuje gumb za zatvaranje aplikacije u izborniku pri dugom pritisku obavijesti</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Pametni pikseli</string>
+  <string name="smart_pixels_summary">Uštedite bateriju gašenjem nepotrebnih piksela</string>
+  <string name="smart_pixels_enable_title">Omogući pametne piksele</string>
+  <string name="smart_pixels_enable_summary">Isključite piksele da smanjite potrošnju baterije</string>
+  <string name="smart_pixels_on_power_save_title">Automatski omogući s uštedom baterije</string>
+  <string name="smart_pixels_on_power_save_summary">Omogućite pametne piksele uključivanjem uštede baterije</string>
+  <string name="smart_pixels_percent">Postotak piksela za onemogućavanje</string>
+  <string name="smart_pixels_shift">Spriječite izgaranje (burn-in) promjenom piksela svakih</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Prikaži ikonu pokrenutih usluga</string>
+  <string name="qs_footer_services_summary">Prikaz ikone za pokrenute usluge u podnožju brzih postavki</string>
+  <string name="qs_footer_settings_title">Prikaži ikonu postavki</string>
+  <string name="qs_footer_settings_summary">Prikaz ikone postavki u podnožju brzih postavki</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_title">Nedavne aplikacije u mreži</string>
+  <string name="recents_grid_summary">Prikaz nedavnih aplikacija u stilu mreže</string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_title">Zaključavanje nedavnih aplikacija</string>
+  <string name="recents_lock_summary">Prikaz ikone za zaključavanje u zaglavlju nedavnih aplikacija</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tiles">Pločice brzih postavki</string>
+  <string name="qs_tile_animation_style_title">Stil animacije</string>
+  <string name="qs_tile_animation_duration_title">Trajanje animacije</string>
+  <string name="qs_tile_animation_interpolator_title">Interpolator animacije pločica</string>
+  <string name="qs_tile_animation_style_off">Nema animacije</string>
+  <string name="qs_tile_animation_style_flip">Vrtenje</string>
+  <string name="qs_tile_animation_style_rotate">Okretanje</string>
+  <string name="qs_tile_animation_duration_low">Sporo</string>
+  <string name="qs_tile_animation_duration_default">Zadano</string>
+  <string name="qs_tile_animation_duration_fast">Brzo</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Linearno</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Ubrzavanje</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Usporavanje</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Ubrzavanje i usporavanje</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Poskakivanje</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Prelijetanje</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Predviđanje</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Predviđanje i prelijetanje</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Pozadinski procesi</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Prisilno autoriziraj svaku aplikaciju za teme</string>
+  <string name="force_authorize_substratum_packages_summary">Omogućite aplikacije za teme iz nepoznatih izvora</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Substratum slojevi</string>
+  <string name="menu_show_substratum">Prikaži slojeve</string>
+  <string name="menu_hide_substratum">Sakrij slojeve</string>
 </resources>

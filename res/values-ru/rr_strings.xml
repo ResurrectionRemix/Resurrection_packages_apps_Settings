@@ -798,6 +798,17 @@
   <string name="fling_keyboard_cursors_title">Перемещение курсора клавиатуры</string>
   <string name="fling_keyboard_cursors_move_summary">Когда клавиатура отображается, удерживайте влево или вправо для перемещения курсора.\nПродолжайте удерживать для того, чтобы курсор продолжал перемещаться, нажмите один раз на панель, чтобы вернуться на домашний экран.</string>
   <string name="fling_logo_opacity_title">Прозрачность логотипа Fling</string>
+  <string name="fling_factory_reset_title">Сбросить к настройкам по умолчанию</string>
+  <string name="fling_factory_reset_confirm">Вы действительно хотите сбросить настройки Fling?</string>
+  <string name="fling_backup_current_config_title">Сохранить профиль</string>
+  <string name="fling_restore_config_title">Восстановить профиль</string>
+  <string name="fling_config_name_edit_dialog_title">Имя профиля Fling</string>
+  <string name="fling_config_name_edit_dialog_message">Введите имя или оставьте пустым</string>
+  <string name="fling_config_dialog_title">Профили Fling</string>
+  <string name="fling_config_backup_success_toast">Профиль Fling сохранён</string>
+  <string name="fling_config_restore_success_toast">Профиль Fling восстановлен</string>
+  <string name="fling_config_backup_error_toast">Ошибка сохранения профиля Fling</string>
+  <string name="fling_config_restore_error_toast">Ошибка восстановления профиля Fling</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse не работает с некоторыми источниками аудио во время прослушивания через динамик</string>
   <string name="pulse_settings">Pulse</string>
@@ -1742,6 +1753,9 @@
   <string name="screenshot_options_category">Опции скриншота</string>
   <string name="screenshot_options_summary">Настроить атрибуты скриншота - время, задержка, тип и т.д.</string>
   <string name="screenshot_delay_title">Задержка скриншота</string>
+  <string name="screenshot_edit_app">Редактор скриншотов</string>
+  <string name="screenshot_edit_app_summary">Выберите, какое приложение должно быть запущено при нажатии на кнопку редактирования в уведомлении скриншота</string>
+  <string name="screenshot_edit_app_no_editor">Нет доступного редактора изображения</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Автоматическая разблокировка лицом</string>
   <string name="face_auto_unlock_summary">Пропустить экран блокировки после разблокирования смартфона лицом. Для этого включите разблокировку лицом</string>
@@ -1755,11 +1769,54 @@
   <string name="notification_guts_kill_app_button_title">Кнопка закрытия приложения</string>
   <string name="notification_guts_kill_app_button_summary">Показывать кнопку закрытия приложения в меню при долгом нажатии на уведомление</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Умные пиксели</string>
+  <string name="smart_pixels_summary">Экономить батарею, выключая пиксели</string>
+  <string name="smart_pixels_enable_title">Включить умные пиксели</string>
+  <string name="smart_pixels_enable_summary">Выключить пиксели для снижения расхода заряда батареи</string>
+  <string name="smart_pixels_on_power_save_title">Автоматическое включение экономии заряда</string>
+  <string name="smart_pixels_on_power_save_summary">Включить умные пиксели, когда включен режим экономии заряда</string>
+  <string name="smart_pixels_percent">Процент отключенных пикселей</string>
+  <string name="smart_pixels_shift">Предотвратите ожог, сдвигая каждый пиксель</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Показать значок запущенных служб</string>
+  <string name="qs_footer_services_summary">Отобразить значок запущенных служб снизу меню быстрых настроек</string>
+  <string name="qs_footer_settings_title">Показать значок настройки</string>
+  <string name="qs_footer_settings_summary">Отобразить значок настроек снизу меню быстрых настроек</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_title">Закрытие меню недавних</string>
+  <string name="recents_grid_summary">Отображать недавние в стиле сетки</string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_title">Последние блоки</string>
+  <string name="recents_lock_summary">Отображать значок блокировки в заголовке последнего приложения</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tiles">Плитки быстрых настроек</string>
+  <string name="qs_tile_animation_style_title">Стиль анимации</string>
+  <string name="qs_tile_animation_duration_title">Длительность анимации</string>
+  <string name="qs_tile_animation_interpolator_title">Интерполяция анимации плиток</string>
+  <string name="qs_tile_animation_style_off">Без анимации</string>
+  <string name="qs_tile_animation_style_flip">Переворот</string>
+  <string name="qs_tile_animation_style_rotate">Вращение</string>
+  <string name="qs_tile_animation_duration_low">Низкий</string>
+  <string name="qs_tile_animation_duration_default">По умолчанию</string>
+  <string name="qs_tile_animation_duration_fast">Быстрая</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Линейный</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Ускорение</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Замедление</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Ускорить/замедлить</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Отскок</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Перекрытие</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Опережение</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Ускорение/вылет</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Фоновые процессы</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Принудительно запрашивать разрешения для каждой темы</string>
+  <string name="force_authorize_substratum_packages_summary">Разрешить установку тем из неизвестных источников</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Слои Substratum</string>
+  <string name="menu_show_substratum">Показать слои</string>
+  <string name="menu_hide_substratum">Скрыть слои</string>
 </resources>

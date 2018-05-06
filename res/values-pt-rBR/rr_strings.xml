@@ -799,6 +799,17 @@ Densidade atual: <xliff:g name="count" example="520">%d</xliff:g> dpi</string>
   <string name="fling_keyboard_cursors_title">Ação de cursores dinâmicos do teclado</string>
   <string name="fling_keyboard_cursors_move_summary">Quando o teclado estiver aberto, pressione longamente a esquerda ou direita para mover o cursor para a respectiva posição.\nMantenha pressionado para continuar movendo o cursor ou toque uma vez na barra para ir para a tela inicial.</string>
   <string name="fling_logo_opacity_title">Opacidade da logo do Fling</string>
+  <string name="fling_factory_reset_title">Redefinir para o padrão</string>
+  <string name="fling_factory_reset_confirm">Tem certeza de que deseja redefinir a Fling para as configurações padrão?</string>
+  <string name="fling_backup_current_config_title">Salvar perfil</string>
+  <string name="fling_restore_config_title">Restaurar o perfil</string>
+  <string name="fling_config_name_edit_dialog_title">Nome do perfil da Fling</string>
+  <string name="fling_config_name_edit_dialog_message">Digite um nome ou deixe em branco</string>
+  <string name="fling_config_dialog_title">Perfis da Fling</string>
+  <string name="fling_config_backup_success_toast">Perfil da Fling salvo com sucesso</string>
+  <string name="fling_config_restore_success_toast">Perfil da Fling restaurado com sucesso</string>
+  <string name="fling_config_backup_error_toast">Erro ao salvar o perfil da Fling</string>
+  <string name="fling_config_restore_error_toast">Erro ao restaurar o perfil da Fling</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse não funciona com algumas fontes de áudio quando ouvir no alto-falante do dispositivo</string>
   <string name="pulse_settings">Pulse</string>
@@ -1743,6 +1754,9 @@ Densidade atual: <xliff:g name="count" example="520">%d</xliff:g> dpi</string>
   <string name="screenshot_options_category">Opções de captura de tela</string>
   <string name="screenshot_options_summary">Personalizar os atributos de capturas de tela, como por exemplo: atraso, tipo e etc.</string>
   <string name="screenshot_delay_title">Atraso da captura de tela</string>
+  <string name="screenshot_edit_app">Editor de captura de tela</string>
+  <string name="screenshot_edit_app_summary">Escolha qual aplicativo deve ser iniciado ao tocar no botão de edição de notificação de captura de tela</string>
+  <string name="screenshot_edit_app_no_editor">Nenhum editor de imagens disponível</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Desbloqueio facial automático</string>
   <string name="face_auto_unlock_summary">Desbloquear automaticamente a tela quando um rosto confiável for detectado.</string>
@@ -1756,11 +1770,54 @@ Densidade atual: <xliff:g name="count" example="520">%d</xliff:g> dpi</string>
   <string name="notification_guts_kill_app_button_title">Botão de encerrar aplicativo</string>
   <string name="notification_guts_kill_app_button_summary">Mostrar um botão para finalizar o aplicativo ao tocar e segurar em uma notificação</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Pixels Inteligentes</string>
+  <string name="smart_pixels_summary">Poupar bateria ao desligar pixels excedentes</string>
+  <string name="smart_pixels_enable_title">Ativar Pixels Inteligentes</string>
+  <string name="smart_pixels_enable_summary">Desligar alguns pixels para reduzir o consumo de energia</string>
+  <string name="smart_pixels_on_power_save_title">Ativar automaticamente na economia de bateria</string>
+  <string name="smart_pixels_on_power_save_summary">Ativar os Pixels Inteligentes quando a economia de bateria estiver ativa</string>
+  <string name="smart_pixels_percent">Percentagem de pixels a desativar</string>
+  <string name="smart_pixels_shift">Previnir o efeito burn-in a cada deslocamento dos pixels</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Mostrar o ícone dos Serviços em Execução</string>
+  <string name="qs_footer_services_summary">Mostrar o ícone dos Serviços em Execução no rodapé das configurações rápidas</string>
+  <string name="qs_footer_settings_title">Mostrar o ícone das Configurações</string>
+  <string name="qs_footer_settings_summary">Mostrar o ícone das Configurações no rodapé das configurações rápidas</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_title">Recentes em grelha</string>
+  <string name="recents_grid_summary">Mostrar visualização padrão de recentes como grelha</string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_title">Bloqueio de recentes</string>
+  <string name="recents_lock_summary">Mostrar um ícone de bloqueio no cabeçalho do app recentes</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tiles">Blocos de Configurações Rápidas</string>
+  <string name="qs_tile_animation_style_title">Estilo de animação</string>
+  <string name="qs_tile_animation_duration_title">Duração da animação</string>
+  <string name="qs_tile_animation_interpolator_title">Interpolador de animação dos blocos</string>
+  <string name="qs_tile_animation_style_off">Sem animação</string>
+  <string name="qs_tile_animation_style_flip">Girar</string>
+  <string name="qs_tile_animation_style_rotate">Rotacionar</string>
+  <string name="qs_tile_animation_duration_low">Baixa</string>
+  <string name="qs_tile_animation_duration_default">Padrão</string>
+  <string name="qs_tile_animation_duration_fast">Rápida</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Linear</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Acelerar</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Desacelerar</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Acelerar/desacelerar</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Ressaltar</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Excedida</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Antecipar</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Antecipar/adiantar</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Processos em segundo plano</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Forçar autorização de cada aplicativo de tema</string>
+  <string name="force_authorize_substratum_packages_summary">Permitir aplicativos de temas de fontes desconhecidas</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Sobreposições do substratum</string>
+  <string name="menu_show_substratum">Mostrar sobreposições</string>
+  <string name="menu_hide_substratum">Ocultar as sobreposições</string>
 </resources>

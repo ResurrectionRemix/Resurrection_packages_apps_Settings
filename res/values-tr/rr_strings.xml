@@ -799,6 +799,17 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <string name="fling_keyboard_cursors_title">Dinamik klavye imleç eylemleri</string>
   <string name="fling_keyboard_cursors_move_summary">Klavye açıkken, imleci sola veya sağa taşımak için sola veya sağa uzun basın.\nİmleci hareket ettirmeye devam etmek için uzun basmaya devam edin, ana ekrana gitmek için çubuğa bir kez dokunun.</string>
   <string name="fling_logo_opacity_title">Fling logosu opaklığı</string>
+  <string name="fling_factory_reset_title">Varsayılana sıfırla</string>
+  <string name="fling_factory_reset_confirm">Fling\'i varsayılan ayarlarına sıfırlamak istediğinize emin misiniz?</string>
+  <string name="fling_backup_current_config_title">Profili kaydet</string>
+  <string name="fling_restore_config_title">Profili geri yükle</string>
+  <string name="fling_config_name_edit_dialog_title">Fling profil adı</string>
+  <string name="fling_config_name_edit_dialog_message">Adı girin veya boş bırakın</string>
+  <string name="fling_config_dialog_title">Fling profilleri</string>
+  <string name="fling_config_backup_success_toast">Fling profili başarıyla kaydedildi</string>
+  <string name="fling_config_restore_success_toast">Fling profili başarıyla geri yüklendi</string>
+  <string name="fling_config_backup_error_toast">Fling profili kaydedilirken hata oluştu</string>
+  <string name="fling_config_restore_error_toast">Fling profili geri yüklenirken hata oluştu</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse cihaz hoparlörünü dinlerken bazı ses kaynakları ile çalışmayabilir</string>
   <string name="pulse_settings">Pulse</string>
@@ -1745,6 +1756,9 @@ Sadece yarı saydam bildirimler etkinleştirildi!</string>
   <string name="screenshot_options_category">Ekran görüntüsü seçenekleri</string>
   <string name="screenshot_options_summary">Zaman, gecikme, tür gibi ekran görüntüsü özelliklerini özelleştirin</string>
   <string name="screenshot_delay_title">Ekran görüntüsü gecikmesi</string>
+  <string name="screenshot_edit_app">Ekran görüntüsü düzenleyici</string>
+  <string name="screenshot_edit_app_summary">Ekran görüntüsü bildiriminin düzenleme tuşuna basıldığında hangi uygulamanın başlatılması gerektiğini seçin</string>
+  <string name="screenshot_edit_app_no_editor">Görüntü düzenleyici yok</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Yüz ile otomatik kilit açma</string>
   <string name="face_auto_unlock_summary">Yüz kilidini açtıktan sonra kilit ekranını kapatır. Bunun için yüz kilidi açma/güvenilen yüz\'ü etkinleştirmeniz gerekir</string>
@@ -1758,11 +1772,54 @@ Sadece yarı saydam bildirimler etkinleştirildi!</string>
   <string name="notification_guts_kill_app_button_title">Uygulama sonlandırma tuşu</string>
   <string name="notification_guts_kill_app_button_summary">Bildirime uzun basma menüsünde uygulamayı sonlandırma tuşunu göster</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Akıllı Pikseller</string>
+  <string name="smart_pixels_summary">Fazladan pikselleri kapatarak pil tasarrufu sağlayın</string>
+  <string name="smart_pixels_enable_title">Akıllı Pikselleri Etkinleştir</string>
+  <string name="smart_pixels_enable_summary">Güç tüketimini azaltmak için pikselleri kapatın</string>
+  <string name="smart_pixels_on_power_save_title">Pil tasarrufu için otomatik etkinleştir</string>
+  <string name="smart_pixels_on_power_save_summary">Pil tasarrufu etkinleştirildiğinde Akıllı Pikselleri etkinleştirin</string>
+  <string name="smart_pixels_percent">Devre dışı bırakılan piksellerin yüzdesi</string>
+  <string name="smart_pixels_shift">OLED cihazlarda yanmaları önler ve sık sık pikselleri kaydırır</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Çalışan Hizmetler simgesini göster</string>
+  <string name="qs_footer_services_summary">Hızlı ayarlar alt bilgisinde Çalışan Hizmetler simgesini görüntüle</string>
+  <string name="qs_footer_settings_title">Ayarlar simgesini göster</string>
+  <string name="qs_footer_settings_summary">Hızlı ayarlar alt bilgisinde Ayarlar simgesini görüntüle</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_title">Izgara son uygulamalar</string>
+  <string name="recents_grid_summary">Varsayılan son uygulamalar yerine ızgara son uygulamalar stilini görüntüle</string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_title">Son uygulamalar kilidi</string>
+  <string name="recents_lock_summary">Son uygulamalar başlığında kilit simgesi görüntüle</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tiles">Hızlı Ayarlar Kareleri</string>
+  <string name="qs_tile_animation_style_title">Animasyon stili</string>
+  <string name="qs_tile_animation_duration_title">Animasyon süresi</string>
+  <string name="qs_tile_animation_interpolator_title">Kare animasyon efekti</string>
+  <string name="qs_tile_animation_style_off">Animasyon yok</string>
+  <string name="qs_tile_animation_style_flip">Çevir</string>
+  <string name="qs_tile_animation_style_rotate">Döndür</string>
+  <string name="qs_tile_animation_duration_low">Yavaş</string>
+  <string name="qs_tile_animation_duration_default">Varsayılan</string>
+  <string name="qs_tile_animation_duration_fast">Hızlı</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Çizgisel</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Hızlandır</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Yavaşlat</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Hızlandır ve yavaşlat</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Sıçrat</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">İlerlet</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Beklet</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">İlerlet ve beklet</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Arka plan işlemleri</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Her tema uygulamasını zorla yetkilendir</string>
+  <string name="force_authorize_substratum_packages_summary">Bilinmeyen kaynaklardan tema uygulamalarına izin ver</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Substratum temaları</string>
+  <string name="menu_show_substratum">Temaları göster</string>
+  <string name="menu_hide_substratum">Temaları gizle</string>
 </resources>

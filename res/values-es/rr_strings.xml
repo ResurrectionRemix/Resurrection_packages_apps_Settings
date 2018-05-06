@@ -800,6 +800,17 @@ https://plus.google.com/communities/109352646351468373340</string>
   <string name="fling_keyboard_cursors_title">Acción del cursor de teclado dinámico</string>
   <string name="fling_keyboard_cursors_move_summary">Cuando se muestre el teclado, realiza una pulsación larga a la izquierda o derecha para mover el cursor de texto.\nMantén la pulsación larga para seguir moviéndolo, toca en la barra para ir a la pantalla de inicio.</string>
   <string name="fling_logo_opacity_title">Opacidad del logo de Fling</string>
+  <string name="fling_factory_reset_title">Restablecer a valores por defecto</string>
+  <string name="fling_factory_reset_confirm">¿Seguro que quieres restablecer la configuración de stock?</string>
+  <string name="fling_backup_current_config_title">Guarda el perfil</string>
+  <string name="fling_restore_config_title">Restaurar perfil</string>
+  <string name="fling_config_name_edit_dialog_title">Nombre del perfil</string>
+  <string name="fling_config_name_edit_dialog_message">Ingrese un nombre o déjelo en blanco</string>
+  <string name="fling_config_dialog_title">Perfiles de Fling</string>
+  <string name="fling_config_backup_success_toast">Perfil de guardado con éxito</string>
+  <string name="fling_config_restore_success_toast">Perfil de restaurado con éxito</string>
+  <string name="fling_config_backup_error_toast">Error al guardar el perfil</string>
+  <string name="fling_config_restore_error_toast">Error al restaurar el perfil</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse no funciona con algunas fuentes de audio cuando se escucha en el altavoz del dispositivo</string>
   <string name="pulse_settings">Pulse</string>
@@ -1744,6 +1755,9 @@ https://plus.google.com/communities/109352646351468373340</string>
   <string name="screenshot_options_category">Opciones de captura de pantalla</string>
   <string name="screenshot_options_summary">Personalizar opciones de captura de pantalla</string>
   <string name="screenshot_delay_title">Retraso en la captura de pantalla</string>
+  <string name="screenshot_edit_app">Editor de capturas de pantalla</string>
+  <string name="screenshot_edit_app_summary">Elige qué aplicación debe iniciarse al tocar el botón de Editar en la notificación de captura de pantalla</string>
+  <string name="screenshot_edit_app_no_editor">No hay ningún editor de imágenes disponible</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Desbloqueo facial</string>
   <string name="face_auto_unlock_summary">Desbloquea la pantalla de bloqueo automáticamente al detectar el desbloqueo facial. Necesitas activar el desbloqueo facial/rostro de confianza para esto</string>
@@ -1757,11 +1771,46 @@ https://plus.google.com/communities/109352646351468373340</string>
   <string name="notification_guts_kill_app_button_title">Botón de detener aplicación</string>
   <string name="notification_guts_kill_app_button_summary">Muestra un botón para detener la aplicación en el menú que aparece al realizar una pulsación larga sobre una notificación</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Píxeles inteligentes</string>
+  <string name="smart_pixels_summary">Ahorra batería apagando píxeles adicionales</string>
+  <string name="smart_pixels_enable_title">Habilitar píxeles inteligentes</string>
+  <string name="smart_pixels_enable_summary">Apagar píxeles para reducir el consumo de energía</string>
+  <string name="smart_pixels_on_power_save_title">Activar automáticamente junto con el ahorro de batería</string>
+  <string name="smart_pixels_on_power_save_summary">Habilitar Smart Pixels cuando el ahorro de batería está habilitado</string>
+  <string name="smart_pixels_percent">Porcentaje de píxeles a desactivar</string>
+  <string name="smart_pixels_shift">Evite quemaduras cambiando los píxeles</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Mostrar el icono de Servicios en ejecución</string>
+  <string name="qs_footer_services_summary">Mostrar el icono de Servicios en ejecución en la configuración rápida del pie de página</string>
+  <string name="qs_footer_settings_title">Mostrar icono de configuración</string>
+  <string name="qs_footer_settings_summary">Mostrar icono de configuración en el pie de página de configuración rápida</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_summary">Muestra los recientes en un estilo de cuadrícula</string>
   <!-- Recents Lock Icon -->
   <!-- Tiles animation style  -->
+  <string name="qs_tile_animation_style_title">Estilo de la animación</string>
+  <string name="qs_tile_animation_duration_title">Duración de la animación</string>
+  <string name="qs_tile_animation_style_off">Sin animación</string>
+  <string name="qs_tile_animation_style_flip">Girar</string>
+  <string name="qs_tile_animation_style_rotate">Rotar</string>
+  <string name="qs_tile_animation_duration_low">Baja</string>
+  <string name="qs_tile_animation_duration_default">Por defecto</string>
+  <string name="qs_tile_animation_duration_fast">Rápida</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Lineal</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Acelerar</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Desacelerar</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Acelerar/Desacelerar</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Rebotar</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Anticipar</string>
+  <string name="qs_set_animation_style">%1$s</string>
+  <string name="qs_set_animation_duration">%1$s</string>
+  <string name="qs_set_animation_interpolator">%1$s</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Procesos en segundo plano</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_summary">Permitir aplicaciones de temas de fuentes desconocidas</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Capas de Substratum</string>
+  <string name="menu_show_substratum">Mostrar capas</string>
+  <string name="menu_hide_substratum">Ocultar capas</string>
 </resources>
