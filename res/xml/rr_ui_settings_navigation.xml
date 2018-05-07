@@ -55,6 +55,12 @@
             android:fragment="com.android.settings.rr.gesture.GestureAnywhereSettings"
             android:layout="@layout/rr_gesture_anywhere_layout" />
 
+       <com.android.settings.applications.LayoutPreference
+            android:id="@+id/edge_gestures"
+            android:key="edge_gestures"
+            android:fragment="com.android.settings.rr.gesture.EdgeGesturesSettings"
+            android:layout="@layout/rr_edge_gesture_layout"/>
+
        <!-- App Circle Bar -->
        <com.android.settings.applications.LayoutPreference
             android:key="app_circle_bar"
@@ -70,6 +76,11 @@
             android:key="animation_settings"
             android:layout="@layout/rr_animations_layout"
             android:fragment="com.android.settings.rr.animation.AnimationSettings" />
+
+       <com.android.settings.applications.LayoutPreference
+            android:key="smart_pixels"
+            android:layout="@layout/rr_pixels_layout"
+            android:fragment="com.android.settings.rr.fragments.SmartPixels" />
 
 
        <com.android.settings.applications.LayoutPreference
