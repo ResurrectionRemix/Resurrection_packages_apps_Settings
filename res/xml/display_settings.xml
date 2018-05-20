@@ -138,7 +138,14 @@
         android:summary="@string/proximity_wake_summary"
         lineage:requiresConfig="@*lineageos.platform:bool/config_proximityCheckOnWake" />
 
-    <!-- Use LineageParts for styles 
+
+    <lineageos.preference.LineageSystemSettingSwitchPreference
+        android:key="full_screen_aspect_ratio"
+        android:title="@string/full_screen_aspect_ratio_title"
+        android:summary="@string/full_screen_aspect_ratio_summary"
+        lineage:requiresConfig="@*lineageos.platform:bool/config_haveHigherAspectRatioScreen" />
+
+    <!-- Use LineageParts for styles
     <ListPreference
         android:key="theme"
         android:title="@string/device_theme"
