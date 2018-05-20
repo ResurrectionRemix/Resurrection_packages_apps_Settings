@@ -494,6 +494,7 @@ Mật độ điểm ảnh
   <string name="qs_columns_portrait_title">Dãy ô theo chiều dọc</string>
   <string name="qs_columns_landscape_title">Cột gạch theo chiều ngang</string>
   <!-- QuickSettings Panel Transparency -->
+  <string name="qs_panel_alpha_title">Độ trong suốt bảng điều khiển</string>
   <!-- Color Picker -->
   <string name="dialog_color_picker">Bảng Chọn Màu</string>
   <string name="press_color_to_apply">Chạm vào màu bên dưới để áp dụng</string>
@@ -799,6 +800,17 @@ Mật độ điểm ảnh
   <string name="fling_keyboard_cursors_title">Thao tác bàn phím năng động</string>
   <string name="fling_keyboard_cursors_move_summary">Khi bàn phím đang hiện, bấm giữ trái hoặc phải để di chuyển con trỏ văn bản sang trái hoặc phải. \nTiếp tục nhấn giữ để di chuyển con trỏ, chạm nhẹ một lần trên thanh để đi đến màn hình chính.</string>
   <string name="fling_logo_opacity_title">Độ mờ logo quăng ra</string>
+  <string name="fling_factory_reset_title">Thiết lập lại về gốc</string>
+  <string name="fling_factory_reset_confirm">Bạn có chắc chắn muốn thiết lập lại Fling về cài đặt gốc?</string>
+  <string name="fling_backup_current_config_title">Lưu cấu hình</string>
+  <string name="fling_restore_config_title">Khôi phục lại cấu hình</string>
+  <string name="fling_config_name_edit_dialog_title">Tên cấu hình Fling</string>
+  <string name="fling_config_name_edit_dialog_message">Nhập tên hoặc để trống</string>
+  <string name="fling_config_dialog_title">Cấu hình Fling</string>
+  <string name="fling_config_backup_success_toast">Đã lưu thành công cấu hình Fling</string>
+  <string name="fling_config_restore_success_toast">Đã khôi phục thành công cấu hình Fling</string>
+  <string name="fling_config_backup_error_toast">Lỗi lưu cấu hình Fling</string>
+  <string name="fling_config_restore_error_toast">Lỗi khôi phục cấu hình Fling</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Mạch xung không hoạt động với một số nguồn âm thanh khi nghe trên loa thiết bị</string>
   <string name="pulse_settings">Pulse</string>
@@ -1041,6 +1053,7 @@ Mật độ điểm ảnh
   <string name="immersive_recents_statusbar">Chỉ thanh trạng thái</string>
   <string name="immersive_recents_navbar">Chỉ thanh điều hướng</string>
   <string name="recents_icon_pack_title">Gói biểu tượng gần đây</string>
+  <string name="recents_icon_pack_summary">Trong chế độ xem gần đây, hãy chọn kiểu biểu tượng ứng dụng của bạn bằng các gói biểu tượng có trong điện thoại của bạn</string>
   <string name="show_4g_title">Hiển thị 4G</string>
   <string name="show_4g_summary">Hiển thị 4G thay cho LTE trong các biểu tượng tín hiệu</string>
   <!-- Circle app bar -->
@@ -1742,6 +1755,9 @@ Mật độ điểm ảnh
   <string name="screenshot_options_category">Tùy chọn ảnh chụp màn hình</string>
   <string name="screenshot_options_summary">Tùy chỉnh các thuộc tính chụp màn hình như thời gian, chậm trễ, loại, v.v</string>
   <string name="screenshot_delay_title">Độ trễ chụp màn hình</string>
+  <string name="screenshot_edit_app">Chỉnh sửa ảnh chụp màn hình</string>
+  <string name="screenshot_edit_app_summary">Chọn ứng dụng được mở khi chạm vào nút chỉnh sửa trên thông báo chụp ảnh màn hình</string>
+  <string name="screenshot_edit_app_no_editor">Không có trình chỉnh sửa ảnh nào</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Tự động mở khoá khuôn mặt</string>
   <string name="face_auto_unlock_summary">Loại bỏ màn hình khóa sau khi mở khóa khuôn mặt. Bạn cần kích hoạt mở khóa khuôn mặt/khuôn mặt đáng tin cậy cho việc này</string>
@@ -1755,11 +1771,52 @@ Mật độ điểm ảnh
   <string name="notification_guts_kill_app_button_title">Nút tắt ứng dụng</string>
   <string name="notification_guts_kill_app_button_summary">Hiển thị một nút tắt ứng dụng trong trình đơn của nhấn giữ thông báo</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Điểm ảnh thông minh</string>
+  <string name="smart_pixels_summary">Tiết kiệm pin bằng cách tắt các điểm ảnh phụ</string>
+  <string name="smart_pixels_enable_title">Bật Điểm ảnh thông minh</string>
+  <string name="smart_pixels_enable_summary">Tắt các điểm ảnh để giảm tiêu thụ pin</string>
+  <string name="smart_pixels_on_power_save_title">Tự động bật khi trình tiết kiệm pin</string>
+  <string name="smart_pixels_on_power_save_summary">Tự động bật Điểm ảnh thông minh khi trình tiết kiệm pin được bật</string>
+  <string name="smart_pixels_percent">Phần trăm điểm ảnh bị tắt</string>
+  <string name="smart_pixels_shift">Ngăn chặn hiện tượng lưu ảnh màn hình bằng cách di chuyển mỗi điểm ảnh</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Hiện biểu tượng Các dịch vụ đang chạy</string>
+  <string name="qs_footer_services_summary">Hiện biểu tượng Các dịch vụ đang chạy trong cuối trang cài đặt nhanh</string>
+  <string name="qs_footer_settings_title">Hiện biểu tượng Cài đặt</string>
+  <string name="qs_footer_settings_summary">Hiện biểu tượng Cài đặt trong cuối trang cài đặt nhanh</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_title">Khung Gần đây</string>
+  <string name="recents_grid_summary">Hiển thị Gần đây gốc trong một kiểu khung</string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_title">Khóa Gần đây</string>
+  <string name="recents_lock_summary">Hiển thị biểu tượng khóa trong đầu trang ứng dụng gần đây</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tiles">Ô cài đặt nhanh</string>
+  <string name="qs_tile_animation_style_title">Kiểu hoạt ảnh</string>
+  <string name="qs_tile_animation_duration_title">Thời gian hoạt ảnh</string>
+  <string name="qs_tile_animation_interpolator_title">Hoạt ảnh thu phóng ô</string>
+  <string name="qs_tile_animation_style_off">Không có hoạt ảnh</string>
+  <string name="qs_tile_animation_style_flip">Lật</string>
+  <string name="qs_tile_animation_style_rotate">Xoay</string>
+  <string name="qs_tile_animation_duration_low">Thấp</string>
+  <string name="qs_tile_animation_duration_default">Mặc định</string>
+  <string name="qs_tile_animation_duration_fast">Nhanh</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Tuyến tính</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Tăng tốc</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Giảm tốc</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Tăng tốc giảm tốc</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Nảy lên</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Vượt quá</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Dự đoán</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Dự đoán vượt quá</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Tiến trình nền</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Buộc ủy quyền cho mỗi ứng dụng chủ đề</string>
+  <string name="force_authorize_substratum_packages_summary">Cho phép cài đặt ứng dụng chủ đề từ các nguồn không xác định</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Các lớp phủ lớp Substratum</string>
+  <string name="menu_show_substratum">Hiển thị các lớp phủ</string>
+  <string name="menu_hide_substratum">Ẩn các lớp phủ</string>
+  <!-- Edge gestures -->
 </resources>
