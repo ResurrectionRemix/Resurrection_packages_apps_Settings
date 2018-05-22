@@ -40,6 +40,15 @@
          android:entries="@array/qs_selector_entries"
          android:entryValues="@array/qs_selector_values" />
 
+        <!-- QS Brightness Slider position -->
+        <com.android.settings.rr.preferences.LineageSecureSettingListPreference
+            android:key="qs_show_brightness_slider"
+            android:icon="@drawable/ic_brightness"
+            android:title="@string/qs_brightness_slider_title"
+            android:entries="@array/qs_brightness_slider_entries"
+            android:entryValues="@array/qs_brightness_slider_values"
+            android:defaultValue="true" />
+
     <Preference
          android:key="category_custom_header"
          android:title="@string/statusbar_header_category_title"
