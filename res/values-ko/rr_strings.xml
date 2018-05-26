@@ -549,7 +549,13 @@
   <string name="lock_screen_show_location_summaryOff">잠금 화면에 위치 숨기기</string>
   <string name="lock_screen_weather_condition_icon_title">화면 아이콘 팩</string>
   <!-- Power Menu -->
+  <string name="powermenu_title">전원 메뉴</string>
   <string name="powermenu_reboot_title">다시 시작</string>
+  <string name="powermenu_advanced_reboot_title">재시작 옵션</string>
+  <string name="powermenu_screenshot_title">스크린샷</string>
+  <string name="powermenu_airplane_title">비행기 모드</string>
+  <string name="powermenu_screenrecord_title">화면 녹화</string>
+  <string name="powermenu_ls_reboot_summary">잠금화면에서 재시작 옵션 표시</string>
   <string name="powermenu_ls_advanced_reboot_summary">잠금화면에 고급 부팅 옵션 표시</string>
   <string name="powermenu_ls_screenshot_summary">잠금화면에 화면 캡처 옵션을 표시</string>
   <string name="powermenu_ls_airplane_summary">잠금화면에 비행기 모드 옵션 표시</string>
@@ -708,6 +714,7 @@
   <string name="navbar_size">내비게이션 바 크기</string>
   <string name="navbar_mode">내비게이션 바 모드</string>
   <string name="navbar_mode_summary">사용할 탐색 모드 선택</string>
+  <string name="navbar_visibility">네비게이션 바 켜기</string>
   <string name="navigationbar_settings_title">내비게이션 바</string>
   <string name="navigationbar_settings_summary">내비게이션 바의 스타일과 작동 방식을 변경합니다</string>
   <string name="navbar_general_title">추가 설정</string>
@@ -721,6 +728,8 @@
   <string name="select_custom_app_title">사용자 지정 앱 선택</string>
   <string name="select_custom_activity_title">사용자 지정 활동 선택</string>
   <string name="profile_applist_title">애플리케이션</string>
+  <string name="default_settings_summary">AOSP 기본 네비게이션 바</string>
+  <string name="default_navbar_title">기본 네이게이션 바</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
   <string name="choose_action_title">활동 선택</string>
   <string name="action_entry_default_action">기본 설정</string>
@@ -778,6 +787,7 @@
   <string name="fling_longpress_timeout_label_right">지연시간 길게</string>
   <string name="fling_longpress_title">길게 누르기 지연시간</string>
   <string name="fling_longpress_summary">길게 누르기에 지정된 활동을 실행할 시간 조절</string>
+  <string name="fling_factory_reset_title">기본 설정으로 초기화</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_settings">Pulse</string>
   <string name="pulse_settings_summary">내비게이션 바에 오디오 시각화를 표시합니다.</string>
@@ -847,8 +857,12 @@
   <string name="one_handed_mode_title">한 손 조작 모드</string>
   <string name="one_handed_mode_summary">내비게이션 바를 좌우로 밀어서 한 손 조작 모드를 사용합니다</string>
   <!-- SystemUI theme -->
+  <string name="systemui_theme_style_title">테마</string>
+  <string name="systemui_theme_style_light">밝은</string>
+  <string name="systemui_theme_style_dark">어두운</string>
   <!-- Hardware button navigation -->
   <!-- Button brightness -->
+  <string name="button_manual_brightness">밝기 수준</string>
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">하드웨어 키</string>
   <string name="hw_keys_summary">하드웨어 키를 활성화 합니다</string>
@@ -984,6 +998,7 @@
   <string name="app_circle_bar_included_apps_summary">앱 서클 바에 표시할 앱을 선택합니다.</string>
   <!-- Pie -->
   <string name="pie_enable_title">파이 컨트롤 사용</string>
+  <string name="pa_pie_control_title">Pie 컨트롤</string>
   <string name="pie_settings">파이 설정</string>
   <string name="pie_settings_summary">파이를 사용자가 원하는 대로 설정합니다.</string>
   <string name="pie_theme_mode_title">테마</string>
@@ -1028,6 +1043,7 @@
   <string name="sizer_message_filesuccess">프로필 생성됨</string>
   <string name="sizer_message_filefail">프로필 생성 실패</string>
   <string name="sizer_message_noselect">선택된 항목 없음</string>
+  <string name="system_app_remover">시스템 어플 제거</string>
   <!-- Pixel Animation Settings -->
   <string name="pixel_anim_title">Pixel 내비게이션 바 애니메니션</string>
   <string name="pixel_anim_summary">내비게이션 바에 표시될 Pixel 애니메이션의 다양한 요소를 수정합니다</string>
@@ -1051,7 +1067,9 @@
   <string name="dot_random_color_more">무작위 (많음)</string>
   <string name="dot_color_switch_title">스타일</string>
   <!-- Status bar - Battery saver color -->
+  <string name="status_bar_battery_saver_color_title">배터리 절약 모드 색상</string>
   <!-- Fingerprint unlock keystore -->
+  <string name="fp_unlock_keystore_title">지문 잠금 해제</string>
   <string name="fp_unlock_keystore_summary">기기를 재시작 한 이후 PIN/비밀번호/패턴을 입력하지 않고 지문으로 잠금을 해제합니다.\n주의: 모든 책임은 사용자에게 있습니다!</string>
   <!-- Ambient Music Ticker -->
   <!-- Ambient display battery percentage -->
@@ -1350,7 +1368,9 @@
   <string name="scroll_disclaimer_summary">주의: 사용자 지정 값을 적용하려면 대부분의 앱을 다시 시작해야 합니다</string>
   <string name="animation_settings_reset_message">애니메이션 설정을 기본으로 되돌리겠습니까?</string>
   <!-- Screen Off animation -->
+  <string name="screen_off_animation_crt">CRT</string>
   <!-- Suppress notification sound/vibration -->
+  <string name="notification_sound_vib_screen_on_always">항상 (기본)</string>
   <!-- Accidental Touch -->
   <!-- Pocket judge -->
   <string name="pocket_judge_title">주머니 감지</string>
@@ -1546,9 +1566,11 @@
   <string name="hide_from_recents_add_app">앱 추가</string>
   <string name="hide_apps_from_recents_summary">최근 앱 화면에서 표시하지 않을 앱을 선택합니다.</string>
   <!-- Clock & date settings -->
+  <string name="position_title">위치</string>
   <string name="position_right_title">우측</string>
   <string name="position_centered_title">중간</string>
   <string name="hidden_title">숨기기</string>
+  <string name="clock_date_date_style_title">스타일</string>
   <!-- Dynamic Navbar -->
   <!-- RR config options -->
   <!-- RR summary text -->
@@ -1589,12 +1611,23 @@
   <!-- Face unlock auto -->
   <!-- Browser not found -->
   <!-- Seekbar default text -->
+  <string name="custom_seekbar_default_text">기본</string>
   <!-- Notification guts kill app button -->
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">스마트 픽셀</string>
+  <string name="smart_pixels_enable_title">스마트 픽셀 켜기</string>
   <!-- QS footer icons -->
   <!-- Recents Grid -->
   <!-- Recents Lock Icon -->
   <!-- Tiles animation style  -->
+  <string name="qs_tile_animation_style_title">애니메이션 스타일</string>
+  <string name="qs_tile_animation_duration_title">애니메이션 길이</string>
+  <string name="qs_tile_animation_style_off">애니메이션 없음</string>
+  <string name="qs_tile_animation_style_flip">뒤집기</string>
+  <string name="qs_tile_animation_style_rotate">회전</string>
+  <string name="qs_tile_animation_duration_low">느리게</string>
+  <string name="qs_tile_animation_duration_default">기본</string>
+  <string name="qs_tile_animation_duration_fast">빠르게</string>
   <!-- Running services -->
   <!-- Force authorize substratum packages -->
   <!-- Manage applications: show substratum overlays -->

@@ -487,6 +487,7 @@
   <string name="rr_density_summary">De dichtheid van het scherm aanpassen om het scherm naar zijn absolute limiet te schalen</string>
   <string name="rr_fonts_summary">Kies uw gewenste tekengrootte</string>
   <string name="stock_recents_category">Standaard recents</string>
+  <string name="edge_gestures_summary">Navigeren met randgebaren</string>
   <!-- QS rows and columns -->
   <string name="qs_rows_portrait_title">Tegel rijen in portret</string>
   <string name="qs_rows_landscape_title">Tegel rijen in landschap</string>
@@ -799,6 +800,17 @@
   <string name="fling_keyboard_cursors_title">Dynamische toetsenbord cursoractie</string>
   <string name="fling_keyboard_cursors_move_summary">Wanneer het toetsenbord wordt weergegeven, druk lang links of rechts om de tekstcursor naar links of rechts te verplaatsen. \nBlijf indrukken om de cursor te blijven verplaatsen, druk eenmaal op de balk om terug naar het home scherm te gaan.</string>
   <string name="fling_logo_opacity_title">Vliegerlogo transparantie</string>
+  <string name="fling_factory_reset_title">Terug naar standaardinstellingen</string>
+  <string name="fling_factory_reset_confirm">Weet u zeker dat u Fling naar standaardinstellingen wilt herstellen?</string>
+  <string name="fling_backup_current_config_title">Profiel opslaan</string>
+  <string name="fling_restore_config_title">Profiel inladen</string>
+  <string name="fling_config_name_edit_dialog_title">Fling profielnaam</string>
+  <string name="fling_config_name_edit_dialog_message">Voer naam in of laat leeg</string>
+  <string name="fling_config_dialog_title">Fling profielen</string>
+  <string name="fling_config_backup_success_toast">Fling profiel opgeslagen</string>
+  <string name="fling_config_restore_success_toast">Fling profiel ingeladen</string>
+  <string name="fling_config_backup_error_toast">Fout bij opslaan Fling profiel</string>
+  <string name="fling_config_restore_error_toast">Fout bij inladen Fling profiel</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse werkt niet met sommige audiobronnen bij het luisteren via apparaat luidspreker</string>
   <string name="pulse_settings">Pulse</string>
@@ -810,6 +822,8 @@
   <string name="pulse_render_mode_solid_lines">Balken</string>
   <string name="fling_pulse_color">Pulse kleur</string>
   <string name="fling_pulse_color_summary">Ook gebruikt als terugval voor automatische kleur</string>
+  <string name="fling_smoothing_enabled_title">Zet smoothing aan</string>
+  <string name="fling_smoothing_enabled_summary">Elke balk wordt vloeiender geanimeerd</string>
   <string name="eos_fling_lavalamp_title">Lavalamp inschakelen</string>
   <string name="eos_fling_lavalamp_summary">Pulse animeert als een vloeiende lavalamp kleurenmix</string>
   <string name="pulse_advanced_category">Geavanceerd</string>
@@ -1743,6 +1757,9 @@
   <string name="screenshot_options_category">Schermafbeelding instellingen</string>
   <string name="screenshot_options_summary">Aanpassen schermafbeelding instellingen zoals vertraging, type, enz</string>
   <string name="screenshot_delay_title">Schermafbeelding vertraging</string>
+  <string name="screenshot_edit_app">Schermafbeeldingsbewerker</string>
+  <string name="screenshot_edit_app_summary">Kies welke app moet worden gestart als op de schermafbeelding notificatie wordt getikt</string>
+  <string name="screenshot_edit_app_no_editor">Geen beeldbewerker beschikbaar</string>
   <!-- Face unlock auto -->
   <string name="face_auto_unlock_title">Automatisch ontgrendelen door gezichtsherkenning</string>
   <string name="face_auto_unlock_summary">Lockscreen uitschakelen na gezichtsherkenning. U moet gezichtsherkenning/vertrouwd gezicht hiervoor inschakelen</string>
@@ -1756,12 +1773,54 @@
   <string name="notification_guts_kill_app_button_title">Sluit app knop</string>
   <string name="notification_guts_kill_app_button_summary">Toon een geforceerd sluiten knop in het notificatie menu</string>
   <!-- Smart Pixels -->
+  <string name="smart_pixels_title">Smart Pixels</string>
+  <string name="smart_pixels_summary">Energie besparen door extra pixels uit te schakelen</string>
+  <string name="smart_pixels_enable_title">Smart Pixels inschakelen</string>
+  <string name="smart_pixels_enable_summary">Pixels uitschakelen om het energieverbruik te verlagen</string>
+  <string name="smart_pixels_on_power_save_title">Automatisch inschakelen bij ingeschakelde energiebesparing</string>
+  <string name="smart_pixels_on_power_save_summary">Smart Pixels inschakelen als energiebesparing is geactiveerd</string>
+  <string name="smart_pixels_percent">Percentage uit te schakelen pixels</string>
+  <string name="smart_pixels_shift">Inbranden vermijden door pixels te verschuiven om de</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Pictogram voor Actieve Services weergeven</string>
+  <string name="qs_footer_services_summary">Icoon voor Actieve Services weergeven in voettekst Snelle instellingen</string>
+  <string name="qs_footer_settings_title">Toon Instellingen pictogram</string>
+  <string name="qs_footer_settings_summary">Toon Instelingen-pictogram in voettekst van Snelle instellingen</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_title">Recente apps rooster</string>
+  <string name="recents_grid_summary">Geef standaard recente apps in een rooster weer</string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_title">Recente apps vergrendelen</string>
+  <string name="recents_lock_summary">Vergrendelicoon weergeven in de recente apps kop</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tiles">QS Tegels</string>
+  <string name="qs_tile_animation_style_title">Animatiestijl</string>
+  <string name="qs_tile_animation_duration_title">Animatieduur</string>
+  <string name="qs_tile_animation_interpolator_title">Tegelanimatie interpolator</string>
+  <string name="qs_tile_animation_style_off">Geen animatie</string>
+  <string name="qs_tile_animation_style_flip">Omkeren</string>
+  <string name="qs_tile_animation_style_rotate">Roteer</string>
+  <string name="qs_tile_animation_duration_low">Laag</string>
+  <string name="qs_tile_animation_duration_default">Standaard</string>
+  <string name="qs_tile_animation_duration_fast">Snel</string>
+  <string name="qs_tile_animation_interpolator_linearInterpolator">Lineair</string>
+  <string name="qs_tile_animation_interpolator_accelerateInterpolator">Versnellen</string>
+  <string name="qs_tile_animation_interpolator_decelerateInterpolator">Vertragen</string>
+  <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Versnellen vertragen</string>
+  <string name="qs_tile_animation_interpolator_bounceInterpolator">Stuiteren</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Doorschieten</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">Anticiperen</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Anticiperen en doorschieten</string>
   <!-- Running services -->
+  <string name="background_processes_settings_title">Achtergrondprocessen</string>
   <!-- Force authorize substratum packages -->
+  <string name="force_authorize_substratum_packages_title">Geforceerd toestaan van elke thema applicatie</string>
+  <string name="force_authorize_substratum_packages_summary">Installatie van thema\'s uit onbekende bronnen toestaan</string>
   <!-- Manage applications: show substratum overlays -->
+  <string name="filter_substratum_apps">Substratum schermlagen</string>
+  <string name="menu_show_substratum">Toon lagen</string>
+  <string name="menu_hide_substratum">Verberg lagen</string>
   <!-- Edge gestures -->
+  <string name="edge_gestures_title">Veeg gebaren</string>
+  <string name="edge_gestures_feedback_duration_title">Duur trilsignaal</string>
 </resources>
