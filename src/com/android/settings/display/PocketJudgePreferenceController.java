@@ -49,8 +49,7 @@ public class PocketJudgePreferenceController extends AbstractPreferenceControlle
 
     @Override
     public boolean isAvailable() {
-        return !mContext.getResources().getString(
-                com.android.internal.R.string.config_pocketBridgeSysfsInpocket).isEmpty();
+        return true;
     }
 
     @Override
