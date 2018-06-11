@@ -17,7 +17,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="rr_mod_version">RR-OSバージョン</string>
   <string name="build_date">ビルド日時</string>
-  <string name="mod_version_default">デフォルト</string>
+  <string name="mod_version_default">既定</string>
   <!-- General -->
   <string name="ok">はい</string>
   <string name="reset">リセット</string>
@@ -114,7 +114,7 @@
   <string name="rr_google_plus_title">Google</string>
   <string name="rr_google_plus_summary">Google+コミュニティ</string>
   <string name="rr_pb_title">ピッチブラックテーマ</string>
-  <string name="rr_pb_summary">Resurrection Remix OSの公式基本テーマ</string>
+  <string name="rr_pb_summary">Resurrection Remix OSの公式Substratumテーマ</string>
   <string name="rr_twitter_title">Twitter</string>
   <string name="rr_twitter_summary">Twitterアカウント</string>
   <string name="maintainer_categorie_title">公式にサポートされている端末</string>
@@ -220,7 +220,7 @@
   <string name="rr_recents_title">最近</string>
   <string name="qs_tile_layout">タイルのレイアウト</string>
   <string name="qs_columns_title">列</string>
-  <string name="heads_up_settings">ヘッドアップ通知</string>
+  <string name="heads_up_settings">Heads Up通知</string>
   <string name="system_animations">システムアニメーション</string>
   <string name="rr_ui_title">インターフェース</string>
   <string name="rr_dash_board_title">ダッシュボード</string>
@@ -290,11 +290,11 @@
   <string name="ticker_animation_mode_alpha_fade">フェード</string>
   <string name="ticker_animation_mode_scroll">スクロール</string>
   <!-- Heads up -->
-  <string name="heads_up_title">ヘッドアップを許可する</string>
-  <string name="heads_up_summary_enabled">ヘッドアップ通知は有効です</string>
-  <string name="heads_up_summary_disabled">ヘッドアップ通知は無効です</string>
+  <string name="heads_up_title">Heads Upを許可する</string>
+  <string name="heads_up_summary_enabled">Heads Upは有効です</string>
+  <string name="heads_up_summary_disabled">Heads Upは無効です</string>
   <string name="heads_up_blacklist_add_package_title">アプリを追加</string>
-  <string name="heads_up_blacklist_add_package_summary">これらのアプリ起動中にはヘッドアップ通知を無効化する</string>
+  <string name="heads_up_blacklist_add_package_summary">これらのアプリ起動中にはHeads Upを無効化する</string>
   <string name="heads_up_blacklist_title">ブラックリスト</string>
   <string name="heads_up_blacklist_choose_app">アプリを選択</string>
   <string name="heads_up_blacklist_dialog_delete_title">削除</string>
@@ -477,7 +477,7 @@
   <string name="rr_toast_summary">トーストポップアップの表示アニメーションやアイコンをカスタマイズする</string>
   <string name="rr_expanded_desktop_summary">アプリケーションごとに拡張デスクトップを設定する</string>
   <string name="rr_doze_summary">アンビエント表示の有効 / 無効とその設定をカスタマイズする</string>
-  <string name="rr_heads_up_summary">ヘッドアップ通知の有効 / 無効とその表示時間を設定する</string>
+  <string name="rr_heads_up_summary">Heads Upの有効 / 無効とその表示時間を設定する</string>
   <string name="rr_dash_board_summary">ダッシュ ボードのレイアウトと概要をカスタマイズする</string>
   <string name="misc_weather_settings_summary">時計アプリのウィジェット設定をカスタマイズする</string>
   <string name="system_app_remover_summary">不要なシステムアプリを削除する</string>
@@ -806,13 +806,13 @@
   <string name="fling_factory_reset_confirm">本当にFlingを初期設定に戻しても良いですか？</string>
   <string name="fling_backup_current_config_title">プロファイルを保存</string>
   <string name="fling_restore_config_title">プロファイルを復元</string>
-  <string name="fling_config_name_edit_dialog_title">Flingプロフィール名</string>
+  <string name="fling_config_name_edit_dialog_title">Flingプロファイル名</string>
   <string name="fling_config_name_edit_dialog_message">名前を入力するか空白にしてください</string>
-  <string name="fling_config_dialog_title">Flingプロフィール</string>
+  <string name="fling_config_dialog_title">Flingプロファイル</string>
   <string name="fling_config_backup_success_toast">Flingプロフィールが正常に保存されました</string>
   <string name="fling_config_restore_success_toast">Flingプロフィールが正常に復元されました</string>
-  <string name="fling_config_backup_error_toast">Flingプロファイルの保存中にエラーが発生しました</string>
-  <string name="fling_config_restore_error_toast">Flingプロファイルの復元中にエラーが発生しました</string>
+  <string name="fling_config_backup_error_toast">Flingプロファイルの保存に失敗しました</string>
+  <string name="fling_config_restore_error_toast">Flingプロファイルの復元に失敗しました</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">デバイスのスピーカーで聴くときに一部のオーディオソースでPulseが機能しません</string>
   <string name="pulse_settings">Pulse</string>
@@ -1654,7 +1654,7 @@
   <string name="expanded_desktop_title">拡張デスクトップのオプション</string>
   <!-- no network switch -->
   <string name="no_sim_cluster_switch_title">SIMカードが刺さっていないネットワークを非表示</string>
-  <string name="no_sim_cluster_switch_summary">SIMの契約が非アクティブで無効になっている場合は、ネットワークバーを非表示にします。SIMが無効になっていない場合、このスイッチは動作しません。注意 : これはシステムUIを再起動します。</string>
+  <string name="no_sim_cluster_switch_summary">SIMのサブスクリプションが非アクティブで無効になっている場合は、ネットワークバーを非表示にします。SIMが無効になっていない場合、このスイッチは動作しません。注意 : これはシステムUIを再起動します。</string>
   <!-- no sim icon switch -->
   <string name="disable_no_sim_title">SIM未挿入のアイコンを無効にする</string>
   <string name="disable_no_sim_summary">SIMが挿入されていない場合はSIM未挿入アイコンを非表示にする</string>
@@ -1817,12 +1817,12 @@
   <string name="force_authorize_substratum_packages_title">すべてのテーマアプリを強制的に承認する</string>
   <string name="force_authorize_substratum_packages_summary">提供元不明のテーマアプリのインストールを許可する</string>
   <!-- Manage applications: show substratum overlays -->
-  <string name="filter_substratum_apps">下層のオーバーレイ</string>
+  <string name="filter_substratum_apps">Substratumオーバーレイ</string>
   <string name="menu_show_substratum">オーバーレイを表示</string>
   <string name="menu_hide_substratum">オーバーレイを非表示</string>
   <!-- Edge gestures -->
   <string name="edge_gestures_title">エッジジェスチャー</string>
-  <string name="edge_gestures_feedback_duration_title">入力時の振動の長さ</string>
+  <string name="edge_gestures_feedback_duration_title">振動フィードバックの長さ</string>
   <string name="edge_gestures_long_press_delay_title">長押し開始までの遅延時間</string>
   <string name="edge_gestures_back_category_title">戻るジェスチャー</string>
   <string name="edge_gestures_back_edges_title">戻るジェスチャーを始める場所</string>
