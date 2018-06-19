@@ -28,4 +28,13 @@
         android:summary="@string/ambient_play_summary"
         android:fragment="com.android.settings.custom.ambient.AmbientPlaySettings" />
 
+     <!-- Flashlight on Call -->
+     <com.rr.settings.preferences.SystemSettingListPreference
+        android:key="flashlight_on_call"
+        android:icon="@drawable/ic_led_on"
+        android:title="@string/flashlight_on_call_title"
+        android:entries="@array/flashlight_on_call_entries"
+        android:entryValues="@array/flashlight_on_call_values"
+        android:defaultValue="0" />
+
 </PreferenceScreen>
