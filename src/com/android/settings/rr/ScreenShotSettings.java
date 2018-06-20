@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.support.v7.preference.ListPreference;

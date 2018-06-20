@@ -404,7 +404,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         if (mStyle == 0) {
         titleString = new String[]{
                 getString(R.string.rr_statusbar_title),
-                getString(R.string.rr_notification_panel_title),
+                getString(R.string.rr_panels_title),
                 getString(R.string.rr_qs_title),
                 getString(R.string.rr_recents_title),
                 getString(R.string.rr_ui_title),
