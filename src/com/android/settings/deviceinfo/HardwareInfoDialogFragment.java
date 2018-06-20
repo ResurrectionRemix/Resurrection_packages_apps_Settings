@@ -16,8 +16,10 @@
 
 package com.android.settings.deviceinfo;
 
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.support.annotation.VisibleForTesting;
@@ -29,6 +31,8 @@ import android.widget.TextView;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.R;
 import com.android.settings.core.instrumentation.InstrumentedDialogFragment;
+
+import java.text.DecimalFormat;
 
 public class HardwareInfoDialogFragment extends InstrumentedDialogFragment {
 
@@ -57,6 +61,29 @@ public class HardwareInfoDialogFragment extends InstrumentedDialogFragment {
         // Hardware rev
         setText(content, R.id.hardware_rev_label, R.id.hardware_rev_value,
                 SystemProperties.get("ro.boot.hardware.revision"));
+
+        // Platform
+        setText(content, R.id.hardware_plat_label, R.id.hardware_plat_value,
+                SystemProperties.get("ro.board.platform"));
+
+        // RAM
+        ActivityManager actManager = (ActivityManager) builder.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+        ActivityManager.MemoryInfo memInfo = new ActivityManager.MemoryInfo();
+        actManager.getMemoryInfo(memInfo);
+        DecimalFormat ramDecimalForm = new DecimalFormat("#.#");
+        long totRam = memInfo.totalMem;
+        double kb = (double)totRam / 1024.0;
+        double mb = (double)totRam / 1048576.0;
+        double gb = (double)totRam / 1073741824.0;
+        String ramString = "";
+        if (gb > 1) {
+            ramString = ramDecimalForm.format(gb).concat(" GB");
+        } else if (mb > 1) {
+            ramString = ramDecimalForm.format(mb).concat(" MB");
+        } else {
+            ramString = ramDecimalForm.format(kb).concat(" KB");
+        }
+        setText(content, R.id.hardware_ram_label, R.id.hardware_ram_value, ramString);
 
         return builder.setView(content).create();
     }
