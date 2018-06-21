@@ -10,6 +10,32 @@
          android:selectable="false" />
 
     <PreferenceCategory
+        android:id="@+id/device_category_generic"
+	android:title="@string/device_category_generic_title">
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_genericarm64aonly"
+            android:title="@string/device_genericarm64aonly"
+            app:codename="@string/device_genericarm64aonly_codename"
+            app:maintainer="@string/device_genericarm64aonly_maintainer"
+	    app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_genericarm64ab"
+            android:title="@string/device_genericarm64ab"
+            app:codename="@string/device_genericarm64ab_codename"
+            app:maintainer="@string/device_genericarm64ab_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_genericarmaonly"
+            android:title="@string/device_genericarmaonly"
+            app:codename="@string/device_genericarmaonly_codename"
+            app:maintainer="@string/device_genericarmaonly_maintainer"
+            app:type="phone" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:id="@+id/device_category_lg"
         android:title="@string/device_category_lg_title">
 
