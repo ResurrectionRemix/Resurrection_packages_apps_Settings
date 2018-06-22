@@ -456,7 +456,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         String titleString[];
         titleString = new String[]{
                 getString(R.string.rr_statusbar_title),
-                getString(R.string.rr_notification_panel_title),
+                getString(R.string.rr_panels_title),
                 getString(R.string.rr_buttons_title),
                 getString(R.string.rr_ui_title),
                 getString(R.string.rr_misc_title)};
