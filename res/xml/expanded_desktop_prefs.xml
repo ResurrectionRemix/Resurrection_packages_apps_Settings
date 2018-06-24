@@ -14,13 +14,13 @@
      limitations under the License.
 -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory
-            android:title="@string/expanded_desktop_title" >
-        <ListPreference
-                android:key="expanded_desktop_style"
-                android:title="@string/expanded_desktop_style"
-                android:entries="@array/expanded_desktop_entries"
-                android:entryValues="@array/expanded_desktop_values"/>
-    </PreferenceCategory>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/expanded_desktop_title">
+    <ListPreference
+        android:key="expanded_desktop_style"
+        android:title="@string/expanded_desktop_style"
+        android:entries="@array/expanded_desktop_entries"
+        android:entryValues="@array/expanded_desktop_values"/>
 </PreferenceScreen>
