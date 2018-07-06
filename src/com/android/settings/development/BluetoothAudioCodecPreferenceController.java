@@ -82,6 +82,9 @@ public class BluetoothAudioCodecPreferenceController extends
                     case 5:
                         codecTypeValue = BluetoothCodecConfig.SOURCE_CODEC_TYPE_LDAC;
                         break;
+                    case 6:
+                        codecTypeValue = BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE;
+                        break;
                     default:
                         break;
                 }
@@ -107,13 +110,17 @@ public class BluetoothAudioCodecPreferenceController extends
                 codecPriorityValue = BluetoothCodecConfig.CODEC_PRIORITY_HIGHEST;
                 break;
             case 6:
+                codecTypeValue = BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE;
+                codecPriorityValue = BluetoothCodecConfig.CODEC_PRIORITY_HIGHEST;
+                break;
+            case 7:
                 synchronized (mBluetoothA2dpConfigStore) {
                     if (mBluetoothA2dp != null) {
                         mBluetoothA2dp.enableOptionalCodecs(null); // Use current active device
                     }
                 }
                 return;
-            case 7:
+            case 8:
                 synchronized (mBluetoothA2dpConfigStore) {
                     if (mBluetoothA2dp != null) {
                         mBluetoothA2dp.disableOptionalCodecs(null); // Use current active device
@@ -146,6 +153,9 @@ public class BluetoothAudioCodecPreferenceController extends
                 break;
             case BluetoothCodecConfig.SOURCE_CODEC_TYPE_LDAC:
                 index = 5;
+                break;
+            case BluetoothCodecConfig.SOURCE_CODEC_TYPE_APTX_ADAPTIVE:
+                index = 6;
                 break;
             case BluetoothCodecConfig.SOURCE_CODEC_TYPE_INVALID:
             default:
