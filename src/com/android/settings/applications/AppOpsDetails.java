@@ -100,6 +100,7 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
     private static HashMap<Integer, Integer> OP_ICONS = new HashMap<>();
 
     static {
+        OP_ICONS.put(AppOpsManager.OP_ACTIVATE_VPN, R.drawable.ic_perm_vpn);
         OP_ICONS.put(AppOpsManager.OP_AUDIO_ALARM_VOLUME, R.drawable.ic_perm_alarm);
         OP_ICONS.put(AppOpsManager.OP_BLUETOOTH_CHANGE, R.drawable.ic_perm_bluetooth);
         OP_ICONS.put(AppOpsManager.OP_BOOT_COMPLETED, R.drawable.ic_perm_boot);
@@ -202,7 +203,12 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
                 if (icon == null && op != 0 && OP_ICONS.containsKey(op)) {
                     icon = getActivity().getDrawable(OP_ICONS.get(op));
                 }
-                icon.setTint(Utils.getColorAttr(getActivity(), android.R.attr.colorControlNormal));
+                if (icon == null) {
+                    Log.e(TAG, "Failed to retrieve icon for permission: " + perm);
+                } else {
+                    icon.setTint(Utils.getColorAttr(getActivity(),
+                            android.R.attr.colorControlNormal));
+                }
 
                 final AppOpsManager.OpEntry firstOp = entry.getOpEntry(0);
                 final int switchOp = AppOpsManager.opToSwitch(firstOp.getOp());
