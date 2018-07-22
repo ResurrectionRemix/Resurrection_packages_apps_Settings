@@ -133,7 +133,7 @@
   <string name="christopher_kardas_summary">● Модератор\n● Редактор\n● Помощник</string>
   <string name="matt_summary">● Модератор\n● Редактор\n● Помощник</string>
   <string name="justen_summary">● Модератор\n● Редактор\n● Соучастник</string>
-  <string name="mracar_summary">● Разработчик\n● Сопровождающий</string>
+  <string name="mracar_summary">● Разработчик\n● Поддерживающий</string>
   <string name="support_team_title">Тег модератора</string>
   <string name="device_maintainers_title">Устройства и разработчики</string>
   <string name="device_maintainers_title_summary">Список устройств, работающих на RR-OS, и людей, поддерживающих эти устройства</string>
@@ -202,6 +202,8 @@
   <string name="rr_statusbar_title">Строка состояния</string>
   <string name="rr_sb_gestures_title">Жесты в строке состояния</string>
   <string name="qs_advanced_title">Дополнительные настройки</string>
+  <string name="rr_notification_panel_title">Панель уведомлений</string>
+  <string name="rr_panels_title">Панели</string>
   <string name="rr_tuner">Настройка системного интерфейса</string>
   <string name="rr_tuner_summary">Часть заводских настроек</string>
   <string name="rr_battery">Настройки отображения заряда в строке состояния</string>
@@ -494,7 +496,7 @@
   <string name="qs_columns_portrait_title">Количество колонок (портрет)</string>
   <string name="qs_columns_landscape_title">Количество колонок (ландшафт)</string>
   <!-- QuickSettings Panel Transparency -->
-  <string name="qs_panel_alpha_title">Прозрачность фона</string>
+  <string name="qs_panel_alpha_title">Прозрачность фона панели</string>
   <!-- Color Picker -->
   <string name="dialog_color_picker">Выбор цвета</string>
   <string name="press_color_to_apply">Нажмите на цвет ниже для применения</string>
@@ -600,7 +602,7 @@
   <string name="volume_dialog_timeout_title">Время ожидания для панели громкости</string>
   <!-- Volume dialog opacity -->
   <string name="volume_dialog_transparency_title">Настройки панели громкости</string>
-  <string name="volume_dialog_transparency">Непрозрачность панели громкости</string>
+  <string name="volume_dialog_transparency">Прозрачность панели громкости</string>
   <string name="volume_dialog_stroke_title">Граница панели громкости</string>
   <string name="volume_dialog_stroke_disabled">Выключено</string>
   <string name="volume_dialog_stroke_accent">Цвет акцента</string>
@@ -1105,6 +1107,8 @@
   <string name="delete_success">Удалено</string>
   <string name="delete_fail">Невозможно удалить</string>
   <string name="btn_profile">Профиль</string>
+  <string name="load_profile">Загрузить профиль</string>
+  <string name="save_profile">Сохранить профиль</string>
   <string name="sizer_message_sdnowrite">Не удается записать на SD карту.</string>
   <string name="sizer_message_sdnoread">Не удается прочитать SD карту.</string>
   <string name="sizer_message_filesuccess">Профиль создан.</string>
@@ -1781,6 +1785,15 @@
   <string name="smart_pixels_on_power_save_summary">Включить Smart Pixels, когда включен режим экономии заряда</string>
   <string name="smart_pixels_percent">Процент пикселей для отключения</string>
   <string name="smart_pixels_shift">Предотвратить выгорание, сдвигая пиксели каждые</string>
+  <string name="smart_pixels_shift_times_15s">15 секунд</string>
+  <string name="smart_pixels_shift_times_30s">30 секунд</string>
+  <string name="smart_pixels_shift_times_1min">1 минута</string>
+  <string name="smart_pixels_shift_times_2min">2 минуты</string>
+  <string name="smart_pixels_shift_times_5min">5 минут</string>
+  <string name="smart_pixels_shift_times_10min">10 минут</string>
+  <string name="smart_pixels_shift_times_20min">20 минут</string>
+  <string name="smart_pixels_shift_times_30min">30 минут</string>
+  <string name="smart_pixels_shift_times_1h">1 час</string>
   <!-- QS footer icons -->
   <string name="qs_footer_services_title">Показывать значок запущенных служб</string>
   <string name="qs_footer_services_summary">Отображать значок запущенных служб внизу быстрых настроек</string>
@@ -1825,11 +1838,15 @@
   <string name="menu_hide_substratum">Скрыть слои</string>
   <!-- Edge gestures -->
   <string name="edge_gestures_title">Жесты</string>
+  <string name="edge_gestures_description">Проведите по экрану снизу, чтобы открыть домашний экран. Продолжайте нажимать, чтобы открыть недавние приложения. Проведите внизу слева или справа, чтобы вернуться назад.</string>
   <string name="edge_gestures_feedback_duration_title">Длительность виброотклика</string>
   <string name="edge_gestures_long_press_delay_title">Задержка до тех пор, пока не начнется действие нажатия</string>
   <string name="edge_gestures_back_category_title">Жест назад</string>
-  <string name="edge_gestures_back_edges_title">Запуск жеста назад из</string>
-  <string name="edge_gestures_landscape_back_edges_title">Запуск жеста назад в альбомной ориентации из</string>
+  <string name="edge_gestures_back_edges_title">Область жеста назад</string>
+  <string name="edge_gestures_back_edges_left_side">Слева</string>
+  <string name="edge_gestures_back_edges_right_side">Справа</string>
+  <string name="edge_gestures_back_edges_both_sides">С обеих сторон</string>
+  <string name="edge_gestures_landscape_back_edges_title">Область жеста в альбомной ориентации</string>
   <string name="edge_gestures_back_screen_percent_title">Жест назад будет выполняться в области экрана ниже этого показателя</string>
   <string name="edge_gestures_back_screen_percent_summary">Область срабатывания жеста</string>
 </resources>
