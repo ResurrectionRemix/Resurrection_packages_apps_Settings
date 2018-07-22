@@ -202,6 +202,8 @@
   <string name="rr_statusbar_title">Durum çubuğu</string>
   <string name="rr_sb_gestures_title">Durum çubuğu hareketleri</string>
   <string name="qs_advanced_title">Gelişmiş</string>
+  <string name="rr_notification_panel_title">Bildirim paneli</string>
+  <string name="rr_panels_title">Paneller</string>
   <string name="rr_tuner">Sistem arayüzü ayarlayıcı</string>
   <string name="rr_tuner_summary">Stok özelleştirmelerin bir kısmı</string>
   <string name="rr_battery">Pil</string>
@@ -267,7 +269,7 @@
   <string name="network_traffic_autohide">Otomatik gizle</string>
   <string name="network_traffic_autohide_summary">Hiçbir etkinlik olmadığında ağ trafiği göstergesini gizler</string>
   <string name="network_traffic_autohide_threshold">Hareketsizlik eşiği</string>
-  <string name="headset_connect_player_title">Kulaklık bağlantısı kurulduğunda müzik uygulamasını başlat</string>
+  <string name="headset_connect_player_title">Kulaklık bağlandığında müzik uygulamasını başlat</string>
   <string name="headset_connect_player_disabled">Devre dışı</string>
   <string name="headset_connect_player_wired">Kablolu kulaklık bağlı olduğunda</string>
   <string name="headset_connect_player_bt_no_carkit">BT kulaklık (araç kiti değil) bağlı olduğunda</string>
@@ -861,8 +863,8 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <string name="smartbar_editor_title">Düzenleme modunu başlat</string>
   <string name="smartbar_editor_summary">Smartbar tuş düzenleyicisini aç</string>
   <string name="smartbar_help_policy_notice_summary">Düzenleyici modundayken konumunu değiştirmek için bir tuşa basın ve sürükleyin veya düzenleme menüsünü görmek için bir tuşa uzunca basın. Menü gösterilirken tuş konumu değiştirilebilir.\n\nBir çift dokunma eylemi ayarlamak, bir seferlik tek dokunuşu geciktirecektir.</string>
-  <string name="smartbar_context_menu_position_title">Bağlamsal tuşların konum düzeni</string>
-  <string name="smartbar_context_menu_position_summary">Menü ve klavye seçici olarak bağlamsal tuşların konumunu ayarlar</string>
+  <string name="smartbar_context_menu_position_title">İçerik tuşlarının yerleşim konumu</string>
+  <string name="smartbar_context_menu_position_summary">Menü ve klavye seçici gibi bağlamsal tuşların konumunu ayarlama</string>
   <string name="smartbar_right">Sağ</string>
   <string name="smartbar_left">Sol</string>
   <string name="smartbar_button_animation_title">Tuşa dokunma animasyonu</string>
@@ -1106,6 +1108,8 @@ Piksel yoğunluğu <xliff:g name="count" example="520">%d</xliff:g></string>
   <string name="delete_success">Silindi</string>
   <string name="delete_fail">Silinemiyor</string>
   <string name="btn_profile">Profil</string>
+  <string name="load_profile">Profili Yükle</string>
+  <string name="save_profile">Profili Kaydet</string>
   <string name="sizer_message_sdnowrite">SD Kart yazılamıyor</string>
   <string name="sizer_message_sdnoread">SD Kart okunamıyor</string>
   <string name="sizer_message_filesuccess">Profil oluşturuldu</string>
@@ -1747,7 +1751,7 @@ Sadece yarı saydam bildirimler etkinleştirildi!</string>
   <string name="hide_lockscreen_alarm_title">Alarm metni</string>
   <string name="hide_lockscreen_alarm_summary">Saat widget\'inin altındaki alarm metninin görünürlüğünü değiştirin</string>
   <string name="less_notification_sounds_title">Akıllı bildirim sesleri</string>
-  <string name="less_notification_sounds_summary">Belirli bir zaman aralığı için her uygulamanın bildirim sesi yalnızca bir kez çalınır</string>
+  <string name="less_notification_sounds_summary">Her uygulamanın bildirim sesini, belirlenen süre başına yalnızca bir kez çalar</string>
   <string name="less_notification_sounds_default">Uygulama varsayılanı</string>
   <string name="less_notification_sounds_10s">10 saniyede bir</string>
   <string name="less_notification_sounds_30s">30 saniyede bir</string>
@@ -1784,6 +1788,15 @@ Sadece yarı saydam bildirimler etkinleştirildi!</string>
   <string name="smart_pixels_on_power_save_summary">Pil tasarrufu etkinleştirildiğinde Akıllı Pikselleri etkinleştirin</string>
   <string name="smart_pixels_percent">Devre dışı bırakılan piksellerin yüzdesi</string>
   <string name="smart_pixels_shift">OLED cihazlarda yanmaları önler ve sık sık pikselleri kaydırır</string>
+  <string name="smart_pixels_shift_times_15s">15 saniye</string>
+  <string name="smart_pixels_shift_times_30s">30 saniye</string>
+  <string name="smart_pixels_shift_times_1min">1 dakika</string>
+  <string name="smart_pixels_shift_times_2min">2 dakika</string>
+  <string name="smart_pixels_shift_times_5min">5 dakika</string>
+  <string name="smart_pixels_shift_times_10min">10 dakika</string>
+  <string name="smart_pixels_shift_times_20min">20 dakika</string>
+  <string name="smart_pixels_shift_times_30min">30 dakika</string>
+  <string name="smart_pixels_shift_times_1h">1 saat</string>
   <!-- QS footer icons -->
   <string name="qs_footer_services_title">Çalışan Hizmetler simgesini göster</string>
   <string name="qs_footer_services_summary">Hızlı ayarlar alt bilgisinde Çalışan Hizmetler simgesini görüntüle</string>
@@ -1828,10 +1841,14 @@ Sadece yarı saydam bildirimler etkinleştirildi!</string>
   <string name="menu_hide_substratum">Temaları gizle</string>
   <!-- Edge gestures -->
   <string name="edge_gestures_title">Kenar hareketleri</string>
+  <string name="edge_gestures_description">Ana ekran hareketini tetiklemek için alttan kaydırın. Son kullanılanları açmak için basılı tutun. Geri gitmek için sol veya sağdan alttan kaydırın.</string>
   <string name="edge_gestures_feedback_duration_title">Dokunsal geribildirim süresi</string>
   <string name="edge_gestures_long_press_delay_title">Uzun basma eylemi başlayana kadar gecikme</string>
   <string name="edge_gestures_back_category_title">Geri hareketi</string>
   <string name="edge_gestures_back_edges_title">Geri hareketini tetikle</string>
+  <string name="edge_gestures_back_edges_left_side">Sol</string>
+  <string name="edge_gestures_back_edges_right_side">Sağ</string>
+  <string name="edge_gestures_back_edges_both_sides">İki taraf da</string>
   <string name="edge_gestures_landscape_back_edges_title">Yatay geri tetikleme hareketi</string>
   <string name="edge_gestures_back_screen_percent_title">Geri hareketi ekranın bu yüzdesinin altında başlamalıdır</string>
   <string name="edge_gestures_back_screen_percent_summary">Ekranın % altında tetikle</string>

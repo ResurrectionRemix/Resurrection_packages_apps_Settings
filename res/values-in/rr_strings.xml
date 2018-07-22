@@ -202,6 +202,8 @@
   <string name="rr_statusbar_title">Bilah Status</string>
   <string name="rr_sb_gestures_title">Gerakan status bar</string>
   <string name="qs_advanced_title">Lanjutan</string>
+  <string name="rr_notification_panel_title">Notification panel</string>
+  <string name="rr_panels_title">Panels</string>
   <string name="rr_tuner">SystemUI tuner</string>
   <string name="rr_tuner_summary">Bagian dari penyesuaian awal</string>
   <string name="rr_battery">Baterai</string>
@@ -805,7 +807,13 @@
   <string name="fling_factory_reset_confirm">Apakah Anda yakin ingin mengatur ulang Fling ke pengaturan bawaan?</string>
   <string name="fling_backup_current_config_title">Simpan profil</string>
   <string name="fling_restore_config_title">Pulihkan profil</string>
+  <string name="fling_config_name_edit_dialog_title">Fling profile name</string>
   <string name="fling_config_name_edit_dialog_message">Masukkan nama atau biarkan kosong</string>
+  <string name="fling_config_dialog_title">Fling profiles</string>
+  <string name="fling_config_backup_success_toast">Fling profile successfully saved</string>
+  <string name="fling_config_restore_success_toast">Fling profile successfully restored</string>
+  <string name="fling_config_backup_error_toast">Error saving Fling profile</string>
+  <string name="fling_config_restore_error_toast">Error restoring Fling profile</string>
   <!-- Pulse navigation bar music visualizer -->
   <string name="pulse_help_policy_notice_summary">Pulse tidak bekerja dengan beberapa sumber audio saat mendengarkan di speaker perangkat</string>
   <string name="pulse_settings">Pulse</string>
@@ -817,6 +825,8 @@
   <string name="pulse_render_mode_solid_lines">Garis-garis solid</string>
   <string name="fling_pulse_color">Warna pulse</string>
   <string name="fling_pulse_color_summary">Digunakan juga sebagai fallback untuk warna otomatis</string>
+  <string name="fling_smoothing_enabled_title">Turn on smoothing</string>
+  <string name="fling_smoothing_enabled_summary">Each bar is animated more smoothly</string>
   <string name="eos_fling_lavalamp_title">Nyalakan lampu lava</string>
   <string name="eos_fling_lavalamp_summary">Pulse menjiwai perpaduan warna gaya lampu lava halus</string>
   <string name="pulse_advanced_category">Lanjutan</string>
@@ -1048,6 +1058,7 @@
   <string name="immersive_recents_statusbar">Hanya bilah status</string>
   <string name="immersive_recents_navbar">Hanya navbar</string>
   <string name="recents_icon_pack_title">Paket ikon sekarang</string>
+  <string name="recents_icon_pack_summary">In recents view, Choose your app icon style using the icon packs included in your phone</string>
   <string name="show_4g_title">Tampilkan 4G</string>
   <string name="show_4g_summary">Tampilkan 4g bukan LTE di ikon sinyal</string>
   <!-- Circle app bar -->
@@ -1097,6 +1108,8 @@
   <string name="delete_success">Dihapus</string>
   <string name="delete_fail">Tidak dapat menghapus</string>
   <string name="btn_profile">Profil</string>
+  <string name="load_profile">Load Profile</string>
+  <string name="save_profile">Save Profile</string>
   <string name="sizer_message_sdnowrite">Tidak dapat menulis ke SD Card.</string>
   <string name="sizer_message_sdnoread">Tidak bisa membaca SD Card.</string>
   <string name="sizer_message_filesuccess">Profil dibuat.</string>
@@ -1769,13 +1782,35 @@
   <string name="smart_pixels_summary">Menghemat baterai dengan mematikan beberapa piksel</string>
   <string name="smart_pixels_enable_title">Hidupkan Smart Pixels</string>
   <string name="smart_pixels_enable_summary">Matikan piksel untuk mengurangi konsumsi daya</string>
+  <string name="smart_pixels_on_power_save_title">Auto-enable on battery saver</string>
+  <string name="smart_pixels_on_power_save_summary">Enable Smart Pixels when battery saver is enabled</string>
+  <string name="smart_pixels_percent">Percent of pixels to disable</string>
+  <string name="smart_pixels_shift">Prevent burn-in by shifting pixels every</string>
+  <string name="smart_pixels_shift_times_15s">15 seconds</string>
+  <string name="smart_pixels_shift_times_30s">30 seconds</string>
+  <string name="smart_pixels_shift_times_1min">1 minute</string>
+  <string name="smart_pixels_shift_times_2min">2 minutes</string>
+  <string name="smart_pixels_shift_times_5min">5 minutes</string>
+  <string name="smart_pixels_shift_times_10min">10 minutes</string>
+  <string name="smart_pixels_shift_times_20min">20 minutes</string>
+  <string name="smart_pixels_shift_times_30min">30 minutes</string>
+  <string name="smart_pixels_shift_times_1h">1 hour</string>
   <!-- QS footer icons -->
+  <string name="qs_footer_services_title">Show Running Services icon</string>
+  <string name="qs_footer_services_summary">Display Running Services icon in quick settings footer</string>
   <string name="qs_footer_settings_title">Menampilkan ikon Pengaturan</string>
+  <string name="qs_footer_settings_summary">Display Settings icon in quick settings footer</string>
   <!-- Recents Grid -->
+  <string name="recents_grid_title">Recents grid</string>
+  <string name="recents_grid_summary">Display stock recents in a grid style</string>
   <!-- Recents Lock Icon -->
+  <string name="recents_lock_title">Recents lock</string>
+  <string name="recents_lock_summary">Display lock icon in recent app header</string>
   <!-- Tiles animation style  -->
+  <string name="qs_tiles">QS Tiles</string>
   <string name="qs_tile_animation_style_title">Gaya animasi</string>
   <string name="qs_tile_animation_duration_title">Durasi Animasi</string>
+  <string name="qs_tile_animation_interpolator_title">Tiles animation interpolator</string>
   <string name="qs_tile_animation_style_off">Tidak ada animasi</string>
   <string name="qs_tile_animation_style_flip">Balik</string>
   <string name="qs_tile_animation_style_rotate">Rotasi</string>
@@ -1787,7 +1822,9 @@
   <string name="qs_tile_animation_interpolator_decelerateInterpolator">Memperlambat</string>
   <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">Mempercepat memperlambat</string>
   <string name="qs_tile_animation_interpolator_bounceInterpolator">Memantul</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">Overshoot</string>
   <string name="qs_tile_animation_interpolator_anticipateInterpolator">Antisipasi</string>
+  <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Anticipate overshoot</string>
   <!-- Running services -->
   <string name="background_processes_settings_title">Proses latar belakang</string>
   <!-- Force authorize substratum packages -->
@@ -1799,5 +1836,15 @@
   <string name="menu_hide_substratum">Sembunyikan overlay</string>
   <!-- Edge gestures -->
   <string name="edge_gestures_title">Gestur Tepi</string>
+  <string name="edge_gestures_description">Swipe from bottom to trigger Home gesture. Keep it pressed to open recents. Swipe from bottom left or bottom right to go back.</string>
+  <string name="edge_gestures_feedback_duration_title">Haptic feedback duration</string>
+  <string name="edge_gestures_long_press_delay_title">Delay until long press action starts</string>
   <string name="edge_gestures_back_category_title">Gestur mundur</string>
+  <string name="edge_gestures_back_edges_title">Trigger back gesture from</string>
+  <string name="edge_gestures_back_edges_left_side">Left</string>
+  <string name="edge_gestures_back_edges_right_side">Right</string>
+  <string name="edge_gestures_back_edges_both_sides">Both sides</string>
+  <string name="edge_gestures_landscape_back_edges_title">Trigger back gesture on landscape from</string>
+  <string name="edge_gestures_back_screen_percent_title">Back gesture must start below this percentage of the screen</string>
+  <string name="edge_gestures_back_screen_percent_summary">Trigger below % of screen</string>
 </resources>

@@ -101,6 +101,7 @@
   <string name="github_akhilnarang">https://github.com/akhilnarang</string>
   <string name="github_bdogg718k">https://github.com/bdogg718k</string>
   <string name="github_apascual89">https://github.com/apascual89</string>
+  <string name="github_mracar">https://github.com/mracar07</string>
   <string name="rr">링크</string>
   <string name="rr_website_title">웹사이트</string>
   <string name="rr_website_summary">Resurrection Remix OS에 대한 더 많은 정보를 확인하세요.</string>
@@ -132,6 +133,7 @@
   <string name="christopher_kardas_summary">● Moderator\n● Editor\n● Contributor</string>
   <string name="matt_summary">● Moderator\n● Editor\n● Contributor</string>
   <string name="justen_summary">● Moderator\n● Editor\n● Contributor</string>
+  <string name="mracar_summary">● Developer\n● Maintainer</string>
   <string name="support_team_title">운영자 태그</string>
   <string name="device_maintainers_title">기기 및 메인테이너</string>
   <string name="device_maintainers_title_summary">기기 목록 및 기기 공식 RR-OS 관리자</string>
@@ -200,6 +202,8 @@
   <string name="rr_statusbar_title">상태표시줄</string>
   <string name="rr_sb_gestures_title">상태표시줄 제스처</string>
   <string name="qs_advanced_title">고급 설정</string>
+  <string name="rr_notification_panel_title">알림 패널</string>
+  <string name="rr_panels_title">패널</string>
   <string name="rr_tuner">시스템 UI 튜너</string>
   <string name="rr_tuner_summary">Android 기본 환경 설정</string>
   <string name="rr_battery">배터리</string>
@@ -485,12 +489,14 @@
   <string name="rr_density_summary">화면의 밀도를 변경하여 화면을 확장합니다.</string>
   <string name="rr_fonts_summary">폰트 사이즈 선택</string>
   <string name="stock_recents_category">순정 최신</string>
+  <string name="edge_gestures_summary">가장자리 동작을 사용하여 탐색</string>
   <!-- QS rows and columns -->
   <string name="qs_rows_portrait_title">세로에서 타일 행 수</string>
   <string name="qs_rows_landscape_title">가로에서 타일 행 수</string>
   <string name="qs_columns_portrait_title">세로에서 타일 열 수</string>
   <string name="qs_columns_landscape_title">가로에서 타일 열 수</string>
   <!-- QuickSettings Panel Transparency -->
+  <string name="qs_panel_alpha_title">위젯의 배경 투명도를 조정합니다.</string>
   <!-- Color Picker -->
   <string name="dialog_color_picker">색상 선택기</string>
   <string name="press_color_to_apply">적용할 색상을 아래에서 선택하세요.</string>
@@ -547,13 +553,17 @@
   <string name="lock_screen_show_location_summaryOn">잠금 화면에 위치 표시</string>
   <string name="lock_screen_show_location_summaryOff">잠금 화면에 위치 숨기기</string>
   <string name="lock_screen_weather_condition_icon_title">화면 아이콘 팩</string>
+  <string name="lock_screen_weather_condition_icon_summaryOn">잠금 아이콘에 상태 아이콘이 표시됩니다.</string>
+  <string name="lock_screen_weather_condition_icon_summaryOff">잠금 아이콘에 상태 아이콘이 숨겨져 있습니다.</string>
   <!-- Power Menu -->
   <string name="powermenu_title">전원 메뉴</string>
   <string name="powermenu_reboot_title">다시 시작</string>
   <string name="powermenu_advanced_reboot_title">재시작 옵션</string>
+  <string name="powermenu_advanced_reboot_summary">복구 모드, 부트로더, 시스템UI, 빠른 재시작 옵션을 사용하려면 고급 재시작 메뉴를 활성화 합니다.</string>
   <string name="powermenu_screenshot_title">스크린샷</string>
   <string name="powermenu_airplane_title">비행기 모드</string>
   <string name="powermenu_screenrecord_title">화면 녹화</string>
+  <string name="powermenu_flashlight">손전등</string>
   <string name="powermenu_ls_reboot_summary">잠금화면에서 재시작 옵션 표시</string>
   <string name="powermenu_ls_advanced_reboot_summary">잠금화면에 고급 부팅 옵션 표시</string>
   <string name="powermenu_ls_screenshot_summary">잠금화면에 화면 캡처 옵션을 표시</string>
@@ -727,6 +737,7 @@
   <string name="select_custom_app_title">사용자 지정 앱 선택</string>
   <string name="select_custom_activity_title">사용자 지정 활동 선택</string>
   <string name="profile_applist_title">애플리케이션</string>
+  <string name="default_settings">기본 설정</string>
   <string name="default_settings_summary">AOSP 기본 네비게이션 바</string>
   <string name="default_navbar_title">기본 네이게이션 바</string>
   <!-- Actions dialog and default task values set in ActionPreference xml-->
@@ -736,8 +747,11 @@
   <string name="action_entry_custom_action">사용자 지정 활동 선택</string>
   <!-- Fling -->
   <string name="fling_settings">Fling 설정</string>
+  <string name="fling_settings_summary">매우 독특하고 완벽하게 사용자 정의 가능한 제스처 기반 탐색 모음</string>
   <string name="fling_interface">Fling 제스처 인터페이스</string>
   <string name="fling_enable_title">Fling 활성화</string>
+  <string name="fling_back_home_policy">Back and Home은 항상 설정해야합니다. 뒤로 또는 홈 할당을 변경하려면 먼저 원하는 할당을 설정하십시오. \ n \ n 또한 두 번 탭 동작을 설정하면 단일 탭이 약간 지연됩니다.</string>
+  <string name="fling_split_bar_policy">오른쪽이나 왼쪽 활동만 지정되었을 때, 내비게이션 바 전체로 활동이 적용됩니다.</string>
   <string name="fling_def_summary">설정된 활동 없음</string>
   <string name="fling_swipe_actions">밀기 제스처</string>
   <string name="fling_tap_actions">탭 제스처</string>
@@ -786,24 +800,51 @@
   <string name="fling_longpress_timeout_label_right">지연시간 길게</string>
   <string name="fling_longpress_title">길게 누르기 지연시간</string>
   <string name="fling_longpress_summary">길게 누르기에 지정된 활동을 실행할 시간 조절</string>
+  <string name="fling_keyboard_cursors_title">동적 키보드 커서 동작</string>
+  <string name="fling_keyboard_cursors_move_summary">키보드가 나타나면 왼쪽 또는 오른쪽을 길게 눌러 텍스트 커서를 왼쪽이나 오른쪽으로 이동하십시오. \ n 커서를 계속 움직이려면 길게 누르십시오. 막대를 한 번 누르면 홈 화면으로 이동합니다.</string>
+  <string name="fling_logo_opacity_title">Fling 로고 불투명도</string>
   <string name="fling_factory_reset_title">기본 설정으로 초기화</string>
+  <string name="fling_factory_reset_confirm">Fling 초기 설정으로 재설정 하시겠습니까?</string>
+  <string name="fling_backup_current_config_title">프로필 저장</string>
+  <string name="fling_restore_config_title">프로필 복구</string>
+  <string name="fling_config_name_edit_dialog_title">Fling 프로파일 이름</string>
+  <string name="fling_config_name_edit_dialog_message">이름을 입력 하거나 비워 둡니다</string>
+  <string name="fling_config_dialog_title">Fling 프로파일</string>
+  <string name="fling_config_backup_success_toast">Fling 프로필이 저장되었습니다.</string>
+  <string name="fling_config_restore_success_toast">Fling 프로필이 성공적으로 복원 되었습니다</string>
+  <string name="fling_config_backup_error_toast">Fling 프로파일 저장 중 오류 발생 하였습니다</string>
+  <string name="fling_config_restore_error_toast">Fling 프로파일을 복원하는 중 오류가 발생했습니다.</string>
   <!-- Pulse navigation bar music visualizer -->
+  <string name="pulse_help_policy_notice_summary">장치 스피커로 청취 할 때 일부 오디오 소스에서 Pulse가 작동하지 않음</string>
   <string name="pulse_settings">Pulse</string>
   <string name="pulse_settings_summary">내비게이션 바에 오디오 시각화를 표시합니다.</string>
+  <string name="fling_show_pulse_title">펄스 표시</string>
   <string name="fling_show_pulse_summary">내비게이션 바에 오디오 시각화를 표시합니다.</string>
   <string name="pulse_render_mode_title">렌더링 모드</string>
   <string name="pulse_render_mode_fading_bars">페이딩 블록</string>
   <string name="pulse_render_mode_solid_lines">실선</string>
   <string name="fling_pulse_color">Pulse 색</string>
+  <string name="fling_pulse_color_summary">자동 색상의 폴백으로도 사용됩니다.</string>
+  <string name="fling_smoothing_enabled_title">부드럽게하기</string>
+  <string name="fling_smoothing_enabled_summary">각 막대는 더욱 부드럽게 움직입니다.</string>
   <string name="eos_fling_lavalamp_title">라바 램프 활성화</string>
   <string name="eos_fling_lavalamp_summary">라바 램프 스타일의 색 조합으로 Pulse의 색을 자동으로 변경합니다</string>
   <string name="pulse_advanced_category">추가 설정</string>
   <string name="pulse_legacy_mode_advanced_category">페이딩 블록 모드 설정</string>
   <string name="pulse_custom_fudge_factor">바 구분 정도</string>
+  <string name="lavamp_solid_speed_title">라바 램프 변화 속도</string>
   <string name="pulse_solid_units_count">실선 수</string>
+  <string name="pulse_solid_lines_count">실선 수</string>
   <string name="pulse_solid_units_opacity">실선 불투명도</string>
   <string name="pulse_fading_blocks_opacity">페이딩 블록 불투명도</string>
   <string name="pulse_solid_dimen_category">실선 모드 설정</string>
+  <string name="pulse_custom_buttons_opacity_title">Pulse 사용 시 버튼의 불투명도</string>
+  <string name="pulse_auto_color_title">자동 펄스 색상</string>
+  <string name="pulse_auto_color_summary">앨범 아트와 색상을 동기화하십시오. 선 불투명도를 재정의합니다.</string>
+  <string name="fling_lavalamp_color_from">라바 램프 시작 색상</string>
+  <string name="fling_lavalamp_color_to">라바 램프 마지막 색상</string>
+  <string name="pulse_colors_reset_title">펄스 색상 재설정</string>
+  <string name="pulse_colors_reset_message">수정한 색을 기본으로 되돌리겠습니까?</string>
   <!-- Pulse config -->
   <string name="pulse_custom_dimen">바 너비</string>
   <string name="pulse_custom_div">바 간격</string>
@@ -818,6 +859,10 @@
   <!-- SmartBar -->
   <string name="smartbar_category">스마트바</string>
   <string name="smartbar_settings_title">스마트바 설정</string>
+  <string name="smartbar_settings_summary">스마트바 사용자 설정모음</string>
+  <string name="smartbar_editor_title">편집모드 시작</string>
+  <string name="smartbar_editor_summary">스마트바 버튼 편집</string>
+  <string name="smartbar_help_policy_notice_summary">에디터 모드 일 때, 버튼을 눌러서 위치를 변경하거나 버튼을 길게 누르면 편집 메뉴가 나타납니다. 메뉴가 표시되어있는 동안 버튼 위치가 변경 될 수 있습니다.\n\n 두 번 탭 동작을 설정하면 한 번 탭하는 것이 약간 지연됩니다.</string>
   <string name="smartbar_context_menu_position_title">상황별 버튼 레이아웃 위치</string>
   <string name="smartbar_context_menu_position_summary">메뉴 버튼이나 IME 전환기 같이 상황에 따라 표시되는 상황별 버튼의 위치를 설정합니다</string>
   <string name="smartbar_right">오른쪽</string>
@@ -826,6 +871,7 @@
   <string name="smartbar_button_animation_summary">주요 버튼을 누를 때의 애니메이션 스타일을 설정합니다</string>
   <string name="smartbar_button_animation_ripple">물결</string>
   <string name="smartbar_button_animation_spring">스프링</string>
+  <string name="smartbar_button_animation_flip">뒤집기</string>
   <string name="smartbar_button_animation_pixel">Pixel (모든 버튼에 적용)</string>
   <string name="smartbar_button_animation_pixel_home">Pixel (홈 버튼에만 사용)</string>
   <string name="smartbar_button_animation_pixel_home_ripple">Pixel (홈 버튼에만 사용)과 물결 효과</string>
@@ -855,13 +901,25 @@
   <string name="smartbar_custom_icon_size_title">아이콘 크기 조절</string>
   <string name="one_handed_mode_title">한 손 조작 모드</string>
   <string name="one_handed_mode_summary">내비게이션 바를 좌우로 밀어서 한 손 조작 모드를 사용합니다</string>
+  <string name="smartbar_double_tap_sleep_title">두번 두드려 화면 끄기</string>
+  <string name="smartbar_double_tap_sleep_summary">휴면 영역을 두 번 탭하면 잠자기 상태가됩니다.</string>
   <!-- SystemUI theme -->
   <string name="systemui_theme_style_title">테마</string>
+  <string name="systemui_theme_style_auto">자동 (배경화면 기반)</string>
   <string name="systemui_theme_style_light">밝은</string>
   <string name="systemui_theme_style_dark">어두운</string>
+  <string name="rr_theme_title">테마</string>
+  <string name="rr_theme_summary">테마 사용자 정의</string>
   <!-- Hardware button navigation -->
   <!-- Button brightness -->
+  <string name="button_backlight_options_category">백라이트 옵션</string>
+  <string name="button_backlight_enable_title">버튼 백라이트 켜기</string>
+  <string name="button_link_brightness">화면 밝기 바로가기</string>
+  <string name="button_link_brightness_summary">화면의 밝기 레벨에 따라 버튼 백라이트 밝기가 조정됩니다.</string>
   <string name="button_manual_brightness">밝기 수준</string>
+  <string name="button_timeout_title">백라이트 시간 제한</string>
+  <string name="button_backlight_on_touch_only_title">버튼 백라이트 터치</string>
+  <string name="button_backlight_on_touch_only_summary">버튼 백라이트는 항상이 아니라 버튼을 누르는 경우에만 나타납니다. 시간 초과는 여전히 이 기능에 영향을 미칩니다.</string>
   <!-- Ability to disable hardware keys via nav bar settings -->
   <string name="hw_keys_title">하드웨어 키</string>
   <string name="hw_keys_summary">하드웨어 키를 활성화 합니다</string>
@@ -879,6 +937,7 @@
   <string name="hardware_keys_single_tap_title">한번 탭 동작</string>
   <string name="hardware_keys_long_press_title">길게 누를 시 동작</string>
   <string name="hardware_keys_double_tap_title">더블 탭 동작</string>
+  <string name="hardware_keys_disable_title">하드웨어 키 비활성화</string>
   <!-- Three-fingers-swipe to screenshot -->
   <string name="three_finger_gesture">세 손가락 제스처</string>
   <string name="three_finger_gesture_summary">세 손가락을 스와이프해서 스크린샷을 찍습니다</string>
@@ -899,8 +958,11 @@
   <string name="summary_animation_no_override">앱이 전환 효과를 조정하는 것을 방지합니다</string>
   <string name="animation_duration_default">기본</string>
   <!-- Power menu and dialogs opacity -->
+  <string name="power">전원 메뉴 커스터마이징</string>
+  <string name="power_menu_transparency">전원/다시 시작 메뉴 불투명도</string>
   <string name="power_menu_dialog_dim">전원/다시 시작 메뉴 배경 밝기 조절</string>
   <!-- Screen state service -->
+  <string name="screen_state_toggles_title">작업 일시 중지</string>
   <string name="screen_state_toggles_enable_title">활성화</string>
   <string name="screen_state_toggles_enable_summary">화면이 꺼지면 기능 일시 중지 활동이 실행됩니다. 화면이 켜지면 이전의 상태가 복구됩니다.</string>
   <string name="screen_state_toggles_mobile_title">모바일 네트워크</string>
@@ -912,7 +974,9 @@
   <string name="screen_state_toggles_mobile_data">모바일 데이터 비활성화</string>
   <string name="screen_state_toggles_mobile_data_summary">화면이 꺼지면 모바일 데이터를 비활성화 합니다</string>
   <string name="screen_state_off_delay_title">일시 중지 기능 지연 시간</string>
+  <string name="screen_state_off_delay_summary">화면 꺼짐 후 작업을 수행하기 전에 기다려야하는 시간 (분)</string>
   <string name="screen_state_on_delay_title">일시 중지 기능 해제 지연 시간</string>
+  <string name="screen_state_on_delay_summary">화면이 켜진 후 작업을 수행하기 전에 대기 할 시간 (분)</string>
   <!-- Volume Steps -->
   <string name="volume_steps_title">음량 단계</string>
   <string name="volume_steps_alarm_title">음량 단계: 알람</string>
@@ -931,7 +995,11 @@
   <string name="volume_steps_5">5</string>
   <!-- Screenshot sound -->
   <string name="screenshot_sound_title">스크린샷 소리</string>
+  <string name="screenshot_sound_summary">스크린샷 촬영시 음향효과 재생</string>
   <!-- Gesture Anywhere -->
+  <string name="gesture_anywhere_title">제스처 애니웨어</string>
+  <string name="gesture_anywhere_enabled_title">글로벌 제스처</string>
+  <string name="gesture_anywhere_enabled_summary">제스처 애니웨어 기능 활성화</string>
   <string name="gesture_anywhere_position_title">Loction</string>
   <string name="gesture_anywhere_position_left">왼쪽 가장자리</string>
   <string name="gesture_anywhere_position_right">오른쪽 가장자리</string>
@@ -1367,10 +1435,18 @@
   <string name="scroll_disclaimer_summary">주의: 사용자 지정 값을 적용하려면 대부분의 앱을 다시 시작해야 합니다</string>
   <string name="animation_settings_reset_message">애니메이션 설정을 기본으로 되돌리겠습니까?</string>
   <!-- Screen Off animation -->
+  <string name="screen_off_animation_default">실수로 화면 켜기 방지</string>
   <string name="screen_off_animation_crt">CRT</string>
+  <string name="screen_off_animation_scale">크기 변화</string>
   <!-- Suppress notification sound/vibration -->
+  <string name="notification_sound_vib_screen_on_title">알림 메시지 표시</string>
+  <string name="notification_sound_vib_screen_on_display_title">알림을 위해 소리와 진동 사용</string>
+  <string name="notification_sound_vib_screen_on_never">사용 안함</string>
   <string name="notification_sound_vib_screen_on_always">항상 (기본)</string>
+  <string name="notification_sound_vib_screen_on_nomedia">재생중인 미디어가없는 경우</string>
   <!-- Accidental Touch -->
+  <string name="anbi_enabled_title">실수로 화면 켜기 방지</string>
+  <string name="anbi_enabled_summary">이 기능을 사용하면 터치 스크린 사용 중에 실수로 하드웨어 버튼을 터치하는 것을 방지합니다.</string>
   <!-- Pocket judge -->
   <string name="pocket_judge_title">주머니 감지</string>
   <string name="pocket_judge_summary">기기가 주머니에 있을 때 화면과 버튼 입력을 방지합니다.</string>
@@ -1505,9 +1581,11 @@
   <string name="button27">Resurrection</string>
   <string name="button28">Android Stock</string>
   <string name="button29">Resurrection Lollipop</string>
+  <string name="button30">Resurrection Nougat</string>
   <string name="animation0">Rotation </string>
   <string name="animation1">Recents Exit</string>
   <string name="animation2">Transluscent Exit </string>
+  <string name="animation3">Transluscent Exit Ribbon</string>
   <string name="animation4">Toast Exit</string>
   <string name="animation5">Slide Out Down </string>
   <string name="animation6">Xylon Exit </string>
@@ -1569,9 +1647,28 @@
   <string name="position_right_title">우측</string>
   <string name="position_centered_title">중간</string>
   <string name="hidden_title">숨기기</string>
+  <string name="clock_date_cat_date_title">날짜</string>
+  <string name="clock_date_show_seconds_title">초 표시</string>
+  <string name="clock_date_show_seconds_summary">상태 표시 줄에 시계를 초 단위로 표시 할 수 있습니다.</string>
+  <string name="clock_date_show_date_title">날짜 표시</string>
+  <string name="clock_date_show_date_summary">상태 표시 줄에 시계 옆에 날짜를 표시</string>
+  <string name="clock_date_date_format_title">날짜 형식</string>
+  <string name="clock_date_date_custom_date_format">사용자 정의 \'DateFormat\'</string>
+  <string name="clock_date_date_string_edittext_title">\'DateFormat\'패턴 입력</string>
+  <string name="clock_date_date_string_edittext_summary">올바른 \'DateFormat\'패턴을 입력하십시오. MM / dd / yy</string>
   <string name="clock_date_date_style_title">스타일</string>
+  <string name="clock_date_date_style_lowercase">소문자</string>
+  <string name="clock_date_date_style_uppercase">대문자</string>
+  <string name="clock_date_date_size_small_title">작게</string>
+  <string name="clock_date_date_size_small_summary">작은 크기의 날짜 표시 가능</string>
+  <string name="status_bar_clock_font_size_title">글자 크기</string>
   <!-- Dynamic Navbar -->
+  <string name="navbar_dynamic_title">동적 내비게이션 바 색상</string>
+  <string name="navbar_dynamic_summary">포 그라운드 앱 색상과 일치하도록 설정</string>
+  <string name="restart_app_required">각 앱을 다시 시작하여 효과보기</string>
   <!-- RR config options -->
+  <string name="rr_config_classic_update_message">이전 버전의 RR-OS에 있던 클래식 (marshmallow) 으로 레이아웃을 변경하려고합니다. 진행 할까요?</string>
+  <string name="rr_config_navigation_update_message">RR-OS 구성의 새로운 레이아웃 인 아래쪽 탐색 레이아웃 (oreo) 으로 레이아웃을 변경하려고합니다. 보통 레이아웃과는 조금 다를 수 있습니다. 진행 할까요?</string>
   <!-- RR summary text -->
   <string name="custom_summary_title">사용자 지정 RR 설명</string>
   <string name="custom_summary_explain">새 설명을 입력해주세요. 아무것도 입력하지 않을 시 기본 문구로 되돌립니다.</string>

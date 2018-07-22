@@ -202,6 +202,8 @@
   <string name="rr_statusbar_title">Barra de estado</string>
   <string name="rr_sb_gestures_title">Gestos na barra de estado</string>
   <string name="qs_advanced_title">Avançadas</string>
+  <string name="rr_notification_panel_title">Painel de notificações</string>
+  <string name="rr_panels_title">Painéis</string>
   <string name="rr_tuner">Sintonizador da interface do sistema</string>
   <string name="rr_tuner_summary">Algumas personalizações de origem</string>
   <string name="rr_battery">Bateria</string>
@@ -328,7 +330,7 @@
   <string name="status_bar_quick_qs_pulldown_left">Esquerda</string>
   <string name="status_bar_quick_qs_pulldown_right">Direita</string>
   <string name="status_bar_double_tap_to_sleep_title">Toque duplo para desligar o ecrã</string>
-  <string name="status_bar_double_tap_to_sleep_summary">Toque duas vezes na barra de estado para desligar o ecrã</string>
+  <string name="status_bar_double_tap_to_sleep_summary">Dê um toque duplo na barra de estado para desligar o ecrã</string>
   <string name="qs_tile_title_visibility_title">Mostrar título dos mosaicos</string>
   <string name="qs_tile_title_visibility_summary">Quando ativado, mostra os títulos por baixo dos mosaicos</string>
   <!-- QS Headers -->
@@ -475,7 +477,7 @@
   <string name="rr_power_anim_summary">Ativar ou desativar animações no menu de ligar/desligar e escolher a partir de uma lista de animações</string>
   <string name="rr_toast_summary">Personalizar animações e ícones das notificações toast</string>
   <string name="rr_expanded_desktop_summary">Opções da área de trabalho expandida por aplicação</string>
-  <string name="rr_doze_summary">Ativar ou desativar a visualização de ambiente e personalizar os seus componentes</string>
+  <string name="rr_doze_summary">Ativar ou desativar a visualização ambiente e personalizar os seus componentes</string>
   <string name="rr_heads_up_summary">Ativar ou desativar as notificações flutuantes e configurar os seus tempos limite </string>
   <string name="rr_dash_board_summary">Personalizar o esquema do painel de configurações da Resurrection Remix e os seus resumos</string>
   <string name="misc_weather_settings_summary">Personalizar várias opções do widget do relógio</string>
@@ -1106,6 +1108,8 @@
   <string name="delete_success">Apagado(s)</string>
   <string name="delete_fail">Impossível apagar</string>
   <string name="btn_profile">Perfil</string>
+  <string name="load_profile">Carregar perfil</string>
+  <string name="save_profile">Guardar perfil</string>
   <string name="sizer_message_sdnowrite">Não é possível escrever no cartão SD.</string>
   <string name="sizer_message_sdnoread">Não é possível ler o cartão SD.</string>
   <string name="sizer_message_filesuccess">Perfil criado.</string>
@@ -1142,13 +1146,13 @@
   <string name="fp_unlock_keystore_summary">Desbloquear o dispositivo com impressão digital após a reinicialização sem a necessidade de introduzir o PIN, Palavra-passe ou Padrão\nNota: utilize por sua conta e risco!</string>
   <!-- Ambient Music Ticker -->
   <string name="force_ambient_for_media_title">Notificação de música ambiente</string>
-  <string name="force_ambient_for_media_summary">Mostrar informação da música na visualização de ambiente</string>
+  <string name="force_ambient_for_media_summary">Mostrar informação da música na visualização ambiente</string>
   <string name="force_ambient_for_media_off">Desativada</string>
   <string name="force_ambient_for_media_on">Ativada</string>
   <string name="force_ambient_for_media_on_forced">Ativada e forçada</string>
   <string name="force_ambient_for_media_on_forced_clean">Ativada e forçada de forma mínima</string>
   <!-- Ambient display battery percentage -->
-  <string name="ambient_battery_percent_title">Percentagem da bateria na visualização de ambiente</string>
+  <string name="ambient_battery_percent_title">Percentagem da bateria na visualização ambiente</string>
   <string name="ambient_battery_percent_summary">Ativar para mostrar a percentagem de bateria em repouso</string>
   <!-- Scrolling Cache -->
   <string name="pref_scrollingcache_title">Cache de deslizamento</string>
@@ -1782,6 +1786,15 @@
   <string name="smart_pixels_on_power_save_summary">Ativar os Píxeis Inteligentes quando a poupança de bateria for ativada</string>
   <string name="smart_pixels_percent">Percentagem de píxeis a desativar</string>
   <string name="smart_pixels_shift">Previne o efeito de ecrã queimado (burn-in) ao alternar os píxeis a cada</string>
+  <string name="smart_pixels_shift_times_15s">15 segundos</string>
+  <string name="smart_pixels_shift_times_30s">30 segundos</string>
+  <string name="smart_pixels_shift_times_1min">1 minuto</string>
+  <string name="smart_pixels_shift_times_2min">2 minutos</string>
+  <string name="smart_pixels_shift_times_5min">5 minutos</string>
+  <string name="smart_pixels_shift_times_10min">10 minutos</string>
+  <string name="smart_pixels_shift_times_20min">20 minutos</string>
+  <string name="smart_pixels_shift_times_30min">30 minutos</string>
+  <string name="smart_pixels_shift_times_1h">1 hora</string>
   <!-- QS footer icons -->
   <string name="qs_footer_services_title">Mostrar o ícone dos serviços em execução</string>
   <string name="qs_footer_services_summary">Mostrar o ícone dos serviços em execução no rodapé das definições rápidas</string>
@@ -1826,10 +1839,14 @@
   <string name="menu_hide_substratum">Ocultar sobreposições</string>
   <!-- Edge gestures -->
   <string name="edge_gestures_title">Gestos no fundo do ecrã</string>
+  <string name="edge_gestures_description">Deslize a partir de baixo para ativar o gesto Página Inicial. Deslize a partir de baixo e mantenha premido para abrir as aplicações recentes. Deslize a partir de baixo dos lados direito ou esquerdo para retroceder.</string>
   <string name="edge_gestures_feedback_duration_title">Duração do retorno tátil</string>
   <string name="edge_gestures_long_press_delay_title">Atraso para iniciar a ação da pressão longa</string>
   <string name="edge_gestures_back_category_title">Gesto para Voltar</string>
   <string name="edge_gestures_back_edges_title">Ativar o gesto para Voltar a partir</string>
+  <string name="edge_gestures_back_edges_left_side">da esquerda</string>
+  <string name="edge_gestures_back_edges_right_side">da direita</string>
+  <string name="edge_gestures_back_edges_both_sides">de ambos os lados</string>
   <string name="edge_gestures_landscape_back_edges_title">Ativar o gesto para Voltar no modo paisagem a partir</string>
   <string name="edge_gestures_back_screen_percent_title">Ativar o gesto para Voltar abaixo desta percentagem do ecrã</string>
   <string name="edge_gestures_back_screen_percent_summary">Ativar abaixo desta % do ecrã</string>
