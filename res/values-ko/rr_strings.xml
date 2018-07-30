@@ -1057,10 +1057,12 @@
   <string name="immersive_recents_statusbar">상태 표시줄만 표시</string>
   <string name="immersive_recents_navbar">내비게이션 바만 표시</string>
   <string name="recents_icon_pack_title">최근 아이콘 팩</string>
+  <string name="recents_icon_pack_summary">최근 버전보기에서 휴대 전화에 포함 된 아이콘 팩을 사용하여 앱 아이콘 스타일을 선택하십시오.</string>
   <string name="show_4g_title">4G 표시</string>
   <string name="show_4g_summary">신호 아이콘을 LTE 대신에 4G로 표시</string>
   <!-- Circle app bar -->
   <string name="category_app_circle_bar_title">앱 런처</string>
+  <string name="app_circle_bar_title">원형 앱 런처</string>
   <string name="app_circle_bar_included_apps_title">표시할 앱</string>
   <string name="app_circle_bar_included_apps_summary">앱 서클 바에 표시할 앱을 선택합니다.</string>
   <!-- Pie -->
@@ -1105,6 +1107,8 @@
   <string name="delete_success">삭제됨</string>
   <string name="delete_fail">삭제할 수 없음</string>
   <string name="btn_profile">프로필</string>
+  <string name="load_profile">프로필 불러오기</string>
+  <string name="save_profile">프로필 저장</string>
   <string name="sizer_message_sdnowrite">SD카드에 쓸 수 없음</string>
   <string name="sizer_message_sdnoread">SD카드를 읽을 수 없음</string>
   <string name="sizer_message_filesuccess">프로필 생성됨</string>
@@ -1135,11 +1139,20 @@
   <string name="dot_color_switch_title">스타일</string>
   <!-- Status bar - Battery saver color -->
   <string name="status_bar_battery_saver_color_title">배터리 절약 모드 색상</string>
+  <string name="status_bar_battery_saver_color_summary">참고: 이미 배터리 보호 모드가 활성화되어 있으면, 새로운 색상을 적용할 때, 배터리 보호 모드를 껏다 켜주세요!</string>
   <!-- Fingerprint unlock keystore -->
   <string name="fp_unlock_keystore_title">지문 잠금 해제</string>
   <string name="fp_unlock_keystore_summary">기기를 재시작 한 이후 PIN/비밀번호/패턴을 입력하지 않고 지문으로 잠금을 해제합니다.\n주의: 모든 책임은 사용자에게 있습니다!</string>
   <!-- Ambient Music Ticker -->
+  <string name="force_ambient_for_media_title">음악 알림</string>
+  <string name="force_ambient_for_media_summary">음악 트랙 정보</string>
+  <string name="force_ambient_for_media_off">비활성화됨</string>
+  <string name="force_ambient_for_media_on">활성화됨</string>
+  <string name="force_ambient_for_media_on_forced">사용 가능 및 강제</string>
+  <string name="force_ambient_for_media_on_forced_clean">최소 활성화 및 강제</string>
   <!-- Ambient display battery percentage -->
+  <string name="ambient_battery_percent_title">남은 배터리양</string>
+  <string name="ambient_battery_percent_summary">도징 중 배터리 백분율 표시 가능</string>
   <!-- Scrolling Cache -->
   <string name="pref_scrollingcache_title">스크롤링 캐시</string>
   <string name="pref_scrollingcache_summary">스크롤링 캐시는 메모리 자원을 소비하여 스크롤링 성능을 개선해줄 수 있습니다</string>
@@ -1151,7 +1164,9 @@
   <string name="qs_footer_warnings_title">빠른 설정에 경고 표시</string>
   <string name="qs_footer_warnings_summary">네트워크가 외부 앱이나 VPN에 의해 모니터링 될 때 빠른 설정 패널 하단에 경고를 표시합니다</string>
   <!-- [CHAR LIMIT=80]-->
+  <string name="fp_swipe_to_dismiss_notifications_title">지문 인식을 왼쪽이나 오른쪽으로 밀어 알림 해제</string>
   <!--  [CHAR LIMIT=160]-->
+  <string name="fp_swipe_to_dismiss_notifications_summary">알림을 닫으려면 휴대 전화 뒷면의 지문 센서에서 왼쪽 또는 오른쪽으로 스 와이프합니다.</string>
   <!-- Qs easy tile add -->
   <string name="single_tap_tile_add_title">쉬운 타일 추가</string>
   <string name="single_tap_tile_add_summary">빠른 설정 편집 시 드래그하는 대신 탭하여 쉽게 타일을 추가합니다.</string>
@@ -1165,6 +1180,7 @@
   <string name="data_disabled_icon_title">데이터 사용 중지 아이콘 표시</string>
   <string name="data_disabled_icon_summary">데이터가 사용 중지 되었을 때 신호 아이콘 옆에 X를 표시합니다</string>
   <!-- RR Settings tabs slide effects -->
+  <string name="tabs_effect_title">RR 구성 탭 전환 효과</string>
   <string name="effect_default">기본</string>
   <string name="effect_accordion">아코디언</string>
   <string name="effect_background_to_foreground">뒤에서 앞으로</string>
@@ -1200,6 +1216,7 @@
   <string name="blur_notice">흐림 기능 주의 사항</string>
   <string name="blur_notice_summary">흐림 효과는 암호 입력 화면에서는 비활성화 됩니다. 반투명 알림만 활성화 됩니다!</string>
   <string name="blur_colors_notice">이 색들의 용도는 무엇인가요?</string>
+  <string name="blur_colors_notice_summary">배경을 흐리게 하는 색상을 변경합니다. 기본값인 회색 대신 사용자가 선호하는 색을 선택할 수 있습니다.\n세 가지 색상 필터: 밝은 배경, 어두운 배경과 혼합된 배경 색 필터를 사용할 수 있습니다.\n그래서 어떻게 설정된 색이 적용되나고요?\n간단합니다. 글자 그대로, 밝은 배경 필터는 밝은 배경에, 어두운 배경 필터는 어두운 배경에, 혼합된 배경 필터는 너무 밝지도, 너무 어둡지도 않은 배경에 사용됩니다.\n설정된 색상은 상태표시줄과 최근 앱 목록 모두에 사용됩니다. </string>
   <string name="blur_expstatus_cat">확장된 상태표시줄</string>
   <string name="blur_notifications_cat">알림</string>
   <string name="blur_qs_cat">빠른 설정</string>
@@ -1217,9 +1234,15 @@
   <string name="shortcuts_icon_default">기본</string>
   <string name="shortcuts_icon_custom">갤러리에서 찾기</string>
   <string name="shortcuts_icon_picker_choose_icon_title">아이콘 선택</string>
+  <string name="lockscreen_shortcuts_title">중간 화면 단축키</string>
+  <string name="lockscreen_shortcuts_summary">잠금 화면 바로가기를 보거나 변경합니다</string>
   <string name="lockscreen_shorcuts_launch_type_title">바로가기 실행 방식</string>
   <string name="lockscreen_shortcuts_single_tap">클릭</string>
   <string name="lockscreen_shortcuts_double_tap">더블 탭</string>
+  <string name="lockscreen_shortcuts_longpress">길게 누르기</string>
+  <string name="shortcuts_icon_presets">사전 설정</string>
+  <string name="lockscreen_shortcuts_longpress_title">길게 누르기</string>
+  <string name="lockscreen_shortcuts_longpress_summary">길게 눌러 바로가기를 실행합니다</string>
   <string name="shortcuts_icon_picker_alarm">알람</string>
   <string name="shortcuts_icon_picker_andy">Andy</string>
   <string name="shortcuts_icon_picker_battery">배터리</string>
@@ -1435,6 +1458,7 @@
   <string name="scroll_disclaimer_summary">주의: 사용자 지정 값을 적용하려면 대부분의 앱을 다시 시작해야 합니다</string>
   <string name="animation_settings_reset_message">애니메이션 설정을 기본으로 되돌리겠습니까?</string>
   <!-- Screen Off animation -->
+  <string name="screen_off_animation_title">화면 꺼짐 애니메이션</string>
   <string name="screen_off_animation_default">실수로 화면 켜기 방지</string>
   <string name="screen_off_animation_crt">CRT</string>
   <string name="screen_off_animation_scale">크기 변화</string>
@@ -1600,11 +1624,15 @@
   <string name="animation15">Fast Rotation</string>
   <!-- Config style-->
   <string name="rr_config_style_title">구성 스타일</string>
+  <string name="rr_config_n">탭</string>
   <string name="rr_config_mm">기본</string>
+  <string name="rr_config_o">네비게이션 바 아래쪽</string>
   <!-- Dashboard settings-->
   <string name="dashboard_category">대시보드 설정</string>
+  <string name="dashboard_conditions_title">대시보드 설정</string>
   <string name="summary_dashboard_conditions_enabled">대시보드 상태가 활성화됨</string>
   <string name="summary_dashboard_conditions_disabled">대시보드 상태가 비활성화됨</string>
+  <string name="dashboard_suggestions_title">대시보드 제안</string>
   <string name="summary_dashboard_suggestions_enabled">대시보드 추천이 활성화됨</string>
   <string name="summary_dashboard_suggestions_disabled">대시보드 추천이 비활성화됨</string>
   <!-- Incall vibrate options -->
@@ -1615,6 +1643,7 @@
   <string name="incall_vibrate_call_wait_title">통화 대기 시 진동</string>
   <string name="incall_vibrate_disconnect_title">종료 시 진동</string>
   <!-- Expanded desktop -->
+  <string name="power_menu_expanded_desktop">확장 데스크탑</string>
   <string name="expanded_hide_nothing">숨기지 않음</string>
   <string name="expanded_hide_status">상태표시줄 숨기기</string>
   <string name="expanded_hide_navigation">내비게이션 바 숨기기</string>
@@ -1628,6 +1657,7 @@
   <string name="expanded_desktop_title">확장 데스크탑 옵션</string>
   <!-- no network switch -->
   <string name="no_sim_cluster_switch_title">SIM카드 없으면 네트워크 바 숨기기</string>
+  <string name="no_sim_cluster_switch_summary">SIM카드가 비활성화 되거나 없을 때 네트워크 바를 숨깁니다. 비활성화된 SIM카드가 없으면 스위치가 작동하지 않습니다.</string>
   <!-- no sim icon switch -->
   <string name="disable_no_sim_title">USIM 없음 아이콘 표시 중지</string>
   <string name="disable_no_sim_summary">SIM이 장착되지 않았을 때 관련 아이콘을 표시하지 않습니다.</string>
@@ -1646,7 +1676,10 @@
   <string name="position_title">위치</string>
   <string name="position_right_title">우측</string>
   <string name="position_centered_title">중간</string>
+  <string name="normal_title">기본</string>
   <string name="hidden_title">숨기기</string>
+  <string name="status_bar_clock_date_settings_title">날짜와 시간</string>
+  <string name="status_bar_clock_date_settings_summary">시계 표시 방법 선택 &amp; amp; 상태 표시 줄의 날짜</string>
   <string name="clock_date_cat_date_title">날짜</string>
   <string name="clock_date_show_seconds_title">초 표시</string>
   <string name="clock_date_show_seconds_summary">상태 표시 줄에 시계를 초 단위로 표시 할 수 있습니다.</string>
@@ -1669,21 +1702,29 @@
   <!-- RR config options -->
   <string name="rr_config_classic_update_message">이전 버전의 RR-OS에 있던 클래식 (marshmallow) 으로 레이아웃을 변경하려고합니다. 진행 할까요?</string>
   <string name="rr_config_navigation_update_message">RR-OS 구성의 새로운 레이아웃 인 아래쪽 탐색 레이아웃 (oreo) 으로 레이아웃을 변경하려고합니다. 보통 레이아웃과는 조금 다를 수 있습니다. 진행 할까요?</string>
+  <string name="rr_config_navigation_color_enable_title">사용자 정의 색상 사용</string>
+  <string name="rr_config_navigation_color_enabled">RR에서 아래쪽 탐색을위한 맞춤 색상 사용</string>
+  <string name="rr_config_navigation_color_title">사용자 정의 하단 탐색 색상</string>
   <!-- RR summary text -->
+  <string name="rr_settings_summary_title">설정 애플리케이션의 설명 문구 수정</string>
   <string name="custom_summary_title">사용자 지정 RR 설명</string>
   <string name="custom_summary_explain">새 설명을 입력해주세요. 아무것도 입력하지 않을 시 기본 문구로 되돌립니다.</string>
   <string name="custom_summary_randomize_title">설명 무작위화</string>
   <string name="custom_summary_randomize_explain">미리 작성된 설명 문구가 무작위로 선택되어 설정 앱을 열 때마다 변경됩니다.\n설정 시 모든 사용자 지정 설명 문구는 무시됩니다.</string>
+  <string name="sum1">기능들은 다 살펴봤나요?</string>
   <string name="sum2">뉴스 속보: 도널드 트럼프가 그의 머리 스타일을 변경했다!</string>
+  <string name="sum3">100,000번 만졌습니다.</string>
   <string name="sum4">옵션이 많아요!</string>
   <string name="sum5">날 만져줘요!</string>
   <string name="sum6">또 뭐가 있을까?</string>
   <string name="sum7">전 F1 버튼이 아닙니다</string>
+  <string name="sum8">You don\'t wanna miss this s***!</string>
   <string name="sum9">RR에 온 것을 환영합니다</string>
   <string name="sum10">날 지나치지 마요!</string>
   <string name="sum11">숙제는 끝내셨나요? ツ</string>
   <string name="sum12">안녕하세요, 당신의 새로운 비서입니다</string>
   <string name="sum13">인터페이스 망치지 마세요!</string>
+  <string name="sum14">무엇을 관찰했습니까?</string>
   <string name="sum15">전문가만 사용 가능</string>
   <string name="sum16">심심하세요? 그럼, 절 만져주세요!</string>
   <string name="sum17">잘했어요! 보너스 기능을 활성화 했습니다</string>
@@ -1697,6 +1738,13 @@
   <string name="sum25">#Swagger</string>
   <string name="sum26">ツ</string>
   <!-- Hide Lockscreen clock, date, & alarm -->
+  <string name="hide_lockscreen_clock_title">시계 위젯</string>
+  <string name="hide_lockscreen_clock_summary">시계 위젯 표시 여부 변경</string>
+  <string name="hide_lockscreen_date_title">날짜 위젯</string>
+  <string name="hide_lockscreen_date_summary">시계 위젯 아래 날짜의 표시 여부 변경</string>
+  <string name="hide_lockscreen_alarm_title">알람 텍스트</string>
+  <string name="hide_lockscreen_alarm_summary">시계 위젯 아래 알람의 표시 여부 변경</string>
+  <string name="less_notification_sounds_title">알림 사운드</string>
   <!-- Screenshot -->
   <string name="screenshot_type_title">스크린샷 유형</string>
   <string name="screenshot_type_fullscreen">전체 화면 스크린샷</string>
@@ -1724,6 +1772,8 @@
   <string name="qs_tile_animation_duration_low">느리게</string>
   <string name="qs_tile_animation_duration_default">기본</string>
   <string name="qs_tile_animation_duration_fast">빠르게</string>
+  <string name="qs_tile_animation_interpolator_overshootInterpolator">오버 슈트 인터폴레이터</string>
+  <string name="qs_tile_animation_interpolator_anticipateInterpolator">예측</string>
   <!-- Running services -->
   <!-- Force authorize substratum packages -->
   <!-- Manage applications: show substratum overlays -->
