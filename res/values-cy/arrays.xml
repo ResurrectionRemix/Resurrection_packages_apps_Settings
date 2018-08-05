@@ -23,24 +23,122 @@
          These values will be used as search terms for TimeZone displayName
          strings. -->
   <!-- The time zone picker screen has two levels.  The first level allows the user to choose a region. -->
+  <string-array name="timezone_filters">
+    <!-- The next level of the time zoner picker should show time zones from the Americas. -->
+    <item>America</item>
+    <!-- The next level of the time zoner picker should show time zones from Europe. -->
+    <item>Ewrop</item>
+    <!-- The next level of the time zoner picker should show time zones from Africa. -->
+    <item>Affrica</item>
+    <!-- The next level of the time zoner picker should show time zones from Asia. -->
+    <item>Asia</item>
+    <!-- The next level of the time zoner picker should show time zones from Australia. -->
+    <item>Awstralia</item>
+    <!-- The next level of the time zoner picker should show time zones from Pacific. -->
+    <item>Cefnfor Tawel</item>
+    <!-- The next level of the time zoner picker should show time zones from ALL regions. -->
+    <item>Y Cyfan</item>
+  </string-array>
   <!-- Display settings.  The delay in inactivity before the screen is turned off. These are shown in a list dialog. -->
+  <string-array name="screen_timeout_entries">
+    <item>15 eiliad</item>
+    <item>30 eiliad</item>
+    <item>1 munud</item>
+    <item>2 funud</item>
+    <item>5 munud</item>
+    <item>10 munud</item>
+    <item>30 munud</item>
+  </string-array>
   <!-- Do not translate. -->
   <!-- Display settings.  The delay in inactivity before the dream is shown. These are shown in a list dialog. -->
+  <string-array name="dream_timeout_entries">
+    <item>Byth</item>
+    <item>15 eiliad</item>
+    <item>30 eiliad</item>
+    <item>1 munud</item>
+    <item>2 funud</item>
+    <item>5 munud</item>
+    <item>10 munud</item>
+    <item>30 munud</item>
+  </string-array>
   <!-- Do not translate. -->
   <!-- Security settings.  The delay after screen is turned off until device locks.
          These are shown in a list dialog. -->
+  <string-array name="lock_after_timeout_entries">
+    <item>Ar unwaith</item>
+    <item>5 eiliad</item>
+    <item>15 eiliad</item>
+    <item>30 eiliad</item>
+    <item>1 munud</item>
+    <item>2 funud</item>
+    <item>5 munud</item>
+    <item>10 munud</item>
+    <item>30 munud</item>
+  </string-array>
   <!-- Do not translate. -->
   <string-array name="entries_font_size">
-    <item msgid="6490061470416867723">Small</item>
+    <item msgid="6490061470416867723">Bach</item>
     <item msgid="3579015730662088893">Default</item>
-    <item msgid="1678068858001018666">Large</item>
+    <item msgid="1678068858001018666">Mawr</item>
     <item msgid="490158884605093126">Mwyaf</item>
   </string-array>
   <!-- Wi-Fi settings -->
   <!-- Match this with the order of NetworkInfo.DetailedState. -->
   <!-- Wi-Fi settings. The status messages when the network is unknown. -->
+  <string-array name="wifi_status">
+    <!-- Status message of Wi-Fi when it is idle. -->
+    <item></item>
+    <!-- Status message of Wi-Fi when it is scanning. -->
+    <item>Yn sganio\u2026</item>
+    <!-- Status message of Wi-Fi when it is connecting. -->
+    <item>Yn cysylltu\u2026</item>
+    <!-- Status message of Wi-Fi when it is authenticating. -->
+    <item>Yn dilysu\u2026</item>
+    <!-- Status message of Wi-Fi when it is obtaining IP address. -->
+    <item>Yn cael cyfeiriad IP\u2026</item>
+    <!-- Status message of Wi-Fi when it is connected. -->
+    <item>Wedi cysyllltu</item>
+    <!-- Status message of Wi-Fi when it is suspended. -->
+    <item>Wedi\'i atal</item>
+    <!-- Status message of Wi-Fi when it is disconnecting. -->
+    <item>Yn datgysylltu\u2026</item>
+    <!-- Status message of Wi-Fi when it is disconnected. -->
+    <item>Disconnected</item>
+    <!-- Status message of Wi-Fi when it is a failure. -->
+    <item>Aflwyddiannus</item>
+    <!-- Status message of Wi-Fi when it is blocked. -->
+    <item>Wedi\'i rhwystro</item>
+    <!-- Status message of Wi-Fi when connectiong is being verified. -->
+    <item>Temporarily avoiding poor connection</item>
+  </string-array>
   <!-- Match this with the order of NetworkInfo.DetailedState. -->
   <!-- Wi-Fi settings. The status messages when the network is known. -->
+  <string-array name="wifi_status_with_ssid">
+    <!-- Status message of Wi-Fi when it is idle. -->
+    <item></item>
+    <!-- Status message of Wi-Fi when it is scanning. -->
+    <item>Yn sganio\u2026</item>
+    <!-- Status message of Wi-Fi when it is connecting to a network. -->
+    <item>Yn cysylltu â <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+    <!-- Status message of Wi-Fi when it is authenticating with a network. -->
+    <item>Yn dilysu gyda <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+    <!-- Status message of Wi-Fi when it is obtaining IP address from a network. -->
+    <item>Yn cael cyfeiriad IP oddi wrth <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+    <!-- Status message of Wi-Fi when it is connected to a network. -->
+    <item>Wedi cysylltu â <xliff:g id="network_name">%1$s </xliff:g></item>
+    <!-- Status message of Wi-Fi when it is suspended. -->
+    <item>Wedi\'i atal</item>
+    <!-- Status message of Wi-Fi when it is disconnecting from a network. -->
+    <item>Yn datgysylltu oddi wrth <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+    <!-- Status message of Wi-Fi when it is disconnected. -->
+    <item>Disconnected</item>
+    <!-- Status message of Wi-Fi when it is a failure. -->
+    <item>Aflwyddiannus</item>
+    <!-- Status message of Wi-Fi when it is blocked. -->
+    <item>Wedi\'i rhwystro</item>
+    <!-- Status message of Wi-Fi when connectiong is being verified. -->
+    <item>Yn osgoi cysylltiad gwael am y tro</item>
+  </string-array>
   <!-- Match this with the constants in AccessPoint. -->
   <!-- Wi-Fi security choices used when manually added a Wi-Fi network -->
   <!-- Match this with the constants in AccessPoint. -->
@@ -56,18 +154,43 @@
   <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
   <!-- Match this with the order of WifiP2pDevice.Status -->
   <!-- Wi-Fi p2p settings device status message -->
+  <string-array name="wifi_p2p_status">
+    <item>Wedi cysyllltu</item>
+    <item>Gwahoddwyd</item>
+    <item>Aflwyddiannus</item>
+    <item>Ar gael</item>
+    <item>Allan-o-amrediad</item>
+  </string-array>
   <!-- Bluetooth Settings -->
   <!-- Discoverable mode timeout options -->
+  <string-array name="bluetooth_visibility_timeout_entries">
+    <item>2 funud</item>
+    <item>5 munud</item>
+    <item>1 awr</item>
+    <item>Peidio diffodd byth</item>
+  </string-array>
   <!-- Match this with drawable.wifi_signal. -->
   <!-- Wi-Fi settings. The signal strength a Wi-Fi network has. -->
+  <string-array name="wifi_signal">
+    <item>Gwael</item>
+    <item>Gwael</item>
+    <item>Gweddol</item>
+    <item>Da</item>
+    <item>Ardderchog</item>
+  </string-array>
   <!-- Data Usage settings. Range of data usage. -->
   <string-array name="data_usage_data_range">
     <!-- Last 30 days [CHAR LIMIT=25]-->
     <item>Y 30 diwrnod diwethaf</item>
     <!-- Set usage cycle [CHAR LIMIT=25]-->
-    <item>Set usage cycle...</item>
+    <item>Gosod cyfnod defnydd...</item>
   </string-array>
   <!-- Display options for UsageStats class -->
+  <string-array name="usage_stats_display_order_types">
+    <item>Usage time</item>
+    <item>Last time used</item>
+    <item>Enw\'r ap</item>
+  </string-array>
   <!-- EAP method -->
   <!-- Phase 2 options for PEAP -->
   <!-- Type of EAP method when EAP SIM, AKA, AKA' are supported -->
@@ -83,6 +206,13 @@
   <!-- Apps on SD installation location options in ApplicationSettings -->
   <!-- Do not translate. -->
   <!-- Names of categories of app ops tabs -->
+  <string-array name="app_ops_categories">
+    <item>Lleoliad</item>
+    <item>Personal</item>
+    <item>Messaging</item>
+    <item>Media</item>
+    <item>Device</item>
+  </string-array>
   <!-- User display names for app ops codes -->
   <string-array name="app_ops_summaries">
     <item>coarse location</item>
@@ -91,14 +221,14 @@
     <item>vibrate</item>
     <item>read contacts</item>
     <item>modify contacts</item>
-    <item>read call log</item>
-    <item>modify call log</item>
+    <item>darllen y log galwadau</item>
+    <item>addasu\'r log galwadau</item>
     <item>read calendar</item>
     <item>modify calendar</item>
     <item>wi-fi scan</item>
     <item>hysbysiad</item>
     <item>cell scan</item>
-    <item>call phone</item>
+    <item>galw ffôn</item>
     <item>read SMS</item>
     <item>write SMS</item>
     <item>receive SMS</item>
@@ -108,7 +238,7 @@
     <item>anfon SMS</item>
     <item>read ICC SMS</item>
     <item>write ICC SMS</item>
-    <item>modify settings</item>
+    <item>addasu gosodiadau</item>
     <item>draw on top</item>
     <item>access notifications</item>
     <item>camera</item>
@@ -153,20 +283,20 @@
   </string-array>
   <!-- User display names for app ops codes -->
   <string-array name="app_ops_labels">
-    <item>Location</item>
-    <item>Location</item>
-    <item>Location</item>
+    <item>Lleoliad</item>
+    <item>Lleoliad</item>
+    <item>Lleoliad</item>
     <item>Vibrate</item>
     <item>Read contacts</item>
     <item>Modify contacts</item>
-    <item>Read call log</item>
-    <item>Modify call log</item>
+    <item>Darllen y log galwadau</item>
+    <item>Addasu\'r log galwadau</item>
     <item>Read calendar</item>
     <item>Modify calendar</item>
-    <item>Location</item>
+    <item>Lleoliad</item>
     <item>Post notification</item>
-    <item>Location</item>
-    <item>Call phone</item>
+    <item>Lleoliad</item>
+    <item>Galw ffôn</item>
     <item>Read SMS/MMS</item>
     <item>Write SMS/MMS</item>
     <item>Receive SMS/MMS</item>
@@ -176,7 +306,7 @@
     <item>Anfon SMS/MMS</item>
     <item>Read SMS/MMS</item>
     <item>Write SMS/MMS</item>
-    <item>Modify settings</item>
+    <item>Addasu gosodiadau</item>
     <item>Draw on top</item>
     <item>Access notifications</item>
     <item>Camera</item>
@@ -194,8 +324,8 @@
     <item>Uchder sain hysbysiadau</item>
     <item>Bluetooth volume</item>
     <item>Keep awake</item>
-    <item>Location</item>
-    <item>Location</item>
+    <item>Lleoliad</item>
+    <item>Lleoliad</item>
     <item>Get usage stats</item>
     <item>Mute/unmute microphone</item>
     <item>Show toast</item>
@@ -232,6 +362,14 @@
   <!-- Titles for captioning opacity preference. [CHAR LIMIT=35] -->
   <!-- Values for captioning opacity preference. -->
   <!-- Titles for captioning text style preset preference. [CHAR LIMIT=35] -->
+  <string-array name="captioning_preset_selector_titles">
+    <item>Use app defaults</item>
+    <item>White on black</item>
+    <item>Black on white</item>
+    <item>Yellow on black</item>
+    <item>Yellow on blue</item>
+    <item>Addasedig</item>
+  </string-array>
   <!-- Values for captioning text style preset preference. -->
   <!-- Match this with the constants in VpnProfile. -->
   <!-- Short names for each VPN type, not really translatable. [CHAR LIMIT=20] -->
@@ -242,12 +380,36 @@
   <!-- User content ratings for restricted users [CHAR LIMIT=30] -->
   <!-- Values for user content ratings for restricted users -->
   <!-- Values for premium SMS permission selector [CHAR LIMIT=30] -->
+  <string-array name="security_settings_premium_sms_values">
+    <!-- Ask user before sending to premium SMS short code. -->
+    <item>Ask</item>
+    <!-- Never allow app to send to premium SMS short code. -->
+    <item>Caniatáu Byth</item>
+    <!-- Always allow app to send to premium SMS short code. -->
+    <item>Caniatáu Bob Tro</item>
+  </string-array>
   <!-- [CHAR LIMIT=40] Labels for memory states -->
   <!-- Display color space adjustment modes for accessibility -->
   <!-- Values for display color space adjustment modes for accessibility -->
   <!-- Battery saver mode: allowable trigger threshold levels. -->
   <!-- Process stats memory use details: labels for memory states -->
   <!-- Process stats memory use details: labels for process -->
+  <string-array name="proc_stats_process_states">
+    <item>Persistent</item>
+    <item>Top activity</item>
+    <item>Important (foreground)</item>
+    <item>Important (background)</item>
+    <item>Copi wrth gefn</item>
+    <item>Heavy weight</item>
+    <item>Service (running)</item>
+    <item>Service (restarting)</item>
+    <item>Receiver</item>
+    <item>Cartref</item>
+    <item>Last activity</item>
+    <item>Cached (activity)</item>
+    <item>Cached (activity client)</item>
+    <item>Cached (empty)</item>
+  </string-array>
   <!-- Array of titles for sim color for multi-sim -->
   <!-- Automatic storage management settings. The amount of days for the automatic storage manager
          to retain. These are shown in a list dialog. [CHAR LIMIT=70] -->
