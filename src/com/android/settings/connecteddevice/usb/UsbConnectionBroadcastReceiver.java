@@ -77,6 +77,14 @@ public class UsbConnectionBroadcastReceiver extends BroadcastReceiver implements
                 mFunctions = functions;
                 mDataRole = mUsbBackend.getDataRole();
                 mPowerRole = mUsbBackend.getPowerRole();
+                //If we have no USB HAL, mDataRole is invalid
+                //But we can't be connected AND have none data_role, so it's safe.
+		//It would be better to fix UsbManager when no HAL is available, but that's more work
+                if(mDataRole == UsbPort.DATA_ROLE_NONE &&
+                        intent.getExtras().getBoolean(UsbManager.USB_CONNECTED) &&
+                        !intent.getExtras().getBoolean(UsbManager.USB_HOST_CONNECTED))
+                    mDataRole = UsbPort.DATA_ROLE_DEVICE;
+
             }
         } else if (UsbManager.ACTION_USB_PORT_CHANGED.equals(intent.getAction())) {
             UsbPortStatus portStatus = intent.getExtras()
