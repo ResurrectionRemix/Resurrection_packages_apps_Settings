@@ -48,8 +48,17 @@ public class BasebandVersionDialogController {
             mDialog.removeSettingFromScreen(BASEBAND_VERSION_VALUE_ID);
             return;
         }
+        
+        String baseband = SystemProperties.get(BASEBAND_PROPERTY,
+                context.getString(R.string.device_info_default));
 
-        mDialog.setText(BASEBAND_VERSION_VALUE_ID, SystemProperties.get(BASEBAND_PROPERTY,
-                context.getString(R.string.device_info_default)));
+        if (baseband.contains(",")){
+          String[] baseband_parts = baseband.split(",");
+          if (baseband_parts.length > 0 && baseband_parts[0].equals(baseband_parts[1])){
+            baseband = baseband_parts[0];
+          }
+        }
+
+        mDialog.setText(BASEBAND_VERSION_VALUE_ID, baseband);
     }
 }
