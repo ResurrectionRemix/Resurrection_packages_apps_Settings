@@ -50,6 +50,7 @@ package com.android.settings.bluetooth;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothProfile;
 import android.content.Context;
 
 import com.android.settings.connecteddevice.DevicePreferenceCallback;
@@ -74,11 +75,12 @@ public class SavedBluetoothTwsDeviceUpdater extends BluetoothDeviceUpdater {
     }
 
     @Override
-    public void onConnectionStateChanged(CachedBluetoothDevice cachedDevice, int state) {
+    public void onProfileConnectionStateChanged(CachedBluetoothDevice cachedDevice, int state,
+            int bluetoothProfile) {
         final BluetoothDevice device = cachedDevice.getDevice();
-        if (state == BluetoothAdapter.STATE_CONNECTED) {
+        if (state == BluetoothProfile.STATE_CONNECTED) {
             removePreference(cachedDevice);
-        } else if (state == BluetoothAdapter.STATE_DISCONNECTED &&  device.isTwsPlusDevice()) {
+        } else if (state == BluetoothProfile.STATE_DISCONNECTED && device.isTwsPlusDevice()) {
             addPreference(cachedDevice);
         }
     }
