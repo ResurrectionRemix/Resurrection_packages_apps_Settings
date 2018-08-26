@@ -36,4 +36,12 @@
                 android:icon="@drawable/rr_battery_icon"
                 />
 
+    <Preference
+            android:title="@string/statusbar_tuner_title"
+            android:summary="@string/statusbar_tuner_summary">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.StatusBarIconsTunerActivity" />
+    </Preference>
+
 </PreferenceScreen>
