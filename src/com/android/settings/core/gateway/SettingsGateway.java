@@ -146,6 +146,8 @@ import com.android.settings.rr.fragments.PieSettings;
 
 import com.android.settings.smartnav.*;
 
+import org.omnirom.omnigears.moresettings.OmniJawsSettings;
+
 public class SettingsGateway {
 
     /**
@@ -279,6 +281,7 @@ public class SettingsGateway {
             FlingSettings.class.getName(),
             PulseSettings.class.getName(),
             PieSettings.class.getName()
+            OmniJawsSettings.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
