@@ -36,4 +36,11 @@
         android:entryValues="@array/flashlight_on_call_values"
         android:defaultValue="0" />
 
+    <Preference
+        android:key="omnijaws_settings"
+        android:icon="@drawable/rr_settings_weather"
+        android:title="@string/weather_title"
+	android:summary="@string/weather_config_title"
+        android:fragment="org.omnirom.omnigears.moresettings.OmniJawsSettings" />
+
 </PreferenceScreen>
