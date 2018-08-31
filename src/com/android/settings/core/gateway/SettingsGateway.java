@@ -147,6 +147,7 @@ import com.android.settings.rr.fragments.PieSettings;
 import com.android.settings.smartnav.*;
 
 import org.omnirom.omnigears.moresettings.OmniJawsSettings;
+import org.omnirom.omnigears.interfacesettings.LockscreenItemSettings;
 
 public class SettingsGateway {
 
@@ -282,6 +283,7 @@ public class SettingsGateway {
             PulseSettings.class.getName(),
             PieSettings.class.getName()
             OmniJawsSettings.class.getName(),
+            LockscreenItemSettings.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
