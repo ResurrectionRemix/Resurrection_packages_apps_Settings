@@ -92,7 +92,7 @@ public class DashboardSummary extends InstrumentedFragment
         if (suggestionFeatureProvider.isSuggestionEnabled(context)) {
             mSuggestionControllerMixin = new SuggestionControllerMixin(context, this /* host */,
                     getLifecycle(), suggestionFeatureProvider
-                    .getSuggestionServiceComponent());
+                    .getSuggestionServiceComponent(context));
         }
     }
 
