@@ -39,11 +39,7 @@ public class LockdownButtonPreferenceController extends TogglePreferenceControll
 
     @Override
     public int getAvailabilityStatus() {
-        if (mLockPatternUtils.isSecure(UserHandle.myUserId())) {
-            return BasePreferenceController.AVAILABLE;
-        } else {
-            return BasePreferenceController.DISABLED_FOR_USER;
-        }
+        return BasePreferenceController.UNSUPPORTED_ON_DEVICE;
     }
 
     @Override
