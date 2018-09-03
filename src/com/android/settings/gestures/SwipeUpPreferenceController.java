@@ -20,10 +20,12 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.RemoteException;
 import android.os.UserManager;
 import android.provider.Settings;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
+import android.view.WindowManagerGlobal;
 
 import com.android.internal.R;
 
@@ -42,7 +44,15 @@ public class SwipeUpPreferenceController extends GesturePreferenceController {
     }
 
     static boolean isGestureAvailable(Context context) {
-        if (!context.getResources().getBoolean(R.bool.config_swipe_up_gesture_setting_available)) {
+        boolean hasNav = false;
+        final boolean configEnabled =
+                context.getResources().getBoolean(R.bool.config_swipe_up_gesture_setting_available);
+        try {
+            hasNav = WindowManagerGlobal.getWindowManagerService().hasNavigationBar();
+        } catch (RemoteException ex) {
+            // no window manager? good luck with that
+        }
+        if (!hasNav || !configEnabled) {
             return false;
         }
 
