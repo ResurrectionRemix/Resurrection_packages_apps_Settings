@@ -153,6 +153,30 @@ public class UsbBackend {
                 .isRoleCombinationSupported(UsbPort.POWER_ROLE_SOURCE, UsbPort.DATA_ROLE_HOST);
     }
 
+    public boolean isSingleDataRoleSupported() {
+        return mPort != null && mPortStatus != null
+                && ((!mPortStatus
+                .isRoleCombinationSupported(UsbPort.POWER_ROLE_SINK, UsbPort.DATA_ROLE_HOST)
+                && !mPortStatus
+                .isRoleCombinationSupported(UsbPort.POWER_ROLE_SOURCE, UsbPort.DATA_ROLE_HOST))
+                || (!mPortStatus
+                .isRoleCombinationSupported(UsbPort.POWER_ROLE_SINK, UsbPort.DATA_ROLE_DEVICE)
+                && !mPortStatus
+                .isRoleCombinationSupported(UsbPort.POWER_ROLE_SOURCE, UsbPort.DATA_ROLE_DEVICE)));
+    }
+
+    public boolean isSinglePowerRoleSupported() {
+        return mPort != null && mPortStatus != null
+                && ((!mPortStatus
+                .isRoleCombinationSupported(UsbPort.POWER_ROLE_SINK, UsbPort.DATA_ROLE_DEVICE)
+                && !mPortStatus
+                .isRoleCombinationSupported(UsbPort.POWER_ROLE_SINK, UsbPort.DATA_ROLE_HOST))
+                || (!mPortStatus
+                .isRoleCombinationSupported(UsbPort.POWER_ROLE_SOURCE, UsbPort.DATA_ROLE_DEVICE)
+                && !mPortStatus
+                .isRoleCombinationSupported(UsbPort.POWER_ROLE_SOURCE, UsbPort.DATA_ROLE_HOST)));
+    }
+
     public static String usbFunctionsToString(long functions) {
         // TODO replace with UsbManager.usbFunctionsToString once supported by Roboelectric
         return Long.toBinaryString(functions);
