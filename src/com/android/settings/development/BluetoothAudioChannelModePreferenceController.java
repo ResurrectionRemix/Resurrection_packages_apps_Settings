@@ -42,13 +42,13 @@ public class BluetoothAudioChannelModePreferenceController extends
     @Override
     protected String[] getListValues() {
         return mContext.getResources().getStringArray(
-                R.array.bluetooth_a2dp_codec_channel_mode_values);
+                R.array.lineage_bluetooth_a2dp_codec_channel_mode_values);
     }
 
     @Override
     protected String[] getListSummaries() {
         return mContext.getResources().getStringArray(
-                R.array.bluetooth_a2dp_codec_channel_mode_summaries);
+                R.array.lineage_bluetooth_a2dp_codec_channel_mode_summaries);
     }
 
     @Override
@@ -70,6 +70,9 @@ public class BluetoothAudioChannelModePreferenceController extends
             case 2:
                 channelModeValue = BluetoothCodecConfig.CHANNEL_MODE_STEREO;
                 break;
+            case 3:
+                channelModeValue = BluetoothCodecConfig.CHANNEL_MODE_DUAL_CHANNEL;
+                break;
             default:
                 break;
         }
@@ -86,6 +89,9 @@ public class BluetoothAudioChannelModePreferenceController extends
                 break;
             case BluetoothCodecConfig.CHANNEL_MODE_STEREO:
                 index = 2;
+                break;
+            case BluetoothCodecConfig.CHANNEL_MODE_DUAL_CHANNEL:
+                index = 3;
                 break;
             case BluetoothCodecConfig.CHANNEL_MODE_NONE:
             default:
