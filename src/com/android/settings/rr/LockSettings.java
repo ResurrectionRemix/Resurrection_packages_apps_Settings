@@ -28,6 +28,8 @@ import android.support.v14.preference.SwitchPreference;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.content.Context;
+import android.content.Intent;
 
 import android.provider.Settings;
 import android.net.Uri;
@@ -116,7 +118,11 @@ private CustomSeekBarPreference mDateFontSize;
 	return false;
     }
 
-
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.Global.putInt(resolver,
+                Settings.Global.LOCKSCREEN_ENABLE_POWER_MENU, 1);
+    }
 
     @Override
     public int getMetricsCategory() {
