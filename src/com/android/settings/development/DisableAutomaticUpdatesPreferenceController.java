@@ -73,4 +73,9 @@ public class DisableAutomaticUpdatesPreferenceController extends
                 Settings.Global.OTA_DISABLE_AUTOMATIC_UPDATE, DISABLE_UPDATES_SETTING);
         ((SwitchPreference) mPreference).setChecked(false);
     }
+
+    @Override
+    public boolean isAvailable() {
+        return false;
+    }
 }
