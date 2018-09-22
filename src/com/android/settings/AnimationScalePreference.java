@@ -33,22 +33,12 @@ public class AnimationScalePreference extends CustomDialogPreferenceCompat
 
     private float mScale = 1.0f;
 
-    private String summaryPrefix;
-    private String offSummary;
-
     public AnimationScalePreference(Context context, AttributeSet attrs) {
         super(context, attrs);
         setPositiveButtonText(android.R.string.ok);
         setNegativeButtonText(android.R.string.cancel);
 
         setDialogLayoutResource(R.layout.preference_dialog_animation_scale);
-
-        // Create summaries from existing strings so existing translations work
-        summaryPrefix = context.getResources().getStringArray(
-                R.array.window_animation_scale_entries)[1];
-        summaryPrefix = summaryPrefix.substring(0, summaryPrefix.indexOf(".5x"));
-        offSummary = context.getResources().getStringArray(
-                R.array.window_animation_scale_entries)[0];
     }
 
     @Override
@@ -65,10 +55,7 @@ public class AnimationScalePreference extends CustomDialogPreferenceCompat
 
     public void setScale(float scale) {
         mScale = scale;
-        if (Float.compare(scale, 0) == 0)
-            setSummary(offSummary);
-        else
-            setSummary(summaryPrefix + String.valueOf(scale) + "x");
+        setSummary(String.valueOf(scale) + "x");
     }
 
     @Override
