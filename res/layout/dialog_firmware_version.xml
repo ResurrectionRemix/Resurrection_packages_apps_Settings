@@ -39,21 +39,13 @@
 
         <TextView
             style="@style/device_info_dialog_label"
+            android:id="@+id/rr_version_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@*lineageos.platform:string/lineage_version"/>
-        <org.lineageos.internal.preference.deviceinfo.LineageVersionTextView
-            style="@style/device_info_dialog_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
+            android:text="@string/rr_version"/>
         <TextView
-            style="@style/device_info_dialog_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@*lineageos.platform:string/lineage_api_level"/>
-        <org.lineageos.internal.preference.deviceinfo.LineageAPIVersionTextView
             style="@style/device_info_dialog_value"
+            android:id="@+id/rr_version_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -70,16 +62,6 @@
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
             android:textColor="?android:attr/colorAccent"/>
-
-        <TextView
-            style="@style/device_info_dialog_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@*lineageos.platform:string/lineage_vendor_security_patch"/>
-        <org.lineageos.internal.preference.deviceinfo.LineageVendorSecurityPatchTextView
-            style="@style/device_info_dialog_value"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
         <TextView
             style="@style/device_info_dialog_label"
