@@ -65,6 +65,16 @@
 
         <TextView
             style="@style/device_info_dialog_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@*lineageos.platform:string/lineage_vendor_security_patch"/>
+        <org.lineageos.internal.preference.deviceinfo.LineageVendorSecurityPatchTextView
+            style="@style/device_info_dialog_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            style="@style/device_info_dialog_label"
             android:id="@+id/baseband_version_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
