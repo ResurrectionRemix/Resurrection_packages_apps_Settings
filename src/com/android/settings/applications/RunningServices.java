@@ -15,6 +15,7 @@
  */
 package com.android.settings.applications;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -61,10 +62,8 @@ public class RunningServices extends SettingsPreferenceFragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         mOptionsMenu = menu;
-        menu.add(0, SHOW_RUNNING_SERVICES, 1, R.string.show_running_services)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
-        menu.add(0, SHOW_BACKGROUND_PROCESSES, 2, R.string.show_background_processes)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_NEVER);
+        menu.add(0, SHOW_RUNNING_SERVICES, 1, R.string.show_running_services);
+        menu.add(0, SHOW_BACKGROUND_PROCESSES, 2, R.string.show_background_processes);
         updateOptionsMenu();
     }
 
@@ -83,12 +82,15 @@ public class RunningServices extends SettingsPreferenceFragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        ActionBar actionBar = getActivity().getActionBar();
         switch (item.getItemId()) {
             case SHOW_RUNNING_SERVICES:
                 mRunningProcessesView.mAdapter.setShowBackground(false);
+                actionBar.setTitle(R.string.runningservices_settings_title);
                 break;
             case SHOW_BACKGROUND_PROCESSES:
                 mRunningProcessesView.mAdapter.setShowBackground(true);
+                actionBar.setTitle(R.string.runningservices_settings_title); 
                 break;
             default:
                 return false;

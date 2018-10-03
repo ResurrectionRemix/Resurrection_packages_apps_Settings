@@ -150,6 +150,8 @@ import com.android.settings.smartnav.*;
 import com.android.settings.rr.omnigears.moresettings.OmniJawsSettings;
 import com.android.settings.rr.omnigears.interfacesettings.LockscreenItemSettings;
 
+import com.android.settings.applications.RunningServices;
+
 public class SettingsGateway {
 
     /**
@@ -286,6 +288,7 @@ public class SettingsGateway {
             OmniJawsSettings.class.getName(),
             LockscreenItemSettings.class.getName(),
 	    PowerMenuActions.class.getName(),
+            RunningServices.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -332,5 +335,6 @@ public class SettingsGateway {
             Settings.FlingSettingsActivity.class.getName(),
             Settings.PulseSettingsActivity.class.getName(),
             Settings.PieControlSettingsActivity.class.getName()
+            Settings.DevRunningServicesActivity.class.getName(),
     };
 }

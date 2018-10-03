@@ -188,4 +188,6 @@ public class Settings extends SettingsActivity {
 
     public static class AmbientPlayActivity extends SettingsActivity { /* empty */ }
     public static class PieControlSettingsActivity extends SettingsActivity { /* empty */ }
+
+    public static class DevRunningServicesActivity extends SettingsActivity { /* empty */ }
 }
