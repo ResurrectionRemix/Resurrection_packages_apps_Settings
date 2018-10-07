@@ -271,6 +271,10 @@ public class SettingsGateway {
             MainSettingsLayout.class.getName(),
             About.class.getName(),
             AmbientPlaySettings.class.getName(),
+            NavigationSettingsActivity.class.getName(),
+            SmartbarSettingsActivity.class.getName(),
+            FlingSettingsActivity.class.getName(),
+            PulseSettingsActivity.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -312,5 +316,9 @@ public class SettingsGateway {
             Settings.MainSettingsLayoutActivity.class.getName(),
             Settings.MainSettingsActivity.class.getName(),
             Settings.AboutSettingsActivity.class.getName(),
+            Settings.NavigationSettingsActivity.class.getName(),
+            Settings.SmartbarSettingsActivity.class.getName(),
+            Settings.FlingSettingsActivity.class.getName(),
+            Settings.PulseSettingsActivity.class.getName(),
     };
 }
