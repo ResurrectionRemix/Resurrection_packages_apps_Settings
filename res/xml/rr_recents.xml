@@ -42,4 +42,18 @@
                  android:targetClass="com.rr.settings.hideappfromrecents.HAFRAppListActivity" />
     </Preference>
 
+     <PreferenceCategory
+         android:key="recents_ui_aosp_recents_category"
+         android:title="@string/aosp_recents_category">
+
+    <ListPreference
+        android:key="recents_component"
+        android:title="@string/recents_component_type_title"
+        android:dialogTitle="@string/recents_component_type_title"
+        android:entries="@array/recents_component_type_title_entries"
+        android:defaultValue="0"
+        android:entryValues="@array/recents_component_type_title_values"/>
+
+     </PreferenceCategory>
+
 </PreferenceScreen>
