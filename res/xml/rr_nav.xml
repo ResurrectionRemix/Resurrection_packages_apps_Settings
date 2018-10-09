@@ -24,6 +24,12 @@
                 android:targetClass="com.android.systemui.tuner.NavBarTunerActivity" />
     </Preference>
 
+	  <PreferenceScreen
+		android:fragment="com.android.settings.smartnav.NavigationBarSettings"
+		android:key="navigationbar_settings"
+        android:icon="@drawable/rr_smartnav_icon"
+		android:title="@string/navigationbar_settings_title"/>
+
           <PreferenceScreen
                 android:key="pulse_settings"
                 android:title="@string/pulse_settings"
