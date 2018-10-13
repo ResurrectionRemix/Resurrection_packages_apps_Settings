@@ -16,7 +16,7 @@
 
 package com.android.settings.core.gateway;
 
-import com.android.settings.AmbientPlaySettings;
+import com.android.settings.custom.ambient.AmbientPlaySettings;
 import com.android.settings.DateTimeSettings;
 import com.android.settings.DeviceAdminSettings;
 import com.android.settings.DisplaySettings;

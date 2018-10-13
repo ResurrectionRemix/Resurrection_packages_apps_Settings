@@ -32,4 +32,12 @@
          android:title="@string/volte_icon_title"
          android:summary="@string/volte_icon_summary"
          android:defaultValue="false"/>
+
+    <!-- Ambient play -->
+    <PreferenceScreen
+        android:key="ambient_play"
+        android:title="@string/ambient_play_title"
+        android:summary="@string/ambient_play_summary"
+        android:fragment="com.android.settings.custom.ambient.AmbientPlaySettings" />
+
 </PreferenceScreen>

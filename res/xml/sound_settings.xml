@@ -101,6 +101,14 @@
         settings:controller="com.android.settings.notification.VibrateWhenRingPreferenceController"
         android:order="-130"/>
 
+   <!-- Ambient play -->
+    <PreferenceScreen
+        android:key="ambient_play"
+        android:title="@string/ambient_play_title"
+        android:summary="@string/ambient_play_summary"
+        android:order="-105"
+        android:fragment="com.android.settings.custom.ambient.AmbientPlaySettings" />
+
     <!-- Phone ringtone -->
     <com.android.settings.DefaultRingtonePreference
         android:key="ringtone"
