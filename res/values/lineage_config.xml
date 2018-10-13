@@ -10,9 +10,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <item type="id" name="drag_handle" />
 
-    <item name="fab_expand_menu_button" type="id"/>
-    <item name="fab_label" type="id"/>
+<resources>
+
+    <!-- Does the device allow for manual subscription provisioning? Only works for multi-sim devices,
+         and currently depends on QC's proprietary telephony stack -->
+    <bool name="config_enableManualSubProvisioning">true</bool>
+
+    <!-- Whether notify user that switch data service -->
+    <bool name="confirm_to_switch_data_service">false</bool>
+
 </resources>
