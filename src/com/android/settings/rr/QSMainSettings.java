@@ -43,6 +43,11 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 public class QSMainSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String QS_TILE_STYLE = "qs_tile_style";
+
+    ListPreference mQuickPulldown;
+    private ListPreference mQsTileStyle;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,11 +56,26 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
 
+        mQsTileStyle = (ListPreference) findPreference(QS_TILE_STYLE);
+        int qsTileStyle = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_TILE_STYLE, 0,
+  	        UserHandle.USER_CURRENT);
+        int valueIndex = mQsTileStyle.findIndexOfValue(String.valueOf(qsTileStyle));
+        mQsTileStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+        mQsTileStyle.setSummary(mQsTileStyle.getEntry());
+        mQsTileStyle.setOnPreferenceChangeListener(this);
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 	ContentResolver resolver = getActivity().getContentResolver();
-	return false;
+	if (preference == mQsTileStyle) {
+            int qsTileStyleValue = Integer.valueOf((String) newValue);
+            Settings.System.putIntForUser(resolver, Settings.System.QS_TILE_STYLE,
+                    qsTileStyleValue, UserHandle.USER_CURRENT);
+            mQsTileStyle.setSummary(mQsTileStyle.getEntries()[qsTileStyleValue]);
+        }
+	return true;
     }
 
     @Override
