@@ -268,6 +268,7 @@ public class SoundSettings extends DashboardFragment {
 
         // === Phone & notification ringtone ===
         controllers.add(new PhoneRingtonePreferenceController(context));
+        controllers.add(new PhoneRingtone2PreferenceController(context));
         controllers.add(new AlarmRingtonePreferenceController(context));
         controllers.add(new NotificationRingtonePreferenceController(context));
         controllers.add(new IncreasingRingPreferenceController(context));
