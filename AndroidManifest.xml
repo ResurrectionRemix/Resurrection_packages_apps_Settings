@@ -3328,6 +3328,18 @@
                 android:value="com.android.settings.applications.manageapplications.ManageApplications" />
         </activity>
 
+        <!-- Ambient play activity. -->
+        <activity android:name="Settings$AmbientPlayActivity"
+                android:label="@string/ambient_play_cat"
+                android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.AmbientPlaySettings" />
+        </activity>
+
         <provider android:name=".slices.SettingsSliceProvider"
                   android:authorities="com.android.settings.slices;android.settings.slices"
                   android:exported="true"

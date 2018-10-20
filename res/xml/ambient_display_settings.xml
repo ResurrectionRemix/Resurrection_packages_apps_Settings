@@ -58,4 +58,14 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="ambient_play_cat"
+        android:title="@string/ambient_play_cat" >
+        <Preference
+            android:key="ambient_play"
+            android:title="@string/ambient_play_settings_title"
+            android:summary="@string/ambient_play_settings_summary"
+            android:fragment="com.android.settings.AmbientPlaySettings" />
+    </PreferenceCategory>
+
 </PreferenceScreen>
