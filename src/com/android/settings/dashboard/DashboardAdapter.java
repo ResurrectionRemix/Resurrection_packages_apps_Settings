@@ -85,6 +85,10 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
     private SuggestionDismissController mSuggestionDismissHandler;
     private SuggestionDismissController.Callback mCallback;
 
+    // omni additions start
+    private int mNumColumns = 1;
+    private boolean mHideSummary;
+
     @VisibleForTesting
     DashboardData mDashboardData;
 
@@ -469,12 +473,16 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
         } else {
             holder.icon.setImageDrawable(mCache.getIcon(tile.icon));
             holder.title.setText(tile.title);
-            if (!TextUtils.isEmpty(tile.summary)) {
+            if (!TextUtils.isEmpty(tile.summary) && !mHideSummary) {
                 holder.summary.setText(tile.summary);
                 holder.summary.setVisibility(View.VISIBLE);
             } else {
                 holder.summary.setVisibility(View.GONE);
             }
+            int minHeight = mContext.getResources().getDimensionPixelSize(mHideSummary ?
+                R.dimen.dashboard_category_height :
+                R.dimen.dashboard_tile_minimum_height);
+            holder.itemView.setMinimumHeight(minHeight);
         }
     }
 
@@ -539,6 +547,17 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Dash
                 mSuggestionFeatureProvider.isSmartSuggestionEnabled(mContext));
     }
 
+    public boolean isPositionFullSpan(int position) {
+        final int type = mDashboardData.getItemTypeByPosition(position);
+        return type != R.layout.dashboard_tile;
+    }
+     public void setNumColumns(int numColumns) {
+        mNumColumns = numColumns;
+    }
+     public void setHideSummary(boolean hideSummary) {
+        mHideSummary = hideSummary;
+    }
+    
     public static class IconCache {
         private final Context mContext;
         private final ArrayMap<Icon, Drawable> mMap = new ArrayMap<>();
