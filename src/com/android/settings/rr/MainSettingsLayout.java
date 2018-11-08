@@ -271,7 +271,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 getString(R.string.rr_qs_title),
                 getString(R.string.rr_lockscreen_title),
                 getString(R.string.animation_title),
-                getString(R.string.rr_misc_title)
+                getString(R.string.rr_misc_title),
                 getString(R.string.rr_ui_title)};
         } else {
                 titleString = new String[]{
