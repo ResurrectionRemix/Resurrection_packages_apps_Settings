@@ -236,6 +236,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             frags[1] = new About();
             frags[2] = new QSMainSettings();
             frags[3] = new LockSettings();
+            frags[4] = new Animations();
         	} else {
             frags[0] = new MainSettings();
         	}
@@ -266,7 +267,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 getString(R.string.rr_statusbar_title),
                 getString(R.string.about_rr_settings),
                 getString(R.string.rr_qs_title),
-                getString(R.string.rr_lockscreen_title)};
+                getString(R.string.rr_lockscreen_title),
+                getString(R.string.animation_title)};
         } else {
                 titleString = new String[]{
                 getString(R.string.rr_title)};

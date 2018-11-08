@@ -27,7 +27,6 @@
                 android:icon="@drawable/rr_statusbar_icon"
                 />
 
-
     <PreferenceScreen
             android:key="rr_qs"
             android:title="@string/rr_qs_title"
@@ -39,6 +38,13 @@
             android:title="@string/rr_lockscreen_title"
                     android:fragment="com.android.settings.rr.LockSettings" 
                         android:icon="@drawable/rr_lock_icon"/>
+
+    <PreferenceScreen
+            android:key="rr_animation"
+            android:title="@string/animation_title"
+                    android:fragment="com.android.settings.rr.Misc" 
+                        android:icon="@drawable/rr_animations_icon"/>
+
 
      <PreferenceScreen
             android:key="rr_about"
