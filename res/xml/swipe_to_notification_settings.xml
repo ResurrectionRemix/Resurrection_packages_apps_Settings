@@ -33,4 +33,11 @@
         app:controller="com.android.settings.gestures.SwipeToNotificationPreferenceController"
         app:allowDividerAbove="true" />
 
+    <SwitchPreference
+        android:key="gesture_swipe_dismiss_fingerprint"
+        android:title="@string/fp_swipe_to_dismiss_notifications_title"
+        android:summary="@string/fp_swipe_to_dismiss_notifications_summary"
+        app:keywords="@string/keywords_gesture"
+        app:controller="com.android.settings.gestures.SwipeToNotificationPreferenceController"
+        app:allowDividerAbove="true" />
 </PreferenceScreen>
