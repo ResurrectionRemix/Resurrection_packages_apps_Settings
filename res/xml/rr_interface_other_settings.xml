@@ -222,6 +222,38 @@
         lineage:requiresFeature="lineagehardware:FEATURE_HIGH_TOUCH_SENSITIVITY" />
     </PreferenceCategory>
 
-
+        <PreferenceCategory
+            android:key="aspect_ratio_category"
+            android:title="@string/aspect_ratio_category_title">
+			
+       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+                android:key="aspect_ratio_apps_enabled"
+                android:icon="@drawable/rr_qs_rows_preview_icon"
+                android:title="@string/aspect_ratio_apps_enabled_title"
+                android:summary="@string/aspect_ratio_apps_enabled_summary"
+                android:defaultValue="false" />
+				
+       <com.android.settings.rr.Preferences.AppMultiSelectListPreference
+                android:dependency="aspect_ratio_apps_enabled"
+                android:key="aspect_ratio_apps_list"
+                android:icon="@drawable/rr_app_icon"
+                android:persistent="false"
+                android:summary="@string/aspect_ratio_apps_list_summary"
+                android:title="@string/aspect_ratio_apps_list_title" />
+				
+        <com.android.settings.rr.Preferences.ScrollAppsViewPreference
+                android:dependency="aspect_ratio_apps_enabled"
+                android:key="aspect_ratio_apps_list_scroller"
+                android:icon="@drawable/rr_app_icon"
+                android:persistent="false"
+                android:selectable="false" />
+				
+            <Preference
+                android:dependency="aspect_ratio_apps_enabled"
+                android:icon="@drawable/ic_info_outline_24dp"
+                android:persistent="false"
+                android:summary="@string/aspect_ratio_apps_info" />
+				
+        </PreferenceCategory>
  
 </PreferenceScreen>
