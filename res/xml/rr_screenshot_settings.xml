@@ -31,4 +31,11 @@
             android:summary="@string/screen_shot_shortcut_summary"
             android:defaultValue="true" />
 
+    <com.rr.settings.preferences.SystemSettingListPreference
+        android:key="screenshot_type"
+        android:entries="@array/screenshot_type_entries"
+        android:entryValues="@array/screenshot_type_values"
+        android:title="@string/screenshot_type_title"
+        android:defaultValue="0" />
+
 </PreferenceScreen>
