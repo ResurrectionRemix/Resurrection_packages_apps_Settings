@@ -28,6 +28,7 @@ import android.support.v14.preference.SwitchPreference;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.os.UserHandle;
 
 import android.provider.Settings;
 
@@ -41,11 +42,19 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 public class Interface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private ListPreference mAnnoyingNotification;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_interface);
+
+        mAnnoyingNotification = (ListPreference) findPreference("less_notification_sounds");
+        mAnnoyingNotification.setOnPreferenceChangeListener(this);
+        int threshold = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD,
+                30000, UserHandle.USER_CURRENT);
+        mAnnoyingNotification.setValue(String.valueOf(threshold));
 
         PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
@@ -55,6 +64,14 @@ public class Interface extends SettingsPreferenceFragment implements
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 	ContentResolver resolver = getActivity().getContentResolver();
+
+        if (preference.equals(mAnnoyingNotification)) {
+            int mode = Integer.parseInt(((String) newValue).toString());
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD, mode, UserHandle.USER_CURRENT);
+            return true;
+        }
+
 	return false;
     }
 
