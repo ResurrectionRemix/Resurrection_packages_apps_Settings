@@ -13,6 +13,7 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:rrsettings="http://schemas.android.com/apk/res-auto"
     android:title="@string/rr_ui_title">
 
     <PreferenceScreen
@@ -113,5 +114,15 @@
             android:key="rr_audio_panel"
             android:title="@string/audio_panel_view"
             android:fragment="com.android.settings.rr.AudioPanel" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="volume_dialog_timeout"
+        android:title="@string/volume_dialog_timeout_title"
+        android:min="500"
+        android:max="10000"
+        android:defaultValue="3000"
+        rrsettings:interval="100"
+        settings:unitsLeft=""
+        settings:unitsRight="ms" />
 
 </PreferenceScreen>
