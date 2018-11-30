@@ -29,6 +29,13 @@
         android:summary="@string/rr_volume_summary"
         android:icon="@drawable/rr_volume_icon" />
 
+    <PreferenceScreen
+        android:key="dashboard"
+        android:title="@string/rr_dash_board_title"
+        android:icon="@drawable/rr_dashboard_icon"
+        android:summary="@string/rr_dash_board_summary"
+        android:fragment="com.android.settings.rr.DashBoardSettings" />
+
         <Preference
             android:key="qs_rows_columns"
             android:fragment="com.android.settings.rr.fragments.QsRowsColumns"
