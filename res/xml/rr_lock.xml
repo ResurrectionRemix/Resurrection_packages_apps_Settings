@@ -57,5 +57,13 @@
         android:summary="@string/media_art_summary"
         android:defaultValue="true" />
 
+        <ListPreference
+            android:key="lock_clock_fonts"
+            android:title="@string/lock_clock_font_title"
+            android:entries="@array/lock_widget_fonts_entries"
+            android:entryValues="@array/lock_widget_fonts_values"
+            android:defaultValue="0"
+            android:persistent="false" />
+
 </PreferenceScreen>
 
