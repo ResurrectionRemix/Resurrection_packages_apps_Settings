@@ -261,7 +261,7 @@ public abstract class SettingsPreferenceFragment extends InstrumentedPreferenceF
      * Only override this method if the initial expanded child must be determined at run time.
      */
     public int getInitialExpandedChildCount() {
-        return 0;
+        return Integer.MAX_VALUE;
     }
 
     protected void onDataSetChanged() {
