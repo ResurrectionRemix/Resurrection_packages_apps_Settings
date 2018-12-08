@@ -15,42 +15,325 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="rr_mod_version">Verzia RR-OS</string>
+    <string name="build_date">Dátum zostavy</string>
+    <string name="mod_version_default">Predvolené</string>
     <!-- General -->
+    <string name="ok">OK</string>
+    <string name="reset">Resetovať</string>
+    <string name="dlg_reset_rr">RR</string>
+    <string name="dlg_reset_android">Predvolené</string>
+    <string name="default_string">Predvolené</string>
+    <string name="add">Pridať</string>
+    <string name="enabled">Zapnuté</string>
+    <string name="choose_app">Vybrať aplikáciu</string>
+    <string name="help">Nápoveda</string>
+    <string name="reset_message">Resetovať všetky položky na predvolené hodnoty?</string>
+    <string name="attention">Upozornenie</string>
+    <string name="restart_systemui">Reštartovať UI</string>
+    <string name="device_summary"><xliff:g example="goldfish" id="codename">%1$s</xliff:g>\nSprávca - <xliff:g example="deletescape" id="maintainer">%2$s</xliff:g></string>
     <!-- About RR -->
+    <string name="about_rr_settings">Informácie</string>
+    <string name="about_rr">O aplikácii</string>
+    <string name="about_rr_summary">\@null</string>
+    <string name="about_r0m_summary">Všetko o Resurrection Remix ROM</string>
+    <string name="rr_donate">Prispejte na vývoj</string>
+    <string name="rr_donate_summary">Prejavte nám svoju podporu pre Resurrection Remix ROM</string>
+    <string name="app_name">Resurrection Remix ROM</string>
+    <string name="devs">Štítok vývojára</string>
+    <string name="github_westcrip">https://github.com/westcripp</string>
+    <string name="github_varund7726">https://github.com/varund7726</string>
+    <string name="github_akhilnarang">https://github.com/akhilnarang</string>
+    <string name="github_bdogg718k">https://github.com/bdogg718k</string>
+    <string name="github_apascual89">https://github.com/apascual89</string>
+    <string name="github_mracar">https://github.com/mracar07</string>
+    <string name="rr">Odkazy</string>
+    <string name="rr_website_title">Web stránka</string>
+    <string name="rr_website_summary">Získajte viac informácií o Resurrection Remix ROM</string>
+    <string name="rr_forum_title">Fórum</string>
+    <string name="rr_forum_summary">Stať sa členom Resurrection fóra</string>
+    <string name="rr_source_title">Github</string>
+    <string name="rr_source_summary">Zdroje Resurrection Remix ROM</string>
+    <string name="rr_facebook_title">Facebook</string>
+    <string name="rr_facebook_summary">Facebook komunita</string>
+    <string name="rr_google_plus_title">Google+</string>
+    <string name="rr_google_plus_summary">Google+ komunita</string>
+    <string name="maintainer_categorie_title">Oficiálne zariadenia</string>
+    <string name="title_about">O aplikácii</string>
+    <string name="dev_categorie_title">Štítok vývojára</string>
+    <string name="rr_lockscreen_title">Obrazovka uzamknutia</string>
+    <string name="rr_ls_gestures">Gestá</string>
+    <string name="rr_ls_ui">Zámok užívateľského rozhrania</string>
+    <string name="rr_ls_security">Bezpečnosť</string>
+    <string name="updater_title">Aktualizácie</string>
+    <string name="altankrk_summary">● Spoluzakladateľ \n● Hlavný vývojár \n● UX dizajnér \n● Správca</string>
+    <string name="varun_summary">● Hlavný vývojár \n● UX dizajnér \n● Správca</string>
+    <string name="andres_summary">● Vývojár \n● Správca</string>
+    <string name="akhil_summary">● Vývojár \n● Správca \n● Skript majster</string>
+    <string name="brian_summary">● Vývojár \n● Správca</string>
+    <string name="matt_summary">● Moderátor \n● Editor\n● Prispievateľ</string>
+    <string name="justen_summary">● Moderátor \n● Editor\n● Prispievateľ</string>
+    <string name="mracar_summary">● Vývojár\n● Správca</string>
+    <string name="support_team_title">Štítok moderátora</string>
+    <string name="device_maintainers_title">Zariadenia a správcovia</string>
+    <string name="device_maintainers_title_summary">Zoznam zariadení a ich správcovia v Resurrection ROM</string>
+    <string name="maintainers_note_title">Poznámka</string>
+    <string name="maintainers_note_title_summary">Ak chcete byť správcom pre toto zariadenie, zapnite túto možnosť v aplikácii Nastavenia</string>
     <!-- The Drill -->
+    <string name="rr_drill_title">Zpráva od vývojárov</string>
+    <string name="drill_summary">Logcat alebo ísť preč</string>
     <!-- RR Feature lists-->
+    <string name="features_title">Funkcie</string>
+    <string name="features_title_summary">Zobraziť dostupné funkcie</string>
+    <string name="features_loading">Načítavam zoznam ...</string>
+    <string name="features_error">Nepodarilo sa načítať ponuku</string>
+    <string name="features_unknown">Neznámy</string>
+    <string name="features_version">1.0</string>
+    <string name="rr_volume_title">Panel hlasitosti</string>
+    <string name="rr_power_title">Power menu</string>
     <!-- Share RR ROM -->
+    <string name="share_rr">Zdieľať</string>
+    <string name="share_rr_summary">Dajte vedieť ostatným, že používate Resurrection ROM</string>
+    <string name="share_message">Skúste Resurrection Remix ROM! https://plus.Google.com/communities/109352646351468373340</string>
+    <string name="share_chooser_title">Zdieľať Resurrection Remix ROM cez...</string>
     <!-- RR Changelog-->
+    <string name="changelog_title">Prehľad zmien</string>
+    <string name="changelog_title_summary">Zobraziť najnovšie zmeny v ROM</string>
+    <string name="changelog_loading">Načítavanie zoznamu zmien...</string>
+    <string name="changelog_error">Nie je možné načítať zoznam zmien</string>
+    <string name="changelog_unknown">Neznáma</string>
+    <string name="changelog_version">Verzia</string>
     <!--RR Configurations-->
+    <string name="fab_updates">Aktualizácie</string>
+    <string name="fab_restartui">Reštartovať UI</string>
+    <string name="fab_reset">Resetovať</string>
+    <string name="fab_about">O RR</string>
+    <string name="fab_layout">Aktualizáciu rozloženia</string>
+    <string name="fab_layout_update">Prepnúť klasické rozloženie</string>
+    <string name="fab_layout_toggle">Prepnúť kartové rozloženie</string>
+    <string name="rr_reset_message">Obnoviť všetky konfigurácie na predvolené hodnoty?</string>
+    <string name="rr_reset_settings">Resetovať nastavenia</string>
+    <string name="rr_reset_yes">Áno</string>
+    <string name="rr_reset_cancel">Zrušiť</string>
+    <string name="rr_category_title">Prispôsobenie</string>
+    <string name="rr_title">Nastavenia</string>
+    <string name="rr_title_summary">Rôzne prispôsobenia</string>
+    <string name="rr_config_main_title">RR-OS</string>
+    <string name="rr_ota_fab_title">Zobraziť plávajúce tlačidlo</string>
+    <string name="rr_ota_fab_summary">Povoliť / Zakázať zobrazenie / Skryť plávajúce tlačidlo v konfiguráciách. Otvorenie / ukončenie po prepnutí</string>
+    <string name="rr_statusbar_title">Stavový riadok</string>
+    <string name="rr_sb_gestures_title">Gestá stavového riadku</string>
+    <string name="qs_advanced_title">Rozšírené</string>
+    <string name="rr_notification_panel_title">Panely</string>
+    <string name="rr_tuner">Ladenie rozhrania systému</string>
+    <string name="rr_tuner_summary">Časť štandardných úprav</string>
+    <string name="rr_battery">Batéria</string>
+    <string name="rr_sb_icons">Systémové ikony</string>
+    <string name="rr_sb_battery">Stavový riadok</string>
+    <string name="notification_drawer_title">Ponuka upozornení</string>
+    <string name="recents_settings_title">Nedávne</string>
+    <string name="recents_ui_title">Základné prostredie</string>
+    <string name="animation_title">Animácie</string>
+    <string name="button_settings">Tlačidlá</string>
+    <string name="rr_misc_title">Rôzne</string>
+    <string name="rr_headsup_cat">Plávajúce upozornenia</string>
+    <string name="rr_nav_title">Navigácia</string>
+    <string name="system_animations">Systémové animácie</string>
+    <string name="rr_ui_title">Rozhranie</string>
+    <string name="rr_dash_board_title">Administračný panel</string>
+    <string name="rr_fp_title">Nastavenia odtlačkov prstov</string>
+    <string name="recents_type_title">Typ menu nedávnych aplikácií</string>
+    <string name="recents_stock">Pôvodný AOSP</string>
+    <string name="recents_omniswitch">Omniswitch</string>
+    <string name="recents_grid">Mriežka</string>
+    <string name="recents_slim">Slim</string>
+    <string name="rr_notif_settings_title">Upozornenia</string>
+    <string name="toast">Vysk. upozornenie</string>
+    <string name="listview">Zobrazenie zoznamu</string>
+    <string name="icons">Ikony</string>
+    <string name="general">Všeobecné</string>
+    <string name="ka_title">Výkon</string>
     <!-- About phone screen, RR version -->
+    <string name="rr_version">Verzia Resurrection</string>
+    <string name="rr_version_default">Neznáme</string>
+    <string name="keywords_rr_version">rr verzia</string>
     <!-- Statusbar net monitor -->
+    <string name="network_traffic_state_title">Sieťová prevádzka</string>
+    <string name="network_traffic_state_summary">Zobraziť monitor sieťovej prevádzky v stavovom riadku</string>
+    <string name="network_traffic_autohide_threshold_title">Skryť pri rýchlosti dát (KB/s)</string>
+    <string name="network_traffic_summary">Povoliť alebo zakázať monitor sieťovej prevádzky v stavovom riadku, prispôsobiť jeho štýl a aktivitu</string>
     <!-- Battery percentage -->
+    <string name="battery_style_category_title">Ikona batérie</string>
+    <string name="status_bar_battery_percentage_title">Percentá batérie</string>
+    <string name="status_bar_battery_percentage_default">Skryté</string>
+    <string name="status_bar_battery_percentage_text_next">Vedľa ikony</string>
+    <string name="status_bar_battery_percentage_text_inside">Vnútri ikony</string>
+    <string name="rr_battery_summary">Prispôsobiť prvky batérie v stavovom riadku a tiež prispôsobiť batériu</string>
+    <string name="status_bar_battery_style_title">Štýl batérie v stavovom riadku</string>
     <!-- Status bar battery style-->
+    <string name="status_bar_battery_style_port">Na výšku</string>
+    <string name="status_bar_battery_style_circle">Kruh</string>
+    <string name="status_bar_battery_style_text">Text</string>
+    <string name="status_bar_battery_style_hidden">Nezobrazovať</string>
+    <string name="battery_style_dotted_circle">Bodkovaný kruh</string>
     <!-- Battery stats reset -->
+    <string name="battery_stats_reset">Resetovať štatistiky</string>
+    <string name="battery_stats_message">Chystáte sa vymazať históriu štatistiky batérie</string>
+    <string name="ok_string">Ok</string>
     <!-- QuickSettings -->
+    <string name="rr_qs_title">Rýchle nastavenia</string>
     <!-- Now playing -->
+    <string name="ambient_play_settings_title">Kontrolovať práve prehrávane</string>
+    <string name="ambient_play_settings_summary">Upozorniť na hudbu v okolí</string>
     <!-- Screen Off animation -->
+    <string name="screen_off_animation_title">Animácia vypnutia obrazovky</string>
+    <string name="screen_off_animation_fade">Jednoduché vyblednutie</string>
+    <string name="screen_off_animation_color">Farebné vyblednutie</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Mierka</string>
     <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
+    <string name="show_cpu_info">Zobraziť využitie CPU</string>
     <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
+    <string name="show_cpu_info_summary">Prekrytie obrazovky informáciami o aktuálnom vyťažení CPU</string>
     <!-- Heads up -->
+    <string name="heads_up_title">Povoliť</string>
+    <string name="heads_up_summary_enabled">Plávajúce upozornenia sú povolené</string>
+    <string name="heads_up_summary_disabled">Plávajúce upozornenia sú zakázané</string>
+    <string name="heads_up_time_out_title">Časový limit</string>
+    <string name="heads_up_time_out_summary">Upozornenia budú zobrazované <xliff:g id="number">%d</xliff:g> sekúnd</string>
+    <string name="heads_up_time_out_2sec">2 sekundy</string>
+    <string name="heads_up_time_out_4sec">4 sekundy</string>
+    <string name="heads_up_time_out_5sec">5 sekúnd</string>
+    <string name="heads_up_time_out_6sec">6 sekúnd</string>
+    <string name="heads_up_time_out_8sec">8 sekúnd</string>
+    <string name="heads_up_time_out_10sec">10 sekúnd</string>
+    <string name="heads_up_snooze_title">Časovač odloženia</string>
+    <string name="heads_up_snooze_summary_one_minute">Potiahnutím nahor dôjde k odloženiu plávajúcich upozornení po dobu 1 minúty</string>
+    <string name="heads_up_snooze_summary">Potiahnutím nahor dôjde k odloženiu plávajúcich upozornení po dobu <xliff:g id="number">%d</xliff:g> minút</string>
+    <string name="heads_up_snooze_disabled_summary">Odloženie je deaktivované</string>
+    <string name="heads_up_snooze_1min">1 minúta</string>
+    <string name="heads_up_snooze_5min">5 minút</string>
+    <string name="heads_up_snooze_10min">10 minút</string>
+    <string name="heads_up_snooze_15min">15 minút</string>
+    <string name="heads_up_snooze_20min">20 minút</string>
     <!-- Power menu on lockscreen -->
+    <string name="lockscreen_power_menu_disabled_title">Zakázať menu tlačidla Napájanie na obrazovke uzamknutia</string>
+    <string name="lockscreen_power_menu_disabled_summary">Táto možnosť zakáže menu Napájania na zabezpečenej obrazovke uzamknutia</string>
     <!-- Facelock toggle -->
+    <string name="face_auto_unlock_title">Automatické odomknutie pomocou tváre</string>
+    <string name="face_auto_unlock_summary">Nezobraziť obrazovku uzamknutia po odomknutí pomocou tváre</string>
     <!-- Fingerprint unlock keystore -->
+    <string name="fp_unlock_keystore_title">Odomknutie pomocou snímača odtlačkov</string>
+    <string name="fp_unlock_keystore_summary">Odomknúť zariadenie pomocou snímača odtlačkov prstov po reštarte bez PIN/hesla/Vzoru\nUpozornenie: na vlastné riziko!</string>
     <!-- Screenshot sound -->
+    <string name="screenshot_sound_title">Zvuk pri snímke obrazovky</string>
+    <string name="screenshot_sound_summary">Prehrá zvukový efekt pri snímke obrazovky</string>
     <!-- Lockscreen charging current indicator  -->
+    <string name="lockscreen_charging_current_title">Informácie o nabíjaní</string>
+    <string name="lockscreen_charging_current_summary">Zobraziť maximálny prúd a napätie pri nabíjaní na obrazovke uzamknutia</string>
     <!-- Less Notification sounds -->
+    <string name="less_notification_sounds_title">Zvuky menej častých oznámení</string>
+    <string name="less_notification_sounds_summary">Prehrať zvuk oznámenia každej aplikácie len raz za stanovené časové obdobie</string>
+    <string name="less_notification_sounds_default">Predvolené správanie</string>
+    <string name="less_notification_sounds_10s">Každých 10 sekúnd</string>
+    <string name="less_notification_sounds_30s">Každých 30 sekúnd</string>
+    <string name="less_notification_sounds_1m">Každú minútu</string>
+    <string name="less_notification_sounds_2m">Každé 2 minúty</string>
     <!-- Notifications while screen on -->
+    <string name="notification_sound_vib_screen_on_title">Zvuk upozornení keď je zapnutá obrazovka</string>
+    <string name="notification_sound_vib_screen_on_summary">Prehrávanie zvuku a vibrácie pre upozornenia, keď je obrazovka zapnutá</string>
     <!-- In-call notifications vibrate -->
+    <string name="incall_notifications_vibrate">Vibrovať pri hovore na upozornenia</string>
+    <string name="incall_notifications_vibrate_summary">Vibrovať namiesto prehrávania zvuku pre upozornenie počas hovoru</string>
     <!-- Roaming indicator icon -->
+    <string name="roaming_indicator_icon_title">Zobraziť roamingu indikátor</string>
+    <string name="roaming_indicator_icon_summary">V režime roamingu zobrazovať indikátor v ikone signálu siete</string>
     <!-- Show VoLTE icon on statusbar -->
+    <string name="volte_icon_title">Ikona VoLTE</string>
+    <string name="volte_icon_summary">Zobraziť ikonu VoLTE</string>
     <!-- Ambient Play -->
+    <string name="ambient_play_summary">Zobraziť všetky skladby</string>
+    <string name="ambient_play_lockscreen_title">Zobraziť skladby na obrazovke uzamknutia</string>
+    <string name="ambient_play_notifications_title">Upozornenia</string>
+    <string name="ambient_play_switch_bar_on">Zapnúť</string>
+    <string name="ambient_play_switch_bar_off">Vypnuté</string>
+    <string name="ambient_play_help_text">Keď v okolí bude hrať hudba, zobrazí sa vám názov skladby a interpret. Životnosť batérie a využitie dát môžu byť ovplyvnené, ak je táto funkcia povolená.</string>
+    <string name="ambient_play_cat">Práve hrá</string>
     <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_vibrate_title">Vibrácia pri dotyku</string>
+    <string name="quick_settings_vibrate_summary">Vibrovať pri kliknutí na ikonu rýchlych nastavení</string>
     <!--SystemUI Tuner -->
+    <string name="statusbar_tuner_title">Položky stavového riadku</string>
+    <string name="statusbar_tuner_summary">Možnosti batérie a ikony stavoveho riadku zakázať</string>
+    <string name="navbar_tuner_title">Upraviť navigačnu lištu</string>
+    <string name="navbar_tuner_summary">Zmeniť vzhľad navigačných tlačidiel</string>
+    <string name="lockscreen_shortcuts_title">Skratky na obrazovke uzamknutia</string>
+    <string name="lockscreen_shortcuts_summary">Dolné odkazy na obrazovke uzamknutia</string>
+    <string name="vol_dnd_category_title">Prístup k nastaveniu Nerušiť</string>
+    <string name="volbtn_down_zen_title">Zníženie hlasitosti pre režim Nerušiť</string>
+    <string name="volbtn_down_zen_summary">povoliť zapnúť režim Nerušiť stlačením tlačidla zníženia Hlasitosti</string>
+    <string name="volbtn_up_zen_title">Zvýšenie hlasitosti pre režim Nerušiť</string>
+    <string name="volbtn_up_zen_summary">povoliť opustiť režim Nerušiť stlačením tlačidla zvýšenia Hlasitosti</string>
+    <string name="vol_zen_title">Prepínač stavu Nerušiť</string>
+    <string name="vol_zen_summary">Zobraziť prepínač režimu Nerušiť na paneli hlasitosti</string>
     <!-- Advanced night mode brightness -->
+    <string name="night_brightness_category">Jas</string>
+    <string name="night_brightness_value_title">Znížiť jas, ak je aktívne Nočné svetlo</string>
+    <string name="night_bright_disabled">Vypnuté</string>
+    <string name="night_bright_minimum">Minimálny jas</string>
+    <string name="night_bright_low">Nízky jas</string>
+    <string name="night_bright_medium">Stredný jas</string>
     <!-- Toast app icon -->
+    <string name="toast_icon_title">Ikona vysk. upozornenia</string>
+    <string name="toast_icon_summary">Zobraziť ikonu aplikácie vo vyskakujúcom upozornení</string>
     <!-- Toast Animation -->
+    <string name="toast_animation_title">Animácia vyskakovacieho oznámenia</string>
+    <string name="toast_none_animation">Žiadna</string>
+    <string name="toast_default_animation">Pôovodné</string>
+    <string name="toast_fade_animation">Miznutie</string>
+    <string name="toast_SlideRight_animation">Potiahni doprava</string>
+    <string name="toast_SlideLeft_animation">Potiahni doľava</string>
+    <string name="toast_Xylon_animation">Xylon</string>
+    <string name="toast_Toko_animation">Toko</string>
+    <string name="toast_Tn_animation">Tn</string>
+    <string name="toast_Honami_animation">Honami</string>
+    <string name="toast_FastFade_animation">Rýchle stmavnutie</string>
+    <string name="toast_GrowFade_animation">Postupné stmavnutie</string>
+    <string name="toast_GrowFadeCenter_animation">Postupné vyblednutie od stredu</string>
+    <string name="toast_GrowFadeBottom_animation">Postupné stmavnutie zospodu</string>
+    <string name="toast_Translucent_animation">Priehľadnosť</string>
+    <string name="toast_SlideLeftRight_animation">Potiahni zľava doprava</string>
+    <string name="toast_SlideRightLeft_animation">Potiahni zprava doľava</string>
     <!-- ListView animation -->
+    <string name="listview_animation_title">Animácia zobrazenia zoznamu</string>
+    <string name="listview_off">Pôovodné</string>
+    <string name="listview_wave_left">Vlna (vľavo)</string>
+    <string name="listview_wave_right">Vlna (vpravo)</string>
+    <string name="listview_alpha">Alpha</string>
+    <string name="listview_scale">Mierka</string>
+    <string name="listview_stack_top">Zásobník (hore)</string>
+    <string name="listview_stack_bottom">Zásobník (dolu)</string>
+    <string name="listview_unfold">Rozbalenie</string>
+    <string name="listview_fold">Zbalenie</string>
+    <string name="listview_translate_left">Preložiť (vľavo)</string>
+    <string name="listview_translate_right">Preloženie (vpravo)</string>
     <!-- ListView interpolator -->
+    <string name="listview_interpolator_title">Interpolácia zobrazenia zoznamu</string>
+    <string name="listview_accelerate_interpolator">Zrýchlenie</string>
+    <string name="listview_decelerate_interpolator">Spomalenie</string>
+    <string name="listview_accelerate_decelerate_interpolator">Zrýchlenie a spomalenie</string>
+    <string name="listview_anticipate_interpolator">Predbiehanie</string>
+    <string name="listview_overshoot_interpolator">Prekročenie</string>
+    <string name="listview_anticipate_overshoot_interpolator">Predbiehanie a prekročenie</string>
+    <string name="listview_bounce_interpolator">Odraz</string>
     <!-- Option to enable/disable scrolling cache -->
+    <string name="pref_scrollingcache_title">Medzipamäť pre rolovanie</string>
+    <string name="pref_scrollingcache_summary">Medzipamäť rolovania môže zlepšiť výkon na úkor úbytku pamäti</string>
+    <string name="pref_scrollingcache_force_enable">Vynútene povoliť</string>
+    <string name="pref_scrollingcache_default_enable">Povoliť predvolené</string>
+    <string name="pref_scrollingcache_default_disable">Zakázať predvolené</string>
+    <string name="pref_scrollingcache_force_disable">Vynútene zakázať</string>
     <!-- Media art -->
+    <string name="media_art_title">Obal albumu</string>
+    <string name="media_art_summary">Povoliť zobrazenie obalu albumu na obrazovke uzamknutia</string>
 </resources>

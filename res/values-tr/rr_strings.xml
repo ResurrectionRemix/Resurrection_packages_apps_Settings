@@ -28,7 +28,7 @@
     <string name="enabled">Etkinleştirildi</string>
     <string name="choose_app">Uygulama seçin</string>
     <string name="help">Yardım</string>
-    <string name="reset_message">Tüm girişleri varsayılana sıfrla?</string>
+    <string name="reset_message">Tüm girişler varsayılan olarak sıfırlansın mı?</string>
     <string name="attention">Dikkat</string>
     <string name="restart_systemui">Arayüzü yeniden başlat</string>
     <string name="device_summary"><xliff:g example="goldfish" id="codename">%1$s</xliff:g>\nSorumlu kişi - <xliff:g example="deletescape" id="maintainer">%2$s</xliff:g></string>
@@ -61,7 +61,7 @@
     <string name="maintainer_categorie_title">Resmi Cihazlar</string>
     <string name="title_about">Hakkında</string>
     <string name="dev_categorie_title">Geliştirici Etiketi</string>
-    <string name="rr_lockscreen_title">Kilit Ekranı</string>
+    <string name="rr_lockscreen_title">Kilit ekranı</string>
     <string name="rr_ls_gestures">Hareketler</string>
     <string name="rr_ls_ui">Kilit ekranı kullanıcı arayüzü</string>
     <string name="rr_ls_security">Güvenlik</string>
@@ -80,7 +80,8 @@
     <string name="maintainers_note_title">Not</string>
     <string name="maintainers_note_title_summary">Belirli bir cihazın sorumlusu olmak için başvurmak isterseniz, cihaz adı ve adınızla birlikte Ayarlar uygulamasında bir pull request oluşturun</string>
     <!-- The Drill -->
-    <string name="drill_summary">Logcat ya da Siktirgit</string>
+    <string name="rr_drill_title">The drill</string>
+    <string name="drill_summary">Logcat ya da GTFO</string>
     <!-- RR Feature lists-->
     <string name="features_title">Özellikler</string>
     <string name="features_title_summary">Kullanılabilir özellikleri görüntüleyin</string>
@@ -100,7 +101,7 @@
     <string name="changelog_title_summary">ROM\'da ki son değişiklikleri görüntüle</string>
     <string name="changelog_loading">Değişiklik kaydı yükleniyor...</string>
     <string name="changelog_error">Değişiklik kaydı yüklenemedi</string>
-    <string name="changelog_unknown">Bilinmeyen</string>
+    <string name="changelog_unknown">Bilinmiyor</string>
     <string name="changelog_version">Sürüm</string>
     <!--RR Configurations-->
     <string name="fab_updates">Güncellemeler</string>
@@ -130,7 +131,7 @@
     <string name="rr_sb_icons">Sistem simgeleri</string>
     <string name="rr_sb_battery">Durum çubuğu</string>
     <string name="notification_drawer_title">Bildirim çekmecesi</string>
-    <string name="recents_settings_title">Son uygulamalar</string>
+    <string name="recents_settings_title">Son kullanılanlar</string>
     <string name="recents_ui_title">Genel kullanıcı arayüzü</string>
     <string name="animation_title">Animasyonlar</string>
     <string name="button_settings">Tuşlar</string>
@@ -142,7 +143,7 @@
     <string name="rr_dash_board_title">Ayarlar menüsü</string>
     <string name="rr_fp_title">Parmak izi ayarları</string>
     <string name="recents_type_title">Son kullanılanlar türü</string>
-    <string name="recents_stock">AOSP varsayılan</string>
+    <string name="recents_stock">Varsayılan AOSP</string>
     <string name="recents_omniswitch">Omniswitch</string>
     <string name="recents_grid">Kılavuz</string>
     <string name="recents_slim">Slim</string>
@@ -182,6 +183,8 @@
     <!-- QuickSettings -->
     <string name="rr_qs_title">Hızlı ayarlar</string>
     <!-- Now playing -->
+    <string name="ambient_play_settings_title">Anlık oynatılan şarkı</string>
+    <string name="ambient_play_settings_summary">Çevrenizde çalınan müzikten haberdar olun</string>
     <!-- Screen Off animation -->
     <string name="screen_off_animation_title">Ekran kapanma animasyonu</string>
     <string name="screen_off_animation_fade">Basit karart</string>
@@ -205,7 +208,7 @@
     <string name="heads_up_time_out_8sec">8 saniye</string>
     <string name="heads_up_time_out_10sec">10 saniye</string>
     <string name="heads_up_snooze_title">Erteleme zamanlayıcısı</string>
-    <string name="heads_up_snooze_summary_one_minute">Bildirim pencerelerini kaydırılarak 1 dakika boyunca uygulamalardan gelecek olan bildirimler ertelenir</string>
+    <string name="heads_up_snooze_summary_one_minute">Bildirim pencerelerini yukarı kaydırarak 1 dakika boyunca uygulamalardan gelecek olan bildirimler ertelenir</string>
     <string name="heads_up_snooze_summary">Bildirim pencerelerini kaydırılarak <xliff:g id="number">%d</xliff:g> dakika boyunca uygulamalardan gelecek olan bildirimler ertelenir</string>
     <string name="heads_up_snooze_disabled_summary">Erteleme zamanlayıcısı devre dışı</string>
     <string name="heads_up_snooze_1min">1 dakika</string>
@@ -241,8 +244,13 @@
     <string name="notification_sound_vib_screen_on_summary">Ekran açıkken bildirimler için ses ve titreşim</string>
     <!-- In-call notifications vibrate -->
     <string name="incall_notifications_vibrate">Gelen arama bildirimlerinde titret</string>
+    <string name="incall_notifications_vibrate_summary">Arama sırasındaki bildirimler için bildirim sesi vermek yerine titret</string>
     <!-- Roaming indicator icon -->
+    <string name="roaming_indicator_icon_title">Dolaşım göstergesi</string>
+    <string name="roaming_indicator_icon_summary">Dolaşım modundayken sinyal simgesinde dolaşım göstergesini görüntüle</string>
     <!-- Show VoLTE icon on statusbar -->
+    <string name="volte_icon_title">VoLTE simgesi</string>
+    <string name="volte_icon_summary">VoLTE simgesini görüntüle</string>
     <!-- Ambient Play -->
     <string name="ambient_play_summary">Yakındaki şarkıları göster</string>
     <string name="ambient_play_lockscreen_title">Kilit ekranında şarkıları göster</string>
@@ -253,14 +261,21 @@
     <string name="ambient_play_cat">Şimdi Çalınıyor</string>
     <!-- QuickSettings haptic feedback -->
     <string name="quick_settings_vibrate_title">Dokunulduğunda titreşim</string>
-    <string name="quick_settings_vibrate_summary">Hızlı ayarlar kerelerine dokunulduğunda titret</string>
+    <string name="quick_settings_vibrate_summary">Hızlı ayarlar karelerine dokunulduğunda titret</string>
     <!--SystemUI Tuner -->
     <string name="statusbar_tuner_title">Durum çubuğu öğeleri</string>
+    <string name="statusbar_tuner_summary">Pil seçenekleri ve devre dışı bırakılacak durum çubuğu simgeleri</string>
     <string name="navbar_tuner_title">Gezinme çubuğunu düzenle</string>
     <string name="navbar_tuner_summary">Gezinme çubuğu düzenini ve tuşları düzenle</string>
     <string name="lockscreen_shortcuts_title">Kilit ekranı kısayolları</string>
+    <string name="lockscreen_shortcuts_summary">Kilit ekranı alt kısayolları yönetin</string>
     <string name="vol_dnd_category_title">Rahatsız etmeyin modu</string>
+    <string name="volbtn_down_zen_title">Rahatsız etmeyin modu için sesi kısın</string>
+    <string name="volbtn_down_zen_summary">Sesi kısarak rahatsız etmeyin moduna girmeye izin verir</string>
+    <string name="volbtn_up_zen_title">Rahatsız etmeyin modundan çıkmak için sesi açın</string>
+    <string name="volbtn_up_zen_summary">Ses seviyesini arttırarak rahatsız etmeyin modundan çıkmaya izin verir</string>
     <string name="vol_zen_title">Rahatsız etmeyin değiştirici</string>
+    <string name="vol_zen_summary">Ses panelinde rahatsız etmeyin değiştiriciyi gösterir</string>
     <!-- Advanced night mode brightness -->
     <string name="night_brightness_category">Parlaklık</string>
     <string name="night_brightness_value_title">Gece ışığında düşük parlaklık</string>
@@ -283,11 +298,17 @@
     <string name="toast_Tn_animation">Tn</string>
     <string name="toast_Honami_animation">Honami</string>
     <string name="toast_FastFade_animation">Hızlı karart</string>
+    <string name="toast_GrowFade_animation">Yayılan karartma</string>
+    <string name="toast_GrowFadeCenter_animation">Ortadan karartarak büyüt</string>
+    <string name="toast_GrowFadeBottom_animation">Yayılan karartma altta</string>
     <string name="toast_Translucent_animation">Yarı şeffaf</string>
+    <string name="toast_SlideLeftRight_animation">Soldan sağa kaydır</string>
+    <string name="toast_SlideRightLeft_animation">Sağdan sola kaydır</string>
     <!-- ListView animation -->
     <string name="listview_animation_title">Liste görünümü animasyonu</string>
     <string name="listview_off">Varsayılan</string>
     <string name="listview_wave_left">Dalga (sol)</string>
+    <string name="listview_wave_right">Dalga (sağ)</string>
     <string name="listview_alpha">Alfa</string>
     <string name="listview_scale">Ölçek</string>
     <string name="listview_stack_top">Yığın (üst)</string>

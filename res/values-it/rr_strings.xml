@@ -19,7 +19,7 @@
     <string name="build_date">Data della build</string>
     <string name="mod_version_default">Predefinita</string>
     <!-- General -->
-    <string name="ok">Okay</string>
+    <string name="ok">Ok</string>
     <string name="reset">Ripristina</string>
     <string name="dlg_reset_rr">RR</string>
     <string name="dlg_reset_android">Predefinito</string>
@@ -33,9 +33,9 @@
     <string name="restart_systemui">Riavvia UI</string>
     <string name="device_summary"><xliff:g example="goldfish" id="codename">%1$s</xliff:g>\nManutentore - <xliff:g example="deletescape" id="maintainer">%2$s</xliff:g></string>
     <!-- About RR -->
-    <string name="about_rr_settings">A riguardo</string>
-    <string name="about_rr">A riguardo</string>
-    <string name="about_rr_summary">\@null</string>
+    <string name="about_rr_settings">Informazioni</string>
+    <string name="about_rr">Informazioni</string>
+    <string name="about_rr_summary">nullo</string>
     <string name="about_r0m_summary">Tutto ciò che riguarda Resurrection Remix OS</string>
     <string name="rr_donate">Contribuisci allo sviluppo con una donazione</string>
     <string name="rr_donate_summary">Mostra il tuo sostegno alla ROM Resurrection</string>
@@ -59,10 +59,10 @@
     <string name="rr_google_plus_title">Google+</string>
     <string name="rr_google_plus_summary">Community Google+</string>
     <string name="maintainer_categorie_title">Dispositivi Ufficiali</string>
-    <string name="title_about">A riguardo</string>
+    <string name="title_about">Informazioni</string>
     <string name="dev_categorie_title">Dev Tag</string>
     <string name="rr_lockscreen_title">Schermata di blocco</string>
-    <string name="rr_ls_gestures">Gestures</string>
+    <string name="rr_ls_gestures">Gesti</string>
     <string name="rr_ls_ui">Blocca interfaccia</string>
     <string name="rr_ls_security">Sicurezza</string>
     <string name="updater_title">Aggiornamenti</string>
@@ -71,40 +71,270 @@
     <string name="andres_summary">● Sviluppatore \n● Manutentore</string>
     <string name="akhil_summary">● Sviluppatore \n ● Manutentore \n ● Script master</string>
     <string name="brian_summary">● Sviluppatore \n ● Manutentore</string>
+    <string name="matt_summary">● Moderatore \n● Editore\n● Contributore</string>
+    <string name="justen_summary">● Moderatore \n● Editore\n● Contributore</string>
+    <string name="mracar_summary">● Sviluppatore\n● Manutentore</string>
+    <string name="support_team_title">Tag moderatore</string>
+    <string name="device_maintainers_title">Dispositivo e manutentori</string>
+    <string name="device_maintainers_title_summary">Lista dei dispositivi e dei corrispettivi manutentori officiali della RR-OS</string>
+    <string name="maintainers_note_title">Nota</string>
+    <string name="maintainers_note_title_summary">Crea una richiesta pull dalle Impostazioni con il tuo name insieme al tuo dispositivo se vuoi diventare manutentore di un certo dispositivo</string>
     <!-- The Drill -->
+    <string name="rr_drill_title">The Drill</string>
+    <string name="drill_summary">Logcat o niente</string>
     <!-- RR Feature lists-->
+    <string name="features_title">Funzionalità</string>
+    <string name="features_title_summary">Mostra le funzionalità disponibili</string>
+    <string name="features_loading">Caricamento elenco ...</string>
+    <string name="features_error">Impossibile caricare l\'elenco</string>
+    <string name="features_unknown">Sconosciuto</string>
+    <string name="features_version">1.0</string>
+    <string name="rr_volume_title">Pannelo del volume</string>
+    <string name="rr_power_title">Finestra menù spegnimento</string>
     <!-- Share RR ROM -->
+    <string name="share_rr">Condividi</string>
+    <string name="share_rr_summary">Fai sapere alle persone che stai usando Resurrection Remix</string>
+    <string name="share_message">Prova Resurrection Remix!
+https://plus.google.com/communities/109352646351468373340</string>
+    <string name="share_chooser_title">Condividi Resurrection Remix via...</string>
     <!-- RR Changelog-->
+    <string name="changelog_title">Changelog</string>
+    <string name="changelog_title_summary">Visualizza i cambiamenti recenti nella ROM</string>
+    <string name="changelog_loading">Caricamento changelog...</string>
+    <string name="changelog_error">Impossibile caricare il changelog</string>
+    <string name="changelog_unknown">Sconosciuto</string>
+    <string name="changelog_version">Versione</string>
     <!--RR Configurations-->
+    <string name="fab_updates">Aggiornamenti</string>
+    <string name="fab_restartui">Riavvia l\'interfaccia</string>
+    <string name="fab_reset">Reimposta</string>
+    <string name="fab_about">A proposito di RR-OS</string>
+    <string name="fab_layout">Aggiorna layout</string>
+    <string name="fab_layout_update">Attiva o disattiva il layout classico</string>
+    <string name="fab_layout_toggle">Attiva o disattiva la scheda del layout</string>
+    <string name="rr_reset_message">Ripristina tutte le configurazioni ai valori predefiniti?</string>
+    <string name="rr_reset_settings">Reimposta impostazioni</string>
+    <string name="rr_reset_yes">Si</string>
+    <string name="rr_reset_cancel">Annulla</string>
+    <string name="rr_category_title">Personalizzazione</string>
+    <string name="rr_title">Configurazioni</string>
+    <string name="rr_title_summary">Personalizzazioni varie</string>
+    <string name="rr_config_main_title">RR-OS</string>
+    <string name="rr_ota_fab_title">Mostra il pulsante flottante</string>
+    <string name="rr_ota_fab_summary">Attiva o disattiva per mostrare o nascondere il pulsante fluttuante nelle configurazioni. Entra/esci una volta che l\'interruttore è stato usato</string>
+    <string name="rr_statusbar_title">Barra di stato</string>
+    <string name="rr_sb_gestures_title">Gesti barra di stato</string>
+    <string name="qs_advanced_title">Avanzate</string>
+    <string name="rr_notification_panel_title">Pannelli</string>
+    <string name="rr_tuner">Tuner dell\'interfaccia di sistema</string>
+    <string name="rr_tuner_summary">Parte delle personalizzazioni stock</string>
+    <string name="rr_battery">Batteria</string>
+    <string name="rr_sb_icons">Icone di sistema</string>
+    <string name="rr_sb_battery">Barra di stato</string>
+    <string name="notification_drawer_title">Pannello notifiche</string>
+    <string name="recents_settings_title">Recenti</string>
+    <string name="recents_ui_title">Interfaccia generale</string>
+    <string name="animation_title">Animazioni</string>
+    <string name="button_settings">Pulsanti</string>
+    <string name="rr_misc_title">Varie</string>
+    <string name="rr_headsup_cat">HeadsUp</string>
+    <string name="rr_nav_title">Navigazione</string>
+    <string name="system_animations">Animazioni di sistema</string>
+    <string name="rr_ui_title">Interfaccia</string>
+    <string name="rr_dash_board_title">Pannello configurazioni</string>
+    <string name="rr_fp_title">Impostazioni sensore impronta digitale</string>
+    <string name="recents_type_title">Tipo di attività recenti</string>
+    <string name="recents_stock">AOSP Stock</string>
+    <string name="recents_omniswitch">Omniswitch</string>
+    <string name="recents_grid">Griglia</string>
+    <string name="recents_slim">Slim</string>
+    <string name="rr_notif_settings_title">Notifiche</string>
+    <string name="toast">Toast</string>
+    <string name="listview">Visualizzazione elenco</string>
+    <string name="icons">Icone</string>
+    <string name="general">Generale</string>
+    <string name="ka_title">Prestazioni</string>
     <!-- About phone screen, RR version -->
+    <string name="rr_version">Versione Resurrection Remix</string>
+    <string name="rr_version_default">Sconosciuto</string>
+    <string name="keywords_rr_version">versione rr</string>
     <!-- Statusbar net monitor -->
+    <string name="network_traffic_state_title">Traffico di rete</string>
+    <string name="network_traffic_state_summary">Mostra l\'attività di rete nella barra di stato</string>
+    <string name="network_traffic_autohide_threshold_title">Attività di rete automaticamente nascoste ad una certa soglia (KB/s)</string>
+    <string name="network_traffic_summary">Attiva o disattiva il monitor di traffico di rete nella barra di stato e personalizza il suo stile, soglia di attività e letture</string>
     <!-- Battery percentage -->
+    <string name="battery_style_category_title">Icona batteria</string>
+    <string name="status_bar_battery_percentage_title">Percentuale della batteria</string>
+    <string name="status_bar_battery_percentage_default">Nascosta</string>
+    <string name="status_bar_battery_percentage_text_next">Vicino all\'icona</string>
+    <string name="status_bar_battery_percentage_text_inside">Dentro l\'icona</string>
+    <string name="rr_battery_summary">Personalizza gli elementi della batteria nella barra di stata e personalizza anche la barra della batteria</string>
+    <string name="status_bar_battery_style_title">Stile della batteria sulla barra di stato</string>
     <!-- Status bar battery style-->
+    <string name="status_bar_battery_style_port">Verticale</string>
+    <string name="status_bar_battery_style_circle">Cerchio</string>
+    <string name="status_bar_battery_style_text">Testo</string>
+    <string name="status_bar_battery_style_hidden">Nascosto</string>
+    <string name="battery_style_dotted_circle">Cerchio tratteggiato</string>
     <!-- Battery stats reset -->
+    <string name="battery_stats_reset">Reimposta le statistiche</string>
+    <string name="battery_stats_message">Le statistiche della batteria stanno per essere reimpostate</string>
+    <string name="ok_string">Ok</string>
     <!-- QuickSettings -->
+    <string name="rr_qs_title">Impostazioni rapide</string>
     <!-- Now playing -->
+    <string name="ambient_play_settings_title">Controlla \"In riproduzione\"</string>
+    <string name="ambient_play_settings_summary">Sii a conoscenza della musica in riproduzione attorno a te</string>
     <!-- Screen Off animation -->
+    <string name="screen_off_animation_title">Animazione blocco schermo</string>
+    <string name="screen_off_animation_fade">Dissolvenza semplice</string>
+    <string name="screen_off_animation_color">Dissolvenza a colori</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Scala</string>
     <!-- UI debug setting: show CPU info? [CHAR LIMIT=25] -->
+    <string name="show_cpu_info">Mostra informazioni sulla CPU</string>
     <!-- UI debug setting: show cpu usage summary [CHAR LIMIT=50] -->
+    <string name="show_cpu_info_summary">Sovrapposizione sullo schermo con le informazioni attuali della CPU</string>
     <!-- Heads up -->
+    <string name="heads_up_title">Attiva</string>
+    <string name="heads_up_summary_enabled">Le notifiche Heads Up sono attivate</string>
+    <string name="heads_up_summary_disabled">Le notifiche Heads Up sono disattivate</string>
+    <string name="heads_up_time_out_title">Time out</string>
+    <string name="heads_up_time_out_summary">Le notifiche peeling saranno mostrate per <xliff:g id="number">%d</xliff:g> secondi</string>
+    <string name="heads_up_time_out_2sec">2 secondi</string>
+    <string name="heads_up_time_out_4sec">4 secondi</string>
+    <string name="heads_up_time_out_5sec">5 secondi</string>
+    <string name="heads_up_time_out_6sec">6 secondi</string>
+    <string name="heads_up_time_out_8sec">8 secondi</string>
+    <string name="heads_up_time_out_10sec">10 secondi</string>
+    <string name="heads_up_snooze_title">Timer sospensione</string>
+    <string name="heads_up_snooze_summary_one_minute">Scorri verso l\'alto sulle notifiche peeking per sospendere le notifiche heads up dall\'applicazione per 1 minuto</string>
+    <string name="heads_up_snooze_summary">Scorri verso l\'alto sulle notifiche peeking per sospendere le notifiche heads up dall\'applicazione per <xliff:g id="number">%d</xliff:g> minuto</string>
+    <string name="heads_up_snooze_disabled_summary">Il timer di sospensione è disattivato</string>
+    <string name="heads_up_snooze_1min">1 minuto</string>
+    <string name="heads_up_snooze_5min">5 minuti</string>
+    <string name="heads_up_snooze_10min">10 minuti</string>
+    <string name="heads_up_snooze_15min">15 minuti</string>
+    <string name="heads_up_snooze_20min">20 minuti</string>
     <!-- Power menu on lockscreen -->
+    <string name="lockscreen_power_menu_disabled_title">Disattiva il menù di spegnimento dalla schermata di blocco</string>
+    <string name="lockscreen_power_menu_disabled_summary">Questo disattiverà il menù di spegnimento solo da schermate di blocco sicure</string>
     <!-- Facelock toggle -->
+    <string name="face_auto_unlock_title">Sblocco con il viso automatico</string>
+    <string name="face_auto_unlock_summary">Sblocca automaticamente il dispositivo dopo il riconoscimento del viso</string>
     <!-- Fingerprint unlock keystore -->
+    <string name="fp_unlock_keystore_title">Sblocco con l\'impronta</string>
+    <string name="fp_unlock_keystore_summary">Sblocca il dispositivo con l\'impronta anche dopo un riavvio senza PIN/Password/Sequenza\nAttenzione: Usa a tuo rischio!</string>
     <!-- Screenshot sound -->
+    <string name="screenshot_sound_title">Suono di cattura di schermata</string>
+    <string name="screenshot_sound_summary">Riproduce un suono quando una schermata di schermo è stata acquisita</string>
     <!-- Lockscreen charging current indicator  -->
+    <string name="lockscreen_charging_current_title">Informazioni ricarica</string>
+    <string name="lockscreen_charging_current_summary">Mostra un timer per la ricarica completa e informazioni sul voltaggio sulla schermata di blocco</string>
     <!-- Less Notification sounds -->
+    <string name="less_notification_sounds_title">Suoni di notifica meno frequenti</string>
+    <string name="less_notification_sounds_summary">Riproduci il suono di notifica di ogni applicazione solo una volta su un periodo di tempo</string>
+    <string name="less_notification_sounds_default">Comportamento predefinito</string>
+    <string name="less_notification_sounds_10s">Ogni 10 secondi</string>
+    <string name="less_notification_sounds_30s">Ogni 30 secondi</string>
+    <string name="less_notification_sounds_1m">Ogni minuto</string>
+    <string name="less_notification_sounds_2m">Ogni due minuti</string>
     <!-- Notifications while screen on -->
+    <string name="notification_sound_vib_screen_on_title">Notifiche con suono a schermo acceso</string>
+    <string name="notification_sound_vib_screen_on_summary">Riproduci il suono e la vibrazione delle notifiche quando lo schermo è acceso</string>
     <!-- In-call notifications vibrate -->
+    <string name="incall_notifications_vibrate">Vibra alle notifiche durante le chiamate</string>
+    <string name="incall_notifications_vibrate_summary">Vibra invece di riprodurre un suono durante le notifiche in chiamata</string>
     <!-- Roaming indicator icon -->
+    <string name="roaming_indicator_icon_title">Indicatore roaming</string>
+    <string name="roaming_indicator_icon_summary">Visualizza l\'indicatore roaming nell\'icona del segnale quando si è in modalità roaming</string>
     <!-- Show VoLTE icon on statusbar -->
+    <string name="volte_icon_title">Icona VoLTE</string>
+    <string name="volte_icon_summary">Mostra l\'icona VoLTE</string>
     <!-- Ambient Play -->
+    <string name="ambient_play_summary">Visualizza i brani nelle vicinanze</string>
+    <string name="ambient_play_lockscreen_title">Mostra le canzoni nella schermata di blocco</string>
+    <string name="ambient_play_notifications_title">Notifiche</string>
+    <string name="ambient_play_switch_bar_on">Acceso</string>
+    <string name="ambient_play_switch_bar_off">Spento</string>
+    <string name="ambient_play_help_text">Quando della musica è in riproduzione nelle vicinanze, puoi vedere il nome del brano e l\'artista. La durata della batteria e l\'utilizzo dei dati potrebbero risentirne.</string>
+    <string name="ambient_play_cat">In riproduzione</string>
     <!-- QuickSettings haptic feedback -->
+    <string name="quick_settings_vibrate_title">Vibra al tocco</string>
+    <string name="quick_settings_vibrate_summary">Vibra al tocco dei tile QS</string>
     <!--SystemUI Tuner -->
+    <string name="statusbar_tuner_title">Elementi barra di stato</string>
+    <string name="statusbar_tuner_summary">Opzioni batteria e icone della barra di stato da disabilitare</string>
+    <string name="navbar_tuner_title">Modifica la barra di navigazione</string>
+    <string name="navbar_tuner_summary">Modifica il layout e i pulsanti della barra di navigazione</string>
+    <string name="lockscreen_shortcuts_title">Scorciatoie della schermata di blocco</string>
+    <string name="lockscreen_shortcuts_summary">Gestisci scorciatoie nella schermata di blocco</string>
+    <string name="vol_dnd_category_title">Modalità non disturbare</string>
+    <string name="volbtn_down_zen_title">Premi Vol- per la modalità non disturbare</string>
+    <string name="volbtn_down_zen_summary">permetti al tasto Vol- di attivare la modalità non disturbare</string>
+    <string name="volbtn_up_zen_title">Vol+ per disattivare la modalità non disturbare</string>
+    <string name="volbtn_up_zen_summary">permetti al tasto Vol+ di disattivare la modalità non disturbare</string>
+    <string name="vol_zen_title">Interrutore modalità non disturbare</string>
+    <string name="vol_zen_summary">Mostra l\'interruttore della modalità non disturbare nel pannelo del volume</string>
     <!-- Advanced night mode brightness -->
+    <string name="night_brightness_category">Luminosità</string>
+    <string name="night_brightness_value_title">Luminosità ridotta se la luce notturna è attiva</string>
+    <string name="night_bright_disabled">Disabilitata</string>
+    <string name="night_bright_minimum">Luminosità minima</string>
+    <string name="night_bright_low">Luminosità bassa</string>
+    <string name="night_bright_medium">Luminosità media</string>
     <!-- Toast app icon -->
+    <string name="toast_icon_title">Icona app toast</string>
+    <string name="toast_icon_summary">Mostra l\'icona dell\'app corrispondente al toast</string>
     <!-- Toast Animation -->
+    <string name="toast_animation_title">Animazione toast</string>
+    <string name="toast_none_animation">Nessuno</string>
+    <string name="toast_default_animation">Predefinita</string>
+    <string name="toast_fade_animation">Dissolvenza</string>
+    <string name="toast_SlideRight_animation">Scorri a destra</string>
+    <string name="toast_SlideLeft_animation">Scorri a sinistra</string>
+    <string name="toast_Xylon_animation">Xylon</string>
+    <string name="toast_Toko_animation">Toko</string>
+    <string name="toast_Tn_animation">Tn</string>
+    <string name="toast_Honami_animation">Honami</string>
+    <string name="toast_FastFade_animation">Dissolvenza rapida</string>
+    <string name="toast_GrowFade_animation">Dissolvenza incrementale</string>
+    <string name="toast_GrowFadeCenter_animation">Dissolvenza incrementale dal centro</string>
+    <string name="toast_GrowFadeBottom_animation">Dissolvenza incrementale dal basso</string>
+    <string name="toast_Translucent_animation">Traslucido</string>
+    <string name="toast_SlideLeftRight_animation">Scorri da sinistra a destra</string>
+    <string name="toast_SlideRightLeft_animation">Scorri da destra a sinistra</string>
     <!-- ListView animation -->
+    <string name="listview_animation_title">Animazione ListView</string>
+    <string name="listview_off">Predefinita</string>
+    <string name="listview_wave_left">Onda (sinistra)</string>
+    <string name="listview_wave_right">Onda (destra)</string>
+    <string name="listview_alpha">Trasparente</string>
+    <string name="listview_scale">Scala</string>
+    <string name="listview_stack_top">Pila (verso l\'alto)</string>
+    <string name="listview_stack_bottom">Pila (verso il basso)</string>
+    <string name="listview_unfold">Dispiega</string>
+    <string name="listview_fold">Piega</string>
+    <string name="listview_translate_left">Trasla (sinistra)</string>
+    <string name="listview_translate_right">Trasla (destra)</string>
     <!-- ListView interpolator -->
+    <string name="listview_interpolator_title">Interpolatore ListView</string>
+    <string name="listview_accelerate_interpolator">Accelera</string>
+    <string name="listview_decelerate_interpolator">Decelera</string>
+    <string name="listview_accelerate_decelerate_interpolator">Accelera e decelera</string>
+    <string name="listview_anticipate_interpolator">Anticipa</string>
+    <string name="listview_overshoot_interpolator">Supera</string>
+    <string name="listview_anticipate_overshoot_interpolator">Anticipa e supera</string>
+    <string name="listview_bounce_interpolator">Rimbalzo</string>
     <!-- Option to enable/disable scrolling cache -->
+    <string name="pref_scrollingcache_title">Cache scorrimento</string>
+    <string name="pref_scrollingcache_summary">La cache di scorrimento potrebbe migliore la performance di scorrimento a discapito della memoria</string>
+    <string name="pref_scrollingcache_force_enable">Forza abilitazione</string>
+    <string name="pref_scrollingcache_default_enable">Abilita predefinita</string>
+    <string name="pref_scrollingcache_default_disable">Disabilita predefinita</string>
+    <string name="pref_scrollingcache_force_disable">Forza disabilitazione</string>
     <!-- Media art -->
+    <string name="media_art_title">Copertina per le applicazioni multimediali</string>
+    <string name="media_art_summary">Attiva la copertina per le applicazioni multimediali sulla schermata di blocco</string>
 </resources>
