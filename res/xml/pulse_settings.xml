@@ -24,6 +24,14 @@
         android:title="@string/fling_show_pulse_title"
         android:summary="@string/fling_show_pulse_summary" />
 
+
+    <Preference
+        android:key="blacklist_fragment"
+        android:fragment="com.android.settings.rr.fragments.PulseBlacklist"
+        android:title="@string/pulse_blacklist_title"
+        android:summary="@string/pulse_blacklist_summary"
+        android:persistent="false" />
+
     <ListPreference
         android:key="pulse_render_mode"
         android:title="@string/pulse_render_mode_title"
