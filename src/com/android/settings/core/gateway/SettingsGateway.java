@@ -142,6 +142,7 @@ import com.android.settings.wifi.tether.WifiTetherSettings;
 import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.MainSettingsLayout;
 import com.android.settings.rr.About;
+import com.android.settings.rr.fragments.PieSettings;
 
 import com.android.settings.smartnav.*;
 
@@ -277,6 +278,7 @@ public class SettingsGateway {
             SmartbarSettings.class.getName(),
             FlingSettings.class.getName(),
             PulseSettings.class.getName(),
+            PieSettings.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -322,5 +324,6 @@ public class SettingsGateway {
             Settings.SmartbarSettingsActivity.class.getName(),
             Settings.FlingSettingsActivity.class.getName(),
             Settings.PulseSettingsActivity.class.getName(),
+            Settings.PieControlSettingsActivity.class.getName()
     };
 }

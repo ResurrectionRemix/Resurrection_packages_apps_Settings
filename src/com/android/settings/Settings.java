@@ -176,4 +176,5 @@ public class Settings extends SettingsActivity {
     public static class AboutSettingsActivity extends SettingsActivity { /* empty */ }
 
     public static class AmbientPlayActivity extends SettingsActivity { /* empty */ }
+    public static class PieControlSettingsActivity extends SettingsActivity { /* empty */ }
 }
