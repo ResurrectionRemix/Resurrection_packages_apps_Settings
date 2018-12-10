@@ -21,13 +21,19 @@
     android:title="@string/rr_statusbar_title">
 
      <PreferenceScreen
+                android:id="@+id/clock_settings"
+                android:title="@string/status_bar_clock_title"
+        	    android:summary="@string/status_bar_clock_summary"
+                android:fragment="com.android.settings.rr.ClockSettings"
+                android:icon="@drawable/rr_clock_icon"
+                />
+     <PreferenceScreen
                 android:id="@+id/network_traffic_settings"
                 android:title="@string/network_traffic_state_title"
         	    android:summary="@string/network_traffic_summary"
                 android:fragment="com.android.settings.rr.NetworkTraffic"
                 android:icon="@drawable/rr_network_traffic_icon"
                 />
-
      <PreferenceScreen
                 android:id="@+id/battery_style_settings"
                 android:title="@string/status_bar_battery_style_title"

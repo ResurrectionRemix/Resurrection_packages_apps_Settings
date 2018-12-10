@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 RR
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/status_bar_clock_title">
+
+    <PreferenceCategory
+        android:key="status_bar_clock_key"
+        android:title="@string/status_bar_clock_title">
+
+        <lineageos.preference.LineageSystemSettingListPreference
+            android:key="status_bar_clock"
+            android:title="@string/status_bar_clock_position_title"
+            android:summary="%s"
+            android:dialogTitle="@string/status_bar_clock_position_title"
+            android:entries="@array/status_bar_clock_position_entries"
+            android:entryValues="@array/status_bar_clock_position_values"
+            android:defaultValue="0" />
+
+        <lineageos.preference.SecureSettingSwitchPreference
+            android:key="clock_seconds"
+            android:title="@string/status_bar_clock_show_seconds_title"
+            android:summary="@string/status_bar_clock_show_seconds_summary"
+            android:defaultValue="false" />
+
+
+         <ListPreference
+            android:key="status_bar_am_pm"
+            android:dialogTitle="@string/status_bar_am_pm_title"
+            android:title="@string/status_bar_am_pm_title"
+            android:entries="@array/entries_status_bar_am_pm"
+            android:entryValues="@array/values_status_bar_am_pm"
+             />
+
+         <ListPreference
+            android:key="clock_date_display"
+            android:title="@string/clock_date_display"
+            android:summary="@string/clock_date_display_summary"
+            android:entries="@array/clock_date_display_entries"
+            android:entryValues="@array/clock_date_display_values"
+             />
+
+         <ListPreference
+            android:key="clock_date_style"
+            android:title="@string/clock_date_style"
+            android:entries="@array/clock_date_style_entries"
+            android:entryValues="@array/clock_date_style_values"
+             />
+
+         <ListPreference
+            android:key="clock_date_format"
+            android:title="@string/clock_date_format"
+            android:entries="@array/clock_date_format_entries_values"
+            android:entryValues="@array/clock_date_format_entries_values"
+             />
+
+        <ListPreference
+            android:key="clock_date_position"
+            android:title="@string/clock_date_position"
+            android:entries="@array/clock_date_position_entries"
+            android:entryValues="@array/clock_date_position_values"
+             />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
