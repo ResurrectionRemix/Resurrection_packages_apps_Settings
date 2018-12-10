@@ -58,4 +58,16 @@
                 android:targetClass="com.android.systemui.tuner.StatusBarIconsTunerActivity" />
     </Preference>
 
+        <com.rr.settings.preferences.SystemSettingSwitchPreference
+            android:key="data_disabled_icon"
+            android:title="@string/data_disabled_icon_title"
+            android:summary="@string/data_disabled_icon_summary"
+            android:defaultValue="true"/>
+
+    <com.rr.settings.preferences.SystemSettingSwitchPreference
+        android:key="status_bar_notif_count"
+        android:title="@string/status_bar_notif_count_title"
+        android:summary="@string/status_bar_notif_count_summary"
+        android:defaultValue="false" />
+
 </PreferenceScreen>
