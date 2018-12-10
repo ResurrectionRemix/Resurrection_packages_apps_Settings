@@ -17,6 +17,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+    <com.android.settings.applications.LayoutPreference
+        android:key="navbar_category"
+        android:layout="@layout/rr_navbar_layout">
+        <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.tuner.NavBarTunerActivity" />
+    </com.android.settings.applications.LayoutPreference>
+
     <!--com.android.settings.applications.LayoutPreference
         android:key="buttons_category"
         android:fragment="com.android.settings.rr.ButtonSettings"

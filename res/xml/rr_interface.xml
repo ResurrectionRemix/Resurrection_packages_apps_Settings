@@ -18,41 +18,15 @@
     <PreferenceScreen
             android:key="rr_headsup"
             android:title="@string/rr_headsup_cat"
-                    android:fragment="com.android.settings.rr.HeadsUp" 
-                        android:icon="@drawable/rr_heads_up_icon"/>
+            android:fragment="com.android.settings.rr.HeadsUp" 
+            android:icon="@drawable/rr_heads_up_icon"/>
 
-    <com.rr.settings.preferences.SystemSettingSwitchPreference
-          android:key="screenshot_sound"
-          android:title="@string/screenshot_sound_title"
-          android:defaultValue="true" />
 
-    <ListPreference
-        android:key="less_notification_sounds"
-        android:title="@string/less_notification_sounds_title"
-        android:summary="@string/less_notification_sounds_summary"
-        android:entries="@array/less_notification_sounds_entries"
-        android:entryValues="@array/less_notification_sounds_values" />
-
-    <com.rr.settings.preferences.SystemSettingSwitchPreference
-        android:key="notification_sound_vib_screen_on"
-        android:title="@string/notification_sound_vib_screen_on_title"
-        android:summary="@string/notification_sound_vib_screen_on_summary"
-        android:defaultValue="true" />
-
-    <com.rr.settings.preferences.SystemSettingSwitchPreference
-        android:key="incall_notifications_vibrate"
-        android:title="@string/incall_notifications_vibrate"
-        android:summary="@string/incall_notifications_vibrate_summary"
-        android:defaultValue="false" />
-
-    <PreferenceCategory
-            android:title="@string/night_brightness_category">
-        <DropDownPreference
-                android:key="night_brightness_value"
-                android:title="@string/night_brightness_value_title"
-                android:entries="@array/night_brightness_value_entries"
-                android:entryValues="@array/night_brightness_value_values"
-                android:defaultValue="0" />
-    </PreferenceCategory>
+    <PreferenceScreen
+            android:key="rr_ui_other"
+            android:title="@string/interface_other_title"
+            android:icon="@drawable/rr_misc_interface_icon"
+            android:summary="@string/interface_other_summary"
+            android:fragment="com.android.settings.rr.MiscInterfaceSettings" />
 
 </PreferenceScreen>

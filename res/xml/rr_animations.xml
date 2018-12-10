@@ -19,14 +19,8 @@
         android:key="screen_off_animation"
         android:title="@string/screen_off_animation_title"
         android:entries="@array/screen_off_animation_entries"
+        android:icon="@drawable/rr_screen_off_animations_icon"
         android:entryValues="@array/screen_off_animation_values" />
-
-        <ListPreference
-            android:key="toast_animation"
-            android:title="@string/toast_animation_title"
-            android:entries="@array/toast_animation_entries"
-            android:entryValues="@array/toast_animation_values"
-            android:persistent="false" />
 
         <ListPreference
             android:key="listview_animation"
@@ -34,6 +28,7 @@
             android:title="@string/listview_animation_title"
             android:entries="@array/listview_animation_entries"
             android:entryValues="@array/listview_animation_values"
+            android:icon="@drawable/rr_list_icon"
             android:defaultValue="0" />
         <ListPreference
             android:key="listview_interpolator"
@@ -41,6 +36,7 @@
             android:title="@string/listview_interpolator_title"
             android:entries="@array/listview_interpolator_entries"
             android:entryValues="@array/listview_interpolator_values"
+            android:icon="@drawable/rr_int_icon"
             android:defaultValue="0" />
 
         <ListPreference
@@ -49,6 +45,15 @@
             android:title="@string/pref_scrollingcache_title"
             android:summary="@string/pref_scrollingcache_summary"
             android:entries="@array/entries_scrollingcache"
+            android:icon="@drawable/rr_scroll_icon"
             android:entryValues="@array/values_scrollingcache" />
+
+        <PreferenceScreen
+            android:key="rr_toast"
+            android:fragment="com.android.settings.rr.animation.ToastAnimations"
+            android:title="@string/rr_toast_title"
+            android:summary="@string/rr_toast_summary"
+            android:icon="@drawable/rr_toast_icon"
+            />
 
 </PreferenceScreen>

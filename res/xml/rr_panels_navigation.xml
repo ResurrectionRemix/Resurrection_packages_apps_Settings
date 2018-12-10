@@ -15,17 +15,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
 
-    <com.android.settings.applications.LayoutPreference
+    <!--com.android.settings.applications.LayoutPreference
         android:key="rr_np"
         android:layout="@layout/rr_notifcation_drawer_layout"
-        android:fragment="com.android.settings.rr.NotificationPanel" />
+        android:fragment="com.android.settings.rr.NotificationPanel" /-->
 
      <com.android.settings.applications.LayoutPreference
         android:key="qs_customizations"
-        android:fragment="com.android.settings.rr.QsPanel" 
+        android:fragment="com.android.settings.rr.QSMainSettings" 
         android:layout="@layout/rr_quick_settings_layout" />
 
-     <com.android.settings.applications.LayoutPreference
+     <!--com.android.settings.applications.LayoutPreference
         android:key="rr_power"
         android:fragment="com.android.settings.rr.PowerPanelSettings"
         android:layout="@layout/rr_power_panel_layout"/>
@@ -38,7 +38,7 @@
        <com.android.settings.applications.LayoutPreference
         android:key="rr_recents"
         android:fragment="com.android.settings.rr.RecentsSettings" 
-        android:layout="@layout/rr_recents_layout" />
+        android:layout="@layout/rr_recents_layout" /-->
 
 
 

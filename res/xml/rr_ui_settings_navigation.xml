@@ -29,21 +29,19 @@
        <com.android.settings.applications.LayoutPreference
             android:key="rr_lockscreen"
             android:title="@string/rr_lockscreen_title"
-	   	    android:fragment="com.android.settings.rr.LockScreenSettings" 
+	   	    android:fragment="com.android.settings.rr.LockSettings" 
 	   		android:layout="@layout/rr_lockscreen_layout" />
 
-       <com.android.settings.applications.LayoutPreference
+       <!--com.android.settings.applications.LayoutPreference
             android:key="pa_pie_control"
             android:fragment="com.android.settings.rr.pie.PieSettings"
             android:layout="@layout/rr_pie_layout" />
 
-    <!-- Gesture anywhere -->
     <com.android.settings.applications.LayoutPreference
             android:key="gesture_anywhere"
             android:fragment="com.android.settings.rr.gesture.GestureAnywhereSettings"
             android:layout="@layout/rr_gesture_anywhere_layout" />
 
-    <!-- App Circle Bar -->
     <com.android.settings.applications.LayoutPreference
             android:key="app_circle_bar"
             android:fragment="com.android.settings.rr.AppCircleBar"
@@ -52,23 +50,23 @@
        <com.android.settings.applications.LayoutPreference
             android:key="rr_blur"
             android:fragment="com.android.settings.rr.BlurPersonalizations"
-            android:layout="@layout/rr_blur_layout" />
+            android:layout="@layout/rr_blur_layout" /-->
 
        <com.android.settings.applications.LayoutPreference
             android:key="animation_settings"
             android:layout="@layout/rr_animations_layout"
-            android:fragment="com.android.settings.rr.animation.AnimationSettings" />
+            android:fragment="com.android.settings.rr.Animations" />
 
 
        <com.android.settings.applications.LayoutPreference
             android:key="heads_up_settings"
             android:layout="@layout/rr_headsup_layout"
-            android:fragment="com.android.settings.rr.Headsup" />
+            android:fragment="com.android.settings.rr.HeadsUp" />
 
-       <com.android.settings.applications.LayoutPreference
+       <!--com.android.settings.applications.LayoutPreference
             android:key="dashboard"
             android:layout="@layout/rr_dashboard_layout"
-            android:fragment="com.android.settings.rr.DashBoardSettings"/>
+            android:fragment="com.android.settings.rr.DashBoardSettings"/-->
 
        <com.android.settings.applications.LayoutPreference
             android:key="rr_volume"
@@ -76,14 +74,26 @@
             android:layout="@layout/rr_volume_layout"
           />
 
-        <!-- Sound -->
        <com.android.settings.applications.LayoutPreference
+            android:key="rr_aplay"
+            android:fragment="com.android.settings.custom.ambient.AmbientPlaySettings"
+            android:layout="@layout/rr_aplay_layout"
+          />
+
+        <!-- Sound -->
+       <!--com.android.settings.applications.LayoutPreference
             android:key="rr_sound"
             android:fragment="com.android.settings.rr.SoundFragment"
             android:layout="@layout/rr_sound_layout"
-            />
+            /-->
 
        <com.android.settings.applications.LayoutPreference
+            android:key="rr_ss"
+            android:layout="@layout/rr_screenshot_layout"
+            android:fragment="com.android.settings.rr.ScreenShotSettings" />
+
+
+       <!--com.android.settings.applications.LayoutPreference
             android:key="expanded_desktop"
             android:layout="@layout/rr_expandeddesktop_layout"
             android:fragment="com.android.settings.rr.ExpandedDesktopPreferenceFragment" />
@@ -92,7 +102,7 @@
        <com.android.settings.applications.LayoutPreference
             android:key="rr_incall"
             android:layout="@layout/rr_call_layout"
-            android:fragment="com.android.settings.rr.InCallSettings" />
+            android:fragment="com.android.settings.rr.InCallSettings" /-->
 
       <com.android.settings.applications.LayoutPreference
             android:key="rr_ui_other"

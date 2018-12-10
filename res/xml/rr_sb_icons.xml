@@ -13,15 +13,18 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/rr_nav_title">
+    android:title="@string/animation_title">
 
-    <Preference
-            android:title="@string/navbar_tuner_title"
-            android:icon="@drawable/rr_navbar_icon"
-            android:summary="@string/navbar_tuner_summary">
-        <intent android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.systemui"
-                android:targetClass="com.android.systemui.tuner.NavBarTunerActivity" />
-    </Preference>
+    <com.rr.settings.preferences.SystemSettingSwitchPreference
+         android:key="roaming_indicator_icon"
+         android:title="@string/roaming_indicator_icon_title"
+         android:summary="@string/roaming_indicator_icon_summary"
+         android:defaultValue="true"/>
+
+    <com.rr.settings.preferences.SystemSettingSwitchPreference
+         android:key="volte_icon"
+         android:title="@string/volte_icon_title"
+         android:summary="@string/volte_icon_summary"
+         android:defaultValue="false"/>
 
 </PreferenceScreen>
