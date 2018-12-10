@@ -24,4 +24,12 @@
           android:summary="@string/quick_settings_vibrate_summary"
           android:defaultValue="false"/>
 
+     <PreferenceScreen
+                android:id="@+id/rr_qs_animations"
+                android:title="@string/qs_tile_anim_title"
+        	    android:summary="@string/rr_qs_animation_summary"
+                android:fragment="com.android.settings.rr.QsAnimations"
+                android:icon="@drawable/rr_battery_icon"
+                />
+
 </PreferenceScreen>
