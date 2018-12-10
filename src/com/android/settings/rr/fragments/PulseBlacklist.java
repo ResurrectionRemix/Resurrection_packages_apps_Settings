@@ -40,8 +40,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
 
-import com.dirtyunicorns.support.preferences.PackageListAdapter;
-import com.dirtyunicorns.support.preferences.PackageListAdapter.PackageItem;
+import com.android.settings.rr.Preferences.PackageListAdapter;
+import com.android.settings.rr.Preferences.PackageListAdapter.PackageItem;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 

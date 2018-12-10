@@ -95,12 +95,12 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.pulse_help_policy_notice_summary);
 
         mShowPulse = (SwitchPreference) findPreference("eos_fling_show_pulse");
-        mShowPulse.setChecked(Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.FLING_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) == 1);
+        mShowPulse.setChecked(Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.FLING_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) == 1);
         mShowPulse.setOnPreferenceChangeListener(this);
 
-        int renderMode = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.PULSE_RENDER_STYLE_URI, RENDER_STYLE_SOLID_LINES, UserHandle.USER_CURRENT);
+        int renderMode = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_RENDER_STYLE_URI, RENDER_STYLE_SOLID_LINES, UserHandle.USER_CURRENT);
         mRenderMode = (ListPreference) findPreference("pulse_render_mode");
         mRenderMode.setValue(String.valueOf(renderMode));
         mRenderMode.setOnPreferenceChangeListener(this);
@@ -111,114 +111,114 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         PreferenceCategory solidBarsCat = (PreferenceCategory) findPreference("pulse_2");
         solidBarsCat.setEnabled(renderMode == RENDER_STYLE_SOLID_LINES);
 
-        int pulseColor = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.FLING_PULSE_COLOR, Color.WHITE, UserHandle.USER_CURRENT);
+        int pulseColor = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.FLING_PULSE_COLOR, Color.WHITE, UserHandle.USER_CURRENT);
         mPulseColor = (ColorPickerPreference) findPreference("eos_fling_pulse_color");
         mPulseColor.setNewPreviewColor(pulseColor);
         mPulseColor.setOnPreferenceChangeListener(this);
 
-        int lavaLampColorFrom = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.FLING_PULSE_LAVALAMP_COLOR_FROM, 0xffff8080, UserHandle.USER_CURRENT);
+        /*int lavaLampColorFrom = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.FLING_PULSE_LAVALAMP_COLOR_FROM, 0xffff8080, UserHandle.USER_CURRENT);
         mLavaLampColorFrom = (ColorPickerPreference) findPreference("fling_lavalamp_color_from");
         mLavaLampColorFrom.setNewPreviewColor(lavaLampColorFrom);
         mLavaLampColorFrom.setOnPreferenceChangeListener(this);
 
-        int lavaLampColorTo = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.FLING_PULSE_LAVALAMP_COLOR_TO, 0xff8080ff, UserHandle.USER_CURRENT);
+        int lavaLampColorTo = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.FLING_PULSE_LAVALAMP_COLOR_TO, 0xff8080ff, UserHandle.USER_CURRENT);
         mLavaLampColorTo = (ColorPickerPreference) findPreference("fling_lavalamp_color_to");
         mLavaLampColorTo.setNewPreviewColor(lavaLampColorTo);
         mLavaLampColorTo.setOnPreferenceChangeListener(this);
 
         mLavaLampEnabled = (SwitchPreference) findPreference("eos_fling_lavalamp");
-        mLavaLampEnabled.setChecked(Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.FLING_PULSE_LAVALAMP_ENABLED, 1, UserHandle.USER_CURRENT) == 1);
+        mLavaLampEnabled.setChecked(Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.FLING_PULSE_LAVALAMP_ENABLED, 1, UserHandle.USER_CURRENT) == 1);
         mLavaLampEnabled.setOnPreferenceChangeListener(this);
 
         mSmoothingEnabled = (SwitchPreference) findPreference("fling_smoothing_enabled");
-        mSmoothingEnabled.setChecked(Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.FLING_PULSE_SMOOTHING_ENABLED, 0, UserHandle.USER_CURRENT) == 1);
-        mSmoothingEnabled.setOnPreferenceChangeListener(this);
+        mSmoothingEnabled.setChecked(Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.FLING_PULSE_SMOOTHING_ENABLED, 0, UserHandle.USER_CURRENT) == 1);
+        mSmoothingEnabled.setOnPreferenceChangeListener(this);*/
 
 
-        int customdimen = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.PULSE_CUSTOM_DIMEN, 14, UserHandle.USER_CURRENT);
+        int customdimen = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_CUSTOM_DIMEN, 14, UserHandle.USER_CURRENT);
         mCustomDimen = (CustomSeekBarPreference) findPreference(CUSTOM_DIMEN);
         mCustomDimen.setValue(customdimen);
         mCustomDimen.setOnPreferenceChangeListener(this);
 
-        int customdiv = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.PULSE_CUSTOM_DIV, 16, UserHandle.USER_CURRENT);
+        int customdiv = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_CUSTOM_DIV, 16, UserHandle.USER_CURRENT);
         mCustomDiv = (CustomSeekBarPreference) findPreference(CUSTOM_DIV);
         mCustomDiv.setValue(customdiv);
         mCustomDiv.setOnPreferenceChangeListener(this);
 
-        int filled = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.PULSE_FILLED_BLOCK_SIZE, 4, UserHandle.USER_CURRENT);
+        int filled = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_FILLED_BLOCK_SIZE, 4, UserHandle.USER_CURRENT);
         mFilled = (CustomSeekBarPreference) findPreference(PULSE_BLOCK);
         mFilled.setValue(filled);
         mFilled.setOnPreferenceChangeListener(this);
 
-        int empty = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.PULSE_EMPTY_BLOCK_SIZE, 1, UserHandle.USER_CURRENT);
+        int empty = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_EMPTY_BLOCK_SIZE, 1, UserHandle.USER_CURRENT);
         mEmpty = (CustomSeekBarPreference) findPreference(EMPTY_BLOCK);
         mEmpty.setValue(empty);
         mEmpty.setOnPreferenceChangeListener(this);
 
-        int fudge = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.PULSE_CUSTOM_FUDGE_FACTOR, 4, UserHandle.USER_CURRENT);
+        int fudge = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_CUSTOM_FUDGE_FACTOR, 4, UserHandle.USER_CURRENT);
         mFudge = (CustomSeekBarPreference) findPreference(FUDGE_FACOR);
         mFudge.setValue(fudge);
         mFudge.setOnPreferenceChangeListener(this);
 
-        int solidfudge = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.PULSE_SOLID_FUDGE_FACTOR, 5,
+        int solidfudge = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_SOLID_FUDGE_FACTOR, 5,
                 UserHandle.USER_CURRENT);
         mSolidFudge = (CustomSeekBarPreference) findPreference(SOLID_FUDGE);
         mSolidFudge.setValue(solidfudge);
         mSolidFudge.setOnPreferenceChangeListener(this);
 
-        int speed = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.PULSE_LAVALAMP_SOLID_SPEED, 10000, UserHandle.USER_CURRENT);
+        int speed = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_LAVALAMP_SOLID_SPEED, 10000, UserHandle.USER_CURRENT);
         mSolidSpeed =
                 (CustomSeekBarPreference) findPreference(SOLID_LAVAMP_SPEED);
         mSolidSpeed.setValue(speed);
         mSolidSpeed.setOnPreferenceChangeListener(this);
 
-        int fspeed = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.FLING_PULSE_LAVALAMP_SPEED, 10000, UserHandle.USER_CURRENT);
+        int fspeed = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.FLING_PULSE_LAVALAMP_SPEED, 10000, UserHandle.USER_CURRENT);
         mFadingSpeed =
                 (CustomSeekBarPreference) findPreference(FADING_LAVAMP_SPEED);
         mFadingSpeed.setValue(fspeed);
         mFadingSpeed.setOnPreferenceChangeListener(this);
 
-        int count = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.PULSE_SOLID_UNITS_COUNT, 64, UserHandle.USER_CURRENT);
+        int count = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_SOLID_UNITS_COUNT, 64, UserHandle.USER_CURRENT);
         mSolidCount =
                 (CustomSeekBarPreference) findPreference(PULSE_SOLID_UNITS_COUNT);
         mSolidCount.setValue(count);
         mSolidCount.setOnPreferenceChangeListener(this);
 
-        int opacity = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.PULSE_SOLID_UNITS_OPACITY, 200, UserHandle.USER_CURRENT);
+        int opacity = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_SOLID_UNITS_OPACITY, 200, UserHandle.USER_CURRENT);
         mSolidOpacity =
                 (CustomSeekBarPreference) findPreference(PULSE_SOLID_UNITS_OPACITY);
         mSolidOpacity.setValue(opacity);
         mSolidOpacity.setOnPreferenceChangeListener(this);
 
-        int buttonsOpacity = Settings.Secure.getIntForUser(getContentResolver(),
-                Settings.Secure.PULSE_CUSTOM_BUTTONS_OPACITY, 200, UserHandle.USER_CURRENT);
+        /*int buttonsOpacity = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.PULSE_CUSTOM_BUTTONS_OPACITY, 200, UserHandle.USER_CURRENT);
         mNavButtonsOpacity =
                 (CustomSeekBarPreference) findPreference(PULSE_CUSTOM_BUTTONS_OPACITY);
         mNavButtonsOpacity.setValue(buttonsOpacity);
-        mNavButtonsOpacity.setOnPreferenceChangeListener(this);
+        mNavButtonsOpacity.setOnPreferenceChangeListener(this);*/
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference.equals(mRenderMode)) {
             int mode = Integer.valueOf((String) newValue);
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_RENDER_STYLE_URI, mode, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.PULSE_RENDER_STYLE_URI, mode, UserHandle.USER_CURRENT);
             PreferenceCategory fadingBarsCat = (PreferenceCategory)findPreference("pulse_fading_bars_category");
             fadingBarsCat.setEnabled(mode == RENDER_STYLE_FADING_BARS);
             PreferenceCategory solidBarsCat = (PreferenceCategory)findPreference("pulse_2");
@@ -226,94 +226,94 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             return true;
         } else if (preference.equals(mShowPulse)) {
             boolean enabled = ((Boolean) newValue).booleanValue();
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.FLING_PULSE_ENABLED, enabled ? 1 : 0, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.FLING_PULSE_ENABLED, enabled ? 1 : 0, UserHandle.USER_CURRENT);
             return true;
         } else if (preference.equals(mPulseColor)) {
             int color = ((Integer) newValue).intValue();
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.FLING_PULSE_COLOR, color, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.FLING_PULSE_COLOR, color, UserHandle.USER_CURRENT);
             return true;
-        } else if (preference.equals(mLavaLampColorFrom)) {
+        } /*else if (preference.equals(mLavaLampColorFrom)) {
             int color = ((Integer) newValue).intValue();
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.FLING_PULSE_LAVALAMP_COLOR_FROM, color, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.FLING_PULSE_LAVALAMP_COLOR_FROM, color, UserHandle.USER_CURRENT);
             return true;
         } else if (preference.equals(mLavaLampColorTo)) {
             int color = ((Integer) newValue).intValue();
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.FLING_PULSE_LAVALAMP_COLOR_TO, color, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.FLING_PULSE_LAVALAMP_COLOR_TO, color, UserHandle.USER_CURRENT);
             return true;
         } else if (preference.equals(mLavaLampEnabled)) {
             boolean enabled = ((Boolean) newValue).booleanValue();
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.FLING_PULSE_LAVALAMP_ENABLED, enabled ? 1 : 0,
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.FLING_PULSE_LAVALAMP_ENABLED, enabled ? 1 : 0,
                     UserHandle.USER_CURRENT);
             return true;
         } else if (preference.equals(mSmoothingEnabled)) {
             boolean enabled = ((Boolean) newValue).booleanValue();
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.FLING_PULSE_SMOOTHING_ENABLED, enabled ? 1 : 0,
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.FLING_PULSE_SMOOTHING_ENABLED, enabled ? 1 : 0,
                     UserHandle.USER_CURRENT);
             return true;
-        } else if (preference == mCustomDimen) {
+        } */else if (preference == mCustomDimen) {
             int val = (Integer) newValue;
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_CUSTOM_DIMEN, val, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.PULSE_CUSTOM_DIMEN, val, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mCustomDiv) {
             int val = (Integer) newValue;
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_CUSTOM_DIV, val, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.PULSE_CUSTOM_DIV, val, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mFilled) {
             int val = (Integer) newValue;
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_FILLED_BLOCK_SIZE, val, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.PULSE_FILLED_BLOCK_SIZE, val, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mEmpty) {
             int val = (Integer) newValue;
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_EMPTY_BLOCK_SIZE, val, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.PULSE_EMPTY_BLOCK_SIZE, val, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mFudge) {
             int val = (Integer) newValue;
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_CUSTOM_FUDGE_FACTOR, val, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.PULSE_CUSTOM_FUDGE_FACTOR, val, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mSolidFudge) {
             int val = (Integer) newValue;
-            Settings.Secure.putIntForUser(
+            Settings.System.putIntForUser(
                     getContentResolver(),
-                    Settings.Secure.PULSE_SOLID_FUDGE_FACTOR, val,
+                    Settings.System.PULSE_SOLID_FUDGE_FACTOR, val,
                     UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mSolidSpeed) {
             int val = (Integer) newValue;
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_LAVALAMP_SOLID_SPEED, val, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.PULSE_LAVALAMP_SOLID_SPEED, val, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mFadingSpeed) {
             int val = (Integer) newValue;
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.FLING_PULSE_LAVALAMP_SPEED, val, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.FLING_PULSE_LAVALAMP_SPEED, val, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mSolidCount) {
             int val = (Integer) newValue;
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_SOLID_UNITS_COUNT, val, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.PULSE_SOLID_UNITS_COUNT, val, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mSolidOpacity) {
             int val = (Integer) newValue;
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_SOLID_UNITS_OPACITY, val, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.PULSE_SOLID_UNITS_OPACITY, val, UserHandle.USER_CURRENT);
             return true;
-        } else if (preference == mNavButtonsOpacity) {
+        } /*else if (preference == mNavButtonsOpacity) {
             int val = (Integer) newValue;
-            Settings.Secure.putIntForUser(getContentResolver(),
-                    Settings.Secure.PULSE_CUSTOM_BUTTONS_OPACITY, val, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.PULSE_CUSTOM_BUTTONS_OPACITY, val, UserHandle.USER_CURRENT);
             return true;
-        }
+        }*/
         return false;
     }
 
@@ -350,16 +350,8 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     private void resetValues() {
 	ContentResolver resolver = getActivity().getContentResolver();
-        Settings.Secure.putInt(getContentResolver(),
-                Settings.Secure.FLING_PULSE_LAVALAMP_COLOR_TO, DEFAULT_TO);
-        mLavaLampColorTo.setNewPreviewColor(DEFAULT_TO);
-        mLavaLampColorTo.setSummary(R.string.default_string);
-        Settings.Secure.putInt(getContentResolver(),
-                Settings.Secure.FLING_PULSE_LAVALAMP_COLOR_FROM, DEFAULT_FROM);
-        mLavaLampColorFrom.setNewPreviewColor(DEFAULT_FROM);
-        mLavaLampColorFrom.setSummary(R.string.default_string);
-        Settings.Secure.putInt(getContentResolver(),
-                Settings.Secure.FLING_PULSE_COLOR, DEFAULT);
+        Settings.System.putInt(getContentResolver(),
+                Settings.System.FLING_PULSE_COLOR, DEFAULT);
         mPulseColor.setNewPreviewColor(DEFAULT);
         mPulseColor.setSummary(R.string.default_string);
     }
