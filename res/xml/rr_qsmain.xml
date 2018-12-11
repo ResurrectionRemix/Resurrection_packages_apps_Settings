@@ -18,18 +18,36 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_qs_title">
 
-     <com.rr.settings.preferences.SecureSettingSwitchPreference
-          android:key="quick_settings_vibrate"
-          android:title="@string/quick_settings_vibrate_title"
-          android:summary="@string/quick_settings_vibrate_summary"
-          android:defaultValue="false"/>
-
      <PreferenceScreen
                 android:id="@+id/rr_qs_animations"
                 android:title="@string/qs_tile_anim_title"
         	    android:summary="@string/rr_qs_animation_summary"
                 android:fragment="com.android.settings.rr.QsAnimations"
-                android:icon="@drawable/rr_battery_icon"
+                android:icon="@drawable/rr_qs_animation_icon"
                 />
+
+        <PreferenceScreen
+            android:key="rr_qs_layout"
+            android:fragment="com.android.settings.rr.QsLayout"
+            android:title="@string/qs_tile_layout"
+            android:summary="@string/qs_tile_layout_summary"
+			android:icon="@drawable/rr_qs_layout_icon"
+            />
+
+        <PreferenceScreen
+            android:key="rr_qs_pulldown"
+            android:fragment="com.android.settings.rr.QsPullDown"
+            android:title="@string/rr_qs_pulldown"
+            android:summary="@string/rr_qs_pulldown_summary"
+			android:icon="@drawable/rr_qs_pulldown_icon"
+            />
+
+        <PreferenceScreen
+            android:key="rr_qs_advanced"
+            android:fragment="com.android.settings.rr.QsAdvanced"
+            android:title="@string/qs_advanced_title"
+            android:summary="@string/qs_advanced_summary"
+			android:icon="@drawable/rr_qs_advanced_icon"
+            />
 
 </PreferenceScreen>

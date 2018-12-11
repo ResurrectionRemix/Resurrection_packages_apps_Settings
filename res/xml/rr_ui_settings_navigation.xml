@@ -63,16 +63,30 @@
             android:layout="@layout/rr_headsup_layout"
             android:fragment="com.android.settings.rr.HeadsUp" />
 
-       <!--com.android.settings.applications.LayoutPreference
+       <com.android.settings.applications.LayoutPreference
             android:key="dashboard"
             android:layout="@layout/rr_dashboard_layout"
-            android:fragment="com.android.settings.rr.DashBoardSettings"/-->
+            android:fragment="com.android.settings.rr.DashBoardSettings"/>
 
        <com.android.settings.applications.LayoutPreference
             android:key="rr_volume"
             android:fragment="com.android.settings.rr.VolumePanelSettings"
             android:layout="@layout/rr_volume_layout"
           />
+
+       <com.android.settings.display.ScreenZoomPreference
+            android:key="screen_zoom"
+            android:layout="@layout/rr_density_layout"
+            android:fragment="com.android.settings.display.ScreenZoomSettings" />
+
+        <com.android.settings.rr.LCDDensityPreference
+            android:key="custom_density"
+            android:layout="@layout/rr_custom_density_layout" />
+
+       <com.android.settings.applications.LayoutPreference
+            android:key="font_size"
+            android:fragment="com.android.settings.accessibility.ToggleFontSizePreferenceFragment"
+            android:layout="@layout/rr_font_size_layout"  />
 
        <com.android.settings.applications.LayoutPreference
             android:key="rr_aplay"
