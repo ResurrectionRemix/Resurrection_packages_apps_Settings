@@ -25,10 +25,10 @@
                 android:targetClass="com.android.systemui.tuner.NavBarTunerActivity" />
     </com.android.settings.applications.LayoutPreference>
 
-    <!--com.android.settings.applications.LayoutPreference
+    <com.android.settings.applications.LayoutPreference
         android:key="buttons_category"
-        android:fragment="com.android.settings.rr.ButtonSettings"
-        android:layout="@layout/rr_buttons_layout" /-->
+        android:fragment="com.android.settings.rr.Buttons"
+        android:layout="@layout/rr_buttons_layout" />
 
     <com.android.settings.applications.LayoutPreference
         android:key="navbar_category"
@@ -50,9 +50,9 @@
         android:layout="@layout/rr_fling_layout"
         android:fragment="com.android.settings.rr.fragments.FlingSettings" /-->
 
-    <com.android.settings.applications.LayoutPreference
+    <!--com.android.settings.applications.LayoutPreference
         android:key="pulse_settings"
         android:layout="@layout/rr_pulse_layout"
-        android:fragment="com.android.settings.rr.fragments.PulseSettings" />
+        android:fragment="com.android.settings.rr.fragments.PulseSettings" /-->
 
 </PreferenceScreen>

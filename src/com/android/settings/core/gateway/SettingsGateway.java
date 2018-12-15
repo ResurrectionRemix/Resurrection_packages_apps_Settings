@@ -143,6 +143,8 @@ import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.MainSettingsLayout;
 import com.android.settings.rr.About;
 
+import com.android.settings.smartnav.*;
+
 public class SettingsGateway {
 
     /**
@@ -271,10 +273,10 @@ public class SettingsGateway {
             MainSettingsLayout.class.getName(),
             About.class.getName(),
             AmbientPlaySettings.class.getName(),
-            NavigationSettingsActivity.class.getName(),
-            SmartbarSettingsActivity.class.getName(),
-            FlingSettingsActivity.class.getName(),
-            PulseSettingsActivity.class.getName(),
+//            NavigationSettingsActivity.class.getName(),
+            SmartbarSettings.class.getName(),
+            FlingSettings.class.getName(),
+            PulseSettings.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
