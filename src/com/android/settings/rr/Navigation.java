@@ -28,7 +28,6 @@ import android.support.v14.preference.SwitchPreference;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.rr.settings.preferences.SystemSettingSwitchPreference;
 
 import android.provider.Settings;
 
@@ -42,24 +41,11 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 public class Navigation extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String CATEGORY_KEYS = "button_keys";
-    private static final String KEYS_SHOW_NAVBAR_KEY = "navigation_bar_show";
-
-    private SystemSettingSwitchPreference mEnableNavBar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_nav);
-
-        final PreferenceCategory keysCategory =
-                (PreferenceCategory) prefScreen.findPreference(CATEGORY_KEYS);
-
-        boolean showNavBarDefault = DeviceUtils.deviceSupportNavigationBar(getActivity());
-        boolean showNavBar = Settings.System.getInt(resolver,
-                Settings.System.OMNI_NAVIGATION_BAR_SHOW, showNavBarDefault ? 1 : 0) == 1;
-        mEnableNavBar = (SystemSettingSwitchPreference) prefScreen.findPreference(KEYS_SHOW_NAVBAR_KEY);
-        mEnableNavBar.setChecked(showNavBar);
 
         PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
