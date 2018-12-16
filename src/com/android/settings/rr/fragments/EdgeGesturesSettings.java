@@ -44,7 +44,7 @@ public class EdgeGesturesSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) { 
         super.onCreate(savedInstanceState); 
  
-        addPreferencesFromResource(R.xml.edge_gestures); 
+        addPreferencesFromResource(R.xml.rr_edge_gestures); 
  
         enabledPreference = (SwitchPreference) findPreference(EDGE_GESTURES_ENABLED); 
         /*enabledPreference.setChecked((Settings.System.getInt(getContentResolver(), 
