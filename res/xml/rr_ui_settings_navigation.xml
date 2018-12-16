@@ -32,12 +32,17 @@
 	   	    android:fragment="com.android.settings.rr.LockSettings" 
 	   		android:layout="@layout/rr_lockscreen_layout" />
 
-       <!--com.android.settings.applications.LayoutPreference
+       <com.android.settings.applications.LayoutPreference
             android:key="pa_pie_control"
-            android:fragment="com.android.settings.rr.pie.PieSettings"
+            android:fragment="com.android.settings.rr.fragments.PieSettings"
             android:layout="@layout/rr_pie_layout" />
 
-    <com.android.settings.applications.LayoutPreference
+       <com.android.settings.applications.LayoutPreference
+            android:key="edge_gestures"
+            android:fragment="com.android.settings.rr.fragments.EdgeGesturesSettings"
+            android:layout="@layout/rr_edge_gesture_layout" />
+
+    <!--com.android.settings.applications.LayoutPreference
             android:key="gesture_anywhere"
             android:fragment="com.android.settings.rr.gesture.GestureAnywhereSettings"
             android:layout="@layout/rr_gesture_anywhere_layout" />

@@ -57,6 +57,21 @@
             android:icon="@drawable/rr_volume_icon"
           />
 
+    <!-- PA Pie -->
+    <Preference
+        android:key="pa_pie_control" 
+        android:title="@string/pa_pie_control_title" 
+        android:summary="@string/pa_pie_control_summary"
+        android:icon="@drawable/rr_gestures_icon"
+        android:fragment="com.android.settings.rr.fragments.PieSettings" />
+
+    <Preference 
+        android:key="edge_gestures" 
+        android:title="@string/edge_gestures_title" 
+        android:summary="@string/edge_gestures_summary"
+        android:icon="@drawable/rr_gestures_icon"
+        android:fragment="com.android.settings.rr.fragments.EdgeGesturesSettings"/>
+
 
         <PreferenceScreen
             android:key="rr_screenshot"
