@@ -38,24 +38,34 @@ import com.android.settings.Utils;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
-public class Buttons extends SettingsPreferenceFragment implements
+import com.android.settings.smartnav.ActionFragment;
+import com.android.internal.utils.ActionConstants;
+import com.android.internal.utils.ActionUtils;
+
+public class Buttons extends ActionFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String CATEGORY_HWKEY = "hwkey_settings";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_buttons);
-
-        PreferenceScreen prefSet = getPreferenceScreen();
+        PreferenceScreen prefScreen = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
 
+        final boolean needsNavbar = ActionUtils.hasNavbarByDefault(getActivity());
+        final PreferenceScreen hwkeyCat = (PreferenceScreen) prefScreen
+                .findPreference(CATEGORY_HWKEY);
+        if (needsNavbar) {
+            prefScreen.removePreference(hwkeyCat);
+        }
     }
 
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 	ContentResolver resolver = getActivity().getContentResolver();
-	return false;
+    return false;
     }
 
 

@@ -165,6 +165,10 @@ public class Settings extends SettingsActivity {
     public static class StorageDashboardActivity extends SettingsActivity {}
     public static class AccountDashboardActivity extends SettingsActivity {}
     public static class SystemDashboardActivity extends SettingsActivity {}
+    public static class NavigationSettingsActivity extends SettingsActivity {}
+    public static class SmartbarSettingsActivity extends SettingsActivity {}
+    public static class FlingSettingsActivity extends SettingsActivity {}
+    public static class PulseSettingsActivity extends SettingsActivity {}
 
     public static class MainSettingsLayoutActivity extends SettingsActivity { /* empty */ }
     public static class MainSettingsActivity extends SettingsActivity { /* empty */ }

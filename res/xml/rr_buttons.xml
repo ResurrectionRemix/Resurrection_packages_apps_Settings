@@ -15,6 +15,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/button_settings">
 
+	  <PreferenceScreen
+		android:fragment="com.android.settings.smartnav.HardwareKeys"
+		android:key="hwkey_settings"
+        android:icon="@drawable/rr_hw_keys_icon"
+		android:title="@string/hardware_keys_category"/>
+
          <com.rr.settings.preferences.SecureSettingSwitchPreference
             android:key="sysui_volume_down_silent"
             android:title="@string/volbtn_down_zen_title"
@@ -30,5 +36,6 @@
             android:title="@string/vol_zen_title"
             android:summary="@string/vol_zen_summary"
             android:defaultValue="false"/>
+
 
 </PreferenceScreen>
