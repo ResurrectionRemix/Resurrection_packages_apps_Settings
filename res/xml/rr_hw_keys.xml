@@ -15,6 +15,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/hardware_keys_category">
 
+
+    <com.android.settings.rr.input.ButtonBacklightBrightness
+        android:key="button_backlight"
+        android:title="@string/button_backlight_title"
+        android:dialogTitle="@string/button_backlight_title"
+        android:persistent="false" />
+
  
     <PreferenceCategory
          android:key="hardware_keys"
@@ -45,6 +52,12 @@
     <PreferenceCategory
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >
+
+        <SwitchPreference
+            android:key="home_answer_call"
+            android:title="@string/home_answer_call_title"
+            android:summary="@string/home_answer_call_summary"
+            android:persistent="false"/>
         <com.android.settings.smartnav.ActionPreference
             android:key="hwkeys_button_home_single_tap"
             android:summary="@string/hardware_keys_single_tap_summary"

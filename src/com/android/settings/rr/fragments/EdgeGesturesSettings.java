@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.fragments;
+package com.android.settings.rr.fragments;
 
 import android.app.ActionBar; 
 import android.os.Bundle; 
