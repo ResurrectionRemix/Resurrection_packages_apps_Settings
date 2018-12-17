@@ -43,7 +43,8 @@ public class UISettings extends SettingsPreferenceFragment implements
     private static final String TAG = "UI";
     private static final String RR_FP = "rr_fp";
     private static final String INCALL_VIB_OPTIONS = "rr_incall";
-
+    private static final String SMART_PIXELS = "smart_pixels";
+    private Preference mSmartPixels;
     private PreferenceScreen mFpFragment;
     private FingerprintManager mFingerprintManager;
     private PreferenceScreen mInCallFragment;
@@ -58,16 +59,23 @@ public class UISettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         final Activity activity = getActivity(); 
 		ContentResolver resolver = getActivity().getContentResolver();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         addPreferencesFromResource(R.xml.rr_ui_settings);
 
         mFpFragment = (PreferenceScreen) findPreference(RR_FP);
         if (!mFingerprintManager.isHardwareDetected()) {
-            getPreferenceScreen().removePreference(mFpFragment);
+            prefScreen.removePreference(mFpFragment);
         }
 
         mInCallFragment = (PreferenceScreen) findPreference(INCALL_VIB_OPTIONS);
+
+        mSmartPixels = (Preference) prefScreen.findPreference(SMART_PIXELS);
+        boolean mSmartPixelsSupported = getResources().getBoolean(
+                com.android.internal.R.bool.config_supportSmartPixels);
+        if (!mSmartPixelsSupported)
+            prefScreen.removePreference(mSmartPixels);
 
     }
 

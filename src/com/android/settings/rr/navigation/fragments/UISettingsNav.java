@@ -45,7 +45,8 @@ public class UISettingsNav extends SettingsPreferenceFragment implements
     private static final String TAG = "UI";
     private static final String RR_FP = "rr_fp";
     private static final String INCALL_VIB_OPTIONS = "rr_incall";
-
+    private static final String SMART_PIXELS = "smart_pixels";
+    private Preference mSmartPixels;
     private LayoutPreference mFpFragment;
     private FingerprintManager mFingerprintManager;
     private LayoutPreference mInCallFragment;
@@ -63,11 +64,17 @@ public class UISettingsNav extends SettingsPreferenceFragment implements
         mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         addPreferencesFromResource(R.xml.rr_ui_settings_navigation);
-
+        final PreferenceScreen prefScreen = getPreferenceScreen();
         mFpFragment = (LayoutPreference) findPreference(RR_FP);
         if (mFingerprintManager == null) {
-            getPreferenceScreen().removePreference(mFpFragment);
+            prefScreen.removePreference(mFpFragment);
         }
+
+        mSmartPixels = (Preference) prefScreen.findPreference(SMART_PIXELS);
+        boolean mSmartPixelsSupported = getResources().getBoolean(
+                com.android.internal.R.bool.config_supportSmartPixels);
+        if (!mSmartPixelsSupported)
+            prefScreen.removePreference(mSmartPixels);
 
         mInCallFragment = (LayoutPreference) findPreference(INCALL_VIB_OPTIONS);
        /*
