@@ -310,13 +310,14 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         	if (mStyle == 0) {
             frags[0] = new StatusBarSettings();
             frags[1] = new QSMainSettings();
-            frags[2] = new LockSettings();
-            frags[3] = new Animations();
-            frags[4] = new Misc();
-            frags[5] = new Interface();
-            frags[6] = new Navigation();
-            frags[7] = new Buttons();
-            frags[8] = new About();
+            frags[2] = new RecentsSettings();
+            frags[3] = new LockSettings();
+            frags[4] = new Animations();
+            frags[5] = new Misc();
+            frags[6] = new Interface();
+            frags[7] = new Navigation();
+            frags[8] = new Buttons();
+            frags[9] = new About();
         	} else if (mStyle == 1) {
             frags[0] = new MainSettings();
         	}
@@ -346,6 +347,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         titleString = new String[]{
                 getString(R.string.rr_statusbar_title),
                 getString(R.string.rr_qs_title),
+                getString(R.string.rr_recents_title),
                 getString(R.string.rr_lockscreen_title),
                 getString(R.string.animation_title),
                 getString(R.string.rr_misc_title),
