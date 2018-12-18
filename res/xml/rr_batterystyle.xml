@@ -29,4 +29,11 @@
         android:entries="@array/status_bar_battery_percentage_entries"
         android:entryValues="@array/status_bar_battery_percentage_values" />
 
+
+    <com.android.settings.rr.Preferences.SystemSettingMasterSwitchPreference
+        android:key="statusbar_battery_bar"
+        android:title="@string/battery_bar_title"
+        android:defaultValue="false"
+        android:fragment="com.android.settings.rr.BatteryBar" />
+
 </PreferenceScreen>
