@@ -73,8 +73,6 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
                 mBugReportPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_BUGREPORT);
             } else if (action.equals(GLOBAL_ACTION_KEY_LOCKDOWN)) {
                 mLockDownPref = (CheckBoxPreference) findPreference(GLOBAL_ACTION_KEY_LOCKDOWN);
-            } else if (action.equals(GLOBAL_ACTIONS_ONTHEGO)) {
-                mOntheGoPref = (CheckBoxPreference) findPreference(GLOBAL_ACTIONS_ONTHEGO);
             }
         }
 

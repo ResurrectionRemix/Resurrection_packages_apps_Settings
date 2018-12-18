@@ -58,7 +58,7 @@ import java.util.List;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 public class RecentsUI extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener , DialogInterface.OnDismissListener {
+        Preference.OnPreferenceChangeListener {
     private static final String TAG = "RecentsUI";
 
     private AlertDialog mDialog;

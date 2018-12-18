@@ -48,7 +48,7 @@ import java.util.Locale;
 
 public class RRUtils {
 
-    private static final String TAG = "AicpUtils";
+    private static final String TAG = "RRUtils";
 
     public static boolean isChineseLanguage() {
        return Resources.getSystem().getConfiguration().locale.getLanguage().startsWith(
@@ -227,42 +227,6 @@ public class RRUtils {
         }
 
         return mBillingBypassInstalled;
-    }
-
-    /**
-     * @hide
-     */
-    public static void toggleOmniSwitchRecents(Context context, UserHandle user) {
-        final Intent intent = new Intent(AicpUtils.ACTION_TOGGLE_OVERLAY2);
-        intent.setPackage(APP_PACKAGE_NAME);
-        context.sendBroadcastAsUser(intent, user);
-    }
-
-    /**
-     * @hide
-     */
-    public static void hideOmniSwitchRecents(Context context, UserHandle user) {
-        final Intent intent = new Intent(AicpUtils.ACTION_HIDE_OVERLAY);
-        intent.setPackage(APP_PACKAGE_NAME);
-        context.sendBroadcastAsUser(intent, user);
-    }
-
-    /**
-     * @hide
-     */
-    public static void restoreHomeStack(Context context, UserHandle user) {
-        final Intent intent = new Intent(AicpUtils.ACTION_RESTORE_HOME_STACK);
-        intent.setPackage(APP_PACKAGE_NAME);
-        context.sendBroadcastAsUser(intent, user);
-    }
-
-    /**
-     * @hide
-     */
-    public static void preloadOmniSwitchRecents(Context context, UserHandle user) {
-        final Intent intent = new Intent(AicpUtils.ACTION_PRELOAD_TASKS);
-        intent.setPackage(APP_PACKAGE_NAME);
-        context.sendBroadcastAsUser(intent, user);
     }
 
     public static int getBlendColorForPercent(int fullColor, int emptyColor, boolean reversed,
