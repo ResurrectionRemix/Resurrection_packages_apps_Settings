@@ -34,11 +34,11 @@
         android:layout="@layout/rr_network_traffic_layout"
         android:fragment="com.android.settings.rr.NetworkTraffic" />
 
-    <!--com.android.settings.applications.LayoutPreference
+    <com.android.settings.applications.LayoutPreference
         android:key="rr_ticker"
         android:fragment="com.android.settings.rr.Ticker"
         android:title="@string/ticker_screen_title" 
-        android:layout="@layout/rr_ticker_layout" /-->
+        android:layout="@layout/rr_ticker_layout" />
 
     <com.android.settings.applications.LayoutPreference
         android:key="rr_battery"
@@ -73,13 +73,14 @@
     <com.android.settings.applications.LayoutPreference
         android:key="rr_sb_gestures"
         android:title="@string/rr_sb_gestures_title"
+		android:fragment="com.android.settings.rr.StatusBarGestures"
         android:layout="@layout/rr_sb_gestures_layout" />
 
-    <!--com.android.settings.applications.LayoutPreference
+    <com.android.settings.applications.LayoutPreference
         android:key="rr_carrier"
         android:fragment="com.android.settings.rr.CarrierLabel"
         android:title="@string/show_carrier_title" 
-        android:layout="@layout/rr_carrier_label_layout" /-->
+        android:layout="@layout/rr_carrier_label_layout" />
 
     <com.android.settings.applications.LayoutPreference
             android:key="rr_tuner"

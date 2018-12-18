@@ -47,6 +47,7 @@ public class PowerMenuActions extends SettingsPreferenceFragment {
     private CheckBoxPreference mUsersPref;
     private CheckBoxPreference mBugReportPref;
     private CheckBoxPreference mLockDownPref;
+    private CheckBoxPreference mOntheGoPref;
 
     Context mContext;
     private ArrayList<String> mLocalUserConfig = new ArrayList<String>();

@@ -324,25 +324,29 @@
     <string name="headset_connect_player_both_no_carkit">When wired or BT headset (no carkit) is connected</string>
     <string name="headset_connect_player_both">When wired or BT headset is connected</string>
 
+    <!-- On-The-Go -->
+    <string name="global_actions_onthego_title">On-The-Go</string>
+    <string name="global_actions_onthego_summary">Add On-The-Go toggle to Power Menu</string>
+
     <!-- Battery stats reset -->
     <string name="battery_stats_reset">Reset stats</string>
     <string name="battery_stats_message">Battery history stats are going to be reset</string>
     <string name="ok_string">Ok</string>
 
-    <!-- Status Bar Ticker -->
+    <!-- Status Bar Ticker -->  
     <string name="ticker_screen_title">Notification ticker</string>
     <string name="ticker_title">Status bar ticker</string>
     <string name="ticker_summary">Enable the old status bar ticker</string>
-    <string name="ticker_restore_defaults_title">Restore defaults</string>
-    <string name="text_title">Text</string>
-    <string name="icon_title">Icon</string>
-    <string name="colors_title">Colors</string>
-    <string name="ticker_disabled">No ticker</string>
-    <string name="ticker_enabled">Notification ticker</string>
-    <string name="ticker_media_enabled">Notifications and music ticker</string>
-    <string name="ticker_animation_mode_title">Ticker animation style</string>
+
+    <!-- Statusbar ticker -->
+    <string name="status_bar_ticker_title">Ticker</string>
+    <string name="status_bar_show_ticker_title">Ticker</string>
+    <string name="status_bar_show_ticker_summary">Notification preview in status bar</string>
+    <string name="ticker_animation_mode_title">Ticker animation</string>
     <string name="ticker_animation_mode_alpha_fade">Fade</string>
     <string name="ticker_animation_mode_scroll">Scroll</string>
+    <string name="ticker_tick_duration_title">Ticker duration</string>
+
 
     <!-- Notifications while screen on -->
     <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
@@ -503,24 +507,30 @@
     <!-- Carrier Label -->
     <string name="carrier_options">Select display locations</string>
     <string name="custom_carrier_label_title">Custom carrier label</string>
-    <string name="custom_carrier_label_explain">Enter a custom label. Leave blank to use your network name</string>
+    <string name="custom_carrier_label_explain">Please enter a new label. Leave blank to revert to stock label.</string>
     <string name="custom_carrier_label_notset">Custom label currently not set</string>
     <string name="show_carrier_title">Carrier label</string>
     <string name="show_carrier_disabled">Disabled</string>
-    <string name="show_carrier_keyguard">Lockscreen</string>
-    <string name="show_carrier_statusbar">Status bar</string>
-    <string name="show_carrier_enabled">Both</string>
-    <string name="status_bar_carrier_size">Carrier label text size</string>
-    <string name="status_bar_carrier_font_style_title">Carrier Label Font</string>
+    <string name="show_carrier_keyguard">Lockscreen only</string>
+    <string name="show_carrier_statusbar">Statusbar only</string>
+    <string name="show_carrier_enabled">Lockscreen &amp; statusbar</string>
 
-    <!-- Battery bar -->
+  <!-- Battery bar -->
     <string name="battery_bar_title">Battery bar</string>
-    <string name="battery_bar_position_title">Location</string>
-    <string name="battery_bar_position_hidden">Hidden</string>
-    <string name="battery_bar_position_statusbar">Status bar</string>
-    <string name="battery_bar_color_title">Color</string>
-    <string name="battery_bar_charging_color_title">Charging color</string>
-    <string name="battery_bar_battery_low_color_title">Low battery color</string>
+    <string name="battery_bar_summary">Click for battery bar options</string>
+    <string name="battery_bar_location_title">Location</string>
+    <string name="battery_bar_location_statusbar_top">Status bar top</string>
+    <string name="battery_bar_location_statusbar_bottom">Status bar bottom</string>
+    <string name="battery_bar_location_navbar_top">Navigation bar top</string>
+    <string name="battery_bar_location_navbar_bottom">Navigation bar bottom</string>
+    <string name="battery_bar_color_title">Light colors</string>
+    <string name="battery_bar_color_summary">Color range used on dark status bar</string>
+    <string name="battery_bar_dark_color_title">Dark colors</string>
+    <string name="battery_bar_dark_color_summary">Color range used on light status bar</string>
+    <string name="battery_bar_charging_color_title">Light charging color</string>
+    <string name="battery_bar_charging_color_summary">Charging color used on dark status bar</string>
+    <string name="battery_bar_charging_dark_color_title">Dark charging color</string>
+    <string name="battery_bar_charging_dark_color_summary">Charging color used on light status bar</string>
     <string name="battery_bar_style_title">Alignment</string>
     <string name="battery_bar_thickness_title">Thickness</string>
     <string name="battery_bar_animate_title">Charging animation</string>
@@ -528,11 +538,9 @@
     <string name="battery_bar_style_center_mirrored">Center-mirrored</string>
     <string name="battery_bar_style_reversed">Reversed</string>
     <string name="battery_bar_use_charging_color_title">Custom charging color</string>
-    <string name="battery_bar_blend_color_title">Blend colors</string>
-    <string name="battery_bar_blend_color_summary">Blend full/empty colors corresponding to battery percentage</string>
-    <string name="battery_bar_blend_color_reverse_title">Reverse color direction</string>
-    <string name="battery_bar_blend_color_reverse_summary_off">Full &#8594; empty: red &#8592; green &#8592; blue &#8592; red</string>
-    <string name="battery_bar_blend_color_reverse_summary_on">Full &#8594; empty: red &#8594; green &#8594; blue &#8594; red</string>
+    <string name="battery_blend_start">Empty</string>
+    <string name="battery_blend_end">Full</string>
+    <string name="battery_blend_between">Between</string>
 
     <!--RR Configurations Summaries-->
     <string name="status_bar_clock_summary">Customize various elements of the statusbar clock </string>
@@ -604,6 +612,15 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Set</string>
     <string name="color_default">Default</string>
+    <string name="color_blend_ok">@android:string/ok</string>
+    <string name="color_blend_cancel">@android:string/cancel</string>
+    <string name="color_blend_reset">Reset</string>
+
+    <string name="color_blend_preview">Preview: %1$d%%</string>
+
+    <string name="color_preview_start">Start</string>
+    <string name="color_preview_end">End</string>
+    <string name="color_preview_between">Between</string>
 
     <!-- Sensor block per-package -->
     <string name="sensor_block_title">Sensor block per-package</string>
