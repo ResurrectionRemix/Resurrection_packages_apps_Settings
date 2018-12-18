@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/ticker_screen_title">
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="status_bar_show_ticker"
+        android:title="@string/status_bar_show_ticker_title"
+        android:summary="@string/status_bar_show_ticker_summary"
+        android:defaultValue="false"/>
+
+
+    <com.android.settings.rr.Preferences.SystemSettingIntListPreference
+        android:key="status_bar_ticker_animation_mode"
+        android:title="@string/ticker_animation_mode_title"
+        android:entries="@array/ticker_animation_mode_entries"
+        android:entryValues="@array/ticker_animation_mode_values"
+        android:defaultValue="0" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="status_bar_ticker_tick_duration"
+        android:title="@string/ticker_tick_duration_title"
+        android:min="500"
+        android:max="10000"
+        android:defaultValue="3000"
+        settings:interval="100"
+        settings:units="ms" />
+
+
+
+</PreferenceScreen>
