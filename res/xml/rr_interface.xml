@@ -79,6 +79,15 @@
         android:icon="@drawable/rr_gestures_icon"
         android:fragment="com.android.settings.rr.fragments.EdgeGesturesSettings"/>
 
+        <!-- Gesture anywhere -->
+        <PreferenceScreen
+	    	android:id="@+id/gesture_anywhere"	
+            android:key="gesture_anywhere"
+            android:fragment="com.android.settings.rr.gesture.GestureAnywhereSettings"
+            android:title="@string/gesture_anywhere_title"
+            android:summary="@string/gesture_anywhere_summary"
+			android:icon="@drawable/rr_gesture_anywhere_icon" />
+
 
         <PreferenceScreen
             android:key="rr_screenshot"

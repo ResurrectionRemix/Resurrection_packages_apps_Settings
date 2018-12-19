@@ -460,8 +460,7 @@ public class SimSettings extends RestrictedSettingsFragment implements Indexable
 
             // Hide manual provisioning if the extphone framework
             // is not present, as the operation relies on said framework.
-            if (!TelephonyExtUtils.getInstance(mContext).hasService() ||
-                   !mContext.getResources().getBoolean(R.bool.config_enableManualSubProvisioning)) {
+            if (!mContext.getResources().getBoolean(R.bool.config_enableManualSubProvisioning)) {
                 mSwitch.setVisibility(View.GONE);
             } else {
                 mSwitch.setVisibility(View.VISIBLE);
