@@ -88,12 +88,8 @@ private CustomSeekBarPreference mDateFontSize;
         mDateFontSize.setOnPreferenceChangeListener(this);
     }
 
-    }
-
-
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 	ContentResolver resolver = getActivity().getContentResolver();
-		ContentResolver resolver = getActivity().getContentResolver();
 		if (preference == mLockClockFonts) {
             		Settings.System.putInt(getContentResolver(), Settings.System.LOCK_CLOCK_FONTS,
                     	Integer.valueOf((String) newValue));
