@@ -31,7 +31,8 @@ import android.view.ViewGroup;
 
 import android.provider.Settings;
 import com.android.internal.util.rr.RRUtils;
-
+import android.content.Context;
+import android.os.UserHandle;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -51,6 +52,9 @@ public class Misc extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_misc);
 
+ 	Context mContext = getActivity().getApplicationContext();
+
+        PreferenceScreen prefScreen = getPreferenceScreen();
         PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
 
