@@ -78,11 +78,13 @@ public static final String TAG = "About";
 private static final String RR_ROM_SHARE = "share";
     
     Preference mSiteUrl;
-    Preference mForumUrl;
+    Preference mTelegramUrl;
     Preference mSourceUrl;
     Preference mFacebookUrl;
     Preference mGoogleUrl;
     Preference mDonateUrl;
+    Preference mPitchBlackUrl;
+    Preference mTwitterUrl;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,8 +92,10 @@ private static final String RR_ROM_SHARE = "share";
         addPreferencesFromResource(R.xml.about_rom);
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
+        mPitchBlackUrl = findPreference("rr_pb");
+        mTwitterUrl = findPreference("rr_twitter");
         mSiteUrl = findPreference("rr_website");
-        mForumUrl = findPreference("rr_forum");
+        mTelegramUrl = findPreference("rr_telegram");
         mSourceUrl = findPreference("rr_source");
         mFacebookUrl = findPreference("rr_facebook");
         mGoogleUrl = findPreference("rr_google_plus");
@@ -120,8 +124,12 @@ private static final String RR_ROM_SHARE = "share";
     public boolean onPreferenceTreeClick(Preference preference) {
         if (preference == mSiteUrl) {
             launchUrl("http://resurrectionremix.com/");
-        } else if (preference == mForumUrl) {
-            launchUrl("http://forum.resurrectionremix.com/");
+        } else if (preference == mPitchBlackUrl) {
+            launchUrl("https://play.google.com/store/apps/details?id=pitchblack.origins.westcrip");
+        } else if (preference == mTwitterUrl) {
+            launchUrl("https://twitter.com/rrosofficial");
+        } else if (preference == mTelegramUrl) {
+            launchUrl("t.me/resurrectionremixchat");
         } else if (preference == mSourceUrl) {
             launchUrl("https://github.com/ResurrectionRemix");
         } else if (preference == mFacebookUrl) {
