@@ -129,7 +129,7 @@ private static final String RR_ROM_SHARE = "share";
         } else if (preference == mTwitterUrl) {
             launchUrl("https://twitter.com/rrosofficial");
         } else if (preference == mTelegramUrl) {
-            launchUrl("t.me/resurrectionremixchat");
+            launchUrl("https://t.me/resurrectionremixchat");
         } else if (preference == mSourceUrl) {
             launchUrl("https://github.com/ResurrectionRemix");
         } else if (preference == mFacebookUrl) {
