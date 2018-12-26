@@ -30,7 +30,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.provider.Settings;
-
+import com.android.internal.util.rr.RRUtils;
+import android.content.Context;
+import android.os.UserHandle;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -41,14 +43,24 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 public class Misc extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
+    private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
+
+    private ListPreference mFlashlightOnCall;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_misc);
 
+ 	Context mContext = getActivity().getApplicationContext();
+
+        PreferenceScreen prefScreen = getPreferenceScreen();
         PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
+
+        mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
+        if (!RRUtils.deviceSupportsFlashLight(mContext))
+            prefScreen.removePreference(mFlashlightOnCall);
 
     }
 
@@ -58,6 +70,12 @@ public class Misc extends SettingsPreferenceFragment implements
 	return false;
     }
 
+
+    public static void reset(Context mContext) {
+        ContentResolver resolver = mContext.getContentResolver();
+        Settings.System.putIntForUser(resolver,
+                Settings.System.FLASHLIGHT_ON_CALL, 0, UserHandle.USER_CURRENT);
+    }
 
 
     @Override

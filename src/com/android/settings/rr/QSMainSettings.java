@@ -30,7 +30,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.provider.Settings;
-
+import android.os.UserHandle;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
