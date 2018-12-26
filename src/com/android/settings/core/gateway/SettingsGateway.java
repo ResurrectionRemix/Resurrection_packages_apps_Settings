@@ -281,7 +281,7 @@ public class SettingsGateway {
             SmartbarSettings.class.getName(),
             FlingSettings.class.getName(),
             PulseSettings.class.getName(),
-            PieSettings.class.getName()
+            PieSettings.class.getName(),
             OmniJawsSettings.class.getName(),
             LockscreenItemSettings.class.getName(),
     };

@@ -40,7 +40,7 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.OMNI_SETTINGS;
+        return MetricsEvent.RESURRECTED;
     }
 
     @Override

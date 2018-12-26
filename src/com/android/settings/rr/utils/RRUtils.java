@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.hardware.camera2.CameraAccessException;
@@ -320,7 +321,7 @@ public class RRUtils {
         return null;
     }
 
-    public static boolean isPackageAvailable(String packageName, Context context) {
+    public static boolean isAvailableApp(String packageName, Context context) {
         Context mContext = context;
         final PackageManager pm = mContext.getPackageManager();
         try {
@@ -328,7 +329,7 @@ public class RRUtils {
             int enabled = pm.getApplicationEnabledSetting(packageName);
             return enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED &&
                 enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER;
-        } catch (PackageManager.NameNotFoundException e) {
+        } catch (NameNotFoundException e) {
             return false;
         }
     }
