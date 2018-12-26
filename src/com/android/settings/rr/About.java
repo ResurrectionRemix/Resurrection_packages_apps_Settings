@@ -78,7 +78,7 @@ public static final String TAG = "About";
 private static final String RR_ROM_SHARE = "share";
     
     Preference mSiteUrl;
-    Preference mForumUrl;
+    Preference mTelegramUrl;
     Preference mSourceUrl;
     Preference mFacebookUrl;
     Preference mGoogleUrl;
@@ -95,7 +95,7 @@ private static final String RR_ROM_SHARE = "share";
         mPitchBlackUrl = findPreference("rr_pb");
         mTwitterUrl = findPreference("rr_twitter");
         mSiteUrl = findPreference("rr_website");
-        mForumUrl = findPreference("rr_forum");
+        mTelegramUrl = findPreference("rr_telegram");
         mSourceUrl = findPreference("rr_source");
         mFacebookUrl = findPreference("rr_facebook");
         mGoogleUrl = findPreference("rr_google_plus");
@@ -128,8 +128,8 @@ private static final String RR_ROM_SHARE = "share";
             launchUrl("https://play.google.com/store/apps/details?id=pitchblack.origins.westcrip");
         } else if (preference == mTwitterUrl) {
             launchUrl("https://twitter.com/rrosofficial");
-        } else if (preference == mForumUrl) {
-            launchUrl("http://forum.resurrectionremix.com/");
+        } else if (preference == mTelegramUrl) {
+            launchUrl("t.me/resurrectionremixchat");
         } else if (preference == mSourceUrl) {
             launchUrl("https://github.com/ResurrectionRemix");
         } else if (preference == mFacebookUrl) {
