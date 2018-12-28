@@ -69,6 +69,14 @@
         android:summary="@string/show_cpu_info_summary" 
         android:defaultValue="false" />
 
+     <!-- Flashlight on Call -->
+     <com.rr.settings.preferences.SystemSettingListPreference
+        android:key="flashlight_on_call"
+        android:title="@string/flashlight_on_call_title"
+        android:entries="@array/flashlight_on_call_entries"
+        android:entryValues="@array/flashlight_on_call_values"
+        android:defaultValue="0" />
+
     <PreferenceCategory
             android:title="@string/night_brightness_category">
         <DropDownPreference

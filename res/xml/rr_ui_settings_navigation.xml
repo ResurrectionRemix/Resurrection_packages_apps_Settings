@@ -98,6 +98,12 @@
             android:key="custom_density"
             android:layout="@layout/rr_custom_density_layout" />
 
+    <com.android.settings.display.FontDialogPreference
+        android:key="custom_font"
+        android:layout="@layout/rr_font_dg_layout" 
+        android:icon="@drawable/ic_font_picker"
+        android:persistent="false" />
+
        <com.android.settings.applications.LayoutPreference
             android:key="font_size"
             android:fragment="com.android.settings.accessibility.ToggleFontSizePreferenceFragment"
@@ -110,11 +116,11 @@
           />
 
         <!-- Sound -->
-       <!--com.android.settings.applications.LayoutPreference
+       <com.android.settings.applications.LayoutPreference
             android:key="rr_sound"
-            android:fragment="com.android.settings.rr.SoundFragment"
+            android:fragment="com.android.settings.rr.AudioPanel"
             android:layout="@layout/rr_sound_layout"
-            /-->
+            />
 
        <com.android.settings.applications.LayoutPreference
             android:key="rr_ss"

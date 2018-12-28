@@ -21,7 +21,7 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_volume_title">
 
-         <com.rr.settings.preferences.SecureSettingSwitchPreference
+         <!--com.rr.settings.preferences.SecureSettingSwitchPreference
             android:key="sysui_volume_down_silent"
             android:title="@string/volbtn_down_zen_title"
             android:summary="@string/volbtn_down_zen_summary"
@@ -35,7 +35,20 @@
             android:key="sysui_show_full_zen"
             android:title="@string/vol_zen_title"
             android:summary="@string/vol_zen_summary"
-            android:defaultValue="false"/>
+            android:defaultValue="false"/-->
+
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="volume_dialog_timeout"
+        android:title="@string/volume_dialog_timeout_title"
+        android:min="500"
+        android:max="10000"
+        android:defaultValue="3000"
+        settings:interval="100"
+        settings:unitsLeft=""
+        settings:unitsRight="ms" />
+
+
 
 </PreferenceScreen>
 

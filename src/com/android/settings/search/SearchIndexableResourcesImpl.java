@@ -103,8 +103,8 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.omnirom.omnigears.moresettings.OmniJawsSettings;
-import org.omnirom.omnigears.interfacesettings.LockscreenItemSettings;
+import com.android.settings.rr.omnigears.moresettings.OmniJawsSettings;
+import com.android.settings.rr.omnigears.interfacesettings.LockscreenItemSettings;
 
 public class SearchIndexableResourcesImpl implements SearchIndexableResources {
 

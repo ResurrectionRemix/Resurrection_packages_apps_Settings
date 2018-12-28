@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
 */
-package org.omnirom.omnigears.interfacesettings;
+package com.android.settings.rr.omnigears.interfacesettings;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;

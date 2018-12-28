@@ -16,7 +16,7 @@
  *
 */
 
-package org.omnirom.omnigears.moresettings;
+package com.android.settings.rr.omnigears.moresettings;
 
 import android.content.Context;
 import android.content.Intent;

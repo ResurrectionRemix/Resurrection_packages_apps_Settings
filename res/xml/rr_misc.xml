@@ -28,20 +28,12 @@
         android:summary="@string/ambient_play_summary"
         android:fragment="com.android.settings.custom.ambient.AmbientPlaySettings" /-->
 
-     <!-- Flashlight on Call -->
-     <com.rr.settings.preferences.SystemSettingListPreference
-        android:key="flashlight_on_call"
-        android:title="@string/flashlight_on_call_title"
-        android:entries="@array/flashlight_on_call_entries"
-        android:entryValues="@array/flashlight_on_call_values"
-        android:defaultValue="0" />
-
     <Preference
         android:key="omnijaws_settings"
         android:icon="@drawable/rr_settings_weather"
         android:title="@string/weather_title"
-	android:summary="@string/weather_config_title"
-        android:fragment="org.omnirom.omnigears.moresettings.OmniJawsSettings" />
+	    android:summary="@string/weather_config_title"
+        android:fragment="com.android.settings.rr.omnigears.moresettings.OmniJawsSettings" />
 
     <Preference 
         android:key="wakelock_blocker" 

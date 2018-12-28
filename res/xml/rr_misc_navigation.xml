@@ -20,16 +20,22 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_misc_title">
 
-    <!--com.android.settings.applications.LayoutPreference
-            android:key="suspend_actions"
-            android:layout="@layout/rr_suspend_actions_layout"
-            android:fragment="com.android.settings.rr.SuspendActions" />
+    <com.android.settings.applications.LayoutPreference
+        android:key="wakelock_blocker" 
+        android:fragment="com.android.settings.rr.fragments.WakeLockBlocker" 
+        android:layout="@layout/rr_wb_layout" />
+
+    <com.android.settings.applications.LayoutPreference
+        android:key="alarm_blocker" 
+        android:layout="@layout/rr_ab_layout"
+        android:fragment="com.android.settings.rr.fragments.AlarmBlocker" />
 
     <com.android.settings.applications.LayoutPreference
             android:title="@string/weather_title"
             android:layout="@layout/rr_misc_weather_layout"
-            android:fragment="com.android.settings.rr.Weather" />
-    <com.android.settings.applications.LayoutPreference
+            android:fragment="com.android.settings.rr.omnigears.moresettings.OmniJawsSettings" />
+
+    <!--com.android.settings.applications.LayoutPreference
             android:key="system_app_remover"
             android:layout="@layout/rr_system_app_remover_layout"
             android:fragment="com.android.settings.rr.fragments.SystemappRemover" /-->

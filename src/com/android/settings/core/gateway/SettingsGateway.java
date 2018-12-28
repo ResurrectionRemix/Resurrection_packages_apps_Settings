@@ -146,8 +146,8 @@ import com.android.settings.rr.fragments.PieSettings;
 
 import com.android.settings.smartnav.*;
 
-import org.omnirom.omnigears.moresettings.OmniJawsSettings;
-import org.omnirom.omnigears.interfacesettings.LockscreenItemSettings;
+import com.android.settings.rr.omnigears.moresettings.OmniJawsSettings;
+import com.android.settings.rr.omnigears.interfacesettings.LockscreenItemSettings;
 
 public class SettingsGateway {
 
