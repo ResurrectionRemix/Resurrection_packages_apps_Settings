@@ -14,6 +14,7 @@
 package com.android.settings.rr;
 
 import android.app.AlertDialog;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -125,6 +126,10 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mTabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
         mSettingsObserver = new SettingsObserver(new Handler());
         mInterceptorFrame = (FrameLayout) view.findViewById(R.id.fl_interceptor);
+        final ActionBar ab = getActivity().getActionBar();
+        if (ab != null) {
+            ab.setTitle(R.string.rr_title);
+        }
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mTabs.setViewPager(mViewPager);
@@ -245,6 +250,10 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
         navigation.setBackground(new ColorDrawable(getResources().getColor(R.color.BottomBarBackgroundColor)));
         mPagerAdapter = new PagerAdapter(getFragmentManager());
+        final ActionBar ab = getActivity().getActionBar();
+        if (ab != null) {
+            ab.setTitle(R.string.rr_title);
+        }
         mViewPager.setAdapter(mPagerAdapter);
         ContentResolver resolver = getActivity().getContentResolver();
 
