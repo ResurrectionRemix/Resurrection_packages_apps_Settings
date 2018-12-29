@@ -115,8 +115,8 @@
     <string name="rr">Liên kết</string>
     <string name="rr_website_title">Trang web</string>
     <string name="rr_website_summary">Xem thêm thông tin về Resurrection Remix OS</string>
-    <string name="rr_forum_title">Diễn đàn</string>
-    <string name="rr_forum_summary">Trở thành thành viên của diễn đàn Resurrection</string>
+    <string name="rr_telegram_title">Telegram</string>
+    <string name="rr_telegram_summary">Telegram trên chủ đề Chat</string>
     <string name="rr_source_title">Github</string>
     <string name="rr_source_summary">Nguồn Resurrection Remix OS</string>
     <string name="rr_facebook_title">Facebook</string>
@@ -140,7 +140,6 @@
     <string name="andres_summary">● Người phát triển\n● Người duy trì</string>
     <string name="akhil_summary">● Người phát triển\n● Người duy trì\n● Chủ bản thảo</string>
     <string name="brian_summary">● Người phát triển\n● Người duy trì</string>
-    <string name="christopher_kardas_summary">● Người điều hành\n● Người biên tập\n● Người đóng góp</string>
     <string name="matt_summary">● Người điều hành\n● Người biên tập\n● Người đóng góp</string>
     <string name="justen_summary">● Người điều hành\n● Người biên tập\n● Người đóng góp</string>
     <string name="mracar_summary">● Người phát triển\n● Người duy trì</string>
@@ -168,6 +167,13 @@
     <string name="rr_volume_title">Bảng điều chỉnh âm lượng</string>
     <string name="rr_power_title">Menu nguồn</string>
     <string name="rr_lockscreen_target_title">Phím tắt phía dưới</string>
+    <string name="power_menu_screenshot_title">Chụp ảnh màn hình</string>
+    <string name="power_menu_screenshot_summary">Nhấn giữ để chụp một phần màn hình</string>
+    <string name="power_menu_airplane_title">Chế độ Máy bay</string>
+    <string name="power_menu_users_title">Chuyển người dùng</string>
+    <string name="power_menu_bug_report_title">Báo cáo lỗi</string>
+    <string name="power_menu_bug_report_disabled">Báo cáo lỗi bị tắt trong cài đặt tùy chọn nhà phát triển</string>
+    <string name="power_menu_lockdown_title">Khóa lại</string>
     <!-- About phone screen, RR version -->
     <string name="rr_version">Phiên bản Recsurrection</string>
     <string name="rr_version_default">Không rõ</string>
@@ -208,6 +214,7 @@
     <string name="rr_reset_yes">Có</string>
     <string name="rr_reset_cancel">Hủy bỏ</string>
     <string name="rr_category_title">Cá nhân hóa</string>
+    <string name="rr_title">Các công cụ Resurrection</string>
     <string name="rr_config_main_title">RR-OS</string>
     <string name="rr_ota_fab_title">Hiển thị nút nổi</string>
     <string name="rr_ota_fab_summary">Bật/Tắt để ẩn/hiện nút nổi trong cấu hình. Vào/Thoát mỗi khi chuyển đổi đã sử dụng</string>
@@ -291,6 +298,8 @@
     <string name="headset_connect_player_both_no_carkit">Khi có dây hoặc tai nghe BT (không có bộ phụ kiện xe hơi) được kết nối</string>
     <string name="headset_connect_player_both">Khi có dây hoặc tai nghe BT được kết nối</string>
     <!-- On-The-Go -->
+    <string name="global_actions_onthego_title">On-The-Go</string>
+    <string name="global_actions_onthego_summary">Thêm nút Bật/Tắt On-The-Go vào menu nguồn</string>
     <!-- Battery stats reset -->
     <string name="battery_stats_reset">Thiết lập lại thống kê</string>
     <string name="battery_stats_message">Thống kê lịch sử pin sẽ được thiết lập lại</string>
@@ -300,8 +309,13 @@
     <string name="ticker_title">Tường thuật thanh trạng thái</string>
     <string name="ticker_summary">Bật kiểu thông báo tường thuật cũ trên thanh trạng thái</string>
     <!-- Statusbar ticker -->
+    <string name="status_bar_ticker_title">Ticker</string>
+    <string name="status_bar_show_ticker_title">Ticker</string>
+    <string name="status_bar_show_ticker_summary">Xem trước thông báo trên thanh trạng thái</string>
+    <string name="ticker_animation_mode_title">Hiệu ứng ticker</string>
     <string name="ticker_animation_mode_alpha_fade">Mờ dần</string>
     <string name="ticker_animation_mode_scroll">Cuộn</string>
+    <string name="ticker_tick_duration_title">Ticker duration</string>
     <!-- Notifications while screen on -->
     <string name="notification_sound_vib_screen_on_summary">Phát âm thanh và rung cho thông báo khi màn hình đang bật</string>
     <!-- Power menu on lockscreen -->
@@ -439,11 +453,29 @@
     <!-- Carrier Label -->
     <string name="carrier_options">Chọn vị trí hiển thị</string>
     <string name="custom_carrier_label_title">Tùy chỉnh tên nhà cung cấp</string>
+    <string name="custom_carrier_label_explain">Vui lòng nhập một tên mới. Để trống để trở lại với tên gốc.</string>
     <string name="custom_carrier_label_notset">Tên tùy chỉnh hiện chưa được thiết lập</string>
     <string name="show_carrier_title">Tên nhà cung cấp</string>
     <string name="show_carrier_disabled">Đã vô hiệu hóa</string>
+    <string name="show_carrier_keyguard">Chỉ màn hình khoá</string>
+    <string name="show_carrier_statusbar">Chỉ thanh trạng thái</string>
+    <string name="show_carrier_enabled">Màn hình khóa &amp; thanh trạng thái</string>
     <!-- Battery bar -->
     <string name="battery_bar_title">Thanh pin</string>
+    <string name="battery_bar_summary">Click cho các tùy chọn thanh pin</string>
+    <string name="battery_bar_location_title">Vị trí</string>
+    <string name="battery_bar_location_statusbar_top">Trên cùng thanh trạng thái</string>
+    <string name="battery_bar_location_statusbar_bottom">Dưới thanh trạng thái</string>
+    <string name="battery_bar_location_navbar_top">Trên cùng thanh điều hướng</string>
+    <string name="battery_bar_location_navbar_bottom">Dưới thanh điều hướng</string>
+    <string name="battery_bar_color_title">Màu sắc đèn</string>
+    <string name="battery_bar_color_summary">Khoảng màu được dùng ở thanh trạng thái tối</string>
+    <string name="battery_bar_dark_color_title">Màu tối</string>
+    <string name="battery_bar_dark_color_summary">Khoảng màu được dùng ở thanh trạng thái sáng</string>
+    <string name="battery_bar_charging_color_title">Màu đèn khi sạc</string>
+    <string name="battery_bar_charging_color_summary">Màu sắc được dùng khi sạc ở thạn trạng thái tối</string>
+    <string name="battery_bar_charging_dark_color_title">Màu đang sạc tối</string>
+    <string name="battery_bar_charging_dark_color_summary">Màu sắc được dùng khi sạc ở thạn trạng thái sáng</string>
     <string name="battery_bar_style_title">Căn chỉnh</string>
     <string name="battery_bar_thickness_title">Độ dày</string>
     <string name="battery_bar_animate_title">Hiệu ứng khi sạc</string>
@@ -451,6 +483,9 @@
     <string name="battery_bar_style_center_mirrored">Đối xứng giữa</string>
     <string name="battery_bar_style_reversed">Đảo ngược</string>
     <string name="battery_bar_use_charging_color_title">Tùy chỉnh màu khi sạc</string>
+    <string name="battery_blend_start">Trống</string>
+    <string name="battery_blend_end">Đầy</string>
+    <string name="battery_blend_between">Giữa</string>
     <!--RR Configurations Summaries-->
     <string name="status_bar_clock_summary">Tùy chỉnh các thành phần của đồng hồ trên thanh trạng thái </string>
     <string name="status_bar_logo_summary">Bật hoặc tắt biểu tượng Resurrection trên thanh trạng thái. Tùy chỉnh màu sắc và vị trí</string>
@@ -473,6 +508,7 @@
     <string name="rr_qs_pulldown_summary">Điều chỉnh cài đặt kéo xuống bảng cài đặt nhanh</string>
     <string name="qs_tile_layout_summary">Tùy chỉnh cách bố trí các ô cài đặt nhanh</string>
     <string name="qs_advanced_summary">Tuỳ chỉnh các cài đặt nhanh khác</string>
+    <string name="rr_ls_gesture_summary">Chọn các cử chỉ được gán trên màn hình</string>
     <string name="rr_ls_ui_summary">Bật, tắt và tuỳ chỉnh các thành phần ở màn hình khóa</string>
     <string name="lockscreen_targets_summary">Tùy chỉnh phím tắt trái và phải phía dưới màn hình khóa</string>
     <string name="lockscreen_weather_summary">Tùy chỉnh bố trí thời tiết ở màn hình khóa</string>
@@ -517,6 +553,13 @@
     <string name="hex_hint">#ff000000</string>
     <string name="set">Đặt</string>
     <string name="color_default">Mặt định</string>
+    <string name="color_blend_ok">@android:string/ok</string>
+    <string name="color_blend_cancel">@android:string/cancel</string>
+    <string name="color_blend_reset">Thiết lập lại</string>
+    <string name="color_blend_preview">Xem trước: %1$d%%</string>
+    <string name="color_preview_start">Bắt đầu</string>
+    <string name="color_preview_end">Kết thúc</string>
+    <string name="color_preview_between">Giữa</string>
     <!-- Sensor block per-package -->
     <string name="sensor_block_title">Chặn cảm biến theo gói</string>
     <string name="sensor_block_summary">Chặn quyền truy cập vào một số cảm biến cho một số ứng dụng để tiết kiệm pin.</string>
@@ -734,9 +777,12 @@
     <string name="navbar_interface_title">Giao diện</string>
     <string name="navbar_size">Kích thước thanh</string>
     <string name="navbar_mode">Chế độ điều hướng</string>
+    <string name="navbar_mode_summary">Chọn chế độ điều hướng cho thiết bị</string>
+    <string name="navbar_visibility">Bật thanh điều hướng</string>
     <string name="navigationbar_settings_summary">Tùy chỉnh kiểu điều hướng và hành vi</string>
     <string name="navbar_general_title">Nâng cao</string>
     <string name="navigation_bar_left_title">Chế độ thuận tay trái</string>
+    <string name="navigation_bar_left_summary">Hiển thị thanh điều hướng ở phía bên tay trái trong chế độ nằm ngang</string>
     <string name="smartbar_interface">Thanh thông minh</string>
     <string name="icon_pack_picker_dialog_title">Gói biểu tượng</string>
     <string name="image_exceeds_max_allowed_size">Hình ảnh không vượt quá 512x512</string>
@@ -754,15 +800,40 @@
     <string name="action_entry_custom_action">Chọn thao tác tùy chỉnh</string>
     <!-- Fling -->
     <string name="fling_settings">Cài đặt Fling</string>
+    <string name="fling_settings_summary">Thanh điều hướng theo cử chỉ rất cụ thể và có thể tuỳ chỉnh hoàn toàn</string>
     <string name="fling_interface">Mở rộng</string>
     <string name="fling_enable_title">Bật Fling</string>
+    <string name="fling_back_home_policy">Nút Back và Home phải luôn được đặt. Để thay đổi bố trí nút Back hoặc Home, trước tiên hãy bố trí như mong muốn trước.\n\nViệc kích hoạt các thao tác nhấn đúp sẽ tạo ra độ trễ nhẹ với độ phản hồi của một lần nhấn.</string>
+    <string name="fling_split_bar_policy">Đặt hành động chỉ sang phải / trái sẽ phân chia các vùng cảm ứng giữa toàn bộ thanh.</string>
     <string name="fling_def_summary">Không cài đặt hoạt động</string>
     <string name="fling_swipe_actions">Cử chỉ vuốt</string>
     <string name="fling_tap_actions">Cử chỉ chạm</string>
+    <string name="fling_short_swipe_right">Vuốt nhanh bên phải</string>
+    <string name="fling_short_swipe_left">Vuốt nhanh bên trái</string>
+    <string name="fling_long_swipe_right">Vuốt dài bên phải</string>
+    <string name="fling_long_swipe_left">Vuốt dài bên trái</string>
+    <string name="fling_right_up_swipe">Vuốt lên bên phải</string>
+    <string name="fling_left_up_swipe">Vuốt lên bên trái</string>
+    <string name="fling_single_tap">Chạm một lần bên phải</string>
+    <string name="fling_double_tap">Chạm hai lần bên phải</string>
+    <string name="fling_long_press">Nhấn giữ bên phải</string>
+    <string name="fling_single_left_tap">Chạm một lần bên trái</string>
+    <string name="fling_double_left_tap">Chạm hai lần bên trái</string>
+    <string name="fling_long_left_press">Nhấn giữ bên trái</string>
     <string name="long_swipe_portrait_title">Chiều dọc</string>
     <string name="long_swipe_landscape_title">Chiều ngang</string>
+    <string name="portrait_right_swipe_title">Vuốt bên phải theo chiều dọc</string>
+    <string name="portrait_left_swipe_title">Vuốt bên trái theo chiều dọc</string>
+    <string name="landscape_right_swipe_title">Vuốt bên phải theo chiều ngang</string>
+    <string name="landscape_left_swipe_title">Vuốt bên trái theo chiều ngang</string>
+    <string name="vertical_up_swipe_title">Vuốt dọc lên</string>
+    <string name="vertical_down_swipe_title">Vuốt dọc xuống</string>
+    <string name="up_swipe_title">Vuốt lên</string>
+    <string name="down_swipe_title">Vuốt xuống</string>
     <string name="long_swipe_reset">Thiết lập lại</string>
     <string name="fling_advanced">Tuỳ chọn nâng cao</string>
+    <string name="fling_long_swipe_title">Ngưỡng vuốt dài</string>
+    <string name="fling_long_swipe_summary">Điều chỉnh ngưỡng dựa trên tỷ lệ phần trăm chiều rộng / chiều cao của khu vực giao diện vuốt</string>
     <string name="fling_trails_enable_title">Bật vệt cử chỉ</string>
     <string name="fling_trails_enable_summary">Hiện một vệt khi có cử chỉ vuốt</string>
     <string name="fling_trails_color_title">Màu vệt</string>
@@ -780,7 +851,10 @@
     <string name="fling_ripple_color">Màu gợn sóng</string>
     <string name="fling_longpress_timeout_label_left">Độ trễ ít</string>
     <string name="fling_longpress_timeout_label_right">Độ trễ nhiều</string>
+    <string name="fling_longpress_title">Độ trễ khi nhấn giữ</string>
+    <string name="fling_longpress_summary">Điều chỉnh ngưỡng thời gian để thực hiện hành động bấm giữ</string>
     <string name="fling_keyboard_cursors_title">Thao tác bàn phím năng động</string>
+    <string name="fling_keyboard_cursors_summary">Nhấn đúp vào hành động trái và phải sẽ trở thành tác vụ con trỏ chuột trái và phải nếu bàn phím được mở</string>
     <string name="fling_logo_opacity_title">Độ mờ logo Fling</string>
     <string name="fling_factory_reset_title">Thiết lập lại về gốc</string>
     <string name="fling_factory_reset_confirm">Bạn có chắc chắn muốn thiết lập lại Fling về cài đặt gốc?</string>
@@ -831,18 +905,40 @@
     <!-- SmartBar -->
     <string name="smartbar_category">Thanh thông minh</string>
     <string name="smartbar_settings_title">Cài đặt Thanh thông minh</string>
+    <string name="smartbar_settings_summary">Tùy biến thanh điều hướng đầy đủ</string>
     <string name="smartbar_editor_title">Bắt đầu chế độ chỉnh sửa</string>
     <string name="smartbar_editor_summary">Mở trình chỉnh sửa nút thanh thông minh</string>
+    <string name="smartbar_context_menu_position_title">Vị trí bố cục các nút ngữ cảnh</string>
+    <string name="smartbar_context_menu_position_summary">Đặt vị trí của các nút theo ngữ cảnh như menu và trình chọn ime</string>
     <string name="smartbar_right">Phải</string>
     <string name="smartbar_left">Trái</string>
     <string name="smartbar_button_animation_title">Hoạt ảnh chạm nút</string>
     <string name="smartbar_button_animation_ripple">Gợn sóng</string>
     <string name="smartbar_button_animation_spring">Nhún nhảy</string>
     <string name="smartbar_button_animation_flip">Lật lại</string>
+    <string name="smartbar_button_animation_pixel">Pixel</string>
+    <string name="smartbar_button_animation_pixel_home">Pixel (Nút Trang Chủ)</string>
+    <string name="smartbar_button_animation_pixel_home_ripple">Ripple với Pixel (nút Trang chủ)</string>
     <string name="smartbar_factory_reset_title">Thiết lập lại về gốc</string>
     <string name="smartbar_factory_reset_confirm">Bạn có chắc chắn muốn thiết lập lại Thanh thông minh về cài đặt gốc?</string>
+    <string name="smartbar_ime_action_title">Phương thức nhập và các hành động phương tiện</string>
+    <string name="smartbar_ime_action_summary">Chọn các nút để hiển thị với bàn phím trên màn hình và trong khi chơi nhạc</string>
+    <string name="smartbar_ime_action_none">Không</string>
+    <string name="smartbar_ime_action_arrows">Mũi tên nhập liệu</string>
+    <string name="smartbar_ime_action_switcher">Chuyển đổi bàn phím</string>
+    <string name="smartbar_ime_action_dynamic">Mũi tên nhập liệu/phương tiện</string>
+    <string name="smartbar_backup_current_config_title">Lưu hồ sơ</string>
+    <string name="smartbar_restore_config_title">Khôi phục hồ sơ</string>
+    <string name="smartbar_longpress_delay_title">Độ trễ khi bấm giữ nút</string>
+    <string name="smartbar_longpress_delay_summary">Điều chỉnh ngưỡng cho thao tác bấm giữ</string>
+    <string name="smartbar_longpress_delay_default">Độ trễ mặc định (nhanh)</string>
+    <string name="smartbar_longpress_delay_normal">Độ trễ bình thường</string>
     <string name="smartbar_longpress_delay_long">Độ trễ dài</string>
     <string name="smartbar_custom_icon_size_title">Tùy chỉnh tỷ lệ biểu tượng</string>
+    <string name="one_handed_mode_title">Chế độ một tay</string>
+    <string name="one_handed_mode_summary">Cho phép vuốt trên thanh điều hướng để kích hoạt chế độ một tay</string>
+    <string name="smartbar_double_tap_sleep_title">Chạm hai lần để tắt màn hình</string>
+    <string name="smartbar_double_tap_sleep_summary">Nhấn đúp vào các vùng trống thanh điều hướng để ngủ</string>
     <!-- SystemUI theme -->
     <string name="systemui_theme_style_title">Chủ đề</string>
     <string name="systemui_theme_style_auto">Tự động (dựa trên hình nền)</string>
@@ -853,6 +949,13 @@
     <!-- Hardware button navigation -->
     <!-- Button brightness -->
     <string name="button_backlight_options_category">Tùy chọn đèn nền</string>
+    <string name="button_backlight_enable_title">Cho phép đèn nền phím</string>
+    <string name="button_link_brightness">Liên kết đến độ sáng màn hình</string>
+    <string name="button_link_brightness_summary">Nút đèn nền sẽ điều chỉnh dựa trên mức độ sáng màn hình</string>
+    <string name="button_manual_brightness">Cường độ ánh sáng</string>
+    <string name="button_timeout_title">Thời gian chờ đèn nền</string>
+    <string name="button_backlight_on_touch_only_title">Nút đèn nền cảm ứng</string>
+    <string name="button_backlight_on_touch_only_summary">Nút đèn nền sẽ chỉ xuất hiện khi các nút được nhấn chứ không phải lúc nào cũng được. Thời gian chờ vẫn ảnh hưởng đến tính năng này.</string>
     <!-- Ability to disable hardware keys via nav bar settings -->
     <string name="hw_keys_title">Phím cứng</string>
     <string name="hw_keys_summary">Bật các phím cứng</string>
@@ -908,29 +1011,70 @@
     <string name="screen_state_toggles_mobile_data">Tắt dữ liệu di động</string>
     <string name="screen_state_toggles_mobile_data_summary">Dữ liệu di động sẽ bị vô hiệu hóa lúc màn hình tắt</string>
     <string name="screen_state_off_delay_title">Độ trễ hành động khi tắt màn hình</string>
+    <string name="screen_state_off_delay_summary">Số phút chờ đợi trước khi thực hiện hành động sau khi màn hình tắt</string>
+    <string name="screen_state_on_delay_title">Độ trễ hành động Bật màn hình</string>
+    <string name="screen_state_on_delay_summary">Số phút chờ đợi trước khi thực hiện hành động sau khi màn hình</string>
     <!-- Volume Steps -->
+    <string name="volume_steps_title">Các mức âm lượng</string>
+    <string name="volume_steps_alarm_title">Mức âm lượng: Báo thức</string>
+    <string name="volume_steps_dtmf_title">Mức âm lượng: DTMF</string>
+    <string name="volume_steps_music_title">Mức âm lượng: Nhạc</string>
+    <string name="volume_steps_notification_title">Mức âm lượng: Thông báo</string>
+    <string name="volume_steps_ring_title">Mức âm lượng: Nhạc chuông</string>
+    <string name="volume_steps_system_title">Mức âm lượng: Hệ thống</string>
+    <string name="volume_steps_voice_call_title">Mức âm lượng: Gọi thoại</string>
+    <string name="volume_steps_reset">Thiết lập lại</string>
+    <string name="volume_steps_60">60</string>
+    <string name="volume_steps_45">45</string>
+    <string name="volume_steps_30">30</string>
+    <string name="volume_steps_15">15</string>
+    <string name="volume_steps_7">7</string>
+    <string name="volume_steps_5">5</string>
     <!-- Screenshot sound -->
     <string name="screenshot_sound_title">Âm thanh chụp màn hình</string>
     <string name="screenshot_sound_summary">Phát âm thanh khi màn hình được chụp</string>
     <!-- Gesture Anywhere -->
+    <string name="gesture_anywhere_title">Cử Chỉ Bất Cứ Đâu</string>
+    <string name="gesture_anywhere_enabled_title">Cử Chỉ Bất Cứ Đâu</string>
+    <string name="gesture_anywhere_enabled_summary">Bật tính năng Cử Chỉ Bất Cứ Đâu</string>
+    <string name="gesture_anywhere_position_title">Vị trí</string>
+    <string name="gesture_anywhere_position_left">Cạnh trái</string>
+    <string name="gesture_anywhere_position_right">Cạnh phải</string>
+    <string name="gesture_anywhere_gestures_title">Cử chỉ</string>
+    <string name="gesture_anywhere_gestures_summary">Thêm, xóa, và chỉnh sửa các cử chỉ</string>
     <!-- Label, button used to add a gesture -->
+    <string name="ga_button_add">Thêm cử chỉ</string>
     <!-- Label, button used to reload all gestures -->
+    <string name="ga_button_reload">Tải lại</string>
     <!-- Label, button used to cancel the operation of adding a gesture -->
+    <string name="ga_button_discard">Huỷ</string>
     <!-- Label, button used to save a gesture newly created -->
+    <string name="ga_button_done">Xong</string>
     <!-- Label, prompt asking the user to enter the name of the gesture -->
+    <string name="ga_prompt_gesture_name">Tên</string>
     <!-- Error message, informs the user he needs to enter a name before saving a gesture -->
+    <string name="ga_error_missing_name">Bạn phải nhập một tên</string>
     <!-- success message, tells the user where the gesture was saved -->
+    <string name="ga_save_success">Cử chỉ được lưu trong %s</string>
     <!-- Buttons in Rename gesture dialog box -->
+    <string name="ga_rename_action">OK</string>
     <!-- Buttons in Rename gesture dialog box -->
+    <string name="ga_cancel_action">Hủy bỏ</string>
     <!-- Message displayed when the user opens the gestures settings screen -->
     <!-- Message displayed when the user has no gestures -->
     <!-- Title of the screen used to view/manage gestures -->
     <!-- Noun, menu item used to edit a gesture -->
+    <string name="ga_gestures_edit">Sửa</string>
     <!-- Noun, menu item used to remove a gesture -->
+    <string name="ga_gestures_delete">Xoá</string>
     <!-- Message displayed when a gesture is successfully deleted -->
+    <string name="ga_gestures_delete_success">Cử chỉ đã xóa</string>
     <!-- Title of dialog box -->
+    <string name="ga_gestures_rename_title">Đổi tên cử chỉ</string>
     <!-- Label of gesture name field in Rename gesture dialog box -->
+    <string name="ga_gestures_rename_label">Tên cử chỉ</string>
     <!-- Message, displayed when the sdcard cannot be found, 1st parameter is the name of the file that stores the gestures.  CHAR LIMIT=80 -->
+    <string name="ga_gestures_error_loading">Không thể tải %s. Hãy chắc chắn là thiết bị có sẵn bộ nhớ.</string>
     <string name="trigger_bottom_summary">Điều chỉnh chiều cao của khu vực kích hoạt</string>
     <!-- Immersive Recents -->
     <string name="immersive_recents_title">Màn Hình Gần Đây Toàn Màn Hình</string>
@@ -990,7 +1134,15 @@
     <!-- Pixel Animation Settings -->
     <!-- Status bar - Battery saver color -->
     <!-- Fingerprint unlock keystore -->
+    <string name="fp_unlock_keystore_title">Mở khóa bằng vân tay</string>
+    <string name="fp_unlock_keystore_summary">Mở khóa điện thoại bằng vân tay sau khi khởi động lại mà không cần PIN/Mật khẩu/Mẫu hình\nChú ý: nguy cơ của riêng bạn!</string>
     <!-- Ambient Music Ticker -->
+    <string name="force_ambient_for_media_title">Ambient Music Ticker</string>
+    <string name="force_ambient_for_media_summary">Thông tin bài hát trong Ambient Display</string>
+    <string name="force_ambient_for_media_off">Đã vô hiệu hóa</string>
+    <string name="force_ambient_for_media_on">Đã bật</string>
+    <string name="force_ambient_for_media_on_forced">Kích hoạt và bắt buộc</string>
+    <string name="force_ambient_for_media_on_forced_clean">Kích hoạt và bắt buộc tối thiểu</string>
     <!-- Ambient Play -->
     <string name="ambient_play_settings_title">Check out \"Now Playing\"</string>
     <string name="ambient_play_settings_summary">Thông báo về các bài bát đang phát xung quanh bạn</string>
@@ -1002,6 +1154,8 @@
     <string name="ambient_play_help_text">Khi nhạc đang phát ở gần, bạn có thể thấy tên bài hát và nghệ sĩ. Tuổi thọ pin và sử dụng dữ liệu có thể bị ảnh hưởng nếu bật cái này.</string>
     <string name="ambient_play_cat">Đang phát</string>
     <!-- Ambient display battery percentage -->
+    <string name="ambient_battery_percent_title">Phần trăm pin trong Ambient Display</string>
+    <string name="ambient_battery_percent_summary">Cho phép hiển thị pin khi đang ngủ</string>
     <!-- Scrolling Cache -->
     <string name="pref_scrollingcache_title">Bộ đệm cuộn</string>
     <string name="pref_scrollingcache_summary">Bộ đệm cuộn có thể cải thiện hiệu suất cuộn với hao phí của bộ nhớ</string>
@@ -1010,9 +1164,14 @@
     <string name="pref_scrollingcache_default_disable">Mặc định tắt</string>
     <string name="pref_scrollingcache_force_disable">Ép buộc tắt</string>
     <!-- QS footer warnings -->
+    <string name="qs_footer_warnings_title">Cảnh báo cuối trang Cài Đặt Nhanh</string>
+    <string name="qs_footer_warnings_summary">Hiển thị cảnh báo ở cuối bảng điều khiển cài đặt nhanh khi mạng được theo dõi bởi các ứng dụng ngoài hoặc VPN</string>
     <!-- [CHAR LIMIT=80]-->
+    <string name="fp_swipe_to_dismiss_notifications_title">Trượt dấu vân tay sang trái hoặc phải để loại bỏ thông báo</string>
     <!--  [CHAR LIMIT=160]-->
+    <string name="fp_swipe_to_dismiss_notifications_summary">Để loại bỏ thông báo của bạn, hãy vuốt sang trái hoặc phải trên bộ cảm biến dấu vân tay ở mặt sau của điện thoại.</string>
     <!-- Qs easy tile add -->
+    <string name="single_tap_tile_add_title">Thêm tile dễ</string>
     <string name="single_tap_tile_add_summary">Thêm gạch nhanh chóng dễ dàng từ trình tùy chỉnh cài đặt nhanh đơn giản bằng cách gõ vào chúng thay vì kéo chúng</string>
     <!-- Qs music tile -->
     <string name="qs_music_tile_track_optional_title">Ô tiêu đề bài hát</string>
@@ -1024,7 +1183,31 @@
     <string name="data_disabled_icon_title">Hiển thị biểu tượng vô hiệu hóa dữ liệu</string>
     <string name="data_disabled_icon_summary">Hiển thị các dấu hiệu chéo bên cạnh thanh tín hiệu khi dữ liệu bị vô hiệu hóa</string>
     <!-- RR Settings tabs slide effects -->
+    <string name="tabs_effect_title">Cấu hình thẻ hiệu ứng chuyển tiếp RR</string>
+    <string name="effect_default">Mặt định</string>
+    <string name="effect_accordion">Accordion</string>
+    <string name="effect_background_to_foreground">Quay từ sau ra trước</string>
+    <string name="effect_cube_in">Khối lập phương vào</string>
+    <string name="effect_cube_out">Khối lập phương ra</string>
+    <string name="effect_depth_page">Độ sâu trang</string>
+    <string name="effect_flip_horizontal">Lật ngang</string>
+    <string name="effect_flip_vertical">Lật dọc</string>
+    <string name="effect_foreground_to_background">Quay từ trước ra sau</string>
+    <string name="effect_rotate_down">Xoay xuống</string>
+    <string name="effect_rotate_up">Xoay lên</string>
+    <string name="effect_scale_in_out">Thu phóng</string>
+    <string name="effect_stack">Ngăn xếp</string>
+    <string name="effect_tablet">Máy tính bảng</string>
+    <string name="effect_zoom_in">Phóng to</string>
+    <string name="effect_zoom_out_slide">Phóng to và trượt</string>
+    <string name="effect_zoom_out">Thu nhỏ</string>
     <!-- XOSP Blur personalizations -->
+    <string name="settings_blur_cat">Cá nhân hóa hiệu ứng mờ</string>
+    <string name="settings_blur_sum">Cài đặt nền mờ cho UI hệ thống</string>
+    <string name="blurred_status_bar_expanded_enabled_pref">Mờ nền thanh trạng thái</string>
+    <string name="blurred_status_bar_expanded_enabled_pref_summary">Làm mờ nền khi bạn kéo xuống thanh trạng thái</string>
+    <string name="translucent_notifications_pref">Làm mờ thông báo</string>
+    <string name="translucent_notifications_pref_summary">Làm mờ nền các thông báo</string>
     <!-- DSLV -->
     <string name="shortcuts_icon_picker_email">Hộp thư</string>
     <string name="shortcuts_icon_picker_email2">Email thay thế</string>
@@ -1054,6 +1237,48 @@
     <string name="shortcuts_icon_picker_package">Gói</string>
     <string name="shortcuts_icon_picker_pinterest">Pinterest</string>
     <string name="shortcuts_icon_picker_play">Phát</string>
+    <string name="shortcut_picker_icon_type_custom_title">Bộ sưu tập</string>
+    <string name="shortcuts_select_custom_app_title">Chọn ứng dụng tùy chỉnh</string>
+    <string name="shortcuts_applications">Ứng dụng</string>
+    <string name="airplay">Airplay</string>
+    <string name="android">Android</string>
+    <string name="badoo">Badoo</string>
+    <string name="battery">Pin</string>
+    <string name="bluetooth">Bluetooth</string>
+    <string name="bookmarks">Đánh dấu</string>
+    <string name="browser">Trình duyệt</string>
+    <string name="browser2">Trình duyệt 2</string>
+    <string name="calculator">Máy tính</string>
+    <string name="calendar">Lịch</string>
+    <string name="calls">Cuộc gọi</string>
+    <string name="camera">Máy ảnh</string>
+    <string name="chrome">Chrome</string>
+    <string name="clock">Đồng hồ</string>
+    <string name="cnn">Cnn</string>
+    <string name="deezer2">Deezer2</string>
+    <string name="deezer">Deezer</string>
+    <string name="dolphin2">Dolphin</string>
+    <string name="downloads">Tải xuống</string>
+    <string name="dropbox">Dropbox</string>
+    <string name="ebay">Ebay</string>
+    <string name="email">Hộp thư</string>
+    <string name="evernote">Evernote</string>
+    <string name="explorer">Trình duyệt</string>
+    <string name="falcon">Chim ưng</string>
+    <string name="fb">Facebook</string>
+    <string name="flipboard">Flipboard</string>
+    <string name="foursquare">Foursquare</string>
+    <string name="firefox">Firefox</string>
+    <string name="googlebuzz">Google Buzz</string>
+    <string name="googledocs">Google tài liệu</string>
+    <string name="googlewallet">Google ví</string>
+    <string name="maps">Bản đồ</string>
+    <string name="messages">Tin nhắn</string>
+    <string name="music">Âm nhạc</string>
+    <string name="mxplayer">Mxplayer</string>
+    <string name="notepad">Tin Nhắn Trực Tiếp</string>
+    <string name="opera">Opera</string>
+    <string name="paint">Vẽ</string>
     <!-- Scrolling Animation Controls -->
     <!-- Screen Off animation -->
     <string name="screen_off_animation_title">Hiệu ứng tắt màn hình</string>
@@ -1137,4 +1362,9 @@
     <!-- Lock Clock Fonts -->
     <!-- Lock Date Fonts -->
     <!-- Lock Clock & Date Size -->
+    <!-- ScreenRecord Shortcut -->
+    <!-- ScreenShot Shortcut -->
+    <!-- Blink flashlight for incoming calls -->
+    <!-- Wakelock blocker -->
+    <!-- Alarm blocker -->
 </resources>

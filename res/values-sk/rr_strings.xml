@@ -59,10 +59,14 @@
     <string name="battery_style_big_dotted_circle">Veľký bodkovaný kruh</string>
     <string name="battery_style_square">Štvorec</string>
     <string name="battery_style_text">Text</string>
+    <string name="battery_style_hidden">Skryté</string>
     <string name="battery_style_category">Štýl batérie</string>
+    <string name="battery_bar_category">Pruh batérie</string>
     <string name="show_battery_percent_title">Zobraziť stav batérie v percentách</string>
     <string name="battery_style_category_title">Úroveň batérie</string>
     <string name="battery_percent_none">Nezobrazovať</string>
+    <string name="battery_percent_outside">Zobraziť blízko ikony</string>
+    <string name="battery_percent_inside">Zobraziť vo vnútri ikony</string>
     <!-- ListView animation -->
     <string name="listview_animation_title">Animácia zobrazenia zoznamu</string>
     <string name="listview_off">Pôovodné</string>
@@ -77,6 +81,7 @@
     <string name="listview_translate_left">Preložiť (vľavo)</string>
     <string name="listview_translate_right">Preloženie (vpravo)</string>
     <string name="listview_title">Animácia zoznamu</string>
+    <string name="listview_summary">Animácia zobrazenia zoznamu a interpolácia </string>
     <!-- ListView interpolator -->
     <string name="listview_interpolator_title">Interpolácia zobrazenia zoznamu</string>
     <string name="listview_accelerate_interpolator">Zrýchlenie</string>
@@ -87,6 +92,19 @@
     <string name="listview_anticipate_overshoot_interpolator">Predbiehanie a prekročenie</string>
     <string name="listview_bounce_interpolator">Odraz</string>
     <!-- Keyboard and IME  -->
+    <string name="disable_fullscreen_keyboard_title">Zakázať klávesnicu cez celú obrazovku</string>
+    <string name="disable_fullscreen_keyboard_summary">Klávesnica na šírku nikdy nezaberie celú obrazovku</string>
+    <string name="keyboard_rotation_toggle_title">Automatické otáčanie klávesnice</string>
+    <string name="keyboard_rotation_toggle_summary">Vynútenie automatického otočenia klávesnice v prípade, že je zobrazená</string>
+    <string name="keyboard_rotation_timeout_title">Časový limit pre automatické otáčanie</string>
+    <string name="keyboard_rotation_timeout_summary">Zakáže senzoru automaticky otáčať <xliff:g id="rotate timeout">%1$s</xliff:g> sekúnd po tom, čo je klávesnica skrytá</string>
+    <string name="keyboard_rotation_dialog">Táto funkcia vynúti dočasné automatické otočenie, keď bude zobrazená klávesnica. Nastavenie nemá vplyv v prípade, že je povolené automatické otáčanie.</string>
+    <string name="show_enter_key_title">Zobraziť klávesu Enter</string>
+    <string name="show_enter_key_summary">Vynúti zobrazenie klávesy Enter namiesto klávesy emotikony</string>
+    <string name="keyboard_ime_title">Nastavenia IME</string>
+    <string name="keyboard_ime_summury">Pokročilé nastavenia IME</string>
+    <string name="ime_switcher_notify">Výber upozornenia</string>
+    <string name="ime_switcher_notify_summary">Zobraziť upozornenie výberu metódy vstupu</string>
     <string name="devs">Štítok vývojára</string>
     <string name="github_westcrip">https://github.com/westcripp</string>
     <string name="github_varund7726">https://github.com/varund7726</string>
@@ -97,13 +115,16 @@
     <string name="rr">Odkazy</string>
     <string name="rr_website_title">Web stránka</string>
     <string name="rr_website_summary">Získajte viac informácií o Resurrection Remix ROM</string>
-    <string name="rr_forum_title">Fórum</string>
-    <string name="rr_forum_summary">Stať sa členom Resurrection fóra</string>
     <string name="rr_source_title">Github</string>
     <string name="rr_source_summary">Zdroje Resurrection Remix ROM</string>
     <string name="rr_facebook_title">Facebook</string>
     <string name="rr_facebook_summary">Facebook komunita</string>
+    <string name="rr_google_plus_title">Google</string>
     <string name="rr_google_plus_summary">Google+ komunita</string>
+    <string name="rr_pb_title">Téma PitchBlack</string>
+    <string name="rr_pb_summary">Oficiálna Substratum téma pre Resurrection Remix OS</string>
+    <string name="rr_twitter_title">Twitter</string>
+    <string name="rr_twitter_summary">Účet Twitter</string>
     <string name="maintainer_categorie_title">Oficiálne zariadenia</string>
     <string name="title_about">O aplikácii</string>
     <string name="dev_categorie_title">Štítok vývojára</string>
@@ -112,7 +133,6 @@
     <string name="rr_ls_ui">Zámok užívateľského rozhrania</string>
     <string name="rr_ls_security">Bezpečnosť</string>
     <string name="updater_title">Aktualizácie</string>
-    <string name="mracar_summary">● Vývojár\n● Správca</string>
     <string name="support_team_title">Štítok moderátora</string>
     <string name="device_maintainers_title">Zariadenia a správcovia</string>
     <string name="device_maintainers_title_summary">Zoznam zariadení a ich správcovia v Resurrection ROM</string>
@@ -123,6 +143,9 @@
     <string name="rr_drill_title">Zpráva od vývojárov</string>
     <string name="drill_summary">Logcat alebo ísť preč</string>
     <!-- Changelog -->
+    <string name="changelog_name">Zoznam zmien</string>
+    <string name="commit_id">Zmena uzamknutia obrazovky</string>
+    <string name="commit_message">Popis zmien</string>
     <!-- RR Feature lists-->
     <string name="features_title">Funkcie</string>
     <string name="features_title_summary">Zobraziť dostupné funkcie</string>
@@ -130,8 +153,17 @@
     <string name="features_error">Nepodarilo sa načítať ponuku</string>
     <string name="features_unknown">Neznámy</string>
     <string name="features_version">1.0</string>
+    <string name="powermenu_onthego_title">OntheGo</string>
     <string name="rr_volume_title">Panel hlasitosti</string>
     <string name="rr_power_title">Power menu</string>
+    <string name="rr_lockscreen_target_title">Dolné skratky</string>
+    <string name="power_menu_screenshot_title">Snímka obrazovky</string>
+    <string name="power_menu_screenshot_summary">Dlhé stlačenie pre získanie čiastočnej snímky obrazovky</string>
+    <string name="power_menu_airplane_title">Režim v lietadle</string>
+    <string name="power_menu_users_title">Prepínač používateľov</string>
+    <string name="power_menu_bug_report_title">Hlásenie chýb</string>
+    <string name="power_menu_bug_report_disabled">Hlásenie chýb je zakázané v nastaveniach pre vývojárov</string>
+    <string name="power_menu_lockdown_title">Uzamknutie</string>
     <!-- About phone screen, RR version -->
     <string name="rr_version">Verzia Resurrection</string>
     <string name="rr_version_default">Neznáme</string>
@@ -148,6 +180,12 @@
     <string name="changelog_error">Nie je možné načítať zoznam zmien</string>
     <string name="changelog_unknown">Neznáma</string>
     <string name="changelog_version">Verzia</string>
+    <string name="changelog_time_today">Dnes</string>
+    <string name="changelog_time_yesterday">Včera</string>
+    <string name="changelog_time_2_days">Pred dvoma dňami</string>
+    <string name="changelog_time_3_days">Pred troma dňami</string>
+    <string name="changelog_time_4_days">Pred štyrmi dňami</string>
+    <string name="changelog_time_5_days">Pred piatimi dňami</string>
     <!--RR Configurations-->
     <string name="fab_updates">Aktualizácie</string>
     <string name="fab_restartui">Reštartovať UI</string>
@@ -202,12 +240,23 @@
     <string name="network_traffic_state_summary">Zobraziť monitor sieťovej prevádzky v stavovom riadku</string>
     <string name="network_traffic_autohide_threshold_title">Skryť pri rýchlosti dát (KB/s)</string>
     <!-- On-The-Go -->
+    <string name="global_actions_onthego_summary">Pridať režim na cestách do menu napájania</string>
     <!-- Battery stats reset -->
     <string name="battery_stats_reset">Resetovať štatistiky</string>
     <string name="battery_stats_message">Chystáte sa vymazať históriu štatistiky batérie</string>
     <string name="ok_string">Ok</string>
     <!-- Status Bar Ticker -->
+    <string name="ticker_screen_title">Notifikačné upozornenie</string>
+    <string name="ticker_title">Upozornenia v stavovom riadku</string>
+    <string name="ticker_summary">Povoliť starý text upozornení v stavovom riadku</string>
     <!-- Statusbar ticker -->
+    <string name="status_bar_ticker_title">Text upozornenia</string>
+    <string name="status_bar_show_ticker_title">Text upozornenia</string>
+    <string name="status_bar_show_ticker_summary">Náhľad upozornenia v stavovom riadku</string>
+    <string name="ticker_animation_mode_title">Animácia textu upozonenia</string>
+    <string name="ticker_animation_mode_alpha_fade">Miznutie</string>
+    <string name="ticker_animation_mode_scroll">Rolovanie</string>
+    <string name="ticker_tick_duration_title">Časový interval zobrazenia textu upozornenia</string>
     <!-- Notifications while screen on -->
     <string name="notification_sound_vib_screen_on_summary">Prehrávanie zvuku a vibrácie pre upozornenia, keď je obrazovka zapnutá</string>
     <!-- Power menu on lockscreen -->
@@ -217,6 +266,15 @@
     <string name="lockscreen_charging_current_title">Informácie o nabíjaní</string>
     <string name="lockscreen_charging_current_summary">Zobraziť maximálny prúd a napätie pri nabíjaní na obrazovke uzamknutia</string>
     <!-- Heads up -->
+    <string name="heads_up_title">Povoliť plávajúce upozornenia</string>
+    <string name="heads_up_summary_enabled">Plávajúce upozornenia sú povolené</string>
+    <string name="heads_up_summary_disabled">Plávajúce upozornenia sú zakázané</string>
+    <string name="heads_up_blacklist_add_package_title">Pridať aplikáciu</string>
+    <string name="heads_up_blacklist_add_package_summary">Zakázať plávajúce upozornenia z týchto aplikácií</string>
+    <string name="heads_up_blacklist_title">Čierna listina</string>
+    <string name="heads_up_blacklist_choose_app">Vybrať aplikáciu</string>
+    <string name="heads_up_blacklist_dialog_delete_title">Vymazať</string>
+    <string name="heads_up_blacklist_dialog_delete_message">Vymazať vybranú položku?</string>
     <string name="heads_up_time_out_title">Časový limit</string>
     <string name="heads_up_time_out_summary">Upozornenia budú zobrazované <xliff:g id="number">%d</xliff:g> sekúnd</string>
     <string name="heads_up_time_out_2sec">2 sekundy</string>
@@ -235,7 +293,10 @@
     <string name="heads_up_snooze_15min">15 minút</string>
     <string name="heads_up_snooze_20min">20 minút</string>
     <!-- Fingerprint authentication vibration -->
+    <string name="fprint_sucess_vib_title">Vibrovať pri overení odtlačku prsta</string>
+    <string name="fprint_sucess_vib_summary">Vibrovať pri úspešnom odtlačku prsta</string>
     <!-- QS quick pulldown using fpc -->
+    <string name="status_bar_quick_qs_pulldown_fp_title">Rýchle posunutie po snímači odtlačkov prstov</string>
     <!-- QuickSettings haptic feedback -->
     <string name="quick_settings_vibrate_title">Vibrácia pri dotyku</string>
     <string name="quick_settings_vibrate_summary">Vibrovať pri kliknutí na ikonu rýchlych nastavení</string>
@@ -453,4 +514,9 @@
     <!-- Lock Clock Fonts -->
     <!-- Lock Date Fonts -->
     <!-- Lock Clock & Date Size -->
+    <!-- ScreenRecord Shortcut -->
+    <!-- ScreenShot Shortcut -->
+    <!-- Blink flashlight for incoming calls -->
+    <!-- Wakelock blocker -->
+    <!-- Alarm blocker -->
 </resources>

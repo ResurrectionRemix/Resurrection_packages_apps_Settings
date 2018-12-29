@@ -115,8 +115,6 @@
     <string name="rr">Enlaces</string>
     <string name="rr_website_title">Sitio web</string>
     <string name="rr_website_summary">Conseguír más información sobre Resurrection Remix OS</string>
-    <string name="rr_forum_title">Foro</string>
-    <string name="rr_forum_summary">Únete al foro de Resurrection</string>
     <string name="rr_source_title">GitHub</string>
     <string name="rr_source_summary">Fuentes de Resurrection Remix OS</string>
     <string name="rr_facebook_title">Facebook</string>
@@ -135,15 +133,6 @@
     <string name="rr_ls_ui">Bloquear Interfaz de Usuario</string>
     <string name="rr_ls_security">Seguridad</string>
     <string name="updater_title">Actualizaciones</string>
-    <string name="altankrk_summary">● CO-Fundador \n● Desarrollador principal \n● Diseñador de UX \n● Encargado de mantenimiento</string>
-    <string name="varun_summary">● Desarrollador principal \n● Diseñador de UX \n● Encargado de mantenimiento</string>
-    <string name="andres_summary">● Desarrollador \n● Encargado de mantenimiento</string>
-    <string name="akhil_summary">● Desarrollador \n● Encargado de mantenimiento\n● Maestro de scripts</string>
-    <string name="brian_summary">● Desarrollador \n● Encargado de mantenimiento</string>
-    <string name="christopher_kardas_summary">● Moderador\n● Editor\n● Colaborador</string>
-    <string name="matt_summary">● Moderador\n● Editor\n● Colaborador</string>
-    <string name="justen_summary">● Moderador\n● Editor\n● Colaborador</string>
-    <string name="mracar_summary">● Desarrollador \n● Encargado de mantenimiento</string>
     <string name="support_team_title">Etiqueta del Moderador</string>
     <string name="device_maintainers_title">Dispositivos y Mantenedores</string>
     <string name="device_maintainers_title_summary">Lista de dispositivos y sus mantenedores de RR-OS oficiales</string>
@@ -168,6 +157,13 @@
     <string name="rr_volume_title">Panel de volumen</string>
     <string name="rr_power_title">Diálogo de apagado</string>
     <string name="rr_lockscreen_target_title">Accesos directos en la parte inferior</string>
+    <string name="power_menu_screenshot_title">Captura de pantalla</string>
+    <string name="power_menu_screenshot_summary">Pulsación larga para captura de pantalla parcial</string>
+    <string name="power_menu_airplane_title">Modo avión</string>
+    <string name="power_menu_users_title">Selector de usuario</string>
+    <string name="power_menu_bug_report_title">Reporte de error</string>
+    <string name="power_menu_bug_report_disabled">El reporte de bugs esta desactivado en las configuraciónes de Desarrollador</string>
+    <string name="power_menu_lockdown_title">Bloqueo</string>
     <!-- About phone screen, RR version -->
     <string name="rr_version">Versión de Resurrection Remix</string>
     <string name="rr_version_default">Desconocido</string>
@@ -209,6 +205,7 @@ https://plus.google.com/communities/109352646351468373340</string>
     <string name="rr_reset_yes">Sí</string>
     <string name="rr_reset_cancel">Cancelar</string>
     <string name="rr_category_title">Personalización</string>
+    <string name="rr_title">Herramientas de Resurrection</string>
     <string name="rr_config_main_title">RR-OS</string>
     <string name="rr_ota_fab_title">Mostrar botón flotante</string>
     <string name="rr_ota_fab_summary">Activar/Desactivar para mostrar/ocultar botón flotante en configuraciones. Entrar/Salir cuando sea usado el interruptor</string>
@@ -292,6 +289,8 @@ https://plus.google.com/communities/109352646351468373340</string>
     <string name="headset_connect_player_both_no_carkit">Cuando están conectados auriculares con cable o Bluetooth (no hay kit de coche)</string>
     <string name="headset_connect_player_both">Cuando están conectados auriculares con cable o Bluetooth</string>
     <!-- On-The-Go -->
+    <string name="global_actions_onthego_title">On-The-Go</string>
+    <string name="global_actions_onthego_summary">Añadir On-The-Go al menú de apagado</string>
     <!-- Battery stats reset -->
     <string name="battery_stats_reset">Reiniciar estadísticas</string>
     <string name="battery_stats_message">Las estadísticas de la batería se van a restablecer</string>
@@ -301,8 +300,13 @@ https://plus.google.com/communities/109352646351468373340</string>
     <string name="ticker_title">Ticker de barra de estado</string>
     <string name="ticker_summary">Habilita el antiguo ticker en la barra de estado</string>
     <!-- Statusbar ticker -->
+    <string name="status_bar_ticker_title">Texto de notificación en barra de estado</string>
+    <string name="status_bar_show_ticker_title">Etiqueta</string>
+    <string name="status_bar_show_ticker_summary">Pre-Visualización de la Notificación en la Barra de Estado</string>
+    <string name="ticker_animation_mode_title">Animación del Ticker</string>
     <string name="ticker_animation_mode_alpha_fade">Ocultar</string>
     <string name="ticker_animation_mode_scroll">Desplazamiento</string>
+    <string name="ticker_tick_duration_title">Duración Ticker</string>
     <!-- Notifications while screen on -->
     <string name="notification_sound_vib_screen_on_summary">Reproducir sonido y vibrar al recibir notificaciones cuando la pantalla está encendida</string>
     <!-- Power menu on lockscreen -->
@@ -440,11 +444,29 @@ https://plus.google.com/communities/109352646351468373340</string>
     <!-- Carrier Label -->
     <string name="carrier_options">Seleccione la posición de visualización</string>
     <string name="custom_carrier_label_title">Nombre de operador personalizado</string>
+    <string name="custom_carrier_label_explain">Introduce una nueva etiqueta. Déjala en blanco para volver a la etiqueta por defecto.</string>
     <string name="custom_carrier_label_notset">Actualmente no se ha establecido una etiqueta personalizada</string>
     <string name="show_carrier_title">Nombre del operador</string>
     <string name="show_carrier_disabled">Desactivado</string>
+    <string name="show_carrier_keyguard">Sólo en la pantalla de bloqueo</string>
+    <string name="show_carrier_statusbar">Sólo en la barra de estado</string>
+    <string name="show_carrier_enabled">Pantalla de bloqueo y barra de estado</string>
     <!-- Battery bar -->
     <string name="battery_bar_title">Barra de la batería</string>
+    <string name="battery_bar_summary">Click para las Opciones de la Barra de Batería</string>
+    <string name="battery_bar_location_title">Ubicación</string>
+    <string name="battery_bar_location_statusbar_top">Encima de la barra de estado</string>
+    <string name="battery_bar_location_statusbar_bottom">Bajo la barra de estado</string>
+    <string name="battery_bar_location_navbar_top">Sobre la barra de navegación</string>
+    <string name="battery_bar_location_navbar_bottom">Bajo la barra de navegación</string>
+    <string name="battery_bar_color_title">Color de la luz</string>
+    <string name="battery_bar_color_summary">Gama de colores en la barra de estado oscura</string>
+    <string name="battery_bar_dark_color_title">Colores Oscuros</string>
+    <string name="battery_bar_dark_color_summary">Gama de colores en la barra de estado clara</string>
+    <string name="battery_bar_charging_color_title">El color del indicador de carga</string>
+    <string name="battery_bar_charging_color_summary">Color de carga usado en la barra de estado oscura</string>
+    <string name="battery_bar_charging_dark_color_title">Color de carga oscuro</string>
+    <string name="battery_bar_charging_dark_color_summary">Color de carga usado en la barra de estado clara</string>
     <string name="battery_bar_style_title">Posición</string>
     <string name="battery_bar_thickness_title">Grosor</string>
     <string name="battery_bar_animate_title">Animación de carga</string>
@@ -452,6 +474,9 @@ https://plus.google.com/communities/109352646351468373340</string>
     <string name="battery_bar_style_center_mirrored">Centrado-reflejado</string>
     <string name="battery_bar_style_reversed">Revertido</string>
     <string name="battery_bar_use_charging_color_title">Personalizar el color de la barra de batería</string>
+    <string name="battery_blend_start">Vacio</string>
+    <string name="battery_blend_end">Completo</string>
+    <string name="battery_blend_between">Entre</string>
     <!--RR Configurations Summaries-->
     <string name="status_bar_clock_summary">Personalizar varios elementos del reloj de la barra de estado </string>
     <string name="status_bar_logo_summary">Activar o desactivar el logo de Resurrection en la barra de estado. Personaliza sus elementos y posición</string>
@@ -474,6 +499,7 @@ https://plus.google.com/communities/109352646351468373340</string>
     <string name="rr_qs_pulldown_summary">Ajustes del panel desplegable rápido</string>
     <string name="qs_tile_layout_summary">Personalizar diseño de ajustes rápidos</string>
     <string name="qs_advanced_summary">Personalización de ajustes rápidos</string>
+    <string name="rr_ls_gesture_summary">Elgie varios gestos relacionados con la pantalla de bloqueo</string>
     <string name="rr_ls_ui_summary">Activa, desactiva y personaliza varios elementos de la pantalla de bloqueo</string>
     <string name="lockscreen_targets_summary">Personaliza los accesos directos inferior izquierdo y derecho de la pantalla de bloqueo</string>
     <string name="lockscreen_weather_summary">Personaliza el diseño del clima en la pantalla de bloqueo</string>
@@ -518,6 +544,13 @@ https://plus.google.com/communities/109352646351468373340</string>
     <string name="hex_hint">#ff000000</string>
     <string name="set">Establecer</string>
     <string name="color_default">Predeterminado</string>
+    <string name="color_blend_ok">@android:string/ok</string>
+    <string name="color_blend_cancel">@android:string/cancel</string>
+    <string name="color_blend_reset">Reiniciar</string>
+    <string name="color_blend_preview">Vista previa: %1$d%%</string>
+    <string name="color_preview_start">Iniciar</string>
+    <string name="color_preview_end">Final</string>
+    <string name="color_preview_between">Entre</string>
     <!-- Sensor block per-package -->
     <string name="sensor_block_title">Bloqueo de sensor por paquete</string>
     <string name="sensor_block_summary">Bloquea el acceso a ciertos sensores de algunas aplicaciones para ahorrar batería.</string>
@@ -736,9 +769,12 @@ puede instalar nuevos paquetes de iconos desde la play store buscando \"Chronus 
     <string name="navbar_interface_title">Interfaz</string>
     <string name="navbar_size">Tamaño de la barra</string>
     <string name="navbar_mode">Modo de navegación</string>
+    <string name="navbar_mode_summary">Seleccione el modo de navegación para el dispositivo</string>
+    <string name="navbar_visibility">Activar la barra de navegación</string>
     <string name="navigationbar_settings_summary">Personalizar el estilo y comportamiento de la barra de navegación</string>
     <string name="navbar_general_title">Avanzada</string>
     <string name="navigation_bar_left_title">Modo para zurdos</string>
+    <string name="navigation_bar_left_summary">Situar la barra de navegación a la izquierda de la pantalla en el modo apaisado</string>
     <string name="smartbar_interface">SmartBar</string>
     <string name="icon_pack_picker_dialog_title">Paquetes de iconos</string>
     <string name="image_exceeds_max_allowed_size">La imagen no debe superar los 512 x 512</string>
@@ -756,15 +792,40 @@ puede instalar nuevos paquetes de iconos desde la play store buscando \"Chronus 
     <string name="action_entry_custom_action">Seleccione acción personalizada</string>
     <!-- Fling -->
     <string name="fling_settings">Ajustes de Fling</string>
+    <string name="fling_settings_summary">Una barra de navegación única, basada en gestos y completamente personalizable</string>
     <string name="fling_interface">Fling</string>
     <string name="fling_enable_title">Activar Fling</string>
+    <string name="fling_back_home_policy">Atrás e Inicio deben estar definidos siempre. Para cambiar las acciones de Atrás e Inicio seleccione las acciones deseadas primero.\n\nSi se habilitan las acciones de doble toque se puede producir un pequeño retardo en las acciones de un solo toque.</string>
+    <string name="fling_split_bar_policy">Configurar acciones sólo a derecha/izquierda dividirá el área de toque a lo largo de toda la barra.</string>
     <string name="fling_def_summary">Ninguna acción seleccionada</string>
     <string name="fling_swipe_actions">Gestos de deslizamiento</string>
     <string name="fling_tap_actions">Gestos al tocar</string>
+    <string name="fling_short_swipe_right">Deslizamiento corto a la derecha</string>
+    <string name="fling_short_swipe_left">Deslizamiento corto a la izquierda</string>
+    <string name="fling_long_swipe_right">Deslizamiento largo a la derecha</string>
+    <string name="fling_long_swipe_left">Deslizamiento largo a la izquierda</string>
+    <string name="fling_right_up_swipe">Deslizar arriba en la derecha</string>
+    <string name="fling_left_up_swipe">Deslizar arriba en la izquierda</string>
+    <string name="fling_single_tap">Un toque en la derecha</string>
+    <string name="fling_double_tap">Doble toque en la derecha</string>
+    <string name="fling_long_press">Pulsación larga en la derecha</string>
+    <string name="fling_single_left_tap">Un toque en la izquierda</string>
+    <string name="fling_double_left_tap">Doble toque en la izquierda</string>
+    <string name="fling_long_left_press">Pulsación larga en la izquierda</string>
     <string name="long_swipe_portrait_title">Vertical</string>
     <string name="long_swipe_landscape_title">Horizontal</string>
+    <string name="portrait_right_swipe_title">Deslizamiento a la derecha en modo vertical</string>
+    <string name="portrait_left_swipe_title">Deslizamiento a la izquierda en modo vertical</string>
+    <string name="landscape_right_swipe_title">Deslizar a la derecha en modo apaisado</string>
+    <string name="landscape_left_swipe_title">Deslizar a la izquierda en modo apaisado</string>
+    <string name="vertical_up_swipe_title">Deslizar hacia arriba en vertical</string>
+    <string name="vertical_down_swipe_title">Deslizar verticalmente hacia abajo</string>
+    <string name="up_swipe_title">Deslizar hacia arriba</string>
+    <string name="down_swipe_title">Deslizar hacia abajo</string>
     <string name="long_swipe_reset">Reiniciar</string>
     <string name="fling_advanced">Avanzado</string>
+    <string name="fling_long_swipe_title">Umbral de deslizamiento largo</string>
+    <string name="fling_long_swipe_summary">El ajuste del umbral se basa en el porcentaje de la anchura y altura del área de la interfaz Fling</string>
     <string name="fling_trails_enable_title">Habilitar rutas de gesto</string>
     <string name="fling_trails_enable_summary">Mostrar el camino en gestos de deslizamiento</string>
     <string name="fling_trails_color_title">Color de Estela</string>
@@ -782,7 +843,10 @@ puede instalar nuevos paquetes de iconos desde la play store buscando \"Chronus 
     <string name="fling_ripple_color">Color de onda</string>
     <string name="fling_longpress_timeout_label_left">Menos retardo</string>
     <string name="fling_longpress_timeout_label_right">Más retardo</string>
+    <string name="fling_longpress_title">Retraso en pulsación larga</string>
+    <string name="fling_longpress_summary">Ajustar el umbral de tiempo para la ejecución de acciones de pulsación larga</string>
     <string name="fling_keyboard_cursors_title">Acción del cursor de teclado dinámico</string>
+    <string name="fling_keyboard_cursors_summary">Las acciones de doble toque a la izquierda y a la derecha se convierten en acciones de cursor a la izquierda y derecha del teclado si el teclado está abierto</string>
     <string name="fling_logo_opacity_title">Opacidad del logo de Fling</string>
     <string name="fling_factory_reset_title">Restablecer a valores por defecto</string>
     <string name="fling_factory_reset_confirm">¿Está seguro de que desea restablecer Fling a los valores predeterminados?</string>
@@ -833,17 +897,26 @@ puede instalar nuevos paquetes de iconos desde la play store buscando \"Chronus 
     <!-- SmartBar -->
     <string name="smartbar_category">SmartBar</string>
     <string name="smartbar_settings_title">Ajustes de SmartBar</string>
+    <string name="smartbar_settings_summary">Barra de navegación totalmente personalizable</string>
     <string name="smartbar_editor_title">Iniciar el modo de edición</string>
     <string name="smartbar_editor_summary">Abre el editor de botones de la barra inteligente</string>
+    <string name="smartbar_help_policy_notice_summary">El menú se mostrará pulsando de forma prolongada cualquier botón. Un toque corto en cualquier botón inicia la opción de arrastrar el botón para ordenarlo.\n\nSi se habilitan las acciones de doble toque se producirá un leve retardo de las acciones de un solo toque.</string>
+    <string name="smartbar_context_menu_position_title">Posición de botones contextuales</string>
+    <string name="smartbar_context_menu_position_summary">Establecer la posición de los botones contextuales (menú, selector de teclado, etc)</string>
     <string name="smartbar_right">Derecha</string>
     <string name="smartbar_left">Izquierda</string>
     <string name="smartbar_button_animation_title">Animación de botón táctil</string>
+    <string name="smartbar_button_animation_summary">Definir el estilo de animación de los botones primarios al pulsarlos</string>
     <string name="smartbar_button_animation_ripple">Onda</string>
     <string name="smartbar_button_animation_spring">Primavera</string>
     <string name="smartbar_button_animation_flip">Dar la vuelta</string>
+    <string name="smartbar_button_animation_pixel">Pixel</string>
+    <string name="smartbar_button_animation_pixel_home">Pixel (botón de inicio)</string>
+    <string name="smartbar_button_animation_pixel_home_ripple">Ondulación y Pixel (botón de inicio)</string>
     <string name="smartbar_factory_reset_title">Restablecer a valores por defecto</string>
     <string name="smartbar_factory_reset_confirm">¿Está seguro que desea restablecer Smartbar a los valores por defecto?</string>
     <string name="smartbar_ime_action_title">Acciones de media y método de entrada</string>
+    <string name="smartbar_ime_action_summary">Elegir qué botones mostrar con teclado en pantalla y escuchando música</string>
     <string name="smartbar_ime_action_none">Ninguna</string>
     <string name="smartbar_ime_action_arrows">Flechas de entrada</string>
     <string name="smartbar_ime_action_switcher">Selector de teclado</string>
@@ -858,10 +931,16 @@ puede instalar nuevos paquetes de iconos desde la play store buscando \"Chronus 
     <string name="smartbar_config_backup_error_toast">Error al guardar el perfil de Smartbar</string>
     <string name="smartbar_config_restore_error_toast">Error restaurando el perfil de Smartbar</string>
     <string name="navbar_buttons_alpha_title">Transparencia del botón</string>
+    <string name="smartbar_longpress_delay_title">Tiempo de espera de pulsación larga</string>
+    <string name="smartbar_longpress_delay_summary">Ajustar el umbral de la acción de la pulsación larga</string>
     <string name="smartbar_longpress_delay_default">Retraso predeterminado (rápido)</string>
     <string name="smartbar_longpress_delay_normal">Retraso normal</string>
     <string name="smartbar_longpress_delay_long">Retraso largo</string>
     <string name="smartbar_custom_icon_size_title">Escala perzonalizada de iconos</string>
+    <string name="one_handed_mode_title">Modo a una mano</string>
+    <string name="one_handed_mode_summary">Permitir deslizar en la barra de navegación para activar el modo a una mano</string>
+    <string name="smartbar_double_tap_sleep_title">Doble toque para dormir</string>
+    <string name="smartbar_double_tap_sleep_summary">Toca dos veces las áreas vacías de la barra de navegación para dormir</string>
     <!-- SystemUI theme -->
     <string name="systemui_theme_style_title">Tema</string>
     <string name="systemui_theme_style_auto">Automático (basado en el fondo de pantalla)</string>
@@ -1771,6 +1850,7 @@ puede instalar nuevos paquetes de iconos desde la play store buscando \"Chronus 
     <string name="notification_guts_kill_app_button_title">Botón de detener aplicación</string>
     <string name="notification_guts_kill_app_button_summary">Muestra un botón para detener la aplicación en el menú que aparece al realizar una pulsación larga sobre una notificación</string>
     <!-- Smart Pixels -->
+    <string name="smart_pixels_warning_text">Smart Pixels es una opción de ahorro de batería. Dependiendo cuantos pixeles tu decidas apagar, deberias ver una mejora en la batería.</string>
     <string name="smart_pixels_title">Píxeles inteligentes</string>
     <string name="smart_pixels_summary">Ahorra batería apagando píxeles adicionales</string>
     <string name="smart_pixels_enable_title">Habilitar píxeles inteligentes</string>
@@ -1778,6 +1858,21 @@ puede instalar nuevos paquetes de iconos desde la play store buscando \"Chronus 
     <string name="smart_pixels_on_power_save_title">Activar automáticamente junto con el ahorro de batería</string>
     <string name="smart_pixels_on_power_save_summary">Habilitar Smart Pixels cuando el ahorro de batería está habilitado</string>
     <string name="smart_pixels_percent">Porcentaje de píxeles a desactivar</string>
+    <string name="smart_pixels_shift_title">Protección ante el quemado de pantalla</string>
+    <string name="smart_pixels_shift_summary">Previene el quemado de la pantalla en dispositivos con tecnología OLED alternando píxeles de vez en cuando</string>
+    <string name="interval_entry_disable">Deshabilitado</string>
+    <string name="interval_entry_15s">Cada 15 segundos</string>
+    <string name="interval_entry_30s">Cada 30 segundos</string>
+    <string name="interval_entry_1m">Cada minuto</string>
+    <string name="interval_entry_2m">Cada 2 minutos</string>
+    <string name="interval_entry_5m">Cada 5 minutos</string>
+    <string name="interval_entry_10m">Cada 10 minutos</string>
+    <string name="interval_entry_15m">Cada 15 minutos</string>
+    <string name="interval_entry_20m">Cada 20 minutos</string>
+    <string name="interval_entry_30m">Cada 30 minutos</string>
+    <string name="interval_entry_1h">Cada hora</string>
+    <string name="interval_entry_12h">Cada 12 horas</string>
+    <string name="interval_entry_24h">Cada 24 horas</string>
     <!-- QS footer icons -->
     <string name="qs_footer_services_title">Mostrar el icono de Servicios en ejecución</string>
     <string name="qs_footer_services_summary">Mostrar el icono de Servicios en ejecución en la configuración rápida del pie de página</string>
@@ -1833,7 +1928,20 @@ puede instalar nuevos paquetes de iconos desde la play store buscando \"Chronus 
     <string name="edge_gestures_landscape_back_edges_title">Lanzar gesto de retroceso en posición vertical de</string>
     <string name="edge_gestures_back_screen_percent_title">Gesto de retroceder debe empezar por debajo de este porcentaje de la pantalla</string>
     <string name="edge_gestures_back_screen_percent_summary">Lanzar debajo de cierto porcentaje de pantalla</string>
+    <string name="edge_gestures_back_show_ui_feedback_title">Animación del gesto atrás</string>
+    <string name="edge_gestures_back_show_ui_feedback_summary">Mostrar animación en los bordes cuando se utiliza el gesto atrás</string>
     <!-- Key backlight -->
+    <string name="button_backlight_title">Luz de fondo</string>
+    <string name="button_backlight_enabled">Iluminación de botones</string>
+    <string name="button_backlight_only_when_pressed_title">Iluminar los botones únicamente cuando se presionan</string>
+    <string name="keyboard_backlight_enabled">Iluminar teclado</string>
+    <string name="button_backlight_seekbar_title">Brillo de los botones</string>
+    <string name="keyboard_backlight_seekbar_title">Brillo de teclado</string>
+    <string name="backlight_timeout_title">Tiempo de iluminación</string>
+    <string name="backlight_timeout_unlimited">No apagar</string>
+    <string name="backlight_summary_disabled">Desactivado</string>
+    <string name="backlight_summary_enabled_with_timeout">Habilitado por <xliff:g id="timeout">%s</xliff:g></string>
+    <string name="backlight_summary_enabled">Activado</string>
     <!--SystemUI Tuner -->
     <string name="statusbar_tuner_title">Elementos de la barra de estado</string>
     <string name="statusbar_tuner_summary">Ajustes de batería y de iconos de la barra de estado para desactivar</string>
@@ -1849,11 +1957,48 @@ puede instalar nuevos paquetes de iconos desde la play store buscando \"Chronus 
     <!-- Option defining the phone ringtone for slot1 on Muilti SIM device -->
     <string name="ringtone1_title">Tono de llamada - SIM 1</string>
     <string name="ringtone2_title">Tono de llamada - SIM 2</string>
+    <string name="use_bottom_gesture_title">Gestos de navegación</string>
+    <string name="use_bottom_gesture_summary">Deslice desde abajo hacia arriba para navegar</string>
+    <string name="gesture_settings_info">La barra de navegación debe estar desactivada! \n\nGestos disponibles:\n\nBack\n-Deslizar hacia arriba en el lado izquierdo o derecho\n\nInicio\n- Deslizar hacia arriba y mantener\n\nAps. recientes\n Deslizamiento corto y mantener en el centro\n\nPulsación larga en inicio\n- Deslizamiento corto hacia arriba y mantener en el centro</string>
     <!-- Font picker -->
+    <string name="font_picker_title">Fuente</string>
+    <string name="font_picker_progress">Aplicando nueva fuente\u2026</string>
     <!-- Audio Panel view  -->
+    <string name="audio_panel_view">Panel de Audio</string>
+    <string name="audio_panel_view_media_title">Media</string>
+    <string name="audio_panel_view_ringer_title">Sonido llamada</string>
+    <string name="audio_panel_view_notification_title">Notificación</string>
+    <string name="audio_panel_view_alarm_title">Alarma</string>
+    <string name="audio_panel_view_voice_title">Voz</string>
+    <string name="audio_panel_view_bt_sco_title">Bluetooth</string>
     <!-- Lock Widget -->
+    <string name="ls_widget">Estilo del widget</string>
     <!-- Lock Widget Fonts -->
+    <string name="lock_widget_font_stock">Normal (Por defecto)</string>
+    <string name="lock_widget_font_bold">Negrita</string>
+    <string name="lock_widget_font_italic">Cursiva</string>
+    <string name="lock_widget_font_bold_italic">Negrita Cursiva</string>
+    <string name="lock_widget_font_light_italic">Fina Cursiva</string>
+    <string name="lock_widget_font_thin_italic">Cursiva Delgada</string>
+    <string name="lock_widget_font_light">Claro</string>
+    <string name="lock_widget_font_thin">Delgada</string>
+    <string name="lock_widget_font_condensed_normal">Comprimida</string>
+    <string name="lock_widget_font_condensed_italic">Cursiva comprimida</string>
+    <string name="lock_widget_font_condensed_bold">Negrita Comprimida</string>
+    <string name="lock_widget_font_condensed_bold_italic">Cursiva Negrita Comprimida</string>
+    <string name="lock_widget_font_condensed_light">Clara comprimida</string>
+    <string name="lock_widget_font_condensed_light_italic">Cursiva clara comprimida</string>
+    <string name="lock_widget_font_medium_normal">Mediano</string>
+    <string name="lock_widget_font_medium_italic">Cursiva Mediana</string>
+    <string name="lock_widget_font_black">Negro</string>
+    <string name="lock_widget_font_black_italic">Cursiva Negra</string>
     <!-- Lock Clock Fonts -->
+    <string name="lock_clock_font_title">Estilo de la fuente del reloj</string>
     <!-- Lock Date Fonts -->
     <!-- Lock Clock & Date Size -->
+    <!-- ScreenRecord Shortcut -->
+    <!-- ScreenShot Shortcut -->
+    <!-- Blink flashlight for incoming calls -->
+    <!-- Wakelock blocker -->
+    <!-- Alarm blocker -->
 </resources>
