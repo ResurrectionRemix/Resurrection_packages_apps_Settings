@@ -46,19 +46,6 @@ public class AnimBarPreference extends Preference
         super(context, attrs);
     }
 
-    @Override
-    protected View onCreateView(ViewGroup parent) {
-        mContext = getContext();
-        View layout = View.inflate(mContext, R.layout.slider_preference, null);
-
-        monitorBox = (TextView) layout.findViewById(R.id.monitor_box);
-        bar = (SeekBar) layout.findViewById(R.id.seek_bar);
-        bar.setOnSeekBarChangeListener(this);
-        bar.setProgress(defaultValue);
-
-        return layout;
-    }
-
     public void setInitValue(int progress) {
         defaultValue = progress;
     }

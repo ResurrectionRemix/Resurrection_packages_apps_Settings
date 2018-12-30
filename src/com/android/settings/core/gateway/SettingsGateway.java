@@ -143,7 +143,7 @@ import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.MainSettingsLayout;
 import com.android.settings.rr.About;
 import com.android.settings.rr.fragments.PieSettings;
-import com.android.settings.rr.PowerMenuSettings;
+import com.android.settings.rr.PowerMenuActions;
 
 import com.android.settings.smartnav.*;
 
@@ -285,7 +285,7 @@ public class SettingsGateway {
             PieSettings.class.getName(),
             OmniJawsSettings.class.getName(),
             LockscreenItemSettings.class.getName(),
-	    PowerMenuSettings.class.getName(),
+	    PowerMenuActions.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
