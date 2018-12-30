@@ -19,36 +19,51 @@
     android:key="power_menu"
     android:title="@string/rr_power_title">
 
-    <CheckBoxPreference
-        android:key="screenshot"
-        android:title="@string/power_menu_screenshot_title"
-        android:summary="@string/power_menu_screenshot_summary"
-        android:defaultValue="false" />
-
-    <CheckBoxPreference
-        android:key="airplane"
-        android:title="@string/power_menu_airplane_title"
-        android:defaultValue="false" />
-
-    <CheckBoxPreference
-        android:key="users"
-        android:title="@string/power_menu_users_title"
-        android:defaultValue="false" />
-
-    <CheckBoxPreference
-        android:key="bugreport"
-        android:title="@string/power_menu_bug_report_title"
-        android:defaultValue="false" />
-
-    <CheckBoxPreference
-        android:key="lockdown"
-        android:title="@string/power_menu_lockdown_title"
-        android:defaultValue="false" />
-
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="global_actions_power"
+        android:title="@string/global_actions_power"
+        android:defaultValue="true" />
      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="global_actions_onthego"
-        android:title="@string/global_actions_onthego_title"
-        android:summary="@string/global_actions_onthego_summary"
+        android:key="global_actions_restart"
+        android:title="@string/global_actions_restart"
+        android:defaultValue="true" />
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="global_actions_screenshot"
+        android:title="@string/global_actions_screenshot"
         android:defaultValue="false" />
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="global_actions_screenrecord"
+        android:title="@string/global_actions_screenrecord"
+        android:defaultValue="false" />
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="global_actions_airplane"
+        android:title="@string/global_actions_airplane"
+        android:defaultValue="false" />
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="global_actions_settings"
+        android:title="@string/global_actions_settings"
+        android:defaultValue="false" />
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="global_actions_lockdown"
+        android:title="@string/global_actions_lockdown"
+        android:defaultValue="false" />
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="global_actions_flashlight"
+        android:title="@string/global_actions_flashlight"
+        android:defaultValue="false" />
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="global_actions_soundpanel"
+        android:title="@string/global_actions_soundpanel"
+        android:defaultValue="false" />
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="global_actions_users"
+        android:title="@string/global_actions_users"
+        android:defaultValue="false" />
+
+    <com.rr.settings.preferences.SecureSettingSwitchPreference
+        android:key="advanced_reboot"
+        android:title="@string/global_actions_advanced_reboot_title"
+        android:summary="@string/global_actions_advanced_reboot_summary"
+        android:defaultValue="true" />
 
 </PreferenceScreen>
