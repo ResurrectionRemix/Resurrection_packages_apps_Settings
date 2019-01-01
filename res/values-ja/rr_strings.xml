@@ -116,6 +116,7 @@
     <string name="rr_website_title">ウェブサイト</string>
     <string name="rr_website_summary">Resurrection Remix OSの詳細情報を得る</string>
     <string name="rr_telegram_title">Telegram</string>
+    <string name="rr_telegram_summary">Telegram での話題のチャット</string>
     <string name="rr_source_title">GitHub</string>
     <string name="rr_source_summary">Resurrection Remix OS ソースコード</string>
     <string name="rr_facebook_title">Facebook</string>
@@ -134,6 +135,14 @@
     <string name="rr_ls_ui">UIをロック</string>
     <string name="rr_ls_security">セキュリティ</string>
     <string name="updater_title">アップデート</string>
+    <string name="altankrk_summary">• 共同創設者\n• 頭開発者\n• UX デザイナー\n• メンテナー</string>
+    <string name="varun_summary">• 主開発者\n• UX デザイナー\n• メンテナー</string>
+    <string name="andres_summary">• 開発者 \n• メンテナー</string>
+    <string name="akhil_summary">• 開発者\n• メンテナー\n• スクリプトマスター</string>
+    <string name="brian_summary">• 開発者 \n• メンテナー</string>
+    <string name="matt_summary">• モデレーター\n• 編集者\n• コントリビューター</string>
+    <string name="justen_summary">• モデレーター\n• 編集者\n• コントリビューター</string>
+    <string name="mracar_summary">• 開発者 \n• メンテナー</string>
     <string name="support_team_title">モデレータータグ</string>
     <string name="device_maintainers_title">端末とメンテナー</string>
     <string name="device_maintainers_title_summary">端末の一覧と公式 RR-OS メンテナー</string>
@@ -206,6 +215,7 @@
     <string name="rr_reset_cancel">キャンセル</string>
     <string name="rr_category_title">個人設定</string>
     <string name="rr_title">Resurrection Remix ツール</string>
+    <string name="rr_title_summary">カスタマイズと機能</string>
     <string name="rr_config_main_title">RR-OS</string>
     <string name="rr_ota_fab_title">フローティングボタンの表示</string>
     <string name="rr_ota_fab_summary">高度な設定内のフローティングボタンを切り替えます。切り替えると高度な設定を再起動します。</string>
@@ -526,6 +536,7 @@
     <string name="rr_np_summary">通知パネルの様々な要素を編集する</string>
     <string name="rr_density_summary">画面の密度を編集して画面を限界の解像度に合わせる</string>
     <string name="rr_fonts_summary">好みのフォントサイズを選択する</string>
+    <string name="rr_fonts_style_summary">好みのフォントを選択する</string>
     <string name="stock_recents_category">標準のアプリ履歴</string>
     <string name="edge_gestures_summary">エッジジェスチャーを使って操作する</string>
     <!-- QS rows and columns -->
@@ -717,16 +728,174 @@
     <string name="slim_recents_mem_display_text_color">メモリバーのテキストの色</string>
     <!-- Power Menu on Lock screen -->
     <string name="powermenu_category_other">その他</string>
+    <string name="powermenu_lockscreen_title">ロック画面の表示</string>
+    <string name="powermenu_lockscreen_summary">ロック画面で電源メニューの表示と使用を可能にする</string>
     <!-- Disable QS on secure Lockscreen -->
+    <string name="lockscreen_qs_disabled_title">ロック時にクイック設定を無効化</string>
+    <string name="lockscreen_qs_disabled_summary">保護されたロック画面でクイック設定タイルを無効化する</string>
+    <string name="torch_long_press_power_gesture_title">長押しでライト点灯</string>
+    <string name="torch_long_press_power_gesture_desc">画面オフ時に電源ボタンを長押しでライトを点灯する</string>
+    <string name="torch_long_press_power_timeout_title">ライトを自動的にオフ</string>
+    <string name="volbtn_music_controls_title">再生の制御</string>
+    <string name="volbtn_music_controls_summary">画面オフ時に音量ボタンを長押しで音楽を操作する</string>
+    <string name="volbtn_cursor_control_title">キーボードのカーソル制御</string>
+    <string name="volbtn_cursor_control_off">無効</string>
+    <string name="volbtn_cursor_control_on">音量の上/下ボタンでカーソルを左/右に移動する</string>
+    <string name="volbtn_cursor_control_on_reverse">音量の上/下ボタンでカーソルを右/左に移動する</string>
+    <string name="power_end_call_title">通話を終了</string>
+    <string name="power_end_call_summary">電源ボタンを押して現在の通話を終了する</string>
+    <string name="swap_volume_buttons_title">再配置</string>
+    <string name="swap_volume_buttons_summary">画面回転時に音量ボタンを入れ替える</string>
+    <string name="button_wake_title">スリープ解除</string>
+    <string name="volume_answer_call_title">着信に応答</string>
+    <string name="volume_answer_call_summary">音量ボタンで着信に応答する</string>
+    <string name="home_answer_call_title">着信に応答</string>
+    <string name="home_answer_call_summary">ホームボタンを押して着信に応答する</string>
+    <string name="extras_title">その他</string>
+    <string name="hardware_keys_power_key_title">電源ボタン</string>
+    <string name="additional_buttons_title">追加のボタン</string>
+    <string name="torch_long_press_power_timeout_never">なし</string>
+    <string name="torch_long_press_power_timeout_1min">1分</string>
+    <string name="torch_long_press_power_timeout_2min">2分</string>
+    <string name="torch_long_press_power_timeout_5min">5分</string>
+    <string name="torch_long_press_power_timeout_10min">10分</string>
+    <string name="volume_keys_control_ring_stream_title">着信音量の制御</string>
+    <string name="volume_keys_control_ring_stream_summary_on">音量ボタンで着信音量を制御する</string>
+    <string name="volume_keys_control_ring_stream_summary_off">音量ボタンでメディア音量を制御する</string>
     <!-- StatusBar weather settings -->
+    <string name="rr_weather_title">ステータスバー上の天気</string>
+    <string name="statusbar_weather_title">ステータスバー上の天気</string>
+    <string name="statusbar_weather_summary">クイック設定/天気から設定する</string>
+    <string name="statusbar_weather_dialog_title">ステータスバー上の天気のスタイル</string>
+    <string name="status_bar_weather_hidden">天気を非表示</string>
+    <string name="status_bar_temperature_image_show_scale">単位と画像付きで温度を表示</string>
+    <string name="status_bar_temperature_image_hide_scale">単位と画像なしで温度を表示</string>
+    <string name="status_bar_temperature_show_scale_hide_image">単位付きで温度を表示</string>
+    <string name="status_bar_temperature_hide_scale_hide_image">単位なしで温度を表示</string>
+    <string name="status_bar_show_image">画像を表示</string>
     <!-- DUI -->
     <!-- SmartNav -->
     <string name="bottom_nav_navigation_title">ナビゲーション</string>
+    <string name="navbar_interface_title">インターフェース</string>
+    <string name="navbar_size">バーのサイズ</string>
+    <string name="navbar_mode">ナビゲーションモード</string>
+    <string name="navbar_mode_summary">端末のナビゲーションモードを選択する</string>
+    <string name="navbar_visibility">ナビゲーションバーを有効化</string>
+    <string name="navigationbar_settings_summary">ナビゲーションのスタイルと動作を編集する</string>
+    <string name="navbar_general_title">高度な設定</string>
+    <string name="navigation_bar_left_title">左利きモード</string>
+    <string name="navigation_bar_left_summary">画面が横向きの際にナビゲーションバーを画面の左側に配置する</string>
+    <string name="smartbar_interface">スマートバー</string>
+    <string name="icon_pack_picker_dialog_title">アイコンパック</string>
+    <string name="image_exceeds_max_allowed_size">画像は 512x512 を超えてはなりません</string>
     <string name="invalid_icon_from_uri">コンテンツプロバイダーから画像を読み込めません</string>
+    <string name="picker_activities">アクティビティ</string>
+    <string name="select_custom_app_title">カスタムアプリを選択</string>
+    <string name="select_custom_activity_title">カスタムアクティビティを選択</string>
+    <string name="profile_applist_title">アプリ</string>
+    <string name="default_settings">標準の設定</string>
+    <string name="default_settings_summary">標準AOSPのナビゲーションバー</string>
     <!-- Actions dialog and default task values set in ActionPreference xml-->
+    <string name="choose_action_title">アクションを選択</string>
+    <string name="action_entry_default_action">既定の設定</string>
+    <string name="action_entry_select_app">アプリの選択</string>
+    <string name="action_entry_custom_action">カスタムアクションを選択</string>
     <!-- Fling -->
+    <string name="fling_settings">Flingの設定</string>
+    <string name="fling_settings_summary">ユニークで完全に編集可能なジェスチャーベースのナビゲーションバー</string>
+    <string name="fling_interface">Fling</string>
+    <string name="fling_enable_title">Flingの有効化</string>
+    <string name="fling_back_home_policy">バックとホームは常に設定しなければなりません。バックやホームの割り当てを変更するにはまず最初にホックとホームを希望の割り当てに設定してください。\n\nダブルタップアクションの有効化はシングルタップの反応を少々遅延させます。</string>
+    <string name="fling_split_bar_policy">左右のみのアクションの設定はバー全体の間をのタッチ範囲を左右に分割します</string>
+    <string name="fling_def_summary">アクションが設定されていません</string>
+    <string name="fling_swipe_actions">スワイプジェスチャー</string>
+    <string name="fling_tap_actions">タップジェスチャー</string>
+    <string name="fling_short_swipe_right">右へ短くスワイプ</string>
+    <string name="fling_short_swipe_left">左へ短くスワイプ</string>
+    <string name="fling_long_swipe_right">右へ長くスワイプ</string>
+    <string name="fling_long_swipe_left">左へ長くスワイプ</string>
+    <string name="fling_right_up_swipe">右を上にスワイプ</string>
+    <string name="fling_left_up_swipe">左を上にスワイプ</string>
+    <string name="fling_single_tap">右側をシングルタップ</string>
+    <string name="fling_double_tap">右側をダブルタップ</string>
+    <string name="fling_long_press">右側を長押し</string>
+    <string name="fling_single_left_tap">左側をシングルタップ</string>
+    <string name="fling_double_left_tap">左側をダブルタップ</string>
+    <string name="fling_long_left_press">左側を長押し</string>
+    <string name="long_swipe_portrait_title">縦</string>
+    <string name="long_swipe_landscape_title">横</string>
+    <string name="portrait_right_swipe_title">縦向き時に右スワイプ</string>
+    <string name="portrait_left_swipe_title">縦向き時に左スワイプ</string>
+    <string name="landscape_right_swipe_title">横向き時に右スワイプ</string>
+    <string name="landscape_left_swipe_title">横向き時に左スワイプ</string>
+    <string name="vertical_up_swipe_title">垂直に上スワイプ</string>
+    <string name="vertical_down_swipe_title">垂直に下スワイプ</string>
+    <string name="up_swipe_title">上スワイプ</string>
+    <string name="down_swipe_title">下スワイプ</string>
+    <string name="long_swipe_reset">リセット</string>
+    <string name="fling_advanced">高度な設定</string>
+    <string name="fling_long_swipe_title">長いスワイプのしきい値</string>
+    <string name="fling_long_swipe_summary">しきい値の調整はFling表示エリアの縦横のパーセント割合に基づきます</string>
+    <string name="fling_trails_enable_title">ジェスチャーの軌跡を有効化</string>
+    <string name="fling_trails_enable_summary">スワイプジェスチャーの軌跡を表示する</string>
+    <string name="fling_trails_color_title">軌跡の色</string>
+    <string name="fling_trails_width_title">軌跡の幅</string>
+    <string name="fling_appearance">外観</string>
+    <string name="fling_show_logo_title">Flingのロゴを表示</string>
+    <string name="fling_animate_logo_title">ロゴをアニメーションする</string>
+    <string name="fling_animate_logo_summary">タッチイベント時にロゴをアニメーションする</string>
+    <string name="fling_logo_color">ロゴの色</string>
+    <string name="fling_logo_custom_logo_pick_title">カスタムロゴアイコン</string>
+    <string name="fling_logo_custom_logo_image_pick_title">カスタムロゴの画像</string>
+    <string name="fling_logo_custom_logo_reset_title">ロゴアイコンのリセット</string>
+    <string name="fling_show_ripple_title">波紋を表示</string>
+    <string name="fling_show_ripple_summary">タッチ操作時に波紋効果を出す</string>
+    <string name="fling_ripple_color">波紋の色</string>
+    <string name="fling_longpress_timeout_label_left">より少ない遅延</string>
+    <string name="fling_longpress_timeout_label_right">より多くの遅延</string>
+    <string name="fling_longpress_title">長押しの遅延</string>
+    <string name="fling_longpress_summary">長押しアクション実行のしきい値の時間を調整する</string>
+    <string name="fling_keyboard_cursors_title">ダイナミックキーボードカーソルアクション</string>
+    <string name="fling_keyboard_cursors_summary">キーボード表示時は左右のダブルタップアクションはキーボードカーソルの左右移動アクションになります</string>
+    <string name="fling_logo_opacity_title">Flingロゴの不透明度</string>
+    <string name="fling_factory_reset_title">初期状態にリセット</string>
+    <string name="fling_factory_reset_confirm">本当にFlingを初期設定に戻しても良いですか？</string>
+    <string name="fling_backup_current_config_title">プロファイルを保存</string>
+    <string name="fling_restore_config_title">プロファイルを復元</string>
+    <string name="fling_config_name_edit_dialog_title">Flingプロファイル名</string>
+    <string name="fling_config_name_edit_dialog_message">名前を入力するか空欄にして下さい</string>
+    <string name="fling_config_dialog_title">Flingプロファイル</string>
+    <string name="fling_config_backup_success_toast">Flingプロファイルが正常に保存されました</string>
+    <string name="fling_config_restore_success_toast">Flingプロファイルが正常に復元されました</string>
+    <string name="fling_config_backup_error_toast">Flingプロファイルの保存に失敗しました</string>
+    <string name="fling_config_restore_error_toast">Flingプロファイルの復元に失敗しました</string>
     <!-- Pulse navigation bar music visualizer -->
+    <string name="pulse_help_policy_notice_summary">端末のスピーカーで聴く時に一部のオーディオソースでPulseが機能しません</string>
+    <string name="pulse_settings">Pulse</string>
+    <string name="pulse_settings_summary">ナビゲーションバーのグラフィックイコライザー</string>
+    <string name="fling_show_pulse_title">Pulseを許可</string>
+    <string name="fling_show_pulse_summary">ナビゲーションバー上のオーディオグラフィックイコライザー</string>
+    <string name="pulse_render_mode_title">レンダリングモード</string>
+    <string name="pulse_render_mode_fading_bars">フェーディングブロック</string>
+    <string name="pulse_render_mode_solid_lines">ソリッドライン</string>
+    <string name="fling_pulse_color">Pulseの色</string>
+    <string name="fling_pulse_color_summary">自動カラーのフォールバックとしても使用します</string>
+    <string name="eos_fling_lavalamp_title">ラーヴァランプモードをオンにする</string>
+    <string name="eos_fling_lavalamp_summary">Pulseの色がゆるやかに変化します</string>
+    <string name="pulse_advanced_category">高度な設定</string>
+    <string name="pulse_legacy_mode_advanced_category">フェーディングブロックモードの設定</string>
+    <string name="pulse_custom_fudge_factor">ビジュアライザーの感度</string>
+    <string name="lavamp_solid_speed_title">ラーヴァランプモードのアニメーション速度</string>
+    <string name="pulse_solid_units_count">ソリッドラインの数</string>
+    <string name="pulse_solid_lines_count">ソリッドラインの数</string>
+    <string name="pulse_solid_units_opacity">ソリッドラインの不透明度</string>
+    <string name="pulse_solid_dimen_category">ソリッドラインモードの設定</string>
+    <string name="pulse_custom_buttons_opacity_title">Pulse上のスマートバーボタンの透明度</string>
+    <string name="pulse_auto_color_title">自動設定のPulseカラー</string>
+    <string name="pulse_auto_color_summary">アルバムアートの色に同期します。ラーヴァランプモードやラインの不透明度を上書きします。</string>
     <!-- Pulse config -->
+    <string name="pulse_custom_dimen">バーの幅</string>
+    <string name="pulse_custom_div">バーの間隔</string>
     <!-- Navbar height -->
     <!-- SmartBar -->
     <!-- SystemUI theme -->
@@ -835,4 +1004,8 @@
     <!-- Blink flashlight for incoming calls -->
     <!-- Wakelock blocker -->
     <!-- Alarm blocker -->
+    <!-- Power menu and global actions -->
+    <!-- Global Actions -->
+    <!-- AOKP custom system animations -->
+    <!-- Footer alerts -->
 </resources>
