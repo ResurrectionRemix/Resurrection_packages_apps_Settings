@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.settings.rr.fragments;
+package com.android.settings.rr;
 
 import android.content.ContentResolver;
 import android.content.Context;
