@@ -106,7 +106,7 @@ public class HardwareKeys extends ActionFragment implements Preference.OnPrefere
 
         // bits for hardware keys present on device
         final int deviceKeys = getResources().getInteger(
-                com.android.internal.R.integer.config_deviceHardwareKeys);
+                org.lineageos.platform.internal.R.integer.config_deviceHardwareKeys);
 
         // read bits for present hardware keys
         final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;

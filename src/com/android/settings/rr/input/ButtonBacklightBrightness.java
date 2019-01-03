@@ -35,12 +35,11 @@ import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import com.android.settings.R;
-
 import static org.lineageos.internal.util.DeviceKeysConstants.*;
 
 import lineageos.providers.LineageSettings;
 
-public class ButtonBacklightBrightness extends CustomDialogPreference<AlertDialog> implements
+public class ButtonBacklightBrightness extends CustomDgPreference<AlertDialog> implements
         SeekBar.OnSeekBarChangeListener {
     private static final int DEFAULT_BUTTON_TIMEOUT = 5;
 
