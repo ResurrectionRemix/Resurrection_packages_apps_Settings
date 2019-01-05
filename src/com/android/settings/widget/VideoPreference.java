@@ -30,7 +30,11 @@ import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.Display;
 import android.widget.ImageView;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.android.settings.R;
 
@@ -51,6 +55,7 @@ public class VideoPreference extends Preference {
     private boolean mVideoPaused;
     private float mAspectRadio = 1.0f;
     private int mPreviewResource;
+    private boolean mFitWidth;
 
     public VideoPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -61,6 +66,7 @@ public class VideoPreference extends Preference {
                 0, 0);
         try {
             int animation = attributes.getResourceId(R.styleable.VideoPreference_animation, 0);
+            mFitWidth = attributes.getBoolean(R.styleable.VideoPreference_fitWidth, false);
             mVideoPath = new Uri.Builder().scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
                     .authority(context.getPackageName())
                     .appendPath(String.valueOf(animation))
@@ -68,7 +74,10 @@ public class VideoPreference extends Preference {
             mMediaPlayer = MediaPlayer.create(mContext, mVideoPath);
             if (mMediaPlayer != null && mMediaPlayer.getDuration() > 0) {
                 setVisible(true);
-                setLayoutResource(R.layout.video_preference);
+                if (mFitWidth)
+                    setLayoutResource(R.layout.video_preference_custom);
+                else
+                    setLayoutResource(R.layout.video_preference);
 
                 mPreviewResource = attributes.getResourceId(
                         R.styleable.VideoPreference_preview, 0);
@@ -99,11 +108,20 @@ public class VideoPreference extends Preference {
         final TextureView video = (TextureView) holder.findViewById(R.id.video_texture_view);
         final ImageView imageView = (ImageView) holder.findViewById(R.id.video_preview_image);
         final ImageView playButton = (ImageView) holder.findViewById(R.id.video_play_button);
-        final AspectRatioFrameLayout layout = (AspectRatioFrameLayout) holder.findViewById(
-                R.id.video_container);
 
         imageView.setImageResource(mPreviewResource);
-        layout.setAspectRatio(mAspectRadio);
+
+        if (mFitWidth) {
+            final FrameLayout layout = (FrameLayout) holder.findViewById(R.id.video_container);
+            WindowManager window = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
+            Display display = window.getDefaultDisplay();
+            layout.setLayoutParams(new LinearLayout.LayoutParams(display.getWidth(),
+                    (int) (display.getWidth() / mAspectRadio)));
+        } else {
+            final AspectRatioFrameLayout layout = (AspectRatioFrameLayout) holder.findViewById(
+                    R.id.video_container);
+            layout.setAspectRatio(mAspectRadio);
+        }
 
         video.setOnClickListener(v -> {
             if (mMediaPlayer != null) {
