@@ -115,11 +115,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
     public void createTabsLayout() {
         view = mInflater.inflate(R.layout.rr_main, mContainer, false);
-        FloatingActionButton mFab1 = (FloatingActionButton) view.findViewById(R.id.fab_event);
-        FloatingActionButton mFab2 = (FloatingActionButton) view.findViewById(R.id.fab_restart);
-        FloatingActionButton mFab3 = (FloatingActionButton) view.findViewById(R.id.fab_reset);
-        FloatingActionButton mFab4 = (FloatingActionButton) view.findViewById(R.id.fab_info);
-        FloatingActionButton mFab5 = (FloatingActionButton) view.findViewById(R.id.fab_config);
+        FloatingActionButton mFab1 = (FloatingActionButton) view.findViewById(R.id.fab_reset);
+        FloatingActionButton mFab2 = (FloatingActionButton) view.findViewById(R.id.fab_info);
+        FloatingActionButton mFab3 = (FloatingActionButton) view.findViewById(R.id.fab_config);
         mFab = (FloatingActionsMenu) view.findViewById(R.id.fab_menu);
         mLayout = (LinearLayout) view.findViewById(R.id.main_content);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
@@ -141,29 +139,13 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                  Settings.System.RR_OTA_FAB, 1) == 1;
         if (mStyle == 0) {
             mTabs.setVisibility(View.VISIBLE);
-            mFab5.setTitle(getString(R.string.fab_layout_update));
+            mFab3.setTitle(getString(R.string.fab_layout_update));
         } else if (mStyle == 1) {
             mTabs.setVisibility(View.GONE);
-            mFab5.setTitle(getString(R.string.fab_layout_toggle));
+            mFab3.setTitle(getString(R.string.fab_layout_toggle));
         }
 
         mFab1.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-             Intent fabIntent = new Intent();
-             fabIntent.setClassName("com.resurrection.ota", "com.resurrection.ota.MainActivity");
-             startActivity(fabIntent);
-             }
-        });
-
-        mFab2.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-             //Helpers.showSystemUIrestartDialog(getActivity());
-             }
-        });
-
-        mFab3.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
              AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
@@ -184,7 +166,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              }
         });
 
-        mFab4.setOnClickListener(new View.OnClickListener() {
+        mFab2.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
              Intent fabIntent = new Intent();
@@ -193,7 +175,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              }
         });
 
-        mFab5.setOnClickListener(new View.OnClickListener() {
+        mFab3.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
                         if (mStyle == 0) {
