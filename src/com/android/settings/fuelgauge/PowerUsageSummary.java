@@ -286,8 +286,6 @@ public class PowerUsageSummary extends PowerUsageBase implements OnLongClickList
                     .setAlphabeticShortcut('t');
         }
 
-        menu.add(Menu.NONE, MENU_ADVANCED_BATTERY, Menu.NONE, R.string.advanced_battery_title);
-
         super.onCreateOptionsMenu(menu, inflater);
     }
 
