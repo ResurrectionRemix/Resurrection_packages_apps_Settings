@@ -149,7 +149,7 @@ public class BatteryEntry {
                 break;
             case PHONE:
                 name = context.getResources().getString(R.string.power_phone);
-                iconId = R.drawable.ic_settings_voice_calls;
+                iconId = R.drawable.ic_settings_voice_calls_new;
                 break;
             case WIFI:
                 name = context.getResources().getString(R.string.power_wifi);
