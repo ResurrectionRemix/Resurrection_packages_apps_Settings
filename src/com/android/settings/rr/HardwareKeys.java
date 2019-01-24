@@ -89,11 +89,6 @@ public class HardwareKeys extends ActionFragment implements Preference.OnPrefere
         int keysDisabled = 0;
         if (!needsNavbar) {
             mHwKeyDisable = (SwitchPreference) findPreference(HWKEY_DISABLE);
-            keysDisabled = Settings.Secure.getIntForUser(getContentResolver(),
-                    Settings.Secure.HARDWARE_KEYS_DISABLE, 0,
-                    UserHandle.USER_CURRENT);
-            mHwKeyDisable.setChecked(keysDisabled != 0);
-            mHwKeyDisable.setOnPreferenceChangeListener(this);
         } else {
             prefScreen.removePreference(hwkeyCat);
         }
@@ -172,12 +167,6 @@ public class HardwareKeys extends ActionFragment implements Preference.OnPrefere
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mHwKeyDisable) {
-            boolean value = (Boolean) newValue;
-            Settings.Secure.putInt(getContentResolver(), Settings.Secure.HARDWARE_KEYS_DISABLE,
-                    value ? 1 : 0);
-            setActionPreferencesEnabled(!value);
-        }
         return false;
     }
 

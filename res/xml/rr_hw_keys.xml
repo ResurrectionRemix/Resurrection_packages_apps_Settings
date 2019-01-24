@@ -21,14 +21,14 @@
         android:title="@string/button_backlight_title"
         android:dialogTitle="@string/button_backlight_title"
         android:persistent="false" />
-
  
     <PreferenceCategory
          android:key="hardware_keys"
 	     android:title="@string/hardware_keys_category">
-        <SwitchPreference
+        <com.rr.settings.preferences.SecureSettingSwitchPreference
              android:key="hardware_keys_disable"
-	     android:title="@string/hardware_keys_disable_title" />
+	         android:title="@string/hardware_keys_disable_title" 
+             android:defaultValue="false"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:key="back_key"
