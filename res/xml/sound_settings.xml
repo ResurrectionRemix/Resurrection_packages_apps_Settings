@@ -164,6 +164,12 @@
         android:fragment="com.android.settings.gestures.PreventRingingGestureSettings"
         settings:controller="com.android.settings.gestures.PreventRingingPreferenceController" />
 
+    <Preference
+        android:key="dirac_options"
+        android:title="@string/dirac_settings"
+        android:persistent="false"
+        android:fragment="com.android.settings.notification.DiracSettings" />  
+
     <!-- Other sounds -->
     <PreferenceCategory
           android:key="other_sounds_and_vibrations_category"
@@ -211,7 +217,8 @@
           android:key="vibrate_on_touch"
           android:title="@string/vibrate_on_touch_title"
           android:summary="@string/vibrate_on_touch_summary" />
-
+		  
+		<!-- Other sounds -->
         <!-- Dock speaker plays -->
         <DropDownPreference
           android:key="dock_audio_media"

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+ <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/dirac_settings"
+        android:key="dirac_settings"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+ 	<SwitchPreference
+	    android:key="mi_sound_enhancer"
+	    android:title="@string/mi_sound_enhancer"
+	    android:persistent="false" />
+    <ListPreference
+	    android:key="dirac_headsets"
+	    android:title="@string/mi_headset_type"
+	    android:entries="@array/listentries"
+	    android:entryValues="@array/listvalues"/>
+    <ListPreference
+	    android:key="dirac_mode"
+	    android:title="@string/mi_mode_select"
+	    android:entries="@array/dirac_mode_entries"
+	    android:entryValues="@array/dirac_mode_values"/>
+	<ListPreference
+        android:key="dirac_preset"
+        android:entries="@array/dirac_preset_pref_entries"
+        android:entryValues="@array/dirac_preset_pref_values"
+        android:defaultValue="0,0,0,0,0,0,0"
+        android:title="@string/dirac_preset_title"/>	
+</PreferenceScreen>
