@@ -17,17 +17,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_qs_title">
-
-     <PreferenceScreen
-                android:id="@+id/rr_qs_animations"
-                android:title="@string/qs_tile_anim_title"
-        	    android:summary="@string/rr_qs_animation_summary"
-                android:fragment="com.android.settings.rr.QsAnimations"
-                android:icon="@drawable/rr_qs_animation_icon"
-                />
-     <PreferenceCategory
-                android:key="qs_panel_translucency"
-                android:title="@string/qs_panel_translucency_category_title">
                     
       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="blur_quicksettings_enabled"
@@ -43,8 +32,14 @@
            settings:unitsLeft=""
            settings:unitsRight="%"
            android:defaultValue="60" />
-     </PreferenceCategory>
-                
+           
+        <PreferenceScreen
+           android:id="@+id/rr_qs_animations"
+           android:title="@string/qs_tile_anim_title"
+           android:summary="@string/rr_qs_animation_summary"
+           android:fragment="com.android.settings.rr.QsAnimations"
+           android:icon="@drawable/rr_qs_animation_icon"
+           />
         <PreferenceScreen
             android:key="rr_qs_layout"
             android:fragment="com.android.settings.rr.QsLayout"
