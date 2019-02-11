@@ -35,4 +35,9 @@ public class SystemSettingSeekBarPreference extends CustomSeekBarPreference {
         super(context, null);
         setPreferenceDataStore(new SystemSettingsStore(context.getContentResolver()));
     }
+
+    @Override
+    protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
+        setValue(restoreValue ? getPersistedInt((Integer) defaultValue) : (Integer) defaultValue);
+    }
 }
