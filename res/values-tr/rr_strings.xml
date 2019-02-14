@@ -215,7 +215,6 @@
     <string name="rr_reset_cancel">İptal</string>
     <string name="rr_category_title">Kişiselleştirme</string>
     <string name="rr_title">Resurrection araçları</string>
-    <string name="rr_title_summary">Özelleştirmeler ve özellikler</string>
     <string name="rr_config_main_title">RR-OS</string>
     <string name="rr_ota_fab_title">Yüzen tuşu göster</string>
     <string name="rr_ota_fab_summary">Gelişmiş ayarlarda yüzen tuşu göstermek/gizlemek için etkinleştir/devre dışı bırak. Degiştirildiğinde bir kez çık/gir</string>
@@ -414,7 +413,7 @@
     <string name="smart_pulldown_dismissable">Kapatılabilir bildirim yoksa</string>
     <string name="smart_pulldown_ongoing">Devam eden bildirim yoksa</string>
     <string name="smart_pulldown_summary">%1$s hızlı ayarları açar</string>
-    <string name="smart_pulldown_none_summary">Hiçbir bildirim olmadığında hızlı ayarları açar</string>
+    <string name="smart_pulldown_none_summary">Bildirim olmadığında hızlı ayarları aç</string>
     <string name="smart_pulldown_off_summary">Kapatıldı</string>
     <!-- Status bar - icons -->
     <string name="status_bar_icons_title">Durum çubuğu simgeleri</string>
@@ -795,6 +794,10 @@
     <string name="profile_applist_title">Uygulamalar</string>
     <string name="default_settings">Varsayılan ayarlar</string>
     <string name="default_settings_summary">Varsayılan AOSP gezinme çubuğu</string>
+    <string name="gesture_settings_summary">Gezinme için alttan yukarı kaydırma hareketlerini kullanın</string>
+    <string name="rr_headsup_summary">Gelişmiş bildirim pencereleri seçenekleri</string>
+    <string name="slim_recents_summary">Son uygulamalar görüntüleme seçenekleri</string>
+    <string name="system_animation_summary">Animasyon seçeneklerini görüntüleyin</string>
     <!-- Actions dialog and default task values set in ActionPreference xml-->
     <string name="choose_action_title">Eylem seçin</string>
     <string name="action_entry_default_action">Varsayılan ayarlar</string>
@@ -1005,10 +1008,6 @@
     <string name="title_animation_no_override">Uygulama geçersiz kılmalarını önle</string>
     <string name="summary_animation_no_override">Uygulamaların geçişleri geçersiz kılmasını önle</string>
     <string name="animation_duration_default">Varsayılan</string>
-    <!-- Power menu and dialogs opacity -->
-    <string name="power">Güç Menüsü Özelleştirmeleri</string>
-    <string name="power_menu_transparency">Güç/yeniden başlat menüsü şeffaflığı</string>
-    <string name="power_menu_dialog_dim">Güç menüsü arka plan karartma miktarı</string>
     <!-- Screen state service -->
     <string name="screen_state_toggles_summary">\@null</string>
     <string name="screen_state_toggles_title">Durdurma Eylemleri</string>
@@ -1295,7 +1294,7 @@ Sadece yarı şeffaf bildirimler etkinleştirildi!</string>
     <string name="shortcuts_icon_default">Varsayılan</string>
     <string name="shortcuts_icon_custom">Galeri</string>
     <string name="shortcuts_icon_picker_choose_icon_title">Simge seçin</string>
-    <string name="lockscreen_shortcuts_title">Orta Ekran Kısayolları</string>
+    <string name="lockscreen_shortcuts_title">Alt Kısayollar</string>
     <string name="lockscreen_shortcuts_summary">Özel kilit ekranı kısayollarını görüntüleyin veya değiştirin</string>
     <string name="lockscreen_shorcuts_launch_type_title">Kısayol tıklama türü</string>
     <string name="lockscreen_shortcuts_single_tap">Tıkla</string>
@@ -1826,12 +1825,12 @@ Sadece yarı şeffaf bildirimler etkinleştirildi!</string>
     <string name="sum25">#Swagger</string>
     <string name="sum26">ツ</string>
     <!-- Hide Lockscreen clock, date, & alarm -->
-    <string name="hide_lockscreen_clock_title">Saat widgeti</string>
-    <string name="hide_lockscreen_clock_summary">Saat widget\'inin görünürlüğünü değiştirin</string>
-    <string name="hide_lockscreen_date_title">Tarih widgeti</string>
-    <string name="hide_lockscreen_date_summary">Saat widgeti\'nin altındaki tarihin görünürlüğünü değiştirin</string>
+    <string name="hide_lockscreen_clock_title">Saat widget\'ı</string>
+    <string name="hide_lockscreen_clock_summary">Saat widget\'ın görünürlüğünü değiştirin</string>
+    <string name="hide_lockscreen_date_title">Tarih widget\'ı</string>
+    <string name="hide_lockscreen_date_summary">Saat widget\'ının altındaki tarihin görünürlüğünü değiştirin</string>
     <string name="hide_lockscreen_alarm_title">Alarm metni</string>
-    <string name="hide_lockscreen_alarm_summary">Saat widget\'inin altındaki alarm metninin görünürlüğünü değiştirin</string>
+    <string name="hide_lockscreen_alarm_summary">Saat widget\'ının altındaki alarm metninin görünürlüğünü değiştirin</string>
     <string name="less_notification_sounds_title">Akıllı bildirim sesleri</string>
     <string name="less_notification_sounds_summary">Her uygulamanın bildirim sesini, belirlenen süre başına yalnızca bir kez oynat</string>
     <string name="less_notification_sounds_default">Uygulama varsayılanı</string>
@@ -2063,6 +2062,8 @@ Sadece yarı şeffaf bildirimler etkinleştirildi!</string>
     <string name="global_actions_flashlight">El feneri</string>
     <string name="global_actions_advanced_reboot_title">Gelişmiş yeniden başlatmayı etkinleştir</string>
     <string name="global_actions_advanced_reboot_summary">Yeniden başlatılırken kurtarma ve önyükleyici seçeneklerini göster</string>
+    <!-- Power menu and dialogs opacity -->
+    <!-- QS Settings background panel -->
     <!-- AOKP custom system animations -->
     <string name="task_open_behind_title">Görev açma arkası animasyonu</string>
     <string name="anim_general_category">Genel animasyonlar</string>

@@ -145,7 +145,7 @@
     <string name="mracar_summary">● Người phát triển\n● Người duy trì</string>
     <string name="support_team_title">Thẻ Người Điều Hành</string>
     <string name="device_maintainers_title">Thiết bị và Người hỗ trợ</string>
-    <string name="device_maintainers_title_summary">Danh sách thiết bị và người hỗ trợ RR-OS chính thức</string>
+    <string name="device_maintainers_title_summary">Danh sách các thiết bị và người duy trì RR-OS chính thức</string>
     <string name="maintainers_note_title">Ghi chú</string>
     <string name="maintainers_note_title_summary">Thực hiện yêu cầu kéo trên ứng dụng Cài đặt có tên của bạn trên thiết bị của bạn nếu bạn muốn đăng ký làm người duy trì cho một thiết bị nhất định</string>
     <string name="device_summary"><xliff:g example="goldfish" id="codename">%1$s</xliff:g>\nNgười duy trì - <xliff:g example="deletescape" id="maintainer">%2$s</xliff:g></string>
@@ -215,7 +215,6 @@
     <string name="rr_reset_cancel">Hủy bỏ</string>
     <string name="rr_category_title">Cá nhân hóa</string>
     <string name="rr_title">Các công cụ Resurrection</string>
-    <string name="rr_title_summary">Tùy chỉnh &amp; Tính năng, đặc điểm</string>
     <string name="rr_config_main_title">RR-OS</string>
     <string name="rr_ota_fab_title">Hiển thị nút nổi</string>
     <string name="rr_ota_fab_summary">Bật/Tắt để ẩn/hiện nút nổi trong cấu hình. Vào/Thoát mỗi khi chuyển đổi đã sử dụng</string>
@@ -605,8 +604,8 @@
     <string name="lock_screen_show_weather_summaryOn">Hiển thị thời trên màn hình khóa</string>
     <string name="lock_screen_show_weather_summaryOff">Ẩn thời tiết trên màn hình khóa</string>
     <string name="lock_screen_show_location_title">Hiển thị vị trí</string>
-    <string name="lock_screen_show_location_summaryOn">Vị trí được hiển thị trên màn hình khóa</string>
-    <string name="lock_screen_show_location_summaryOff">Vị trí được ẩn trên màn hình khóa</string>
+    <string name="lock_screen_show_location_summaryOn">Vị trí được hiển thị trên Màn hình khóa</string>
+    <string name="lock_screen_show_location_summaryOff">Vị trí được ẩn trên Màn hình khóa</string>
     <string name="lock_screen_weather_condition_icon_title">Gói biểu tượng thời tiết</string>
     <string name="lock_screen_weather_condition_icon_summaryOn">Gói biểu tượng thời tiết được hiển thị ở màn hình khoá</string>
     <string name="lock_screen_weather_condition_icon_summaryOff">Gói biểu tượng thời tiết được ẩn ở màn hình khoá</string>
@@ -795,6 +794,10 @@
     <string name="profile_applist_title">Ứng dụng</string>
     <string name="default_settings">Cài đặt gốc</string>
     <string name="default_settings_summary">Thanh điều hướng AOSP gốc</string>
+    <string name="gesture_settings_summary">Sử dụng cử chỉ vuốt lên phía dưới để điều hướng</string>
+    <string name="rr_headsup_summary">Tùy chọn headsup nâng cao</string>
+    <string name="slim_recents_summary">Xem tùy chọn các ứng dụng gần đây</string>
+    <string name="system_animation_summary">Xem các tùy chọn hoạt ảnh</string>
     <!-- Actions dialog and default task values set in ActionPreference xml-->
     <string name="choose_action_title">Chọn thao tác</string>
     <string name="action_entry_default_action">Cài đặt mặc định</string>
@@ -803,11 +806,11 @@
     <!-- Fling -->
     <string name="fling_settings">Cài đặt Fling</string>
     <string name="fling_settings_summary">Thanh điều hướng theo cử chỉ có thể tuỳ chỉnh hoàn toàn</string>
-    <string name="fling_interface">Mở rộng</string>
+    <string name="fling_interface">Fling</string>
     <string name="fling_enable_title">Bật Fling</string>
     <string name="fling_back_home_policy">Nút Back và Home phải luôn được đặt. Để thay đổi bố trí nút Back hoặc Home, trước tiên hãy bố trí như mong muốn trước.\n\nViệc kích hoạt các thao tác nhấn đúp sẽ tạo ra độ trễ nhẹ với độ phản hồi của một lần nhấn.</string>
     <string name="fling_split_bar_policy">Đặt hành động chỉ sang phải/trái sẽ phân chia các vùng cảm ứng giữa toàn bộ thanh.</string>
-    <string name="fling_def_summary">Không cài đặt hoạt động</string>
+    <string name="fling_def_summary">Không có tác vụ được đặt</string>
     <string name="fling_swipe_actions">Cử chỉ vuốt</string>
     <string name="fling_tap_actions">Cử chỉ chạm</string>
     <string name="fling_short_swipe_right">Vuốt nhanh bên phải</string>
@@ -1005,12 +1008,8 @@
     <string name="title_animation_no_override">Ngăn chặn ứng dụng ghi đè</string>
     <string name="summary_animation_no_override">Ngăn chặn ứng dụng ghi đè các hiệu ứng chuyển động</string>
     <string name="animation_duration_default">Mặc định</string>
-    <!-- Power menu and dialogs opacity -->
-    <string name="power">Tinh chỉnh menu nguồn</string>
-    <string name="power_menu_transparency">Độ trong suốt của nguồn/khởi động lại</string>
-    <string name="power_menu_dialog_dim">Độ mờ nền trình đơn nguồn/khởi động lại</string>
     <!-- Screen state service -->
-    <string name="screen_state_toggles_summary">\@trống</string>
+    <string name="screen_state_toggles_summary">\@null</string>
     <string name="screen_state_toggles_title">Đình chỉ hoạt động</string>
     <string name="screen_state_toggles_enable_title">Bật</string>
     <string name="screen_state_toggles_enable_summary">Các hành động sẽ được thực hiện lúc màn hình tắt. Lúc màn hình bật trạng thái trước đó sẽ được khôi phục.</string>
@@ -1293,7 +1292,7 @@
     <string name="shortcuts_icon_default">Mặc định</string>
     <string name="shortcuts_icon_custom">Bộ sưu tập</string>
     <string name="shortcuts_icon_picker_choose_icon_title">Chọn biểu tượng</string>
-    <string name="lockscreen_shortcuts_title">Phím tắt giữa màn Hình</string>
+    <string name="lockscreen_shortcuts_title">Các phím tắt phía dưới</string>
     <string name="lockscreen_shortcuts_summary">Xem hoặc thay đổi tùy chỉnh lối tắt màn hình khóa</string>
     <string name="lockscreen_shorcuts_launch_type_title">Kiểu chạm lối tắt</string>
     <string name="lockscreen_shortcuts_single_tap">Chạm</string>
@@ -1359,7 +1358,7 @@
     <string name="shortcut_action_home">Trang chủ</string>
     <string name="shortcut_action_back">Trở lại</string>
     <string name="shortcut_action_menu">Trình đơn</string>
-    <string name="shortcut_action_ime">Chuyển đổi bàn phím</string>
+    <string name="shortcut_action_ime">Mở trình chuyển đổi bàn phím</string>
     <string name="shortcut_action_power_menu">Trình đơn nguồn</string>
     <string name="shortcut_action_recent">Đa nhiệm</string>
     <string name="shortcut_action_power">Tắt màn hình</string>
@@ -1756,7 +1755,7 @@
     <string name="clock_date_display_summary">Hiển thị ngày tùy chỉnh trước đồng hồ</string>
     <string name="clock_date_style">Kiểu ngày</string>
     <string name="clock_date_format">Định dạng ngày</string>
-    <string name="clock_date_string_edittext_title">Phải thuộc định dạng ngày, ví dụ: mm/dd/yy</string>
+    <string name="clock_date_string_edittext_title">Phải thuộc định dạng ngày, ví dụ MM/dd/yy</string>
     <string name="clock_date_string_edittext_summary">Nhập chuỗi</string>
     <string name="am_pm_clock_normal">Cỡ chữ bình thường</string>
     <string name="am_pm_clock_small">Cỡ chữ nhỏ</string>
@@ -2061,6 +2060,8 @@
     <string name="global_actions_flashlight">Đèn pin</string>
     <string name="global_actions_advanced_reboot_title">Bật khởi động lại nâng cao</string>
     <string name="global_actions_advanced_reboot_summary">Khi khởi động lại cũng hiển thị tùy chọn phục hồi và bộ nạp khởi động</string>
+    <!-- Power menu and dialogs opacity -->
+    <!-- QS Settings background panel -->
     <!-- AOKP custom system animations -->
     <string name="task_open_behind_title">Hoạt ảnh mở tác vụ phía sau</string>
     <string name="anim_general_category">Ảnh động tổng thể</string>
