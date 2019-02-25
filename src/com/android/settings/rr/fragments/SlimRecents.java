@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 package com.android.settings.rr.fragments;
 
 import android.app.AlertDialog;
@@ -59,7 +58,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.rr.Preferences.MasterSwitchPreference;
 import com.android.internal.logging.nano.MetricsProto;
 
@@ -293,4 +293,7 @@ public class SlimRecents extends SettingsPreferenceFragment
             this.packageName = packageName;
         }
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.slim_recents);
 }

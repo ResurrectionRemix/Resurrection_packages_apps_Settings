@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 package com.android.settings.rr.fragments;
 
 import android.app.AlertDialog;
@@ -33,6 +32,8 @@ import android.support.v7.preference.PreferenceScreen;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 
 import com.android.internal.logging.nano.MetricsProto;
 
@@ -49,4 +50,6 @@ public class SlimRecentAppSidebarStyle extends SettingsPreferenceFragment {
         return MetricsProto.MetricsEvent.RESURRECTED;
     }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.slim_recent_app_sidebar_style);
 }

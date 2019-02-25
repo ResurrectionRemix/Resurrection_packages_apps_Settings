@@ -19,6 +19,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.provider.Settings;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
@@ -29,12 +30,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.provider.Settings;
-
-
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
@@ -79,7 +78,6 @@ public class HeadsUp extends SettingsPreferenceFragment implements
 
     }
 
-
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mHeadsUpTimeOut) {
             int headsUpTimeOut = Integer.valueOf((String) newValue);
@@ -97,13 +95,12 @@ public class HeadsUp extends SettingsPreferenceFragment implements
         }
         return false;
     }
+
     private void updateHeadsUpTimeOutSummary(int value) {
         String summary = getResources().getString(R.string.heads_up_time_out_summary,
                 value / 1000);
         mHeadsUpTimeOut.setSummary(summary);
     }
-
-
 
     @Override
     public int getMetricsCategory() {
@@ -120,8 +117,7 @@ public class HeadsUp extends SettingsPreferenceFragment implements
             mHeadsUpSnoozeTime.setSummary(summary);
         }
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_headsup);
 }
-
-
-
-

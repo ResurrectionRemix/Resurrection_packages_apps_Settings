@@ -30,6 +30,8 @@ import android.support.v7.preference.PreferenceScreen;
 import android.provider.Settings;
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
@@ -47,7 +49,6 @@ public class Ticker extends SettingsPreferenceFragment implements
             PreferenceScreen prefSet = getPreferenceScreen();
             ContentResolver resolver = getActivity().getContentResolver();
 
-
         }
 
         public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -59,4 +60,7 @@ public class Ticker extends SettingsPreferenceFragment implements
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.ticker);
 }

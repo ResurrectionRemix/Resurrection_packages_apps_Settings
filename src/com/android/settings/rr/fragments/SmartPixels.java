@@ -23,6 +23,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
+import android.provider.SearchIndexableResource;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceCategory;
@@ -37,7 +38,12 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.rr.Preferences.SystemSettingListPreference;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SmartPixels extends SettingsPreferenceFragment {
 
@@ -81,4 +87,28 @@ public class SmartPixels extends SettingsPreferenceFragment {
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.RESURRECTED;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+            @Override
+            public List < SearchIndexableResource > getXmlResourcesToIndex(Context context,
+                boolean enabled) {
+                ArrayList < SearchIndexableResource > resources =
+                    new ArrayList < SearchIndexableResource > ();
+                SearchIndexableResource res = new SearchIndexableResource(context);
+                res.xmlResId = R.xml.smart_pixels;
+                resources.add(res);
+                return resources;
+            }
+
+            @Override
+            public List < String > getNonIndexableKeys(Context context) {
+                List < String > keys = super.getNonIndexableKeys(context);
+
+                if (!(context.getResources().getBoolean(com.android.internal.R.bool.config_enableBurnInProtection)))
+                    keys.add(SMART_PIXELS_SHIFT_TIMEOUT);
+
+                return keys;
+            }
+        };
 }

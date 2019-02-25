@@ -143,7 +143,7 @@ import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.MainSettingsLayout;
 import com.android.settings.rr.About;
 import com.android.settings.rr.fragments.PieSettings;
-import com.android.settings.rr.PowerMenuActions;
+import com.android.settings.rr.input.PowerMenuActions;
 
 import com.android.settings.smartnav.*;
 

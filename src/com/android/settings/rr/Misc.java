@@ -15,10 +15,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.provider.SearchIndexableResource;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
@@ -30,15 +32,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.provider.Settings;
-import com.android.internal.util.rr.RRUtils;
 import android.content.Context;
 import android.os.UserHandle;
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Misc extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -83,7 +90,27 @@ public class Misc extends SettingsPreferenceFragment implements
         return MetricsEvent.RESURRECTED;
     }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+            @Override
+            public List < SearchIndexableResource > getXmlResourcesToIndex(Context context,
+                boolean enabled) {
+                ArrayList < SearchIndexableResource > resources =
+                    new ArrayList < SearchIndexableResource > ();
+                SearchIndexableResource res = new SearchIndexableResource(context);
+                res.xmlResId = R.xml.rr_misc;
+                resources.add(res);
+                return resources;
+            }
+
+            @Override
+            public List < String > getNonIndexableKeys(Context context) {
+                 List<String> keys = super.getNonIndexableKeys(context);
+
+                 if (!RRUtils.deviceSupportsFlashLight(context))
+                     keys.add(FLASHLIGHT_ON_CALL);
+
+                return keys;
+            }
+        };
 }
-
-
-

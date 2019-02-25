@@ -34,6 +34,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import java.util.HashSet;
@@ -53,7 +55,6 @@ import android.content.Intent;
 
 public class Animations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-
 
     private static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
@@ -155,7 +156,7 @@ public class Animations extends SettingsPreferenceFragment implements
             mListViewTabsEffect.setSummary(mListViewTabsEffect.getEntries()[index]);
             return true;
         }
-	return false;
+        return false;
     }
 
 
@@ -165,6 +166,7 @@ public class Animations extends SettingsPreferenceFragment implements
         return MetricsEvent.RESURRECTED;
     }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_animations);
+
 }
-
-

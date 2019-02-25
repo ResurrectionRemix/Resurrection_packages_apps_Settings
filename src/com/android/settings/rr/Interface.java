@@ -32,8 +32,9 @@ import android.os.UserHandle;
 
 import android.provider.Settings;
 
-
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
@@ -46,22 +47,18 @@ public class Interface extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_interface);
-
     }
-
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-	ContentResolver resolver = getActivity().getContentResolver();
-	return false;
+        ContentResolver resolver = getActivity().getContentResolver();
+        return false;
     }
-
 
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
     }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_interface);
 }
-
-
-

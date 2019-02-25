@@ -37,17 +37,17 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 
-
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 
 public class QsAdvanced extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
         private static final String TAG = "QsAdvanced";
-
 
     @Override
     public int getMetricsCategory() {
@@ -65,4 +65,7 @@ public class QsAdvanced extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
       return false;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_qs_advanced);
 }

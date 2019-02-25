@@ -34,10 +34,10 @@ import android.os.UserHandle;
 
 import android.provider.Settings;
 
-
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 import com.rr.settings.preferences.CustomSeekBarPreference;
 import com.rr.settings.preferences.SystemSettingSwitchPreference;
 
@@ -55,7 +55,7 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_networktraffic);
 
         PreferenceScreen prefSet = getPreferenceScreen();
-	final ContentResolver resolver = getActivity().getContentResolver();
+        final ContentResolver resolver = getActivity().getContentResolver();
 
         boolean isNetMonitorEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_STATE, 1, UserHandle.USER_CURRENT) == 1;
@@ -69,7 +69,6 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements
         mThreshold.setOnPreferenceChangeListener(this);
         mThreshold.setEnabled(isNetMonitorEnabled);
     }
-
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         if (preference == mNetMonitor) {
@@ -91,12 +90,11 @@ public class NetworkTraffic extends SettingsPreferenceFragment implements
 	return false;
     }
 
-
-
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
     }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_networktraffic);
 }
-

@@ -32,6 +32,8 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.settings.rr.Preferences.CustomSeekBarPreference;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 
 public class GestureAnywhereSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
@@ -168,4 +170,7 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
         Settings.System.putInt(getContentResolver(),
                 Settings.System.GESTURE_ANYWHERE_SHOW_TRIGGER, 1);
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.gesture_anywhere);
 }

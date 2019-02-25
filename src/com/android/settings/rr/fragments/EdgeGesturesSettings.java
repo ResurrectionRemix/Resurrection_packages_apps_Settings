@@ -25,7 +25,9 @@ import android.support.v7.preference.Preference;
  
 import com.android.internal.logging.nano.MetricsProto; 
 import com.android.internal.utils.ActionUtils; 
-import com.android.settings.R; 
+import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment; 
 import com.android.settings.rr.Preferences.SecureSettingSeekBarPreference; 
  
@@ -107,6 +109,8 @@ public class EdgeGesturesSettings extends SettingsPreferenceFragment implements
         }*/ 
  
         return false; 
-    } 
-} 
+    }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_edge_gestures);
+}

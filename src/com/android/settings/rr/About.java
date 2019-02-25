@@ -66,6 +66,8 @@ import java.util.Arrays;
 import java.util.Collections;
 
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.R;
 import com.android.settings.Utils;
 
@@ -161,4 +163,7 @@ private static final String RR_ROM_SHARE = "share";
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
      }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.about_rom);
 }

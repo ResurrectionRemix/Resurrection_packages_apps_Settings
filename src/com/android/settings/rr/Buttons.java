@@ -30,6 +30,7 @@ import android.os.RemoteException;
 import android.provider.Settings;
 import android.view.Display;
 import android.view.DisplayInfo;
+import android.provider.SearchIndexableResource;
 import android.support.v7.preference.PreferenceScreen;
 import android.support.v7.preference.PreferenceManager;
 import android.support.v7.preference.PreferenceCategory;
@@ -45,6 +46,8 @@ import org.lineageos.internal.util.ScreenType;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 
 import static android.provider.Settings.Secure.CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED;
 import static org.lineageos.internal.util.DeviceKeysConstants.*;
@@ -53,7 +56,8 @@ import lineageos.hardware.LineageHardwareManager;
 import lineageos.providers.LineageSettings;
 import com.android.internal.utils.ActionUtils;
 
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Buttons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
@@ -63,6 +67,7 @@ public class Buttons extends SettingsPreferenceFragment implements
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String KEY_POWER_END_CALL = "power_end_call";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
+    private static final String KEY_VOLUME_ANSWER_CALL = "volume_answer_call";
     private static final String KEY_VOLUME_MUSIC_CONTROLS = "volbtn_music_controls";
     private static final String KEY_VOLUME_CONTROL_RING_STREAM = "volume_keys_control_ring_stream";
     private static final String KEY_VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
@@ -133,9 +138,7 @@ public class Buttons extends SettingsPreferenceFragment implements
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
              powerCategory.removePreference(mPowerEndCall);
              mPowerEndCall = null;
-        }
 
-        if (!TelephonyUtils.isVoiceCapable(getActivity())) {
             volumeCategory.removePreference(
                 findPreference(LineageSettings.System.VOLUME_ANSWER_CALL));
         }
@@ -252,4 +255,38 @@ public class Buttons extends SettingsPreferenceFragment implements
                         ? LineageSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_ANSWER
                         : LineageSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING));
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+            @Override
+            public List < SearchIndexableResource > getXmlResourcesToIndex(Context context,
+                boolean enabled) {
+                ArrayList < SearchIndexableResource > resources =
+                    new ArrayList < SearchIndexableResource > ();
+                SearchIndexableResource res = new SearchIndexableResource(context);
+                res.xmlResId = R.xml.rr_buttons;
+                resources.add(res);
+                return resources;
+            }
+
+            @Override
+            public List < String > getNonIndexableKeys(Context context) {
+                List < String > keys = super.getNonIndexableKeys(context);
+
+                if (ActionUtils.hasNavbarByDefault(context))
+                    keys.add(CATEGORY_HWKEY);
+
+                if (!DeviceUtils.deviceSupportsFlashLight(context)) {
+                    keys.add(KEY_TORCH_LONG_PRESS_POWER_GESTURE);
+                    keys.add(KEY_TORCH_LONG_PRESS_POWER_TIMEOUT);
+                }
+
+                if (!TelephonyUtils.isVoiceCapable(context)) {
+                    keys.add(KEY_POWER_END_CALL);
+                    keys.add(KEY_VOLUME_ANSWER_CALL);
+                }
+
+                return keys;
+            }
+        };
 }

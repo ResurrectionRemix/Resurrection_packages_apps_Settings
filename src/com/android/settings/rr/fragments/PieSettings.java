@@ -26,6 +26,8 @@ import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.view.MenuItem;
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -114,5 +116,7 @@ public class PieSettings extends SettingsPreferenceFragment implements
         }
         return super.onOptionsItemSelected(item);
     }
-}
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.pie_settings);
+}

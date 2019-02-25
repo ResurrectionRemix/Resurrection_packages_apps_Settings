@@ -49,6 +49,8 @@ import com.android.settings.rr.utils.PackageListAdapter;
 import com.android.settings.rr.utils.PackageListAdapter.PackageItem;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 
 public class SlimRecentsBlacklist extends SettingsPreferenceFragment implements
         Preference.OnPreferenceClickListener {
@@ -259,7 +261,6 @@ public class SlimRecentsBlacklist extends SettingsPreferenceFragment implements
         }
     }
 
-
     private void savePackageList(boolean preferencesUpdated, Map<String,Package> map) {
         String setting = Settings.System.SLIM_RECENTS_BLACKLIST_VALUES;
 
@@ -279,4 +280,7 @@ public class SlimRecentsBlacklist extends SettingsPreferenceFragment implements
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.slim_recents_blacklist);
 }

@@ -33,6 +33,8 @@ import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
 import lineageos.preference.LineageSystemSettingListPreference;
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.internal.util.rr.DeviceUtils;
 import lineageos.providers.LineageSettings;
@@ -98,4 +100,7 @@ public class QsPullDown extends SettingsPreferenceFragment implements
         }
         mQuickPulldown.setSummary(summary);
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_qs_pulldown);
 }

@@ -35,14 +35,14 @@ import android.provider.Settings;
 
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 public class StatusBarSettingsNav extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,21 +50,20 @@ public class StatusBarSettingsNav extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_statusbar_navigation);
 
         PreferenceScreen prefSet = getPreferenceScreen();
-		ContentResolver resolver = getActivity().getContentResolver();
+        ContentResolver resolver = getActivity().getContentResolver();
 
     }
-
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-	ContentResolver resolver = getActivity().getContentResolver();
-	return false;
+        ContentResolver resolver = getActivity().getContentResolver();
+        return false;
     }
-
-
 
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
     }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_statusbar_navigation);
 }

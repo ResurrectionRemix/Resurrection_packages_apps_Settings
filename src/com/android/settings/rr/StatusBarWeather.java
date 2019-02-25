@@ -23,6 +23,8 @@ import android.support.v7.preference.PreferenceScreen;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
@@ -42,7 +44,10 @@ public class StatusBarWeather extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.statusbar_weather);
     }
 
-    public boolean onPreferenceChange(Preference preference, Object objValue) 		{
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
         return true;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.statusbar_weather);
 }

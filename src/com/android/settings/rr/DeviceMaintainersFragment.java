@@ -16,9 +16,9 @@ package com.android.settings.rr;
 import android.os.Bundle;
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
-
-import java.util.List;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
@@ -35,4 +35,7 @@ public class DeviceMaintainersFragment extends SettingsPreferenceFragment {
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
      }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.device_maintainers_fragment);
 }

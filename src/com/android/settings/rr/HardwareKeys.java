@@ -18,10 +18,12 @@ package com.android.settings.rr;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.os.PowerManager;
 import android.os.ServiceManager;
+import android.provider.SearchIndexableResource;
 import android.support.v7.preference.PreferenceCategory;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
@@ -31,6 +33,8 @@ import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 
 import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
@@ -43,6 +47,9 @@ import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 import com.android.settings.rr.utils.TelephonyUtils;
 import com.android.settings.rr.input.*;
 import lineageos.providers.LineageSettings;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HardwareKeys extends ActionFragment implements Preference.OnPreferenceChangeListener {
     private static final String HWKEY_DISABLE = "hardware_keys_disable";
@@ -123,6 +130,9 @@ public class HardwareKeys extends ActionFragment implements Preference.OnPrefere
         final PreferenceCategory appSwitchCategory = (PreferenceCategory) prefScreen
                 .findPreference(CATEGORY_APPSWITCH);
 
+        // Home button answers calls.
+        mHomeAnswerCall = (SwitchPreference) findPreference(KEY_HOME_ANSWER_CALL);
+
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
             homeCategory.removePreference(mHomeAnswerCall);
             mHomeAnswerCall = null;
@@ -192,4 +202,56 @@ public class HardwareKeys extends ActionFragment implements Preference.OnPrefere
                         : LineageSettings.Secure.RING_HOME_BUTTON_BEHAVIOR_DO_NOTHING));
     }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+            @Override
+            public List < SearchIndexableResource > getXmlResourcesToIndex(Context context,
+                boolean enabled) {
+                ArrayList < SearchIndexableResource > resources =
+                    new ArrayList < SearchIndexableResource > ();
+                SearchIndexableResource res = new SearchIndexableResource(context);
+                res.xmlResId = R.xml.rr_hw_keys;
+                resources.add(res);
+                return resources;
+            }
+
+            @Override
+            public List < String > getNonIndexableKeys(Context context) {
+                List < String > keys = super.getNonIndexableKeys(context);
+                final Resources res = context.getResources();
+
+                // bits for hardware keys present on device
+                final int deviceKeys = res.getInteger(
+                    org.lineageos.platform.internal.R.integer.config_deviceHardwareKeys);
+
+                // read bits for present hardware keys
+                final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
+                final boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
+                final boolean hasMenuKey = (deviceKeys & KEY_MASK_MENU) != 0;
+                final boolean hasAssistKey = (deviceKeys & KEY_MASK_ASSIST) != 0;
+                final boolean hasAppSwitchKey = (deviceKeys & KEY_MASK_APP_SWITCH) != 0;
+                //As ButtonBacklightBrightness.isButtonSupported()
+                final boolean hasBacklight = (res.getInteger(
+                    com.android.internal.R.integer.config_buttonBrightnessSettingDefault) > 0) &&
+                    (hasHomeKey || hasBackKey || hasMenuKey || hasAssistKey || hasAppSwitchKey);
+
+                if (!TelephonyUtils.isVoiceCapable(context)) keys.add(KEY_HOME_ANSWER_CALL);
+                if (ActionUtils.hasNavbarByDefault(context)) keys.add(CATEGORY_HWKEY);
+
+                // back light
+                if (!hasBacklight) keys.add(KEY_BUTTON_BACKLIGHT);
+                // back key
+                if (!hasBackKey) keys.add(CATEGORY_BACK);
+                // home key
+                if (!hasHomeKey) keys.add(CATEGORY_HOME);
+                // App switch key (recents)
+                if (!hasAppSwitchKey) keys.add(CATEGORY_APPSWITCH);
+                // menu key
+                if (!hasMenuKey) keys.add(CATEGORY_MENU);
+                // search/assist key
+                if (!hasAssistKey) keys.add(CATEGORY_ASSIST);
+
+                return keys;
+            }
+        };
 }

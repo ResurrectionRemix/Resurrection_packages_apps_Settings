@@ -29,18 +29,12 @@ import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceScreen;
-import android.provider.Settings;
-import dalvik.system.VMRuntime;
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.applications.LayoutPreference;
 import com.android.settings.SettingsPreferenceFragment;
-
-import java.util.List;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.DataOutputStream;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
@@ -50,7 +44,6 @@ public class MiscSettingsNav extends SettingsPreferenceFragment {
     private static final String ROOT_ACCESS_PROPERTY = "persist.sys.root_access";
 
     private LayoutPreference mAppRemover;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -95,5 +88,7 @@ public class MiscSettingsNav extends SettingsPreferenceFragment {
     public void onResume() {
         super.onResume();
     }
-}
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_misc_navigation);
+}

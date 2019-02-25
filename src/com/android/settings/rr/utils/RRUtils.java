@@ -36,6 +36,7 @@ import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.os.SystemClock;
+import android.provider.SearchIndexableResource;
 import android.util.Log;
 import android.view.InputDevice;
 import android.view.IWindowManager;
@@ -43,8 +44,11 @@ import android.view.WindowManagerGlobal;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 
-import java.util.List;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class RRUtils {
@@ -332,5 +336,20 @@ public class RRUtils {
         } catch (NameNotFoundException e) {
             return false;
         }
+    }
+
+    public static SearchIndexProvider addSearchIndexProvider(int xml) {
+        return new BaseSearchIndexProvider() {
+            @Override
+            public List < SearchIndexableResource > getXmlResourcesToIndex(Context context,
+                boolean enabled) {
+                ArrayList < SearchIndexableResource > resources =
+                    new ArrayList < SearchIndexableResource > ();
+                SearchIndexableResource res = new SearchIndexableResource(context);
+                res.xmlResId = xml;
+                resources.add(res);
+                return resources;
+            }
+        };
     }
 }

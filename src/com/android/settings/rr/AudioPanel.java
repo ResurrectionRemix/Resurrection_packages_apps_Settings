@@ -44,6 +44,8 @@ import android.widget.Toast;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class AudioPanel extends SettingsPreferenceFragment
@@ -64,5 +66,7 @@ public class AudioPanel extends SettingsPreferenceFragment
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         return false;
     }
-}
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_audio_panel);
+}

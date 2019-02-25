@@ -13,13 +13,11 @@
 */
 package com.android.settings.rr;
 
- 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.preference.ListPreference;
 import android.support.v14.preference.SwitchPreference;
@@ -34,6 +32,8 @@ import android.widget.EditText;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.dashboard.DashboardSummary;
 
@@ -107,4 +107,7 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         return false;
 
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_dashboard_settings);
 }

@@ -29,6 +29,8 @@ import android.support.v7.preference.PreferenceScreen;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 
@@ -45,14 +47,18 @@ public class QsLayout extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_qs_layout);
 
-		final Resources res = getResources();
-		int defaultValue;
-		PreferenceScreen prefs = getPreferenceScreen();
-		ContentResolver resolver = getActivity().getContentResolver();
+        final Resources res = getResources();
+        int defaultValue;
+        PreferenceScreen prefs = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
+
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         return false;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_qs_layout);
 }

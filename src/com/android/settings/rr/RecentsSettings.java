@@ -35,6 +35,8 @@ import android.view.ViewGroup;
 
 
 import com.android.settings.R;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import com.android.settings.rr.Preferences.MasterSwitchPreference;
@@ -43,7 +45,6 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 public class RecentsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,7 +62,7 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-		return false;
+        return false;
     }
 
     @Override
@@ -69,4 +70,6 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
         return MetricsEvent.RESURRECTED;
     }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_recents);
 }

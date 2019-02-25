@@ -29,13 +29,12 @@ import android.support.v14.preference.SwitchPreference;
 import android.provider.Settings;
 
 import com.android.settings.R;
-
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.util.rr.AwesomeAnimationHelper;
-
-import java.util.Arrays;
 
 public class CustomAnims extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
@@ -246,4 +245,6 @@ public class CustomAnims extends SettingsPreferenceFragment implements OnPrefere
         return MetricsProto.MetricsEvent.RESURRECTED;
     }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_custom_anims);
 }
