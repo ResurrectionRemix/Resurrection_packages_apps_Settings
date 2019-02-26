@@ -77,7 +77,7 @@
     </string-array>
     <!-- Do not translate. -->
     <string-array name="entries_font_size">
-        <item msgid="6490061470416867723">bẏchan</item>
+        <item msgid="6490061470416867723">lleihaf</item>
         <item msgid="3579015730662088893">Rhagosodiad</item>
         <item msgid="1678068858001018666">maỽr</item>
         <item msgid="490158884605093126">Mwyaf</item>
@@ -141,9 +141,33 @@
     </string-array>
     <!-- Match this with the constants in AccessPoint. -->
     <!-- Wi-Fi security choices used when manually added a Wi-Fi network -->
+    <string-array name="wifi_security">
+        <!-- The Wi-Fi network does not have any security. -->
+        <item>@string/wifi_security_none</item>
+        <!-- Do not translate. -->
+        <item>@string/wifi_security_wep</item>
+        <!-- Do not translate. -->
+        <item>@string/wifi_security_psk_generic</item>
+        <!-- Do not translate. -->
+        <item>@string/wifi_security_eap</item>
+    </string-array>
     <!-- Match this with the constants in AccessPoint. -->
     <!-- Wi-Fi security types for New User Dialog. EAP is not configurable. -->
+    <string-array name="wifi_security_no_eap">
+        <!-- The Wi-Fi network does not have any security. -->
+        <item>@string/wifi_security_none</item>
+        <!-- Do not translate. -->
+        <item>@string/wifi_security_wep</item>
+        <!-- Do not translate. -->
+        <item>@string/wifi_security_psk_generic</item>
+    </string-array>
     <!-- Security types for wireless tether -->
+    <string-array name="wifi_tether_security">
+        <!-- Do not translate. -->
+        <item>@string/wifi_security_wpa2</item>
+        <!-- Do not translate. -->
+        <item>@string/wifi_security_none</item>
+    </string-array>
     <!-- Values for security type for wireless tether -->
     <!-- Match this with the constants in WifiDialog. -->
     <!-- Wi-Fi settings.  The type of EAP method a Wi-Fi network has. -->
@@ -178,6 +202,14 @@
         <item>Peidio diffodd byth</item>
     </string-array>
     <!-- Bluetooth developer settings: Titles for maximum number of connected audio devices -->
+    <string-array name="bluetooth_max_connected_audio_devices">
+        <item>Defnyddio Rhagosodiad y System: <xliff:g id="default_bluetooth_max_connected_audio_devices">%1$d</xliff:g></item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
     <!-- Bluetooth developer settings: Values for maximum number of connected audio devices -->
     <!-- Match this with drawable.wifi_signal. -->
     <!-- Wi-Fi settings. The signal strength a Wi-Fi network has. -->
@@ -239,7 +271,7 @@
         <!-- Manual HTTP proxy settings are used for the current wifi network [CHAR LIMIT=25] -->
         <item>Â llaw</item>
         <!-- Proxy Auto-Config URL that is used for the current wifi network [CHAR LIMIT=25] -->
-        <item>Proxy Auto-Config</item>
+        <item>Awto-Ffurfweddu Procsi</item>
     </string-array>
     <!-- Authentication Types used in APN editor -->
     <string-array name="apn_auth_entries">
@@ -249,6 +281,11 @@
         <item>PAP neu CHAP</item>
     </string-array>
     <!-- Authentication Types used in APN editor -->
+    <string-array name="apn_protocol_entries">
+        <item>IPv4</item>
+        <item>IPv6</item>
+        <item>IPv4/IPv6</item>
+    </string-array>
     <!-- Bearer Info used in APN editor -->
     <string-array name="bearer_entries">
         <item>Anhysbys</item>
@@ -280,8 +317,8 @@
     </string-array>
     <!-- Apps on SD installation location options in ApplicationSettings -->
     <string-array name="app_install_location_entries">
-        <item>Internal device storage</item>
-        <item>Removable SD card</item>
+        <item>Storfa fewnol y ddyfais</item>
+        <item>Cerdyn SD gellir ei dynnu allan</item>
         <item>Gadael i\'r system benderfynu</item>
     </string-array>
     <!-- Do not translate. -->
@@ -295,8 +332,8 @@
     </string-array>
     <!-- User display names for app ops codes -->
     <string-array name="app_ops_summaries">
-        <item>coarse location</item>
-        <item>fine location</item>
+        <item>lleoliad bras</item>
+        <item>lleoliad union</item>
         <item>GPS</item>
         <item>dirgrynu</item>
         <item>darllen cysylltiadau</item>
@@ -307,20 +344,20 @@
         <item>addasu\'r calendr</item>
         <item>sganio wi-fi</item>
         <item>hysbysiad</item>
-        <item>cell scan</item>
+        <item>sganio symudol</item>
         <item>galw ffôn</item>
         <item>darllen SMS</item>
         <item>ysgrifennu SMS</item>
         <item>derbyn SMS</item>
         <item>derbyn SMS brys</item>
         <item>derbyn MMS</item>
-        <item>receive WAP push</item>
+        <item>derbyn gwthiad WAP</item>
         <item>anfon SMS</item>
         <item>darllen SMS ICC</item>
-        <item>write ICC SMS</item>
+        <item>ysgrifennu SMS ICC</item>
         <item>addasu gosodiadau</item>
-        <item>draw on top</item>
-        <item>access notifications</item>
+        <item>llunio dros ben</item>
+        <item>cael at hysbysiadau</item>
         <item>camera</item>
         <item>recordio sain</item>
         <item>chwarae sain</item>
@@ -336,29 +373,29 @@
         <item>uchder sain hysbysiadau</item>
         <item>Uchder sain Bluetooth</item>
         <item>cadw\'n effro</item>
-        <item>monitor location</item>
-        <item>monitor high power location</item>
+        <item>monitro lleoliad</item>
+        <item>monitro lleoliad pŵer uchel</item>
         <item>cael ystadegau defnydd</item>
         <item>distewi/dad-ddistewi\'r meicroffon</item>
-        <item>show toast</item>
-        <item>project media</item>
-        <item>activate VPN</item>
+        <item>dangos hysbysiad</item>
+        <item>taflunio cyfryngau</item>
+        <item>rhoi VPN ar waith</item>
         <item>ysgrifennu papur wal</item>
-        <item>assist structure</item>
-        <item>assist screenshot</item>
-        <item>read phone state</item>
+        <item>cynorthwyo strwythur</item>
+        <item>cynorthwyo sgrinlun</item>
+        <item>darllen statws y ffôn</item>
         <item>ychwanegu lleisbost</item>
-        <item>use sip</item>
-        <item>process outgoing call</item>
+        <item>defnyddio SIP</item>
+        <item>prosesu galwad allan</item>
         <item>ôl bys</item>
         <item>synwyryddion corff</item>
-        <item>read cell broadcasts</item>
-        <item>mock location</item>
-        <item>read storage</item>
-        <item>write storage</item>
+        <item>darllen darllediadau neges destun</item>
+        <item>ffugio lleoliad</item>
+        <item>darllen y storfa</item>
+        <item>ysgrifennu i\'r storfa</item>
         <item>troi sgrin ymlaen</item>
-        <item>get accounts</item>
-        <item>run in background</item>
+        <item>cael cyfrifon</item>
+        <item>rhedeg yn y cefndir</item>
         <item>uchder sain hygyrchedd</item>
     </string-array>
     <!-- User display names for app ops codes -->
@@ -374,7 +411,7 @@
         <item>Darllen y calendr</item>
         <item>Addasu\'r calendr</item>
         <item>Lleoliad</item>
-        <item>Post notification</item>
+        <item>Gosod hysbysiad</item>
         <item>Lleoliad</item>
         <item>Galw ffôn</item>
         <item>Darllen SMS/MMS</item>
@@ -387,8 +424,8 @@
         <item>Darllen SMS/MMS</item>
         <item>Ysgrifennu SMS/MMS</item>
         <item>Addasu gosodiadau</item>
-        <item>Draw on top</item>
-        <item>Access notifications</item>
+        <item>Llunio dros ben</item>
+        <item>Cael at hysbysiadau</item>
         <item>Camera</item>
         <item>Recordio sain</item>
         <item>Chwarae sain</item>
@@ -402,31 +439,31 @@
         <item>Uchder sain cyfryngau</item>
         <item>Uchder sain larymau</item>
         <item>Uchder sain hysbysiadau</item>
-        <item>Bluetooth volume</item>
+        <item>Uchder sain Bluetooth</item>
         <item>Cadw\'n effro</item>
         <item>Lleoliad</item>
         <item>Lleoliad</item>
         <item>Cael ystadegau defnydd</item>
         <item>Distewi/dad-ddistewi\'r meicroffon</item>
-        <item>Show toast</item>
-        <item>Project media</item>
-        <item>Activate VPN</item>
+        <item>Dangos hysbysiad</item>
+        <item>Taflunio cyfryngau</item>
+        <item>Rhoi VPN ar waith</item>
         <item>Ysgrifennu papur wal</item>
-        <item>Assist structure</item>
-        <item>Assist screenshot</item>
-        <item>Read phone state</item>
+        <item>Cynorthwyo strwythur</item>
+        <item>Cynorthwyo sgrinlun</item>
+        <item>Darllen statws y ffôn</item>
         <item>Ychwanegu lleisbost</item>
-        <item>Use sip</item>
-        <item>Process outgoing call</item>
+        <item>Defnyddio SIP</item>
+        <item>Prosesu galwad allan</item>
         <item>Ôl bys</item>
         <item>Synwyryddion corff</item>
-        <item>Read cell broadcasts</item>
-        <item>Mock location</item>
-        <item>Read storage</item>
-        <item>Write storage</item>
+        <item>Darllen darllediadau neges destun</item>
+        <item>Ffugio lleoliad</item>
+        <item>Darllen y storfa</item>
+        <item>Ysgrifennu i\'r storfa</item>
         <item>Troi sgrin ymlaen</item>
-        <item>Get accounts</item>
-        <item>Run in background</item>
+        <item>Cael cyfrifon</item>
+        <item>Rhedeg yn y cefndir</item>
         <item>Uchder sain hygyrchedd</item>
     </string-array>
     <!-- Titles for the list of long press timeout options. -->
@@ -443,10 +480,10 @@
     <string-array name="captioning_typeface_selector_titles">
         <item>Rhagosodiad</item>
         <item>Sans-serif</item>
-        <item>Sans-serif condensed</item>
-        <item>Sans-serif monospace</item>
+        <item>Sans-serif cyddwys</item>
+        <item>Sans-serif monofwlch</item>
         <item>Serif</item>
-        <item>Serif monospace</item>
+        <item>Serif monofwlch</item>
         <item>Achlysurol</item>
         <item>Rhedol</item>
         <item>Priflythrennau bychain</item>
@@ -466,7 +503,7 @@
         <item>Rhagosodiad</item>
         <item>Dim</item>
         <item>Amlinell</item>
-        <item>Drop shadow</item>
+        <item>Cysgod</item>
         <item>Codwyd</item>
         <item>Gostyngwyd</item>
     </string-array>
@@ -474,6 +511,12 @@
     <!-- Titles for captioning color preference. -->
     <!-- Values for captioning color preference. -->
     <!-- Titles for captioning opacity preference. [CHAR LIMIT=35] -->
+    <string-array name="captioning_opacity_selector_titles">
+        <item>25%</item>
+        <item>50%</item>
+        <item>75%</item>
+        <item>100%</item>
+    </string-array>
     <!-- Values for captioning opacity preference. -->
     <!-- Titles for captioning text style preset preference. [CHAR LIMIT=35] -->
     <string-array name="captioning_preset_selector_titles">
@@ -491,11 +534,11 @@
     <!-- Longer descriptions for each VPN type. [CHAR LIMIT=100] -->
     <string-array name="vpn_types_long">
         <item>PPTP VPN</item>
-        <item>L2TP/IPSec VPN with pre-shared keys</item>
+        <item>L2TP/IPSec VPN gydag allweddau a rennir ymlaen llaw</item>
         <item>L2TP/IPSec VPN gyda thystysgrifau</item>
-        <item>IPSec VPN with pre-shared keys and Xauth authentication</item>
-        <item>IPSec VPN with certificates and Xauth authentication</item>
-        <item>IPSec VPN with certificates and hybrid authentication</item>
+        <item>VPN IPSec gydag allweddau a rannwyd ymlaen llaw a dilysiad Xauth</item>
+        <item>VPN IPSec gyda thystysgrifau a dilysiad Xauth</item>
+        <item>VPN IPSec gyda thystysgrifau a dilysiad hybrid</item>
     </string-array>
     <!-- Match this with the constants in LegacyVpnInfo. -->
     <!-- Status for a VPN network. [CHAR LIMIT=100] -->
@@ -509,7 +552,7 @@
         <!-- Status message when VPN is connected. -->
         <item>Wedi cysyllltu</item>
         <!-- Status message when VPN is timeout. -->
-        <item>Timeout</item>
+        <item>Terfyn amser</item>
         <!-- Status message when VPN is failed. -->
         <item>Aflwyddiannus</item>
     </string-array>
@@ -549,20 +592,20 @@
     </string-array>
     <!-- Process stats memory use details: labels for process -->
     <string-array name="proc_stats_process_states">
-        <item>Persistent</item>
-        <item>Top activity</item>
+        <item>Parhaus</item>
+        <item>Gweithred uchaf</item>
         <item>Pwysig (blaendir)</item>
         <item>Pwysig (cefndir)</item>
         <item>Copi wrth gefn</item>
-        <item>Heavy weight</item>
+        <item>Defnydd trwm</item>
         <item>Gwasanaeth (yn rhedeg)</item>
         <item>Gwasanaeth (ailddechrau)</item>
-        <item>Receiver</item>
+        <item>Derbynnydd</item>
         <item>Cartref</item>
-        <item>Gweithred ddiwethaf</item>
-        <item>Cached (activity)</item>
-        <item>Cached (activity client)</item>
-        <item>Cached (empty)</item>
+        <item>Gweithgaredd diwethaf</item>
+        <item>Yn y cof dros dro (gweithgarwch)</item>
+        <item>Yn y cof dros dro (cleient gweithgarwch)</item>
+        <item>Cuddstoriwyd (gwag)</item>
     </string-array>
     <!-- Array of titles for sim color for multi-sim -->
     <string-array name="color_picker">
@@ -580,9 +623,28 @@
         <item>Dros 60 diwrnod o oed</item>
         <item>Dros 90 diwrnod o oed</item>
     </string-array>
+    <string-array name="wifi_metered_entries">
+        <item>Synhwyro\'n awtomatig</item>
+        <item>Treat as metered</item>
+        <item>Treat as unmetered</item>
+    </string-array>
+    <string-array name="wifi_hidden_entries">
+        <item>Na</item>
+        <item>Iawn</item>
+    </string-array>
     <!-- Titles for ui dark mode preference. -->
+    <string-array name="dark_ui_mode_entries">
+        <item>Awtomatig (yn seiliedig ar yr amser o\'r dydd)</item>
+        <item>Ymlaen o hyd</item>
+        <item>I ffwrdd o hyd</item>
+    </string-array>
     <!-- Values for ui dark mode preference. -->
     <!-- Titles for SystemUI theme preference. -->
+    <string-array name="systemui_theme_entries">
+        <item>@string/systemui_theme_wallpaper</item>
+        <item>@string/systemui_theme_light</item>
+        <item>@string/systemui_theme_dark</item>
+    </string-array>
     <!-- Values for SystemUI theme preference. -->
     <!-- Keep in sync with Settings.Secure.VOLUME_HUSH_* -->
 </resources>
