@@ -15,10 +15,22 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/animation_title">
 
+    <Preference 
+        android:key="alarm_blocker" 
+        android:fragment="com.android.settings.rr.fragments.AlarmBlocker" 
+        android:title="@string/alarm_blocker" 
+        android:summary="@string/alarm_blocker_summary" />
+
     <com.rr.settings.preferences.GlobalSettingSwitchPreference
         android:key="show_cpu_overlay"
         android:title="@string/show_cpu_info"
         android:summary="@string/show_cpu_info_summary" 
+        android:defaultValue="false" />
+
+     <com.rr.settings.preferences.SystemSettingSwitchPreference
+        android:key="notification_guts_kill_app_button"
+        android:title="@string/notification_guts_kill_app_button_title"
+        android:summary="@string/notification_guts_kill_app_button_summary"
         android:defaultValue="false" />
 
     <!-- Ambient play -->
@@ -28,11 +40,17 @@
         android:summary="@string/ambient_play_summary"
         android:fragment="com.android.settings.custom.ambient.AmbientPlaySettings" /-->
 
+     <Preference
+        android:key="vol_steps"
+        android:fragment="com.android.settings.rr.VolumeStepsFragment"
+        android:title="@string/volume_steps_fragment_title"
+        android:summary="@string/volume_steps_summary" />
+
     <Preference
         android:key="omnijaws_settings"
         android:icon="@drawable/rr_settings_weather"
         android:title="@string/weather_title"
-	    android:summary="@string/weather_config_title"
+        android:summary="@string/weather_config_title"
         android:fragment="com.android.settings.rr.omnigears.moresettings.OmniJawsSettings" />
 
     <Preference 
@@ -40,24 +58,6 @@
         android:fragment="com.android.settings.rr.fragments.WakeLockBlocker" 
         android:title="@string/wakelock_blocker_title" 
         android:summary="@string/wakelock_blocker_summary" />
-
-    <Preference 
-        android:key="alarm_blocker" 
-        android:fragment="com.android.settings.rr.fragments.AlarmBlocker" 
-        android:title="@string/alarm_blocker" 
-        android:summary="@string/alarm_blocker_summary" />
-
-     <Preference
-        android:key="vol_steps"
-        android:fragment="com.android.settings.rr.VolumeStepsFragment"
-        android:title="@string/volume_steps_fragment_title"
-        android:summary="@string/volume_steps_summary" />
-
-     <com.rr.settings.preferences.SystemSettingSwitchPreference
-        android:key="notification_guts_kill_app_button"
-        android:title="@string/notification_guts_kill_app_button_title"
-        android:summary="@string/notification_guts_kill_app_button_summary"
-        android:defaultValue="false" />
 
     <PreferenceCategory
         android:key="corners_category"
