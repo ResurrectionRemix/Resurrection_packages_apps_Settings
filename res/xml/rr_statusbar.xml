@@ -23,38 +23,38 @@
      <PreferenceScreen
                 android:id="@+id/clock_settings"
                 android:title="@string/status_bar_clock_title"
-        	    android:summary="@string/status_bar_clock_summary"
+                android:summary="@string/status_bar_clock_summary"
                 android:fragment="com.android.settings.rr.ClockSettings"
                 android:icon="@drawable/rr_clock_icon"
                 />
      <PreferenceScreen
                 android:id="@+id/network_traffic_settings"
                 android:title="@string/network_traffic_state_title"
-        	    android:summary="@string/network_traffic_summary"
+                android:summary="@string/network_traffic_summary"
                 android:fragment="com.android.settings.rr.NetworkTraffic"
                 android:icon="@drawable/rr_network_traffic_icon"
                 />
      <PreferenceScreen
                 android:id="@+id/battery_style_settings"
                 android:title="@string/status_bar_battery_style_title"
-        	    android:summary="@string/rr_battery_summary"
+                android:summary="@string/rr_battery_summary"
                 android:fragment="com.android.settings.rr.StatusbarBatteryStyle"
                 android:icon="@drawable/rr_battery_icon"
                 />
 
      <PreferenceScreen
         android:key="rr_weather"
-		android:fragment="com.android.settings.rr.StatusBarWeather"
+        android:fragment="com.android.settings.rr.StatusBarWeather"
         android:title="@string/rr_weather_title"
         android:summary="@string/sb_weather_summary"
-		android:icon="@drawable/rr_weather_main_icon" />
+        android:icon="@drawable/rr_weather_main_icon" />
 
     <PreferenceScreen
         android:key="rr_logo"
         android:title="@string/status_bar_logo_title"
         android:summary="@string/status_bar_logo_summary"
-		android:fragment="com.android.settings.rr.LogoSettings"
-		android:icon="@drawable/rr_statusbar_logo_icon" />
+        android:fragment="com.android.settings.rr.LogoSettings"
+        android:icon="@drawable/rr_statusbar_logo_icon" />
 
      <PreferenceScreen
                 android:key="rr_ticker"
@@ -65,7 +65,7 @@
      <PreferenceScreen
                 android:id="@+id/rr_sb_icons"
                 android:title="@string/rr_sb_icons"
-        	    android:summary="@string/rr_sb_icons_summary"
+                android:summary="@string/rr_sb_icons_summary"
                 android:fragment="com.android.settings.rr.StatusBarIcons"
                 android:icon="@drawable/rr_battery_icon"
                 />
@@ -76,10 +76,10 @@
         android:summary="@string/carrier_summary"
         android:icon="@drawable/rr_carrier_label_icon" />
 
-   	<PreferenceScreen
+     <PreferenceScreen
         android:key="rr_sb_gestures"
         android:title="@string/rr_sb_gestures_title"
-		android:icon="@drawable/rr_statusbar_gestures_icon"
+        android:icon="@drawable/rr_statusbar_gestures_icon"
         android:summary="@string/rr_sb_gestures_summary"
         android:fragment="com.android.settings.rr.StatusBarGestures" />
 
@@ -91,35 +91,5 @@
                 android:targetPackage="com.android.systemui"
                 android:targetClass="com.android.systemui.tuner.StatusBarIconsTunerActivity" />
     </Preference>
-
-    <PreferenceCategory
-        android:key="corners_category"
-        android:title="@string/corners_category" >
-
-        <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
-            android:key="sysui_rounded_fwvals"
-            android:title="@string/corner_fwvals"
-            android:summary="@string/corner_fwvals_summary"
-            android:defaultValue="true"
-            android:disableDependentsState="true" />
-
-        <com.android.settings.rr.Preferences.CustomSeekBarPreference
-            android:key="sysui_rounded_size"
-            android:title="@string/corner_radius"
-            android:max="60"
-            settings:min="0"
-            settings:units=""
-            android:persistent="false"
-            android:dependency="sysui_rounded_fwvals" />
-
-        <com.android.settings.rr.Preferences.CustomSeekBarPreference
-            android:key="sysui_rounded_content_padding"
-            android:title="@string/content_padding"
-            android:max="10"
-            settings:min="0"
-            settings:units=""
-            android:persistent="false"
-            android:dependency="sysui_rounded_fwvals" />
-    </PreferenceCategory>
 
 </PreferenceScreen>
