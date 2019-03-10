@@ -17,28 +17,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart options -->
     <string name="advanced_reboot_title">Напредно поновно покретање</string>
     <string name="advanced_reboot_summary">Када је откључан, обухвати опције у менију напајања, за рестарт у \'опоравак\' или \'bootloader\'</string>
-    <!-- App ops permissions -->
     <string name="app_ops_permissions_allowed">Дозвољено</string>
     <string name="app_ops_permissions_ignored">Занемарено</string>
     <string name="app_ops_permissions_always_ask">Увек питај</string>
-    <!-- App ops detail -->
     <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (искоришћено <xliff:g id="count">%2$s</xliff:g>)</string>
     <string name="app_ops_allowed_count">Дозвољено <xliff:g id="count" example="2 times">%s</xliff:g></string>
     <string name="app_ops_ignored_count">Одбијено <xliff:g id="count" example="2 times">%s</xliff:g></string>
     <string name="app_ops_both_count">Дозвољено <xliff:g id="count">%1$s</xliff:g>, одбијено <xliff:g id="count">%2$s</xliff:g></string>
     <string name="app_ops_no_blockable_permissions">Нема доступних дозвола за блокирање</string>
-    <!-- App ops menu options -->
     <string name="app_ops_show_user_apps">Корисничке апликације</string>
     <string name="app_ops_show_system_apps">Системске апликације</string>
     <string name="app_ops_reset_counters">Поништи бројаче</string>
     <string name="app_ops_reset_confirm_title">Потврда поништавања бројача</string>
     <string name="app_ops_reset_confirm_mesg">Заиста желите да поништите бројаче?</string>
-    <!-- Memory -->
     <string name="memory_startup_apps_title">Апликације покренуте при подизању система</string>
-    <!-- Names of categories of app ops tabs - extension of AOSP -->
     <string name="app_ops_categories_location">Локација</string>
     <string name="app_ops_categories_personal">Лични подаци</string>
     <string name="app_ops_categories_messaging">Размена порука</string>
@@ -48,7 +42,6 @@
     <string name="app_ops_categories_bootup">Подизање система</string>
     <string name="app_ops_categories_su">Приступ правима суперкорисника</string>
     <string name="app_ops_categories_other">Друго</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_summaries_access_notifications">приступ обавештењима</string>
     <string name="app_ops_summaries_activate_vpn">активирање VPN-а</string>
     <string name="app_ops_summaries_add_voicemail">додавање говорне поште</string>
@@ -94,7 +87,6 @@
     <string name="app_ops_summaries_use_fingerprint">коришћење отиска прста</string>
     <string name="app_ops_summaries_write_external_storage">пиши у спољно складиште</string>
     <string name="app_ops_summaries_write_sms">писање SMS порука</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_labels_access_notifications">Приступ обавештењима</string>
     <string name="app_ops_labels_activate_vpn">Активирање VPN-а</string>
     <string name="app_ops_labels_add_voicemail">Додавање говорне поште</string>
@@ -140,63 +132,42 @@
     <string name="app_ops_labels_use_fingerprint">Коришћење отиска прста</string>
     <string name="app_ops_labels_write_external_storage">Упис података у екстерни меморијски простор</string>
     <string name="app_ops_labels_write_sms">Писање SMS порука</string>
-    <!-- Sizes for pattern lockscreen -->
     <string name="lock_settings_picker_pattern_size_message">Изаберите величину шаблона</string>
-    <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
     <string name="lockpattern_settings_enable_error_path_title">Прикажи грешку шаблона</string>
-    <!-- Whether the dots will be drawn when using the lockscreen pattern -->
     <string name="lockpattern_settings_enable_dots_title">Прикажи тачкице шаблона</string>
-    <!-- Lock screen vibrate settings -->
     <string name="lockscreen_vibrate_enabled_title">Вибрација</string>
     <string name="lockscreen_vibrate_enabled_head">Вибрира при откључавању</string>
-    <!-- Android debugging -->
     <string name="adb_enable">Отклањање грешака</string>
     <string name="adb_enable_summary">Омогућава интерфејс Android Debug Bridge (ADB).</string>
-    <!-- Android debugging notification -->
     <string name="adb_notify">Обавештење о отклањању грешака</string>
     <string name="adb_notify_summary">Приказује обавештење када је омогућено отклањање грешака преко USB-а или мреже</string>
-    <!-- Android debugging over network -->
     <string name="adb_over_network">ADB преко мреже</string>
     <string name="adb_over_network_summary">Омогућите TCP/IP отклањање грешака преко мрежних интерфејса (Wi-Fi, USB мреже). Ова функција се поништава при поновном покретању уређаја</string>
     <string name="adb_over_network_warning">УПОЗОРЕЊЕ: када је омогућен ADB преко мреже, уређај је отворен за неконтролисани приступ са свих повезаних мрежа!\n\nКористите ову функцију само када сте повезани на поуздане мреже.\n\nЗаиста желите да омогућите ову функцију?</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown_cm">
         <item quantity="one">Сада сте <xliff:g id="step_count">%1$d</xliff:g> корак далеко од омогућавања развојних подешавања.</item>
         <item quantity="few">Сада си <xliff:g id="step_count">%1$d</xliff:g> корака далеко од омогућавања развојних опција.</item>
         <item quantity="other">Сада си <xliff:g id="step_count">%1$d</xliff:g> корака далеко од омогућавања развојних опција.</item>
     </plurals>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
     <string name="show_dev_on_cm">Омогућили сте опције за програмера!</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
     <string name="show_dev_already_cm">Нема потебе, опције за програмера су већ омогућене.</string>
-    <!-- Device Info screen. LineageOS legal. -->
     <string name="lineagelicense_title">Политика приватности LineageOS-а</string>
-    <!-- Double tap to sleep on status bar or lockscreen -->
     <string name="status_bar_double_tap_to_sleep_title">Додир за спавање</string>
     <string name="status_bar_double_tap_to_sleep_summary">Додирните двапут на статусну траку или на закључани екран да бисте искључили екран</string>
-    <!-- Format string for fingerprint location message -->
     <string name="security_settings_fingerprint_enroll_find_sensor_message_cm" product="default">Сензор за отисак прста се налази <xliff:g id="sensor_location">%1$s</xliff:g> телефона.</string>
-    <!-- Fingerprint sensor locations -->
     <string name="security_settings_fingerprint_sensor_location_back">на задњој страни</string>
     <string name="security_settings_fingerprint_sensor_location_front">на предњој страни</string>
     <string name="security_settings_fingerprint_sensor_location_left">с леве стране</string>
     <string name="security_settings_fingerprint_sensor_location_right">с десне стране</string>
-    <!-- Hostname setting -->
     <string name="device_hostname">Име уређаја</string>
-    <!-- Increasing ring tone volume -->
     <string name="increasing_ring_volume_option_title">Појачавање мелодије звона</string>
     <string name="increasing_ring_min_volume_title">Почетна јачина звука</string>
     <string name="increasing_ring_ramp_up_time_title">Време појачавања</string>
-    <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Окончавање апликација</string>
     <string name="kill_app_longpress_back_summary">Окончајте активну апликацију задржавањем дугмета „Назад“.</string>
-    <!-- Launch Dev Tools -->
     <string name="development_tools_title">Алатке за програмера</string>
-    <!-- Lock screen cover art -->
     <string name="lockscreen_media_art_title">Прикажи омот медија</string>
-    <!-- Lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Визуелизација спектра музике</string>
-    <!-- Manual provisioning support -->
     <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> је <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
     <string name="sim_disabled">онемогућена</string>
     <string name="sim_missing">недостаје или је неисправна</string>
@@ -210,14 +181,10 @@
     <string name="sub_activate_failed">Грешка при активацији.</string>
     <string name="sub_deactivate_success">SIM картица је деактивирана.</string>
     <string name="sub_deactivate_failed">Грешка при деактивацији.</string>
-    <!-- Per-app data restrictions -->
-    <!-- PIN scramble -->
     <string name="unlock_scramble_pin_layout_title">Насумични распоред</string>
     <string name="unlock_scramble_pin_layout_summary">Приказује дугмад за унос PIN кода у насумичном реду.</string>
-    <!-- Proximity wake -->
     <string name="proximity_wake_title">Спречи случајно буђење</string>
     <string name="proximity_wake_summary">Провери сензор близине пре буђења екрана</string>
-    <!-- Setting checkbox title for root access -->
     <string name="root_access">Приступ правима суперкорисника</string>
     <string name="root_access_warning_title">Омогућити приступ правима суперкорисника?</string>
     <string name="root_access_warning_message">Добијање права суперкорисника је крајње опасно и може угрозити безбедност вашег система!</string>
@@ -225,20 +192,14 @@
     <string name="root_access_apps">Само апликације</string>
     <string name="root_access_adb">Само ADB</string>
     <string name="root_access_all">Апликације и ADB</string>
-    <!-- Preference link for root appops -->
     <string name="root_appops_title">Управљање правима суперкорисника</string>
     <string name="root_appops_summary">Прегледајте и управљајте дозволама за права суперкорисника.</string>
-    <!-- Touchscreen gesture settings -->
     <string name="touchscreen_gesture_settings_title">Гестови по екрану</string>
     <string name="touchscreen_gesture_settings_summary">Подеси разне гестове по екрану за брзе акције</string>
-    <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">Буђење при пуњењу</string>
     <string name="wake_when_plugged_or_unplugged_summary">Укључује екран при повезивању или прекиду везе са извором напајања.</string>
-    <!-- High touch sensitivity -->
     <string name="high_touch_sensitivity_title">Велика осетљивост на додир</string>
     <string name="high_touch_sensitivity_summary">Повећава осетљивост екрана ради коришћења уређаја у рукавицама.</string>
-    <!-- Touchscreen hovering -->
     <string name="touchscreen_hovering_title">Задржавање прста</string>
     <string name="touchscreen_hovering_summary">Дозвољава ти да лебдиш екраном као миш у веб претраживачу, удаљеном десктопу, итд</string>
-    <!-- Whether the keyguard will directly show the lock entry -->
 </resources>

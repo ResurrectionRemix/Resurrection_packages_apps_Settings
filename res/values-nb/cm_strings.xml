@@ -17,26 +17,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart options -->
     <string name="advanced_reboot_title">Avansert omstart</string>
-    <!-- App ops permissions -->
     <string name="app_ops_permissions_allowed">Tillatt</string>
     <string name="app_ops_permissions_ignored">Ignorert</string>
     <string name="app_ops_permissions_always_ask">Spør alltid</string>
-    <!-- App ops detail -->
     <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (brukt <xliff:g id="count">%2$s</xliff:g>)</string>
     <string name="app_ops_allowed_count">Tillat <xliff:g id="count" example="2 times">%s</xliff:g></string>
     <string name="app_ops_ignored_count">Avslåtte <xliff:g id="count" example="2 times">%s</xliff:g></string>
     <string name="app_ops_both_count">Tillatte <xliff:g id="count">%1$s</xliff:g>, avslåtte <xliff:g id="count">%2$s</xliff:g></string>
-    <!-- App ops menu options -->
     <string name="app_ops_show_user_apps">Vis brukerinstallerte apper</string>
     <string name="app_ops_show_system_apps">Vis systemapper</string>
     <string name="app_ops_reset_counters">Tilbakestill tillate/avkrefte tellerne</string>
     <string name="app_ops_reset_confirm_title">Bekreft tilbakestilling av tellere</string>
     <string name="app_ops_reset_confirm_mesg">Er du sikker på at du vil tilbakestille tellerne?</string>
-    <!-- Memory -->
     <string name="memory_startup_apps_title">Apper startet ved oppstart</string>
-    <!-- Names of categories of app ops tabs - extension of AOSP -->
     <string name="app_ops_categories_location">Posisjon</string>
     <string name="app_ops_categories_personal">Personlig</string>
     <string name="app_ops_categories_messaging">Meldinger</string>
@@ -46,7 +40,6 @@
     <string name="app_ops_categories_bootup">Oppstart</string>
     <string name="app_ops_categories_su">Root-tilgang</string>
     <string name="app_ops_categories_other">Annet</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_summaries_access_notifications">tilgang til varsler</string>
     <string name="app_ops_summaries_activate_vpn">aktiver VPN</string>
     <string name="app_ops_summaries_add_voicemail">legg til mobilsvar</string>
@@ -89,7 +82,6 @@
     <string name="app_ops_summaries_use_fingerprint">bruk fingeravtrykk</string>
     <string name="app_ops_summaries_write_external_storage">skriv til ekstern lagring</string>
     <string name="app_ops_summaries_write_sms">Skriv SMS</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_labels_access_notifications">Tilgang til varsler</string>
     <string name="app_ops_labels_activate_vpn">Aktiver VPN</string>
     <string name="app_ops_labels_add_voicemail">Legg til mobilsvar</string>
@@ -132,60 +124,39 @@
     <string name="app_ops_labels_use_fingerprint">Bruk fingeravtrykk</string>
     <string name="app_ops_labels_write_external_storage">Skriv til ekstern lagring</string>
     <string name="app_ops_labels_write_sms">Skriv SMS</string>
-    <!-- Sizes for pattern lockscreen -->
     <string name="lock_settings_picker_pattern_size_message">Velg størrelse på mønster</string>
-    <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
     <string name="lockpattern_settings_enable_error_path_title">Vis feil</string>
-    <!-- Whether the dots will be drawn when using the lockscreen pattern -->
     <string name="lockpattern_settings_enable_dots_title">Vis mønster prikker</string>
-    <!-- Lock screen vibrate settings -->
     <string name="lockscreen_vibrate_enabled_title">Vibrer</string>
     <string name="lockscreen_vibrate_enabled_head">Vibrere når låses opp</string>
-    <!-- Android debugging -->
     <string name="adb_enable">Android feilsøking</string>
     <string name="adb_enable_summary">Aktiver grensesnittet Android Debug Bridge (ADB)</string>
-    <!-- Android debugging notification -->
     <string name="adb_notify">Feilsøkingsvarsel</string>
     <string name="adb_notify_summary">Vis et varsel når USB eller nettverksfeilsøking er aktivert</string>
-    <!-- Android debugging over network -->
     <string name="adb_over_network">ADB over nettverk</string>
     <string name="adb_over_network_summary">Aktiver TCP/IP feilsøking over nettverksgrensesnitt (Wi-Fi, USB nettverk). Denne innstillingen er tilbakestilt ved omstart</string>
     <string name="adb_over_network_warning">Advarsel: Når ADB over nettverk er aktivert, er telefonen åpen for angrep på alle tilkoblede nettverk! \n\nKun bruk denne funksjonen når du er koblet på klarerte nettverk.\n\nVil du aktivere denne funksjonen?</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown_cm">
         <item quantity="one">Du er nå <xliff:g id="step_count"> %1$d</xliff:g> skritt fra aktivering av utviklerinnstillinger.</item>
         <item quantity="other">Du er nå <xliff:g id="step_count"> %1$d</xliff:g> skritt fra aktivering av utviklerinnstillinger.</item>
     </plurals>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
     <string name="show_dev_on_cm">Du har aktivert innstillinger for utviklere!</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
     <string name="show_dev_already_cm">Ikke nødvendig, du allerede har aktivert utviklingsinnstillinger.</string>
-    <!-- Device Info screen. LineageOS legal. -->
     <string name="lineagelicense_title">LineageOS juridisk</string>
-    <!-- Double tap to sleep on status bar or lockscreen -->
-    <!-- Format string for fingerprint location message -->
     <string name="security_settings_fingerprint_enroll_find_sensor_message_cm" product="default">Finn fingerskanneren på <xliff:g id="sensor_location">%1$s</xliff:g> av telefonen din.</string>
-    <!-- Fingerprint sensor locations -->
     <string name="security_settings_fingerprint_sensor_location_back">baksiden</string>
     <string name="security_settings_fingerprint_sensor_location_front">forsiden</string>
     <string name="security_settings_fingerprint_sensor_location_left">venstre siden</string>
     <string name="security_settings_fingerprint_sensor_location_right">høyre siden</string>
-    <!-- Hostname setting -->
     <string name="device_hostname">Enhetens vertsnavn</string>
-    <!-- Increasing ring tone volume -->
     <string name="increasing_ring_volume_option_title">Økende ringevolum</string>
     <string name="increasing_ring_min_volume_title">Start volum</string>
     <string name="increasing_ring_ramp_up_time_title">Ramp-up tid</string>
-    <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Stopp app-tilbake-knappen</string>
     <string name="kill_app_longpress_back_summary">Stopp aktivt program ved å trykke lenge på tilbake-knappen</string>
-    <!-- Launch Dev Tools -->
     <string name="development_tools_title">Utviklingsverktøy</string>
-    <!-- Lock screen cover art -->
     <string name="lockscreen_media_art_title">Vis media coverbilde</string>
-    <!-- Lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Vis musikk visualizer</string>
-    <!-- Manual provisioning support -->
     <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> er <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
     <string name="sim_disabled">deaktivert</string>
     <string name="sim_missing">manglende eller feil</string>
@@ -199,13 +170,9 @@
     <string name="sub_activate_failed">Aktivering mislyktes.</string>
     <string name="sub_deactivate_success">SIM deaktivert.</string>
     <string name="sub_deactivate_failed">Deaktivering mislyktes.</string>
-    <!-- Per-app data restrictions -->
-    <!-- PIN scramble -->
     <string name="unlock_scramble_pin_layout_title">Endre layout</string>
     <string name="unlock_scramble_pin_layout_summary">Endre PIN layout når enheten låses opp</string>
-    <!-- Proximity wake -->
     <string name="proximity_wake_title">Hindre utilsiktet vekking</string>
-    <!-- Setting checkbox title for root access -->
     <string name="root_access">Root-tilgang</string>
     <string name="root_access_warning_title">Tillat root-tilgang?</string>
     <string name="root_access_warning_message">Tillate programmer å be om root-tilgang er svært farlig og kan gå ut over sikkerheten til systemet!</string>
@@ -213,18 +180,12 @@
     <string name="root_access_apps">Kun apper</string>
     <string name="root_access_adb">Kun ADB</string>
     <string name="root_access_all">Apper og ADB</string>
-    <!-- Preference link for root appops -->
     <string name="root_appops_title">Administrer root tilganger</string>
     <string name="root_appops_summary">Se over og endre root reglene</string>
-    <!-- Touchscreen gesture settings -->
-    <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">Våkne ved tilkobling av strøm</string>
     <string name="wake_when_plugged_or_unplugged_summary">Skjermen slås på når du kobler til eller kobler fra en strømkilde</string>
-    <!-- High touch sensitivity -->
     <string name="high_touch_sensitivity_title">Høy touch sensitivitet</string>
     <string name="high_touch_sensitivity_summary">Øk berøringsskjermens følsomhet slik at den kan brukes med hansker</string>
-    <!-- Touchscreen hovering -->
     <string name="touchscreen_hovering_title">Berøringsskjerm hovring</string>
     <string name="touchscreen_hovering_summary">Lar deg hovre over skjermen som en mus på en nettleser, eksternt skrivebord osv</string>
-    <!-- Whether the keyguard will directly show the lock entry -->
 </resources>

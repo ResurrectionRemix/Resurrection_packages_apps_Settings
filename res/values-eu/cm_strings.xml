@@ -17,28 +17,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart options -->
     <string name="advanced_reboot_title">Berrabiarazte aurreratua</string>
     <string name="advanced_reboot_summary">Desblokeatutako gailuetan, berreskuratze eta abiarazle moduetan berrabiatzeko aukerak gehitu itzaltze menuan</string>
-    <!-- App ops permissions -->
     <string name="app_ops_permissions_allowed">Baimenduta</string>
     <string name="app_ops_permissions_ignored">Ezikusia</string>
     <string name="app_ops_permissions_always_ask">Galdetu beti</string>
-    <!-- App ops detail -->
     <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (<xliff:g id="count">%2$s</xliff:g> erabilita)</string>
     <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> baimenduta</string>
     <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g> ukatuta</string>
     <string name="app_ops_both_count"><xliff:g id="count">%1$s</xliff:g> baimenduta, <xliff:g id="count">%2$s</xliff:g> ukatuta</string>
     <string name="app_ops_no_blockable_permissions">Ez dago baimenik eskuragarri blokeatzeko</string>
-    <!-- App ops menu options -->
     <string name="app_ops_show_user_apps">Erakutsi erabiltzailearen aplikazioak</string>
     <string name="app_ops_show_system_apps">Erakutsi sistemaren aplikazioak</string>
     <string name="app_ops_reset_counters">Zenbatzaileak berrezarri</string>
     <string name="app_ops_reset_confirm_title">Zenbatzaileak berrezarri</string>
     <string name="app_ops_reset_confirm_mesg">Ziur kontagailuak hustu nahi dituzula?</string>
-    <!-- Memory -->
     <string name="memory_startup_apps_title">Abioan abiarazitako aplikazioak</string>
-    <!-- Names of categories of app ops tabs - extension of AOSP -->
     <string name="app_ops_categories_location">Kokalekua</string>
     <string name="app_ops_categories_personal">Pertsonala</string>
     <string name="app_ops_categories_messaging">Mezularitza</string>
@@ -48,7 +42,6 @@
     <string name="app_ops_categories_bootup">Abioa</string>
     <string name="app_ops_categories_su">Root sarbidea</string>
     <string name="app_ops_categories_other">Beste bat</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_summaries_accept_handover">dei-pasatzea beste aplikazio batetik</string>
     <string name="app_ops_summaries_access_camera">kamera atzitu</string>
     <string name="app_ops_summaries_access_notifications">jakinarazpenak atzitzeko baimena</string>
@@ -135,7 +128,6 @@
     <string name="app_ops_summaries_write_external_storage">kanpo biltegiratzean idatzi</string>
     <string name="app_ops_summaries_write_mms">MMS mezu bat idatzi</string>
     <string name="app_ops_summaries_write_sms">SMSak idatzi</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_labels_accept_handover">Dei-pasatzea beste aplikazio batetik</string>
     <string name="app_ops_labels_access_camera">Kamera atzitu</string>
     <string name="app_ops_labels_access_notifications">Sarbidea jakinarazpenetara</string>
@@ -222,62 +214,41 @@
     <string name="app_ops_labels_write_external_storage">Kanpo biltegiratzean idatzi</string>
     <string name="app_ops_labels_write_mms">MMS mezu bat idatzi</string>
     <string name="app_ops_labels_write_sms">SMSak idatzi</string>
-    <!-- Sizes for pattern lockscreen -->
     <string name="lock_settings_picker_pattern_size_message">Aukeratu ereduaren tamaina</string>
-    <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
     <string name="lockpattern_settings_enable_error_path_title">Erakutsi eredu errorea</string>
-    <!-- Whether the dots will be drawn when using the lockscreen pattern -->
     <string name="lockpattern_settings_enable_dots_title">Erakutsi ereduaren puntuak</string>
-    <!-- Lock screen vibrate settings -->
     <string name="lockscreen_vibrate_enabled_title">Bibratu</string>
     <string name="lockscreen_vibrate_enabled_head">Bibratu desblokeatzean</string>
-    <!-- Android debugging -->
     <string name="adb_enable">Android arazketa</string>
     <string name="adb_enable_summary">Gaitu Android Debug Bridge (ADB) interfazea</string>
-    <!-- Android debugging notification -->
     <string name="adb_notify">Arazketa jakinarazpena</string>
     <string name="adb_notify_summary">Bistaratu jakinarazpena USB edo sare arazketa gaitzean</string>
-    <!-- Android debugging over network -->
     <string name="adb_over_network">Sare gaineko ADB</string>
     <string name="adb_over_network_summary">Gaitu sare interfaze gaineko TCP/IP arazketa (Wi\u2011Fi, USB sareak). Ezarpen hau gailua berrabiaraztean leheneratzen da</string>
     <string name="adb_over_network_warning">KONTUZ: Sare gaineko ADB gaituta badago, zure telefonoa kanpo erasoak jaso ditzake konektatutako sare guztietatik!\n\n Erabili ezaugarri hau soilik konfiantzako sareetara konektatuta zaudenean.\n\nEzaugarri hau gaitu nahi duzu?</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown_cm">
         <item quantity="one">Garatzaileen aukerak gaitzeko urrats <xliff:g id="step_count">%1$d</xliff:g>era zaude.</item>
         <item quantity="other">Garatzaileen aukerak gaitzeko <xliff:g id="step_count">%1$d</xliff:g> urratsera zaude.</item>
     </plurals>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
     <string name="show_dev_on_cm">Garatzaileen aukerak gaitu dituzu!</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
     <string name="show_dev_already_cm">Ez da behar, aurretik gaitu dituzu garatzaileek aukerak.</string>
-    <!-- Device Info screen. LineageOS legal. -->
     <string name="lineagelicense_title">LineageOS lizentzia</string>
-    <!-- Double tap to sleep on status bar or lockscreen -->
     <string name="status_bar_double_tap_to_sleep_title">Sakatu lokartzeko</string>
     <string name="status_bar_double_tap_to_sleep_summary">Sakatu birritan egoera-barra edo blokeo-pantaila pantaila itzaltzeko</string>
-    <!-- Format string for fingerprint location message -->
     <string name="security_settings_fingerprint_enroll_find_sensor_message_cm" product="default">Kokatu hatz-marken sentsorea zure telefonoaren <xliff:g id="sensor_location">%1$s</xliff:g>.</string>
-    <!-- Fingerprint sensor locations -->
     <string name="security_settings_fingerprint_sensor_location_back">atzealdean</string>
     <string name="security_settings_fingerprint_sensor_location_front">aurrealdean</string>
     <string name="security_settings_fingerprint_sensor_location_left">ezkerraldean</string>
     <string name="security_settings_fingerprint_sensor_location_right">eskuinaldean</string>
-    <!-- Hostname setting -->
     <string name="device_hostname">Gailuaren izena</string>
-    <!-- Increasing ring tone volume -->
     <string name="increasing_ring_volume_option_title">Dei doinu gorakorra</string>
     <string name="increasing_ring_min_volume_title">Hasierako bolumena</string>
     <string name="increasing_ring_ramp_up_time_title">Maldaren iraupena</string>
-    <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Hil aplikazioa atzera botoiarekin</string>
     <string name="kill_app_longpress_back_summary">Hil aurrealdeko aplikazioa atzera botoia luze sakatuz</string>
-    <!-- Launch Dev Tools -->
     <string name="development_tools_title">Garapen tresnak</string>
-    <!-- Lock screen cover art -->
     <string name="lockscreen_media_art_title">Bistaratu azalaren irudia</string>
-    <!-- Lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Bistaratu musika irudikatzea</string>
-    <!-- Manual provisioning support -->
     <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> <xliff:g id="status" example="disabled">%2$s</xliff:g> dago</string>
     <string name="sim_disabled">ezgaituta</string>
     <string name="sim_missing">ez dago edo hondatuta dago</string>
@@ -291,18 +262,14 @@
     <string name="sub_activate_failed">Aktibazioak huts egin du.</string>
     <string name="sub_deactivate_success">SIMa desaktibatu da.</string>
     <string name="sub_deactivate_failed">Desaktibazioak huts egin du.</string>
-    <!-- Per-app data restrictions -->
     <string name="data_usage_app_restrict_data">Datu mugikorrak</string>
     <string name="data_usage_app_restrict_data_summary">Gaitu datu mugikorren erabilera</string>
     <string name="data_usage_app_restrict_wifi">Wi\u2011Fi datuak</string>
     <string name="data_usage_app_restrict_wifi_summary">Gaitu of Wi\u2011Fi datuen erabilera</string>
-    <!-- PIN scramble -->
     <string name="unlock_scramble_pin_layout_title">Zorizko diseinua</string>
     <string name="unlock_scramble_pin_layout_summary">PIN zenbakiaren antolaketa nahastu gailua desblokeatzean</string>
-    <!-- Proximity wake -->
     <string name="proximity_wake_title">Eragotzi ustekabeko esnatzea</string>
     <string name="proximity_wake_summary">Kontsultatu gertutasun sentsorea pantaila piztu baino lehen</string>
-    <!-- Setting checkbox title for root access -->
     <string name="root_access">Root sarbidea</string>
     <string name="root_access_warning_title">Baimendu root sarbidea?</string>
     <string name="root_access_warning_message">Aplikazioek root sarbide eskaerak egitea baimentzeak gailuaren segurtasuna arriskuan jar dezake!</string>
@@ -310,22 +277,16 @@
     <string name="root_access_apps">Aplikazioak bakarrik</string>
     <string name="root_access_adb">ADB bakarrik</string>
     <string name="root_access_all">ADB eta aplikazioak</string>
-    <!-- Preference link for root appops -->
     <string name="root_appops_title">Kudeatu root sarbideak</string>
     <string name="root_appops_summary">Ikusi eta kontrolatu root arauak</string>
-    <!-- Touchscreen gesture settings -->
     <string name="touchscreen_gesture_settings_title">Ukitze-pantailaren keinuak</string>
     <string name="touchscreen_gesture_settings_summary">Egin ukimen-pantailako keinuak ekintza azkarretarako</string>
-    <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">Esnatu kargadorearekin</string>
     <string name="wake_when_plugged_or_unplugged_summary">Piztu pantaila kargadorea konektatu edo deskonektatzean</string>
-    <!-- High touch sensitivity -->
     <string name="high_touch_sensitivity_title">Ukipen sentsibilitate altua</string>
     <string name="high_touch_sensitivity_summary">Areagotu pantailaren sentsibilitatea, eskularruekin erabilgarria izan dadin</string>
-    <!-- Touchscreen hovering -->
     <string name="touchscreen_hovering_title">Pantailaren gainetik pasatu</string>
     <string name="touchscreen_hovering_summary">Sagua bailitzan pantailaren gainetik pasatzea ahalbidetzen dizu, nabigatzaileetan, urruneko mahaigainetan, eta abar</string>
-    <!-- Whether the keyguard will directly show the lock entry -->
     <string name="directly_show_lock">Desblokeatze zuzena</string>
     <string name="directly_show_lock_summary">Saltatu \"pasatu hatza desblokeatzeko\" pantaila eta zuzenean gakoa sartzen hasi</string>
 </resources>

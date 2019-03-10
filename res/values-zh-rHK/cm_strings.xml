@@ -17,24 +17,18 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart options -->
-    <!-- App ops permissions -->
     <string name="app_ops_permissions_allowed">已允許</string>
     <string name="app_ops_permissions_ignored">已忽略</string>
     <string name="app_ops_permissions_always_ask">一律詢問</string>
-    <!-- App ops detail -->
     <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (已使用 <xliff:g id="count">%2$s</xliff:g>)</string>
     <string name="app_ops_allowed_count">已允許 <xliff:g id="count" example="2 times">%s</xliff:g></string>
     <string name="app_ops_ignored_count">拒絕 <xliff:g id="count" example="2 times">%s</xliff:g></string>
     <string name="app_ops_both_count">已允許 <xliff:g id="count">%1$s</xliff:g>，已拒絕 <xliff:g id="count">%2$s</xliff:g></string>
-    <!-- App ops menu options -->
     <string name="app_ops_show_user_apps">顯示使用者的應用程式</string>
     <string name="app_ops_show_system_apps">顯示內置應用程式</string>
     <string name="app_ops_reset_counters">重設允許 / 拒絕計數器</string>
     <string name="app_ops_reset_confirm_title">確認重設計數器</string>
     <string name="app_ops_reset_confirm_mesg">您確定要重設計數器？</string>
-    <!-- Memory -->
-    <!-- Names of categories of app ops tabs - extension of AOSP -->
     <string name="app_ops_categories_location">位置</string>
     <string name="app_ops_categories_personal">個人</string>
     <string name="app_ops_categories_messaging">訊息</string>
@@ -42,7 +36,6 @@
     <string name="app_ops_categories_device">裝置</string>
     <string name="app_ops_categories_bootup">啟動時</string>
     <string name="app_ops_categories_su">Root 權限</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_summaries_access_notifications">存取通知</string>
     <string name="app_ops_summaries_activate_vpn">啟用 VPN</string>
     <string name="app_ops_summaries_coarse_location">粗略位置</string>
@@ -69,7 +62,6 @@
     <string name="app_ops_summaries_send_sms">傳送短訊</string>
     <string name="app_ops_summaries_toast_window">顯示彈出通知</string>
     <string name="app_ops_summaries_write_sms">撰寫短訊</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_labels_access_notifications">存取通知</string>
     <string name="app_ops_labels_activate_vpn">啟用 VPN</string>
     <string name="app_ops_labels_draw_on_top">在最上層繪圖</string>
@@ -90,68 +82,37 @@
     <string name="app_ops_labels_record_audio">錄音</string>
     <string name="app_ops_labels_send_sms">傳送短訊</string>
     <string name="app_ops_labels_toast_window">顯示彈出通知</string>
-    <!-- Sizes for pattern lockscreen -->
-    <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
     <string name="lockpattern_settings_enable_error_path_title">顯示圖樣錯誤</string>
-    <!-- Whether the dots will be drawn when using the lockscreen pattern -->
     <string name="lockpattern_settings_enable_dots_title">顯示圖樣圓點</string>
-    <!-- Lock screen vibrate settings -->
     <string name="lockscreen_vibrate_enabled_title">震動</string>
-    <!-- Android debugging -->
-    <!-- Android debugging notification -->
-    <!-- Android debugging over network -->
     <string name="adb_over_network">ADB 透過網絡</string>
     <string name="adb_over_network_summary">啟用透過網絡接口 (Wi-Fi、USB 網絡) 進行 TCP/IP 偵錯。該設定會於重新啟動後重設</string>
     <string name="adb_over_network_warning">警告：啟用透過網絡連接 ADB 後，所有已連接的網絡均可能入侵您的手機！\n\n建議您連接到信任的網絡時才使用此功能。\n\n您確定想啟用此功能嗎？</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-    <!-- Device Info screen. LineageOS legal. -->
     <string name="lineagelicense_title">LineageOS 法律條款</string>
-    <!-- Double tap to sleep on status bar or lockscreen -->
-    <!-- Format string for fingerprint location message -->
-    <!-- Fingerprint sensor locations -->
-    <!-- Hostname setting -->
     <string name="device_hostname">裝置主機名稱</string>
-    <!-- Increasing ring tone volume -->
     <string name="increasing_ring_ramp_up_time_title">漸強時間</string>
-    <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">返回按鈕可終止應用程式</string>
     <string name="kill_app_longpress_back_summary">長按返回按鈕以終止前景應用程式</string>
-    <!-- Launch Dev Tools -->
     <string name="development_tools_title">開發工具</string>
-    <!-- Lock screen cover art -->
-    <!-- Lock screen visualizer -->
     <string name="lockscreen_visualizer_title">顯示音樂視覺化效果</string>
-    <!-- Manual provisioning support -->
     <string name="sim_disabled">已停用</string>
     <string name="sim_missing">遺失或毀損</string>
     <string name="sim_enabler_airplane_on">飛航模式開啟时無法進行此操作。</string>
     <string name="sim_enabler_in_call">通話時無法進行此操作。</string>
     <string name="sim_enabler_both_inactive">無法停用所有 SIM 卡</string>
-    <!-- Per-app data restrictions -->
-    <!-- PIN scramble -->
     <string name="unlock_scramble_pin_layout_title">無序佈局</string>
     <string name="unlock_scramble_pin_layout_summary">解鎖裝置時使用無序 PIN 佈局</string>
-    <!-- Proximity wake -->
     <string name="proximity_wake_title">防止意外喚醒</string>
-    <!-- Setting checkbox title for root access -->
     <string name="root_access">超級使用者存取</string>
     <string name="root_access_warning_title">允許超級使用者存取？</string>
     <string name="root_access_none">已停用</string>
     <string name="root_access_apps">僅限應用程式</string>
     <string name="root_access_adb">僅限 ADB</string>
     <string name="root_access_all">應用程式和 ADB</string>
-    <!-- Preference link for root appops -->
-    <!-- Touchscreen gesture settings -->
-    <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">當接上喚醒</string>
     <string name="wake_when_plugged_or_unplugged_summary">當連接或拔除電源時開啓螢幕</string>
-    <!-- High touch sensitivity -->
     <string name="high_touch_sensitivity_title">高觸碰靈敏度</string>
     <string name="high_touch_sensitivity_summary">增加觸控螢幕的靈敏度，戴著手套也可以使用手機</string>
-    <!-- Touchscreen hovering -->
     <string name="touchscreen_hovering_title">觸控螢幕懸浮</string>
     <string name="touchscreen_hovering_summary">允許您把手指懸浮在螢幕上，像滑鼠般控制瀏覽器、遠程桌面等</string>
-    <!-- Whether the keyguard will directly show the lock entry -->
 </resources>

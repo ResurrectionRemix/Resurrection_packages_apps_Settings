@@ -17,28 +17,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart options -->
     <string name="advanced_reboot_title">Geavanceerd herstarten</string>
     <string name="advanced_reboot_summary">Indien ontgrendeld, opties tonen in het aan/uit-knopmenu voor herstarten naar recovery of bootloader</string>
-    <!-- App ops permissions -->
     <string name="app_ops_permissions_allowed">Toestaan</string>
     <string name="app_ops_permissions_ignored">Negeren</string>
     <string name="app_ops_permissions_always_ask">Vragen</string>
-    <!-- App ops detail -->
     <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (<xliff:g id="count">%2$s</xliff:g> gebruikt)</string>
     <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> toegestaan</string>
     <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g> geweigerd</string>
     <string name="app_ops_both_count"><xliff:g id="count">%1$s</xliff:g> toegestaan, <xliff:g id="count">%2$s</xliff:g> geweigerd</string>
     <string name="app_ops_no_blockable_permissions">Geen machtigingen beschikbaar om te blokkeren</string>
-    <!-- App ops menu options -->
     <string name="app_ops_show_user_apps">Gebruikersapps tonen</string>
     <string name="app_ops_show_system_apps">Ingebouwde apps tonen</string>
     <string name="app_ops_reset_counters">Tellers opnieuw instellen</string>
     <string name="app_ops_reset_confirm_title">Tellers opnieuw instellen?</string>
     <string name="app_ops_reset_confirm_mesg">Weet u zeker dat u de tellers opnieuw wilt instellen?</string>
-    <!-- Memory -->
     <string name="memory_startup_apps_title">Apps gestart bij opstarten</string>
-    <!-- Names of categories of app ops tabs - extension of AOSP -->
     <string name="app_ops_categories_location">Locatie</string>
     <string name="app_ops_categories_personal">Persoonlijk</string>
     <string name="app_ops_categories_messaging">Berichten</string>
@@ -48,7 +42,6 @@
     <string name="app_ops_categories_bootup">Opstarten</string>
     <string name="app_ops_categories_su">Root-toegang</string>
     <string name="app_ops_categories_other">Overige</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_summaries_access_notifications">toegang tot meldingen</string>
     <string name="app_ops_summaries_activate_vpn">VPN activeren</string>
     <string name="app_ops_summaries_add_voicemail">voicemail toevoegen</string>
@@ -96,7 +89,6 @@
     <string name="app_ops_summaries_use_fingerprint">vingerafdruk gebruiken</string>
     <string name="app_ops_summaries_write_external_storage">naar externe opslag schrijven</string>
     <string name="app_ops_summaries_write_sms">sms schrijven</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_labels_access_notifications">Toegang tot meldingen</string>
     <string name="app_ops_labels_activate_vpn">VPN activeren</string>
     <string name="app_ops_labels_add_voicemail">Voicemail toevoegen</string>
@@ -144,60 +136,39 @@
     <string name="app_ops_labels_use_fingerprint">Vingerafdruk gebruiken</string>
     <string name="app_ops_labels_write_external_storage">Naar externe opslag schrijven</string>
     <string name="app_ops_labels_write_sms">Sms schrijven</string>
-    <!-- Sizes for pattern lockscreen -->
     <string name="lock_settings_picker_pattern_size_message">Grootte patroon kiezen</string>
-    <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
     <string name="lockpattern_settings_enable_error_path_title">Patroonfout weergeven</string>
-    <!-- Whether the dots will be drawn when using the lockscreen pattern -->
     <string name="lockpattern_settings_enable_dots_title">Patroonknoppen weergeven</string>
-    <!-- Lock screen vibrate settings -->
     <string name="lockscreen_vibrate_enabled_title">Trillen</string>
     <string name="lockscreen_vibrate_enabled_head">Trillen bij ontgrendelen</string>
-    <!-- Android debugging -->
     <string name="adb_enable">Android-foutopsporing</string>
     <string name="adb_enable_summary">Android Debug Bridge (adb)-interface inschakelen</string>
-    <!-- Android debugging notification -->
     <string name="adb_notify">Melding foutopsporing</string>
     <string name="adb_notify_summary">Melden wanneer USB- of netwerkfoutopsporing is ingeschakeld</string>
-    <!-- Android debugging over network -->
     <string name="adb_over_network">ADB over netwerk</string>
     <string name="adb_over_network_summary">TCP/IP-foutopsporing inschakelen over netwerkinterfaces (wifi, USB-netwerken). Wordt gereset bij opstarten</string>
     <string name="adb_over_network_warning">Let op: als ADB over netwerk is ingeschakeld, kan op uw apparaat worden ingebroken via alle aangesloten netwerken!\n\nGebruik deze functie alleen indien u verbonden bent met vertrouwde netwerken.\n\nWeet u zeker dat u deze functie wilt inschakelen?</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown_cm">
         <item quantity="one">U bent nog <xliff:g id="step_count">%1$d</xliff:g> stap verwijderd van de opties voor ontwikkelaars.</item>
         <item quantity="other">U bent nog <xliff:g id="step_count">%1$d</xliff:g> stappen verwijderd van de opties voor ontwikkelaars.</item>
     </plurals>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
     <string name="show_dev_on_cm">U hebt de opties voor ontwikkelaars ingeschakeld!</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
     <string name="show_dev_already_cm">Niet nodig, u hebt de opties voor ontwikkelaars al ingeschakeld.</string>
-    <!-- Device Info screen. LineageOS legal. -->
     <string name="lineagelicense_title">Juridische informatie van LineageOS</string>
-    <!-- Double tap to sleep on status bar or lockscreen -->
-    <!-- Format string for fingerprint location message -->
     <string name="security_settings_fingerprint_enroll_find_sensor_message_cm" product="default">Vind de vingerafdruksensor op de <xliff:g id="sensor_location">%1$s</xliff:g> van uw telefoon.</string>
-    <!-- Fingerprint sensor locations -->
     <string name="security_settings_fingerprint_sensor_location_back">achterkant</string>
     <string name="security_settings_fingerprint_sensor_location_front">voorkant</string>
     <string name="security_settings_fingerprint_sensor_location_left">linkerkant</string>
     <string name="security_settings_fingerprint_sensor_location_right">rechterkant</string>
-    <!-- Hostname setting -->
     <string name="device_hostname">Hostnaam apparaat</string>
-    <!-- Increasing ring tone volume -->
     <string name="increasing_ring_volume_option_title">In volume toenemende beltoon</string>
     <string name="increasing_ring_min_volume_title">Startvolume</string>
     <string name="increasing_ring_ramp_up_time_title">Ophoogtijd</string>
-    <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Stoppen forceren</string>
     <string name="kill_app_longpress_back_summary">Openstaande app geforceerd stoppen door terugknop lang in te drukken</string>
-    <!-- Launch Dev Tools -->
     <string name="development_tools_title">Opties voor ontwikkelaars</string>
-    <!-- Lock screen cover art -->
     <string name="lockscreen_media_art_title">Albumhoezen weergeven</string>
-    <!-- Lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Muziekvisualisaties weergeven</string>
-    <!-- Manual provisioning support -->
     <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> is <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
     <string name="sim_disabled">uitgeschakeld</string>
     <string name="sim_missing">afwezig of defect</string>
@@ -211,17 +182,13 @@
     <string name="sub_activate_failed">Inschakelen mislukt.</string>
     <string name="sub_deactivate_success">Simkaart uitgeschakeld.</string>
     <string name="sub_deactivate_failed">Uitschakelen mislukt.</string>
-    <!-- Per-app data restrictions -->
     <string name="data_usage_app_restrict_data">Mobiele gegevens</string>
     <string name="data_usage_app_restrict_data_summary">Gebruik van mobiele gegevens inschakelen</string>
     <string name="data_usage_app_restrict_wifi">Gegevens via wifi</string>
     <string name="data_usage_app_restrict_wifi_summary">Gebruik van gegevens via wifi inschakelen</string>
-    <!-- PIN scramble -->
     <string name="unlock_scramble_pin_layout_title">Lay-out husselen</string>
     <string name="unlock_scramble_pin_layout_summary">PIN-lay-out door elkaar husselen bij apparaat ontgrendelen</string>
-    <!-- Proximity wake -->
     <string name="proximity_wake_title">Per ongeluk ontwaken voorkomen</string>
-    <!-- Setting checkbox title for root access -->
     <string name="root_access">Root-toegang</string>
     <string name="root_access_warning_title">Root-toegang toestaan?</string>
     <string name="root_access_warning_message">Root-toegang toestaan kan zeer gevaarlijk zijn en kan uw systeem onveilig maken</string>
@@ -229,18 +196,12 @@
     <string name="root_access_apps">Alleen apps</string>
     <string name="root_access_adb">Alleen ADB</string>
     <string name="root_access_all">Apps en ADB</string>
-    <!-- Preference link for root appops -->
     <string name="root_appops_title">Root-toegang beheren</string>
     <string name="root_appops_summary">Root-instellingen bekijken en beheren</string>
-    <!-- Touchscreen gesture settings -->
-    <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">Ontwaken door lader</string>
     <string name="wake_when_plugged_or_unplugged_summary">Scherm aan bij het aansluiten of loskoppelen van een lader</string>
-    <!-- High touch sensitivity -->
     <string name="high_touch_sensitivity_title">Hoge aanraakgevoeligheid</string>
     <string name="high_touch_sensitivity_summary">Gevoeligheid van het scherm verhogen, zodat het bediend kan worden met handschoenen</string>
-    <!-- Touchscreen hovering -->
     <string name="touchscreen_hovering_title">Zweven boven scherm</string>
     <string name="touchscreen_hovering_summary">Met uw vinger boven het zwerm zweven, zoals een muis in browsers, bureaublad op afstand, etc.</string>
-    <!-- Whether the keyguard will directly show the lock entry -->
 </resources>

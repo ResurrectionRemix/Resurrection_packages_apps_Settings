@@ -19,27 +19,15 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Choices for timezone picker first level.
-         These values will be used as search terms for TimeZone displayName
-         strings. -->
-    <!-- The time zone picker screen has two levels.  The first level allows the user to choose a region. -->
     <string-array name="timezone_filters">
-        <!-- The next level of the time zoner picker should show time zones from the Americas. -->
         <item>America</item>
-        <!-- The next level of the time zoner picker should show time zones from Europe. -->
         <item>Ewrop</item>
-        <!-- The next level of the time zoner picker should show time zones from Africa. -->
         <item>Affrica</item>
-        <!-- The next level of the time zoner picker should show time zones from Asia. -->
         <item>Asia</item>
-        <!-- The next level of the time zoner picker should show time zones from Australia. -->
         <item>Awstralia</item>
-        <!-- The next level of the time zoner picker should show time zones from Pacific. -->
         <item>Cefnfor Tawel</item>
-        <!-- The next level of the time zoner picker should show time zones from ALL regions. -->
         <item>Y Cyfan</item>
     </string-array>
-    <!-- Display settings.  The delay in inactivity before the screen is turned off. These are shown in a list dialog. -->
     <string-array name="screen_timeout_entries">
         <item>15 eiliad</item>
         <item>30 eiliad</item>
@@ -49,8 +37,6 @@
         <item>10 munud</item>
         <item>30 munud</item>
     </string-array>
-    <!-- Do not translate. -->
-    <!-- Display settings.  The delay in inactivity before the dream is shown. These are shown in a list dialog. -->
     <string-array name="dream_timeout_entries">
         <item>Byth</item>
         <item>15 eiliad</item>
@@ -61,9 +47,6 @@
         <item>10 munud</item>
         <item>30 munud</item>
     </string-array>
-    <!-- Do not translate. -->
-    <!-- Security settings.  The delay after screen is turned off until device locks.
-         These are shown in a list dialog. -->
     <string-array name="lock_after_timeout_entries">
         <item>Ar unwaith</item>
         <item>5 eiliad</item>
@@ -75,117 +58,60 @@
         <item>10 munud</item>
         <item>30 munud</item>
     </string-array>
-    <!-- Do not translate. -->
     <string-array name="entries_font_size">
         <item msgid="6490061470416867723">lleihaf</item>
         <item msgid="3579015730662088893">Rhagosodiad</item>
         <item msgid="1678068858001018666">maỽr</item>
         <item msgid="490158884605093126">Mwyaf</item>
     </string-array>
-    <!-- Wi-Fi settings -->
-    <!-- Match this with the order of NetworkInfo.DetailedState. -->
-    <!-- Wi-Fi settings. The status messages when the network is unknown. -->
     <string-array name="wifi_status">
-        <!-- Status message of Wi-Fi when it is idle. -->
-        <item></item>
-        <!-- Status message of Wi-Fi when it is scanning. -->
+        <item/>
         <item>Yn sganio\u2026</item>
-        <!-- Status message of Wi-Fi when it is connecting. -->
         <item>Yn cysylltu\u2026</item>
-        <!-- Status message of Wi-Fi when it is authenticating. -->
         <item>Yn dilysu\u2026</item>
-        <!-- Status message of Wi-Fi when it is obtaining IP address. -->
         <item>Yn cael cyfeiriad IP\u2026</item>
-        <!-- Status message of Wi-Fi when it is connected. -->
         <item>Wedi cysyllltu</item>
-        <!-- Status message of Wi-Fi when it is suspended. -->
         <item>Wedi\'i atal</item>
-        <!-- Status message of Wi-Fi when it is disconnecting. -->
         <item>Yn datgysylltu\u2026</item>
-        <!-- Status message of Wi-Fi when it is disconnected. -->
         <item>Heb gysylltu</item>
-        <!-- Status message of Wi-Fi when it is a failure. -->
         <item>Aflwyddiannus</item>
-        <!-- Status message of Wi-Fi when it is blocked. -->
         <item>Wedi\'i rhwystro</item>
-        <!-- Status message of Wi-Fi when connectiong is being verified. -->
         <item>Yn osgoi cysylltiad gwael am y tro</item>
     </string-array>
-    <!-- Match this with the order of NetworkInfo.DetailedState. -->
-    <!-- Wi-Fi settings. The status messages when the network is known. -->
     <string-array name="wifi_status_with_ssid">
-        <!-- Status message of Wi-Fi when it is idle. -->
-        <item></item>
-        <!-- Status message of Wi-Fi when it is scanning. -->
+        <item/>
         <item>Yn sganio\u2026</item>
-        <!-- Status message of Wi-Fi when it is connecting to a network. -->
         <item>Yn cysylltu â <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
-        <!-- Status message of Wi-Fi when it is authenticating with a network. -->
         <item>Yn dilysu gyda <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
-        <!-- Status message of Wi-Fi when it is obtaining IP address from a network. -->
         <item>Yn cael cyfeiriad IP oddi wrth <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
-        <!-- Status message of Wi-Fi when it is connected to a network. -->
         <item>Wedi cysylltu â <xliff:g id="network_name">%1$s </xliff:g></item>
-        <!-- Status message of Wi-Fi when it is suspended. -->
         <item>Wedi\'i atal</item>
-        <!-- Status message of Wi-Fi when it is disconnecting from a network. -->
         <item>Yn datgysylltu oddi wrth <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
-        <!-- Status message of Wi-Fi when it is disconnected. -->
         <item>Heb gysylltu</item>
-        <!-- Status message of Wi-Fi when it is a failure. -->
         <item>Aflwyddiannus</item>
-        <!-- Status message of Wi-Fi when it is blocked. -->
         <item>Wedi\'i rhwystro</item>
-        <!-- Status message of Wi-Fi when connectiong is being verified. -->
         <item>Yn osgoi cysylltiad gwael am y tro</item>
     </string-array>
-    <!-- Match this with the constants in AccessPoint. -->
-    <!-- Wi-Fi security choices used when manually added a Wi-Fi network -->
     <string-array name="wifi_security">
-        <!-- The Wi-Fi network does not have any security. -->
         <item>@string/wifi_security_none</item>
-        <!-- Do not translate. -->
         <item>@string/wifi_security_wep</item>
-        <!-- Do not translate. -->
         <item>@string/wifi_security_psk_generic</item>
-        <!-- Do not translate. -->
         <item>@string/wifi_security_eap</item>
     </string-array>
-    <!-- Match this with the constants in AccessPoint. -->
-    <!-- Wi-Fi security types for New User Dialog. EAP is not configurable. -->
     <string-array name="wifi_security_no_eap">
-        <!-- The Wi-Fi network does not have any security. -->
         <item>@string/wifi_security_none</item>
-        <!-- Do not translate. -->
         <item>@string/wifi_security_wep</item>
-        <!-- Do not translate. -->
         <item>@string/wifi_security_psk_generic</item>
     </string-array>
-    <!-- Security types for wireless tether -->
     <string-array name="wifi_tether_security">
-        <!-- Do not translate. -->
         <item>@string/wifi_security_wpa2</item>
-        <!-- Do not translate. -->
         <item>@string/wifi_security_none</item>
     </string-array>
-    <!-- Values for security type for wireless tether -->
-    <!-- Match this with the constants in WifiDialog. -->
-    <!-- Wi-Fi settings.  The type of EAP method a Wi-Fi network has. -->
-    <!-- Type of EAP method when EAP SIM, AKA, AKA' are not supported -->
-    <!-- Wi-Fi AP band settings.  Either Auto, 2.4GHz or 5GHz. -->
-    <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
-    <!-- Wi-Fi WPS setup for p2p connections.  -->
-    <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
     <string-array name="wifi_p2p_wps_setup">
-        <!-- Push button based configuration involves pushing a button on two connecting devices [CHAR LIMIT=30]-->
         <item>Gwthio botwm</item>
-        <!-- This involves entering a pin obtained from a peer device [CHAR LIMIT=30] -->
         <item>PIN gan ddyfais cyfaill</item>
-        <!-- This involves generating a pin from this device [CHAR LIMIT=20] -->
         <item>PIN gan y ddyfais hon</item>
     </string-array>
-    <!-- Match this with the order of WifiP2pDevice.Status -->
-    <!-- Wi-Fi p2p settings device status message -->
     <string-array name="wifi_p2p_status">
         <item>Wedi cysyllltu</item>
         <item>Gwahoddwyd</item>
@@ -193,15 +119,12 @@
         <item>Ar gael</item>
         <item>Allan-o-amrediad</item>
     </string-array>
-    <!-- Bluetooth Settings -->
-    <!-- Discoverable mode timeout options -->
     <string-array name="bluetooth_visibility_timeout_entries">
         <item>2 funud</item>
         <item>5 munud</item>
         <item>1 awr</item>
         <item>Peidio diffodd byth</item>
     </string-array>
-    <!-- Bluetooth developer settings: Titles for maximum number of connected audio devices -->
     <string-array name="bluetooth_max_connected_audio_devices">
         <item>Defnyddio Rhagosodiad y System: <xliff:g id="default_bluetooth_max_connected_audio_devices">%1$d</xliff:g></item>
         <item>1</item>
@@ -210,9 +133,6 @@
         <item>4</item>
         <item>5</item>
     </string-array>
-    <!-- Bluetooth developer settings: Values for maximum number of connected audio devices -->
-    <!-- Match this with drawable.wifi_signal. -->
-    <!-- Wi-Fi settings. The signal strength a Wi-Fi network has. -->
     <string-array name="wifi_signal">
         <item>Gwael</item>
         <item>Gwael</item>
@@ -220,73 +140,48 @@
         <item>Da</item>
         <item>Ardderchog</item>
     </string-array>
-    <!-- Data Usage settings. Range of data usage. -->
     <string-array name="data_usage_data_range">
-        <!-- Last 30 days [CHAR LIMIT=25]-->
         <item>Y 30 diwrnod diwethaf</item>
-        <!-- Set usage cycle [CHAR LIMIT=25]-->
         <item>Gosod cyfnod defnydd...</item>
     </string-array>
-    <!-- Display options for UsageStats class -->
     <string-array name="usage_stats_display_order_types">
         <item>Amser defnydd</item>
         <item>Defnyddiwyd ddiwethaf</item>
         <item>Enw\'r ap</item>
     </string-array>
-    <!-- EAP method -->
-    <!-- Phase 2 options for PEAP -->
     <string-array name="wifi_peap_phase2_entries">
         <item>Dim</item>
         <item>MSCHAPV2</item>
         <item>GTC</item>
     </string-array>
-    <!-- Type of EAP method when EAP SIM, AKA, AKA' are supported -->
     <string-array name="wifi_peap_phase2_entries_with_sim_auth">
         <item>Dim</item>
-        <!-- Do not translate. -->
         <item>MSCHAPV2</item>
-        <!-- Do not translate. -->
         <item>GTC</item>
-        <!-- Do not translate. -->
         <item>SIM</item>
-        <!-- Do not translate. -->
         <item>AKA</item>
-        <!-- Do not translate. -->
         <item>AKA\'</item>
     </string-array>
-    <!-- Phase 2 options for rest of EAP methods -->
-    <!-- Wi-Fi IP settings. -->
-    <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
     <string-array name="wifi_ip_settings">
-        <!-- Use DHCP (Dynamic Host Configuration Protocol) for obtaining IP settings [CHAR LIMIT=25] -->
         <item>DHCP</item>
-        <!-- Use statically defined IP settings [CHAR LIMIT=25]-->
         <item>Statig</item>
     </string-array>
-    <!-- Wi-Fi proxy settings. -->
-    <!-- Note that adding/removing/moving the items will need wifi settings code change. -->
     <string-array name="wifi_proxy_settings">
-        <!-- No HTTP proxy is used for the current wifi network [CHAR LIMIT=25] -->
         <item>Dim</item>
-        <!-- Manual HTTP proxy settings are used for the current wifi network [CHAR LIMIT=25] -->
         <item>Â llaw</item>
-        <!-- Proxy Auto-Config URL that is used for the current wifi network [CHAR LIMIT=25] -->
         <item>Awto-Ffurfweddu Procsi</item>
     </string-array>
-    <!-- Authentication Types used in APN editor -->
     <string-array name="apn_auth_entries">
         <item>Dim</item>
         <item>PAP</item>
         <item>CHAP</item>
         <item>PAP neu CHAP</item>
     </string-array>
-    <!-- Authentication Types used in APN editor -->
     <string-array name="apn_protocol_entries">
         <item>IPv4</item>
         <item>IPv6</item>
         <item>IPv4/IPv6</item>
     </string-array>
-    <!-- Bearer Info used in APN editor -->
     <string-array name="bearer_entries">
         <item>Anhysbys</item>
         <item>LTE</item>
@@ -305,24 +200,17 @@
         <item>IS95B</item>
         <item>IS95A</item>
     </string-array>
-    <!-- MVNO Info used in APN editor -->
     <string-array name="mvno_type_entries">
         <item>Dim</item>
-        <!-- Do not translate. -->
         <item>SPN</item>
-        <!-- Do not translate. -->
         <item>IMSI</item>
-        <!-- Do not translate. -->
         <item>GID</item>
     </string-array>
-    <!-- Apps on SD installation location options in ApplicationSettings -->
     <string-array name="app_install_location_entries">
         <item>Storfa fewnol y ddyfais</item>
         <item>Cerdyn SD gellir ei dynnu allan</item>
         <item>Gadael i\'r system benderfynu</item>
     </string-array>
-    <!-- Do not translate. -->
-    <!-- Names of categories of app ops tabs -->
     <string-array name="app_ops_categories">
         <item>Lleoliad</item>
         <item>Personol</item>
@@ -330,7 +218,6 @@
         <item>Cyfryngau</item>
         <item>Dyfais</item>
     </string-array>
-    <!-- User display names for app ops codes -->
     <string-array name="app_ops_summaries">
         <item>lleoliad bras</item>
         <item>lleoliad union</item>
@@ -377,7 +264,7 @@
         <item>monitro lleoliad pŵer uchel</item>
         <item>cael ystadegau defnydd</item>
         <item>distewi/dad-ddistewi\'r meicroffon</item>
-        <item>dangos hysbysiad</item>
+        <item>dangos hysbysyn</item>
         <item>taflunio cyfryngau</item>
         <item>rhoi VPN ar waith</item>
         <item>ysgrifennu papur wal</item>
@@ -398,7 +285,6 @@
         <item>rhedeg yn y cefndir</item>
         <item>uchder sain hygyrchedd</item>
     </string-array>
-    <!-- User display names for app ops codes -->
     <string-array name="app_ops_labels">
         <item>Lleoliad</item>
         <item>Lleoliad</item>
@@ -445,7 +331,7 @@
         <item>Lleoliad</item>
         <item>Cael ystadegau defnydd</item>
         <item>Distewi/dad-ddistewi\'r meicroffon</item>
-        <item>Dangos hysbysiad</item>
+        <item>Dangos hysbysyn</item>
         <item>Taflunio cyfryngau</item>
         <item>Rhoi VPN ar waith</item>
         <item>Ysgrifennu papur wal</item>
@@ -466,17 +352,11 @@
         <item>Rhedeg yn y cefndir</item>
         <item>Uchder sain hygyrchedd</item>
     </string-array>
-    <!-- Titles for the list of long press timeout options. -->
     <string-array name="long_press_timeout_selector_titles">
-        <!-- A title for the option for short long-press timeout [CHAR LIMIT=25] -->
         <item>Byr</item>
-        <!-- A title for the option for medium long-press timeout [CHAR LIMIT=25] -->
         <item>Canolig</item>
-        <!-- A title for the option for long long-press timeout [CHAR LIMIT=25] -->
         <item>Hir</item>
     </string-array>
-    <!-- Values for the list of long press timeout options. -->
-    <!-- Titles for captioning typeface preference. [CHAR LIMIT=35] -->
     <string-array name="captioning_typeface_selector_titles">
         <item>Rhagosodiad</item>
         <item>Sans-serif</item>
@@ -488,8 +368,6 @@
         <item>Rhedol</item>
         <item>Priflythrennau bychain</item>
     </string-array>
-    <!-- Values for captioning typeface preference. -->
-    <!-- Titles for captioning font size preference. [CHAR LIMIT=35] -->
     <string-array name="captioning_font_size_selector_titles">
         <item>Bach iawn</item>
         <item>Bach</item>
@@ -497,8 +375,6 @@
         <item>Mawr</item>
         <item>Mawr iawn</item>
     </string-array>
-    <!-- Values for captioning font size preference. -->
-    <!-- Titles for captioning character edge type preference. [CHAR LIMIT=35] -->
     <string-array name="captioning_edge_type_selector_titles">
         <item>Rhagosodiad</item>
         <item>Dim</item>
@@ -507,18 +383,12 @@
         <item>Codwyd</item>
         <item>Gostyngwyd</item>
     </string-array>
-    <!-- Values for captioning character edge type preference. -->
-    <!-- Titles for captioning color preference. -->
-    <!-- Values for captioning color preference. -->
-    <!-- Titles for captioning opacity preference. [CHAR LIMIT=35] -->
     <string-array name="captioning_opacity_selector_titles">
         <item>25%</item>
         <item>50%</item>
         <item>75%</item>
         <item>100%</item>
     </string-array>
-    <!-- Values for captioning opacity preference. -->
-    <!-- Titles for captioning text style preset preference. [CHAR LIMIT=35] -->
     <string-array name="captioning_preset_selector_titles">
         <item>Defnyddio rhagosodiadau\'r ap</item>
         <item>Gwyn ar ddu</item>
@@ -527,11 +397,6 @@
         <item>Melyn ar las</item>
         <item>Addasedig</item>
     </string-array>
-    <!-- Values for captioning text style preset preference. -->
-    <!-- Match this with the constants in VpnProfile. -->
-    <!-- Short names for each VPN type, not really translatable. [CHAR LIMIT=20] -->
-    <!-- Match this with the constants in VpnProfile. -->
-    <!-- Longer descriptions for each VPN type. [CHAR LIMIT=100] -->
     <string-array name="vpn_types_long">
         <item>PPTP VPN</item>
         <item>L2TP/IPSec VPN gydag allweddau a rennir ymlaen llaw</item>
@@ -540,57 +405,32 @@
         <item>VPN IPSec gyda thystysgrifau a dilysiad Xauth</item>
         <item>VPN IPSec gyda thystysgrifau a dilysiad hybrid</item>
     </string-array>
-    <!-- Match this with the constants in LegacyVpnInfo. -->
-    <!-- Status for a VPN network. [CHAR LIMIT=100] -->
     <string-array name="vpn_states">
-        <!-- Status message when VPN is disconnected. -->
         <item>Heb gysylltu</item>
-        <!-- Status message when VPN is initializing. -->
         <item>Yn ymgychwyn\u2026</item>
-        <!-- Status message when VPN is connecting. -->
         <item>Yn cysylltu\u2026</item>
-        <!-- Status message when VPN is connected. -->
         <item>Wedi cysyllltu</item>
-        <!-- Status message when VPN is timeout. -->
         <item>Terfyn amser</item>
-        <!-- Status message when VPN is failed. -->
         <item>Aflwyddiannus</item>
     </string-array>
-    <!-- User content ratings for restricted users [CHAR LIMIT=30] -->
-    <!-- Values for user content ratings for restricted users -->
-    <!-- Values for premium SMS permission selector [CHAR LIMIT=30] -->
     <string-array name="security_settings_premium_sms_values">
-        <!-- Ask user before sending to premium SMS short code. -->
         <item>Gofyn</item>
-        <!-- Never allow app to send to premium SMS short code. -->
         <item>Caniatáu Byth</item>
-        <!-- Always allow app to send to premium SMS short code. -->
         <item>Caniatáu Bob Tro</item>
     </string-array>
-    <!-- [CHAR LIMIT=40] Labels for memory states -->
     <string-array name="ram_states">
-        <!-- Normal desired memory state. -->
         <item>Arferol</item>
-        <!-- Moderate memory state, not as good as normal. -->
         <item>Cymedrol</item>
-        <!-- Memory is running low. -->
         <item>Isel</item>
-        <!-- Memory is critical. -->
         <item>Critigol</item>
-        <!-- Unknown memory state -->
         <item>\?</item>
     </string-array>
-    <!-- Display color space adjustment modes for accessibility -->
-    <!-- Values for display color space adjustment modes for accessibility -->
-    <!-- Battery saver mode: allowable trigger threshold levels. -->
-    <!-- Process stats memory use details: labels for memory states -->
     <string-array name="proc_stats_memory_states">
         <item>Arferol</item>
         <item>Cymedrol</item>
         <item>Isel</item>
         <item>Critigol</item>
     </string-array>
-    <!-- Process stats memory use details: labels for process -->
     <string-array name="proc_stats_process_states">
         <item>Parhaus</item>
         <item>Gweithred uchaf</item>
@@ -607,7 +447,6 @@
         <item>Yn y cof dros dro (cleient gweithgarwch)</item>
         <item>Cuddstoriwyd (gwag)</item>
     </string-array>
-    <!-- Array of titles for sim color for multi-sim -->
     <string-array name="color_picker">
         <item>Glaswyrdd</item>
         <item>Glas</item>
@@ -616,8 +455,6 @@
         <item>Pinc</item>
         <item>Coch</item>
     </string-array>
-    <!-- Automatic storage management settings. The amount of days for the automatic storage manager
-         to retain. These are shown in a list dialog. [CHAR LIMIT=70] -->
     <string-array name="automatic_storage_management_days">
         <item>Dros 30 diwrnod o oed</item>
         <item>Dros 60 diwrnod o oed</item>
@@ -625,26 +462,21 @@
     </string-array>
     <string-array name="wifi_metered_entries">
         <item>Synhwyro\'n awtomatig</item>
-        <item>Treat as metered</item>
-        <item>Treat as unmetered</item>
+        <item>Trin fel wedi\'i mesur</item>
+        <item>Trin fel heb ei mesur</item>
     </string-array>
     <string-array name="wifi_hidden_entries">
         <item>Na</item>
         <item>Iawn</item>
     </string-array>
-    <!-- Titles for ui dark mode preference. -->
     <string-array name="dark_ui_mode_entries">
         <item>Awtomatig (yn seiliedig ar yr amser o\'r dydd)</item>
         <item>Ymlaen o hyd</item>
         <item>I ffwrdd o hyd</item>
     </string-array>
-    <!-- Values for ui dark mode preference. -->
-    <!-- Titles for SystemUI theme preference. -->
     <string-array name="systemui_theme_entries">
         <item>@string/systemui_theme_wallpaper</item>
         <item>@string/systemui_theme_light</item>
         <item>@string/systemui_theme_dark</item>
     </string-array>
-    <!-- Values for SystemUI theme preference. -->
-    <!-- Keep in sync with Settings.Secure.VOLUME_HUSH_* -->
 </resources>

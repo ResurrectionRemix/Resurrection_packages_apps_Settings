@@ -17,28 +17,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart options -->
     <string name="advanced_reboot_title">Edistynyt uudelleenkäynnistys</string>
     <string name="advanced_reboot_summary">Lisää mahdollisuuden käynnistää uudelleenkäynnistämisen yhteydessä recovery- tai bootloader-tilaan</string>
-    <!-- App ops permissions -->
     <string name="app_ops_permissions_allowed">Sallittu</string>
     <string name="app_ops_permissions_ignored">Estetty</string>
     <string name="app_ops_permissions_always_ask">Kysy aina</string>
-    <!-- App ops detail -->
     <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (käytetty <xliff:g id="count">%2$s</xliff:g>)</string>
     <string name="app_ops_allowed_count">Sallittu <xliff:g id="count" example="2 times">%s</xliff:g></string>
     <string name="app_ops_ignored_count">Estetty <xliff:g id="count" example="2 times">%s</xliff:g></string>
     <string name="app_ops_both_count">Sallittu <xliff:g id="count">%1$s</xliff:g>, estetty <xliff:g id="count">%2$s</xliff:g></string>
     <string name="app_ops_no_blockable_permissions">Ei estettäviä oikeuksia</string>
-    <!-- App ops menu options -->
     <string name="app_ops_show_user_apps">Näytä käyttäjän sovellukset</string>
     <string name="app_ops_show_system_apps">Näytä järjestelmäsovellukset</string>
     <string name="app_ops_reset_counters">Nollaa sallittujen/estettyjen laskurit</string>
     <string name="app_ops_reset_confirm_title">Vahvista laskurien nollaus</string>
     <string name="app_ops_reset_confirm_mesg">Haluatko varmasti nollata laskurit?</string>
-    <!-- Memory -->
     <string name="memory_startup_apps_title">Sovellukset jotka käynnistetään laitteen käynnistyksessä</string>
-    <!-- Names of categories of app ops tabs - extension of AOSP -->
     <string name="app_ops_categories_location">Sijainti</string>
     <string name="app_ops_categories_personal">Henkilökohtainen</string>
     <string name="app_ops_categories_messaging">Viestit</string>
@@ -48,7 +42,6 @@
     <string name="app_ops_categories_bootup">Käynnistys</string>
     <string name="app_ops_categories_su">Root-oikeudet</string>
     <string name="app_ops_categories_other">Muut</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_summaries_access_notifications">käytä ilmoituksia</string>
     <string name="app_ops_summaries_activate_vpn">aktivoida VPN-yhteyden</string>
     <string name="app_ops_summaries_add_voicemail">lisää vastaaja</string>
@@ -96,7 +89,6 @@
     <string name="app_ops_summaries_use_fingerprint">käytä sormenjälkeä</string>
     <string name="app_ops_summaries_write_external_storage">kirjoita ulkoiseen tallennustilaan</string>
     <string name="app_ops_summaries_write_sms">kirjoita tekstiviestejä</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_labels_access_notifications">Käytä ilmoituksia</string>
     <string name="app_ops_labels_activate_vpn">Aktivoi VPN-yhteys</string>
     <string name="app_ops_labels_add_voicemail">Lisää vastaaja</string>
@@ -144,62 +136,41 @@
     <string name="app_ops_labels_use_fingerprint">Käytä sormenjälkeä</string>
     <string name="app_ops_labels_write_external_storage">Kirjoita ulkoiseen tallennustilaan</string>
     <string name="app_ops_labels_write_sms">Kirjoita SMS/MMS</string>
-    <!-- Sizes for pattern lockscreen -->
     <string name="lock_settings_picker_pattern_size_message">Valitse ruudukon koko</string>
-    <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
     <string name="lockpattern_settings_enable_error_path_title">Näytä kuvion virhe</string>
-    <!-- Whether the dots will be drawn when using the lockscreen pattern -->
     <string name="lockpattern_settings_enable_dots_title">Näytä kuvion pisteet</string>
-    <!-- Lock screen vibrate settings -->
     <string name="lockscreen_vibrate_enabled_title">Värinä</string>
     <string name="lockscreen_vibrate_enabled_head">Värinä kun avataan lukitus</string>
-    <!-- Android debugging -->
     <string name="adb_enable">Android-vianetsintä</string>
     <string name="adb_enable_summary">Ota Android Debug Bridge (ADB) käyttöön</string>
-    <!-- Android debugging notification -->
     <string name="adb_notify">Virheenkorjauksen ilmoitus</string>
     <string name="adb_notify_summary">Näytä ilmoitus ADB-virheenkorjaustilan ollessa käytössä</string>
-    <!-- Android debugging over network -->
     <string name="adb_over_network">ADB verkon yli</string>
     <string name="adb_over_network_summary">Salli TCP/IP virheenkorjaus verkon yli (Wi\u2011Fi\u2011, USB\u2011verkot). Tämä asetus nollataan uudelleenkäynnistyksen yhteydessä</string>
     <string name="adb_over_network_warning">VAROITUS: Kun ADB verkon yli on käytössä, laitteesi on vapaa hyökkäyksille kaikissa verkoissa!\n\nKäytä tätä ominaisuutta vain luotettavassa verkossa.\n\nHaluatko varmasti ottaa ominaisuuden käyttöön?</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown_cm">
         <item quantity="one">Kehittäjäasetukset otetaan käyttöön <xliff:g id="step_count">%1$d</xliff:g> vaiheen päästä.</item>
         <item quantity="other">Kehittäjäasetukset otetaan käyttöön <xliff:g id="step_count">%1$d</xliff:g> vaiheen päästä.</item>
     </plurals>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
     <string name="show_dev_on_cm">Kehittäjäasetukset ovat nyt käytössä!</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
     <string name="show_dev_already_cm">Olet jo ottanut kehittäjäasetukset käyttöön.</string>
-    <!-- Device Info screen. LineageOS legal. -->
     <string name="lineagelicense_title">LineageOSin lakiasiat</string>
-    <!-- Double tap to sleep on status bar or lockscreen -->
     <string name="status_bar_double_tap_to_sleep_title">Sammuta näyttö napauttamalla</string>
     <string name="status_bar_double_tap_to_sleep_summary">Sulje laitteen näyttö tuplanapauttamalla tilapalkkia tai lukitusnäyttöä</string>
-    <!-- Format string for fingerprint location message -->
     <string name="security_settings_fingerprint_enroll_find_sensor_message_cm" product="default">Etsi sormenjälkitunnistin puhelimen <xliff:g id="sensor_location">%1$s</xliff:g>.</string>
-    <!-- Fingerprint sensor locations -->
     <string name="security_settings_fingerprint_sensor_location_back">takaa</string>
     <string name="security_settings_fingerprint_sensor_location_front">edestä</string>
     <string name="security_settings_fingerprint_sensor_location_left">vasemmasta reunasta</string>
     <string name="security_settings_fingerprint_sensor_location_right">oikeasta reunasta</string>
-    <!-- Hostname setting -->
     <string name="device_hostname">Laitteen verkkonimi</string>
-    <!-- Increasing ring tone volume -->
     <string name="increasing_ring_volume_option_title">Voimistuva soittoääni</string>
     <string name="increasing_ring_min_volume_title">Aloitusvoimakkuus</string>
     <string name="increasing_ring_ramp_up_time_title">Nousun aika</string>
-    <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Tapa sovellus</string>
     <string name="kill_app_longpress_back_summary">Tapa etualalla oleva sovellus pitämällä takaisin-painiketta pohjassa</string>
-    <!-- Launch Dev Tools -->
     <string name="development_tools_title">Kehittäjätyökalut</string>
-    <!-- Lock screen cover art -->
     <string name="lockscreen_media_art_title">Näytä median kansikuva</string>
-    <!-- Lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Näytä musiikin visualisointi</string>
-    <!-- Manual provisioning support -->
     <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> on <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
     <string name="sim_disabled">pois käytöstä</string>
     <string name="sim_missing">poissa tai virheellinen</string>
@@ -213,18 +184,14 @@
     <string name="sub_activate_failed">Aktivointi epäonnistui.</string>
     <string name="sub_deactivate_success">SIM deaktivoitu.</string>
     <string name="sub_deactivate_failed">Deaktivointi epäonnistui.</string>
-    <!-- Per-app data restrictions -->
     <string name="data_usage_app_restrict_data">Mobiilidata</string>
     <string name="data_usage_app_restrict_data_summary">Ota mobiilidata käyttöön</string>
     <string name="data_usage_app_restrict_wifi">Wi\u2011Fi data</string>
     <string name="data_usage_app_restrict_wifi_summary">Ota Wi\u2011Fi data käyttöön</string>
-    <!-- PIN scramble -->
     <string name="unlock_scramble_pin_layout_title">Sekoitettu asettelu</string>
     <string name="unlock_scramble_pin_layout_summary">Sekoita PIN-numerot poistettaessa lukitusta</string>
-    <!-- Proximity wake -->
     <string name="proximity_wake_title">Estä herätys vahingossa</string>
     <string name="proximity_wake_summary">Tarkista lähesyysanturi ennen laitteen herättämistä</string>
-    <!-- Setting checkbox title for root access -->
     <string name="root_access">Root-oikeudet</string>
     <string name="root_access_warning_title">Ota root-oikeudet käyttöön?</string>
     <string name="root_access_warning_message">Root-oikeuksien käyttöönotto on erittäin vaarallista ja voi vahingoittaa laitettasi!</string>
@@ -232,20 +199,14 @@
     <string name="root_access_apps">Vain sovellukset</string>
     <string name="root_access_adb">Vain ADB</string>
     <string name="root_access_all">Sovellukset ja ADB</string>
-    <!-- Preference link for root appops -->
     <string name="root_appops_title">Hallitse root-oikeuksia</string>
     <string name="root_appops_summary">Tarkastele ja hallinnoi root-sääntöjä</string>
-    <!-- Touchscreen gesture settings -->
     <string name="touchscreen_gesture_settings_title">Kosketusnäytön eleet</string>
     <string name="touchscreen_gesture_settings_summary">Tee erilaisia kosketusnäytön eleitä käyttääksesi pikatoimintoja</string>
-    <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">Herää laturista</string>
     <string name="wake_when_plugged_or_unplugged_summary">Käynnistä näyttö kun virtalähde liitetään tai irrotetaan</string>
-    <!-- High touch sensitivity -->
     <string name="high_touch_sensitivity_title">Korkea kosketusherkkyys</string>
     <string name="high_touch_sensitivity_summary">Lisää kosketusnäytön herkkyyttä käyttääksesi laitetta käsineiden kanssa</string>
-    <!-- Touchscreen hovering -->
     <string name="touchscreen_hovering_title">Kosketusnäytön leijunta</string>
     <string name="touchscreen_hovering_summary">Sallii näytön leijuttamisen kuten hiiri selaimessa, etätyöpöytäyhteyksissä, jne.</string>
-    <!-- Whether the keyguard will directly show the lock entry -->
 </resources>

@@ -17,26 +17,20 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart options -->
     <string name="advanced_reboot_title">Speciális újraindítás</string>
-    <!-- App ops permissions -->
     <string name="app_ops_permissions_allowed">Engedélyezett</string>
     <string name="app_ops_permissions_ignored">Figyelmen kívül hagyva</string>
     <string name="app_ops_permissions_always_ask">Mindig rákérdez</string>
-    <!-- App ops detail -->
     <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (<xliff:g id="count">%2$s</xliff:g> alkalommal használva)</string>
     <string name="app_ops_allowed_count">Engedélyezve <xliff:g id="count" example="2 times">%s</xliff:g> alkalommal</string>
     <string name="app_ops_ignored_count">Megtagadva <xliff:g id="count" example="2 times">%s</xliff:g> alkalommal</string>
     <string name="app_ops_both_count">Engedélyezve <xliff:g id="count">%1$s</xliff:g>, megtagadva <xliff:g id="count">%2$s</xliff:g> alkalommal</string>
-    <!-- App ops menu options -->
     <string name="app_ops_show_user_apps">Felhasználói alkalmazások megjelenítése</string>
     <string name="app_ops_show_system_apps">Rendszeralkalmazások megjelenítése</string>
     <string name="app_ops_reset_counters">Számlálók nullázása</string>
     <string name="app_ops_reset_confirm_title">Számlálók törlésének megerősítése</string>
     <string name="app_ops_reset_confirm_mesg">Biztosan szeretné alaphelyzetbe állítani a számlálókat?</string>
-    <!-- Memory -->
     <string name="memory_startup_apps_title">Rendszerindításkor indult alkalmazások</string>
-    <!-- Names of categories of app ops tabs - extension of AOSP -->
     <string name="app_ops_categories_location">Helymeghatározás</string>
     <string name="app_ops_categories_personal">Személyes</string>
     <string name="app_ops_categories_messaging">Üzenetküldés</string>
@@ -46,7 +40,6 @@
     <string name="app_ops_categories_bootup">Indításkor</string>
     <string name="app_ops_categories_su">Rendszergazda hozzáférés</string>
     <string name="app_ops_categories_other">Egyéb</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_summaries_access_notifications">hozzáférés az értesítésekhez</string>
     <string name="app_ops_summaries_activate_vpn">VPN aktiválása</string>
     <string name="app_ops_summaries_add_voicemail">hangposta hozzáadása</string>
@@ -89,7 +82,6 @@
     <string name="app_ops_summaries_use_fingerprint">ujjlenyomat használata</string>
     <string name="app_ops_summaries_write_external_storage">külső tárolóra írás</string>
     <string name="app_ops_summaries_write_sms">SMS írása</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_labels_access_notifications">Hozzáférés az értesítésekhez</string>
     <string name="app_ops_labels_activate_vpn">VPN aktiválása</string>
     <string name="app_ops_labels_add_voicemail">Hangposta hozzáadása</string>
@@ -132,60 +124,39 @@
     <string name="app_ops_labels_use_fingerprint">Ujjlenyomat használata</string>
     <string name="app_ops_labels_write_external_storage">Külső tárolóra írás</string>
     <string name="app_ops_labels_write_sms">SMS írása</string>
-    <!-- Sizes for pattern lockscreen -->
     <string name="lock_settings_picker_pattern_size_message">Válassza ki a minta méretét</string>
-    <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
     <string name="lockpattern_settings_enable_error_path_title">Hibás minta megjelenítése</string>
-    <!-- Whether the dots will be drawn when using the lockscreen pattern -->
     <string name="lockpattern_settings_enable_dots_title">Feloldási pontok megjelenítése</string>
-    <!-- Lock screen vibrate settings -->
     <string name="lockscreen_vibrate_enabled_title">Rezgés</string>
     <string name="lockscreen_vibrate_enabled_head">Feloldáskor rezeg</string>
-    <!-- Android debugging -->
     <string name="adb_enable">Android hibakeresés</string>
     <string name="adb_enable_summary">Android Debug Bridge (adb) interfész engedélyezés</string>
-    <!-- Android debugging notification -->
     <string name="adb_notify">Hibakeresési értesítés</string>
     <string name="adb_notify_summary">Értesítés megjelenítése, amikor az USB vagy hálózati hibakereső engedélyezve van</string>
-    <!-- Android debugging over network -->
     <string name="adb_over_network">ADB hálózaton keresztül</string>
     <string name="adb_over_network_summary">Engedélyezi a TCP/IP hibakeresést hálózati eszközön keresztül (Wi\u2011Fi, USB hálózatok). Újraindítás után alaphelyzetbe áll vissza</string>
     <string name="adb_over_network_warning">VIGYÁZAT: Ha a funkció engedélyezve van, az eszköz nyitva áll bármilyen behatolásra az összes kapcsolódó hálózaton keresztül!\n\nCsak biztonságos hálózatra csatlakozva érdemes engedélyezni.\n\nBiztosan engedélyezni szeretné?</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown_cm">
         <item quantity="one">Ön <xliff:g id="step_count">%1$d</xliff:g> lépésre van attól, hogy engedélyezze a fejlesztői beállításokat.</item>
         <item quantity="other">Ön <xliff:g id="step_count">%1$d</xliff:g> lépésre van attól, hogy engedélyezze a fejlesztői beállításokat.</item>
     </plurals>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
     <string name="show_dev_on_cm">Sikeresen engedélyezte a fejlesztői beállításokat!</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
     <string name="show_dev_already_cm">Már korábban engedélyezte a fejlesztői beállításokat.</string>
-    <!-- Device Info screen. LineageOS legal. -->
     <string name="lineagelicense_title">LineageOS jogi nyilatkozat</string>
-    <!-- Double tap to sleep on status bar or lockscreen -->
-    <!-- Format string for fingerprint location message -->
     <string name="security_settings_fingerprint_enroll_find_sensor_message_cm" product="default">Keresse meg az ujjlenyomat érzékelőt a telefon <xliff:g id="sensor_location">%1$s</xliff:g>.</string>
-    <!-- Fingerprint sensor locations -->
     <string name="security_settings_fingerprint_sensor_location_back">hátulján</string>
     <string name="security_settings_fingerprint_sensor_location_front">elején</string>
     <string name="security_settings_fingerprint_sensor_location_left">bal oldalán</string>
     <string name="security_settings_fingerprint_sensor_location_right">jobb oldalán</string>
-    <!-- Hostname setting -->
     <string name="device_hostname">Eszköz elérési neve</string>
-    <!-- Increasing ring tone volume -->
     <string name="increasing_ring_volume_option_title">Emelkedő csengőhang</string>
     <string name="increasing_ring_min_volume_title">Kezdeti hangerő</string>
     <string name="increasing_ring_ramp_up_time_title">Felfutási idő</string>
-    <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Alkalmazás bezárás</string>
     <string name="kill_app_longpress_back_summary">Alkalmazás bezárása nyomva tartott vissza gombbal</string>
-    <!-- Launch Dev Tools -->
     <string name="development_tools_title">Fejlesztőeszközök</string>
-    <!-- Lock screen cover art -->
     <string name="lockscreen_media_art_title">Média borítójának megjelenítése</string>
-    <!-- Lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Zenei vizualítás megjelenítése</string>
-    <!-- Manual provisioning support -->
     <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
     <string name="sim_disabled">letiltva</string>
     <string name="sim_missing">hiányzik vagy hibás</string>
@@ -199,13 +170,9 @@
     <string name="sub_activate_failed">Sikertelen aktiválás.</string>
     <string name="sub_deactivate_success">SIM deaktiválva.</string>
     <string name="sub_deactivate_failed">Sikertelen deaktiválás.</string>
-    <!-- Per-app data restrictions -->
-    <!-- PIN scramble -->
     <string name="unlock_scramble_pin_layout_title">Szoros elrendezés</string>
     <string name="unlock_scramble_pin_layout_summary">PIN szoros elrendezése az eszköz feloldásakor</string>
-    <!-- Proximity wake -->
     <string name="proximity_wake_title">Véletlen ébresztés megakadályozása</string>
-    <!-- Setting checkbox title for root access -->
     <string name="root_access">Rendszergazda hozzáférés</string>
     <string name="root_access_warning_title">Engedélyezi a rendszergazdai hozzáférést?</string>
     <string name="root_access_warning_message">Veszélyes rendszergazda jogosultságot adni az alkalmazásoknak, és veszélyeztetheti a rendszere biztonságát!</string>
@@ -213,18 +180,12 @@
     <string name="root_access_apps">Csak alkalmazások</string>
     <string name="root_access_adb">Csak ADB</string>
     <string name="root_access_all">Alkalmazások és ADB</string>
-    <!-- Preference link for root appops -->
     <string name="root_appops_title">Root hozzáférések kezelése</string>
     <string name="root_appops_summary">Root szabályok megtekintése és kezelése</string>
-    <!-- Touchscreen gesture settings -->
-    <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">Felébredés töltő csatlakoztatásakor</string>
     <string name="wake_when_plugged_or_unplugged_summary">A képernyő bekapcsolása a töltő csatlakoztatása/eltávolítása után</string>
-    <!-- High touch sensitivity -->
     <string name="high_touch_sensitivity_title">Magas érintési érzékenység</string>
     <string name="high_touch_sensitivity_summary">Érintőképernyő érzékenységének növelése, így kesztyű viselése esetén is használható</string>
-    <!-- Touchscreen hovering -->
     <string name="touchscreen_hovering_title">Lebegő érintés</string>
     <string name="touchscreen_hovering_summary">Engedélyezi a lebegéssel való vezérlést, mint egy egérrel a böngészőknél, távoli asztaloknál, stb.</string>
-    <!-- Whether the keyguard will directly show the lock entry -->
 </resources>

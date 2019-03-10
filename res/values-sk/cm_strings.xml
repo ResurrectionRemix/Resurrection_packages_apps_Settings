@@ -17,28 +17,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart options -->
     <string name="advanced_reboot_title">Rozšířený reštart</string>
     <string name="advanced_reboot_summary">Ak je povolené, do ponuky tlačidla Napájanie budú pridané ďalšie voľby pre reštart do Recovery alebo Bootloadera</string>
-    <!-- App ops permissions -->
     <string name="app_ops_permissions_allowed">Povolené</string>
     <string name="app_ops_permissions_ignored">Ignorované</string>
     <string name="app_ops_permissions_always_ask">Vždy sa opýtať</string>
-    <!-- App ops detail -->
     <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (použité <xliff:g id="count">%2$s</xliff:g>)</string>
     <string name="app_ops_allowed_count">Povolené <xliff:g id="count" example="2 times">%s</xliff:g></string>
     <string name="app_ops_ignored_count">Zakázané <xliff:g id="count" example="2 times">%s</xliff:g></string>
     <string name="app_ops_both_count">Povolené <xliff:g id="count">%1$s</xliff:g>, zakázané <xliff:g id="count">%2$s</xliff:g></string>
     <string name="app_ops_no_blockable_permissions">Na blokovanie nie sú k dispozícii žiadne oprávnenia</string>
-    <!-- App ops menu options -->
     <string name="app_ops_show_user_apps">Zobraziť používateľské aplikácie</string>
     <string name="app_ops_show_system_apps">Zobraziť vstavané aplikácie</string>
     <string name="app_ops_reset_counters">Resetovať počítadlá povolení/zakázaní</string>
     <string name="app_ops_reset_confirm_title">Potvrdiť reset počítadiel</string>
     <string name="app_ops_reset_confirm_mesg">Naozaj chcete vyresetovať počítadlá?</string>
-    <!-- Memory -->
     <string name="memory_startup_apps_title">Aplikácie spúšťané pri štarte</string>
-    <!-- Names of categories of app ops tabs - extension of AOSP -->
     <string name="app_ops_categories_location">Poloha</string>
     <string name="app_ops_categories_personal">Osobné</string>
     <string name="app_ops_categories_messaging">Správy</string>
@@ -48,7 +42,6 @@
     <string name="app_ops_categories_bootup">Spustenie</string>
     <string name="app_ops_categories_su">Root prístup</string>
     <string name="app_ops_categories_other">Iné</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_summaries_access_notifications">pristupovať k upozorneniam</string>
     <string name="app_ops_summaries_activate_vpn">aktivovať VPN</string>
     <string name="app_ops_summaries_add_voicemail">pridať hlasovú poštu</string>
@@ -96,7 +89,6 @@
     <string name="app_ops_summaries_use_fingerprint">použiť odtlačok prsta</string>
     <string name="app_ops_summaries_write_external_storage">zapisovať do externého úložiska</string>
     <string name="app_ops_summaries_write_sms">vytvoriť SMS</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_labels_access_notifications">Pristup k upozorneniam</string>
     <string name="app_ops_labels_activate_vpn">Aktivovať VPN</string>
     <string name="app_ops_labels_add_voicemail">Pridať hlasovú poštu</string>
@@ -144,64 +136,43 @@
     <string name="app_ops_labels_use_fingerprint">Použiť odtlačok prsta</string>
     <string name="app_ops_labels_write_external_storage">Zapisovať do externého úložiska</string>
     <string name="app_ops_labels_write_sms">Písanie SMS</string>
-    <!-- Sizes for pattern lockscreen -->
     <string name="lock_settings_picker_pattern_size_message">Zvoliť veľkosť vzoru</string>
-    <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
     <string name="lockpattern_settings_enable_error_path_title">Zobraziť chybu vzoru</string>
-    <!-- Whether the dots will be drawn when using the lockscreen pattern -->
     <string name="lockpattern_settings_enable_dots_title">Zobraziť body vzoru</string>
-    <!-- Lock screen vibrate settings -->
     <string name="lockscreen_vibrate_enabled_title">Vibrovať</string>
     <string name="lockscreen_vibrate_enabled_head">Vibrovať pri odomknutí</string>
-    <!-- Android debugging -->
     <string name="adb_enable">Ladenie systému Android</string>
     <string name="adb_enable_summary">Povoliť rozhranie Android Debug Bridge (ADB)</string>
-    <!-- Android debugging notification -->
     <string name="adb_notify">Oznamovať o ladení</string>
     <string name="adb_notify_summary">Zobraziť oznámenie, ak je povolené ladenie cez USB alebo sieť</string>
-    <!-- Android debugging over network -->
     <string name="adb_over_network">ADB cez sieť</string>
     <string name="adb_over_network_summary">Povoliť TCP/IP ladenie cez sieť (Wi-Fi alebo USB sieť). Toto nastavenie bude obnovené po reštarte</string>
     <string name="adb_over_network_warning">VAROVANIE: Ak je povolené ADB cez sieť, zariadenie je otvorené pre pokusy o prieniky na všetkých pripojených sieťach, vrátane GSM dátových sieťach!\n\nPoužite túto funkciu iba ak ste pripojení k dôveryhodnej sieti.\n\nChcete povoliť túto funkciu?</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown_cm">
         <item quantity="one">Teraz ste <xliff:g id="step_count">%1$d</xliff:g> krok od povolenia možnosti pre vývojárov.</item>
         <item quantity="few">Teraz ste <xliff:g id="step_count">%1$d</xliff:g> kroky od povolenia možnosti pre vývojárov.</item>
         <item quantity="many">Teraz ste <xliff:g id="step_count">%1$d</xliff:g> krokov od povolenia možnosti pre vývojárov.</item>
         <item quantity="other">Teraz ste <xliff:g id="step_count">%1$d</xliff:g> krokov od povolenia možnosti pre vývojárov.</item>
     </plurals>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
     <string name="show_dev_on_cm">Povolili ste možnosti pre vývojárov!</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
     <string name="show_dev_already_cm">Netreba, už ste povolili možnosti pre vývojárov.</string>
-    <!-- Device Info screen. LineageOS legal. -->
     <string name="lineagelicense_title">Právne informácie LineageOS</string>
-    <!-- Double tap to sleep on status bar or lockscreen -->
     <string name="status_bar_double_tap_to_sleep_title">Kliknutím uspať</string>
     <string name="status_bar_double_tap_to_sleep_summary">Vypnúť obrazovku dvojklikom na stavový riadok alebo na obrazovku uzamknutia</string>
-    <!-- Format string for fingerprint location message -->
     <string name="security_settings_fingerprint_enroll_find_sensor_message_cm" product="default">Vyhľadajte snímač odtlačkov prstov <xliff:g id="sensor_location">%1$s</xliff:g> na telefóne.</string>
-    <!-- Fingerprint sensor locations -->
     <string name="security_settings_fingerprint_sensor_location_back">Zadný</string>
     <string name="security_settings_fingerprint_sensor_location_front">Predný</string>
     <string name="security_settings_fingerprint_sensor_location_left">ľavá strana</string>
     <string name="security_settings_fingerprint_sensor_location_right">pravá strana</string>
-    <!-- Hostname setting -->
     <string name="device_hostname">Názov zariadenia</string>
-    <!-- Increasing ring tone volume -->
     <string name="increasing_ring_volume_option_title">Zvyšovanie hlasitosti zvonenia</string>
     <string name="increasing_ring_min_volume_title">Počiatočná hlasitosť</string>
     <string name="increasing_ring_ramp_up_time_title">Doba zvyšovania</string>
-    <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Ukončiť aplikáciu tlačidlom Späť</string>
     <string name="kill_app_longpress_back_summary">Dlhé stlačenie tlačidla Späť ukončí aplikáciu na popredí</string>
-    <!-- Launch Dev Tools -->
     <string name="development_tools_title">Vývojárske nástroje</string>
-    <!-- Lock screen cover art -->
     <string name="lockscreen_media_art_title">Zobraziť obal médií</string>
-    <!-- Lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Zobraziť hudobnú vizualizáciu</string>
-    <!-- Manual provisioning support -->
     <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> je <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
     <string name="sim_disabled">zakázaná</string>
     <string name="sim_missing">chýbajúca alebo chybná</string>
@@ -215,18 +186,14 @@
     <string name="sub_activate_failed">Aktivácia zlyhala.</string>
     <string name="sub_deactivate_success">SIM bola deaktivovaná.</string>
     <string name="sub_deactivate_failed">Deaktivácia zlyhala.</string>
-    <!-- Per-app data restrictions -->
     <string name="data_usage_app_restrict_data">Mobilné dáta</string>
     <string name="data_usage_app_restrict_data_summary">Povoliť používanie mobilných dát</string>
     <string name="data_usage_app_restrict_wifi">Wi\u2011Fi dáta</string>
     <string name="data_usage_app_restrict_wifi_summary">Povoliť používanie Wi\u2011Fi dát</string>
-    <!-- PIN scramble -->
     <string name="unlock_scramble_pin_layout_title">Dynamické rozloženie</string>
     <string name="unlock_scramble_pin_layout_summary">Prehádzať rozloženie pre zadanie kódu PIN pri odomykaní zariadenia</string>
-    <!-- Proximity wake -->
     <string name="proximity_wake_title">Zabrániť nechcenému prebudeniu</string>
     <string name="proximity_wake_summary">Pred prebudením obrazovky skontrolovať senzor priblíženia</string>
-    <!-- Setting checkbox title for root access -->
     <string name="root_access">Root prístup</string>
     <string name="root_access_warning_title">Povoliť root prístup?</string>
     <string name="root_access_warning_message">Povolenie aplikáciám žiadať o root prístup je veľmi nebezpečné a môže ohroziť bezpečnosť vášho systému!</string>
@@ -234,20 +201,14 @@
     <string name="root_access_apps">Iba aplikácie</string>
     <string name="root_access_adb">Iba ADB</string>
     <string name="root_access_all">Aplikácie a ADB</string>
-    <!-- Preference link for root appops -->
     <string name="root_appops_title">Spravovať prístupy root</string>
     <string name="root_appops_summary">Zobraziť a spravovať pravidlá prístupu root</string>
-    <!-- Touchscreen gesture settings -->
     <string name="touchscreen_gesture_settings_title">Gestá na obrazovke</string>
     <string name="touchscreen_gesture_settings_summary">Možnosť spustiť rýchlu akciu pomocou rôzných gest na obrazovce</string>
-    <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">Prebudiť po pripojení</string>
     <string name="wake_when_plugged_or_unplugged_summary">Zapnúť obrazovku pri pripojení alebo odpojení zdroja nabíjania</string>
-    <!-- High touch sensitivity -->
     <string name="high_touch_sensitivity_title">Vysoká citlivosť na dotyky</string>
     <string name="high_touch_sensitivity_summary">Zvýšiť citlivosť dotykovej obrazovky, takže ju bude možné používať pri nosení rukavíc</string>
-    <!-- Touchscreen hovering -->
     <string name="touchscreen_hovering_title">Pohyb nad dotykovou obrazovkou</string>
     <string name="touchscreen_hovering_summary">Pohybovať sa nad obrazovkou podobne ako myš vo webovom prehliadači, vzdielaneých plochý, atď</string>
-    <!-- Whether the keyguard will directly show the lock entry -->
 </resources>

@@ -17,28 +17,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Advanced restart options -->
     <string name="advanced_reboot_title">Gelişmiş yeniden başlatma</string>
     <string name="advanced_reboot_summary">Kilit açıldığında kurtarma veya önyükleme modunda yeniden başlatmak için güç menüsüne seçenekler ekler</string>
-    <!-- App ops permissions -->
     <string name="app_ops_permissions_allowed">İzin verildi</string>
     <string name="app_ops_permissions_ignored">Görmezden gelindi</string>
     <string name="app_ops_permissions_always_ask">Her zaman sor</string>
-    <!-- App ops detail -->
     <string name="app_ops_entry_summary"><xliff:g id="op">%1$s</xliff:g> (<xliff:g id="count">%2$s</xliff:g> kullanım)</string>
     <string name="app_ops_allowed_count"><xliff:g id="count" example="2 times">%s</xliff:g> izin verildi</string>
     <string name="app_ops_ignored_count"><xliff:g id="count" example="2 times">%s</xliff:g> reddedildi</string>
     <string name="app_ops_both_count"><xliff:g id="count">%1$s</xliff:g> izin verildi, <xliff:g id="count">%2$s</xliff:g> reddedildi</string>
     <string name="app_ops_no_blockable_permissions">Engellemek için izin yok</string>
-    <!-- App ops menu options -->
     <string name="app_ops_show_user_apps">Kullanıcı uygulamalarını göster</string>
     <string name="app_ops_show_system_apps">Dahili uygulamaları göster</string>
     <string name="app_ops_reset_counters">İzin verme/reddetme sayaçlarını sıfırla</string>
     <string name="app_ops_reset_confirm_title">Sayaçları sıfırlamayı onayla</string>
     <string name="app_ops_reset_confirm_mesg">Sayaçları sıfırlamak istiyor musunuz?</string>
-    <!-- Memory -->
     <string name="memory_startup_apps_title">Açılışta başlatılan uygulamalar</string>
-    <!-- Names of categories of app ops tabs - extension of AOSP -->
     <string name="app_ops_categories_location">Konum</string>
     <string name="app_ops_categories_personal">Kişisel</string>
     <string name="app_ops_categories_messaging">Mesajlaşma</string>
@@ -48,7 +42,6 @@
     <string name="app_ops_categories_bootup">Açılış</string>
     <string name="app_ops_categories_su">Kök erişimi</string>
     <string name="app_ops_categories_other">Diğer</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_summaries_accept_handover">başka bir uygulamadan bir arama aktarma</string>
     <string name="app_ops_summaries_access_camera">kameraya eriş</string>
     <string name="app_ops_summaries_access_notifications">bildirimlere erişme</string>
@@ -135,7 +128,6 @@
     <string name="app_ops_summaries_write_external_storage">harici depolamaya yaz</string>
     <string name="app_ops_summaries_write_mms">MMS mesajı yaz</string>
     <string name="app_ops_summaries_write_sms">SMS yazma</string>
-    <!-- User display names for app ops codes - extension of AOSP -->
     <string name="app_ops_labels_accept_handover">Başka bir uygulamadan gelen aramayı aktarma</string>
     <string name="app_ops_labels_access_camera">Kameraya erişim</string>
     <string name="app_ops_labels_access_notifications">Bildirimlere eriş</string>
@@ -222,62 +214,43 @@
     <string name="app_ops_labels_write_external_storage">Harici depolamaya yaz</string>
     <string name="app_ops_labels_write_mms">MMS mesajı yaz</string>
     <string name="app_ops_labels_write_sms">SMS Yaz</string>
-    <!-- Sizes for pattern lockscreen -->
     <string name="lock_settings_picker_pattern_size_message">Bir desen boyutu seçin</string>
-    <!-- Whether a visible red line will be drawn after the user has drawn the unlock pattern incorrectly -->
     <string name="lockpattern_settings_enable_error_path_title">Desen hatasını göster</string>
-    <!-- Whether the dots will be drawn when using the lockscreen pattern -->
     <string name="lockpattern_settings_enable_dots_title">Desen noktalarını göster</string>
-    <!-- Lock screen vibrate settings -->
     <string name="lockscreen_vibrate_enabled_title">Titre</string>
     <string name="lockscreen_vibrate_enabled_head">Kilidi açarken titreşim</string>
-    <!-- Android debugging -->
     <string name="adb_enable">Android hata ayıklama</string>
     <string name="adb_enable_summary">Android Hata Ayıklama (ADB) arabirimini etkinleştir</string>
-    <!-- Android debugging notification -->
     <string name="adb_notify">Hata ayıklama bildirimi</string>
     <string name="adb_notify_summary">USB veya ağ üzerinden hata ayıklama etkin olduğunda bir bildirim görüntüle</string>
-    <!-- Android debugging over network -->
     <string name="adb_over_network">Ağ üzerinden ADB</string>
     <string name="adb_over_network_summary">Ağ arayüzleri (Wi\u2011Fi, USB ağları) üzerinde TCP/IP hata ayıklamayı etkinleştir. Bu ayar yeniden başlatılmada sıfırlanır</string>
     <string name="adb_over_network_warning">Uyarı: Ağ üzerinden ADB etkinken, telefonunuz tüm bağlantılı ağlar üzerinde yetkisiz erişimlere açıktır!\n\nBu özelliği sadece güvenli ağlar üzerindeyken kullanın.\n\nGerçekten bu işlevi kullanmak istiyor musunuz?</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown_cm">
         <item quantity="one">Geliştirici ayarlarının etkinleştirilmesi için <xliff:g id="step_count">%1$d</xliff:g> adım kaldı.</item>
         <item quantity="other">Geliştirici ayarlarının etkinleştirilmesi için <xliff:g id="step_count">%1$d</xliff:g> adım kaldı.</item>
     </plurals>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
     <string name="show_dev_on_cm">Geliştirici ayarlarını etkinleştirdiniz!</string>
-    <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
     <string name="show_dev_already_cm">Gerek yok, zaten geliştirme ayarlarını etkinleştirdiniz.</string>
-    <!-- Device Info screen. LineageOS legal. -->
     <string name="lineagelicense_title">LineageOS yasal</string>
-    <!-- Double tap to sleep on status bar or lockscreen -->
     <string name="status_bar_double_tap_to_sleep_title">Uyutmak için dokunun</string>
     <string name="status_bar_double_tap_to_sleep_summary">Ekranı kapatmak için durum çubuğuna veya kilit ekranına çift dokunun</string>
-    <!-- Format string for fingerprint location message -->
+    <string name="security_settings_fingerprint_enroll_find_sensor_message_cm" product="tablet">Tabletinizin <xliff:g id="sensor_location">%1$s</xliff:g> parmak izi sensörünü bulun.</string>
+    <string name="security_settings_fingerprint_enroll_find_sensor_message_cm" product="device">Cihazınızın <xliff:g id="sensor_location">%1$s</xliff:g> parmak izi sensörünü bulun.</string>
     <string name="security_settings_fingerprint_enroll_find_sensor_message_cm" product="default">Telefonunuzun <xliff:g id="sensor_location">%1$s</xliff:g> parmak izi sensörünü bulun.</string>
-    <!-- Fingerprint sensor locations -->
     <string name="security_settings_fingerprint_sensor_location_back">arkasındaki</string>
     <string name="security_settings_fingerprint_sensor_location_front">önündeki</string>
     <string name="security_settings_fingerprint_sensor_location_left">sol tarafındaki</string>
     <string name="security_settings_fingerprint_sensor_location_right">sağ tarafındaki</string>
-    <!-- Hostname setting -->
     <string name="device_hostname">Cihaz ağ adı</string>
-    <!-- Increasing ring tone volume -->
     <string name="increasing_ring_volume_option_title">Artan zil sesi</string>
     <string name="increasing_ring_min_volume_title">Başlangıç sesi</string>
     <string name="increasing_ring_ramp_up_time_title">Yükselme zamanı</string>
-    <!-- Kill app long-press back -->
     <string name="kill_app_longpress_back">Uygulama sonlandırıcı geri tuşu</string>
     <string name="kill_app_longpress_back_summary">Geri tuşuna uzun dokunarak ön plandaki uygulamayı sonlandır</string>
-    <!-- Launch Dev Tools -->
     <string name="development_tools_title">Geliştirme araçları</string>
-    <!-- Lock screen cover art -->
     <string name="lockscreen_media_art_title">Medya kapak resmini göster</string>
-    <!-- Lock screen visualizer -->
     <string name="lockscreen_visualizer_title">Müzik görselleştiriciyi görüntüle</string>
-    <!-- Manual provisioning support -->
     <string name="sim_enabler_summary"><xliff:g id="displayName">%1$s</xliff:g> <xliff:g id="status" example="disabled">%2$s</xliff:g></string>
     <string name="sim_disabled">devre dışı bırakıldı</string>
     <string name="sim_missing">yok ya da sorunlu</string>
@@ -291,18 +264,14 @@
     <string name="sub_activate_failed">Etkinleştirme başarısız.</string>
     <string name="sub_deactivate_success">SIM devre dışı bırakıldı.</string>
     <string name="sub_deactivate_failed">Devre dışı bırakma başarısız.</string>
-    <!-- Per-app data restrictions -->
     <string name="data_usage_app_restrict_data">Hücresel veri</string>
     <string name="data_usage_app_restrict_data_summary">Hücresel veri kullanımını etkinleştir</string>
     <string name="data_usage_app_restrict_wifi">Wi\u2011Fi veri</string>
     <string name="data_usage_app_restrict_wifi_summary">Wi\u2011Fi veri kullanımını etkinleştir</string>
-    <!-- PIN scramble -->
     <string name="unlock_scramble_pin_layout_title">Düzeni karıştır</string>
     <string name="unlock_scramble_pin_layout_summary">Cihaz kilidini açarken PIN düzenini karıştırır</string>
-    <!-- Proximity wake -->
     <string name="proximity_wake_title">Yanlış uyandırmaları önle</string>
     <string name="proximity_wake_summary">Ekranı uyandırmadan önce yakınlık sensörünü kontrol et</string>
-    <!-- Setting checkbox title for root access -->
     <string name="root_access">Kök erişimi</string>
     <string name="root_access_warning_title">Kök erişimine izin ver?</string>
     <string name="root_access_warning_message">Kök erişimine izin vermek çok tehlikelidir ve sisteminizin güvenliğini tehlikeye atabilir!</string>
@@ -310,22 +279,16 @@
     <string name="root_access_apps">Sadece uygulamalar</string>
     <string name="root_access_adb">Sadece ADB</string>
     <string name="root_access_all">Uygulamalar ve ADB</string>
-    <!-- Preference link for root appops -->
     <string name="root_appops_title">Kök erişimini yönet</string>
     <string name="root_appops_summary">Kök erişimi kurallarını görüntüle ve kontrol et</string>
-    <!-- Touchscreen gesture settings -->
     <string name="touchscreen_gesture_settings_title">Ekran hareketleri</string>
     <string name="touchscreen_gesture_settings_summary">Hızlı işlemler için çeşitli dokunmatik ekran hareketleri gerçekleştirin</string>
-    <!-- Wake on plug -->
     <string name="wake_when_plugged_or_unplugged_title">Takıp çıkarmada uyan</string>
     <string name="wake_when_plugged_or_unplugged_summary">Bir güç kaynağına bağlanırken ya da bağlantısını keserken ekranı aç</string>
-    <!-- High touch sensitivity -->
     <string name="high_touch_sensitivity_title">Yüksek dokunma hassasiyeti</string>
     <string name="high_touch_sensitivity_summary">Dokunmatik ekran hassasiyetini arttırarak eldiven ile kullanıma olanak verir</string>
-    <!-- Touchscreen hovering -->
     <string name="touchscreen_hovering_title">Dokunmatik ekrana dokunmadan gezinme</string>
     <string name="touchscreen_hovering_summary">Ekrana dokunmadan parmağınızı yakınlaştırarak bir fare kullanıyormuş gibi web tarayıcılarında, uzak masaüstlerinde, vb. dolaşmanızı sağlar</string>
-    <!-- Whether the keyguard will directly show the lock entry -->
     <string name="directly_show_lock">Doğrudan kilit aç</string>
     <string name="directly_show_lock_summary">Ekranın kilidini açmak için kaydırmayı atlayın ve hemen tuşlamaya başlayın</string>
 </resources>
