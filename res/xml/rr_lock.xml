@@ -96,5 +96,11 @@
         android:icon="@drawable/ic_lockscreen_tile"
         android:fragment="com.android.settings.rr.omnigears.interfacesettings.LockscreenItemSettings" />
 
+        <com.rr.settings.preferences.SystemSettingSwitchPreference
+            android:key="hide_lockscreen_status_bar"
+            android:title="@string/hide_lockscreen_status_bar_title"
+            android:summary="@string/hide_lockscreen_status_bar_summary"
+            android:defaultValue="false" />
+
 </PreferenceScreen>
 
