@@ -101,7 +101,6 @@ import com.android.settings.wifi.WifiSettings;
 
 import com.android.settings.rr.About;
 import com.android.settings.rr.Animations;
-import com.android.settings.rr.AudioPanel;
 import com.android.settings.rr.BatteryBar;
 import com.android.settings.rr.Buttons;
 import com.android.settings.rr.CarrierLabel;
@@ -289,7 +288,6 @@ public class SearchIndexableResourcesImpl implements SearchIndexableResources {
         addIndex(VolumePanelSettings.class);
         addIndex(DeviceMaintainersFragment.class);
         addIndex(rrdrill.class);
-        addIndex(AudioPanel.class);
     }
 
     @Override

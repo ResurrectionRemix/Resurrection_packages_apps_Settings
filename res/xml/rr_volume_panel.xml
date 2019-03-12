@@ -21,6 +21,32 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_volume_title">
 
+        <com.rr.settings.preferences.SystemSettingSwitchPreference
+            android:key="audio_panel_view_media"
+            android:title="@string/audio_panel_view_media_title"
+            android:defaultValue="true"
+            android:enabled="false"/>
+
+        <com.rr.settings.preferences.SystemSettingSwitchPreference
+            android:key="audio_panel_view_notification"
+            android:title="@string/audio_panel_view_ringer_title"
+            android:defaultValue="false"/>
+
+        <com.rr.settings.preferences.SystemSettingSwitchPreference
+            android:key="audio_panel_view_alarm"
+            android:title="@string/audio_panel_view_alarm_title"
+            android:defaultValue="false"/>
+
+        <com.rr.settings.preferences.SystemSettingSwitchPreference
+            android:key="audio_panel_view_voice"
+            android:title="@string/audio_panel_view_voice_title"
+            android:defaultValue="false"/>
+
+        <com.rr.settings.preferences.SystemSettingSwitchPreference
+            android:key="audio_panel_view_bt_sco"
+            android:title="@string/audio_panel_view_bt_sco_title"
+            android:defaultValue="false"/>
+
          <!--com.rr.settings.preferences.SecureSettingSwitchPreference
             android:key="sysui_volume_down_silent"
             android:title="@string/volbtn_down_zen_title"
