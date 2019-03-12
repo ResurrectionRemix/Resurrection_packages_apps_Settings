@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2017-2018 The OmniROM Project
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res-auto"
+        android:key="category_custom_header"
+        android:title="@string/custom_header_title">
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="status_bar_custom_header"
+            android:title="@string/status_bar_custom_header_title"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="custom_header_provider"
+            android:title="@string/custom_header_provider_title"
+            android:persistent="false"
+            android:entries="@array/custom_header_provider_entries"
+            android:entryValues="@array/custom_header_provider_values"
+            android:dependency="status_bar_custom_header" />
+
+        <ListPreference
+            android:key="daylight_header_pack"
+            android:title="@string/daylight_header_pack_title"
+            android:persistent="false"
+            android:dependency="status_bar_custom_header" />
+
+        <Preference
+            android:key="custom_header_browse"
+            android:title="@string/custom_header_pick_title"
+            android:summary="@string/custom_header_pick_summary"
+            android:persistent="false"
+            android:dependency="status_bar_custom_header" >
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="org.omnirom.omnistyle"
+                    android:targetClass="org.omnirom.omnistyle.PickHeaderActivity" />
+        </Preference>
+
+        <Preference
+            android:key="file_header_select"
+            android:title="@string/file_header_select_title"
+            android:summary="@string/file_header_select_summary"
+            android:persistent="false"
+            android:dependency="status_bar_custom_header" >
+        </Preference>
+
+        <com.android.settings.rr.Preferences.CustomSeekBarPreference
+            android:key="status_bar_custom_header_shadow"
+            android:title="@string/status_bar_custom_header_shadow_title"
+            android:summary="@string/status_bar_custom_header_shadow_summary"
+            android:max="100"
+            settings:min="0"
+            settings:unitsRight="@string/unit_percent"
+            android:persistent="false"
+            android:dependency="status_bar_custom_header" />
+
+</PreferenceScreen>
