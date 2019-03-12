@@ -57,8 +57,7 @@
             android:fragment="com.android.settings.rr.VolumePanelSettings"
             android:title="@string/rr_volume_title"
             android:summary="@string/rr_volume_summary"
-            android:icon="@drawable/rr_volume_icon"
-          />
+            android:icon="@drawable/rr_volume_icon" />
 
         <Preference
             android:key="smart_pixels"
@@ -116,16 +115,7 @@
        <PreferenceScreen
             android:key="rr_audio_panel"
             android:title="@string/audio_panel_view"
+            android:icon="@drawable/rr_volume_icon"
             android:fragment="com.android.settings.rr.AudioPanel" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-        android:key="volume_dialog_timeout"
-        android:title="@string/volume_dialog_timeout_title"
-        android:min="500"
-        android:max="10000"
-        android:defaultValue="3000"
-        rrsettings:interval="100"
-        settings:unitsLeft=""
-        settings:unitsRight="ms" />
 
 </PreferenceScreen>
