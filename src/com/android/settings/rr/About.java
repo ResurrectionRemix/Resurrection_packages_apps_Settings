@@ -102,22 +102,7 @@ private static final String RR_ROM_SHARE = "share";
         mFacebookUrl = findPreference("rr_facebook");
         mGoogleUrl = findPreference("rr_google_plus");
         mDonateUrl = findPreference("rr_donate");
-        PreferenceGroup devsGroup = (PreferenceGroup) findPreference("devs");
-        ArrayList<Preference> devs = new ArrayList<Preference>();
-        for (int i = 0; i < devsGroup.getPreferenceCount(); i++) {
-            devs.add(devsGroup.getPreference(i));
-        }
-        devsGroup.removeAll();
-        devsGroup.setOrderingAsAdded(false);
-        Collections.shuffle(devs);
-        for(int i = 0; i < devs.size(); i++) {
-            Preference p = devs.get(i);
-            p.setOrder(i);
-
-            devsGroup.addPreference(p);
-        }
     }
-
     @Override
     public boolean onPreferenceChange(Preference preference, Object value) {
         return false;
