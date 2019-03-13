@@ -118,15 +118,15 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
             RRFWBUtils.showSystemUiRestartDialog(getContext());
         return true;
         } else if (preference == mRecentsClearAllLocation) {
-            int location = Integer.valueOf((String) objValue);
-            int index = mRecentsClearAllLocation.findIndexOfValue((String) objValue);
+            int location = Integer.valueOf((String) newValue);
+            int index = mRecentsClearAllLocation.findIndexOfValue((String) newValue);
             Settings.System.putIntForUser(getActivity().getContentResolver(),
                     Settings.System.RECENTS_CLEAR_ALL_LOCATION, location, UserHandle.USER_CURRENT);
             mRecentsClearAllLocation.setSummary(mRecentsClearAllLocation.getEntries()[index]);
         return true;
         } else if (preference == mRecentsType) {
-            int style = Integer.valueOf((String) objValue);
-            int index = mRecentsType.findIndexOfValue((String) objValue);
+            int style = Integer.valueOf((String) newValue);
+            int index = mRecentsType.findIndexOfValue((String) newValue);
             Settings.System.putIntForUser(getActivity().getContentResolver(),
                     Settings.System.RECENTS_LAYOUT_STYLE, style, UserHandle.USER_CURRENT);
             mRecentsType.setSummary(mRecentsType.getEntries()[index]);
