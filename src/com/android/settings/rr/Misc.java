@@ -22,7 +22,6 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.os.UserHandle;
-import android.provider.SearchIndexableResource;
 import android.provider.Settings;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
@@ -38,20 +37,15 @@ import com.android.settings.R;
 import com.android.settings.rr.Preferences.SecureSettingSwitchPreference;
 import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 import com.android.settings.rr.utils.RRUtils;
-import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Misc extends SettingsPreferenceFragment implements
 Preference.OnPreferenceChangeListener {
 
-    private static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
     private static final String SYSUI_ROUNDED_SIZE = "sysui_rounded_size";
     private static final String SYSUI_ROUNDED_CONTENT_PADDING = "sysui_rounded_content_padding";
     private static final String SYSUI_ROUNDED_FWVALS = "sysui_rounded_fwvals";
@@ -60,48 +54,35 @@ Preference.OnPreferenceChangeListener {
     private CustomSeekBarPreference mContentPadding;
     private SecureSettingSwitchPreference mRoundedFwvals;
 
-    private ListPreference mFlashlightOnCall;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_misc);
 
-        Context mContext = getActivity().getApplicationContext();
-
-        PreferenceScreen prefScreen = getPreferenceScreen();
-        PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-        mFlashlightOnCall = (ListPreference) findPreference(FLASHLIGHT_ON_CALL);
-        if (!RRUtils.deviceSupportsFlashLight(mContext))
-            prefScreen.removePreference(mFlashlightOnCall);
-
-        Resources res = null;
-        Context ctx = getContext();
+        Resources res;
         float density = Resources.getSystem().getDisplayMetrics().density;
-
         try {
-            res = ctx.getPackageManager().getResourcesForApplication("com.android.systemui");
+            res = getContext().getPackageManager().getResourcesForApplication("com.android.systemui");
         } catch (NameNotFoundException e) {
             e.printStackTrace();
+            return;
         }
 
         // Rounded Corner Radius
         mCornerRadius = (CustomSeekBarPreference) findPreference(SYSUI_ROUNDED_SIZE);
         mCornerRadius.setOnPreferenceChangeListener(this);
         int resourceIdRadius = res.getIdentifier("com.android.systemui:dimen/rounded_corner_radius", null, null);
-        int cornerRadius = Settings.Secure.getInt(ctx.getContentResolver(), Settings.Secure.SYSUI_ROUNDED_SIZE,
+        int cornerRadius = Settings.Secure.getInt(resolver, Settings.Secure.SYSUI_ROUNDED_SIZE,
             (int)(res.getDimension(resourceIdRadius) / density));
         mCornerRadius.setValue(cornerRadius / 1);
 
         // Rounded Content Padding
         mContentPadding = (CustomSeekBarPreference) findPreference(SYSUI_ROUNDED_CONTENT_PADDING);
         mContentPadding.setOnPreferenceChangeListener(this);
-        int resourceIdPadding = res.getIdentifier("com.android.systemui:dimen/rounded_corner_content_padding", null,
-            null);
-        int contentPadding = Settings.Secure.getInt(ctx.getContentResolver(),
-            Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING,
+        int resourceIdPadding = res.getIdentifier("com.android.systemui:dimen/rounded_corner_content_padding", null, null);
+        int contentPadding = Settings.Secure.getInt(resolver, Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING,
             (int)(res.getDimension(resourceIdPadding) / density));
         mContentPadding.setValue(contentPadding / 1);
 
@@ -112,13 +93,14 @@ Preference.OnPreferenceChangeListener {
     }
 
     private void restoreCorners() {
-        Resources res = null;
+        Resources res;
         float density = Resources.getSystem().getDisplayMetrics().density;
 
         try {
             res = getContext().getPackageManager().getResourcesForApplication("com.android.systemui");
         } catch (NameNotFoundException e) {
             e.printStackTrace();
+            return;
         }
 
         int resourceIdRadius = res.getIdentifier("com.android.systemui:dimen/rounded_corner_radius", null, null);
@@ -142,40 +124,11 @@ Preference.OnPreferenceChangeListener {
         return true;
     }
 
-
-    public static void reset(Context mContext) {
-        ContentResolver resolver = mContext.getContentResolver();
-        Settings.System.putIntForUser(resolver,
-            Settings.System.FLASHLIGHT_ON_CALL, 0, UserHandle.USER_CURRENT);
-    }
-
-
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
     }
 
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        new BaseSearchIndexProvider() {
-            @Override
-            public List < SearchIndexableResource > getXmlResourcesToIndex(Context context,
-                boolean enabled) {
-                ArrayList < SearchIndexableResource > resources =
-                    new ArrayList < SearchIndexableResource > ();
-                SearchIndexableResource res = new SearchIndexableResource(context);
-                res.xmlResId = R.xml.rr_misc;
-                resources.add(res);
-                return resources;
-            }
-
-            @Override
-            public List < String > getNonIndexableKeys(Context context) {
-                List < String > keys = super.getNonIndexableKeys(context);
-
-                if (!RRUtils.deviceSupportsFlashLight(context))
-                    keys.add(FLASHLIGHT_ON_CALL);
-
-                return keys;
-            }
-        };
+        RRUtils.addSearchIndexProvider(R.xml.rr_misc);
 }
