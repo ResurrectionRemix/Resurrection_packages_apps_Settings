@@ -24,6 +24,7 @@ import android.support.v7.preference.PreferenceScreen;
 
 import com.android.settings.core.PreferenceControllerMixin;
 import com.android.settingslib.core.AbstractPreferenceController;
+import com.android.settings.R;
 
 public class UpTimePreferenceController extends AbstractPreferenceController implements
         PreferenceControllerMixin {
@@ -68,13 +69,18 @@ public class UpTimePreferenceController extends AbstractPreferenceController imp
     }
 
     void updateTimes() {
-        long ut = SystemClock.elapsedRealtime() / 1000;
+        long ut = Math.max((SystemClock.elapsedRealtime() / 1000), 1);
 
-        if (ut == 0) {
-            ut = 1;
-        }
+        float deepSleepRatio = Math.max((float) (SystemClock.elapsedRealtime() - SystemClock.uptimeMillis()), 0f)
+                / SystemClock.elapsedRealtime();
+        int deepSleepPercent = Math.round(deepSleepRatio * 100);
 
-        mUptime.setSummary(convert(ut));
+        final StringBuilder summary = new StringBuilder();
+        summary.append(convert(ut));
+        summary.append(" ");
+        summary.append(mContext.getString(R.string.status_deep_sleep, deepSleepPercent, "%"));
+
+        mUptime.setSummary(summary.toString());
     }
 
     private String pad(int n) {
