@@ -334,7 +334,7 @@ public class SettingsGateway {
             Settings.SmartbarSettingsActivity.class.getName(),
             Settings.FlingSettingsActivity.class.getName(),
             Settings.PulseSettingsActivity.class.getName(),
-            Settings.PieControlSettingsActivity.class.getName()
+            Settings.PieControlSettingsActivity.class.getName(),
             Settings.DevRunningServicesActivity.class.getName(),
     };
 }
