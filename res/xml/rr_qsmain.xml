@@ -32,36 +32,39 @@
            settings:unitsLeft=""
            settings:unitsRight="%"
            android:defaultValue="60" />
+
+    <Preference
+         android:key="category_custom_header"
+         android:title="@string/statusbar_header_category_title"
+         android:summary="@string/statusbar_header_category_summary"
+         android:fragment="com.android.settings.rr.StatusbarHeader" />
            
         <PreferenceScreen
            android:id="@+id/rr_qs_animations"
            android:title="@string/qs_tile_anim_title"
            android:summary="@string/rr_qs_animation_summary"
            android:fragment="com.android.settings.rr.QsAnimations"
-           android:icon="@drawable/rr_qs_animation_icon"
-           />
+           android:icon="@drawable/rr_qs_animation_icon" />
+
         <PreferenceScreen
             android:key="rr_qs_layout"
             android:fragment="com.android.settings.rr.QsLayout"
             android:title="@string/qs_tile_layout"
             android:summary="@string/qs_tile_layout_summary"
-			android:icon="@drawable/rr_qs_layout_icon"
-            />
+	    android:icon="@drawable/rr_qs_layout_icon" />
 
         <PreferenceScreen
             android:key="rr_qs_pulldown"
             android:fragment="com.android.settings.rr.QsPullDown"
             android:title="@string/rr_qs_pulldown"
             android:summary="@string/rr_qs_pulldown_summary"
-			android:icon="@drawable/rr_qs_pulldown_icon"
-            />
+	    android:icon="@drawable/rr_qs_pulldown_icon"/>
 
         <PreferenceScreen
             android:key="rr_qs_advanced"
             android:fragment="com.android.settings.rr.QsAdvanced"
             android:title="@string/qs_advanced_title"
             android:summary="@string/qs_advanced_summary"
-			android:icon="@drawable/rr_qs_advanced_icon"
-            />
+	    android:icon="@drawable/rr_qs_advanced_icon" />
 
 </PreferenceScreen>
