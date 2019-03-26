@@ -43,6 +43,8 @@ import com.android.settings.widget.PreferenceCategoryController;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 
+import lineageos.hardware.LineageHardwareManager;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -56,6 +58,7 @@ public class LanguageAndInputSettings extends DashboardFragment {
     private static final String KEY_POINTER_AND_TTS_CATEGORY = "pointer_and_tts_category";
     private static final String KEY_GAME_CONTROLLER_CATEGORY = "game_controller_settings_category";
     private static final String KEY_PHYSICAL_KEYBOARD = "physical_keyboard_pref";
+    private static final String KEY_TOUCH_HOVERING = "feature_touch_hovering";
 
     @Override
     public int getMetricsCategory() {
@@ -183,9 +186,13 @@ public class LanguageAndInputSettings extends DashboardFragment {
                 @Override
                 public List<String> getNonIndexableKeys(Context context) {
                     List<String> keys = super.getNonIndexableKeys(context);
+                    LineageHardwareManager hardware = LineageHardwareManager.getInstance(context);
                     // Duplicates in summary and details pages.
                     keys.add(KEY_TEXT_TO_SPEECH);
                     keys.add(KEY_PHYSICAL_KEYBOARD);
+                    if (!hardware.isSupported(LineageHardwareManager.FEATURE_TOUCH_HOVERING)) {
+                        keys.add(KEY_TOUCH_HOVERING);
+                    }
                     return keys;
                 }
             };
