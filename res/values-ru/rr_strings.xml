@@ -51,13 +51,13 @@
     <string name="media_art_summary">Показывать обложку альбома на экране блокировки</string>
     <!-- Battery Styles -->
     <string name="battery_style_title">Стиль значка батареи</string>
-    <string name="battery_style_port">Портреная ориентация</string>
-    <string name="battery_style_land">Ландшафтная ориентация</string>
+    <string name="battery_style_port">Вертикальный значок</string>
+    <string name="battery_style_land">Горизонтальный значок</string>
     <string name="battery_style_circle">Круглый значок</string>
-    <string name="battery_style_dotted_circle">Пунктирный круг</string>
+    <string name="battery_style_dotted_circle">Точечный круг</string>
     <string name="battery_style_big_circle">Большой круг</string>
     <string name="battery_style_big_dotted_circle">Большой точечный круг</string>
-    <string name="battery_style_square">Квадрат</string>
+    <string name="battery_style_square">Квадратный значок</string>
     <string name="battery_style_text">Текст</string>
     <string name="battery_style_hidden">Не показывать значок</string>
     <string name="battery_style_category">Стиль батареи</string>
@@ -116,7 +116,7 @@
     <string name="rr_website_title">Сайт</string>
     <string name="rr_website_summary">Узнать больше о Resurrection Remix OS</string>
     <string name="rr_telegram_title">Telegram</string>
-    <string name="rr_telegram_summary">Чат в Телеграмме</string>
+    <string name="rr_telegram_summary">Telegram чат</string>
     <string name="rr_source_title">GitHub</string>
     <string name="rr_source_summary">Исходный код Resurrection Remix OS</string>
     <string name="rr_facebook_title">Facebook</string>
@@ -126,7 +126,7 @@
     <string name="rr_pb_title">Тема PitchBlack</string>
     <string name="rr_pb_summary">Официальная Substratum тема для ResurrectionRemix OS</string>
     <string name="rr_twitter_title">Twitter</string>
-    <string name="rr_twitter_summary">Twitter аккаунт</string>
+    <string name="rr_twitter_summary">Аккаунт в Twitter</string>
     <string name="maintainer_categorie_title">Официально поддерживаемые устройства</string>
     <string name="title_about">О прошивке</string>
     <string name="dev_categorie_title">Разработка и поддержка</string>
@@ -163,16 +163,16 @@
     <string name="features_error">Невозможно загрузить список</string>
     <string name="features_unknown">Неизвестно</string>
     <string name="features_version">1.0</string>
-    <string name="powermenu_onthego_title">На Ходу</string>
+    <string name="powermenu_onthego_title">Режим \"На ходу\"</string>
     <string name="rr_volume_title">Панель громкости</string>
     <string name="rr_power_title">Меню питания</string>
     <string name="rr_lockscreen_target_title">Ярлыки в нижних углах</string>
     <string name="power_menu_screenshot_title">Скриншот</string>
     <string name="power_menu_screenshot_summary">Удерживайте, чтобы выделить область для скриншота</string>
-    <string name="power_menu_airplane_title">Режим в самолёте</string>
-    <string name="power_menu_users_title">Пользовательский переключатель</string>
+    <string name="power_menu_airplane_title">Режим полёта</string>
+    <string name="power_menu_users_title">Переключение пользователей</string>
     <string name="power_menu_bug_report_title">Отчёт об ошибке</string>
-    <string name="power_menu_bug_report_disabled">Отчет об ошибке отключен в настройках для разработчика</string>
+    <string name="power_menu_bug_report_disabled">Отчёты об ошибках отключены в настройках для разработчиков</string>
     <string name="power_menu_lockdown_title">Блокировка</string>
     <!-- About phone screen, RR version -->
     <string name="rr_version">Версия Resurrection Remix</string>
@@ -2081,8 +2081,17 @@
     <string name="recents_stock">Сток</string>
     <string name="recents_grid">Сетка</string>
     <string name="recents_go">Android Go</string>
+    <string name="cutout_main">Настройки отображения выреза</string>
     <!-- Display cutout options -->
+    <string name="display_cutout_style_title">Стиль выреза</string>
+    <string name="display_cutout_style_normal">Нормальный</string>
+    <string name="display_cutout_style_immerse">Полноэкранный режим</string>
+    <string name="display_cutout_style_hide">Скрыть</string>
+    <string name="stock_statusbar_in_hide">Стоковая высота строки состояния</string>
+    <string name="stock_statusbar_in_hide_summary">Использовать высоту строки состояния по умолчанию при скрытии</string>
     <!-- Status Bar Header -->
+    <string name="statusbar_header_category_title">Заголовок быстрых настроек</string>
+    <string name="statusbar_header_category_summary">Настройка заголовка панели быстрых настроек</string>
     <string name="status_bar_custom_header_title">Включить</string>
     <string name="daylight_header_pack_title">Набор изображений для заголовка</string>
     <string name="status_bar_custom_header_shadow_title">Тень изображения в заголовке</string>
@@ -2091,8 +2100,14 @@
     <string name="daylight_header_provider_title">Набор изображений</string>
     <string name="custom_header_provider_title">Провайдер заголовка</string>
     <string name="custom_header_pick_title">Выберите изображение для заголовка</string>
+    <string name="custom_header_pick_summary">Выбрать изображение из памяти или из внешних источников</string>
     <string name="style_enabled_summary">Пользовательское изображение заголовка включено</string>
     <string name="style_disabled_summary">Пользовательское изображение заголовка выключено</string>
     <string name="header_provider_disabled">Выключено</string>
     <string name="custom_header_title">Пользовательское изображение в заголовке</string>
+    <string name="file_header_select_title">Выберите своё изображение</string>
+    <string name="file_header_select_summary">Выберите изображение из памяти</string>
+    <string name="file_header_provider_title">Одно изображение</string>
+    <!-- Hide On Lockscreen -->
+    <!-- Volume link notification -->
 </resources>

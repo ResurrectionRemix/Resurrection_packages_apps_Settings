@@ -1878,45 +1878,202 @@
     <string name="qs_tile_animation_duration_default">預設</string>
     <string name="qs_tile_animation_duration_fast">快</string>
     <string name="qs_tile_animation_interpolator_linearInterpolator">線性</string>
+    <string name="qs_tile_animation_interpolator_accelerateInterpolator">加速</string>
+    <string name="qs_tile_animation_interpolator_decelerateInterpolator">減速</string>
+    <string name="qs_tile_animation_interpolator_accelerateDecelerateInterpolator">先快後慢</string>
+    <string name="qs_tile_animation_interpolator_bounceInterpolator">彈跳</string>
+    <string name="qs_tile_animation_interpolator_overshootInterpolator">過衝</string>
+    <string name="qs_tile_animation_interpolator_anticipateInterpolator">預備</string>
+    <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">預備和過衝</string>
+    <string name="qs_set_animation_style">%1$s</string>
+    <string name="qs_set_animation_duration">%1$s</string>
+    <string name="qs_set_animation_interpolator">%1$s</string>
     <!-- Running services -->
+    <string name="background_processes_settings_title">背景處理程序</string>
     <!-- Force authorize substratum packages -->
+    <string name="force_authorize_substratum_packages_title">強制授權每個主題應用程式</string>
+    <string name="force_authorize_substratum_packages_summary">允許來源不明的主題應用程式</string>
     <!-- Manage applications: show substratum overlays -->
+    <string name="filter_substratum_apps">Substratum 疊加層</string>
+    <string name="menu_show_substratum">顯示重疊</string>
+    <string name="menu_hide_substratum">隱藏重疊</string>
     <!-- Edge gestures -->
+    <string name="edge_gestures_title">邊緣手勢</string>
+    <string name="edge_gestures_description">由底部往上滑來調整主畫面的手勢。保持按下來打開最近。從左下角或右下角滑動即可返回</string>
+    <string name="edge_gestures_feedback_duration_title">觸覺反饋持續時間</string>
+    <string name="edge_gestures_long_press_delay_title">長按操作啟動延遲</string>
+    <string name="edge_gestures_back_category_title">返回手勢</string>
+    <string name="edge_gestures_back_edges_title">觸發返回鍵從</string>
+    <string name="edge_gestures_back_edges_left_side">靠左</string>
+    <string name="edge_gestures_back_edges_right_side">靠右</string>
+    <string name="edge_gestures_back_edges_both_sides">兩邊</string>
+    <string name="edge_gestures_landscape_back_edges_title">在橫向上觸發返回鍵</string>
+    <string name="edge_gestures_back_screen_percent_title">返回手勢必須在多少百分比下才開始</string>
+    <string name="edge_gestures_back_screen_percent_summary">出發在螢幕的 % 以下</string>
+    <string name="edge_gestures_back_show_ui_feedback_title">返回手勢動畫</string>
+    <string name="edge_gestures_back_show_ui_feedback_summary">使用返回手勢時顯示邊緣上的動畫回饋</string>
     <!-- Key backlight -->
+    <string name="button_backlight_title">背光</string>
+    <string name="button_backlight_enabled">開啟按鈕背光</string>
+    <string name="button_backlight_only_when_pressed_title">僅在按下按鈕才點亮指示燈</string>
+    <string name="keyboard_backlight_enabled">鍵盤背光</string>
+    <string name="button_backlight_seekbar_title">按鈕亮度</string>
+    <string name="keyboard_backlight_seekbar_title">鍵盤亮度</string>
+    <string name="backlight_timeout_title">照明逾時</string>
+    <string name="backlight_timeout_unlimited">不關閉</string>
+    <string name="backlight_summary_disabled">已停用</string>
+    <string name="backlight_summary_enabled_with_timeout">啟用 <xliff:g id="timeout"> %s </xliff:g> 秒</string>
+    <string name="backlight_summary_enabled">已啟用</string>
     <!--SystemUI Tuner -->
+    <string name="statusbar_tuner_title">狀態列項目</string>
+    <string name="statusbar_tuner_summary">禁用電池選項和狀態欄圖示</string>
+    <string name="navbar_tuner_title">編輯導覽列</string>
     <string name="navbar_tuner_summary">編輯導覽列佈局和按鈕</string>
+    <string name="vol_dnd_category_title">「零打擾」模式</string>
+    <string name="volbtn_down_zen_title">音量降低進入勿零打擾模式</string>
+    <string name="volbtn_down_zen_summary">允許音量降低進入請勿打擾模式</string>
+    <string name="volbtn_up_zen_title">提高音量時請勿打擾</string>
+    <string name="volbtn_up_zen_summary">允許音量提高離開請勿打擾模式</string>
+    <string name="vol_zen_title">「請勿打擾」設定開關</string>
+    <string name="vol_zen_summary">在音量面板顯示請勿打擾開關</string>
     <!-- Option defining the phone ringtone for slot1 on Muilti SIM device -->
+    <string name="ringtone1_title">電話鈴聲 - SIM卡 1</string>
+    <string name="ringtone2_title">電話鈴聲 - SIM卡 2</string>
+    <string name="use_bottom_gesture_title">導航手勢</string>
+    <string name="use_bottom_gesture_summary">使用底部向上滑動手勢進行導航</string>
+    <string name="gesture_settings_info">必須停用導覽列！\n\n可用的手勢：\n\n返回\n - 向左或向右滑動 \n\n主畫面\n - 向上滑動中心\n\n最近使用的應用程式\n - 在中心向上滑動並按住\n\n最後的應用程式\n - 短暫向上滑動並保持在中心位置</string>
     <!-- Font picker -->
+    <string name="font_picker_title">字型</string>
+    <string name="font_picker_title_summary">選取自定義系统字體</string>
+    <string name="font_picker_progress">正在套用新的字型\u2026</string>
     <!-- Audio Panel view  -->
+    <string name="audio_panel_view">音頻面板</string>
+    <string name="audio_panel_view_media_title">媒體</string>
+    <string name="audio_panel_view_ringer_title">鈴聲</string>
+    <string name="audio_panel_view_notification_title">通知</string>
+    <string name="audio_panel_view_alarm_title">鬧鐘</string>
+    <string name="audio_panel_view_voice_title">語音</string>
+    <string name="audio_panel_view_bt_sco_title">藍牙</string>
     <!-- Lock Widget -->
+    <string name="ls_widget">小工具樣式</string>
     <!-- Lock Widget Fonts -->
+    <string name="lock_widget_font_stock">正常 (預設)</string>
+    <string name="lock_widget_font_bold">粗體</string>
+    <string name="lock_widget_font_italic">斜體</string>
+    <string name="lock_widget_font_bold_italic">粗斜體</string>
+    <string name="lock_widget_font_light_italic">細斜體</string>
+    <string name="lock_widget_font_thin_italic">超細斜體</string>
+    <string name="lock_widget_font_light">淺色</string>
+    <string name="lock_widget_font_thin">超細體</string>
+    <string name="lock_widget_font_condensed_normal">壓縮體</string>
+    <string name="lock_widget_font_condensed_italic">壓縮斜體</string>
+    <string name="lock_widget_font_condensed_bold">壓縮粗體</string>
+    <string name="lock_widget_font_condensed_bold_italic">壓縮粗斜體</string>
+    <string name="lock_widget_font_condensed_light">細壓縮體</string>
+    <string name="lock_widget_font_condensed_light_italic">細壓縮斜體</string>
+    <string name="lock_widget_font_medium_normal">中</string>
+    <string name="lock_widget_font_medium_italic">中斜體</string>
+    <string name="lock_widget_font_black">黑色</string>
+    <string name="lock_widget_font_black_italic">黑斜體</string>
     <!-- Lock Clock Fonts -->
+    <string name="lock_clock_font_title">時鐘的字體樣式</string>
     <!-- Lock Date Fonts -->
+    <string name="lock_date_font_title">日期的字體樣式</string>
     <!-- Lock Clock & Date Size -->
+    <string name="lockdate_font_size_title">日期的字體樣式</string>
+    <string name="lockclock_font_size_title">時鐘的字體樣式</string>
     <!-- ScreenRecord Shortcut -->
+    <string name="screen_record_shortcut">螢幕錄影快速鍵</string>
+    <string name="screen_record_shortcut_summary">啟用電源鍵 + 音量上鍵螢幕截圖</string>
     <!-- ScreenShot Shortcut -->
+    <string name="screen_shot_shortcut">螢幕截圖快速鍵</string>
+    <string name="screen_shot_shortcut_summary">啟用電源鍵 + 音量下鍵螢幕截圖</string>
     <!-- Blink flashlight for incoming calls -->
+    <string name="flashlight_on_call_title">響鈴時閃爍通知燈號</string>
+    <string name="flashlight_on_call_disabled">已停用</string>
+    <string name="flashlight_on_call_not_dnd">僅在響鈴模式下</string>
+    <string name="flashlight_on_call_dnd">僅在勿擾模式下</string>
+    <string name="flashlight_on_call_always">總是</string>
+    <string name="lockscreen_item_title">鎖定螢幕項目</string>
+    <string name="lockscreen_weather_title">天氣狀態</string>
+    <string name="lockscreen_items_aod_info_title">此可見性配置也適用於環境顯示</string>
+    <string name="weather_icon_pack_info_title">條件圖示包用于快速設置和鎖定螢幕</string>
+    <string name="lockscreen_category_title">鎖定螢幕</string>
+    <string name="lock_weather_title">鎖定螢幕天氣</string>
     <!-- Wakelock blocker -->
+    <string name="wakelock_blocker_title">喚醒阻擋</string>
+    <string name="wakelock_blocker_summary">攔截系統喚醒</string>
+    <string name="wakelock_blocker_save">儲存</string>
+    <string name="wakelock_list_header">可用的喚醒鎖</string>
+    <string name="wakelock_blocker_reload">重新載入</string>
+    <string name="wakelock_blocker_warning_title">請謹慎操作</string>
+    <string name="wakelock_blocker_warning">阻擋喚醒可能造成系統不穩定、強制關閉，甚至失去資料</string>
     <!-- Alarm blocker -->
+    <string name="alarm_blocker">警報阻止工具</string>
+    <string name="alarm_blocker_title">啟用</string>
+    <string name="alarm_blocker_summary">螢幕關閉時阻止警報</string>
+    <string name="alarm_blocker_save">儲存</string>
+    <string name="alarm_list_header">可用警報</string>
+    <string name="alarm_blocker_reload">重新載入</string>
+    <string name="alarm_blocker_warning_title">請謹慎操作</string>
+    <string name="alarm_blocker_warning">阻止警報有可能導致不穩定，發生錯誤或資料遺失。</string>
     <!-- Power menu and global actions -->
+    <string name="global_actions_title">電源選單</string>
     <!-- Global Actions -->
+    <string name="global_actions_summary">選擇按電源按鈕時顯示的内容</string>
+    <string name="global_actions_power">電源</string>
     <string name="global_actions_restart">重新啟動</string>
+    <string name="global_actions_airplane">飛航模式</string>
+    <string name="global_actions_settings">設定</string>
+    <string name="global_actions_lockdown">立即鎖定</string>
+    <string name="global_actions_soundpanel">音效面板</string>
+    <string name="global_actions_users">使用者</string>
+    <string name="global_actions_screenshot">螢幕截圖</string>
+    <string name="global_actions_screenrecord">螢幕錄製</string>
+    <string name="global_actions_flashlight">手電筒</string>
     <string name="global_actions_advanced_reboot_title">啟動進階重啟選單</string>
     <string name="global_actions_advanced_reboot_summary">當重新啟動時顯示 Recovery 和 BootLoader 的選項</string>
     <!-- Power menu and dialogs opacity -->
+    <string name="power_menu_category">電源/重新啟動對話框</string>
+    <string name="power_menu_transparency">透明度</string>
+    <string name="power_menu_dialog_dim">背景光調整</string>
     <!-- QS Settings background panel -->
+    <string name="qs_panel_translucency_category_title">面板透明度</string>
+    <string name="translucent_quick_settings">啟用透明度</string>
+    <string name="translucent_quick_settings_summary">背景面板</string>
+    <string name="translucent_quick_settings_percentage">背景透明度百分比</string>
     <!-- AOKP custom system animations -->
+    <string name="task_open_behind_title">背景開啟應用程式動畫</string>
+    <string name="anim_general_category">整體動畫</string>
     <!-- Footer alerts -->
+    <string name="animations_transparent_alert">如果您使用透明主題，某些 (或可能全部) 動畫可能失效！</string>
     <!-- Volume Steps Fragment -->
+    <string name="volume_steps_fragment_title">音量級別</string>
+    <string name="volume_steps_summary">自訂音量級別</string>
     <!-- doze on charge -->
+    <string name="doze_on_charge_title">在充電時顯示</string>
+    <string name="doze_on_charge_summary">充電時喚醒螢幕</string>
     <!-- Rounded corners -->
     <string name="corners_category">螢幕角落</string>
+    <string name="corner_radius">圓角半徑</string>
+    <string name="content_padding">圓角填充內容</string>
+    <string name="corner_fwvals">使用框架的預設值</string>
+    <string name="corner_fwvals_summary">如果設備實際上有圓角，則此選項很有用</string>
     <!-- AOSP Recents component Style -->
     <string name="recents_component_type_title">最近的樣式</string>
     <string name="recents_pie">派</string>
     <string name="recents_oreo">奧利奧🍪</string>
     <string name="aosp_recents_category">AOSP 總覽</string>
     <!-- Recents panel settings -->
+    <string name="show_clear_all_recents_button_title">清除全部按鍵</string>
+    <string name="show_clear_all_recents_button_summary">顯示全部清除按鈕</string>
+    <string name="recents_clear_all_location_title">全部清除按鈕位置</string>
+    <string name="recents_clear_all_location_top_right">右上角</string>
+    <string name="recents_clear_all_location_top_left">左上角</string>
+    <string name="recents_clear_all_location_top_center">上方中央</string>
+    <string name="recents_clear_all_location_bottom_right">右下</string>
+    <string name="recents_clear_all_location_bottom_left">左下</string>
+    <string name="recents_clear_all_location_bottom_center">下方中央</string>
     <string name="oreo_recents_category">Oreo 總覽</string>
     <string name="recents_show_membar_title">記憶體用量</string>
     <string name="recents_show_membar_summary">顯示記憶體用量</string>
@@ -1925,8 +2082,18 @@
     <string name="recents_stock">原始</string>
     <string name="recents_grid">網格</string>
     <string name="recents_go">Android Go</string>
+    <string name="cutout_main">顯示剪切設定</string>
+    <string name="cutout_main_summary">他們真的偷工減料</string>
     <!-- Display cutout options -->
+    <string name="display_cutout_style_title">鑼空風格</string>
+    <string name="display_cutout_style_normal">一般</string>
+    <string name="display_cutout_style_immerse">沉浸式</string>
+    <string name="display_cutout_style_hide">隱藏</string>
+    <string name="stock_statusbar_in_hide">原廠狀態欄高度</string>
+    <string name="stock_statusbar_in_hide_summary">在隱藏中使用默認狀態欄高度</string>
     <!-- Status Bar Header -->
+    <string name="statusbar_header_category_title">快速設置標題</string>
+    <string name="statusbar_header_category_summary">自訂快速設定面板</string>
     <string name="status_bar_custom_header_title">啟用</string>
     <string name="daylight_header_pack_title">頂部圖片集合</string>
     <string name="status_bar_custom_header_shadow_title">頂部圖片陰影</string>
@@ -1935,8 +2102,14 @@
     <string name="daylight_header_provider_title">圖片集合</string>
     <string name="custom_header_provider_title">頂部圖片提供者</string>
     <string name="custom_header_pick_title">選擇頂部圖片</string>
+    <string name="custom_header_pick_summary">選取本地或遠端圖片</string>
     <string name="style_enabled_summary">已開啟自訂頂部圖片</string>
     <string name="style_disabled_summary">已關閉自訂頂部圖片</string>
     <string name="header_provider_disabled">已停用</string>
     <string name="custom_header_title">自訂頂部圖片</string>
+    <string name="file_header_select_title">選擇本地圖像</string>
+    <string name="file_header_select_summary">從裝置中選擇圖像</string>
+    <string name="file_header_provider_title">單一影像</string>
+    <!-- Hide On Lockscreen -->
+    <!-- Volume link notification -->
 </resources>

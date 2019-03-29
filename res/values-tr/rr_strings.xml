@@ -100,7 +100,7 @@
     <string name="keyboard_rotation_timeout_summary">Klavye gizlendikten <xliff:g id="rotate_timeout">%1$s</xliff:g> saniye sonra otomatik döndürme devre dışı bırakılır</string>
     <string name="keyboard_rotation_dialog">Bu özellik, klavye gösterilirken otomatik döndürmeyi zorlar. Otomatik döndürme etkinleştirildiğinde hiçbir etkisi yoktur.</string>
     <string name="show_enter_key_title">Enter tuşunu göster</string>
-    <string name="show_enter_key_summary">Klavyeyi emoji tuşu yerine enter tuşunu göstermek için zorla</string>
+    <string name="show_enter_key_summary">Klavyeyi emoji tuşu yerine giriş tuşunu göstermek için zorla</string>
     <string name="keyboard_ime_title">Klavye ayarları</string>
     <string name="keyboard_ime_summury">Gelişmiş Klavye Ayarları</string>
     <string name="ime_switcher_notify">Seçici bildirimi</string>
@@ -1201,7 +1201,7 @@
     <string name="pref_scrollingcache_default_disable">Varsayılan olarak devre dışı</string>
     <string name="pref_scrollingcache_force_disable">Devre dışı bırakmaya zorla</string>
     <!-- QS footer warnings -->
-    <string name="qs_footer_warnings_title">Hızlı ayarlar altbilgi uyarıları</string>
+    <string name="qs_footer_warnings_title">Hızlı ayarlar alt bilgi uyarıları</string>
     <string name="qs_footer_warnings_summary">Ağ harici uygulamalar veya VPN tarafından izlendiğinizde hızlı ayarlar panelinin altına bir uyarı gösterir</string>
     <!-- [CHAR LIMIT=80]-->
     <string name="fp_swipe_to_dismiss_notifications_title">Bildirimleri kapatmak için parmak izini sağa veya sola kaydırın</string>
@@ -1856,9 +1856,9 @@
     <string name="interval_entry_24h">Her 24 saatte</string>
     <!-- QS footer icons -->
     <string name="qs_footer_services_title">Çalışan Hizmetler simgesini göster</string>
-    <string name="qs_footer_services_summary">Hızlı ayarlar alt bilgisinde Çalışan Hizmetler simgesini görüntüle</string>
+    <string name="qs_footer_services_summary">Hızlı ayarlar alt bilgisinde Çalışan Hizmetler simgesini gösterir</string>
     <string name="qs_footer_settings_title">Ayarlar simgesini göster</string>
-    <string name="qs_footer_settings_summary">Hızlı ayarlar alt bilgisinde Ayarlar simgesini görüntüle</string>
+    <string name="qs_footer_settings_summary">Hızlı ayarlar alt bilgisinde Ayarlar simgesini gösterir</string>
     <!-- Recents Grid -->
     <string name="recents_grid_title">Izgara son uygulamalar</string>
     <string name="recents_grid_summary">Varsayılan son uygulamalar yerine ızgara son uygulamalar stilini görüntüle</string>
@@ -1883,7 +1883,7 @@
     <string name="qs_tile_animation_interpolator_bounceInterpolator">Sıçrat</string>
     <string name="qs_tile_animation_interpolator_overshootInterpolator">İlerlet</string>
     <string name="qs_tile_animation_interpolator_anticipateInterpolator">Beklet</string>
-    <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Aşmayı tahmin et</string>
+    <string name="qs_tile_animation_interpolator_anticipateOvershootInterpolator">Beklet ve ilerlet</string>
     <string name="qs_set_animation_style">%1$s</string>
     <string name="qs_set_animation_duration">%1$s</string>
     <string name="qs_set_animation_interpolator">%1$s</string>
@@ -2056,8 +2056,8 @@
     <string name="corners_category">Ekran köşeleri</string>
     <string name="corner_radius">Yuvarlak köşe yarıçapı</string>
     <string name="content_padding">Köşe içerik dolgusu</string>
-    <string name="corner_fwvals">Framework değerlerini kullan</string>
-    <string name="corner_fwvals_summary">Cihaz gerçekten köşeleri yuvarlatılmış ise yararlı</string>
+    <string name="corner_fwvals">Altyapı değerlerini kullan</string>
+    <string name="corner_fwvals_summary">Cihaz köşeleri gerçekten yuvarlatılmış ise yararlı</string>
     <!-- AOSP Recents component Style -->
     <string name="recents_component_type_title">Son Uygulamalar Stili</string>
     <string name="recents_pie">Pie</string>
@@ -2081,8 +2081,18 @@
     <string name="recents_stock">Varsayılan</string>
     <string name="recents_grid">Kılavuz</string>
     <string name="recents_go">Android Go</string>
+    <string name="cutout_main">Kesme ayarlarını görüntüle</string>
+    <string name="cutout_main_summary">Bununla köşeler gerçekten kesilir</string>
     <!-- Display cutout options -->
+    <string name="display_cutout_style_title">Kesme tarzı</string>
+    <string name="display_cutout_style_normal">Normal</string>
+    <string name="display_cutout_style_immerse">Tam ekran</string>
+    <string name="display_cutout_style_hide">Gizle</string>
+    <string name="stock_statusbar_in_hide">Varsayılan durum çubuğu yüksekliği</string>
+    <string name="stock_statusbar_in_hide_summary">Gizle’de varsayılan durum çubuğu yüksekliğini kullan</string>
     <!-- Status Bar Header -->
+    <string name="statusbar_header_category_title">Hızlı ayarlar başlığı</string>
+    <string name="statusbar_header_category_summary">Hızlı ayarlar Panel başlığını özelleştir</string>
     <string name="status_bar_custom_header_title">Etkinleştir</string>
     <string name="daylight_header_pack_title">Başlık görüntüsü koleksiyonu</string>
     <string name="status_bar_custom_header_shadow_title">Başlık görüntü gölgesi</string>
@@ -2091,8 +2101,14 @@
     <string name="daylight_header_provider_title">Görüntü koleksiyonu</string>
     <string name="custom_header_provider_title">Başlık sağlayıcı</string>
     <string name="custom_header_pick_title">Başlık görüntüsü seçin</string>
+    <string name="custom_header_pick_summary">Bir yerel veya uzak resim seçin</string>
     <string name="style_enabled_summary">Özel başlık görüntüsü AÇIK</string>
     <string name="style_disabled_summary">Özel başlık görüntüsü KAPALI</string>
     <string name="header_provider_disabled">Devre dışı</string>
     <string name="custom_header_title">Özel başlık görüntüsü</string>
+    <string name="file_header_select_title">Yerel resim seçin</string>
+    <string name="file_header_select_summary">Depolamadan bir resim seçin</string>
+    <string name="file_header_provider_title">Tek resim</string>
+    <!-- Hide On Lockscreen -->
+    <!-- Volume link notification -->
 </resources>
