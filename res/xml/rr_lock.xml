@@ -57,38 +57,6 @@
         android:summary="@string/media_art_summary"
         android:defaultValue="true" />
 
-        <com.rr.settings.preferences.CustomSeekBarPreference
-            android:key="lockclock_font_size"
-            android:title="@string/lockclock_font_size_title"
-            android:max="120"
-            android:min="50"
-            android:persistent="false"
-            android:defaultValue="64" />
-
-        <ListPreference
-            android:key="lock_clock_fonts"
-            android:title="@string/lock_clock_font_title"
-            android:entries="@array/lock_widget_fonts_entries"
-            android:entryValues="@array/lock_widget_fonts_values"
-            android:defaultValue="0"
-            android:persistent="false" />
-
-        <com.rr.settings.preferences.CustomSeekBarPreference
-           android:key="lockdate_font_size"
-           android:title="@string/lockdate_font_size_title"
-           android:max="40"
-           android:min="10"
-           android:defaultValue="16"
-           android:persistent="false" />
-
-        <ListPreference
-            android:key="lock_date_fonts"
-            android:title="@string/lock_date_font_title"
-            android:entries="@array/lock_widget_fonts_entries"
-            android:entryValues="@array/lock_widget_fonts_values"
-            android:defaultValue="0"
-            android:persistent="false" />
-
     <Preference
         android:key="lockscreen_settings"
         android:title="@string/lock_weather_title"
