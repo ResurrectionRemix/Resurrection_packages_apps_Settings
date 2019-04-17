@@ -72,12 +72,12 @@
     <string name="listview_off">既定</string>
     <string name="listview_wave_left">ウェーブ (左)</string>
     <string name="listview_wave_right">ウェーブ (右)</string>
-    <string name="listview_alpha">アルファ</string>
+    <string name="listview_alpha">透明</string>
     <string name="listview_scale">スケール</string>
-    <string name="listview_stack_top">スタッ (上)</string>
+    <string name="listview_stack_top">スタック (上)</string>
     <string name="listview_stack_bottom">スタック (下)</string>
     <string name="listview_unfold">展開</string>
-    <string name="listview_fold">折り畳む</string>
+    <string name="listview_fold">折り畳み</string>
     <string name="listview_translate_left">スライド (左)</string>
     <string name="listview_translate_right">スライド (右)</string>
     <string name="listview_title">リストアニメーション</string>
@@ -97,7 +97,7 @@
     <string name="keyboard_rotation_toggle_title">キーボードの自動回転</string>
     <string name="keyboard_rotation_toggle_summary">キーボードが表示されている間強制的に画面の自動回転を有効にする</string>
     <string name="keyboard_rotation_timeout_title">自動回転の継続時間</string>
-    <string name="keyboard_rotation_timeout_summary">キーボードが表示されなくなってから <xliff:g id="rotate_timeout">%1$s</xliff:g> 秒後に自動回転が無効になります</string>
+    <string name="keyboard_rotation_timeout_summary">キーボードが表示されなくなってから<xliff:g id="rotate_timeout">%1$s</xliff:g>秒後に自動回転が無効になります</string>
     <string name="keyboard_rotation_dialog">この機能はキーボードが表示されている間、一時的に画面の自動回転を有効化します。既に自動回転が有効な場合はこの機能に効果はありません。</string>
     <string name="show_enter_key_title">エンターキーを表示</string>
     <string name="show_enter_key_summary">顔文字キーの代わりにエンターキーを強制表示する</string>
@@ -245,7 +245,7 @@
     <string name="system_animations">システムアニメーション</string>
     <string name="rr_ui_title">インターフェース</string>
     <string name="rr_dash_board_title">ダッシュボード</string>
-    <string name="rr_fp_title">指紋</string>
+    <string name="rr_fp_title">指紋認証の設定</string>
     <string name="rr_sound_title">音声</string>
     <string name="rr_qs_pulldown">クイックプルダウン</string>
     <string name="rr_header_title">ヘッダー</string>
@@ -333,7 +333,7 @@
     <string name="heads_up_blacklist_dialog_delete_title">削除</string>
     <string name="heads_up_blacklist_dialog_delete_message">選択した項目を削除しますか?</string>
     <string name="heads_up_time_out_title">表示時間</string>
-    <string name="heads_up_time_out_summary">通知は <xliff:g id="number">%d</xliff:g> 秒間表示されます</string>
+    <string name="heads_up_time_out_summary">通知は<xliff:g id="number">%d</xliff:g>秒間表示されます</string>
     <string name="heads_up_time_out_2sec">2秒</string>
     <string name="heads_up_time_out_4sec">4秒</string>
     <string name="heads_up_time_out_5sec">5秒</string>
@@ -342,7 +342,7 @@
     <string name="heads_up_time_out_10sec">10秒</string>
     <string name="heads_up_snooze_title">スヌーズタイマー</string>
     <string name="heads_up_snooze_summary_one_minute">表示された通知を上にスワイプするとこのアプリからの通知を1分間無効にします</string>
-    <string name="heads_up_snooze_summary">表示された通知を上にスワイプするとこのアプリからの通知を <xliff:g id="number">%d</xliff:g> 分間無効にします</string>
+    <string name="heads_up_snooze_summary">表示された通知を上にスワイプするとこのアプリからの通知を<xliff:g id="number">%d</xliff:g>分間無効にします</string>
     <string name="heads_up_snooze_disabled_summary">スヌーズタイマーは無効です</string>
     <string name="heads_up_snooze_1min">1分</string>
     <string name="heads_up_snooze_5min">5分</string>
@@ -435,13 +435,13 @@
     <!-- Carrier Label -->
     <string name="carrier_options">表示位置の選択</string>
     <string name="custom_carrier_label_title">カスタムキャリアラベル</string>
-    <string name="custom_carrier_label_explain">新しいラベル名を入力してください。空白のままにすると標準のラベルに戻ります。</string>
+    <string name="custom_carrier_label_explain">新しいラベル名を入力して下さい。空白のままにすると標準のラベルに戻ります。</string>
     <string name="custom_carrier_label_notset">カスタムラベルは設定されていません</string>
     <string name="show_carrier_title">キャリアラベル</string>
     <string name="show_carrier_disabled">無効</string>
     <string name="show_carrier_keyguard">ロック画面のみ</string>
     <string name="show_carrier_statusbar">ステータスバーのみ</string>
-    <string name="show_carrier_enabled">両方で表示</string>
+    <string name="show_carrier_enabled">両方</string>
     <!-- Battery bar -->
     <string name="battery_bar_title">バッテリーバー</string>
     <string name="battery_bar_summary">クリックしてバッテリーバーのオプションを表示</string>
@@ -715,7 +715,7 @@
     <string name="lockscreen_qs_disabled_title">ロック時にクイック設定を無効化</string>
     <string name="lockscreen_qs_disabled_summary">保護されたロック画面でクイック設定タイルを無効化する</string>
     <string name="torch_long_press_power_gesture_title">長押しでトーチ点灯</string>
-    <string name="torch_long_press_power_gesture_desc">画面消灯時に電源ボタンを長押しでトーチを点灯する</string>
+    <string name="torch_long_press_power_gesture_desc">画面消灯時に電源ボタンを長押しでトーチを点灯させる</string>
     <string name="torch_long_press_power_timeout_title">トーチを自動的に切る</string>
     <string name="volbtn_music_controls_title">再生の制御</string>
     <string name="volbtn_music_controls_summary">画面消灯時に音量ボタンを長押しで音楽を操作する</string>
@@ -790,7 +790,7 @@
     <string name="fling_settings_summary">ユニークで完全に編集可能なジェスチャーベースのナビゲーションバー</string>
     <string name="fling_interface">Fling</string>
     <string name="fling_enable_title">Fling の有効化</string>
-    <string name="fling_back_home_policy">バックとホームは常に設定しなければなりません。バックやホームの割り当てを変更するにはまず最初にホックとホームを希望の割り当てに設定してください。\n\nダブルタップアクションの有効化はシングルタップの反応を少々遅延させます。</string>
+    <string name="fling_back_home_policy">バックとホームは常に設定しなければなりません。バックやホームの割り当てを変更するにはまず最初にホックとホームを希望の割り当てに設定して下さい。\n\nダブルタップアクションの有効化はシングルタップの反応を少々遅延させます。</string>
     <string name="fling_split_bar_policy">左右のみのアクションの設定はバー全体の間をのタッチ範囲を左右に分割します</string>
     <string name="fling_def_summary">アクションが設定されていません</string>
     <string name="fling_swipe_actions">スワイプジェスチャー</string>
@@ -898,8 +898,8 @@
     <string name="smartbar_help_policy_notice_summary">いずれかのボタンを長押しすると編集メニューが表示されます。いずれかのボタンを短く押すとドラッグアンドドロップボタンのソートオプションが開始されます。\n\nダブルタップアクションを有効にするとシングルタップの応答性に少々遅延が生じます。</string>
     <string name="smartbar_context_menu_position_title">コンテキストボタンの位置</string>
     <string name="smartbar_context_menu_position_summary">メニューや IME 切り替えボタンの表示位置を設定する</string>
-    <string name="smartbar_right">右側</string>
-    <string name="smartbar_left">左側</string>
+    <string name="smartbar_right">右</string>
+    <string name="smartbar_left">左</string>
     <string name="smartbar_button_animation_title">ボタンタッチ時のアニメーション</string>
     <string name="smartbar_button_animation_summary">ボタンが押された際のアニメーションを設定する</string>
     <string name="smartbar_button_animation_ripple">波紋</string>
@@ -956,7 +956,7 @@
     <!-- Ability to disable hardware keys via nav bar settings -->
     <string name="hw_keys_title">ハードウェアキー</string>
     <string name="hw_keys_summary">ハードウェアキーを有効化</string>
-    <string name="rr_hw_keys_summary">ハードウェアキー (ホーム、バック、メニュー) の動作を編集する</string>
+    <string name="rr_hw_keys_summary">ハードウェアキー (ホーム/バック/メニュー) の動作を編集する</string>
     <string name="hardware_keys_category">ハードウェアキー</string>
     <string name="hardware_keys_volume_keys_title">音量ボタン制御</string>
     <string name="hardware_keys_home_key_title">ホームボタン</string>
@@ -1010,7 +1010,7 @@
     <!-- Volume Steps -->
     <string name="volume_steps_title">音量レベル</string>
     <string name="volume_steps_alarm_title">音量レベル: アラーム</string>
-    <string name="volume_steps_dtmf_title">音量レベル: DTMF</string>
+    <string name="volume_steps_dtmf_title">音量レベル: ダイアル入力</string>
     <string name="volume_steps_music_title">音量レベル: 音楽</string>
     <string name="volume_steps_notification_title">音量レベル: 通知</string>
     <string name="volume_steps_ring_title">音量レベル: 着信音</string>
@@ -1116,8 +1116,8 @@
     <string name="pa_pie_gravity_title">Pie の位置</string>
     <string name="pa_pie_gravity_summary">Pie を配置する場所を選択する</string>
     <string name="pa_pie_gravity_bottom">下部</string>
-    <string name="pa_pie_gravity_right">右側</string>
-    <string name="pa_pie_gravity_left">左側</string>
+    <string name="pa_pie_gravity_right">右</string>
+    <string name="pa_pie_gravity_left">左</string>
     <!-- Force expanded notifications -->
     <string name="force_expanded_notifications_title">通知を常に展開</string>
     <string name="force_expanded_notifications_summary">通知の展開をサポートしているアプリでのみ有効です</string>
@@ -1215,7 +1215,7 @@
     <string name="qs_music_tile_track_optional_summary">音楽タイルに再生中のタイトルを表示する</string>
     <!-- Roaming indicator icon -->
     <string name="roaming_indicator_icon_title">ローミングインジケーターを表示</string>
-    <string name="roaming_indicator_icon_summary">ローミング中に電波アイコンにローミング表示をする</string>
+    <string name="roaming_indicator_icon_summary">ローミング中は電波アイコンにローミング表示をする</string>
     <!-- Data disabled icon -->
     <string name="data_disabled_icon_title">データ通信が無効のアイコンを表示する</string>
     <string name="data_disabled_icon_summary">モバイルデータが無効の場合にシグナルバーの隣に×を表示</string>
@@ -1585,8 +1585,8 @@
     <string name="fab_button_color">全て終了ボタンの背景色</string>
     <string name="kill_app_button_color">全て終了ボタンのアイコンの色</string>
     <string name="mem_bar_color">メモリバー</string>
-    <string name="recents_clock_color">フルスクリーンのアプリ履歴の時計テキスト</string>
-    <string name="recents_date_color">フルスクリーンのアプリ履歴の日付テキスト</string>
+    <string name="recents_clock_color">全画面アプリ履歴の時計テキスト</string>
+    <string name="recents_date_color">全画面アプリ履歴の日付テキスト</string>
     <string name="recents_styles_1">スタイル</string>
     <string name="recents_colors">スタイル</string>
     <string name="recents_style_2">色</string>
@@ -1742,8 +1742,8 @@
     <string name="clock_date_left">時刻の左</string>
     <string name="clock_date_position">日付の位置</string>
     <string name="status_bar_clock_position_title">時計の位置</string>
-    <string name="status_bar_clock_position_right">右側</string>
-    <string name="status_bar_clock_position_left">左側</string>
+    <string name="status_bar_clock_position_right">右</string>
+    <string name="status_bar_clock_position_left">左</string>
     <string name="status_bar_clock_position_center">中央</string>
     <string name="status_bar_clock_show_seconds_title">秒を表示</string>
     <string name="status_bar_clock_show_seconds_summary">時間、分、秒を表示</string>
@@ -1804,14 +1804,14 @@
     <string name="less_notification_sounds_title">スマート通知サウンド</string>
     <string name="less_notification_sounds_summary">一定時間に一度だけ各アプリの通知音を再生する</string>
     <string name="less_notification_sounds_default">アプリの既定</string>
-    <string name="less_notification_sounds_10s">10 秒ごと</string>
-    <string name="less_notification_sounds_30s">30 秒ごと</string>
-    <string name="less_notification_sounds_1m">1 分ごと</string>
-    <string name="less_notification_sounds_2m">2 分ごと</string>
+    <string name="less_notification_sounds_10s">10秒ごと</string>
+    <string name="less_notification_sounds_30s">30秒ごと</string>
+    <string name="less_notification_sounds_1m">1分ごと</string>
+    <string name="less_notification_sounds_2m">2分ごと</string>
     <!-- Screenshot -->
     <string name="screenshot_type_title">スクリーンショットの取得方法</string>
-    <string name="screenshot_type_fullscreen">全画面のスクリーンショットを取得</string>
-    <string name="screenshot_type_partial">任意の範囲のスクリーンショットを選択する</string>
+    <string name="screenshot_type_fullscreen">全画面</string>
+    <string name="screenshot_type_partial">範囲指定</string>
     <string name="screenshot_options_category">スクリーンショット</string>
     <string name="screenshot_options_summary">時間、遅延、タイプ等のスクリーンショットの属性を編集する</string>
     <string name="screenshot_delay_title">スクリーンショット遅延時間</string>
@@ -1822,7 +1822,7 @@
     <string name="face_auto_unlock_title">顔認証ロック解除</string>
     <string name="face_auto_unlock_summary">フェイスロック解除後にロック画面を閉じます。これを行うには「フェイスロック解除/信頼できる顔」を有効にする必要があります。</string>
     <string name="incall_notifications_vibrate">迷惑な着信通知を減らす</string>
-    <string name="incall_notifications_vibrate_summary">通話中は通知サウンドの代わりに振動する</string>
+    <string name="incall_notifications_vibrate_summary">通話中は通知サウンドの代わりに振動させる</string>
     <!-- Browser not found -->
     <string name="browser_not_found_toast">既定のブラウザーが見つかりません</string>
     <!-- Seekbar default text -->
@@ -1842,15 +1842,15 @@
     <string name="smart_pixels_shift_title">焼き付き保護</string>
     <string name="smart_pixels_shift_summary">使う画素を遷移させ画面の焼付きを避ける</string>
     <string name="interval_entry_disable">無効</string>
-    <string name="interval_entry_15s">15 秒毎</string>
-    <string name="interval_entry_30s">30 秒毎</string>
-    <string name="interval_entry_1m">1 分毎</string>
-    <string name="interval_entry_2m">2 分毎</string>
-    <string name="interval_entry_5m">5 分毎</string>
-    <string name="interval_entry_10m">10 分毎</string>
-    <string name="interval_entry_15m">15 分毎</string>
-    <string name="interval_entry_20m">20 分毎</string>
-    <string name="interval_entry_30m">30 分毎</string>
+    <string name="interval_entry_15s">15秒ごと</string>
+    <string name="interval_entry_30s">30秒ごと</string>
+    <string name="interval_entry_1m">1分ごと</string>
+    <string name="interval_entry_2m">2分ごと</string>
+    <string name="interval_entry_5m">5分ごと</string>
+    <string name="interval_entry_10m">10分ごと</string>
+    <string name="interval_entry_15m">15分ごと</string>
+    <string name="interval_entry_20m">20分ごと</string>
+    <string name="interval_entry_30m">30分ごと</string>
     <string name="interval_entry_1h">1 時間毎</string>
     <string name="interval_entry_12h">12 時間毎</string>
     <string name="interval_entry_24h">24 時間毎</string>
@@ -1903,8 +1903,8 @@
     <string name="edge_gestures_long_press_delay_title">長押し開始までの遅延時間</string>
     <string name="edge_gestures_back_category_title">戻るジェスチャー</string>
     <string name="edge_gestures_back_edges_title">戻るジェスチャーを始める場所</string>
-    <string name="edge_gestures_back_edges_left_side">左側</string>
-    <string name="edge_gestures_back_edges_right_side">右側</string>
+    <string name="edge_gestures_back_edges_left_side">左</string>
+    <string name="edge_gestures_back_edges_right_side">右</string>
     <string name="edge_gestures_back_edges_both_sides">両側</string>
     <string name="edge_gestures_landscape_back_edges_title">横向きで戻るジェスチャーを始める場所</string>
     <string name="edge_gestures_back_screen_percent_title">戻るジェスチャーは以下の画面の下からの割合から始めます</string>
@@ -1953,34 +1953,6 @@
     <string name="audio_panel_view_alarm_title">アラーム</string>
     <string name="audio_panel_view_voice_title">音声</string>
     <string name="audio_panel_view_bt_sco_title">Bluetooth</string>
-    <!-- Lock Widget -->
-    <string name="ls_widget">ウィジェットのスタイル</string>
-    <!-- Lock Widget Fonts -->
-    <string name="lock_widget_font_stock">通常 (既定)</string>
-    <string name="lock_widget_font_bold">太字</string>
-    <string name="lock_widget_font_italic">イタリック</string>
-    <string name="lock_widget_font_bold_italic">太字イタリック</string>
-    <string name="lock_widget_font_light_italic">軽いイタリック</string>
-    <string name="lock_widget_font_thin_italic">細いイタリック</string>
-    <string name="lock_widget_font_light">軽い</string>
-    <string name="lock_widget_font_thin">細い</string>
-    <string name="lock_widget_font_condensed_normal">長体</string>
-    <string name="lock_widget_font_condensed_italic">長体イタリック</string>
-    <string name="lock_widget_font_condensed_bold">長体太字</string>
-    <string name="lock_widget_font_condensed_bold_italic">長体太字イタリック</string>
-    <string name="lock_widget_font_condensed_light">軽い長体</string>
-    <string name="lock_widget_font_condensed_light_italic">軽い長体イタリック</string>
-    <string name="lock_widget_font_medium_normal">中型</string>
-    <string name="lock_widget_font_medium_italic">中型イタリック</string>
-    <string name="lock_widget_font_black">ブラック</string>
-    <string name="lock_widget_font_black_italic">ブラックイタリック</string>
-    <!-- Lock Clock Fonts -->
-    <string name="lock_clock_font_title">時計のフォントスタイル</string>
-    <!-- Lock Date Fonts -->
-    <string name="lock_date_font_title">日付のフォントスタイル</string>
-    <!-- Lock Clock & Date Size -->
-    <string name="lockdate_font_size_title">日付のフォントサイズ</string>
-    <string name="lockclock_font_size_title">時計のフォントサイズ</string>
     <!-- ScreenRecord Shortcut -->
     <string name="screen_record_shortcut">スクリーンレコードのショートカット</string>
     <string name="screen_record_shortcut_summary">有効にすると電源 + 音量アップで画面録画を開始します</string>
@@ -1995,7 +1967,7 @@
     <string name="flashlight_on_call_always">常時</string>
     <string name="lockscreen_item_title">ロック画面の項目</string>
     <string name="lockscreen_weather_title">天候を表示</string>
-    <string name="lockscreen_items_aod_info_title">この表示設定はアンビエント表示にも適用されます</string>
+    <string name="lockscreen_items_aod_info_title">この設定はアンビエント表示にも適用されます</string>
     <string name="weather_icon_pack_info_title">天候アイコンパックはクイック設定やロック画面で使われます</string>
     <string name="lockscreen_category_title">ロック画面</string>
     <string name="lock_weather_title">ロック画面の天気</string>
@@ -2005,16 +1977,16 @@
     <string name="wakelock_blocker_save">保存</string>
     <string name="wakelock_list_header">有効な WakeLock</string>
     <string name="wakelock_blocker_reload">再読込</string>
-    <string name="wakelock_blocker_warning_title">注意して進めてください</string>
+    <string name="wakelock_blocker_warning_title">注意して進めて下さい</string>
     <string name="wakelock_blocker_warning">WakeLock のブロックは端末が不安定になったりクラッシュやデータ損失などが発生する可能性があります</string>
     <!-- Alarm blocker -->
     <string name="alarm_blocker">Alarm ブロッカー</string>
     <string name="alarm_blocker_title">有効</string>
-    <string name="alarm_blocker_summary">画面消灯時の間は Alarm をブロックする</string>
+    <string name="alarm_blocker_summary">画面消灯時は Alarm をブロックする</string>
     <string name="alarm_blocker_save">保存</string>
     <string name="alarm_list_header">使用可能な Alarm</string>
     <string name="alarm_blocker_reload">再読込</string>
-    <string name="alarm_blocker_warning_title">注意して進めてください</string>
+    <string name="alarm_blocker_warning_title">注意して進めて下さい</string>
     <string name="alarm_blocker_warning">Alarm のブロックは端末を不安定にしたりクラッシュやデータの損失などを起こす可能性があります</string>
     <!-- Power menu and global actions -->
     <string name="global_actions_title">電源メニュー</string>
@@ -2051,13 +2023,13 @@
     <string name="volume_steps_summary">音量レベルを設定する</string>
     <!-- doze on charge -->
     <string name="doze_on_charge_title">充電時に表示</string>
-    <string name="doze_on_charge_summary">充電時画面を点灯する</string>
+    <string name="doze_on_charge_summary">充電時画面を点灯させる</string>
     <!-- Rounded corners -->
     <string name="corners_category">画面の角</string>
-    <string name="corner_radius">丸い角の半径</string>
+    <string name="corner_radius">画面の丸い角の半径</string>
     <string name="content_padding">コーナーのコンテンツのパディング</string>
     <string name="corner_fwvals">フレームワークの値を使用</string>
-    <string name="corner_fwvals_summary">実際に端末が丸い角の場合に有用です</string>
+    <string name="corner_fwvals_summary">実際に端末の画面が丸い角の場合に有用です</string>
     <!-- AOSP Recents component Style -->
     <string name="recents_component_type_title">アプリ履歴のスタイル</string>
     <string name="recents_pie">Pie</string>
@@ -2114,4 +2086,9 @@
     <string name="hide_lockscreen_status_bar_summary">ステータスバーのタップで表示を切り替える</string>
     <!-- Volume link notification -->
     <string name="volume_link_notification_title">着信と通知の音量をリンク</string>
+    <!-- Selinux -->
+    <!-- About phone, uptime. Deep sleep ratio since last reboot. -->
+    <!-- Smart Clock -->
+    <!-- Lockscreen items -->
+    <!-- Lockscreen clock styles -->
 </resources>
