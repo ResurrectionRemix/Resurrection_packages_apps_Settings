@@ -24,7 +24,7 @@
 
     <com.android.settings.applications.LayoutPreference
         android:key="battery_header"
-        android:selectable="false"
+        android:selectable="true"
         android:layout="@layout/battery_header" />
 
     <PreferenceCategory
@@ -65,6 +65,11 @@
     <com.android.settings.fuelgauge.PowerGaugePreference
         android:key="screen_usage"
         android:title="@string/device_screen_usage"
+        android:selectable="false" />
+
+    <com.android.settings.fuelgauge.PowerGaugePreference
+        android:key="battery_temp"
+        android:title="@string/battery_temp_title"
         android:selectable="false" />
 
 </PreferenceScreen>
