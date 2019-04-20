@@ -1388,7 +1388,14 @@
         android:id="@+id/device_category_asus"
         android:title="@string/device_category_asus_title">
 
-        <com.android.settings.rr.Preferences.DevicePreference
+       <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_X01BD"
+            android:title="@string/device_X01BD"
+            app:codename="@string/device_X01BD_codename"
+            app:maintainer="@string/device_X01BD_maintainer"
+            app:type="phone" />
+
+       <com.android.settings.rr.Preferences.DevicePreference
             android:id="@+id/device_nexus7"
             android:title="@string/device_nexus7"
             app:codename="@string/device_nexus7_codename"
