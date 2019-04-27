@@ -29,7 +29,7 @@
         android:key="security_lockscreen_add_users_when_locked"
         android:title="@string/user_add_on_lockscreen_menu" />
 
-    <com.android.settingslib.RestrictedPreference
+<!--    <com.android.settingslib.RestrictedPreference
         android:key="owner_info_settings"
         android:title="@string/owner_info_settings_title"
         android:summary="@string/owner_info_settings_summary" />
@@ -42,7 +42,7 @@
     <lineageos.preference.LineageSecureSettingSwitchPreference
         android:key="lockscreen_visualizer"
         android:title="@string/lockscreen_visualizer_title"
-        android:defaultValue="true" />
+        android:defaultValue="true" /> -->
 
     <SwitchPreference
         android:key="security_setting_lockdown_enabled"
@@ -51,11 +51,11 @@
         settings:controller="com.android.settings.security.LockdownButtonPreferenceController"/>
 
     <!-- Ambient play -->
-    <PreferenceScreen
+<!--    <PreferenceScreen
         android:key="ambient_play"
         android:title="@string/ambient_play_title"
         android:summary="@string/ambient_play_summary"
-        android:fragment="com.android.settings.custom.ambient.AmbientPlaySettings" />
+        android:fragment="com.android.settings.custom.ambient.AmbientPlaySettings" /> -->
 
     <!-- Work profile settings are at the bottom with high order value to avoid users thinking that
          any of the above settings (including dynamic) are specific to the work profile. -->
