@@ -268,8 +268,8 @@
     <string name="volte_icon_title">VoLTE アイコン</string>
     <string name="volte_icon_summary">利用可能な場合に VoLTE のアイコンを表示する</string>
     <!-- Network traffic -->
-    <string name="network_traffic_state_title">ステータスバーに通信速度を表示</string>
-    <string name="network_traffic_state_summary">ステータスバーに通信速度を表示</string>
+    <string name="network_traffic_state_title">通信速度</string>
+    <string name="network_traffic_state_summary">ステータスバーに通信速度を表示する</string>
     <string name="network_traffic_title">ネットワーク通信量</string>
     <string name="network_traffic_autohide_threshold_title">自動非表示にする通信速度しきい値 (KB/s)</string>
     <string name="show_network_traffic_state">ステータスバーの通信量モニター</string>
@@ -302,6 +302,7 @@
     <string name="battery_stats_reset">統計のリセット</string>
     <string name="battery_stats_message">バッテリの使用履歴はリセットされます</string>
     <string name="ok_string">OK</string>
+    <!-- Battery temp -->
     <!-- Status Bar Ticker -->
     <string name="ticker_screen_title">通知ティッカー</string>
     <string name="ticker_title">ステータスバーのアイコン</string>
@@ -1172,7 +1173,7 @@
     <string name="status_bar_battery_saver_color_summary">注意: もしバッテリーセーバーが既に有効な場合、新しい色を有効にするためにバッテリーセーバーを切り替えて下さい!</string>
     <!-- Fingerprint unlock keystore -->
     <string name="fp_unlock_keystore_title">指紋認証によるロック解除</string>
-    <string name="fp_unlock_keystore_summary">再起動後に PIN/パスワード/パターン なしで指紋認証でロック解除します。\n注意: ご自身の責任で使用して下さい!</string>
+    <string name="fp_unlock_keystore_summary">再起動後に PIN/パスワード/パターン なしで指紋認証でロック解除する\n注意: ご自身の責任で使用して下さい!</string>
     <!-- Ambient Music Ticker -->
     <string name="force_ambient_for_media_title">アンビエント音楽ティッカー</string>
     <string name="force_ambient_for_media_summary">アンビエント表示に楽曲情報を表示する</string>
@@ -1836,7 +1837,7 @@
     <string name="smart_pixels_summary">余分な画素を停止させてバッテリーを節約する</string>
     <string name="smart_pixels_enable_title">スマートピクセルを有効にする</string>
     <string name="smart_pixels_enable_summary">消費電力を削減するため画素を遮断する</string>
-    <string name="smart_pixels_on_power_save_title">バッテリーセーバー時は自動的に有効</string>
+    <string name="smart_pixels_on_power_save_title">自動有効</string>
     <string name="smart_pixels_on_power_save_summary">バッテリーセーバー起動時はスマートピクセルを自動的に有効にする</string>
     <string name="smart_pixels_percent">無効にする画素の割合</string>
     <string name="smart_pixels_shift_title">焼き付き保護</string>
@@ -1954,10 +1955,10 @@
     <string name="audio_panel_view_voice_title">音声</string>
     <string name="audio_panel_view_bt_sco_title">Bluetooth</string>
     <!-- ScreenRecord Shortcut -->
-    <string name="screen_record_shortcut">スクリーンレコードのショートカット</string>
+    <string name="screen_record_shortcut">画面録画のショートカット</string>
     <string name="screen_record_shortcut_summary">有効にすると電源 + 音量アップで画面録画を開始します</string>
     <!-- ScreenShot Shortcut -->
-    <string name="screen_shot_shortcut">スクリーンショットのショートカット</string>
+    <string name="screen_shot_shortcut">ショートカット</string>
     <string name="screen_shot_shortcut_summary">有効にすると電源 + 音量ダウンでスクリーンショットを取得します</string>
     <!-- Blink flashlight for incoming calls -->
     <string name="flashlight_on_call_title">着信時のライト点滅</string>
@@ -2027,7 +2028,7 @@
     <!-- Rounded corners -->
     <string name="corners_category">画面の角</string>
     <string name="corner_radius">画面の丸い角の半径</string>
-    <string name="content_padding">コーナーのコンテンツのパディング</string>
+    <string name="content_padding">角のコンテンツのパディング</string>
     <string name="corner_fwvals">フレームワークの値を使用</string>
     <string name="corner_fwvals_summary">実際に端末の画面が丸い角の場合に有用です</string>
     <!-- AOSP Recents component Style -->
@@ -2087,8 +2088,34 @@
     <!-- Volume link notification -->
     <string name="volume_link_notification_title">着信と通知の音量をリンク</string>
     <!-- Selinux -->
+    <string name="selinux_status">SELinux ステータス</string>
+    <string name="selinux_status_disabled">無効</string>
+    <string name="selinux_status_permissive">Permissive</string>
+    <string name="selinux_status_enforcing">Enforcing</string>
     <!-- About phone, uptime. Deep sleep ratio since last reboot. -->
+    <string name="status_deep_sleep">(ディープスリープ: %1$d%2$s)</string>
     <!-- Smart Clock -->
+    <string name="use_smart_clock">スマートクロック</string>
+    <string name="use_smart_clock_summary">ステータスバーの時計を定期的に表示する</string>
     <!-- Lockscreen items -->
+    <string name="lockscreen_clock_title">時計ウィジェット</string>
+    <string name="lockscreen_clock_summary">ロック画面に時計ウィジェットを表示する</string>
+    <string name="lockscreen_info_title">時計の下部の項目</string>
     <!-- Lockscreen clock styles -->
+    <string name="lockscreen_clock_selection_title">時計のスタイル</string>
+    <string name="lockscreen_clock_selection_digital">既定</string>
+    <string name="lockscreen_clock_selection_digital_bold">デジタル (太字)</string>
+    <string name="lockscreen_clock_selection_analog">アナログ</string>
+    <string name="lockscreen_clock_selection_sammy">Sammy</string>
+    <string name="lockscreen_clock_selection_sammy_bold">Sammy (太字)</string>
+    <string name="lockscreen_clock_selection_sammy_accent">アクセント付きの Sammy</string>
+    <string name="lockscreen_clock_selection_sammy_accent_alt">アクセント付きの Sammy (代替)</string>
+    <string name="lockscreen_clock_selection_gradient_full">フルグラデーション時計</string>
+    <string name="lockscreen_clock_selection_gradient_likeqs">モノクログラデーション時計</string>
+    <string name="lockscreen_clock_selection_text">Android Q テキスト時計</string>
+    <string name="default_text">既定</string>
+    <!-- Aggressive battery -->
+    <!-- Old Mobile Type -->
+    <!-- QS tile styles -->
+    <!-- QS Brightness Slider position -->
 </resources>
