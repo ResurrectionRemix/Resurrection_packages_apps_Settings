@@ -314,13 +314,21 @@
             app:maintainer="@string/device_harpia_maintainer"
             app:type="phone" />
 
-        <com.android.settings.rr.Preferences.DevicePreference
+       <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_chef"
+            android:title="@string/device_chef"
+            app:codename="@string/device_chef_codename"
+            app:maintainer="@string/device_chef_maintainer"
+            app:type="phone" />
+	
+	<com.android.settings.rr.Preferences.DevicePreference
             android:id="@+id/device_taido_row"
             android:title="@string/device_taido_row"
             app:codename="@string/device_taido_row_codename"
             app:maintainer="@string/device_taido_row_maintainer"
             app:type="phone" />
-        <com.android.settings.rr.Preferences.DevicePreference
+       
+	<com.android.settings.rr.Preferences.DevicePreference
             android:id="@+id/device_beckham"
             android:title="@string/device_beckham"
             app:codename="@string/device_beckham_codename"
