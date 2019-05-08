@@ -57,6 +57,17 @@
         android:summary="@string/media_art_summary"
         android:defaultValue="true" />
 
+
+        <com.android.settings.rr.Preferences.SecureSettingListPreference
+            android:key="lockscreen_albumart_filter"
+            android:title="@string/lockscreen_albumart_filter_title"
+            android:entries="@array/lockscreen_albumart_filter_entries"
+            android:entryValues="@array/lockscreen_albumart_filter_values"
+            android:dependency="lockscreen_media_metadata"
+            android:defaultValue="0" />
+
+
+
     <Preference
         android:key="lockscreen_settings"
         android:title="@string/lock_weather_title"
