@@ -58,14 +58,14 @@
     <string name="battery_style_big_circle">Vòng tròn lớn</string>
     <string name="battery_style_big_dotted_circle">Vòng tròn chấm lớn</string>
     <string name="battery_style_square">Hình vuông</string>
-    <string name="battery_style_text">Phần trăm pin</string>
+    <string name="battery_style_text">Số phần trăm</string>
     <string name="battery_style_hidden">Ẩn</string>
     <string name="battery_style_category">Kiểu thanh pin</string>
     <string name="battery_bar_category">Thanh hiển thị pin</string>
     <string name="show_battery_percent_title">Hiển thị phần trăm pin</string>
     <string name="battery_style_category_title">Mức pin</string>
     <string name="battery_percent_none">Không hiển thị</string>
-    <string name="battery_percent_outside">Hiển thị gần biểu tượng</string>
+    <string name="battery_percent_outside">Hiển thị bên cạnh biểu tượng</string>
     <string name="battery_percent_inside">Hiển thị trong biểu tượng</string>
     <!-- ListView animation -->
     <string name="listview_animation_title">Hoạt ảnh danh sách xem</string>
@@ -302,6 +302,8 @@
     <string name="battery_stats_reset">Thiết lập lại thống kê</string>
     <string name="battery_stats_message">Thống kê lịch sử pin sẽ được thiết lập lại</string>
     <string name="ok_string">OK</string>
+    <!-- Battery temp -->
+    <string name="battery_temp_title">Nhiệt độ pin</string>
     <!-- Status Bar Ticker -->
     <string name="ticker_screen_title">Thông báo trên đầu</string>
     <string name="ticker_title">Biểu tượng trên thanh trạng thái</string>
@@ -2087,8 +2089,53 @@
     <!-- Volume link notification -->
     <string name="volume_link_notification_title">Liên kết âm lượng nhạc chuông &amp; thông báo</string>
     <!-- Selinux -->
+    <string name="selinux_status">Trạng thái SELinux</string>
+    <string name="selinux_status_disabled">Tắt</string>
+    <string name="selinux_status_permissive">Cho phép</string>
+    <string name="selinux_status_enforcing">Thực thi</string>
     <!-- About phone, uptime. Deep sleep ratio since last reboot. -->
+    <string name="status_deep_sleep">(Giấc ngủ sâu: %1$d%2$s)</string>
     <!-- Smart Clock -->
+    <string name="use_smart_clock">Đồng hồ thông minh</string>
+    <string name="use_smart_clock_summary">Hiển thị đồng hồ trạng thái theo định kỳ</string>
     <!-- Lockscreen items -->
+    <string name="lockscreen_clock_title">Tiện ích đồng hồ</string>
+    <string name="lockscreen_clock_summary">Hiển thị đồng hồ trên màn hình khoá</string>
+    <string name="lockscreen_info_title">Thông tin bên dưới Đồng hồ</string>
     <!-- Lockscreen clock styles -->
+    <string name="lockscreen_clock_selection_title">Kiểu đồng hồ</string>
+    <string name="lockscreen_clock_selection_digital">Mặc định</string>
+    <string name="lockscreen_clock_selection_digital_bold">Kĩ thuật số (đậm)</string>
+    <string name="lockscreen_clock_selection_analog">Đồng hồ kim</string>
+    <string name="lockscreen_clock_selection_sammy">Sammy</string>
+    <string name="lockscreen_clock_selection_sammy_bold">Sammy (đậm)</string>
+    <string name="lockscreen_clock_selection_sammy_accent">Sammy có dấu</string>
+    <string name="lockscreen_clock_selection_sammy_accent_alt">Sammy có dấu (tất cả)</string>
+    <string name="lockscreen_clock_selection_gradient_full">Đồng hồ đậm đầy đủ</string>
+    <string name="lockscreen_clock_selection_gradient_likeqs">Đồng hồ đậm đơn sắc</string>
+    <string name="lockscreen_clock_selection_text">Đồng hồ văn bản Android Q</string>
+    <string name="default_text">Mặc định</string>
+    <!-- Aggressive battery -->
+    <string name="aggressive_battery_title">Pin tích cực</string>
+    <string name="aggressive_battery_warning_text">Đây là các tính năng tiết kiệm năng lượng. Họ có thể ảnh hưởng đến các dịch vụ nhằm chạy ở chế độ nhàn rỗi, như các ứng dụng điều hướng. Bạn có thể danh sách trắng các ứng dụng này bị ảnh hưởng trong cài đặt pin của ứng dụng.</string>
+    <string name="aggressive_idle_title">Nhàn rỗi</string>
+    <string name="aggressive_idle_summary">Nhập thiết bị nhàn rỗi thường xuyên hơn và thức dậy ít hơn</string>
+    <string name="aggressive_standby_title">Chờ đợi tích cực</string>
+    <string name="aggressive_standby_summary">Hạn chế ứng dụng chạy nền</string>
+    <string name="aggressive_battery_saver_title">Tự động bật khi trình tiết kiệm pin </string>
+    <string name="aggressive_battery_saver_summary">Tự động bật Pin tích cực khi sử dụng trình tiết kiệm pin</string>
+    <!-- Old Mobile Type -->
+    <string name="use_old_mobiletype_title">Sử dụng kiểu di động cũ</string>
+    <string name="use_old_mobiletype_summary">Hợp nhất các tín hiệu và loại biểu tượng</string>
+    <!-- QS tile styles -->
+    <string name="qs_tile_style_title">Tiêu đề ô cài đặt nhanh</string>
+    <string name="qstile_default">Mặc định</string>
+    <string name="qstile_circle_trim">Vòng tròn có viền</string>
+    <string name="qstile_dual_tone_circle">Vòng tròn hai tông màu</string>
+    <string name="qstile_squircle_trim">Hình tròn có viền</string>
+    <!-- Lockscreen album art filter -->
+    <!-- QS Brightness Slider position -->
+    <string name="qs_brightness_slider_hide">Ẩn đi</string>
+    <string name="qs_brightness_slider_top">Trên cùng</string>
+    <string name="qs_brightness_slider_bottom">Dưới cùng</string>
 </resources>
