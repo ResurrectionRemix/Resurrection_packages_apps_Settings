@@ -61,34 +61,11 @@
                 android:defaultValue="true" />
     </PreferenceCategory>
 
-<<<<<<< HEAD
-    <!-- Temporarily disabled: -->
-    <!--<PreferenceCategory-->
-            <!--android:key="keyboard_settings_category"-->
-            <!--android:title="@string/keyboard_settings_category">-->
-
-        <!--<PreferenceScreen-->
-                <!--android:key="current_input_method"-->
-                <!--android:title="@string/current_input_method"-->
-                <!--/>-->
-        <!--&lt;!&ndash; Enabled input method list will be populated programmatically here. &ndash;&gt;-->
-    <!--</PreferenceCategory>-->
-
-    <!--<PreferenceCategory-->
-            <!--android:key="hard_keyboard"-->
-            <!--android:title="@string/builtin_keyboard_settings_title"-->
-            <!--android:persistent="false">-->
-        <!--&lt;!&ndash; Additional preference screens are inserted here programmatically-->
-             <!--with low order values to set the key map of each attached keyboard. &ndash;&gt;-->
-    <!--</PreferenceCategory>-->
-
     <PreferenceScreen
         android:key="keyboard_input_settings"
         android:fragment="com.android.settings.rr.InputMethodsSettings"
         android:title="@string/title_keyboard_input" />
 
-=======
->>>>>>> 2185fbc831... Settings: Remove dead code
     <PreferenceCategory
             android:key="voice_category"
             android:title="@string/voice_category" >
