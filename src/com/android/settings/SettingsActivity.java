@@ -1271,9 +1271,6 @@ public class SettingsActivity extends SettingsDrawerActivity
             magiskSupported = (getPackageManager().getPackageInfo("com.topjohnwu.magisk", 0).versionCode > 0);
         } catch (PackageManager.NameNotFoundException e) {
         }
-        setTileEnabled(new ComponentName(packageName,
-                        Settings.MagiskActivity.class.getName()),
-                magiskSupported, isAdmin, pm);
 
         // Show scheduled power on and off if support
         boolean showTimerSwitch = false;
