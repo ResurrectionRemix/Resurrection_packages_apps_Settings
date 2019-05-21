@@ -65,6 +65,12 @@
         android:title="@string/wakelock_blocker_title" 
         android:summary="@string/wakelock_blocker_summary" />
 
+     <com.rr.settings.preferences.SystemSettingSwitchPreference  
+        android:key="disable_fc_notifications" 
+        android:title="@string/disable_fc_notifications_title" 
+        android:summary="@string/disable_fc_notifications_summary" 
+        android:defaultValue="false" />
+
     <PreferenceCategory
         android:key="incall_vib_options"
         android:title="@string/incall_vibration_category" >
