@@ -261,8 +261,6 @@ public class SettingsActivity extends SettingsDrawerActivity
 
     private static final String THEMES_FRAGMENT = "com.android.settings.Themes";
 
-    private static final String MAGISK_FRAGMENT = "com.android.settings.MagiskManager";
-
     private String mFragmentClass;
     private String mActivityAction;
 
@@ -1129,13 +1127,6 @@ public class SettingsActivity extends SettingsDrawerActivity
      */
     private Fragment switchToFragment(String fragmentName, Bundle args, boolean validate,
             boolean addToBackStack, int titleResId, CharSequence title, boolean withTransition) {
-         if (MAGISK_FRAGMENT.equals(fragmentName)) {
-            Intent magiskIntent = new Intent();
-            magiskIntent.setClassName("com.topjohnwu.magisk", "com.topjohnwu.magisk.SplashActivity");
-            startActivity(magiskIntent);
-            finish();
-            return null;
-        }
   		 if (KA_FRAGMENT.equals(fragmentName)) {
             Intent kaIntent = new Intent();
             kaIntent.setClassName("com.grarak.kerneladiutor", "com.grarak.kerneladiutor.activities.MainActivity");
@@ -1264,13 +1255,6 @@ public class SettingsActivity extends SettingsDrawerActivity
 
         // Reveal development-only quick settings tiles
         DevelopmentTiles.setTilesEnabled(this, showDev);
-
-        // Magisk Manager
-        boolean magiskSupported = false;
-        try {
-            magiskSupported = (getPackageManager().getPackageInfo("com.topjohnwu.magisk", 0).versionCode > 0);
-        } catch (PackageManager.NameNotFoundException e) {
-        }
 
         // Show scheduled power on and off if support
         boolean showTimerSwitch = false;

@@ -39,17 +39,6 @@
                  android:targetClass="com.cyanogenmod.lockclock.preference.Preferences" />
         </Preference>
 
-        <!-- Updater -->
-        <PreferenceScreen
-            android:key="update_settings"
-            android:title="@string/updater_title"
-            android:summary="@string/rr_updater_summary"
-            android:icon="@drawable/rr_ota_icon">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.resurrection.ota"
-                    android:targetClass="com.resurrection.ota.MainActivity" />
-       </PreferenceScreen>
-
         <!-- Wakelock blocker -->
         <PreferenceScreen
             android:key="wakelock_blocker"
