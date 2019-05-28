@@ -30,6 +30,8 @@ import android.support.v14.preference.SwitchPreference;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.os.UserHandle;
+
 
 import android.provider.Settings;
 import android.net.Uri;
@@ -66,6 +68,8 @@ Preference.OnPreferenceChangeListener {
         ContentResolver resolver = mContext.getContentResolver();
         Settings.Global.putInt(resolver,
             Settings.Global.LOCKSCREEN_ENABLE_POWER_MENU, 1);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.LOCKSCREEN_CHARGING_ANIMATION, 1, UserHandle.USER_CURRENT);
     }
 
     @Override
