@@ -472,14 +472,14 @@
     <string name="battery_blend_between">Intermédia</string>
     <!--RR Configurations Summaries-->
     <string name="status_bar_clock_summary">Personalizar vários elementos relacionados com o relógio e a data da barra de estado </string>
-    <string name="status_bar_logo_summary">Ativar ou desativar o logótipo da Resurrection na barra de estado e personalizar a cor e posição</string>
+    <string name="status_bar_logo_summary">Ativar ou desativar o logótipo da Resurrection na barra de estado e personalizar a sua posição</string>
     <string name="sb_custom_logos_summary">Ativar ou desativar ícones na barra de estado e personalizar os seus elementos e posição</string>
     <string name="rr_battery_summary">Personalizar elementos relacionados com a bateria na barra de estado</string>
-    <string name="rr_sb_icons_summary">Ativar ou desativar ícones à sua escolha na barra de estado</string>
+    <string name="rr_sb_icons_summary">Ativar ou desativar ícones da barra de estado</string>
     <string name="ticker_screen_summary">Personalizar o estilo das notificações na barra de estado</string>
     <string name="status_bar_temperature_summary">Ativar ou desativar a temperatura na barra de estado e personalizar o seu estilo </string>
     <string name="network_traffic_summary">Ativar ou desativar o monitor de tráfego de rede na barra de estado e personalizar os seus elementos</string>
-    <string name="carrier_summary">Ativar ou desativar o nome da operadora na barra de estado e personalizar o seu estilo </string>
+    <string name="carrier_summary">Ativar ou desativar o nome da operadora na barra de estado e personalizar o seu texto </string>
     <string name="rr_sb_gestures_summary">Ativar ou desativar gestos na barra de estado</string>
     <string name="breathing_notifications_summary">Dar um efeito de respiração a notificações como SMS, chamadas perdidas e correio de voz</string>
     <string name="rr_trans_summary">Personalizar vários elementos do painel de notificações, tais como transparência e limites</string>
@@ -1217,10 +1217,10 @@
     <string name="qs_music_tile_track_optional_summary">Mostrar o título da música no mosaico das definições rápidas</string>
     <!-- Roaming indicator icon -->
     <string name="roaming_indicator_icon_title">Mostrar indicador de roaming</string>
-    <string name="roaming_indicator_icon_summary">Mostrar o indicador de roaming no ícone de sinal quando no modo de roaming</string>
+    <string name="roaming_indicator_icon_summary">Mostrar o indicador de roaming no ícone do sinal de rede quando no modo de roaming</string>
     <!-- Data disabled icon -->
     <string name="data_disabled_icon_title">Mostrar indicador de dados desligados</string>
-    <string name="data_disabled_icon_summary">Mostrar um X junto do ícone de rede quando os dados estiverem desligados</string>
+    <string name="data_disabled_icon_summary">Mostrar um X no ícone do sinal de rede quando os dados móveis estiverem desligados</string>
     <!-- RR Settings tabs slide effects -->
     <string name="tabs_effect_title">Efeito de transição dos separadores de configurações da RR</string>
     <string name="effect_default">Predefinição</string>
@@ -1694,7 +1694,7 @@
     <string name="expanded_desktop_title">Opções da área de trabalho expandida</string>
     <!-- no network switch -->
     <string name="no_sim_cluster_switch_title">Esconder o indicador de ausência de cartão SIM</string>
-    <string name="no_sim_cluster_switch_summary">Esconder o indicador da rede se o cartão SIM estiver inativo ou desativado. Se o cartão SIM estiver ativado, esta função não irá funcionar. NOTA: isto irá reiniciar a IU do sist.</string>
+    <string name="no_sim_cluster_switch_summary">Esconder o indicador de rede se o cartão SIM estiver inativo e desativado. Se o cartão SIM estiver ativado, esta função não irá funcionar. NOTA: isto irá reiniciar a IU do sist</string>
     <!-- no sim icon switch -->
     <string name="disable_no_sim_title">Desativar o ícone de ausência de cartão SIM</string>
     <string name="disable_no_sim_summary">Desativar o ícone do cartão SIM se não estiver presente um cartão SIM</string>
@@ -1729,8 +1729,8 @@
     <string name="clock_date_display_summary">Mostrar data personalizada antes do relógio</string>
     <string name="clock_date_style">Estilo da data</string>
     <string name="clock_date_format">Formato da data</string>
-    <string name="clock_date_string_edittext_title">Deve estar num formato de data, por exemplo: MM/DD/AA</string>
-    <string name="clock_date_string_edittext_summary">Escreva os caracteres</string>
+    <string name="clock_date_string_edittext_title">Deve estar num formato de data, por exemplo: DD/MM/AA</string>
+    <string name="clock_date_string_edittext_summary">Introduza o texto</string>
     <string name="am_pm_clock_normal">Tamanho de letra: normal</string>
     <string name="am_pm_clock_small">Tamanho de letra: pequeno</string>
     <string name="am_pm_clock_none">Não mostrar</string>
@@ -1949,7 +1949,7 @@
     <string name="font_picker_progress">Aplicando novo tipo de letra\u2026</string>
     <!-- Audio Panel view  -->
     <string name="audio_panel_view">Painel de áudio</string>
-    <string name="audio_panel_view_media_title">Mídia</string>
+    <string name="audio_panel_view_media_title">Multimédia</string>
     <string name="audio_panel_view_ringer_title">Toque</string>
     <string name="audio_panel_view_notification_title">Notificação</string>
     <string name="audio_panel_view_alarm_title">Alarme</string>
@@ -2030,7 +2030,7 @@
     <string name="corners_category">Cantos do ecrã</string>
     <string name="corner_radius">Raio dos cantos dos arredondados</string>
     <string name="content_padding">Espaçamento do conteúdo relativamente aos cantos</string>
-    <string name="corner_fwvals">Usar valores da framework</string>
+    <string name="corner_fwvals">Usar valores predefinidos</string>
     <string name="corner_fwvals_summary">Útil se o ecrã tiver realmente cantos arredondados</string>
     <!-- AOSP Recents component Style -->
     <string name="recents_component_type_title">Estilo das aplicações recentes</string>
@@ -2102,6 +2102,7 @@
     <string name="lockscreen_clock_title">Widget do relógio</string>
     <string name="lockscreen_clock_summary">Mostrar o widget do relógio no ecrã de bloqueio</string>
     <string name="lockscreen_info_title">Itens debaixo do relógio</string>
+    <string name="lockscreen_info_summary">Mostrar a data, meteorologia, alarmes e Zen no ecrã de bloqueio</string>
     <!-- Lockscreen clock styles -->
     <string name="lockscreen_clock_selection_title">Estilo do relógio</string>
     <string name="lockscreen_clock_selection_digital">Predefinido</string>
@@ -2126,16 +2127,33 @@
     <string name="aggressive_battery_saver_summary">Ativar a poupança de bateria agressiva automaticamente quando for ativado o modo de poupança de bateria</string>
     <!-- Old Mobile Type -->
     <string name="use_old_mobiletype_title">Usar o estilo antigo do indicador de rede</string>
-    <string name="use_old_mobiletype_summary">Unir o indicador de rede e o tipo de rede num só ícone</string>
+    <string name="use_old_mobiletype_summary">Mostrar o tipo e o sinal de rede num só ícone</string>
     <!-- QS tile styles -->
     <string name="qs_tile_style_title">Estilo dos mosaicos</string>
     <string name="qstile_default">Padrão</string>
     <string name="qstile_circle_trim">Círculo com contorno</string>
     <string name="qstile_dual_tone_circle">Círculo com duplo tom</string>
     <string name="qstile_squircle_trim">Quadrado arred. com contorno</string>
+    <string name="qstile_teardrop">Lágrima</string>
+    <string name="qstile_hexagon">Hexágono</string>
+    <string name="qstile_star">Estrela</string>
+    <string name="qstile_square">Quadrado arredondado</string>
+    <string name="qstile_gear">Engrenagem</string>
+    <string name="qstile_badge">Emblema</string>
+    <string name="qstile_badgetwo">Emblema 2</string>
+    <string name="qstile_squircle">Quadrado arredondado</string>
+    <string name="qstile_diamond">Diamante</string>
     <!-- Lockscreen album art filter -->
+    <string name="lockscreen_albumart_filter_title">Filtro das capas da multimédia</string>
+    <string name="lockscreen_albumart_filter_none">Nenhum</string>
+    <string name="lockscreen_albumart_filter_grayscale">Tons de cinza</string>
+    <string name="lockscreen_albumart_filter_tint">Tom da cor de destaque</string>
+    <string name="lockscreen_albumart_filter_blur">Desfocado</string>
+    <string name="lockscreen_albumart_filter_grayblur">Tons de cinza e desfocado</string>
+    <!-- Quick settings brightness slider -->
     <!-- QS Brightness Slider position -->
     <string name="qs_brightness_slider_hide">Ocultar</string>
     <string name="qs_brightness_slider_top">No topo</string>
     <string name="qs_brightness_slider_bottom">Em baixo</string>
+    <!-- Disabling FC notifications -->
 </resources>
