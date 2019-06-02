@@ -607,8 +607,7 @@ public class AppOpsState {
         if (appInfo == null) {
             try {
                 appInfo = mPm.getApplicationInfo(packageName,
-                        PackageManager.GET_DISABLED_COMPONENTS
-                        | PackageManager.GET_UNINSTALLED_PACKAGES);
+                        PackageManager.GET_DISABLED_COMPONENTS);
             } catch (PackageManager.NameNotFoundException e) {
                 Log.w(TAG, "Unable to find info for package " + packageName);
                 return null;
