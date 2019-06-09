@@ -30,12 +30,14 @@ import android.content.pm.PermissionInfo;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.UserHandle;
 import android.support.v14.preference.SwitchPreference;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.Preference.OnPreferenceChangeListener;
 import android.support.v7.preference.PreferenceScreen;
 import android.text.TextUtils;
+import android.util.IconDrawableFactory;
 import android.util.Log;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -54,6 +56,7 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
     static final String TAG = "AppOpsDetails";
 
     public static final String ARG_PACKAGE_NAME = "package";
+    public static final String ARG_PACKAGE_UID = "package_uid";
     private static final String KEY_HEADER = "header";
 
     private AppOpsState mState;
@@ -148,7 +151,8 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
         final Activity activity = getActivity();
         final Preference pref = EntityHeaderController
                 .newInstance(getActivity(), this /* fragment */, null /* header */)
-                .setIcon(mPm.getApplicationIcon(appInfo))
+                .setIcon(IconDrawableFactory.newInstance(getContext())
+                        .getBadgedIcon(appInfo))
                 .setLabel(label)
                 .setPackageName(appInfo.packageName)
                 .setUid(appInfo.uid)
@@ -163,6 +167,8 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
     private String retrieveAppEntry() {
         final Bundle args = getArguments();
         String packageName = (args != null) ? args.getString(ARG_PACKAGE_NAME) : null;
+        int packageUserId = (args != null) ? UserHandle.getUserId(args.getInt(ARG_PACKAGE_UID)) : 0;
+
         if (packageName == null) {
             Intent intent = (args == null) ?
                     getActivity().getIntent() : (Intent) args.getParcelable("intent");
@@ -171,9 +177,10 @@ public class AppOpsDetails extends SettingsPreferenceFragment {
             }
         }
         try {
-            mPackageInfo = mPm.getPackageInfo(packageName,
+            mPackageInfo = mPm.getPackageInfoAsUser(packageName,
                     PackageManager.MATCH_DISABLED_COMPONENTS |
-                    PackageManager.MATCH_ANY_USER);
+                    PackageManager.MATCH_ANY_USER,
+                    packageUserId);
         } catch (NameNotFoundException e) {
             Log.e(TAG, "Exception when retrieving package:" + packageName, e);
             mPackageInfo = null;

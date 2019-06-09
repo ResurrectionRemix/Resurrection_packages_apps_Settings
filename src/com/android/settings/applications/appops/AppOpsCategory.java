@@ -29,6 +29,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.IconDrawableFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +61,7 @@ public class AppOpsCategory extends ListFragment implements
     AppListAdapter mAdapter;
 
     String mCurrentPkgName;
+    private int mCurrentPkgUid;
 
     public AppOpsCategory() {
     }
@@ -264,10 +266,12 @@ public class AppOpsCategory extends ListFragment implements
         private final LayoutInflater mInflater;
         private final AppOpsState mState;
         private final boolean mUserControlled;
+        private final Context mContext;
 
         List<AppOpEntry> mList;
 
         public AppListAdapter(Context context, AppOpsState state, boolean userControlled) {
+            mContext = context;
             mResources = context.getResources();
             mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             mState = state;
@@ -309,7 +313,8 @@ public class AppOpsCategory extends ListFragment implements
 
             AppOpEntry item = getItem(position);
             ((ImageView) view.findViewById(R.id.app_icon)).setImageDrawable(
-                    item.getAppEntry().getIcon());
+                    IconDrawableFactory.newInstance(mContext).getBadgedIcon(
+                            item.getAppEntry().getApplicationInfo()));
             ((TextView) view.findViewById(R.id.app_name)).setText(item.getAppEntry().getLabel());
             if (mUserControlled) {
                 ((TextView) view.findViewById(R.id.op_name)).setText(
@@ -361,6 +366,7 @@ public class AppOpsCategory extends ListFragment implements
         // start new fragment to display extended information
         final Bundle args = new Bundle();
         args.putString(AppOpsDetails.ARG_PACKAGE_NAME, mCurrentPkgName);
+        args.putInt(AppOpsDetails.ARG_PACKAGE_UID, mCurrentPkgUid);
 
         new SubSettingLauncher(getContext())
                 .setDestination(AppOpsDetails.class.getName())
@@ -388,6 +394,7 @@ public class AppOpsCategory extends ListFragment implements
                 entry.overridePrimaryOpMode(mode);
             } else {
                 mCurrentPkgName = entry.getAppEntry().getApplicationInfo().packageName;
+                mCurrentPkgUid = entry.getAppEntry().getApplicationInfo().uid;
                 startApplicationDetailsActivity();
             }
         }
