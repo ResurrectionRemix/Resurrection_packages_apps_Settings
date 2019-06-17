@@ -53,6 +53,10 @@
         android:key="home_key"
         android:title="@string/hardware_keys_home_key_title" >
 
+        <com.rr.settings.preferences.SystemSettingSwitchPreference
+            android:key="home_wake_screen"
+            android:title="@string/button_wake_title"
+            android:defaultValue="true" />
         <SwitchPreference
             android:key="home_answer_call"
             android:title="@string/home_answer_call_title"
