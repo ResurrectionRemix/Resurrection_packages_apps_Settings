@@ -65,6 +65,7 @@ public class HardwareKeys extends ActionFragment implements Preference.OnPrefere
     private static final String CATEGORY_POWER = "power_key";
     private static final String KEY_HOME_ANSWER_CALL = "home_answer_call";
     private static final String KEY_BUTTON_BACKLIGHT = "button_backlight";
+    private static final String KEY_HOME_WAKE_SCREEN = "home_wake_screen";
     // Masks for checking presence of hardware keys.
     // Must match values in frameworks/base/core/res/res/values/config.xml
     public static final int KEY_MASK_HOME = 0x01;
@@ -81,6 +82,7 @@ public class HardwareKeys extends ActionFragment implements Preference.OnPrefere
     private CustomSeekBarPreference mManualButtonBrightness;
     private PreferenceCategory mButtonBackLightCategory;
     private SwitchPreference mHomeAnswerCall;
+    private SwitchPreference mHomeWakeScreen;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -138,6 +140,8 @@ public class HardwareKeys extends ActionFragment implements Preference.OnPrefere
             mHomeAnswerCall = null;
         }
 
+        mHomeWakeScreen = (SwitchPreference) findPreference(KEY_HOME_WAKE_SCREEN);
+
         // back key
         if (!hasBackKey) {
             prefScreen.removePreference(backCategory);
@@ -185,6 +189,9 @@ public class HardwareKeys extends ActionFragment implements Preference.OnPrefere
         if (preference == mHomeAnswerCall) {
             handleToggleHomeButtonAnswersCallPreferenceClick();
             return true;
+        } else if (preference == mHomeWakeScreen) {
+            handleToggleHomeButtonWakeScreenPreferenceClick();
+            return true;
         }
 
         return super.onPreferenceTreeClick(preference);
@@ -193,6 +200,11 @@ public class HardwareKeys extends ActionFragment implements Preference.OnPrefere
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.RESURRECTED;
+    }
+
+    private void handleToggleHomeButtonWakeScreenPreferenceClick() {
+        LineageSettings.System.putInt(getContentResolver(),
+                LineageSettings.System.HOME_WAKE_SCREEN, (mHomeWakeScreen.isChecked() ? 1 : 0));
     }
 
     private void handleToggleHomeButtonAnswersCallPreferenceClick() {
