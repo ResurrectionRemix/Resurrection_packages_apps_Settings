@@ -52,13 +52,6 @@
             android:icon="@drawable/rr_animations_icon"/>
 
     <PreferenceScreen
-            android:key="rr_misc"
-            android:title="@string/rr_misc_title"
-            android:fragment="com.android.settings.rr.Misc" 
-            android:icon="@drawable/rr_misc_icon"/>
-
-
-    <PreferenceScreen
             android:key="rr_interface"
             android:title="@string/rr_ui_title"
             android:fragment="com.android.settings.rr.Interface" 
@@ -76,6 +69,12 @@
             android:fragment="com.android.settings.rr.Buttons" 
             android:icon="@drawable/rr_buttons_icon"/>
 
+    <PreferenceScreen
+            android:key="rr_misc"
+            android:title="@string/rr_misc_title"
+            android:fragment="com.android.settings.rr.Misc" 
+            android:icon="@drawable/rr_misc_icon"/>
+	
      <PreferenceScreen
             android:key="rr_about"
             android:title="@string/about_rr"
