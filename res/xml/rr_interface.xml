@@ -58,13 +58,6 @@
         android:icon="@drawable/rr_heads_up_icon" />
 
     <PreferenceScreen
-        android:key="rr_ui_other"
-        android:title="@string/interface_other_title"
-        android:icon="@drawable/rr_misc_interface_icon"
-        android:summary="@string/interface_other_summary"
-        android:fragment="com.android.settings.rr.MiscInterfaceSettings" />
-
-    <PreferenceScreen
         android:key="rr_screenshot"
         android:title="@string/screenshot_options_category"
         android:icon="@drawable/rr_screenshot_icon"
@@ -115,5 +108,12 @@
         android:title="@string/force_expanded_notifications_title"
         android:summary="@string/force_expanded_notifications_summary"
         android:defaultValue="false" />
+     
+    <PreferenceScreen
+        android:key="rr_ui_other"
+        android:title="@string/interface_other_title"
+        android:icon="@drawable/rr_misc_interface_icon"
+        android:summary="@string/interface_other_summary"
+        android:fragment="com.android.settings.rr.MiscInterfaceSettings" />
 
 </PreferenceScreen>
