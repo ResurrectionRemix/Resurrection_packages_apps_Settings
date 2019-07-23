@@ -50,6 +50,7 @@ public class AppNotificationSettings extends NotificationSettingsBase {
     private static String KEY_ADVANCED_CATEGORY = "app_advanced";
     private static String KEY_BADGE = "badge";
     private static String KEY_APP_LINK = "app_link";
+    private static String KEY_SOUND_TIMEOUT = "sound_timeout";
 
     private List<NotificationChannelGroup> mChannelGroupList;
 
@@ -66,6 +67,7 @@ public class AppNotificationSettings extends NotificationSettingsBase {
             // if showing legacy settings, pull advanced settings out of the advanced category
             Preference badge = findPreference(KEY_BADGE);
             Preference appLink = findPreference(KEY_APP_LINK);
+            Preference soundTimeout = findPreference(KEY_SOUND_TIMEOUT);
             removePreference(KEY_ADVANCED_CATEGORY);
             if (badge != null) {
                 screen.addPreference(badge);
@@ -73,6 +75,9 @@ public class AppNotificationSettings extends NotificationSettingsBase {
             }
             if (appLink != null) {
                 screen.addPreference(appLink);
+            }
+            if (soundTimeout != null) {
+                screen.addPreference(soundTimeout);
             }
         }
     }
