@@ -94,17 +94,9 @@
             android:summary="@string/app_notification_override_dnd_summary"
             settings:useAdditionalSummary="true"/>
 
-        <com.android.settings.RestrictedListPreference
-            android:key="sound_timeout"
-            android:order="17"
-            android:title="@string/app_notification_sound_timeout_title"
-            android:entries="@array/app_notification_sound_timeout_entries"
-            android:entryValues="@array/app_notification_sound_timeout_values"
-            android:persistent="false" />
-
         <Preference
             android:key="app_link"
-            android:order="18"
+            android:order="17"
             android:title="@string/app_settings_link"
             settings:allowDividerAbove="true"/>
     </PreferenceCategory>
