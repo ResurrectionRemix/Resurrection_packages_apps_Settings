@@ -44,6 +44,12 @@
             android:summary="@string/three_finger_gesture_summary"
             android:defaultValue="false" />
 
+    <com.rr.settings.preferences.GlobalSettingSwitchPreference
+        android:key="show_cpu_overlay"
+        android:title="@string/show_cpu_info"
+        android:summary="@string/show_cpu_info_summary" 
+        android:defaultValue="false" />
+
      <ListPreference
         android:key="less_notification_sounds"
         android:title="@string/less_notification_sounds_title"
@@ -71,6 +77,26 @@
         android:entryValues="@array/flashlight_on_call_values"
         android:defaultValue="0" />
 
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="force_expanded_notifications"
+        android:title="@string/force_expanded_notifications_title"
+        android:summary="@string/force_expanded_notifications_summary"
+        android:defaultValue="false" />
+
+     <com.rr.settings.preferences.SystemSettingSwitchPreference  
+        android:key="disable_fc_notifications" 
+        android:title="@string/disable_fc_notifications_title" 
+        android:summary="@string/disable_fc_notifications_summary" 
+        android:defaultValue="false" />
+
+    <Preference
+        android:key="aggressive_battery"
+        android:title="@string/aggressive_battery_title"
+        android:icon="@drawable/ic_aggressive_battery"
+        android:fragment="com.android.settings.rr.fragments.AggressiveBattery" />
+
+
     <PreferenceCategory
             android:title="@string/night_brightness_category">
         <DropDownPreference
@@ -80,5 +106,57 @@
                 android:entryValues="@array/night_brightness_value_values"
                 android:defaultValue="0" />
     </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:key="incall_vib_options"
+        android:title="@string/incall_vibration_category" >
+
+        <com.rr.settings.preferences.SystemSettingSwitchPreference
+            android:key="vibrate_on_connect"
+            android:title="@string/incall_vibrate_connect_title"
+            android:defaultValue="false" />
+
+        <com.rr.settings.preferences.SystemSettingSwitchPreference
+            android:key="vibrate_on_callwaiting"
+            android:title="@string/incall_vibrate_call_wait_title"
+            android:defaultValue="false" />
+
+        <com.rr.settings.preferences.SystemSettingSwitchPreference
+            android:key="vibrate_on_disconnect"
+            android:title="@string/incall_vibrate_disconnect_title"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="corners_category"
+        android:title="@string/corners_category" >
+
+        <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+            android:key="sysui_rounded_fwvals"
+            android:title="@string/corner_fwvals"
+            android:summary="@string/corner_fwvals_summary"
+            android:defaultValue="true"
+            android:disableDependentsState="true" />
+
+        <com.android.settings.rr.Preferences.CustomSeekBarPreference
+            android:key="sysui_rounded_size"
+            android:title="@string/corner_radius"
+            android:max="60"
+            settings:min="0"
+            settings:units=""
+            android:persistent="false"
+            android:dependency="sysui_rounded_fwvals" />
+
+        <com.android.settings.rr.Preferences.CustomSeekBarPreference
+            android:key="sysui_rounded_content_padding"
+            android:title="@string/content_padding"
+            android:max="20"
+            settings:min="0"
+            settings:units=""
+            android:persistent="false"
+            android:dependency="sysui_rounded_fwvals" />
+    </PreferenceCategory>
+
 
 </PreferenceScreen>
