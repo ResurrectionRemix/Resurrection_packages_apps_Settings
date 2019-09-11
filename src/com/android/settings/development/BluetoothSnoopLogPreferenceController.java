@@ -57,7 +57,7 @@ public class BluetoothSnoopLogPreferenceController extends DeveloperOptionsPrefe
 
     // Default mode is DISABLED. It can also be changed by modifying the global setting.
     public int getDefaultModeIndex() {
-        if (!Build.IS_DEBUGGABLE) {
+        if (!Build.IS_ENG) {
             return BTSNOOP_LOG_MODE_DISABLED_INDEX;
         }
 

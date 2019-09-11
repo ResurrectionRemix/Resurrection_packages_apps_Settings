@@ -49,7 +49,7 @@ public class AutomaticSystemServerHeapDumpPreferenceController extends
 
     @Override
     public boolean isAvailable() {
-        return Build.IS_DEBUGGABLE && mIsConfigEnabled
+        return Build.IS_ENG && mIsConfigEnabled
                 && !mUserManager.hasUserRestriction(UserManager.DISALLOW_DEBUGGING_FEATURES);
     }
 
