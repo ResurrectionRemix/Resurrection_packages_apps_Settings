@@ -232,20 +232,16 @@ public class ClockSettings extends SettingsPreferenceFragment implements
         int dateFormat = Settings.Secure.getInt(getActivity()
                 .getContentResolver(), Settings.Secure.STATUSBAR_CLOCK_DATE_STYLE, 0);
         for (int i = 0; i < dateEntries.length; i++) {
-            if (i == lastEntry) {
-                parsedDateEntries[i] = dateEntries[i];
+            String newDate;
+            CharSequence dateString = DateFormat.format(dateEntries[i], now);
+            if (dateFormat == CLOCK_DATE_STYLE_LOWERCASE) {
+                newDate = dateString.toString().toLowerCase();
+            } else if (dateFormat == CLOCK_DATE_STYLE_UPPERCASE) {
+                newDate = dateString.toString().toUpperCase();
             } else {
-                String newDate;
-                CharSequence dateString = DateFormat.format(dateEntries[i], now);
-                if (dateFormat == CLOCK_DATE_STYLE_LOWERCASE) {
-                    newDate = dateString.toString().toLowerCase();
-                } else if (dateFormat == CLOCK_DATE_STYLE_UPPERCASE) {
-                    newDate = dateString.toString().toUpperCase();
-                } else {
-                    newDate = dateString.toString();
-                }
-                 parsedDateEntries[i] = newDate;
+                newDate = dateString.toString();
             }
+            parsedDateEntries[i] = newDate;
         }
         mClockDateFormat.setEntries(parsedDateEntries);
     }
