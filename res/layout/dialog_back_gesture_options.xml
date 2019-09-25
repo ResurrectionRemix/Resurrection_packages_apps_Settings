@@ -64,4 +64,58 @@
                   android:ellipsize="marquee" />
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:textAppearance="?android:attr/textAppearance"
+        android:text="@string/back_height_message"
+        style="@android:style/TextAppearance.Material.Subhead" />
+
+    <SeekBar
+        android:id="@+id/back_height_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:min="0"
+        android:max="3"
+        style="@android:style/Widget.Material.SeekBar.Discrete"
+        android:theme="@*android:style/ThemeOverlay.DeviceDefault.Accent"
+        android:layout_marginTop="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView android:id="@+id/back_height_low_tick"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:layout_marginBottom="2dp"
+                  android:layout_marginStart="12dp"
+                  android:gravity="start"
+                  android:text="@string/back_height_low_label"
+                  android:textAppearance="?android:attr/textAppearance"
+                  android:singleLine="true"
+                  android:ellipsize="marquee" />
+
+        <TextView android:id="@+id/back_height_high_tick"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:layout_marginBottom="2dp"
+                  android:layout_marginEnd="12dp"
+                  android:gravity="end"
+                  android:text="@string/back_height_high_label"
+                  android:textAppearance="?android:attr/textAppearance"
+                  android:singleLine="true"
+                  android:ellipsize="marquee" />
+
+    </LinearLayout>
+
 </LinearLayout>
