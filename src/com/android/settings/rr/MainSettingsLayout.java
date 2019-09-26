@@ -31,7 +31,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
-import androidx.legacy.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentPagerAdapter;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.preference.ListPreference;
