@@ -37,7 +37,8 @@ public class VideoPreferenceController extends BasePreferenceController implemen
 
     @Override
     public int getAvailabilityStatus() {
-        return mVideoPreference.isVisible() ? AVAILABLE_UNSEARCHABLE : UNSUPPORTED_ON_DEVICE;
+        return mVideoPreference.isAnimationAvailable() ?
+                AVAILABLE_UNSEARCHABLE : UNSUPPORTED_ON_DEVICE;
     }
 
     @Override
