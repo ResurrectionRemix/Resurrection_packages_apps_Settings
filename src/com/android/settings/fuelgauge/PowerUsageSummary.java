@@ -459,18 +459,21 @@ public class PowerUsageSummary extends PowerUsageBase implements OnLongClickList
 
     @VisibleForTesting
     void initHeaderPreference() {
-        final BatteryMeterView batteryView = (BatteryMeterView) mBatteryLayoutPref
-                .findViewById(R.id.battery_header_icon);
-        final TextView timeText = (TextView) mBatteryLayoutPref.findViewById(R.id.battery_percent);
+        if (getContext() != null) {
+            final BatteryMeterView batteryView = (BatteryMeterView) mBatteryLayoutPref
+                  .findViewById(R.id.battery_header_icon);
+            final TextView timeText = (TextView) mBatteryLayoutPref.findViewById(R.id.battery_percent);
 
-        batteryView.setBatteryLevel(mBatteryLevel);
-        batteryView.setPowerSave(mPowerManager.isPowerSaveMode());
-        timeText.setText(formatBatteryPercentageText(mBatteryLevel));
+            batteryView.setBatteryLevel(mBatteryLevel);
+            batteryView.setPowerSave(mPowerManager.isPowerSaveMode());
+            timeText.setText(formatBatteryPercentageText(mBatteryLevel));
+        }
     }
 
     @VisibleForTesting
     void startBatteryHeaderAnimationIfNecessary(BatteryMeterView batteryView, TextView timeTextView,
-            int prevLevel, int currentLevel) {
+                int prevLevel, int currentLevel) {
+        if (getContext() != null) {
         mBatteryLevel = currentLevel;
         final int diff = Math.abs(prevLevel - currentLevel);
         if (diff != 0) {
@@ -489,6 +492,7 @@ public class PowerUsageSummary extends PowerUsageBase implements OnLongClickList
             });
             animator.start();
         }
+      }
     }
 
     @VisibleForTesting
@@ -541,8 +545,13 @@ public class PowerUsageSummary extends PowerUsageBase implements OnLongClickList
     }
 
     private CharSequence formatBatteryPercentageText(int batteryLevel) {
-        return TextUtils.expandTemplate(getContext().getText(R.string.battery_header_title_alternate),
-                NumberFormat.getIntegerInstance().format(batteryLevel));
+        try {
+            return TextUtils.expandTemplate(getContext().getText(R.string.battery_header_title_alternate),
+                  NumberFormat.getIntegerInstance().format(batteryLevel));
+        }
+        catch (Exception e) {
+            return null;
+        }
     }
 
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
