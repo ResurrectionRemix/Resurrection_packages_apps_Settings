@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright (C) 2016 The Android Open Source Project
+  Copyright (C) 2018 The Android Open Source Project
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -18,20 +18,14 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:key="gesture_double_tap_screen_screen"
-    android:title="@string/ambient_display_title">
-
-    <com.android.settings.widget.VideoPreference
-        android:key="gesture_double_tap_screen_video"
-        app:animation="@raw/gesture_ambient_tap"
-        app:preview="@drawable/gesture_ambient_tap" />
+    android:key="volume_rocker_skip_track_screen"
+    android:title="@string/volume_skiptrack_screen_title">
 
     <SwitchPreference
-        android:key="gesture_double_tap_screen"
-        android:title="@string/ambient_display_title"
-        android:summary="@string/ambient_display_summary"
+        android:key="volume_rocker_skip_track"
+        android:title="@string/volume_skiptrack_title"
+        android:summary="@string/volume_skiptrack_summary"
         app:keywords="@string/keywords_gesture"
-        app:controller="com.android.settings.gestures.DoubleTapScreenPreferenceController"
+        app:controller="com.android.settings.gestures.VolumeSkipTrackPreferenceController"
         app:allowDividerAbove="true" />
-
 </PreferenceScreen>
