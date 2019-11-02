@@ -148,6 +148,12 @@
             android:title="@string/adb_enable"
             android:summary="@string/adb_enable_summary" />
 
+        <SwitchPreference
+            android:key="enable_adb_root"
+            android:title="@string/adb_enable_root"
+            android:summary="@string/adb_enable_summary_root"
+            android:dependency="enable_adb" />
+
         <lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="adb_notify"
             android:title="@string/adb_notify"
