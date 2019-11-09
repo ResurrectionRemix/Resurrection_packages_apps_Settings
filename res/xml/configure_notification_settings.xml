@@ -80,6 +80,12 @@
         android:order="15"
         settings:initialExpandedChildrenCount="0">
 
+        <com.abc.support.preferences.SystemSettingSwitchPreference
+            android:key="less_boring_heads_up"
+            android:title="@string/less_boring_heads_up_title"
+            android:summary="@string/less_boring_heads_up_summary"
+            android:defaultValue="false" />
+
         <SwitchPreference
             android:key="show_snooze_options"
             android:title="@string/snooze_options_title"
