@@ -29,6 +29,13 @@
         android:summary="@string/rr_volume_summary"
         android:icon="@drawable/rr_volume_icon" />
 
+     <PreferenceScreen
+        android:title="@string/gaming_mode_title"
+        android:key="gaming_mode"
+        android:summary="@string/gaming_mode_summary"
+        android:icon="@drawable/ic_gaming"
+        android:fragment="com.aicp.extras.fragments.GamingMode"/>
+
     <PreferenceScreen
         android:key="dashboard"
         android:title="@string/rr_dash_board_title"
