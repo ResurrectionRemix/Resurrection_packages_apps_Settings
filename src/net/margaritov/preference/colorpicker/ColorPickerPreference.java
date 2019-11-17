@@ -47,6 +47,8 @@ import com.android.settings.R;
 public class ColorPickerPreference extends Preference implements
         Preference.OnPreferenceClickListener, ColorPickerDialog.OnColorChangedListener {
 
+    private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
+
     PreferenceViewHolder mView;
     ColorPickerDialog mDialog;
     LinearLayout widgetFrameView;
@@ -56,7 +58,6 @@ public class ColorPickerPreference extends Preference implements
     private boolean mEnabled = true;
 
     // if we return -6, button is not enabled
-    static final String SETTINGS_NS = "http://schemas.android.com/apk/res/com.android.settings";
     static final int DEF_VALUE_DEFAULT = -6;
     boolean mUsesDefaultButton = false;
     int mDefValue = -1;
@@ -79,21 +80,30 @@ public class ColorPickerPreference extends Preference implements
     }
 
     @Override
-    protected Object onGetDefaultValue(TypedArray a, int index) {
-        return a.getInt(index, Color.BLACK);
+    protected Object onGetDefaultValue(TypedArray ta, int index) {
+        int defaultValue = ta.getInt(index, Color.BLACK);
+        return defaultValue;
     }
 
     @Override
-    protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-        onColorChanged(restoreValue ? getPersistedInt(mValue) : (Integer) defaultValue);
+    protected void onSetInitialValue(boolean restorePersistedValue, Object defaultValue) {
+        // when using PreferenceDataStore, restorePersistedValue is always true (see Preference class for reference)
+        // so we load the persistent value with getPersistedInt if available in the data store, 
+        // and use defaultValue as fallback (onGetDefaultValue has been already called and it loaded the android:defaultValue attr from our xml).
+        if (defaultValue == null) {
+            // if we forgot to add android:defaultValue, default to black color
+            defaultValue = Color.BLACK;
+        }
+        mValue = getPersistedInt((Integer) defaultValue);
+        onColorChanged(mValue);
     }
 
     private void init(Context context, AttributeSet attrs) {
         mDensity = getContext().getResources().getDisplayMetrics().density;
         setOnPreferenceClickListener(this);
         if (attrs != null) {
-            mAlphaSliderEnabled = attrs.getAttributeBooleanValue(null, "alphaSlider", true);
-            int defVal = attrs.getAttributeIntValue(SETTINGS_NS, "defaultColorValue", DEF_VALUE_DEFAULT);
+            mAlphaSliderEnabled = attrs.getAttributeBooleanValue(null, "alphaSlider", false);
+            int defVal = attrs.getAttributeIntValue(ANDROIDNS, "defaultValue", DEF_VALUE_DEFAULT);
             if (defVal != DEF_VALUE_DEFAULT) {
                 mUsesDefaultButton =  true;
                 mDefValue = defVal;
@@ -230,11 +240,9 @@ public class ColorPickerPreference extends Preference implements
 
     @Override
     public void onColorChanged(int color) {
-        if (isPersistent()) {
-            persistInt(color);
-        }
         mValue = color;
         setPreviewColor();
+        persistInt(color);
         try {
             getOnPreferenceChangeListener().onPreferenceChange(this, color);
         } catch (NullPointerException e) {
