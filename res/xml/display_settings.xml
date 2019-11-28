@@ -116,6 +116,13 @@
         android:fragment="com.android.settings.display.ScreenZoomSettings"
         settings:searchable="false"/>
 
+    <ListPreference
+        android:key="refresh_rate_setting"
+        android:title="@string/refresh_rate_title"
+        android:summary="@string/summary_placeholder"
+        android:entries="@array/refresh_rate_entries"
+        android:entryValues="@array/refresh_rate_values" />
+
     <SwitchPreference
         android:key="show_operator_name"
         android:title="@string/show_operator_name_title"
