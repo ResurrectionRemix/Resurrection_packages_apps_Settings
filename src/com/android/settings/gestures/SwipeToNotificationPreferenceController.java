@@ -129,12 +129,12 @@ public class SwipeToNotificationPreferenceController extends BasePreferenceContr
             if (TextUtils.equals(pref.getKey(), PREF_SWIPE_DOWN)) {
                 boolean enabled = Settings.Secure.getInt(
                         mContext.getContentResolver(),
-                        SYSTEM_NAVIGATION_KEYS_ENABLED, OFF) == ON;
+                        SYSTEM_NAVIGATION_KEYS_ENABLED, ON) == ON;
                 pref.setChecked(enabled);
             } else if (TextUtils.equals(pref.getKey(), PREF_SWIPE_DISMISS)) {
                 boolean enabled = Settings.Secure.getInt(
                         mContext.getContentResolver(),
-                        FP_SWIPE_TO_DISMISS_NOTIFICATIONS, OFF) == ON;
+                        FP_SWIPE_TO_DISMISS_NOTIFICATIONS, ON) == ON;
                 pref.setChecked(enabled);
                 pref.setEnabled(swipeDownEnabled());
             }
@@ -143,7 +143,7 @@ public class SwipeToNotificationPreferenceController extends BasePreferenceContr
 
      private boolean swipeDownEnabled() {
         return Settings.Secure.getInt(mContext.getContentResolver(),
-                SYSTEM_NAVIGATION_KEYS_ENABLED, OFF) == ON;
+                SYSTEM_NAVIGATION_KEYS_ENABLED, ON) == ON;
     }
 
     @Override
