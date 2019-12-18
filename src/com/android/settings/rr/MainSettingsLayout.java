@@ -235,6 +235,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             frags[0] = new StatusBarSettings();
             frags[1] = new About();
             frags[2] = new Interface();
+            frags[3] = new Misc();
         	} else {
             frags[0] = new MainSettings();
         	}
@@ -264,7 +265,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         titleString = new String[]{
                 getString(R.string.rr_statusbar_title),
                 getString(R.string.about_rr_settings),
-		getString(R.string.rr_ui_title)};
+		getString(R.string.rr_ui_title)
+                getString(R.string.rr_misc_title)};
         } else {
                 titleString = new String[]{
                 getString(R.string.rr_title)};
