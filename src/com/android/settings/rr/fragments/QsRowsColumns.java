@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.rr.settings;
+package com.android.settings.rr.fragments;
 
 import android.content.ContentResolver;
 import android.content.res.Resources;
@@ -22,7 +22,7 @@ import android.os.UserHandle;
 import androidx.preference.Preference;
 import android.provider.Settings;
 
-import com.abc.settings.preferences.CustomSeekBarPreference;
+import com.rr.settings.preferences.CustomSeekBarPreference;
 import com.android.internal.logging.nano.MetricsProto;
 
 import com.android.settings.R;
@@ -69,7 +69,7 @@ public class QsRowsColumns extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.ABC;
+        return MetricsProto.MetricsEvent.RESURRECTED; //Error2
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
