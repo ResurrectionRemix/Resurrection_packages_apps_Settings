@@ -18,7 +18,7 @@ package com.rr.settings.preferences;
 
 import android.content.Context;
 import android.provider.Settings;
-import android.support.v14.preference.SwitchPreference;
+import androidx.preference.SwitchPreference;
 import android.util.AttributeSet;
 
 public class GlobalSettingSwitchPreference extends SwitchPreference {
