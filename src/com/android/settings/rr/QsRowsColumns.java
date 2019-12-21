@@ -19,7 +19,7 @@ import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.UserHandle;
-import android.support.v7.preference.Preference;
+import androidx.preference.Preference;
 import android.provider.Settings;
 
 import com.abc.settings.preferences.CustomSeekBarPreference;
