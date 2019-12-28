@@ -24,9 +24,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 
 import com.android.settings.R;
@@ -65,7 +65,7 @@ public class SetupChooseLockPassword extends ChooseLockPassword {
     @Override
     protected void onCreate(Bundle savedInstance) {
         super.onCreate(savedInstance);
-        LinearLayout layout = (LinearLayout) findViewById(R.id.content_parent);
+        CoordinatorLayout layout = (CoordinatorLayout) findViewById(R.id.content_parent);
         layout.setFitsSystemWindows(false);
     }
 

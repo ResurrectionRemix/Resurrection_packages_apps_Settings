@@ -34,6 +34,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.FrameLayout;
 import android.widget.Toolbar;
 
 import androidx.fragment.app.FragmentActivity;
@@ -80,12 +81,30 @@ public class SettingsBaseActivity extends FragmentActivity {
         }
         super.setContentView(R.layout.settings_base_layout);
 
+        final View decorView = getWindow().getDecorView();
+        final ViewGroup root = (ViewGroup) decorView.findViewById(android.R.id.content);
+
         final Toolbar toolbar = findViewById(R.id.action_bar);
         if (theme.getBoolean(android.R.styleable.Theme_windowNoTitle, false)) {
             toolbar.setVisibility(View.GONE);
             return;
         }
         setActionBar(toolbar);
+        
+        root.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+
+        root.setOnApplyWindowInsetsListener((v, insets) -> {
+            final FrameLayout contentFrame = findViewById(R.id.content_frame);
+            final TypedArray styledAttributes = getTheme().obtainStyledAttributes(
+                new int[] { android.R.attr.actionBarSize });
+            final int actionBarSize = (int) styledAttributes.getDimension(0, 0);
+            styledAttributes.recycle();
+
+            toolbar.setPadding(0, insets.getSystemWindowInsetTop(), 0, 0);
+            contentFrame.setPadding(0, insets.getSystemWindowInsetTop() + actionBarSize, 0, 0);
+            return insets;
+        });
 
         if (DEBUG_TIMING) {
             Log.d(TAG, "onCreate took " + (System.currentTimeMillis() - startTime)

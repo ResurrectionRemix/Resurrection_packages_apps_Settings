@@ -32,6 +32,7 @@
         <item name="android:listPreferredItemHeight">72dip</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_arrow_back</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
 
         <item name="fingerprint_layout_theme">@style/FingerprintLayoutTheme</item>
         <item name="face_layout_theme">@style/FaceLayoutTheme</item>
@@ -199,6 +200,8 @@
 
         <!-- Define this color for material design -->
         <item name="colorPrimaryVariant">@android:color/white</item>
+
+        <item name="android:statusBarColor">?colorPrimaryDark</item>
     </style>
 
     <style name="Theme.Settings.Home" parent="Theme.Settings.HomeBase">

@@ -17,7 +17,9 @@
 */
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container_material"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -30,16 +32,22 @@
         android:background="?android:attr/windowBackground"
         android:elevation="1dp"
         android:visibility="gone"/>
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/main_content_scrollable_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.android.settings.widget.FloatingAppBarScrollingViewBehavior">
 
-    <FrameLayout
-        android:id="@android:id/list_container"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:layout_width="match_parent">
+            <FrameLayout
+                android:id="@android:id/list_container"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:layout_width="match_parent">
 
-        <include layout="@layout/loading_container" />
+                <include layout="@layout/loading_container" />
 
-    </FrameLayout>
+            </FrameLayout>
+        </androidx.core.widget.NestedScrollView>
 
     <TextView android:id="@android:id/empty"
         android:layout_width="wrap_content"
@@ -88,5 +96,5 @@
 
     </RelativeLayout>
 
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
