@@ -32,6 +32,7 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     androidx.cardview_cardview \
     androidx.preference_preference \
     androidx.recyclerview_recyclerview \
+    BlurView \
     com.google.android.material_material \
     setupcompat \
     setupdesign \

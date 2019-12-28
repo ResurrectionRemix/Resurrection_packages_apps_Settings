@@ -23,21 +23,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_scrollFlags="scroll|enterAlways">
-    <Toolbar
-        android:id="@+id/search_action_bar"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/search_bar_blur"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/search_bar_height"
-        android:layout_marginStart="-2dp"
-        android:background="@drawable/search_bar_selected_background"
-        android:contentInsetStartWithNavigation="@dimen/search_bar_content_inset"
-        android:navigationIcon="@drawable/ic_homepage_search">
-        <TextView
-            android:id="@+id/search_action_bar_title"
-            style="@style/TextAppearance.SearchBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/search_menu"/>
-    </Toolbar>
+        android:layout_height="wrap_content"
+        app:blurOverlayColor="@color/blur_floating_bg">
+        <Toolbar
+            android:id="@+id/search_action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/search_bar_height"
+            android:layout_marginStart="-2dp"
+            android:contentInsetStartWithNavigation="@dimen/search_bar_content_inset"
+            android:navigationIcon="@drawable/ic_homepage_search">
+            <TextView
+                android:id="@+id/search_action_bar_title"
+                style="@style/TextAppearance.SearchBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/search_menu"/>
+        </Toolbar>
+    </eightbitlab.com.blurview.BlurView>
     <ImageView
         android:id="@+id/account_avatar"
         android:paddingEnd="@dimen/search_bar_avatar_end_padding"

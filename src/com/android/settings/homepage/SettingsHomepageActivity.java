@@ -19,8 +19,10 @@ package com.android.settings.homepage;
 import android.animation.LayoutTransition;
 import android.app.ActivityManager;
 import android.app.settings.SettingsEnums;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Toolbar;
@@ -37,6 +39,9 @@ import com.android.settings.core.HideNonSystemOverlayMixin;
 import com.android.settings.homepage.contextualcards.ContextualCardsFragment;
 import com.android.settings.overlay.FeatureFactory;
 
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
+
 public class SettingsHomepageActivity extends FragmentActivity {
 
     @Override
@@ -44,11 +49,17 @@ public class SettingsHomepageActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.settings_homepage_container);
-        final View root = findViewById(R.id.settings_homepage_container);
+        final View decorView = getWindow().getDecorView();
+        final ViewGroup root = (ViewGroup) decorView.findViewById(android.R.id.content);
         root.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 
         setHomepageContainerPaddingTop();
+
+        final BlurView searchBarBlur = findViewById(R.id.search_bar_blur);
+        final Drawable windowBackground = decorView.getBackground();
+        searchBarBlur.setupWith(root).setFrameClearDrawable(windowBackground)
+                .setBlurAlgorithm(new RenderScriptBlur(this));
 
         final Toolbar toolbar = findViewById(R.id.search_action_bar);
         FeatureFactory.getFactory(this).getSearchFeatureProvider()
