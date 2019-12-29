@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.telephony.CarrierConfigManager;
@@ -30,7 +31,6 @@ import android.telephony.SubscriptionManager;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
@@ -48,6 +48,9 @@ import com.android.settings.development.featureflags.FeatureFlagPersistent;
 import com.android.settings.network.SubscriptionUtil;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,26 +100,33 @@ public class MobileNetworkActivity extends SettingsBaseActivity {
         } else {
             setContentView(R.layout.mobile_network_settings_container);
         }
+
+        findViewById(R.id.action_bar_container).setVisibility(View.GONE);
+        
         final View decorView = getWindow().getDecorView();
+        final Drawable windowBackground = decorView.getBackground();
         final ViewGroup root = (ViewGroup) decorView.findViewById(android.R.id.content);
+        final ViewGroup mainContent = findViewById(R.id.main_content);
         final Toolbar toolbar = findViewById(R.id.mobile_action_bar);
+        final BlurView actionBarBlur = findViewById(R.id.mobile_action_bar_blur);
+
+        actionBarBlur.setupWith(mainContent).setFrameClearDrawable(windowBackground)
+                .setBlurAlgorithm(new RenderScriptBlur(this)).setHasFixedTransformationMatrix(true);
 
         root.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
 
         root.setOnApplyWindowInsetsListener((v, insets) -> {
-            final FrameLayout mainContent = findViewById(R.id.main_content);
             final TypedArray styledAttributes = getTheme().obtainStyledAttributes(
                 new int[] { android.R.attr.actionBarSize });
-            final int actionBarSize = (int) styledAttributes.getDimension(0, 0);
+            final int actionBarSize = (int) styledAttributes.getDimension(0, 0)
+                    + insets.getSystemWindowInsetTop();
             styledAttributes.recycle();
 
             toolbar.setPadding(0, insets.getSystemWindowInsetTop(), 0, 0);
-            mainContent.setPadding(0, insets.getSystemWindowInsetTop() + actionBarSize, 0, 0);
+            mainContent.setPadding(0, actionBarSize, 0, 0);
             return insets;
         });
-
-        findViewById(R.id.action_bar_container).setVisibility(View.GONE);
 
         setActionBar(toolbar);
         mPhoneChangeReceiver = new PhoneChangeReceiver(this, new PhoneChangeReceiver.Client() {

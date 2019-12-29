@@ -21,18 +21,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <Toolbar
-        android:id="@+id/mobile_action_bar"
-        style="?android:attr/actionBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:navigationContentDescription="@*android:string/action_bar_up_description"
-        android:theme="?android:attr/actionBarTheme"/>
-
     <FrameLayout
         android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mobile_action_bar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="8dp">
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/mobile_action_bar_blur"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:blurOverlayColor="@color/blur_action_bar_bg">
+            <Toolbar
+                android:id="@+id/mobile_action_bar"
+                style="?android:attr/actionBarStyle"
+                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:navigationContentDescription="@*android:string/action_bar_up_description"
+                android:theme="?android:attr/actionBarTheme"/>
+        </eightbitlab.com.blurview.BlurView>
+    </com.google.android.material.card.MaterialCardView>
 </FrameLayout>
