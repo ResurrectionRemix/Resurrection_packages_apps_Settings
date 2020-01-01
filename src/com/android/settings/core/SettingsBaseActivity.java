@@ -57,6 +57,9 @@ public class SettingsBaseActivity extends FragmentActivity {
     private static final String TAG = "SettingsBaseActivity";
     private static final String DATA_SCHEME_PKG = "package";
 
+    View baseSpacer;
+    View baseMainLayout;
+
     // Serves as a temporary list of tiles to ignore until we heard back from the PM that they
     // are disabled.
     private static ArraySet<ComponentName> sTileBlacklist = new ArraySet<>();
@@ -115,9 +118,30 @@ public class SettingsBaseActivity extends FragmentActivity {
             return insets;
         });
 
+        baseSpacer = findViewById(R.id.settings_submenu_spacer);
+        baseMainLayout = findViewById(R.id.base_content_scrollable_container);
+
+        if (!isBaseSpacerEnabled() && baseSpacer != null && baseMainLayout != null) {
+            baseSpacer.setVisibility(View.GONE);
+            setMargins(baseMainLayout, 0,getResources().getDimensionPixelSize(R.dimen.homepage_spacer_off_margin),0,0);
+        }
+
         if (DEBUG_TIMING) {
             Log.d(TAG, "onCreate took " + (System.currentTimeMillis() - startTime)
                     + " ms");
+        }
+    }
+
+    private boolean isBaseSpacerEnabled() {
+        return Settings.System.getInt(this.getContentResolver(),
+        Settings.System.SETTINGS_SPACER, 0) != 0;
+    }
+
+    private static void setMargins (View v, int l, int t, int r, int b) {
+        if (v.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+            p.setMargins(l, t, r, b);
+            v.requestLayout();
         }
     }
 

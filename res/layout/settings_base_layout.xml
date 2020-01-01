@@ -1,5 +1,6 @@
 <!--
     Copyright (C) 2018 The Android Open Source Project
+    Copyright (C) 2019 ExtendedUI
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -21,10 +22,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <FrameLayout
-        android:id="@+id/content_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
     <androidx.cardview.widget.CardView
         android:id="@+id/action_bar_container"
         android:layout_width="match_parent"
@@ -46,4 +43,25 @@
                 android:navigationContentDescription="@*android:string/action_bar_up_description" />
         </eightbitlab.com.blurview.BlurView>
     </androidx.cardview.widget.CardView>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/base_content_scrollable_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/homepage_spacer_margin_base"
+        app:layout_behavior="com.android.settings.widget.FloatingAppBarScrollingViewBehavior">
+
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/submenu_spacer"/>
+        <include layout="@layout/toolbar"/>
+    </com.google.android.material.appbar.AppBarLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

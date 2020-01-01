@@ -56,6 +56,8 @@ public class SettingsHomepageActivity extends FragmentActivity {
     Context context;
     ImageView avatarView;
     UserManager mUserManager;
+    View homepageSpacer;
+    View homepageMainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +103,14 @@ public class SettingsHomepageActivity extends FragmentActivity {
         showFragment(new TopLevelSettings(), R.id.main_content);
         ((FrameLayout) findViewById(R.id.main_content))
                 .getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+
+        homepageSpacer = findViewById(R.id.settings_homepage_spacer);
+        homepageMainLayout = findViewById(R.id.main_content_scrollable_container);
+
+        if (!isHomepageSpacerEnabled() && homepageSpacer != null && homepageMainLayout != null) {
+            homepageSpacer.setVisibility(View.GONE);
+            setMargins(homepageMainLayout, 0,0,0,0);
+        }
     }
 
     private void showFragment(Fragment fragment, int id) {
@@ -114,6 +124,19 @@ public class SettingsHomepageActivity extends FragmentActivity {
             fragmentTransaction.show(showFragment);
         }
         fragmentTransaction.commit();
+    }
+
+    private boolean isHomepageSpacerEnabled() {
+        return Settings.System.getInt(this.getContentResolver(),
+        Settings.System.SETTINGS_SPACER, 0) != 0;
+    }
+
+    private static void setMargins (View v, int l, int t, int r, int b) {
+        if (v.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
+            p.setMargins(l, t, r, b);
+            v.requestLayout();
+        }
     }
 
     @VisibleForTesting
