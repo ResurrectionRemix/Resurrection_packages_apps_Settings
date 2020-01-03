@@ -57,8 +57,8 @@ public class SettingsBaseActivity extends FragmentActivity {
     private static final String TAG = "SettingsBaseActivity";
     private static final String DATA_SCHEME_PKG = "package";
 
-    View baseSpacer;
-    View baseMainLayout;
+    //View baseSpacer;
+    //View baseMainLayout;
 
     // Serves as a temporary list of tiles to ignore until we heard back from the PM that they
     // are disabled.
@@ -118,13 +118,13 @@ public class SettingsBaseActivity extends FragmentActivity {
             return insets;
         });
 
-        baseSpacer = findViewById(R.id.settings_submenu_spacer);
+        /*baseSpacer = findViewById(R.id.settings_submenu_spacer);
         baseMainLayout = findViewById(R.id.base_content_scrollable_container);
 
         if (!isBaseSpacerEnabled() && baseSpacer != null && baseMainLayout != null) {
             baseSpacer.setVisibility(View.GONE);
             setMargins(baseMainLayout, 0,getResources().getDimensionPixelSize(R.dimen.homepage_spacer_off_margin),0,0);
-        }
+        } */
 
         if (DEBUG_TIMING) {
             Log.d(TAG, "onCreate took " + (System.currentTimeMillis() - startTime)
@@ -132,7 +132,7 @@ public class SettingsBaseActivity extends FragmentActivity {
         }
     }
 
-    private boolean isBaseSpacerEnabled() {
+    /*private boolean isBaseSpacerEnabled() {
         return Settings.System.getInt(this.getContentResolver(),
         Settings.System.SETTINGS_SPACER, 0) != 0;
     }
@@ -143,7 +143,7 @@ public class SettingsBaseActivity extends FragmentActivity {
             p.setMargins(l, t, r, b);
             v.requestLayout();
         }
-    }
+    } */
 
     @Override
     public boolean onNavigateUp() {

@@ -51,6 +51,7 @@ import eightbitlab.com.blurview.BlurView;
 import eightbitlab.com.blurview.RenderScriptBlur;
 import com.android.settingslib.drawable.CircleFramedDrawable;
 
+import android.provider.Settings;
 public class SettingsHomepageActivity extends FragmentActivity {
 
     Context context;
