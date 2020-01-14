@@ -54,6 +54,10 @@
         android:fragment="com.android.settings.display.AutoBrightnessSettings"
         settings:controller="com.android.settings.display.AutoBrightnessPreferenceController"/>
 
+    <org.lineageos.internal.lineageparts.LineagePartsPreference
+        android:key="livedisplay"
+        lineage:requiresConfig="@*lineageos.platform:bool/config_enableLiveDisplay" />
+
     <com.android.settingslib.RestrictedPreference
         android:key="wallpaper"
         android:title="@string/wallpaper_settings_title"
