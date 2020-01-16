@@ -30,11 +30,18 @@
         android:icon="@drawable/rr_volume_icon" />
 
      <PreferenceScreen
+        android:title="@string/rr_fp_title"
+        android:key="rr_fp"
+        android:summary="@string/rr_fp_summary"
+        android:icon="@drawable/rr_fingerprint_icon"
+        android:fragment="com.android.settings.rr.fragments.FingerPrintSettings"/>
+
+     <PreferenceScreen
         android:title="@string/gaming_mode_title"
         android:key="gaming_mode"
         android:summary="@string/gaming_mode_summary"
         android:icon="@drawable/ic_gaming"
-        android:fragment="com.aicp.extras.fragments.GamingMode"/>
+        android:fragment="com.android.settings.rr.fragments.GamingMode"/>
 
     <PreferenceScreen
         android:key="dashboard"
