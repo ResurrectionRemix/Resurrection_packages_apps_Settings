@@ -176,7 +176,7 @@ public class QrCamera extends Handler {
         mPreviewSize = getBestPreviewSize(mParameters);
         mParameters.setPreviewSize(mPreviewSize.getWidth(), mPreviewSize.getHeight());
         Size pictureSize = getBestPictureSize(mParameters);
-        mParameters.setPreviewSize(pictureSize.getWidth(), pictureSize.getHeight());
+        mParameters.setPictureSize(pictureSize.getWidth(), pictureSize.getHeight());
 
         final List<String> supportedFlashModes = mParameters.getSupportedFlashModes();
         if (supportedFlashModes != null &&
