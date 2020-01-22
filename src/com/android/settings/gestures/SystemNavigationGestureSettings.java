@@ -183,7 +183,7 @@ public class SystemNavigationGestureSettings extends RadioButtonPickerFragment {
             p.setExtraWidgetVisibility(EXTRA_WIDGET_VISIBILITY_SETTING);
             p.setExtraWidgetOnClickListener((v) -> GestureNavigationBackSensitivityDialog
                         .show(this, getBackSensitivity(getContext(), mOverlayManager),
-                        getBackHeight(getContext())));
+                        getBackHeight(getContext()), getBackBlockIme(getContext())));
         } else {
             p.setExtraWidgetVisibility(EXTRA_WIDGET_VISIBILITY_GONE);
         }
@@ -301,6 +301,16 @@ public class SystemNavigationGestureSettings extends RadioButtonPickerFragment {
             BACK_GESTURE_OVERLAYS_TO_USE = BACK_GESTURE_INSET_OVERLAYS_NO_PILL;
         else
             BACK_GESTURE_OVERLAYS_TO_USE = BACK_GESTURE_INSET_OVERLAYS;
+    }
+
+    static void setBackBlockIme(Context context, boolean blockIme) {
+        Settings.System.putInt(context.getContentResolver(),
+                Settings.System.BACK_GESTURE_BLOCK_IME, blockIme ? 1 : 0);
+    }
+
+    static boolean getBackBlockIme(Context context) {
+        return Settings.System.getInt(context.getContentResolver(),
+                Settings.System.BACK_GESTURE_BLOCK_IME, 0) == 1;
     }
 
     @VisibleForTesting

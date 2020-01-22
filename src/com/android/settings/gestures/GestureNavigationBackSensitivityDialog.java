@@ -39,12 +39,15 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
     private boolean mArrowSwitchChecked;
     private boolean mGesturePillSwitchChecked;
     private boolean mGestureHapticChecked;
+    private boolean mBlockImeChecked;
 
     private static final String TAG = "GestureNavigationBackSensitivityDialog";
     private static final String KEY_BACK_SENSITIVITY = "back_sensitivity";
     private static final String KEY_BACK_HEIGHT = "back_height";
+    private static final String KEY_BACK_BLOCK_IME = "back_block_ime";
 
-    public static void show(SystemNavigationGestureSettings parent, int sensitivity, int height) {
+    public static void show(SystemNavigationGestureSettings parent, int sensitivity, int height,
+            boolean blockIme) {
         if (!parent.isAdded()) {
             return;
         }
@@ -54,6 +57,7 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
         final Bundle bundle = new Bundle();
         bundle.putInt(KEY_BACK_SENSITIVITY, sensitivity);
         bundle.putInt(KEY_BACK_HEIGHT, height);
+        bundle.putBoolean(KEY_BACK_BLOCK_IME, blockIme);
         dialog.setArguments(bundle);
         dialog.setTargetFragment(parent, 0);
         dialog.show(parent.getFragmentManager(), TAG);
@@ -102,6 +106,17 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
                 mGestureHapticChecked = GestureHapticSwitch.isChecked() ? true : false;
             }
         });
+        final Switch blockImeSwitch = view.findViewById(R.id.back_block_ime);
+        mBlockImeChecked = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.BACK_GESTURE_BLOCK_IME, 0) == 1;
+        blockImeSwitch.setChecked(mBlockImeChecked);
+        blockImeSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mBlockImeChecked = blockImeSwitch.isChecked() ? true : false;
+            }
+        });
+
         return new AlertDialog.Builder(getContext())
                 .setTitle(R.string.back_options_dialog_title)
                 .setMessage(R.string.back_sensitivity_dialog_message)
@@ -111,18 +126,23 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
                     getArguments().putInt(KEY_BACK_SENSITIVITY, sensitivity);
                     int height = seekBarHeight.getProgress();
                     getArguments().putInt(KEY_BACK_HEIGHT, height);
-                    SystemNavigationGestureSettings.setBackHeight(getActivity(), height);
-                    SystemNavigationGestureSettings.setBackSensitivity(getActivity(),
-                            getOverlayManager(), sensitivity);
+                    boolean blockIme = blockImeSwitch.isChecked();
+                    getArguments().putBoolean(KEY_BACK_BLOCK_IME, blockIme);
                     Settings.Secure.putInt(getActivity().getContentResolver(),
                             Settings.Secure.SHOW_BACK_ARROW_GESTURE, mArrowSwitchChecked ? 1 : 0);
                     Settings.System.putInt(getActivity().getContentResolver(),
                             Settings.System.GESTURE_PILL_TOGGLE, mGesturePillSwitchChecked ? 1 : 0);
                     Settings.System.putInt(getActivity().getContentResolver(),
                             Settings.System.BACK_GESTURE_HAPTIC, mGestureHapticChecked ? 1 : 0);
+                    Settings.System.putInt(getActivity().getContentResolver(),
+                            Settings.System.BACK_GESTURE_BLOCK_IME, mBlockImeChecked ? 1 : 0);
+                    SystemNavigationGestureSettings.setBackHeight(getActivity(), height);
+                    SystemNavigationGestureSettings.setBackSensitivity(getActivity(),
+                            getOverlayManager(), sensitivity);
                     SystemNavigationGestureSettings.setBackGestureOverlaysToUse(getActivity());
                     SystemNavigationGestureSettings.setCurrentSystemNavigationMode(getActivity(),
                             getOverlayManager(), SystemNavigationGestureSettings.getCurrentSystemNavigationMode(getActivity()));
+                    SystemNavigationGestureSettings.setBackBlockIme(getActivity(), blockIme);
                 })
                 .create();
     }
