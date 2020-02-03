@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2020 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:key="vibration_preferences"
+    android:title="@string/vibration_preferences"
+    settings:keywords="@string/keywords_vibration_preferences">
+
+    <!-- In-call feedback -->
+    <SwitchPreference
+        android:key="incall_feeedback_vibrate"
+        android:title="@string/incall_feeedback_vibrate_title"
+        android:defaultValue="false"/>
+
+    <!-- Also vibrate for calls -->
+    <SwitchPreference
+        android:key="vibrate_when_ringing"
+        android:title="@string/vibrate_when_ringing_title"
+        settings:controller="com.crdroid.settings.fragments.notifications.VibrateWhenRingPreferenceController"/>
+
+    <!-- Also vibrate for notifications -->
+     <com.rr.settings.preferences.SystemSettingSwitchPreference
+        android:key="vibrate_on_notifications"
+        android:title="@string/vibrate_on_notifications_title"
+        android:defaultValue="true"/>
+
+    <Preference
+        android:key="ring_vibration_intensity"
+        android:dependency="vibrate_when_ringing"
+        android:title="@string/vibration_intensity_ringer"/>
+
+    <Preference
+        android:key="notification_vibration_intensity"
+        android:title="@string/vibration_intensity_notification"/>
+
+    <!-- Vibrate on touch -->
+    <SwitchPreference
+        android:key="vibrate_on_touch"
+        android:title="@string/vibrate_on_touch_title"
+        android:summary="@string/vibrate_on_touch_summary"/>
+
+    <PreferenceCategory
+        android:key="vibration_patterns"
+        android:title="@string/ringtone_vibration_pattern"
+        android:dependency="vibrate_when_ringing"
+        settings:allowDividerAbove="true">
+
+        <com.android.settings.widget.RadioButtonPreference
+            android:key="pattern_dzzz_dzzz"
+            android:title="@string/pattern_dzzz_dzzz" />
+
+        <com.android.settings.widget.RadioButtonPreference
+            android:key="pattern_dzzz_da"
+            android:title="@string/pattern_dzzz_da" />
+
+        <com.android.settings.widget.RadioButtonPreference
+            android:key="pattern_mm_mm_mm"
+            android:title="@string/pattern_mm_mm_mm" />
+
+        <com.android.settings.widget.RadioButtonPreference
+            android:key="pattern_da_da_dzzz"
+            android:title="@string/pattern_da_da_dzzz" />
+
+        <com.android.settings.widget.RadioButtonPreference
+            android:key="pattern_da_dzzz_da"
+            android:title="@string/pattern_da_dzzz_da" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
