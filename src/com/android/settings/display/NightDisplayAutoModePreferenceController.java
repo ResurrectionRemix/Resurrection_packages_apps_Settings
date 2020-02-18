@@ -68,6 +68,14 @@ public class NightDisplayAutoModePreferenceController extends BasePreferenceCont
 
     @Override
     public final boolean onPreferenceChange(Preference preference, Object newValue) {
-        return mColorDisplayManager.setNightDisplayAutoMode(Integer.parseInt((String) newValue));
+        int newMode = Integer.parseInt((String) newValue);
+        int mode = mColorDisplayManager.getNightDisplayAutoMode();
+        if (mode != ColorDisplayManager.AUTO_MODE_DISABLED && newMode != ColorDisplayManager.AUTO_MODE_DISABLED) {
+            // turn of for short to get correct disable enable state changes
+            // needed to get correct start and stop time for twilight mode
+            // when it gets activated again
+            mColorDisplayManager.setNightDisplayActivated(false);
+        }
+        return mColorDisplayManager.setNightDisplayAutoMode(newMode);
     }
 }

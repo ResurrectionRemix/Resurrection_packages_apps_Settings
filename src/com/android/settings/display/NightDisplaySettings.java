@@ -81,11 +81,25 @@ public class NightDisplaySettings extends DashboardFragment
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
         if ("night_display_end_time".equals(preference.getKey())) {
-            showDialog(DIALOG_END_TIME);
-            return true;
+            if (mColorDisplayManager.getNightDisplayAutoMode()
+                        == ColorDisplayManager.AUTO_MODE_CUSTOM_TIME) {
+                showDialog(DIALOG_END_TIME);
+                return true;
+            } else if (mColorDisplayManager.getNightDisplayAutoMode()
+                        == ColorDisplayManager.AUTO_MODE_TWILIGHT) {
+                updatePreferenceStates();
+                return true;
+            }
         } else if ("night_display_start_time".equals(preference.getKey())) {
-            showDialog(DIALOG_START_TIME);
-            return true;
+            if (mColorDisplayManager.getNightDisplayAutoMode()
+                        == ColorDisplayManager.AUTO_MODE_CUSTOM_TIME) {
+                showDialog(DIALOG_START_TIME);
+                return true;
+            } else if (mColorDisplayManager.getNightDisplayAutoMode()
+                        == ColorDisplayManager.AUTO_MODE_TWILIGHT) {
+                updatePreferenceStates();
+                return true;
+            }
         }
         return super.onPreferenceTreeClick(preference);
     }

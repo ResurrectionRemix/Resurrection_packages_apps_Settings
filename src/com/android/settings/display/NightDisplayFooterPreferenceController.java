@@ -39,6 +39,8 @@ public class NightDisplayFooterPreferenceController extends BasePreferenceContro
 
     @Override
     public void updateState(Preference preference) {
-        preference.setTitle(R.string.night_display_text);
+        String s = mContext.getResources().getString(R.string.night_display_text);
+        s += mContext.getResources().getString(R.string.night_display_location_text);
+        preference.setTitle(s);
     }
 }
