@@ -64,10 +64,13 @@ public class LockSettings extends SettingsPreferenceFragment implements
         private SystemSettingSeekBarPreference mDozeBrightness;
         private SystemSettingSeekBarPreference mPulseBrightness;
 
+        private Context mContext;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_lock);
+        mContext = getActivity();
 
             int defaultDoze = getResources().getInteger(
                     com.android.internal.R.integer.config_screenBrightnessDoze);

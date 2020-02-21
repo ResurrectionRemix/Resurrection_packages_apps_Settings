@@ -40,4 +40,11 @@
         settings:userRestriction="no_config_brightness"
         settings:allowDividerAbove="true" />
 
+    <com.android.settings.widget.SeekBarPreference
+        android:key="auto_brightness_min"
+        android:title="@string/auto_brightness_min_title"
+        android:icon="@drawable/rr_add_icon"
+        android:dependency="auto_brightness"
+        settings:keywords="@string/auto_brightness_min_title"
+        settings:controller="com.android.settings.display.AutoBrightnessMinPreferenceController" />
 </PreferenceScreen>
