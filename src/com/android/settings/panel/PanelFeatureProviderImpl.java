@@ -40,6 +40,8 @@ public class PanelFeatureProviderImpl implements PanelFeatureProvider {
                 return WifiPanel.create(context);
             case Settings.Panel.ACTION_VOLUME:
                 return VolumePanel.create(context);
+            case Settings.Panel.ACTION_MOBILE_DATA:
+                return MobileDataPanel.create(context);
         }
 
         throw new IllegalStateException("No matching panel for: "  + panelType);
