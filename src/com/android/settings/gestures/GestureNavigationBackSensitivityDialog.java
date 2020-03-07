@@ -48,7 +48,7 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
     private static final String KEY_SHOW_NAV = "show_nav";
 
     public static void show(SystemNavigationGestureSettings parent, int sensitivity, int height,
-            boolean blockIme, int length, boolean showNav) {
+           boolean blockIme, int length, boolean showNav) {
         if (!parent.isAdded()) {
             return;
         }
@@ -58,6 +58,7 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
         final Bundle bundle = new Bundle();
         bundle.putInt(KEY_BACK_SENSITIVITY, sensitivity);
         bundle.putInt(KEY_BACK_HEIGHT, height);
+        bundle.putInt(KEY_HOME_HANDLE_SIZE, length);
         bundle.putBoolean(KEY_BACK_BLOCK_IME, blockIme);
         bundle.putBoolean(KEY_SHOW_NAV, showNav);
         dialog.setArguments(bundle);
@@ -78,6 +79,8 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
         seekBarSensitivity.setProgress(getArguments().getInt(KEY_BACK_SENSITIVITY));
         final SeekBar seekBarHeight = view.findViewById(R.id.back_height_seekbar);
         seekBarHeight.setProgress(getArguments().getInt(KEY_BACK_HEIGHT));
+        final SeekBar seekBarHandleSize = view.findViewById(R.id.home_handle_seekbar);
+        seekBarHandleSize.setProgress(getArguments().getInt(KEY_HOME_HANDLE_SIZE));
         final Switch arrowSwitch = view.findViewById(R.id.back_arrow_gesture_switch);
         mArrowSwitchChecked = Settings.Secure.getInt(getActivity().getContentResolver(),
                 Settings.Secure.SHOW_BACK_ARROW_GESTURE, 1) == 1;
@@ -128,10 +131,13 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
                     getArguments().putInt(KEY_BACK_SENSITIVITY, sensitivity);
                     int height = seekBarHeight.getProgress();
                     getArguments().putInt(KEY_BACK_HEIGHT, height);
+                    int length = seekBarHandleSize.getProgress();
+                    getArguments().putInt(KEY_HOME_HANDLE_SIZE, length);
                     boolean blockIme = blockImeSwitch.isChecked();
                     getArguments().putBoolean(KEY_BACK_BLOCK_IME, blockIme);
                     boolean showNav = showNavSwitch.isChecked();
                     getArguments().putBoolean(KEY_SHOW_NAV, showNav);
+
                     Settings.Secure.putInt(getActivity().getContentResolver(),
                             Settings.Secure.SHOW_BACK_ARROW_GESTURE, mArrowSwitchChecked ? 1 : 0);
                     Settings.System.putInt(getActivity().getContentResolver(),
@@ -143,6 +149,7 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
                     SystemNavigationGestureSettings.setBackHeight(getActivity(), height);
                     SystemNavigationGestureSettings.setBackSensitivity(getActivity(),
                             getOverlayManager(), sensitivity);
+                    SystemNavigationGestureSettings.setHomeHandleSize(getActivity(), length);
                     SystemNavigationGestureSettings.setBackBlockIme(getActivity(), blockIme);
                     SystemNavigationGestureSettings.setShowNav(getActivity(), showNav);
                 })
