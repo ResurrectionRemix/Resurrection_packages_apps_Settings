@@ -18,21 +18,21 @@ import android.app.UiModeManager;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.os.PowerManager;
-import androidx.preference.DropDownPreference;
+import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import com.android.settings.R;
 import com.android.settings.core.BasePreferenceController;
 
 /**
- * Controller for the dark ui option dropdown
+ * Controller for the dark ui option list
  */
 public class DarkModeScheduleSelectorController extends BasePreferenceController
         implements Preference.OnPreferenceChangeListener {
 
     private final UiModeManager mUiModeManager;
     private PowerManager mPowerManager;
-    private DropDownPreference mPreference;
+    private ListPreference mPreference;
     private String mCurrentMode;
 
     public DarkModeScheduleSelectorController(Context context, String key) {
