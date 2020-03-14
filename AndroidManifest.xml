@@ -655,6 +655,14 @@
                 android:value="com.android.settings.applications.assist.ManageAssist" />
         </activity>
 
+        <receiver android:name="com.android.settings.rr.fragments.GamingModeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.GAMING_MODE_TURN_OFF" />
+                <action android:name="android.intent.action.GAMING_MODE_TURN_ON" />
+            </intent-filter>
+        </receiver>
+
+
         <activity android:name="Settings$KeyboardLayoutPickerActivity"
             android:label="@string/keyboard_layout_picker_title"
             android:clearTaskOnLaunch="true"

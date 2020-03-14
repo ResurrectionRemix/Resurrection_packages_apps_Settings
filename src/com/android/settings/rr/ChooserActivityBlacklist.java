@@ -122,7 +122,7 @@ public class ChooserActivityBlacklist extends SettingsPreferenceFragment impleme
         mBlacklistPrefList = getPreferenceScreen();
         mBlacklistPrefList.setOrderingAsAdded(false);
         mBlacklistPackages = new HashMap<String, Package>();
-        mAddBlacklistPref = findPreference(KEY_BLACKLIST);
+        mAddBlacklistPref = (Preference) findPreference(KEY_BLACKLIST);
         mAddBlacklistPref.setOnPreferenceClickListener(this);
     }
 
