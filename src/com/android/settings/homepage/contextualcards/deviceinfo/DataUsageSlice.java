@@ -21,6 +21,7 @@ import android.app.settings.SettingsEnums;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.telephony.SubscriptionManager;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.TextUtils;
@@ -68,8 +69,20 @@ public class DataUsageSlice implements CustomSliceable {
         final String title = mContext.getString(R.string.data_usage_summary_title);
         final SliceAction primaryAction = SliceAction.createDeeplink(getPrimaryAction(), icon,
                 ListBuilder.ICON_IMAGE, title);
-        final DataUsageController dataUsageController = new DataUsageController(mContext);
-        final DataUsageController.DataUsageInfo info = dataUsageController.getDataUsageInfo();
+
+        DataUsageController dataUsageController = new DataUsageController(mContext);
+        DataUsageController.DataUsageInfo info = null;
+
+        SubscriptionManager subscriptionManager = (SubscriptionManager) mContext
+                .getSystemService(Context.TELEPHONY_SUBSCRIPTION_SERVICE);
+        int defaultSubId = subscriptionManager.getDefaultDataSubscriptionId();
+        if (defaultSubId == SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
+            info = dataUsageController.getDataUsageInfo();
+        } else {
+            info = dataUsageController.getDataUsageInfo(
+                    DataUsageUtils.getMobileTemplate(mContext, defaultSubId));
+        }
+
         final ListBuilder listBuilder =
                 new ListBuilder(mContext, CustomSliceRegistry.DATA_USAGE_SLICE_URI,
                         ListBuilder.INFINITY)
