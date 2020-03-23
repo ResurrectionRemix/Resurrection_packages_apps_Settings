@@ -162,8 +162,8 @@ public class SystemNavigationGestureSettings extends RadioButtonPickerFragment {
             p.setExtraWidgetVisibility(EXTRA_WIDGET_VISIBILITY_SETTING);
             p.setExtraWidgetOnClickListener((v) -> GestureNavigationBackSensitivityDialog
                         .show(this, getBackSensitivity(getContext(), mOverlayManager),
-                        getBackHeight(getContext()), getHomeHandleSize(getContext())
-                        getBackBlockIme(getContext(), getShowNav(getContext()), getImeSpace(getContext()));
+                        getBackHeight(getContext()), getBackBlockIme(getContext()),
+                        getHomeHandleSize(getContext()), getShowNav(getContext()), getImeSpace(getContext())));
         } else {
             p.setExtraWidgetVisibility(EXTRA_WIDGET_VISIBILITY_GONE);
         }
@@ -270,17 +270,13 @@ public class SystemNavigationGestureSettings extends RadioButtonPickerFragment {
     }
 
     static void setHomeHandleSize(Context context, int length) {
-        // length cant be range 0 - 2
-        // 2 means long
-        // 1 measns middle
-        // 0 means aosp size
         Settings.System.putInt(context.getContentResolver(),
                 Settings.System.NAVIGATION_HANDLE_WIDTH, length);
     }
 
     static int getHomeHandleSize(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.NAVIGATION_HANDLE_WIDTH, 0);
+                Settings.System.NAVIGATION_HANDLE_WIDTH, 1);
     }
 
     static void setBackBlockIme(Context context, boolean blockIme) {

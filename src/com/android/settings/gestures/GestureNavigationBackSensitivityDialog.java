@@ -48,9 +48,10 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
     private static final String KEY_BACK_BLOCK_IME = "back_block_ime";
     private static final String KEY_SHOW_NAV = "show_nav";
     private static final String KEY_NAVIGATION_IME_SPACE = "navigation_bar_ime_space";
+   private static final String KEY_HOME_HANDLE_SIZE = "home_handle_width";
 
     public static void show(SystemNavigationGestureSettings parent, int sensitivity, int height,
-            int length, boolean blockIme, int length, boolean showNav, boolean imeSpace) {
+            boolean blockIme, int length, boolean showNav, boolean imeSpace) {
         if (!parent.isAdded()) {
             return;
         }
