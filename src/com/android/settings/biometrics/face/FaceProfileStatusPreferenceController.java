@@ -28,7 +28,7 @@ public class FaceProfileStatusPreferenceController extends FaceStatusPreferenceC
     private static final String KEY_FACE_SETTINGS = "face_settings_profile";
 
     public FaceProfileStatusPreferenceController(Context context) {
-        super(context, KEY_FACE_SETTINGS);
+        super(context, KEY_FACE_SETTINGS, null);
     }
 
     @Override

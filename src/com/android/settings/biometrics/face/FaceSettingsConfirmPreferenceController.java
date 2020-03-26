@@ -27,6 +27,8 @@ import androidx.preference.Preference;
 import com.android.settings.Utils;
 import com.android.settings.core.TogglePreferenceController;
 
+import com.android.internal.util.custom.faceunlock.FaceUnlockUtils;
+
 /**
  * Preference controller giving the user an option to always require confirmation.
  */
@@ -76,6 +78,9 @@ public class FaceSettingsConfirmPreferenceController extends FaceSettingsPrefere
 
     @Override
     public int getAvailabilityStatus() {
+        if (FaceUnlockUtils.hasMotoFaceUnlock() ){
+            return UNSUPPORTED_ON_DEVICE;
+        }
         return AVAILABLE;
     }
 }

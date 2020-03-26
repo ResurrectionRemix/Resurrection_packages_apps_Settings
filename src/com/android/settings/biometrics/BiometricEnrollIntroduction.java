@@ -44,7 +44,7 @@ public abstract class BiometricEnrollIntroduction extends BiometricEnrollBase
         implements LinkSpan.OnClickListener {
 
     private UserManager mUserManager;
-    private boolean mHasPassword;
+    protected boolean mHasPassword;
     private boolean mBiometricUnlockDisabledByAdmin;
     private TextView mErrorText;
     protected boolean mConfirmingCredentials;

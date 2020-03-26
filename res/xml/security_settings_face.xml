@@ -50,7 +50,8 @@
 
     <PreferenceCategory
         android:key="security_settings_face_manage_category"
-        android:title="@string/security_settings_face_settings_require_category">
+        android:title="@string/security_settings_face_settings_require_category"
+        app:controller="com.android.settings.biometrics.face.FaceSettingsManagePreferenceController">
         <SwitchPreference
             android:key="security_settings_face_require_attention"
             android:title="@string/security_settings_face_settings_require_attention"
