@@ -83,7 +83,7 @@ public class ThemeSettings extends DashboardFragment implements
     private static final String KEY_RR_BG = "android.theme.customization.rr_tools_bg";
     private static final String ANIM = "animation";
     private static final String STATIC = "preview";
-    private static final String NAV_STYLE = "navbar_style";
+    private static final String NAV_STYLE = "navbar_base";
     private static final String QS_TILE_STYLE = "qs_tile_style";
 
     private IOverlayManager mOverlayService;
@@ -100,7 +100,7 @@ public class ThemeSettings extends DashboardFragment implements
     private DarkModeObserver mDarkModeObserver;
     private Runnable mCallback;
     private ListPreference mQsTileStyle;
-    private ListPreference mNavStyle;
+    private PreferenceCategory mNavStyle;
 
     private Preference mAnim;
     private AboutSettingsPreview mStatic;
@@ -118,7 +118,7 @@ public class ThemeSettings extends DashboardFragment implements
 		ContentResolver resolver = getActivity().getContentResolver();
         mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
         mHeaderStyle = (ListPreference) findPreference(HEADER);
-        mNavStyle = (ListPreference) findPreference(NAV_STYLE);
+        mNavStyle = (PreferenceCategory) findPreference(NAV_STYLE);
         PreferenceScreen screen = getPreferenceScreen();
         mRRbg = (ListPreference) findPreference(KEY_RR_BG);
         mThemeSwitch.setOnPreferenceChangeListener(this);

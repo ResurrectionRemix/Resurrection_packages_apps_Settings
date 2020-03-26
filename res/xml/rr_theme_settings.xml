@@ -29,7 +29,8 @@
         android:key="animation"
         android:layout="@layout/rr_themes_animation" />
 
-   <PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/rr_themes_cat_base">
 
 
     <com.android.settings.display.darkmode.DarkModePreference
@@ -53,23 +54,21 @@
         android:entries="@array/theme_type_titles"
         android:entryValues="@array/theme_type_values"/>
 
-    <com.android.settings.rr.Preferences.SystemSettingListPreference
-        android:key="qs_header_style"
-        android:title="@string/qs_header_style_title"
-        android:summary="@string/qs_header_style_summary"
-        android:icon="@drawable/rr_header_icon"
-        android:dialogTitle="@string/qs_header_style_title"
-        android:entries="@array/qs_header_style_entries"
-        android:entryValues="@array/qs_header_style_values"/>
+    </PreferenceCategory>
 
+
+    <PreferenceCategory
+        android:title="@string/rr_color_base">
     <Preference
         android:key="accent"
         android:title="@string/rr_color_settings"
         android:icon="@drawable/rr_accent_icon"
         android:summary="@string/rr_color_settings_summary"
         android:fragment="com.android.settings.rr.ColorSettings" />
+    </PreferenceCategory>
 
-
+    <PreferenceCategory
+        android:title="@string/rr_switch_base">
    <!-- Switch Style -->
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="berry_switch_style"
@@ -79,7 +78,11 @@
         android:entries="@array/switch_style_entries"
         android:entryValues="@array/switch_style_values"
         android:defaultValue="0" />
+    </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="navbar_base"
+        android:title="@string/rr_nav_base">
     <!-- Navbar Style -->
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="navbar_style"
@@ -90,6 +93,10 @@
         android:entryValues="@array/navbar_style_values"
         android:defaultValue="0" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_qs_base">
     <ListPreference
          android:key="qs_tile_style"
          android:title="@string/qs_tile_style_title"
@@ -99,11 +106,48 @@
          android:entries="@array/qs_selector_entries"
          android:entryValues="@array/qs_selector_values" />
 
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="brightness_slider_style"
+        android:icon="@drawable/rr_brightness_slider_icon"
+        android:dialogTitle="@string/brightness_slider_style_title"
+        android:summary="%s"
+        android:title="@string/brightness_slider_style_title"
+        android:entries="@array/brightness_slider_style_selector_entries"
+        android:entryValues="@array/brightness_slider_style_selector_values" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="qs_header_style"
+        android:title="@string/qs_header_style_title"
+        android:summary="@string/qs_header_style_summary"
+        android:icon="@drawable/rr_header_icon"
+        android:dialogTitle="@string/qs_header_style_title"
+        android:entries="@array/qs_header_style_entries"
+        android:entryValues="@array/qs_header_style_values"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/rr_radius_base">
+    <ListPreference
+        android:key="android.theme.customization.statusbar_height"
+        android:icon="@drawable/rr_statusbar_icon"
+        android:title="@string/theme_customization_statusbar_height_title"/>
+
+    <ListPreference
+        android:key="android.theme.customization.ui_radius"
+        android:icon="@drawable/rr_radius_2_icon"
+        android:title="@string/theme_customization_ui_radius_title"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_fonts_base">
+
     <ListPreference
         android:key="android.theme.customization.font"
         android:icon="@drawable/rr_font_size_icon"
         android:title="@string/theme_customization_font_title"/>
+    </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/rr_icons_base">
     <ListPreference
         android:key="android.theme.customization.adaptive_icon_shape"
         android:icon="@drawable/rr_shape_icon"
@@ -115,16 +159,6 @@
         android:title="@string/theme_customization_sysui_icon_title"/>
 
     <ListPreference
-        android:key="android.theme.customization.statusbar_height"
-        android:icon="@drawable/rr_statusbar_icon"
-        android:title="@string/theme_customization_statusbar_height_title"/>
-
-    <ListPreference
-        android:key="android.theme.customization.ui_radius"
-        android:icon="@drawable/rr_radius_2_icon"
-        android:title="@string/theme_customization_ui_radius_title"/>
-
-    <ListPreference
         android:key="android.theme.customization.rr_tools_icon"
         android:icon="@drawable/rr_main_settings_icon"
         android:title="@string/theme_customization_rr_tools_icon"/>
@@ -133,6 +167,5 @@
         android:key="android.theme.customization.rr_tools_bg"
         android:icon="@drawable/rr_color_icon"
         android:title="@string/theme_customization_rr_bg_icon"/>
-
     </PreferenceCategory>
 </PreferenceScreen>
