@@ -142,7 +142,6 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
         seekBarHandleHeight.setProgress(getArguments().getInt(KEY_HOME_HANDLE_HEIGHT));
         return new AlertDialog.Builder(getContext())
                 .setTitle(R.string.back_options_dialog_title)
-                .setMessage(R.string.back_sensitivity_dialog_message)
                 .setView(view)
                 .setPositiveButton(R.string.okay, (dialog, which) -> {
                     int sensitivity = seekBarSensitivity.getProgress();
