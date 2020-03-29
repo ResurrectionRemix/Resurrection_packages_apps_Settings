@@ -94,10 +94,16 @@
         android:title="@string/global_actions_panel_short_title"
         android:fragment="com.android.settings.gestures.GlobalActionsPanelSettings"
         settings:controller="com.android.settings.gestures.GlobalActionsPanelPreferenceController" />
-
     <Preference
         android:key="gesture_volume_skiptrack_summary"
         android:title="@string/volume_skiptrack_screen_title"
         android:fragment="com.android.settings.gestures.VolumeSkipTrackSettings"
         settings:controller="com.android.settings.gestures.VolumeSkipTrackPreferenceController" />
+
+    <Preference
+        android:key="gesture_adaptive_playback_summary"
+        android:title="@string/adaptive_playback_screen_title"
+        android:fragment="com.android.settings.gestures.AdaptivePlaybackGestureSettings"
+        settings:controller="com.android.settings.gestures.AdaptivePlaybackParentPreferenceController" />
+
 </PreferenceScreen>
