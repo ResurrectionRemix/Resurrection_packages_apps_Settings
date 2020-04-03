@@ -40,6 +40,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.support.SupportPreferenceController;
 import com.android.settingslib.core.instrumentation.Instrumentable;
 import com.android.settingslib.search.SearchIndexable;
+import com.android.settingslib.widget.AdaptiveIcon;
 
 import java.util.Arrays;
 import java.util.List;
@@ -165,7 +166,24 @@ public class TopLevelSettings extends DashboardFragment implements
     private void themePreference(Preference pref) {
         Drawable icon = pref.getIcon();
         if (icon != null) {
-            if (icon instanceof LayerDrawable) {
+            if (icon instanceof AdaptiveIcon) {
+                AdaptiveIcon aIcon = (AdaptiveIcon) icon;
+                // Clear colors from previous calls
+                aIcon.resetColorsAicp();
+                switch (mIconStyle) {
+                    case 1:
+                        aIcon.setBackgroundColorAicp(mAccentColor);
+                        break;
+                    case 2:
+                        aIcon.setForegroundColorAicp(mNormalColor);
+                        aIcon.setBackgroundColorAicp(0);
+                        break;
+                    case 3:
+                        aIcon.setForegroundColorAicp(mAccentColor);
+                        aIcon.setBackgroundColorAicp(0);
+                        break;
+                }
+            } else if (icon instanceof LayerDrawable) {
                 LayerDrawable lIcon = (LayerDrawable) icon;
                 if (lIcon.getNumberOfLayers() == 2) {
                     Drawable fg = lIcon.getDrawable(1);
