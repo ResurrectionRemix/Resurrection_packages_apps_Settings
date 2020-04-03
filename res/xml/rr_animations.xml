@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 RR
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/animation_title">
+
+    <ListPreference
+        android:key="screen_off_animation"
+        android:title="@string/screen_off_animation_title"
+        android:entries="@array/screen_off_animation_entries"
+        android:icon="@drawable/rr_screen_off_animations_icon"
+        android:entryValues="@array/screen_off_animation_values" />
+
+        <!--ListPreference
+            android:key="listview_animation"
+            android:dialogTitle="@string/listview_animation_title"
+            android:title="@string/listview_animation_title"
+            android:entries="@array/listview_animation_entries"
+            android:entryValues="@array/listview_animation_values"
+            android:icon="@drawable/rr_list_icon"
+            android:defaultValue="0" />
+        <ListPreference
+            android:key="listview_interpolator"
+            android:dialogTitle="@string/listview_interpolator_title"
+            android:title="@string/listview_interpolator_title"
+            android:entries="@array/listview_interpolator_entries"
+            android:entryValues="@array/listview_interpolator_values"
+            android:icon="@drawable/rr_int_icon"
+            android:defaultValue="0" />
+
+        <ListPreference
+            android:key="pref_scrollingcache"
+            android:dialogTitle="@string/pref_scrollingcache_title"
+            android:title="@string/pref_scrollingcache_title"
+            android:summary="@string/pref_scrollingcache_summary"
+            android:entries="@array/entries_scrollingcache"
+            android:icon="@drawable/rr_scroll_icon"
+            android:entryValues="@array/values_scrollingcache" />
+
+        <PreferenceScreen
+            android:key="rr_toast"
+            android:fragment="com.android.settings.rr.ToastAnimations"
+            android:title="@string/rr_toast_title"
+            android:summary="@string/rr_toast_summary"
+            android:icon="@drawable/rr_toast_icon"
+            />
+
+        <ListPreference
+            android:key="tabs_effect"
+            android:title="@string/tabs_effect_title"
+            android:entries="@array/tabs_effect_entries"
+            android:entryValues="@array/tabs_effect_values"
+            android:icon="@drawable/rr_transition_icon"
+            android:persistent="false" />
+
+        <PreferenceScreen
+            android:key="rr_customanims"
+            android:fragment="com.android.settings.rr.CustomAnims"
+            android:title="@string/system_animation_title"
+            android:summary="@string/system_animation_summary"
+            /-->
+
+</PreferenceScreen>
