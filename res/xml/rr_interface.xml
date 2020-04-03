@@ -22,6 +22,13 @@
         android:fragment="com.android.settings.rr.HeadsUp"
         android:icon="@drawable/rr_heads_up_icon" />
 
+    <PreferenceScreen
+        android:key="rr_volume"
+        android:fragment="com.android.settings.rr.VolumePanelSettings"
+        android:title="@string/rr_volume_title"
+        android:summary="@string/rr_volume_summary"
+        android:icon="@drawable/rr_volume_icon" />
+
         <Preference
             android:key="qs_rows_columns"
             android:fragment="com.android.settings.rr.fragments.QsRowsColumns"
