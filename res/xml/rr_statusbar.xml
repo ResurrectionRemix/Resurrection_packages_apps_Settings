@@ -21,6 +21,14 @@
     android:title="@string/rr_statusbar_title">
 
      <PreferenceScreen
+                android:id="@+id/rr_sb_icons"
+                android:title="@string/rr_sb_icons"
+                android:summary="@string/rr_sb_icons_summary"
+                android:fragment="com.android.settings.rr.StatusBarIcons"
+                android:icon="@drawable/rr_battery_icon"
+                />
+
+     <PreferenceScreen
                 android:id="@+id/battery_style_settings"
                 android:title="@string/battery_bar_title"
                 android:summary="@string/battery_bar_summary"
