@@ -28,6 +28,13 @@
                 android:icon="@drawable/rr_battery_icon"
                 />
 
+    <PreferenceScreen
+        android:key="rr_logo"
+        android:title="@string/status_bar_logo_title"
+        android:summary="@string/status_bar_logo_summary"
+        android:fragment="com.android.settings.rr.LogoSettings"
+        android:icon="@drawable/rr_statusbar_logo_icon" />
+
      <PreferenceScreen
                 android:id="@+id/battery_style_settings"
                 android:title="@string/battery_bar_title"
