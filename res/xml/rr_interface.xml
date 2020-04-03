@@ -15,6 +15,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_ui_title">
 
+    <PreferenceScreen
+        android:key="rr_headsup"
+        android:title="@string/rr_headsup_cat"
+        android:summary="@string/rr_headsup_summary"
+        android:fragment="com.android.settings.rr.HeadsUp"
+        android:icon="@drawable/rr_heads_up_icon" />
+
         <Preference
             android:key="qs_rows_columns"
             android:fragment="com.android.settings.rr.fragments.QsRowsColumns"
