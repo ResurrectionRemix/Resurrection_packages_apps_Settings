@@ -18,10 +18,11 @@ package com.android.settings.rr.preferences;
 import android.content.ContentResolver;
 import android.preference.PreferenceDataStore;
 import android.os.UserHandle;
+import androidx.preference.*;
 
 import lineageos.providers.LineageSettings;
 
-public class LineageSecureSettingsStore extends android.support.v7.preference.PreferenceDataStore
+public class LineageSecureSettingsStore extends androidx.preference.PreferenceDataStore
         implements PreferenceDataStore {
 
     private ContentResolver mContentResolver;

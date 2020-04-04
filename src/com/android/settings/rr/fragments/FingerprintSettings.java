@@ -29,7 +29,9 @@ import androidx.preference.SwitchPreference;
 
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
-import com.android.settings.rr.util.RRContextConstants;
+import com.android.settings.rr.utils.RRContextConstants;
+import com.android.internal.logging.nano.MetricsProto;
+
 
 public class FingerprintSettings extends SettingsPreferenceFragment {
 
@@ -38,11 +40,6 @@ public class FingerprintSettings extends SettingsPreferenceFragment {
 
     private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
-
-    @Override
-    protected int getPreferenceResource() {
-        return R.xml.lockscreen;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -33,7 +33,7 @@ import androidx.core.content.res.TypedArrayUtils;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceViewHolder;
 
-import com.android.settings.rr.R;
+import com.android.settings.R;
 import com.android.settingslib.Utils;
 import com.android.settingslib.widget.LayoutPreference;
 

@@ -19,8 +19,9 @@ package com.android.settings.rr.Preferences;
 import android.content.ContentResolver;
 import android.preference.PreferenceDataStore;
 import android.provider.Settings;
+import androidx.preference.*;
 
-public class SecureSettingsStore extends android.support.v7.preference.PreferenceDataStore
+public class SecureSettingsStore extends androidx.preference.PreferenceDataStore
         implements PreferenceDataStore {
 
     private ContentResolver mContentResolver;

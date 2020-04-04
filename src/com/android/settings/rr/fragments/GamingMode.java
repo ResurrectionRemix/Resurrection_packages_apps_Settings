@@ -58,7 +58,7 @@ import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
 
 import com.android.internal.util.rr.DeviceUtils;
 import com.android.internal.util.rr.ActionConstants;
-import com.android.internal.util.rr.ActionUtils;
+// com.android.internal.util.rr.ActionUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -94,10 +94,10 @@ public class GamingMode extends SettingsPreferenceFragment
         mGamingModeEnabled = (SystemSettingSwitchPreference) findPreference(GAMING_MODE_ENABLED);
         mHardwareKeysDisable = (SystemSettingSwitchPreference) findPreference(GAMING_MODE_HW_KEYS);
 
-        final boolean haveNavbar = ActionUtils.hasNavbarByDefault(getActivity());
+        /*final boolean haveNavbar = ActionUtils.hasNavbarByDefault(getActivity());
         if (haveNavbar) {
             prefScreen.removePreference(mHardwareKeysDisable);
-        }
+        }*/
 
         mPackageManager = getActivity().getPackageManager();
         mPackageAdapter = new PackageListAdapter(getActivity());

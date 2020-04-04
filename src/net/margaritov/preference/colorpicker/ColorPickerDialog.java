@@ -21,7 +21,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -138,7 +137,6 @@ public class ColorPickerDialog extends AlertDialog implements ColorPickerView.On
         dismiss();
     }
 
-    @NonNull
     @Override
     public Bundle onSaveInstanceState() {
         Bundle state = super.onSaveInstanceState();
@@ -149,7 +147,7 @@ public class ColorPickerDialog extends AlertDialog implements ColorPickerView.On
     }
 
     @Override
-    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         mOldColor.setColor(savedInstanceState.getInt("old_color"));
         mColorPicker.setColor(savedInstanceState.getInt("new_color"), true);

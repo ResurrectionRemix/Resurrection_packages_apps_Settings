@@ -19,8 +19,9 @@ package com.android.settings.rr.Preferences;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import androidx.preference.*;
 
-public class ListPreference extends android.support.v7.preference.ListPreference {
+public class ListPreference extends androidx.preference.ListPreference {
     private boolean mAutoSummary = false;
 
     public ListPreference(Context context, AttributeSet attrs, int defStyle) {

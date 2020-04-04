@@ -29,13 +29,9 @@ public class HeadsUpActivityBlacklist extends ChooserActivityBlacklist {
     private static final String KEY_HEADSUP_BLACKLIST = "add_headsup_blacklist_packages";
 
     @Override
-    protected int getPreferenceResource() {
-        return R.xml.headsup_activity_blacklist;
-    }
-
-    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.headsup_activity_blacklist);
         initializeAllPreferences();
     }
 

@@ -77,11 +77,12 @@
 
 
     <string name="support_team_title">Moderator Tag</string>
-
     <string name="device_maintainers_title">Devices and maintainers</string>
     <string name="device_maintainers_title_summary">List of devices and their official RR-OS maintainers</string>
     <string name="maintainers_note_title">Note</string>
-    <string name="maintainers_note_title_summary">Send a PM to \'Varun Date\' at Hangouts containing the link to your ROM thread if you want your name to be added in Device Maintainers list.</string>
+    <string name="maintainers_note_title_summary">Make a pull request on Settings app with your name against your device if you want to apply to be a maintainer for a certain device</string>
+    <string name="device_summary"><xliff:g example="goldfish" id="codename">%1$s</xliff:g>\nMaintainer - <xliff:g example="deletescape" id="maintainer">%2$s</xliff:g></string>
+
  
     <!-- The Drill -->
     <string name="rr_drill_title">The drill</string>
@@ -94,9 +95,6 @@
     <string name="features_error">Unable to load list</string>
     <string name="features_unknown">Unknown</string>
     <string name="features_version">1.0</string>
-
-    <string name="rr_volume_title">Volume panel</string>
-    <string name="rr_power_title">Power dialog</string>
 
     <!-- Share RR ROM -->
     <string name="share_rr">Share</string>
@@ -145,6 +143,7 @@
     <string name="recents_ui_title">General UI</string>
     <string name="animation_title">Animations</string>
     <string name="button_settings">Buttons</string>
+    <string name="rr_toast_title">Toast</string>
     <string name="rr_misc_title">Miscellaneous</string>
 
    <!--RR Configurations Summaries-->
@@ -199,12 +198,15 @@
     <string name="rr_fonts_style_summary">Choose your prefered font</string>
     <string name="stock_recents_category">Stock recents</string>
     <string name="edge_gestures_summary">Navigate using edge gestures</string>
+    <string name="lockscreen_title">Lock screen</string>
+    <string name="rr_headsup_cat">HeadsUp</string>
+    <string name="rr_headsup_summary">Advanced headsup options</string>
+    <string name="slim_recents_summary">View recents options</string>
      
     <string name="system_animations">System animations</string>
     <string name="rr_ui_title">Interface</string>
     <string name="rr_dash_board_title">Dashboard</string>
     <string name="rr_fp_title">Fingerprint settings</string>
-    <string name="animation_title">Animations</string>
 
     <string name="recents_type_title">Recents type</string>
     <string name="recents_stock">Stock AOSP</string>
@@ -224,6 +226,25 @@
     <string name="rr_version">ResurrectionRemix version</string>
     <string name="rr_version_default">Unknown</string>
     <string name="keywords_rr_version">rr version</string>
+
+    <!-- Color Picker -->
+    <string name="dialog_color_picker">Color Picker</string>
+    <string name="press_color_to_apply">Press on color below to apply</string>
+    <string name="arrow_right">→</string>
+    <string name="arrow_down">↓</string>
+    <string name="hex">Hex:</string>
+    <string name="hex_hint">#ff000000</string>
+    <string name="set">Set</string>
+    <string name="color_default">Default</string>
+    <string name="color_blend_ok">@android:string/ok</string>
+    <string name="color_blend_cancel">@android:string/cancel</string>
+    <string name="color_blend_reset">Reset</string>
+
+    <string name="color_blend_preview">Preview: %1$d%%</string>
+
+    <string name="color_preview_start">Start</string>
+    <string name="color_preview_end">End</string>
+    <string name="color_preview_between">Between</string>
 
     <!-- Battery stats reset -->
     <string name="battery_stats_reset">Reset stats</string>
@@ -351,11 +372,24 @@
     <string name="power_menu_bug_report_title">Bug report</string>
     <string name="power_menu_bug_report_disabled">Bug reporting is disabled in development settings</string>
     <string name="power_menu_lockdown_title">Lockdown</string>
+    <!-- Global Actions -->
+    <string name="global_actions_summary">Select what to show when you press the power button</string>
+    <string name="global_actions_power">Power</string>
+    <string name="global_actions_restart">Restart</string>
+    <string name="global_actions_airplane">Airplane</string>
+    <string name="global_actions_settings">Settings</string>
+    <string name="global_actions_lockdown">Lock Down</string>
+    <string name="global_actions_soundpanel">Sound Panel</string>
+    <string name="global_actions_users">Users</string>
+    <string name="global_actions_screenshot">Screenshot</string>
+    <string name="global_actions_screenrecord">Screenrecord</string>
+    <string name="global_actions_flashlight">Flashlight</string>
+    <string name="global_actions_advanced_reboot_title">Enable advanced restart</string>
+    <string name="global_actions_advanced_reboot_summary">When restarting also show options for recovery and bootloader</string>
 
     <!-- Statusbar AICP logo -->
     <string name="status_bar_logo_category_title">Logo</string>
     <string name="status_bar_logo_title">Logo</string>
-    <string name="status_bar_logo_summary">Enable to display logo in the status bar</string>
     <string name="status_bar_logo_color_title">Color</string>
     <string name="status_bar_logo_position_title">Position</string>
     <string name="status_bar_logo_position_summary">Choose which side to display the logo on, left or right</string>
@@ -395,6 +429,18 @@
     <string name="status_bar_logo_style_gender_female">Female</string>
     <string name="status_bar_logo_style_gender_male_female">Male &amp; female</string>
     <string name="status_bar_logo_style_guitar_electric">Electric guitar</string>
+    <string name="status_bar_logo_color_accent_title">Use accent Color</string>
+    <string name="status_bar_logo_position_right_quick">Right with QS Panel</string>
+    <string name="status_bar_logo_position_left_quick">Left with QS Panel</string>
+
+    <!-- On-The-Go -->
+    <string name="global_actions_onthego_title">On-The-Go</string>
+    <string name="global_actions_onthego_summary">Add On-The-Go toggle to Power Menu</string>
+
+    <!-- Power menu and dialogs opacity -->
+    <string name="power_menu_category">Power/reboot dialogs</string>
+    <string name="power_menu_transparency">Opacity</string>
+    <string name="power_menu_dialog_dim">Background dim</string>
 
     <!-- Hide On Lockscreen -->
     <string name="hide_lockscreen_status_bar_title">Hide status bar</string>
@@ -504,16 +550,55 @@
     <string name="theming_settings_dashboard_icons_plain_accent">Plain accent</string>
 
     <!-- Dashboard -->
+    <string name="dashboard_category">Dashboard options</string>
     <string name="dashboard_conditions_title">Dashboard conditions</string>
     <string name="summary_dashboard_conditions_enabled">Dashboard conditions are enabled</string>
     <string name="summary_dashboard_conditions_disabled">Dashboard conditions are disabled</string>
     <string name="dashboard_suggestions_title">Dashboard suggestions</string>
     <string name="summary_dashboard_suggestions_enabled">Dashboard suggestions are enabled</string>
     <string name="summary_dashboard_suggestions_disabled">Dashboard suggestions are disabled</string>
+    <string name="system_animation_summary">View animation options</string>
+
+
+    <!-- Status bar - icons -->
+    <string name="status_bar_icons_title">Status bar icons</string>
+    <string name="status_bar_notif_count_title">Show notification count</string>
+    <string name="status_bar_notif_count_summary">Display the number of pending notifications</string>
+    <string name="status_bar_system_icons_title">System icons</string>
+    <string name="status_bar_system_icons_summary">Control which status bar icons are shown</string>
+
+    <!-- Status Bar Ticker -->  
+    <string name="ticker_screen_title">Notification ticker</string>
+    <string name="ticker_title">Status bar ticker</string>
+    <string name="ticker_summary">Enable the old status bar ticker</string>
+    <!-- Statusbar ticker -->
+    <string name="status_bar_ticker_title">Ticker</string>
+    <string name="status_bar_show_ticker_title">Ticker</string>
+    <string name="status_bar_show_ticker_summary">Notification preview in status bar</string>
+    <string name="ticker_animation_mode_title">Ticker animation</string>
+    <string name="ticker_animation_mode_alpha_fade">Fade</string>
+    <string name="ticker_animation_mode_scroll">Scroll</string>
+    <string name="ticker_tick_duration_title">Ticker duration</string>
+
+    <!-- Audio Panel view  -->
+    <string name="audio_panel_view">Audio panel</string>
+    <string name="audio_panel_view_media_title">Media</string>
+    <string name="audio_panel_view_ringer_title">Ring</string>
+    <string name="audio_panel_view_notification_title">Notification</string>
+    <string name="audio_panel_view_alarm_title">Alarm</string>
+    <string name="audio_panel_view_voice_title">Voice</string>
+    <string name="audio_panel_view_bt_sco_title">Bluetooth</string>
+
+    <!-- Roaming indicator icon -->
+    <string name="roaming_indicator_icon_title">Show roaming indicator</string>
+    <string name="roaming_indicator_icon_summary">Display roaming indicator in signal icon when in roaming mode</string>
+
+    <!-- Data disabled icon -->
+    <string name="data_disabled_icon_title">Show data disabled icon</string>
+    <string name="data_disabled_icon_summary">Display the cross sign next to signal bar when data is disabled</string>
 
   <!-- Statusbar Clock options -->
     <string name="status_bar_clock_title">Clock</string>
-    <string name="status_bar_clock_summary">Click for possible clock options</string>
     <string name="status_bar_show_clock_title">Show clock &amp; date</string>
     <string name="clock_title_enable">Alignment</string>
     <string name="status_bar_clock_seconds_title">Clock seconds</string>

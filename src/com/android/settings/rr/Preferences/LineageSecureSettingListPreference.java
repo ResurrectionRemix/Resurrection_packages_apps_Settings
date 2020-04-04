@@ -16,7 +16,7 @@
 package com.android.settings.rr.preferences;
 
 import android.content.Context;
-import android.support.v7.preference.ListPreference;
+import androidx.preference.*;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 

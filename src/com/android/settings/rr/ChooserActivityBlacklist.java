@@ -73,13 +73,14 @@ public class ChooserActivityBlacklist extends SettingsPreferenceFragment impleme
     protected ListView mListView;
 
     @Override
-    protected int getPreferenceResource() {
-        return R.xml.chooser_activity_blacklist;
+    public int getMetricsCategory() {
+        return MetricsEvent.RESURRECTED;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.chooser_activity_blacklist);
         initializeAllPreferences();
     }
 

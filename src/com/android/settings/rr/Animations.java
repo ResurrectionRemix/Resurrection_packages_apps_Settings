@@ -19,12 +19,12 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.RemoteException;
-import android.support.v7.preference.ListPreference;
-import android.support.v7.preference.Preference;
-import android.support.v7.preference.PreferenceScreen;
-import android.support.v7.preference.PreferenceCategory;
-import android.support.v7.preference.Preference.OnPreferenceChangeListener;
-import android.support.v14.preference.SwitchPreference;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.SwitchPreference;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,16 +81,6 @@ public class Animations extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_animations);
 
         mContext = getActivity();
-        ContentResolver resolver = getActivity().getContentResolver();
-        PreferenceScreen prefs = getPreferenceScreen();
-        final PreferenceScreen prefScreen = getPreferenceScreen();
-        mScreenOffAnimation = (ListPreference) findPreference(SCREEN_OFF_ANIMATION);
-        int screenOffStyle = Settings.Global.getInt(resolver,
-                Settings.Global.SCREEN_OFF_ANIMATION, 0);
-        mScreenOffAnimation.setValue(String.valueOf(screenOffStyle));
-        mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntry());
-        mScreenOffAnimation.setOnPreferenceChangeListener(this);
-
 
         /*mListViewAnimation = (ListPreference) prefs.findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getContentResolver(),
@@ -122,42 +112,6 @@ public class Animations extends SettingsPreferenceFragment implements
 
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-	ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mScreenOffAnimation) {
-            String value = (String) newValue;
-            Settings.Global.putInt(resolver,
-                    Settings.Global.SCREEN_OFF_ANIMATION, Integer.valueOf(value));
-            int valueIndex = mScreenOffAnimation.findIndexOfValue(value);
-            mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[valueIndex]);
-            return true;
-        }/*else if (preference == mListViewAnimation) {
-            int value = Integer.parseInt((String) newValue);
-            int index = mListViewAnimation.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LISTVIEW_ANIMATION, value);
-            mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
-            mListViewInterpolator.setEnabled(value > 0);
-            return true;
-        } else if (preference == mListViewInterpolator) {
-            int value = Integer.parseInt((String) newValue);
-            int index = mListViewInterpolator.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.LISTVIEW_INTERPOLATOR, value);
-            mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
-            return true;
-        } else if (preference == mScrollingCachePref) {
-            if (newValue != null) {
-                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
-            }
-            return true;
-        } else if (preference == mListViewTabsEffect) {
-            int value = Integer.valueOf((String) newValue);
-            int index = mListViewTabsEffect.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getContentResolver(),
-                     Settings.System.RR_SETTINGS_TABS_EFFECT, value);
-            mListViewTabsEffect.setSummary(mListViewTabsEffect.getEntries()[index]);
-            return true;
-        }*/
         return false;
     }
 

@@ -21,6 +21,11 @@
     xmlns:settings="http://schemas.android.com/apk/res-auto"
     android:title="@string/battery_bar_title">
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="statusbar_battery_bar"
+        android:title="@string/battery_bar_title"
+        android:defaultValue="false" />
+
     <com.android.settings.rr.Preferences.SystemSettingIntListPreference
         android:key="statusbar_battery_bar_location"
         android:title="@string/battery_bar_location_title"

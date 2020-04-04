@@ -186,4 +186,30 @@
         <attr name="defaultText" format="string|reference" />
     </declare-styleable>
 
+    <declare-styleable name="ColorBlendPreference">
+        <!-- Preference keys -->
+        <attr name="keyColorStart" format="string" />
+        <attr name="keyColorEnd" format="string" />
+        <attr name="keyBlendReverse" format="string" />
+        <!-- Default values -->
+        <attr name="defaultValueColorStart" format="color" />
+        <attr name="defaultValueColorEnd" format="color" />
+        <attr name="defaultValueBlendReverse" format="boolean" />
+        <!-- Preview strings -->
+        <attr name="previewStartText" format="string" />
+        <attr name="previewEndText" format="string" />
+        <attr name="previewBetweenText" format="string" />
+    </declare-styleable>
+
+    <!-- DevicePreference -->
+    <declare-styleable name="DevicePreference">
+        <attr name="codename" format="string" />
+        <attr name="maintainer" format="string" />
+        <attr name="type" format="integer">
+            <enum name="phone" value="0" />
+            <enum name="tablet" value="1" />
+            <enum name="other" value="2" />
+        </attr>
+    </declare-styleable>
+
 </resources>

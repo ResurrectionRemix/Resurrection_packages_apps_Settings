@@ -20,6 +20,11 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="status_bar_logo"
+            android:title="@string/status_bar_logo_title"
+            android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="status_bar_logo_color_accent"
 	    android:title="@string/status_bar_logo_color_accent_title"
         android:disableDependentsState="true"

@@ -19,7 +19,7 @@ package com.android.settings.rr.Preferences;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v7.preference.Preference;
+import androidx.preference.*;
 import android.util.AttributeSet;
 
 import com.android.settings.R;
