@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 RR
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/status_bar_clock_title">
+
+   <!-- Clock position -->
+    <com.android.settings.rr.Preferences.SecureSettingIntListPreference
+        android:key="status_bar_clock_position"
+        android:entries="@array/clock_position_entries"
+        android:entryValues="@array/clock_position_values"
+        android:defaultValue="2"
+        android:title="@string/clock_position" />
+
+    <!-- Clock AM/PM -->
+    <com.android.settings.rr.Preferences.SecureSettingIntListPreference
+        android:key="statusbar_clock_am_pm_style"
+        android:entries="@array/entries_status_bar_am_pm"
+        android:entryValues="@array/values_status_bar_am_pm"
+        android:defaultValue="2"
+        android:title="@string/status_bar_am_pm_title" />
+
+    <!-- Clock seconds -->
+    <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+        android:key="status_bar_clock_seconds"
+        android:title="@string/status_bar_clock_seconds_title"
+        android:summary="@string/status_bar_clock_seconds_summary"
+        android:defaultValue="false" />
+
+    <!-- Date before clock style -->
+    <com.android.settings.rr.Preferences.SecureSettingIntListPreference
+        android:key="statusbar_clock_date_display"
+        android:entries="@array/clock_date_display_entries"
+        android:entryValues="@array/clock_date_display_values"
+        android:defaultValue="0"
+        android:title="@string/clock_date_display" />
+
+    <!-- Date before date style -->
+    <com.android.settings.rr.Preferences.SecureSettingIntListPreference
+        android:key="statusbar_clock_date_style"
+        android:entries="@array/clock_date_style_entries"
+        android:entryValues="@array/clock_date_style_values"
+        android:defaultValue="0"
+        android:title="@string/clock_date_style" />
+
+    <!-- Date before date position -->
+    <com.android.settings.rr.Preferences.SecureSettingIntListPreference
+        android:key="statusbar_clock_date_position"
+        android:entries="@array/clock_date_position_entries"
+        android:entryValues="@array/clock_date_position_values"
+        android:defaultValue="0"
+        android:title="@string/clock_date_position" />
+
+    <!-- Date before date style -->
+    <com.android.settings.rr.Preferences.SecureSettingListPreference
+        android:key="statusbar_clock_date_format"
+        android:entries="@array/clock_date_format_entries_values"
+        android:entryValues="@array/clock_date_format_entries_values"
+        android:defaultValue="EEE"
+        android:title="@string/clock_date_format_custom" />
+
+</PreferenceScreen>
