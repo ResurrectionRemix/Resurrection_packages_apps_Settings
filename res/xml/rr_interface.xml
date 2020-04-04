@@ -45,6 +45,17 @@
         android:summary="@string/lockscreen_battery_info_summary"
         android:defaultValue="false" />
 
+     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="lockscreen_media_blur"
+        android:title="@string/lockscreen_media_blur_title"
+        android:summary="@string/lockscreen_media_blur_summary"
+        android:max="2500"
+        android:min="1"
+        settings:unitsLeft=""
+        settings:unitsRight="dp"	
+        android:defaultValue="25" />
+	
+
         <com.rr.settings.preferences.SystemSettingSwitchPreference
             android:key="lockscreen_hide_status_bar"
             android:title="@string/hide_lockscreen_status_bar_title"
