@@ -21,7 +21,6 @@ import android.provider.Settings;
 
 import com.android.settings.rr.utils.PackageListAdapter;
 import com.android.settings.R;
-import androidx.preference.*;
 
 import java.util.HashMap;
 
@@ -43,7 +42,7 @@ public class HeadsUpActivityBlacklist extends ChooserActivityBlacklist {
         mBlacklistPrefList = getPreferenceScreen();
         mBlacklistPrefList.setOrderingAsAdded(false);
         mBlacklistPackages = new HashMap<String, Package>();
-        mAddBlacklistPref = (Preference) getPreferenceScreen().findPreference(KEY_HEADSUP_BLACKLIST);
+        mAddBlacklistPref = findPreference("add_headsup_blacklist_packages");
         mAddBlacklistPref.setOnPreferenceClickListener(this);
     }
 }
