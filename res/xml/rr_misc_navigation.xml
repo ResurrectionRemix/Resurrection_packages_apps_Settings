@@ -20,35 +20,24 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_misc_title">
 
-    <com.android.settings.applications.LayoutPreference
-            android:key="suspend_actions"
-            android:layout="@layout/rr_suspend_actions_layout"
-            android:fragment="com.android.settings.rr.SuspendActions" />
-
-    <com.android.settings.applications.LayoutPreference
-            android:title="@string/weather_title"
-            android:layout="@layout/rr_misc_weather_layout"
-            android:fragment="com.android.settings.rr.Weather" />
-
-    <!-- System APP Remover -->
-    <com.android.settings.applications.LayoutPreference
-            android:key="system_app_remover"
-            android:layout="@layout/rr_system_app_remover_layout"
-            android:fragment="com.android.settings.rr.fragments.SystemappRemover" />
-
-    <com.android.settings.applications.LayoutPreference
+    <com.android.settings.rr.Preferences.CategoryPreference
             android:key="rr_about"
-            android:layout="@layout/rr_about_layout"
+            android:icon="@drawable/rr_about_icon"
+            android:title="@string/about_rr"
 	   	    android:fragment="com.android.settings.rr.About" />
 
-        <!-- Updater -->
-    <com.android.settings.applications.LayoutPreference
+    <com.android.settings.rr.Preferences.CategoryPreference
+            android:title="@string/weather_title"
+            android:icon="@drawable/rr_weather_main_icon"
+            android:fragment="com.android.settings.rr.omnigears.moresettings.OmniJawsSettings" />
+
+    <!--com.android.settings.applications.LayoutPreference
             android:key="update_settings"
-            android:layout="@layout/rr_ota_layout">
+            android:icon="@drawable/rr_ota_icon">
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.resurrection.ota"
                     android:targetClass="com.resurrection.ota.MainActivity" />
-    </com.android.settings.applications.LayoutPreference>
+    </com.android.settings.applications.LayoutPreference-->
 
 
 

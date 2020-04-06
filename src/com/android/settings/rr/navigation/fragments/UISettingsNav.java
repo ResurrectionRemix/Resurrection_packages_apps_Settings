@@ -22,14 +22,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.os.UserHandle;
-import androidx.preference.*
-import com.android.settings.accessibility.ToggleFontSizePreferenceFragment;
+import androidx.preference.*;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-
-import com.android.settings.applications.LayoutPreference;
-
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
@@ -40,11 +36,9 @@ public class UISettingsNav extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
     private static final String TAG = "UI";
     private static final String RR_FP = "rr_fp";
-    private static final String INCALL_VIB_OPTIONS = "rr_incall";
 
-    private LayoutPreference mFpFragment;
+    private Preference mFpFragment;
     private FingerprintManager mFingerprintManager;
-    private LayoutPreference mInCallFragment;
 
     @Override
     public int getMetricsCategory() {
@@ -60,12 +54,11 @@ public class UISettingsNav extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.rr_ui_settings_navigation);
 
-        mFpFragment = (LayoutPreference) findPreference(RR_FP);
+        mFpFragment = (Preference) findPreference(RR_FP);
         if (mFingerprintManager == null) {
             getPreferenceScreen().removePreference(mFpFragment);
         }
 
-        mInCallFragment = (LayoutPreference) findPreference(INCALL_VIB_OPTIONS);
        /*
         if (!TelephonyUtils.isVoiceCapable(getActivity())) {
             getPreferenceScreen().removePreference(mInCallFragment);

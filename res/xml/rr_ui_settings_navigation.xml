@@ -21,81 +21,71 @@
     android:title="@string/rr_ui_title">
 
 
-       <com.android.settings.applications.LayoutPreference
+       <com.android.settings.rr.Preferences.CategoryPreference
             android:key="rr_fp"
-            android:layout="@layout/rr_fingerprint_layout" 
-            android:fragment="com.android.settings.rr.FingerPrintSettings" />
+            android:icon="@drawable/rr_fingerprint_icon"
+            android:title="@string/rr_fp_title"
+            android:fragment="com.android.settings.rr.fragments.FingerprintSettings" />
 
-       <com.android.settings.applications.LayoutPreference
+       <com.android.settings.rr.Preferences.CategoryPreference
             android:key="rr_lockscreen"
             android:title="@string/rr_lockscreen_title"
-	   	    android:fragment="com.android.settings.rr.LockScreenSettings" 
-	   		android:layout="@layout/rr_lockscreen_layout" />
+	   	    android:fragment="com.android.settings.rr.LockSettings" 
+	   		android:icon="@drawable/rr_lock_icon" />
 
-       <com.android.settings.applications.LayoutPreference
-            android:key="pa_pie_control"
-            android:fragment="com.android.settings.rr.pie.PieSettings"
-            android:layout="@layout/rr_pie_layout" />
-
-    <!-- Gesture anywhere -->
-    <com.android.settings.applications.LayoutPreference
-            android:key="gesture_anywhere"
-            android:fragment="com.android.settings.rr.gesture.GestureAnywhereSettings"
-            android:layout="@layout/rr_gesture_anywhere_layout" />
-
-    <!-- App Circle Bar -->
-    <com.android.settings.applications.LayoutPreference
-            android:key="app_circle_bar"
-            android:fragment="com.android.settings.rr.AppCircleBar"
-            android:layout="@layout/rr_appcirclebar_layout"/>
-
-       <com.android.settings.applications.LayoutPreference
-            android:key="rr_blur"
-            android:fragment="com.android.settings.rr.BlurPersonalizations"
-            android:layout="@layout/rr_blur_layout" />
-
-       <com.android.settings.applications.LayoutPreference
+       <com.android.settings.rr.Preferences.CategoryPreference
             android:key="animation_settings"
-            android:layout="@layout/rr_animations_layout"
-            android:fragment="com.android.settings.rr.animation.AnimationSettings" />
+            android:title="@string/animation_title"
+            android:icon="@drawable/rr_animations_icon"
+            android:fragment="com.android.settings.rr.Animations" />
 
 
-       <com.android.settings.applications.LayoutPreference
+       <com.android.settings.rr.Preferences.CategoryPreference
             android:key="heads_up_settings"
-            android:layout="@layout/rr_headsup_layout"
-            android:fragment="com.android.settings.rr.Headsup" />
+            android:title="@string/rr_headsup_cat"
+            android:icon="@drawable/rr_heads_up_icon"
+            android:fragment="com.android.settings.rr.HeadsUp" />
 
-       <com.android.settings.applications.LayoutPreference
+       <com.android.settings.rr.Preferences.CategoryPreference
             android:key="dashboard"
-            android:layout="@layout/rr_dashboard_layout"
+            android:icon="@drawable/rr_dashboard_icon"
+            android:title="@string/rr_dash_board_title"
             android:fragment="com.android.settings.rr.DashBoardSettings"/>
 
-       <com.android.settings.applications.LayoutPreference
+       <com.android.settings.rr.Preferences.CategoryPreference
             android:key="rr_volume"
             android:fragment="com.android.settings.rr.VolumePanelSettings"
-            android:layout="@layout/rr_volume_layout"
+            android:title="@string/rr_volume_title"
+            android:icon="@drawable/rr_volume_icon"
           />
 
-        <!-- Sound -->
-       <com.android.settings.applications.LayoutPreference
-            android:key="rr_sound"
-            android:fragment="com.android.settings.rr.SoundFragment"
-            android:layout="@layout/rr_sound_layout"
-            />
+       <com.android.settings.rr.Preferences.CategoryPreference
+            android:key="screen_zoom"
+            android:icon="@drawable/rr_display_icon"
+            android:title="@string/screen_zoom_title"
+            android:fragment="com.android.settings.display.ScreenZoomSettings" />
 
-       <com.android.settings.applications.LayoutPreference
-            android:key="expanded_desktop"
-            android:layout="@layout/rr_expandeddesktop_layout"
-            android:fragment="com.android.settings.rr.ExpandedDesktopPreferenceFragment" />
+       <com.android.settings.rr.Preferences.CategoryPreference
+            android:key="font_size"
+            android:title="@string/title_font_size"
+            android:fragment="com.android.settings.display.ToggleFontSizePreferenceFragment"
+            android:icon="@drawable/rr_font_size_icon"  />
+
+       <com.android.settings.rr.Preferences.CategoryPreference
+            android:key="gaming"
+            android:title="@string/gaming_mode_title"
+            android:icon="@drawable/ic_gaming"
+            android:fragment="com.android.settings.rr.fragments.GamingMode" />
 
 
-       <com.android.settings.applications.LayoutPreference
+       <!--com.android.settings.applications.LayoutPreference
             android:key="rr_incall"
-            android:layout="@layout/rr_call_layout"
-            android:fragment="com.android.settings.rr.InCallSettings" />
+            android:icon="@drawable/rr_call_icon"
+            android:fragment="com.android.settings.rr.InCallSettings" /-->
 
-      <com.android.settings.applications.LayoutPreference
+      <com.android.settings.rr.Preferences.CategoryPreference
             android:key="rr_ui_other"
-            android:layout="@layout/rr_misc_ui_layout"
+            android:icon="@drawable/rr_misc_icon"
+            android:title="@string/rr_misc_title"
             android:fragment="com.android.settings.rr.MiscInterfaceSettings" />
 </PreferenceScreen>

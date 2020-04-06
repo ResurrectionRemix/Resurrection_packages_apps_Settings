@@ -34,8 +34,6 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import androidx.fragment.app.FragmentPagerAdapter;
 import com.google.android.material.snackbar.Snackbar;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 
 import androidx.preference.ListPreference;
 import androidx.preference.SwitchPreference;
@@ -43,6 +41,7 @@ import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceScreen;
 
+import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
 import android.text.TextUtils;
 import android.view.animation.Animation;
@@ -96,6 +95,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     LayoutInflater mInflater;
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
+    private MenuItem mMenuItem;
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mStyle = Settings.System.getInt(getActivity().getContentResolver(),
@@ -129,8 +129,6 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mContext = getActivity().getApplicationContext();
         ContentResolver resolver = getActivity().getContentResolver();
         mInterceptorFrame.getBackground().setAlpha(0);
-        boolean isShowing =   Settings.System.getInt(resolver,
-                 Settings.System.RR_OTA_FAB, 1) == 1;
         if (mStyle == 0) {
             mTabs.setVisibility(View.VISIBLE);
             mFab5.setTitle(getString(R.string.fab_layout_update));
@@ -226,12 +224,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 return false;
             }
         });
-
-        if (isShowing) {
-            mFab.setVisibility(View.VISIBLE);
-        } else {
-            mFab.setVisibility(View.GONE);
-        }
+        mFab.setVisibility(View.VISIBLE);
     }
 
 
@@ -245,10 +238,12 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mViewPager.setAdapter(mPagerAdapter);
         ContentResolver resolver = getActivity().getContentResolver();
 
-        navigation.setOnNavigationItemSelectedListener(new BottomNavigationViewCustom.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
+
+        navigation.setOnNavigationItemSelectedListener(
+                new BottomNavigationViewCustom.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
                     case R.id.rr_statusbar_navigation:
                         mViewPager.setCurrentItem(0);
                         return true;
@@ -264,30 +259,33 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                     case R.id.rr_misc_navigation:
                         mViewPager.setCurrentItem(4);
                         return true;
-                }
-                return false;
-            }
-        });
+                        }
+                        return false;
+                    }
+                });
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+            public void onPageScrolled(int position, float positionOffset,
+                                       int positionOffsetPixels) {
             }
 
             @Override
             public void onPageSelected(int position) {
-                if(menuitem != null) {
-                    menuitem.setChecked(false);
-                } else {
-                    navigation.getMenu().getItem(0).setChecked(false);
+                if (mMenuItem != null) {
+                    mMenuItem.setChecked(false);
                 }
+                
                 navigation.getMenu().getItem(position).setChecked(true);
-                menuitem = navigation.getMenu().getItem(position);
+
+                mMenuItem = navigation.getMenu().getItem(position);
             }
+
             @Override
             public void onPageScrollStateChanged(int state) {
             }
         });
+
+        setHasOptionsMenu(true);
     }
 
     @Override

@@ -17,25 +17,27 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <!--com.android.settings.applications.LayoutPreference
-        android:key="buttons_category"
-        android:fragment="com.android.settings.rr.ButtonSettings"
-        android:layout="@layout/rr_buttons_layout" />
-
-    <com.android.settings.applications.LayoutPreference
+    <com.android.settings.rr.Preferences.CategoryPreference
         android:key="navbar_category"
-        android:fragment="com.android.settings.rr.fragments.NavigationBar"
-        android:layout="@layout/rr_navbar_layout" />
+        android:fragment="com.android.settings.rr.Navigation"
+        android:title="@string/navbar_tuner_title"
+        android:icon="@drawable/rr_navbar_icon" />
 
-    <com.android.settings.applications.LayoutPreference
+    <com.android.settings.rr.Preferences.CategoryPreference
         android:key="power_menu"
-        android:layout="@layout/rr_power_menu_layout"
-        android:fragment="com.android.settings.rr.PowerMenuSettings" />
+        android:icon="@drawable/rr_power_menu_icon"
+        android:title="@string/rr_power_title"
+        android:fragment="com.android.settings.rr.input.PowerMenuActions" />
 
-    <com.android.settings.applications.LayoutPreference
+    <!--com.android.settings.applications.LayoutPreference
         android:key="smartbar_settings"
         android:layout="@layout/rr_smartbar_layout"
         android:fragment="com.android.settings.rr.fragments.SmartbarSettings" />
+
+    <com.android.settings.applications.LayoutPreference
+        android:key="buttons_category"
+        android:fragment="com.android.settings.rr.ButtonSettings"
+        android:layout="@layout/rr_buttons_layout" >
 
     <com.android.settings.applications.LayoutPreference
         android:key="fling_settings"

@@ -179,11 +179,8 @@ public class Settings extends SettingsActivity {
     public static class SystemDashboardActivity extends SettingsActivity {}
 
     public static class MainSettingsLayoutActivity extends SettingsActivity { /* empty */ }
-<<<<<<< HEAD
-=======
     public static class MainSettingsActivity extends SettingsActivity { /* empty */ }
     public static class MainSettingsNavigationActivity extends SettingsActivity { /* empty */ }
     public static class AboutSettingsActivity extends SettingsActivity { /* empty */ }
->>>>>>> 461adcd461... Integrate New bottomnavigation into configurations and bring in layouts
 
 }

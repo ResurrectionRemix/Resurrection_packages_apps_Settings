@@ -38,6 +38,15 @@
         android:fragment="com.android.settings.connecteddevice.ConnectedDeviceDashboardFragment"
         settings:controller="com.android.settings.connecteddevice.TopLevelConnectedDevicesPreferenceController"/>
 
+
+    <Preference
+        android:key="top_level_rr"
+        android:title="@string/rr_title"
+        android:summary="@string/rr_title_summary"
+        android:icon="@drawable/rr_main_conf_icon"
+        android:fragment="com.android.settings.rr.MainSettingsLayout"
+        android:order="-105"/>
+
     <Preference
         android:key="top_level_apps_and_notifs"
         android:title="@string/app_and_notification_dashboard_title"

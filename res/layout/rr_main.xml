@@ -35,11 +35,12 @@
         android:id="@+id/tabs"
         app:pstsShouldExpand="false"
         android:layout_width="match_parent"
-        android:background="@color/rr_config_tab_color"
+        android:textColor="?android:attr/textColorPrimary"
+        android:background="?android:attr/colorPrimary"
         android:layout_height="48dp" />
 
 
-    <androidx.viewpager.widget.ViewPager
+    <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

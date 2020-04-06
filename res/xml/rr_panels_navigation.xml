@@ -15,30 +15,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
 
-    <com.android.settings.applications.LayoutPreference
+    <!--com.android.settings.applications.LayoutPreference
         android:key="rr_np"
-        android:layout="@layout/rr_notifcation_drawer_layout"
-        android:fragment="com.android.settings.rr.NotificationPanel" />
+        android:icon="@drawable/rr_notifcation_drawer_layout"
+        android:fragment="com.android.settings.rr.NotificationPanel" /-->
 
-     <com.android.settings.applications.LayoutPreference
+    <com.android.settings.rr.Preferences.CategoryPreference
         android:key="qs_customizations"
-        android:fragment="com.android.settings.rr.QsPanel" 
-        android:layout="@layout/rr_quick_settings_layout" />
+        android:title="@string/rr_qs_title"
+        android:fragment="com.android.settings.rr.QSMainSettings" 
+        android:icon="@drawable/rr_quick_settings_icon" />
 
-     <com.android.settings.applications.LayoutPreference
+     <!--com.android.settings.applications.LayoutPreference
         android:key="rr_power"
         android:fragment="com.android.settings.rr.PowerPanelSettings"
-        android:layout="@layout/rr_power_panel_layout"/>
+        android:icon="@drawable/rr_power_panel_layout"/>
 
      <com.android.settings.applications.LayoutPreference
         android:key="rr_notif"
         android:fragment="com.android.settings.rr.NotificationSettings"
-        android:layout="@layout/rr_notifications_settings_layout" />
+        android:icon="@drawable/rr_notifications_settings_layout" /-->
 
-       <com.android.settings.applications.LayoutPreference
+    <com.android.settings.rr.Preferences.CategoryPreference
         android:key="rr_recents"
         android:fragment="com.android.settings.rr.RecentsSettings" 
-        android:layout="@layout/rr_recents_layout" />
+        android:title="@string/rr_recents_title"
+        android:icon="@drawable/rr_recents_icon" />
 
 
 
