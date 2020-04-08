@@ -15,6 +15,25 @@
    		<item name="android:textColor">@color/secondary_text</item>
 	</style>
 
+    <style name="BottomNavTextAppearance" parent="HeaderTextAppearance">
+        <item name="android:textSize">@dimen/design_bottom_navigation_text_size</item>
+    </style>
+
+    <style name="BottomNavTextAppearanceActive" parent="BottomNavTextAppearance">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HeaderTextAppearance" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title"/>
+
+    <style name="RRBottomNavStyle">
+        <item name="itemIconTint">@drawable/bottomnav_item_color</item>
+        <item name="itemTextColor">@drawable/bottomnav_item_color</item>
+        <item name="itemTextAppearanceActive">@style/BottomNavTextAppearanceActive</item>
+        <item name="itemTextAppearanceInactive">@style/BottomNavTextAppearance</item>
+        <item name="itemBackground">?android:attr/selectableItemBackgroundBorderless</item>
+        <item name="android:background">?android:colorPrimary</item>
+    </style>
+
     <style name="floating_action_button">
         <item name="android:layout_width">@dimen/fab_size</item>
         <item name="android:layout_height">@dimen/fab_size</item>
