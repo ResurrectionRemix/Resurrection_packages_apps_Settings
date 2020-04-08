@@ -43,6 +43,6 @@ public class HeadsUpActivityBlacklist extends ChooserActivityBlacklist {
         mBlacklistPrefList.setOrderingAsAdded(false);
         mBlacklistPackages = new HashMap<String, Package>();
         mAddBlacklistPref = findPreference("add_headsup_blacklist_packages");
-        mAddBlacklistPref.setOnPreferenceClickListener(this);
+        //mAddBlacklistPref.setOnPreferenceClickListener(this);
     }
 }
