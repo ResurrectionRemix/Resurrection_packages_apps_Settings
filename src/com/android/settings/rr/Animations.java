@@ -59,7 +59,7 @@ public class Animations extends SettingsPreferenceFragment implements
     private static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
     private ListPreference mScreenOffAnimation;
     private Context mContext;
-    /*private static final String KEY_TOAST_ANIMATION = "toast_animation";
+    private static final String KEY_TOAST_ANIMATION = "toast_animation";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
     private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
@@ -71,7 +71,7 @@ public class Animations extends SettingsPreferenceFragment implements
     private ListPreference mToastAnimation;
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
-    private ListPreference mScrollingCachePref;*/
+    private ListPreference mScrollingCachePref;*
     ListPreference mListViewTabsEffect;
 
 
@@ -82,7 +82,7 @@ public class Animations extends SettingsPreferenceFragment implements
 
         mContext = getActivity();
 
-        /*mListViewAnimation = (ListPreference) prefs.findPreference(KEY_LISTVIEW_ANIMATION);
+        mListViewAnimation = (ListPreference) prefs.findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.System.getInt(getContentResolver(),
                 Settings.System.LISTVIEW_ANIMATION, 0);
         mListViewAnimation.setValue(String.valueOf(listviewanimation));
@@ -96,22 +96,28 @@ public class Animations extends SettingsPreferenceFragment implements
         mListViewInterpolator.setOnPreferenceChangeListener(this);
         mListViewInterpolator.setEnabled(listviewanimation > 0);
 
-        mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
-        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
-                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
-        mScrollingCachePref.setOnPreferenceChangeListener(this);
-
-        mListViewTabsEffect = (ListPreference) findPreference(KEY_SS_TABS_EFFECT);
-        int tabsEffect = Settings.System.getInt(getContentResolver(),
-                Settings.System.RR_SETTINGS_TABS_EFFECT, 0);
-        mListViewTabsEffect.setValue(String.valueOf(tabsEffect));
-        mListViewTabsEffect.setSummary(mListViewTabsEffect.getEntry());
-        mListViewTabsEffect.setOnPreferenceChangeListener(this);*/
 
     }
 
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+	ContentResolver resolver = getActivity().getContentResolver();
+         if (preference == mListViewAnimation) {
+            int value = Integer.parseInt((String) newValue);
+            int index = mListViewAnimation.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LISTVIEW_ANIMATION, value);
+            mListViewAnimation.setSummary(mListViewAnimation.getEntries()[index]);
+            mListViewInterpolator.setEnabled(value > 0);
+            return true;
+        } else if (preference == mListViewInterpolator) {
+            int value = Integer.parseInt((String) newValue);
+            int index = mListViewInterpolator.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.LISTVIEW_INTERPOLATOR, value);
+            mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
+            return true;
+        }
         return false;
     }
 

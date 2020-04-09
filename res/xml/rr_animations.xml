@@ -29,7 +29,7 @@
             android:summary="@string/rr_toast_summary"
             android:icon="@drawable/rr_toast_icon"/>
 
-        <!--ListPreference
+        <ListPreference
             android:key="listview_animation"
             android:dialogTitle="@string/listview_animation_title"
             android:title="@string/listview_animation_title"
@@ -46,7 +46,7 @@
             android:icon="@drawable/rr_int_icon"
             android:defaultValue="0" />
 
-        <ListPreference
+        <!--ListPreference
             android:key="pref_scrollingcache"
             android:dialogTitle="@string/pref_scrollingcache_title"
             android:title="@string/pref_scrollingcache_title"
@@ -54,14 +54,6 @@
             android:entries="@array/entries_scrollingcache"
             android:icon="@drawable/rr_scroll_icon"
             android:entryValues="@array/values_scrollingcache" />
-
-        <PreferenceScreen
-            android:key="rr_toast"
-            android:fragment="com.android.settings.rr.ToastAnimations"
-            android:title="@string/rr_toast_title"
-            android:summary="@string/rr_toast_summary"
-            android:icon="@drawable/rr_toast_icon"
-            />
 
         <ListPreference
             android:key="tabs_effect"
@@ -77,5 +69,13 @@
             android:title="@string/system_animation_title"
             android:summary="@string/system_animation_summary"
             /-->
+
+        <PreferenceScreen
+            android:key="rr_toast"
+            android:fragment="com.android.settings.rr.ToastAnimations"
+            android:title="@string/rr_toast_title"
+            android:summary="@string/rr_toast_summary"
+            android:icon="@drawable/rr_toast_icon"
+            />
 
 </PreferenceScreen>
