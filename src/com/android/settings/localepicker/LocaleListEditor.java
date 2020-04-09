@@ -84,6 +84,7 @@ public class LocaleListEditor extends RestrictedSettingsFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstState) {
         final View result = super.onCreateView(inflater, container, savedInstState);
+        result.findViewById(R.id.main_content_scrollable_container).setVisibility(View.GONE);
         final View myLayout = inflater.inflate(R.layout.locale_order_list, (ViewGroup) result);
 
         configureDragAndDrop(myLayout);
