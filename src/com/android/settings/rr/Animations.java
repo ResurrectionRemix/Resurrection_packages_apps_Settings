@@ -71,7 +71,6 @@ public class Animations extends SettingsPreferenceFragment implements
     private ListPreference mToastAnimation;
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
-    private ListPreference mScrollingCachePref;*
     ListPreference mListViewTabsEffect;
 
 

@@ -35,6 +35,12 @@
             android:title="@string/qs_tile_title_visibility_title"
             android:defaultValue="false" />
 
+        <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+            android:key="quick_settings_vibrate"
+            android:title="@string/quick_settings_vibrate_title"
+            android:summary="@string/quick_settings_vibrate_summary"
+            android:defaultValue="false"/>
+
         <!-- QS blur -->
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="qs_background_blur"
@@ -44,8 +50,6 @@
         <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
             android:key="qs_panel_bg_alpha"
             android:title="@string/qs_panel_alpha_title"
-            android:summary="@string/qs_panel_alpha_summary"
-            android:icon="@drawable/ic_invert_colors"
             android:defaultValue="255"
             android:max="255"
             settings:min="0"
