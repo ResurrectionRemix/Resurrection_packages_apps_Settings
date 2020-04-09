@@ -29,33 +29,37 @@
             android:summary="@string/rr_toast_summary"
             android:icon="@drawable/rr_toast_icon"/>
 
-        <ListPreference
-            android:key="listview_animation"
-            android:dialogTitle="@string/listview_animation_title"
-            android:title="@string/listview_animation_title"
-            android:entries="@array/listview_animation_entries"
-            android:entryValues="@array/listview_animation_values"
-            android:icon="@drawable/rr_list_icon"
-            android:defaultValue="0" />
-        <ListPreference
-            android:key="listview_interpolator"
-            android:dialogTitle="@string/listview_interpolator_title"
-            android:title="@string/listview_interpolator_title"
-            android:entries="@array/listview_interpolator_entries"
-            android:entryValues="@array/listview_interpolator_values"
-            android:icon="@drawable/rr_int_icon"
-            android:defaultValue="0" />
+    <PreferenceScreen
+        android:key="system_animation"
+        android:title="@string/system_animation_title"
+        android:summary="@string/system_animation_summary"
+        android:fragment="com.crdroid.settings.fragments.ui.AnimationControls" />
 
-        <!--ListPreference
+    <ListPreference
+        android:key="listview_animation"
+        android:dialogTitle="@string/listview_animation_title"
+        android:title="@string/listview_animation_title"
+        android:entries="@array/listview_animation_entries"
+        android:entryValues="@array/listview_animation_values"
+        android:defaultValue="0" />
+
+    <ListPreference
+        android:key="listview_interpolator"
+        android:dialogTitle="@string/listview_interpolator_title"
+        android:title="@string/listview_interpolator_title"
+        android:entries="@array/listview_interpolator_entries"
+        android:entryValues="@array/listview_interpolator_values"
+        android:defaultValue="0" />
+
+        <ListPreference
             android:key="pref_scrollingcache"
             android:dialogTitle="@string/pref_scrollingcache_title"
             android:title="@string/pref_scrollingcache_title"
-            android:summary="@string/pref_scrollingcache_summary"
             android:entries="@array/entries_scrollingcache"
             android:icon="@drawable/rr_scroll_icon"
             android:entryValues="@array/values_scrollingcache" />
 
-        <ListPreference
+        <!--ListPreference
             android:key="tabs_effect"
             android:title="@string/tabs_effect_title"
             android:entries="@array/tabs_effect_entries"
