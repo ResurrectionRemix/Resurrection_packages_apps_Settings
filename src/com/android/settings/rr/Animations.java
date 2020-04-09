@@ -57,8 +57,6 @@ public class Animations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
     private static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
-    private ListPreference mScreenOffAnimation;
-    private Context mContext;
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
@@ -67,7 +65,8 @@ public class Animations extends SettingsPreferenceFragment implements
     private static final String SCROLLINGCACHE_DEFAULT = "2";
     private static final String KEY_SS_TABS_EFFECT = "tabs_effect";
 
-
+    private Context mContext;
+    private ListPreference mScreenOffAnimation;
     private ListPreference mToastAnimation;
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
@@ -96,6 +95,12 @@ public class Animations extends SettingsPreferenceFragment implements
         mListViewInterpolator.setOnPreferenceChangeListener(this);
         mListViewInterpolator.setEnabled(listviewanimation > 0);
 
+        mScreenOffAnimation = (ListPreference) findPreference(SCREEN_OFF_ANIMATION);
+        int screenOffStyle = Settings.System.getInt(resolver,
+                Settings.System.SCREEN_OFF_ANIMATION, 0);
+        mScreenOffAnimation.setValue(String.valueOf(screenOffStyle));
+        mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntry());
+        mScreenOffAnimation.setOnPreferenceChangeListener(this);
 
     }
 
@@ -116,6 +121,13 @@ public class Animations extends SettingsPreferenceFragment implements
             Settings.Global.putInt(getContentResolver(),
                     Settings.Global.LISTVIEW_INTERPOLATOR, value);
             mListViewInterpolator.setSummary(mListViewInterpolator.getEntries()[index]);
+            return true;
+        } else  if (preference == mScreenOffAnimation) {
+            String value = (String) newValue;
+            Settings.System.putInt(resolver,
+                    Settings.System.SCREEN_OFF_ANIMATION, Integer.valueOf(value));
+            int valueIndex = mScreenOffAnimation.findIndexOfValue(value);
+            mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[valueIndex]);
             return true;
         }
         return false;

@@ -33,7 +33,8 @@
         android:key="system_animation"
         android:title="@string/system_animation_title"
         android:summary="@string/system_animation_summary"
-        android:fragment="com.crdroid.settings.fragments.ui.AnimationControls" />
+        android:fragment="com.android.settings.rr.AnimationControls"
+        android:icon="@drawable/rr_velocity_settings_icon" />
 
     <ListPreference
         android:key="listview_animation"
@@ -41,6 +42,7 @@
         android:title="@string/listview_animation_title"
         android:entries="@array/listview_animation_entries"
         android:entryValues="@array/listview_animation_values"
+        android:icon="@drawable/rr_list_animation" 
         android:defaultValue="0" />
 
     <ListPreference
@@ -49,6 +51,7 @@
         android:title="@string/listview_interpolator_title"
         android:entries="@array/listview_interpolator_entries"
         android:entryValues="@array/listview_interpolator_values"
+        android:icon="@drawable/rr_list_icon" 
         android:defaultValue="0" />
 
         <ListPreference
