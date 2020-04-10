@@ -22,63 +22,51 @@
     settings:keywords="@string/keywords_vibration_preferences">
 
     <!-- In-call feedback -->
-    <SwitchPreference
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="incall_feeedback_vibrate"
         android:title="@string/incall_feeedback_vibrate_title"
         android:defaultValue="false"/>
 
-    <!-- Also vibrate for calls -->
-    <SwitchPreference
-        android:key="vibrate_when_ringing"
-        android:title="@string/vibrate_when_ringing_title"
-        settings:controller="com.crdroid.settings.fragments.notifications.VibrateWhenRingPreferenceController"/>
-
     <!-- Also vibrate for notifications -->
-     <com.rr.settings.preferences.SystemSettingSwitchPreference
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="vibrate_on_notifications"
         android:title="@string/vibrate_on_notifications_title"
         android:defaultValue="true"/>
 
     <Preference
-        android:key="ring_vibration_intensity"
-        android:dependency="vibrate_when_ringing"
-        android:title="@string/vibration_intensity_ringer"/>
-
-    <Preference
         android:key="notification_vibration_intensity"
+        android:dependency="vibrate_on_notifications"
         android:title="@string/vibration_intensity_notification"/>
 
     <!-- Vibrate on touch -->
-    <SwitchPreference
-        android:key="vibrate_on_touch"
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="haptic_feedback_enabled"
         android:title="@string/vibrate_on_touch_title"
-        android:summary="@string/vibrate_on_touch_summary"/>
+        android:summary="@string/vibrate_on_touch_summary"
+        android:defaultValue="false"/>
 
     <PreferenceCategory
-        android:key="vibration_patterns"
-        android:title="@string/ringtone_vibration_pattern"
-        android:dependency="vibrate_when_ringing"
-        settings:allowDividerAbove="true">
+        android:key="vibrate_when_ringing_settings"
+        android:title="@string/vibrate_when_ringing_title">
 
-        <com.android.settings.widget.RadioButtonPreference
-            android:key="pattern_dzzz_dzzz"
-            android:title="@string/pattern_dzzz_dzzz" />
+        <!-- Also vibrate for calls -->
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="vibrate_when_ringing"
+            android:title="@string/vibrate_when_ringing_title"
+            android:defaultValue="false"/>
 
-        <com.android.settings.widget.RadioButtonPreference
-            android:key="pattern_dzzz_da"
-            android:title="@string/pattern_dzzz_da" />
+        <Preference
+            android:key="ring_vibration_intensity"
+            android:dependency="vibrate_when_ringing"
+            android:title="@string/vibration_intensity_ringer"/>
 
-        <com.android.settings.widget.RadioButtonPreference
-            android:key="pattern_mm_mm_mm"
-            android:title="@string/pattern_mm_mm_mm" />
-
-        <com.android.settings.widget.RadioButtonPreference
-            android:key="pattern_da_da_dzzz"
-            android:title="@string/pattern_da_da_dzzz" />
-
-        <com.android.settings.widget.RadioButtonPreference
-            android:key="pattern_da_dzzz_da"
-            android:title="@string/pattern_da_dzzz_da" />
+        <com.android.settings.rr.Preferences.SystemSettingListPreference
+            android:key="ringtone_vibration_pattern"
+            android:dependency="vibrate_when_ringing"
+            android:title="@string/ringtone_vibration_pattern"
+            android:summary="%s"
+            android:entries="@array/ringtone_vibration_pattern_entries"
+            android:entryValues="@array/ringtone_vibration_pattern_values"
+            android:defaultValue="0" />
     </PreferenceCategory>
-
 </PreferenceScreen>
