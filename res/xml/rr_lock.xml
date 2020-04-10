@@ -33,7 +33,7 @@
             android:key="pulse_on_new_tracks"
             android:title="@string/pulse_on_new_tracks_title"
             android:summary="@string/pulse_on_new_tracks_summary"
-            settings:controller="com.android.settings.display.PulseOnNewTracksPreferenceController" />
+            android:defaultValue="false"/>
 
     <com.rr.settings.preferences.SystemSettingSwitchPreference
         android:key="lockscreen_battery_info"
@@ -87,7 +87,7 @@
 
 
         <com.rr.settings.preferences.SystemSettingSwitchPreference
-            android:key="hide_lockscreen_status_bar"
+            android:key="lockscreen_hide_status_bar"
             android:title="@string/hide_lockscreen_status_bar_title"
             android:summary="@string/hide_lockscreen_status_bar_summary"
             android:defaultValue="false" />
