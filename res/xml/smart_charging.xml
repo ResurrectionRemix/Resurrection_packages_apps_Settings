@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2020 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/smart_charging_title">
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="smart_charging"
+        android:summary="@string/smart_charging_summary"
+        android:title="@string/smart_charging_switch_title"
+        android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="smart_charging_reset_stats"
+        android:title="@string/smart_charging_reset_stats_title"
+        android:summary="@string/smart_charging_reset_stats_summary"
+        android:defaultValue="false"
+        android:dependency="smart_charging" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="smart_charging_level"
+        android:title="@string/smart_charging_level_title"
+        android:max="100"
+        settings:min="65"
+        settings:units="%"
+        android:defaultValue="80"
+        android:dependency="smart_charging" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="smart_charging_resume_level"
+        android:title="@string/smart_charging_resume_level_title"
+        android:max="99"
+        settings:min="15"
+        settings:units="%"
+        android:defaultValue="60"
+        android:dependency="smart_charging" />
+</PreferenceScreen>
