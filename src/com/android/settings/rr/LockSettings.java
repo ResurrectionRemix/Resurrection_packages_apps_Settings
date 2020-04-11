@@ -36,7 +36,7 @@ import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
-import com.rr.settings.preferences.CustomSeekBarPreference;
+import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 

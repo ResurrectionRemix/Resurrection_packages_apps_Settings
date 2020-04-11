@@ -22,7 +22,7 @@ import android.os.UserHandle;
 import androidx.preference.Preference;
 import android.provider.Settings;
 
-import com.rr.settings.preferences.CustomSeekBarPreference;
+import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 import com.android.internal.logging.nano.MetricsProto;
 
 import com.android.settings.R;
