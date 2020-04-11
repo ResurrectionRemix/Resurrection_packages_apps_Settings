@@ -14,17 +14,16 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="rr_interface_misc"
     android:title="@string/interface_other_title">
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="three_finger_gesture"
-            android:title="@string/three_finger_gesture"
-            android:summary="@string/three_finger_gesture_summary"
-            android:defaultValue="false" />
+        android:key="three_finger_gesture"
+        android:title="@string/three_finger_gesture"
+        android:summary="@string/three_finger_gesture_summary"
+        android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference	
         android:key="notification_guts_kill_app_button"

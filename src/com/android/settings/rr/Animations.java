@@ -52,7 +52,8 @@ import android.database.ContentObserver;
 import android.content.Context;
 import android.content.Intent;
 
-
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class Animations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 

@@ -29,6 +29,8 @@ import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class BatteryBar extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 

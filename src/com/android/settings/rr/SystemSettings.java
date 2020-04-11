@@ -13,43 +13,55 @@
 */
 package com.android.settings.rr;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.Context;
+import android.content.ContentResolver;
+import android.content.res.Resources;
 import android.os.Bundle;
-import androidx.preference.ListPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceScreen;
-import androidx.preference.PreferenceCategory;
-import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.SwitchPreference;
-
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import android.os.UserHandle;
+import android.app.Fragment;
+import androidx.preference.*;
+import android.provider.Settings;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.android.settings.R;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.Utils;
+import com.android.settings.rr.Preferences.MasterSwitchPreference;
 
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settingslib.search.SearchIndexable;
 @SearchIndexable
-public class LogoSettings extends SettingsPreferenceFragment implements
+public class SystemSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-    private static final String TAG = "LogoSettings";
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.rr_system);
+    }
+
+     @Override
+     public void onResume() {
+         super.onResume();
+     }
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        return false;
+    }
 
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        addPreferencesFromResource(R.xml.rr_statusbar_logo);
-    }
-
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
-        return true;
-    }
-
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.rr_statusbar_logo);
+        RRUtils.addSearchIndexProvider(R.xml.rr_system);
 }

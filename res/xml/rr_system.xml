@@ -15,30 +15,30 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-        android:key="rr_system_nav"
-        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:key="rr_system">
 
-    <com.android.settings.rr.Preferences.CategoryPreference
+    <PreferenceScreen
         android:key="navbar_category"
         android:fragment="com.android.settings.rr.Navigation"
         android:title="@string/navbar_tuner_title"
-        android:icon="@drawable/rr_buttons_icon_nav" />
+        android:icon="@drawable/rr_buttons_icon" />
 
-    <com.android.settings.rr.Preferences.CategoryPreference
+    <PreferenceScreen
         android:key="power_menu"
-        android:icon="@drawable/rr_power_menu_icon_nav"
+        android:icon="@drawable/rr_power_menu_icon"
         android:title="@string/rr_power_title"
         android:fragment="com.android.settings.rr.input.PowerMenuActions" />
 
-    <com.android.settings.rr.Preferences.CategoryPreference
+    <PreferenceScreen
         android:key="rr_parts"
-        android:icon="@drawable/rr_parts_icon_nav"
+        android:icon="@drawable/rr_parts_icon"
         android:title="@string/rr_parts_title"
         android:fragment="com.android.settings.rr.PartSettings" />
 
-    <com.android.settings.rr.Preferences.CategoryPreference
+    <PreferenceScreen
         android:key="rr_call"
-        android:icon="@drawable/rr_call_icon_nav"
+        android:icon="@drawable/rr_call_icon"
         android:title="@string/rr_call_title"
         android:fragment="com.android.settings.rr.VibrationSettingsPreferenceFragment" />
 

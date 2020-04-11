@@ -13,5 +13,32 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="rr_misc"
     android:title="@string/rr_misc_title">
+
+    <PreferenceScreen
+            android:key="rr_about"
+            android:icon="@drawable/rr_about_icon"
+            android:title="@string/about_rr"
+	   	    android:fragment="com.android.settings.rr.About" />
+
+    <PreferenceScreen
+            android:title="@string/weather_title"
+            android:icon="@drawable/rr_weather_main_icon"
+            android:fragment="com.android.settings.rr.omnigears.moresettings.OmniJawsSettings" />
+
+    <PreferenceScreen
+            android:title="@string/rr_charging_title"
+            android:icon="@drawable/rr_charging_icon"
+            android:fragment="com.android.settings.rr.ChargeSettings" />
+
+    <PreferenceScreen
+            android:key="update_settings"
+            android:title="@string/fab_updates"
+            android:icon="@drawable/rr_ota_icon">
+            <intent android:action="android.intent.action.MAIN"
+                    android:targetPackage="com.resurrection.ota"
+                    android:targetClass="com.resurrection.ota.MainActivity" />
+    </PreferenceScreen>
+
 </PreferenceScreen>

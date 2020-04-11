@@ -44,6 +44,10 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.rr.Preferences.SystemSettingListPreference;
 
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class VibrationSettingsPreferenceFragment extends SettingsPreferenceFragment
             implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
 
@@ -296,4 +300,7 @@ public class VibrationSettingsPreferenceFragment extends SettingsPreferenceFragm
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.RESURRECTED;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.vibration_settings);
 }

@@ -10,10 +10,10 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/animation_title">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+        android:key="rr_animations"
+        android:title="@string/animation_title">
 
     <ListPreference
         android:key="screen_off_animation"
@@ -21,13 +21,6 @@
         android:entries="@array/screen_off_animation_entries"
         android:icon="@drawable/rr_screen_off_animations_icon"
         android:entryValues="@array/screen_off_animation_values" />
-
-        <PreferenceScreen
-            android:key="rr_toast"
-            android:fragment="com.android.settings.rr.ToastAnimations"
-            android:title="@string/rr_toast_title"
-            android:summary="@string/rr_toast_summary"
-            android:icon="@drawable/rr_toast_icon"/>
 
     <PreferenceScreen
         android:key="system_animation"

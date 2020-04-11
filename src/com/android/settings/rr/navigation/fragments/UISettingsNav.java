@@ -32,6 +32,10 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 //import com.android.settings.rr.utils.TelephonyUtils;
 
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class UISettingsNav extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener {
     private static final String TAG = "UI";
@@ -70,4 +74,7 @@ public class UISettingsNav extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         return false;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_ui_settings_navigation);
 }

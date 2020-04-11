@@ -232,8 +232,6 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         view = mInflater.inflate(R.layout.main_settings_navigation, mContainer, false);
         final BottomNavigationViewCustom navigation = view.findViewById(R.id.navigation);
         mViewPager = view.findViewById(R.id.viewpager);
-
-        navigation.setBackground(new ColorDrawable(getResources().getColor(R.color.BottomBarBackgroundColor)));
         mPagerAdapter = new PagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mPagerAdapter);
         ContentResolver resolver = getActivity().getContentResolver();
@@ -308,9 +306,12 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             super(fm);
         	if (mStyle == 0) {
             frags[0] = new StatusBarSettings();
-            frags[1] = new About();
-            frags[2] = new Interface();
-            frags[3] = new Misc();
+            frags[1] = new Panels();
+            frags[2] = new SystemSettings();
+            frags[3] = new Animations();
+            frags[4] = new Interface();
+            frags[5] = new Misc();
+            frags[6] = new About();
         	} else if (mStyle == 1) {
             frags[0] = new MainSettings();
         	}
@@ -339,9 +340,12 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         if (mStyle == 0) {
         titleString = new String[]{
                 getString(R.string.rr_statusbar_title),
-                getString(R.string.about_rr_settings),
+                getString(R.string.rr_panels_title),
+		        getString(R.string.rr_system_settings),
+                getString(R.string.animation_title),
 		        getString(R.string.rr_ui_title),
-                getString(R.string.rr_misc_title)};
+                getString(R.string.rr_misc_title),
+                getString(R.string.title_about),};
         } else {
                 titleString = new String[]{
                 getString(R.string.rr_title)};

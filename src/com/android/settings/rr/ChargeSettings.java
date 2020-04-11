@@ -40,6 +40,8 @@ import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class ChargeSettings extends SettingsPreferenceFragment {
 
     @Override

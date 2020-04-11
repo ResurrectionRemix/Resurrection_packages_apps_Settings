@@ -35,6 +35,8 @@ import com.android.settings.Utils;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class Navigation extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 

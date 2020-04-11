@@ -44,14 +44,17 @@ import android.view.WindowManagerGlobal;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 
+import com.android.settingslib.search.SearchIndexable;
 import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
 import com.android.settings.search.Indexable.SearchIndexProvider;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class RRUtils {
+@SearchIndexable
+public class RRUtils implements Indexable {
 
     private static final String TAG = "RRUtils";
 
@@ -349,6 +352,11 @@ public class RRUtils {
                 res.xmlResId = xml;
                 resources.add(res);
                 return resources;
+            }
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    ArrayList<String> result = new ArrayList<String>();
+                    return result;
             }
         };
     }

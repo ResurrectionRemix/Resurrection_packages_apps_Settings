@@ -29,14 +29,21 @@ import android.view.ViewGroup;
 import android.provider.Settings;
 
 import com.android.settings.R;
-import com.android.settings.rr.utils.RRUtils;
-import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import android.content.Context;
+import com.android.settings.search.Indexable;
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
-public class StatusBarSettings extends SettingsPreferenceFragment implements
+@SearchIndexable
+public class StatusBarSettings extends SettingsPreferenceFragment implements Indexable,
         Preference.OnPreferenceChangeListener {
 
 
@@ -61,6 +68,17 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         return MetricsEvent.RESURRECTED;
     }
 
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.rr_statusbar_navigation);
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_statusbar_navigation;
+                    result.add(sir);
+                    return result;
+                }
+            };
 }

@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import androidx.preference.*;
-import android.provider.SearchIndexableResource;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
@@ -33,6 +32,10 @@ import com.android.settings.search.Indexable;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class LockscreenItemSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
@@ -58,8 +61,9 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         return true;
     }
-
-    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.lockscreenitems);
+  /*  public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override
                 public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
@@ -79,6 +83,6 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
                     ArrayList<String> result = new ArrayList<String>();
                     return result;
                 }
-            };
+            };*/
 }
 

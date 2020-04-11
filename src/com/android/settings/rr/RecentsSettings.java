@@ -38,6 +38,8 @@ import com.android.settings.rr.Preferences.MasterSwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class RecentsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 

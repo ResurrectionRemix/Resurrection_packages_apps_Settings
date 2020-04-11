@@ -32,11 +32,13 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 
 import com.android.settings.R;
-import com.android.settings.rr.utils.RRUtils;
-import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class PowerMenuActions extends SettingsPreferenceFragment
                 implements Preference.OnPreferenceChangeListener {
 

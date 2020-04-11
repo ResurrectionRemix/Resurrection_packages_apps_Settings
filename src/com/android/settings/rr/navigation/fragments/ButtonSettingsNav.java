@@ -23,7 +23,10 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class ButtonSettingsNav extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
@@ -45,4 +48,7 @@ public class ButtonSettingsNav extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object objValue) 		{
         return false;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_buttons_navigation);
 }

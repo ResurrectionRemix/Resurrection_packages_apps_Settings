@@ -46,6 +46,8 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import java.util.Date;
 
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class ClockSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "ClockSettings";
@@ -70,4 +72,7 @@ public class ClockSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) 		{
         return false;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_clock_settings);
 }

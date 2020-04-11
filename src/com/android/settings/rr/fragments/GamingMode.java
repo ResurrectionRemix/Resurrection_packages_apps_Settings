@@ -65,6 +65,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class GamingMode extends SettingsPreferenceFragment
         implements Preference.OnPreferenceClickListener {
 
@@ -366,4 +370,7 @@ public class GamingMode extends SettingsPreferenceFragment
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.RESURRECTED; //Error2
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.gaming_mode);
 }

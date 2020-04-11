@@ -33,10 +33,11 @@
 
     <com.android.settings.rr.PagerSlidingTabStrip
         android:id="@+id/tabs"
-        app:pstsShouldExpand="false"
         android:layout_width="match_parent"
-        android:textColor="?android:attr/textColorPrimary"
-        android:background="?android:attr/colorPrimary"
+        app:pstsShouldExpand="false"
+        app:pstsTabTextFontFamily="@*android:string/config_headlineFontFamilyMedium"
+        app:pstsTabTextStyle="bold"
+        android:background="@color/config_tab_color"
         android:layout_height="48dp" />
 
 

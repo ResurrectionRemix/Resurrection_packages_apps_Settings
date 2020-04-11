@@ -37,6 +37,8 @@ import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class HeadsUp extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 

@@ -69,7 +69,11 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.Utils;
 
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;  
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class About extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 			
@@ -153,4 +157,7 @@ private static final String RR_ROM_SHARE = "share";
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
      }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.about_rom);
 }

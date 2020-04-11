@@ -47,7 +47,8 @@ import java.util.List;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
-
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "MiscInterfaceSettings";
@@ -66,4 +67,7 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         return false;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_interface_other_settings);
 }

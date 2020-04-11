@@ -34,6 +34,8 @@ import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class ToastAnimations extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "ToastAnimations";

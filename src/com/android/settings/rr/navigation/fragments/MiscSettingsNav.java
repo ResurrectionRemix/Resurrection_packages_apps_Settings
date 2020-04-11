@@ -27,12 +27,13 @@ import android.os.SystemProperties;
 import android.os.UserHandle;
 import androidx.*;
 import com.android.settings.R;
-import com.android.settings.rr.utils.RRUtils;
-import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class MiscSettingsNav extends SettingsPreferenceFragment {
 
 

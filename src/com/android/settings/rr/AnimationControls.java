@@ -37,7 +37,10 @@ import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 import com.android.settings.R;
 
 import java.util.Arrays;
-
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class AnimationControls extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
     private static final String ANIMATION_DURATION = "animation_controls_duration";
@@ -312,4 +315,7 @@ public class AnimationControls extends SettingsPreferenceFragment implements OnP
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.RESURRECTED;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.system_animation_controls);
 }

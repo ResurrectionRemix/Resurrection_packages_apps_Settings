@@ -57,11 +57,12 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.android.settings.rr.utils.RRUtils;
-import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.rr.Preferences.MasterSwitchPreference;
 import com.android.internal.logging.nano.MetricsProto;
-
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class SlimRecents extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, DialogInterface.OnDismissListener  {
 

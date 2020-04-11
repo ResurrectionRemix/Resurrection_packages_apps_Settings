@@ -1,104 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2018 RR
+<!-- Copyright (C) 2016 RR
+
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
+
           http://www.apache.org/licenses/LICENSE-2.0
+
      Unless required by applicable law or agreed to in writing, software
      distributed under the License is distributed on an "AS IS" BASIS,
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="rr_ui"
     android:title="@string/rr_ui_title">
 
-    <PreferenceScreen
-        android:key="rr_headsup"
-        android:title="@string/rr_headsup_cat"
-        android:summary="@string/rr_headsup_summary"
-        android:fragment="com.android.settings.rr.HeadsUp"
-        android:icon="@drawable/rr_heads_up_icon" />
+       <PreferenceScreen
+            android:key="rr_fp"
+            android:icon="@drawable/rr_fingerprint_icon"
+            android:title="@string/rr_fp_title"
+            android:fragment="com.android.settings.rr.fragments.FingerprintSettings" />
 
-    <PreferenceScreen
-        android:key="rr_volume"
-        android:fragment="com.android.settings.rr.VolumePanelSettings"
-        android:title="@string/rr_volume_title"
-        android:summary="@string/rr_volume_summary"
-        android:icon="@drawable/rr_volume_icon" />
+       <PreferenceScreen
+            android:key="rr_lockscreen"
+            android:title="@string/rr_lockscreen_title"
+	   	    android:fragment="com.android.settings.rr.LockSettings" 
+	   		android:icon="@drawable/rr_lock_icon" />
 
-     <PreferenceScreen
-        android:title="@string/rr_fp_title"
-        android:key="rr_fp"
-        android:summary="@string/rr_fp_summary"
-        android:icon="@drawable/rr_fingerprint_icon"
-        android:fragment="com.android.settings.rr.fragments.FingerprintSettings"/>
+       <PreferenceScreen
+            android:key="heads_up_settings"
+            android:title="@string/rr_headsup_cat"
+            android:icon="@drawable/rr_heads_up_icon"
+            android:fragment="com.android.settings.rr.HeadsUp" />
 
-     <PreferenceScreen
-        android:title="@string/gaming_mode_title"
-        android:key="gaming_mode"
-        android:summary="@string/gaming_mode_summary"
-        android:icon="@drawable/ic_gaming"
-        android:fragment="com.android.settings.rr.fragments.GamingMode"/>
+       <PreferenceScreen
+            android:key="dashboard"
+            android:icon="@drawable/rr_dashboard_icon"
+            android:title="@string/rr_dash_board_title"
+            android:fragment="com.android.settings.rr.DashBoardSettings"/>
 
-    <PreferenceScreen
-        android:key="dashboard"
-        android:title="@string/rr_dash_board_title"
-        android:icon="@drawable/rr_dashboard_icon"
-        android:summary="@string/rr_dash_board_summary"
-        android:fragment="com.android.settings.rr.DashBoardSettings" />
+       <PreferenceScreen
+            android:key="screen_zoom"
+            android:icon="@drawable/rr_display_icon"
+            android:title="@string/screen_zoom_title"
+            android:fragment="com.android.settings.display.ScreenZoomSettings" />
 
-        <Preference
-            android:key="qs_rows_columns"
-            android:fragment="com.android.settings.rr.fragments.QsRowsColumns"
-            android:title="@string/qs_rows_columns_title"/>
+       <PreferenceScreen
+            android:key="font_size"
+            android:title="@string/title_font_size"
+            android:fragment="com.android.settings.display.ToggleFontSizePreferenceFragment"
+            android:icon="@drawable/rr_font_size_icon"  />
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="qs_tile_title_visibility"
-            android:title="@string/qs_tile_title_visibility_title"
-            android:defaultValue="false" />
+       <PreferenceScreen
+            android:key="gaming"
+            android:title="@string/gaming_mode_title"
+            android:icon="@drawable/ic_gaming"
+            android:fragment="com.android.settings.rr.fragments.GamingMode" />
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="lockscreen_battery_info"
-        android:title="@string/lockscreen_battery_info_title"
-        android:summary="@string/lockscreen_battery_info_summary"
-        android:defaultValue="false" />
+       <!--com.android.settings.applications.LayoutPreference
+            android:key="rr_incall"
+            android:icon="@drawable/rr_call_icon"
+            android:fragment="com.android.settings.rr.InCallSettings" /-->
 
-     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-        android:key="lockscreen_media_blur"
-        android:title="@string/lockscreen_media_blur_title"
-        android:summary="@string/lockscreen_media_blur_summary"
-        android:max="2500"
-        android:min="1"
-        settings:unitsLeft=""
-        settings:unitsRight="dp"	
-        android:defaultValue="25" />
-	
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_hide_status_bar"
-            android:title="@string/hide_lockscreen_status_bar_title"
-            android:summary="@string/hide_lockscreen_status_bar_summary"
-            android:defaultValue="false" />
-
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="three_finger_gesture"
-            android:title="@string/three_finger_gesture"
-            android:summary="@string/three_finger_gesture_summary"
-            android:defaultValue="false" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference	
-        android:key="notification_guts_kill_app_button"
-        android:title="@string/notification_guts_kill_app_button_title"
-        android:summary="@string/notification_guts_kill_app_button_summary"	
-        android:defaultValue="false" />
-
-        <PreferenceScreen
-            android:key="power_menu"
-            android:title="@string/rr_power_title"
-            android:fragment="com.android.settings.rr.input.PowerMenuActions" />
+      <PreferenceScreen
+            android:key="rr_ui_other"
+            android:icon="@drawable/rr_misc_ui_icon"
+            android:title="@string/rr_misc_title"
+            android:fragment="com.android.settings.rr.MiscInterfaceSettings" />
 
 </PreferenceScreen>

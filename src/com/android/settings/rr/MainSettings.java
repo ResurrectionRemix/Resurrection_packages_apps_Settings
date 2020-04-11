@@ -25,8 +25,17 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import android.content.Context;
+import com.android.settings.search.Indexable;
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
-public class MainSettings extends SettingsPreferenceFragment implements
+@SearchIndexable
+public class MainSettings extends SettingsPreferenceFragment implements Indexable,
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "MainSettings";
 
@@ -45,4 +54,18 @@ public class MainSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object objValue) 		{
         return true;
     }
+
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_main_settings;
+                    result.add(sir);
+                    return result;
+                }
+            };
 }

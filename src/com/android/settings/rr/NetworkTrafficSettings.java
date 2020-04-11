@@ -31,7 +31,10 @@ import com.android.settings.SettingsPreferenceFragment;
 
 
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;  
-
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class NetworkTrafficSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener  {
 
@@ -117,4 +120,6 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         return MetricsEvent.RESURRECTED;
     }
 
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.network_traffic_settings);
 }

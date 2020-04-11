@@ -36,6 +36,8 @@ import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.SettingsPreferenceFragment;
 
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class StatusBarIcons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "StatusBarIcons";

@@ -47,6 +47,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class Header extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
@@ -206,5 +208,5 @@ public class Header extends SettingsPreferenceFragment implements
     }
 
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.rr_headsup);
+        RRUtils.addSearchIndexProvider(R.xml.rr_header);
 }

@@ -32,7 +32,10 @@ import com.android.settings.R;
 import com.android.settings.rr.utils.RRContextConstants;
 import com.android.internal.logging.nano.MetricsProto;
 
-
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
 public class FingerprintSettings extends SettingsPreferenceFragment {
 
     private static final String FP_SUCCESS_VIBRATION = "fingerprint_success_vib";
@@ -73,4 +76,7 @@ public class FingerprintSettings extends SettingsPreferenceFragment {
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.RESURRECTED;
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        RRUtils.addSearchIndexProvider(R.xml.rr_fp);
 }

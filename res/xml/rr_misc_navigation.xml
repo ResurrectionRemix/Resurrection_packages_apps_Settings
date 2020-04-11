@@ -14,10 +14,9 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="rr_misc_nav"
     android:title="@string/rr_misc_title">
 
     <com.android.settings.rr.Preferences.CategoryPreference
@@ -36,13 +35,14 @@
             android:icon="@drawable/rr_charging_icon_nav"
             android:fragment="com.android.settings.rr.ChargeSettings" />
 
-    <!--com.android.settings.applications.LayoutPreference
+    <com.android.settings.rr.Preferences.CategoryPreference
             android:key="update_settings"
-            android:icon="@drawable/rr_ota_icon">
+            android:title="@string/fab_updates"
+            android:icon="@drawable/rr_ota_icon_nav">
             <intent android:action="android.intent.action.MAIN"
                     android:targetPackage="com.resurrection.ota"
                     android:targetClass="com.resurrection.ota.MainActivity" />
-    </com.android.settings.applications.LayoutPreference-->
+    </com.android.settings.rr.Preferences.CategoryPreference>
 
 
 

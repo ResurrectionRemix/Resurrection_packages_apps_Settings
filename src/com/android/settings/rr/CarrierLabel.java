@@ -35,8 +35,19 @@ import com.android.settings.Utils;
 
 import com.android.internal.logging.nano.MetricsProto;
 
-public class CarrierLabel extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
+import android.content.Context;
+import com.android.settings.search.Indexable;
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
+@SearchIndexable
+public class CarrierLabel extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener, Indexable {
+
+    public static final String TAG = "CarrierLabel";
     private static final String KEY_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
 
     private Preference mCustomCarrierLabel;
@@ -102,6 +113,28 @@ public class CarrierLabel extends SettingsPreferenceFragment implements Preferen
         return MetricsProto.MetricsEvent.RESURRECTED;
     }
 
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.carrier_label);
+    @Override
+    protected int getPreferenceScreenResId() {
+        return R.xml.carrier_label;
+    }
+
+    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                        boolean enabled) {
+                    ArrayList<SearchIndexableResource> result =
+                            new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.carrier_label;
+                    result.add(sir);
+                    return result;
+                }
+
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    List<String> keys = super.getNonIndexableKeys(context);
+                    return keys;
+                }
+     };
 }
