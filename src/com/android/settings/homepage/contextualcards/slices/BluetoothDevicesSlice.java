@@ -21,6 +21,9 @@ import android.app.settings.SettingsEnums;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -93,8 +96,10 @@ public class BluetoothDevicesSlice implements CustomSliceable {
 
         final IconCompat icon = IconCompat.createWithResource(mContext,
                 com.android.internal.R.drawable.ic_settings_bluetooth);
-        final IconCompat pairNewIcon = IconCompat.createWithResource(mContext,
-                R.drawable.ic_add_24dp);
+        final Drawable d = mContext.getDrawable(R.drawable.ic_add_24dp);
+        int color = Utils.getColorAttrDefaultColor(mContext, android.R.attr.colorControlNormal);
+        d.setColorFilter(new PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN));
+        final IconCompat pairNewIcon = Utils.createIconWithDrawable(d);
         final CharSequence title = mContext.getText(R.string.bluetooth_devices);
         final CharSequence titleNoBluetoothDevices = mContext.getText(
                 R.string.no_bluetooth_devices);
