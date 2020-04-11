@@ -30,21 +30,21 @@
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
 
-    <!-- Lineage version -->
+    <!-- RR version -->
     <Preference
-        android:key="lineage_version"
-        android:title="@*lineageos.platform:string/lineage_version"
+        android:key="rr_version"
+        android:title="@string/rr_version"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.LineageVersionDetailPreferenceController"/>
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.RRVersionDetailPreferenceController"/>
 
     <!-- Lineage API version -->
     <Preference
-        android:key="lineage_api_version"
-        android:title="@*lineageos.platform:string/lineage_api_level"
+        android:key="rr_build_type"
+        android:title="@string/rr_build_type"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.LineageApiVersionPreferenceController"/>
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.rrBuildVersionDialogController"/>
 
     <!-- Security patch -->
     <Preference
