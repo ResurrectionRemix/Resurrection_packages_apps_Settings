@@ -14,11 +14,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-        <PreferenceScreen
-            xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:resurrection="http://schemas.android.com/apk/res/com.android.settings"
-            xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-            android:title="@string/about_rr_settings">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:resurrection="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="rr_about"
+    android:title="@string/about_rr_settings">
                 
         <PreferenceCategory
             android:key="links"
@@ -29,8 +29,9 @@
             android:key="changelog"
             android:title="@string/changelog_title"
             android:icon="@drawable/rr_changelog_icon"
-            android:summary="@string/changelog_title_summary"
-            android:fragment="com.android.settings.rr.ChangeLog" />
+            android:summary="@string/changelog_title_summary">
+        <intent android:action="com.android.settings.rr.ViewChangelog" />
+        </PreferenceScreen>
 
         <!-- Features -->
         <PreferenceScreen 
