@@ -14,13 +14,10 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="rr_ui_nav"
     android:title="@string/rr_ui_title">
-
 
        <com.android.settings.rr.Preferences.CategoryPreference
             android:key="rr_fp"
@@ -39,7 +36,6 @@
             android:title="@string/animation_title"
             android:icon="@drawable/rr_animations_icon_nav"
             android:fragment="com.android.settings.rr.Animations" />
-
 
        <com.android.settings.rr.Preferences.CategoryPreference
             android:key="heads_up_settings"
@@ -63,7 +59,7 @@
             android:key="font_size"
             android:title="@string/title_font_size"
             android:fragment="com.android.settings.display.ToggleFontSizePreferenceFragment"
-            android:icon="@drawable/rr_font_size_icon_nav"  />
+            android:icon="@drawable/rr_font_size_icon_nav" />
 
        <com.android.settings.rr.Preferences.CategoryPreference
             android:key="gaming"
@@ -71,15 +67,10 @@
             android:icon="@drawable/ic_gaming_nav"
             android:fragment="com.android.settings.rr.fragments.GamingMode" />
 
-
-       <!--com.android.settings.applications.LayoutPreference
-            android:key="rr_incall"
-            android:icon="@drawable/rr_call_icon_nav"
-            android:fragment="com.android.settings.rr.InCallSettings" /-->
-
       <com.android.settings.rr.Preferences.CategoryPreference
             android:key="rr_ui_other"
             android:icon="@drawable/rr_misc_icon_nav"
             android:title="@string/rr_misc_title"
             android:fragment="com.android.settings.rr.MiscInterfaceSettings" />
+
 </PreferenceScreen>

@@ -16,7 +16,8 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:key="rr_system">
+        android:key="rr_system"
+        android:title="@string/rr_system_settings">
 
     <PreferenceScreen
         android:key="navbar_category"
@@ -41,25 +42,5 @@
         android:icon="@drawable/rr_call_icon"
         android:title="@string/rr_call_title"
         android:fragment="com.android.settings.rr.VibrationSettingsPreferenceFragment" />
-
-    <!--com.android.settings.applications.LayoutPreference
-        android:key="smartbar_settings"
-        android:layout="@layout/rr_smartbar_layout"
-        android:fragment="com.android.settings.rr.fragments.SmartbarSettings" />
-
-    <com.android.settings.applications.LayoutPreference
-        android:key="buttons_category"
-        android:fragment="com.android.settings.rr.ButtonSettings"
-        android:layout="@layout/rr_buttons_layout" >
-
-    <com.android.settings.applications.LayoutPreference
-        android:key="fling_settings"
-        android:layout="@layout/rr_fling_layout"
-        android:fragment="com.android.settings.rr.fragments.FlingSettings" />
-
-    <com.android.settings.applications.LayoutPreference
-        android:key="pulse_settings"
-        android:layout="@layout/rr_pulse_layout"
-        android:fragment="com.android.settings.rr.fragments.PulseSettings" /-->
 
 </PreferenceScreen>

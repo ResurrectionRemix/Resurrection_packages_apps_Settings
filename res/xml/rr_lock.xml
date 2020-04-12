@@ -12,85 +12,83 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="rr_lock"
     android:title="@string/rr_lockscreen_title">
 
-        <lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="lockscreen_media_metadata"
-            android:title="@string/lockscreen_media_art_title"
-            android:defaultValue="true" />
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+       android:key="lockscreen_media_metadata"
+       android:title="@string/lockscreen_media_art_title"
+       android:defaultValue="true" />
 
-        <lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="lockscreen_visualizer"
-            android:title="@string/lockscreen_visualizer_title"
-            android:defaultValue="false" />
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+       android:key="lockscreen_visualizer"
+       android:title="@string/lockscreen_visualizer_title"
+       android:defaultValue="false" />
 
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="pulse_on_new_tracks"
-            android:title="@string/pulse_on_new_tracks_title"
-            android:summary="@string/pulse_on_new_tracks_summary"
-            android:defaultValue="false"/>
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="lockscreen_battery_info"
-        android:title="@string/lockscreen_battery_info_title"
-        android:summary="@string/lockscreen_battery_info_summary"
-        android:defaultValue="false" />
-
-        <lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="lockscreen_media_metadata"
-            android:title="@string/lockscreen_media_art_title"
-            android:defaultValue="true" />
-
-        <lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="lockscreen_visualizer"
-            android:title="@string/lockscreen_visualizer_title"
-            android:defaultValue="false" />
+       android:key="pulse_on_new_tracks"
+       android:title="@string/pulse_on_new_tracks_title"
+       android:summary="@string/pulse_on_new_tracks_summary"
+       android:defaultValue="false"/>
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="lock_screen_custom_notif"
-        android:title="@string/lock_screen_custom_notif_title"
-        android:summary="@string/lock_screen_custom_notif_summary"
-        android:defaultValue="false" />
+       android:key="lockscreen_battery_info"
+       android:title="@string/lockscreen_battery_info_title"
+       android:summary="@string/lockscreen_battery_info_summary"
+       android:defaultValue="false" />
+
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+       android:key="lockscreen_media_metadata"
+       android:title="@string/lockscreen_media_art_title"
+       android:defaultValue="true" />
+
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+       android:key="lockscreen_visualizer"
+       android:title="@string/lockscreen_visualizer_title"
+       android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+       android:key="lock_screen_custom_notif"
+       android:title="@string/lock_screen_custom_notif_title"
+       android:summary="@string/lock_screen_custom_notif_summary"
+       android:defaultValue="false" />
 	
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-        android:key="lockscreen_max_notif_config"
-        android:title="@string/lockscreen_max_notif_config_title"
-        android:summary="@string/lockscreen_max_notif_config_summary"
-        android:max="3"
-        android:min="1"
-        settings:unitsLeft=""
-        settings:unitsRight=""
-        android:defaultValue="3"
-        android:dependency="lock_screen_custom_notif" />
+       android:key="lockscreen_max_notif_config"
+       android:title="@string/lockscreen_max_notif_config_title"
+       android:summary="@string/lockscreen_max_notif_config_summary"
+       android:max="3"
+       android:min="1"
+       settings:unitsLeft=""
+       settings:unitsRight=""
+       android:defaultValue="3"
+       android:dependency="lock_screen_custom_notif" />
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
-            android:key="lockscreen_charging_animation_style"
-            android:title="@string/lockscreen_charging_animation_title"
-            android:entries="@array/lockscreen_charging_animation_entries"
-            android:entryValues="@array/lockscreen_charging_animation_values"
-            android:defaultValue="1" />
+       android:key="lockscreen_charging_animation_style"
+       android:title="@string/lockscreen_charging_animation_title"
+       android:entries="@array/lockscreen_charging_animation_entries"
+       android:entryValues="@array/lockscreen_charging_animation_values"
+       android:defaultValue="1" />
 
      <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-        android:key="lockscreen_media_blur"
-        android:title="@string/lockscreen_media_blur_title"
-        android:summary="@string/lockscreen_media_blur_summary"
-        android:max="2500"
-        android:min="1"
-        settings:unitsLeft=""
-        settings:unitsRight="dp"	
-        android:defaultValue="25" />
+       android:key="lockscreen_media_blur"
+       android:title="@string/lockscreen_media_blur_title"
+       android:summary="@string/lockscreen_media_blur_summary"
+       android:max="2500"
+       android:min="1"
+       settings:unitsLeft=""
+       settings:unitsRight="dp"	
+       android:defaultValue="25" />
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+       android:key="lockscreen_hide_status_bar"
+       android:title="@string/hide_lockscreen_status_bar_title"
+       android:summary="@string/hide_lockscreen_status_bar_summary"
+       android:defaultValue="false" />
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="lockscreen_hide_status_bar"
-            android:title="@string/hide_lockscreen_status_bar_title"
-            android:summary="@string/hide_lockscreen_status_bar_summary"
-            android:defaultValue="false" />
 </PreferenceScreen>
 

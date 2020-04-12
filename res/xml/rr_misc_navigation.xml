@@ -20,30 +20,27 @@
     android:title="@string/rr_misc_title">
 
     <com.android.settings.rr.Preferences.CategoryPreference
-            android:key="rr_about"
-            android:icon="@drawable/rr_about_icon_nav"
-            android:title="@string/about_rr"
-	   	    android:fragment="com.android.settings.rr.About" />
+      android:key="rr_about"
+      android:icon="@drawable/rr_about_icon_nav"
+      android:title="@string/about_rr"
+	  android:fragment="com.android.settings.rr.About" />
 
     <com.android.settings.rr.Preferences.CategoryPreference
-            android:title="@string/weather_title"
-            android:icon="@drawable/rr_weather_main_icon_nav"
-            android:fragment="com.android.settings.rr.omnigears.moresettings.OmniJawsSettings" />
+      android:title="@string/weather_title"
+      android:icon="@drawable/rr_weather_main_icon_nav"
+      android:fragment="com.android.settings.rr.omnigears.moresettings.OmniJawsSettings" />
 
     <com.android.settings.rr.Preferences.CategoryPreference
-            android:title="@string/rr_charging_title"
-            android:icon="@drawable/rr_charging_icon_nav"
-            android:fragment="com.android.settings.rr.ChargeSettings" />
+      android:key="rr_charge"
+      android:title="@string/rr_charging_title"
+      android:icon="@drawable/rr_charging_icon_nav"
+      android:fragment="com.android.settings.rr.ChargeSettings" />
 
     <com.android.settings.rr.Preferences.CategoryPreference
-            android:key="update_settings"
-            android:title="@string/fab_updates"
-            android:icon="@drawable/rr_ota_icon_nav">
-            <intent android:action="android.intent.action.MAIN"
-                    android:targetPackage="com.resurrection.ota"
-                    android:targetClass="com.resurrection.ota.MainActivity" />
+      android:key="update_settings"
+      android:title="@string/fab_updates"
+      android:icon="@drawable/rr_ota_icon_nav">
+        <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS" />
     </com.android.settings.rr.Preferences.CategoryPreference>
-
-
 
 </PreferenceScreen>

@@ -2376,6 +2376,16 @@
                 android:value="com.android.settings.rr.MainSettings" />
         </activity>
 
+        <!-- Changelog -->
+        <activity
+            android:name="com.android.settings.rr.changelog.ChangelogActivity"
+            android:label="@string/changelog_name">
+            <intent-filter>
+                <action android:name="com.android.settings.rr.ViewChangelog" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
        <!-- About RR -->
 	    <activity android:name="Settings$AboutSettingsActivity">
             <intent-filter>

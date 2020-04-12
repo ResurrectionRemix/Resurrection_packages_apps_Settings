@@ -16,7 +16,8 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:key="rr_qs_layout">
+        android:key="qs_rows_columns"
+        android:title="@string/qs_rows_columns_title">
 
     <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="qs_rows_portrait"
@@ -45,4 +46,5 @@
         android:max="9"
         settings:min="1"
         settings:units="" />
+
 </PreferenceScreen>

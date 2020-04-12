@@ -14,12 +14,10 @@
      limitations under the License.
 -->
 
-<PreferenceScreen
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:key="rr_parts"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/rr_toast_title">
+    android:key="rr_parts"
+    android:title="@string/rr_parts_title">
 
     <Preference
         android:key="lockscreen_settings"
@@ -52,13 +50,12 @@
         <intent android:action="com.android.settings.action.NAV_BAR_TUNER" />
     </Preference>
 
-
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="rr_ota_fab"
-            android:title="@string/rr_ota_fab_title"
-            android:summary="@string/rr_ota_fab_summary"
-            android:icon="@drawable/rr_fab_enable"
-            android:defaultValue="true" />
+        android:key="rr_ota_fab"
+        android:title="@string/rr_ota_fab_title"
+        android:summary="@string/rr_ota_fab_summary"
+        android:icon="@drawable/rr_fab_enable"
+        android:defaultValue="true" />
 
 </PreferenceScreen>
 

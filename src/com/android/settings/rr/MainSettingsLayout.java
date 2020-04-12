@@ -126,6 +126,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mTabs.setViewPager(mViewPager);
+        getActivity().setTitle(R.string.rr_title);
         mContext = getActivity().getApplicationContext();
         ContentResolver resolver = getActivity().getContentResolver();
         mInterceptorFrame.getBackground().setAlpha(0);
@@ -234,6 +235,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mViewPager = view.findViewById(R.id.viewpager);
         mPagerAdapter = new PagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mPagerAdapter);
+        getActivity().setTitle(R.string.rr_title);
         ContentResolver resolver = getActivity().getContentResolver();
 
 

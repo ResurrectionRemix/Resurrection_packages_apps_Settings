@@ -22,65 +22,35 @@
     android:key="rr_volume"
     android:title="@string/rr_volume_title">
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="audio_panel_view_media"
-            android:title="@string/audio_panel_view_media_title"
-            android:defaultValue="true"
-            android:enabled="false"/>
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="audio_panel_view_media"
+        android:title="@string/audio_panel_view_media_title"
+        android:defaultValue="true"
+        android:enabled="false"/>
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="audio_panel_view_notification"
-            android:title="@string/audio_panel_view_ringer_title"
-            android:defaultValue="false"/>
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="audio_panel_view_notification"
+        android:title="@string/audio_panel_view_ringer_title"
+        android:defaultValue="false"/>
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="audio_panel_view_notification"
         android:title="@string/audio_panel_view_notification_title"
         android:defaultValue="false"/>
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="audio_panel_view_alarm"
-            android:title="@string/audio_panel_view_alarm_title"
-            android:defaultValue="false"/>
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="audio_panel_view_alarm"
+        android:title="@string/audio_panel_view_alarm_title"
+        android:defaultValue="false"/>
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="audio_panel_view_voice"
-            android:title="@string/audio_panel_view_voice_title"
-            android:defaultValue="false"/>
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="audio_panel_view_voice"
+        android:title="@string/audio_panel_view_voice_title"
+        android:defaultValue="false"/>
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="audio_panel_view_bt_sco"
-            android:title="@string/audio_panel_view_bt_sco_title"
-            android:defaultValue="false"/>
-
-         <!--com.android.settings.rr.Preferences.SecureSettingSwitchPreference
-            android:key="sysui_volume_down_silent"
-            android:title="@string/volbtn_down_zen_title"
-            android:summary="@string/volbtn_down_zen_summary"
-            android:defaultValue="true"/>
-         <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
-            android:key="sysui_volume_up_silent"
-            android:title="@string/volbtn_up_zen_title"
-            android:summary="@string/volbtn_up_zen_summary"
-            android:defaultValue="true" />
-         <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
-            android:key="sysui_show_full_zen"
-            android:title="@string/vol_zen_title"
-            android:summary="@string/vol_zen_summary"
-            android:defaultValue="false"/-->
-
-
-    <!--com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-        android:key="volume_dialog_timeout"
-        android:title="@string/volume_dialog_timeout_title"
-        android:min="500"
-        android:max="10000"
-        android:defaultValue="3000"
-        settings:interval="100"
-        settings:unitsLeft=""
-        settings:unitsRight="ms" /-->
-
-
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="audio_panel_view_bt_sco"
+        android:title="@string/audio_panel_view_bt_sco_title"
+        android:defaultValue="false"/>
 
 </PreferenceScreen>
-

@@ -12,7 +12,7 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:key="rr_animations"
+        android:key="animation_settings"
         android:title="@string/animation_title">
 
     <ListPreference
@@ -47,35 +47,19 @@
         android:icon="@drawable/rr_list_icon" 
         android:defaultValue="0" />
 
-        <ListPreference
-            android:key="pref_scrollingcache"
-            android:dialogTitle="@string/pref_scrollingcache_title"
-            android:title="@string/pref_scrollingcache_title"
-            android:entries="@array/entries_scrollingcache"
-            android:icon="@drawable/rr_scroll_icon"
-            android:entryValues="@array/values_scrollingcache" />
+    <ListPreference
+        android:key="pref_scrollingcache"
+        android:dialogTitle="@string/pref_scrollingcache_title"
+        android:title="@string/pref_scrollingcache_title"
+        android:entries="@array/entries_scrollingcache"
+        android:icon="@drawable/rr_scroll_icon"
+        android:entryValues="@array/values_scrollingcache" />
 
-        <!--ListPreference
-            android:key="tabs_effect"
-            android:title="@string/tabs_effect_title"
-            android:entries="@array/tabs_effect_entries"
-            android:entryValues="@array/tabs_effect_values"
-            android:icon="@drawable/rr_transition_icon"
-            android:persistent="false" />
-
-        <PreferenceScreen
-            android:key="rr_customanims"
-            android:fragment="com.android.settings.rr.CustomAnims"
-            android:title="@string/system_animation_title"
-            android:summary="@string/system_animation_summary"
-            /-->
-
-        <PreferenceScreen
-            android:key="rr_toast"
-            android:fragment="com.android.settings.rr.ToastAnimations"
-            android:title="@string/rr_toast_title"
-            android:summary="@string/rr_toast_summary"
-            android:icon="@drawable/rr_toast_icon"
-            />
+     <PreferenceScreen
+        android:key="rr_toast"
+        android:fragment="com.android.settings.rr.ToastAnimations"
+        android:title="@string/rr_toast_title"
+        android:summary="@string/rr_toast_summary"
+        android:icon="@drawable/rr_toast_icon"/>
 
 </PreferenceScreen>

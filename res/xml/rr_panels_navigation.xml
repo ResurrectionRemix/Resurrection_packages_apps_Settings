@@ -13,13 +13,9 @@
 
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="rr_panels_nav"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings" >
-
-    <!--com.android.settings.applications.LayoutPreference
-        android:key="rr_np"
-        android:icon="@drawable/rr_notifcation_drawer_layout"
-        android:fragment="com.android.settings.rr.NotificationPanel" /-->
+    android:title="@string/rr_notification_panel_title">
 
     <com.android.settings.rr.Preferences.CategoryPreference
         android:key="qs_customizations"
@@ -33,17 +29,6 @@
         android:title="@string/rr_header_title"
         android:icon="@drawable/rr_header_icon_nav" />
 
-
-     <!--com.android.settings.applications.LayoutPreference
-        android:key="rr_power"
-        android:fragment="com.android.settings.rr.PowerPanelSettings"
-        android:icon="@drawable/rr_power_panel_layout"/>
-
-     <com.android.settings.applications.LayoutPreference
-        android:key="rr_notif"
-        android:fragment="com.android.settings.rr.NotificationSettings"
-        android:icon="@drawable/rr_notifications_settings_layout" /-->
-
     <com.android.settings.rr.Preferences.CategoryPreference
         android:key="rr_recents"
         android:fragment="com.android.settings.rr.RecentsSettings" 
@@ -51,13 +36,10 @@
         android:icon="@drawable/rr_recents_icon_nav" />
 
      <com.android.settings.rr.Preferences.CategoryPreference
-            android:key="rr_volume"
-            android:fragment="com.android.settings.rr.VolumePanelSettings"
-            android:title="@string/rr_volume_title"
-            android:icon="@drawable/rr_volume_icon_nav"
-          />
-
-
+        android:key="rr_volume"
+        android:fragment="com.android.settings.rr.VolumePanelSettings"
+        android:title="@string/rr_volume_title"
+        android:icon="@drawable/rr_volume_icon_nav" />
 
 </PreferenceScreen>
 
