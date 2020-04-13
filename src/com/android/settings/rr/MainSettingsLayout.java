@@ -13,6 +13,8 @@
 */
 package com.android.settings.rr;
 
+import static com.android.settings.Utils.SETTINGS_PACKAGE_NAME;
+
 import android.app.AlertDialog;
 import android.app.Activity;
 import android.app.Dialog;
@@ -96,6 +98,14 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     private static final int MENU_RESET = Menu.FIRST;
     private static final int DLG_RESET  = 0;
     private MenuItem mMenuItem;
+    private static final String UPDATER_PACKAGE_NAME = "org.lineageos.updater";
+    private static final String UPDATER_PACKAGE_ACTIVITY = "org.lineageos.updater.UpdatesActivity";
+    private static final String UPDATER_PACKAGE_MAIN = "android.settings.SYSTEM_UPDATE_SETTINGS";
+    private static final String EXTRA_SHOW_FRAGMENT = ":android:show_fragment";
+    private static final String SETTINGS_FRAG = "com.android.settings";
+    private static final String SETTINGS_ACTION = "com.android.settings.action.IA_SETTINGS";
+    private static final String ABOUT_FRAG = "com.android.settings.rr.About";
+    private static final String ABOUT_FRAG_ACT = "com.android.settings.ABOUT_ROM";
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mStyle = Settings.System.getInt(getActivity().getContentResolver(),
@@ -141,9 +151,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mFab1.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-             Intent fabIntent = new Intent();
-             fabIntent.setClassName("com.resurrection.ota", "com.resurrection.ota.MainActivity");
-             startActivity(fabIntent);
+             Intent settings = new Intent(Intent.ACTION_MAIN);
+             settings.setClassName(UPDATER_PACKAGE_NAME, UPDATER_PACKAGE_ACTIVITY);
+             startActivity(settings);
              }
         });
 
@@ -178,10 +188,17 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mFab4.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-             Intent fabIntent = new Intent();
-             fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$AboutSettingsActivity");
-             startActivity(fabIntent);
+             try {
+                 Intent settings = new Intent(Intent.ACTION_MAIN);
+                 settings.setClassName(SETTINGS_FRAG, ABOUT_FRAG);
+                 startActivity(settings);
              }
+             catch (Exception e) {
+                   Intent settings = new Intent(Intent.ACTION_MAIN);
+                   settings.setClassName(SETTINGS_FRAG, ABOUT_FRAG_ACT);
+                   startActivity(settings);
+             }
+           }
         });
 
         mFab5.setOnClickListener(new View.OnClickListener() {

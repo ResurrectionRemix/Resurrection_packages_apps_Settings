@@ -2394,6 +2394,11 @@
             </intent-filter>
 	    <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.rr.About" />
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+                <action android:name="com.android.settings.ABOUT_ROM" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
 	</activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
