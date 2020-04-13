@@ -50,6 +50,7 @@ public class DeveloperPreference extends Preference {
 
     private String nameDev;
     private String gplusName;
+    private String twitterName;
     private String donateLink;
     private String devEmail;
     private final Display mDisplay;
@@ -63,6 +64,7 @@ public class DeveloperPreference extends Preference {
             typedArray = context.obtainStyledAttributes(attrs, R.styleable.DeveloperPreference);
             nameDev = typedArray.getString(R.styleable.DeveloperPreference_nameDev);
             gplusName = typedArray.getString(R.styleable.DeveloperPreference_gplusHandle);
+            twitterName = typedArray.getString(R.styleable.DeveloperPreference_twitterHandle);
             donateLink = typedArray.getString(R.styleable.DeveloperPreference_donateLink);
             devEmail = typedArray.getString(R.styleable.DeveloperPreference_emailDev);
         } finally {
@@ -111,6 +113,13 @@ public class DeveloperPreference extends Preference {
 
 	                    Uri gplusURL = Uri.parse("https://plus.google.com/+" + gplusName);
         	            final Intent intent = new Intent(Intent.ACTION_VIEW, gplusURL);
+        	            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        	            getContext().startActivity(intent);
+
+			}
+			if (twitterName != null) {
+	                    Uri twitterURL = Uri.parse("https://twitter.com/" + twitterName);
+        	            final Intent intent = new Intent(Intent.ACTION_VIEW, twitterURL);
         	            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         	            getContext().startActivity(intent);
 
