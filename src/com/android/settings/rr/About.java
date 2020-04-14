@@ -133,7 +133,7 @@ private static final String RR_ROM_SHARE = "share";
         } else if (preference == mGoogleUrl) {
             launchUrl("https://plus.google.com/u/0/communities/109352646351468373340");
         } else if (preference == mDonateUrl) {
-            launchUrl("http://forum.xda-developers.com/donatetome.php?u=4144763");
+            launchUrl("https://paypal.me/varundate");
         } else if (preference.getKey().equals(RR_ROM_SHARE)) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_SEND);

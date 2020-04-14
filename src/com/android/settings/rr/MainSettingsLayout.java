@@ -105,7 +105,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     private static final String SETTINGS_FRAG = "com.android.settings";
     private static final String SETTINGS_ACTION = "com.android.settings.action.IA_SETTINGS";
     private static final String ABOUT_FRAG = "com.android.settings.rr.About";
-    private static final String ABOUT_FRAG_ACT = "com.android.settings.ABOUT_ROM";
+    private static final String ABOUT_FRAG_ACT = "com.android.settings.Settings$AboutSettingsActivity";
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mStyle = Settings.System.getInt(getActivity().getContentResolver(),
@@ -188,16 +188,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mFab4.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-             try {
-                 Intent settings = new Intent(Intent.ACTION_MAIN);
-                 settings.setClassName(SETTINGS_FRAG, ABOUT_FRAG);
-                 startActivity(settings);
-             }
-             catch (Exception e) {
                    Intent settings = new Intent(Intent.ACTION_MAIN);
                    settings.setClassName(SETTINGS_FRAG, ABOUT_FRAG_ACT);
                    startActivity(settings);
-             }
            }
         });
 
