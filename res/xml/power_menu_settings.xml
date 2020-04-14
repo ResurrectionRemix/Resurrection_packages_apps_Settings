@@ -14,8 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="power_menu"
     android:title="@string/rr_power_title">
@@ -59,6 +58,12 @@
         android:title="@string/global_actions_screenrecord"
         android:defaultValue="false" />
 
+     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+        android:key="lockdown_in_power_menu"
+        android:title="@string/global_actions_lockdown"
+        android:defaultValue="false" />
+
+
      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="global_actions_onthego"
         android:title="@string/global_actions_onthego_title"
@@ -69,6 +74,6 @@
         android:key="lockscreen_enable_power_menu"
         android:title="@string/lockscreen_enable_power_menu_title"
         android:summary="@string/lockscreen_enable_power_menu_summary"
-               android:defaultValue="true" />
+        android:defaultValue="true" />
 
 </PreferenceScreen>

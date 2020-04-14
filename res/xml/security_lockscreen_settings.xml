@@ -48,22 +48,6 @@
             android:title="@string/owner_info_settings_title"
             android:summary="@string/owner_info_settings_summary" />
 
-        <lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="lockscreen_media_metadata"
-            android:title="@string/lockscreen_media_art_title"
-            android:defaultValue="true" />
-
-        <lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="lockscreen_visualizer"
-            android:title="@string/lockscreen_visualizer_title"
-            android:defaultValue="false" />
-
-        <SwitchPreference
-            android:key="security_setting_lockdown_enabled"
-            android:title="@string/lockdown_settings_title"
-            android:summary="@string/lockdown_settings_summary"
-            settings:controller="com.android.settings.security.LockdownButtonPreferenceController" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
