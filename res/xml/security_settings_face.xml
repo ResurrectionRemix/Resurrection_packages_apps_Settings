@@ -46,6 +46,11 @@
             android:summary="@string/lockscreen_bypass_summary"
             settings:keywords="@string/keywords_lockscreen_bypass"
             settings:controller="com.android.settings.biometrics.face.FaceSettingsLockscreenBypassPreferenceController" />
+        <SwitchPreference
+            android:key="security_settings_face_require_swipe"
+            android:title="@string/security_settings_face_require_swipe"
+            android:summary="@string/security_settings_face_require_swipe_summary"
+            settings:controller="com.android.settings.biometrics.face.FaceSettingsSwipePreferenceController" />
     </PreferenceCategory>
 
     <PreferenceCategory
