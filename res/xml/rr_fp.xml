@@ -49,4 +49,23 @@
                 android:defaultValue="false" />
     </PreferenceCategory>
 
+           <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+                android:key="unlock_without_bouncer"
+                android:title="@string/unlock_without_bouncer_title"
+                android:summary="@string/unlock_without_bouncer_summary" />
+
+           <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+                android:key="fp_success_vibrate"
+                android:title="@string/fp_success_vibrate_title"
+                android:summary="@string/fp_success_vibrate_summary"
+                android:defaultValue="true" />
+
+
+           <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+                android:key="fp_error_vibrate"
+                android:title="@string/fp_error_vibrate_title"
+                android:summary="@string/fp_error_vibrate_summary"
+                android:defaultValue="true" />
+
+
 </PreferenceScreen>

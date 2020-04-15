@@ -35,13 +35,11 @@ import com.android.internal.logging.nano.MetricsProto;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
+
 @SearchIndexable
 public class FingerprintSettings extends SettingsPreferenceFragment {
 
-    private static final String FP_SUCCESS_VIBRATION = "fingerprint_success_vib";
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
-
-    private FingerprintManager mFingerprintManager;
     private SwitchPreference mFingerprintVib;
 
     @Override
@@ -51,22 +49,10 @@ public class FingerprintSettings extends SettingsPreferenceFragment {
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
-        try {
-            mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
-        } catch (Exception e) {
-            //ignore
-        }
-        // Fingerprint vibration
-        mFingerprintVib = (SwitchPreference) prefSet.findPreference(FP_SUCCESS_VIBRATION);
-        if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected()){
-            mFingerprintVib.getParent().removePreference(mFingerprintVib);
-        }
-
         // FOD category
         PreferenceCategory fodIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
         PackageManager packageManager = getContext().getPackageManager();
         boolean supportsFod = packageManager.hasSystemFeature(RRContextConstants.Features.FOD);
-
         if (fodIconPickerCategory != null && !supportsFod) {
             fodIconPickerCategory.getParent().removePreference(fodIconPickerCategory);
         }
