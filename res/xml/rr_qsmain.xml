@@ -48,12 +48,31 @@
         android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="qs_background_blur_alpha"
+        android:title="@string/qs_background_blur_alpha_title"
+        android:defaultValue="255"
+        android:dependency="qs_background_blur"
+        android:max="255"
+        settings:min="0"
+        settings:units="" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="qs_background_blur_intensity"
+        android:title="@string/qs_background_blur_intensity_title"
+        android:defaultValue="30"
+        android:dependency="qs_background_blur"
+        android:max="100"
+        settings:min="0"
+        settings:units="" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="qs_panel_bg_alpha"
         android:title="@string/qs_panel_alpha_title"
         android:defaultValue="255"
         android:max="255"
         settings:min="0"
         settings:units="" />
+
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="anim_tile_style"
