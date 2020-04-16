@@ -108,14 +108,7 @@ public class MobileNetworkSummaryController extends AbstractPreferenceController
             }
             return null;
         } else if (subs.size() == 1) {
-            final SubscriptionInfo info = subs.get(0);
-            final int subId = info.getSubscriptionId();
-            if (!info.isEmbedded() && !mSubscriptionManager.isActiveSubscriptionId(subId)) {
-                return mContext.getString(R.string.mobile_network_tap_to_activate,
-                        SubscriptionUtil.getDisplayName(info));
-            } else {
-                return subs.get(0).getDisplayName();
-            }
+            return subs.get(0).getDisplayName();
         } else {
             final int count = subs.size();
             return mContext.getResources().getQuantityString(R.plurals.mobile_network_summary_count,
@@ -161,15 +154,9 @@ public class MobileNetworkSummaryController extends AbstractPreferenceController
 
             if (subs.size() == 1) {
                 mPreference.setOnPreferenceClickListener((Preference pref) -> {
-                    final SubscriptionInfo info = subs.get(0);
-                    final int subId = info.getSubscriptionId();
-                    if (!info.isEmbedded() && !mSubscriptionManager.isActiveSubscriptionId(subId)) {
-                        mSubscriptionManager.setSubscriptionEnabled(subId, true);
-                    } else {
-                        final Intent intent = new Intent(mContext, MobileNetworkActivity.class);
-                        intent.putExtra(Settings.EXTRA_SUB_ID, subs.get(0).getSubscriptionId());
-                        mContext.startActivity(intent);
-                    }
+                    final Intent intent = new Intent(mContext, MobileNetworkActivity.class);
+                    intent.putExtra(Settings.EXTRA_SUB_ID, subs.get(0).getSubscriptionId());
+                    mContext.startActivity(intent);
                     return true;
                 });
             } else {

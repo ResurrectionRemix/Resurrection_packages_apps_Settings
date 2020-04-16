@@ -40,7 +40,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.provider.Settings;
-import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -48,7 +47,6 @@ import android.util.Log;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.settings.HelpTrampoline;
 import com.android.settings.R;
-import com.android.settings.network.SubscriptionUtil;
 import com.android.settings.network.telephony.MobileNetworkActivity;
 import com.android.settingslib.HelpUtils;
 
@@ -107,11 +105,6 @@ public class SimSelectNotification extends BroadcastReceiver {
             Log.w(TAG, "onEnableMmsDataRequest invalid sub ID " + subId);
             return;
         }
-        final SubscriptionInfo info = subscriptionManager.getActiveSubscriptionInfo(subId);
-        if (info == null) {
-            Log.w(TAG, "onEnableMmsDataRequest null SubscriptionInfo for sub ID " + subId);
-            return;
-        }
 
         // Getting request reason from extra, which will determine the notification title.
         CharSequence notificationTitle = null;
@@ -136,7 +129,7 @@ public class SimSelectNotification extends BroadcastReceiver {
         }
 
         CharSequence notificationSummary = context.getResources().getString(
-                R.string.enable_mms_notification_summary, SubscriptionUtil.getDisplayName(info));
+                R.string.enable_mms_notification_summary, tm.getSimOperatorName());
 
         cancelEnableMmsNotification(context);
 

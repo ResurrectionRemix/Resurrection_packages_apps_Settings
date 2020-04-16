@@ -72,8 +72,7 @@ public class DisabledSubscriptionController extends BasePreferenceController imp
         if (mCategory == null || mSubId ==  SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
             return;
         }
-        // TODO b/135222940: re-evaluate whether to use mSubscriptionManager#isSubscriptionEnabled
-        mCategory.setVisible(mSubscriptionManager.isActiveSubId(mSubId));
+        mCategory.setVisible(mSubscriptionManager.isSubscriptionEnabled(mSubId));
     }
 
     @Override

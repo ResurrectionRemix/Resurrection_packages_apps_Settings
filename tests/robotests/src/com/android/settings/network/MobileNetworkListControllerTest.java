@@ -21,8 +21,6 @@ import static android.telephony.SubscriptionManager.INVALID_SUBSCRIPTION_ID;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
@@ -34,7 +32,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.provider.Settings;
 import android.telephony.SubscriptionInfo;
-import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.telephony.euicc.EuiccManager;
 
@@ -57,11 +54,9 @@ import androidx.preference.PreferenceScreen;
 @RunWith(RobolectricTestRunner.class)
 public class MobileNetworkListControllerTest {
     @Mock
-    private TelephonyManager mTelephonyManager;
+    TelephonyManager mTelephonyManager;
     @Mock
-    private EuiccManager mEuiccManager;
-    @Mock
-    private SubscriptionManager mSubscriptionManager;
+    EuiccManager mEuiccManager;
 
     @Mock
     private Lifecycle mLifecycle;
@@ -79,7 +74,6 @@ public class MobileNetworkListControllerTest {
         mContext = spy(Robolectric.setupActivity(Activity.class));
         when(mContext.getSystemService(TelephonyManager.class)).thenReturn(mTelephonyManager);
         when(mContext.getSystemService(EuiccManager.class)).thenReturn(mEuiccManager);
-        when(mContext.getSystemService(SubscriptionManager.class)).thenReturn(mSubscriptionManager);
         Settings.Global.putInt(mContext.getContentResolver(), Settings.Global.EUICC_PROVISIONED, 1);
         when(mPreferenceScreen.getContext()).thenReturn(mContext);
         mAddMorePreference = new Preference(mContext);
@@ -120,8 +114,6 @@ public class MobileNetworkListControllerTest {
     public void displayPreference_twoSubscriptions_correctlySetup() {
         final SubscriptionInfo sub1 = createMockSubscription(1, "sub1");
         final SubscriptionInfo sub2 = createMockSubscription(2, "sub2");
-        doReturn(true).when(mSubscriptionManager).isActiveSubscriptionId(eq(1));
-        doReturn(true).when(mSubscriptionManager).isActiveSubscriptionId(eq(2));
         SubscriptionUtil.setAvailableSubscriptionsForTesting(Arrays.asList(sub1, sub2));
         mController.displayPreference(mPreferenceScreen);
         mController.onResume();
@@ -144,33 +136,6 @@ public class MobileNetworkListControllerTest {
         final Intent intent2 = intentCaptor.getAllValues().get(1);
         assertThat(intent1.getIntExtra(EXTRA_SUB_ID, INVALID_SUBSCRIPTION_ID)).isEqualTo(1);
         assertThat(intent2.getIntExtra(EXTRA_SUB_ID, INVALID_SUBSCRIPTION_ID)).isEqualTo(2);
-    }
-
-    @Test
-    public void displayPreference_oneActiveESimOneInactivePSim_correctlySetup() {
-        final SubscriptionInfo sub1 = createMockSubscription(1, "sub1");
-        final SubscriptionInfo sub2 = createMockSubscription(2, "sub2");
-        when(sub1.isEmbedded()).thenReturn(true);
-        doReturn(true).when(mSubscriptionManager).isActiveSubscriptionId(eq(1));
-        doReturn(false).when(mSubscriptionManager).isActiveSubscriptionId(eq(2));
-
-        when(sub2.isEmbedded()).thenReturn(false);
-        SubscriptionUtil.setAvailableSubscriptionsForTesting(Arrays.asList(sub1, sub2));
-
-        mController.displayPreference(mPreferenceScreen);
-        mController.onResume();
-
-        // Check that the preferences get created with the correct summaries.
-        final ArgumentCaptor<Preference> preferenceCaptor = ArgumentCaptor.forClass(
-                Preference.class);
-        verify(mPreferenceScreen, times(2)).addPreference(preferenceCaptor.capture());
-        final Preference pref1 = preferenceCaptor.getAllValues().get(0);
-        final Preference pref2 = preferenceCaptor.getAllValues().get(1);
-        assertThat(pref1.getSummary()).isEqualTo("Active / Downloaded SIM");
-        assertThat(pref2.getSummary()).isEqualTo("Tap to activate sub2");
-
-        pref2.getOnPreferenceClickListener().onPreferenceClick(pref2);
-        verify(mSubscriptionManager).setSubscriptionEnabled(eq(2), eq(true));
     }
 
     @Test
