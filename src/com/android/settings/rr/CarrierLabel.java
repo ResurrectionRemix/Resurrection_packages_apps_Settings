@@ -113,11 +113,6 @@ public class CarrierLabel extends SettingsPreferenceFragment implements Preferen
         return MetricsProto.MetricsEvent.RESURRECTED;
     }
 
-    @Override
-    protected int getPreferenceScreenResId() {
-        return R.xml.carrier_label;
-    }
-
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override

@@ -148,8 +148,12 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.wifi.savedaccesspoints.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
+import com.android.settings.rr.About;
+import com.android.settings.rr.HeadsUp;
 import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.MainSettingsLayout;
+import com.android.settings.rr.fragments.GamingMode;
+import com.android.settings.rr.omnigears.interfacesettings.LockscreenItemSettings;
 
 public class SettingsGateway {
 
@@ -286,6 +290,10 @@ public class SettingsGateway {
             BatterySaverScheduleSettings.class.getName(),
             MobileNetworkListFragment.class.getName(),
             GlobalActionsPanelSettings.class.getName(),
+            GamingMode.class.getName(),
+            About.class.getName(),
+            HeadsUp.class.getName(),
+            LockscreenItemSettings.class.getName(),
             MainSettingsLayout.class.getName(),
             MainSettings.class.getName(),
             DarkModeSettingsFragment.class.getName()
@@ -327,6 +335,10 @@ public class SettingsGateway {
             Settings.MyDeviceInfoActivity.class.getName(),
             Settings.ModuleLicensesActivity.class.getName(),
             UserBackupSettingsActivity.class.getName(),
+            Settings.GamingModeActivity.class.getName(),
+            Settings.AboutSettingsActivity.class.getName(),
+            Settings.HeadsUpSettingsActivity.class.getName(),
+            Settings.WeatherSettingsActivity.class.getName(),
             Settings.MainSettingsLayoutActivity.class.getName(),
             Settings.MainSettingsActivity.class.getName(),
     };

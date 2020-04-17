@@ -2341,8 +2341,9 @@
                 android:icon="@drawable/rr_dashboard_main_icon"
                 android:taskAffinity="com.android.settings"
                 android:parentActivityName="Settings">
-            <intent-filter android:priority="9">
-                <action android:name="com.android.settings.action.SETTINGS"/>
+            <intent-filter android:priority="1">
+                <action android:name="android.settings.RR_TOOLS" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
                 android:value="com.android.settings.rr.MainSettingsLayout" />
@@ -2400,6 +2401,48 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 	</activity>
+
+        <receiver android:name="com.android.settings.rr.GamingModeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.GAMING_MODE_TURN_OFF" />
+                <action android:name="android.intent.action.GAMING_MODE_TURN_ON" />
+            </intent-filter>
+        </receiver>
+        <activity android:name=".Settings$GamingModeActivity"
+            android:label="@string/gaming_mode_title"
+            android:taskAffinity="com.android.settings"
+            android:parentActivityName="Settings">
+            <intent-filter android:priority="1">
+                <action android:name="android.settings.GAMING_MODE_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.fragments.GamingMode" />
+        </activity>
+
+        <activity android:name="Settings$WeatherSettingsActivity"
+            android:label="@string/lock_screen_show_weather_title"
+            android:taskAffinity="com.android.settings"
+            android:parentActivityName="Settings">
+            <intent-filter android:priority="1">
+                <action android:name="android.settings.RR_WEATHER_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.omnigears.interfacesettings.LockscreenItemSettings" />
+        </activity>
+
+        <activity android:name=".Settings$HeadsUpSettingsActivity"
+            android:label="@string/rr_headsup_cat"
+            android:taskAffinity="com.android.settings"
+            android:parentActivityName="Settings">
+            <intent-filter android:priority="1">
+                <action android:name="android.settings.RR_HEADS_UP" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.HeadsUp" />
+        </activity>
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"

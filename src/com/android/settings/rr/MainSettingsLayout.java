@@ -33,6 +33,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
+import android.os.Process;
 import android.provider.Settings;
 import androidx.fragment.app.FragmentPagerAdapter;
 import com.google.android.material.snackbar.Snackbar;
@@ -160,7 +161,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mFab2.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-             //Helpers.showSystemUIrestartDialog(getActivity());
+             Process.killProcess(Process.myPid());
              }
         });
 
