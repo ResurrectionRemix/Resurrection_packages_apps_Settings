@@ -43,6 +43,17 @@
     </Preference>
 
     <Preference
+        android:key="stock_tuner"
+        android:enabled="true"
+        android:icon="@drawable/rr_tuner_parts_activity_icon"
+        android:title="@string/rr_tuner"
+        android:summary="@string/rr_tuner_summary">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.systemui"
+            android:targetClass="com.android.systemui.tuner.TunerActivity" />
+    </Preference>
+
+    <Preference
         android:key="rr_navigation"
         android:title="@string/rr_navigation_title"
         android:icon="@drawable/rr_navbar_icon"
