@@ -113,6 +113,11 @@
     <PreferenceCategory
         android:title="@string/rr_notif_settings_title">
 
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+       android:key="lockscreen_translucent_notifications_bg_enabled"
+       android:title="@string/translucent_lockscreen_notifications_bg_title"
+       android:defaultValue="false" />
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
        android:key="lock_screen_custom_notif"
        android:title="@string/lock_screen_custom_notif_title"
