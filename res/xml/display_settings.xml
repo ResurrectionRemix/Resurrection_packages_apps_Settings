@@ -151,33 +151,6 @@
         android:title="@string/tap_to_wake"
         android:summary="@string/tap_to_wake_summary" />
 
-    <!-- Double tap to sleep -->
-    <lineageos.preference.LineageSystemSettingSwitchPreference
-        android:key="double_tap_sleep_gesture"
-        android:title="@string/status_bar_double_tap_to_sleep_title"
-        android:summary="@string/status_bar_double_tap_to_sleep_summary"
-        android:defaultValue="true" />
-
-    <lineageos.preference.LineageGlobalSettingSwitchPreference
-        android:key="wake_when_plugged_or_unplugged"
-        android:title="@string/wake_when_plugged_or_unplugged_title"
-        android:summary="@string/wake_when_plugged_or_unplugged_summary"
-        android:defaultValue="@*android:bool/config_unplugTurnsOnScreen" />
-
-    <!-- Prevent accidental wake-up -->
-    <lineageos.preference.LineageSystemSettingSwitchPreference
-        android:key="proximity_on_wake"
-        android:title="@string/proximity_wake_title"
-        android:summary="@string/proximity_wake_summary"
-        android:defaultValue="@*lineageos.platform:bool/config_proximityCheckOnWakeEnabledByDefault"
-        lineage:requiresConfig="@*lineageos.platform:bool/config_proximityCheckOnWake" />
-
-    <lineageos.preference.LineageSystemSettingSwitchPreference
-        android:key="high_touch_sensitivity_enable"
-        android:title="@string/high_touch_sensitivity_title"
-        android:summary="@string/high_touch_sensitivity_summary"
-        android:defaultValue="false"
-        lineage:requiresFeature="lineagehardware:FEATURE_HIGH_TOUCH_SENSITIVITY" />
 
      <SwitchPreference
         android:key="pocket_judge"

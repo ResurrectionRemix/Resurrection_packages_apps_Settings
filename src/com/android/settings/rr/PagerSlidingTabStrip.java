@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2013 Andreas Stuetz <andreas.stuetz@gmail.com>
+ *           (C) 2017-2018 crDroid Android Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +14,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.android.settings.rr;
 
 import android.annotation.SuppressLint;
@@ -29,7 +29,6 @@ import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.provider.Settings;
 import androidx.core.content.ContextCompat;
 import androidx.core.util.Pair;
 import androidx.viewpager.widget.ViewPager;
@@ -44,13 +43,11 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.Locale;
-
 import com.android.settings.R;
 
 public class PagerSlidingTabStrip extends HorizontalScrollView {
 
-    public static final int DEF_VALUE_TAB_TEXT_ALPHA = 150;
+    public static final int DEF_VALUE_TAB_TEXT_ALPHA = 255;
     private static final int[] ANDROID_ATTRS = new int[]{
             android.R.attr.textColorPrimary,
             android.R.attr.padding,
@@ -109,10 +106,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private int mScrollOffset;
     private int mLastScrollX = 0;
 
-	private int mTabBackgroundResId = R.drawable.back_tab;
-
-	private Locale locale;
-    private int mTabsColor;
+    private int mTabBackgroundResId = R.drawable.back_tab;
 
     public PagerSlidingTabStrip(Context context) {
         this(context, null);
@@ -133,9 +127,8 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         mRectPaint = new Paint();
         mRectPaint.setAntiAlias(true);
         mRectPaint.setStyle(Style.FILL);
-        mTabsColor = context.getResources().getColor(R.color.rr_accent);
 
-        DisplayMetrics dm = getResources().getDisplayMetrics();
+        DisplayMetrics dm = context.getResources().getDisplayMetrics();
         mScrollOffset = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mScrollOffset, dm);
         mIndicatorHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mIndicatorHeight, dm);
         mUnderlineHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mUnderlineHeight, dm);
@@ -168,11 +161,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         // get custom attrs for tabs and container
         a = context.obtainStyledAttributes(attrs, R.styleable.PagerSlidingTabStrip);
-        mIndicatorColor = mTabsColor;
+        mIndicatorColor = context.getResources().getColor(R.color.theme_accent);
         mIndicatorHeight = a.getDimensionPixelSize(R.styleable.PagerSlidingTabStrip_pstsIndicatorHeight, mIndicatorHeight);
-        mUnderlineColor = mTabsColor;
+        mUnderlineColor = context.getResources().getColor(R.color.theme_accent);
         mUnderlineHeight = a.getDimensionPixelSize(R.styleable.PagerSlidingTabStrip_pstsUnderlineHeight, mUnderlineHeight);
-        mDividerColor = mTabsColor;
+        mDividerColor = context.getResources().getColor(R.color.theme_accent);
         mDividerWidth = a.getDimensionPixelSize(R.styleable.PagerSlidingTabStrip_pstsDividerWidth, mDividerWidth);
         mDividerPadding = a.getDimensionPixelSize(R.styleable.PagerSlidingTabStrip_pstsDividerPadding, mDividerPadding);
         isExpandTabs = a.getBoolean(R.styleable.PagerSlidingTabStrip_pstsShouldExpand, isExpandTabs);
@@ -280,7 +273,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
             v.setPadding(mTabPadding, v.getPaddingTop(), mTabPadding, v.getPaddingBottom());
             TextView tab_title = (TextView) v.findViewById(R.id.psts_tab_title);
             if (tab_title != null) {
-                tab_title.setTextColor(getResources().getColor(R.color.rr_config_tab_text_color));
+                tab_title.setTextColor(getContext().getResources().getColor(R.color.rr_config_tab_text_color));
                 tab_title.setTypeface(mTabTextTypeface, mTabTextTypefaceStyle);
                 tab_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTabTextSize);
                 // setAllCaps() is only available from API 14, so the upper case is made manually if we are on a
@@ -798,4 +791,3 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         void onTabReselected(int position);
     }
 }
-

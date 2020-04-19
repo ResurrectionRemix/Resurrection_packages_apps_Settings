@@ -16,6 +16,7 @@ package com.android.settings.rr;
 import static com.android.settings.Utils.SETTINGS_PACKAGE_NAME;
 
 import android.app.AlertDialog;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -122,6 +123,12 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         return view;
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getActivity().setTitle(R.string.rr_title);
+    }
+
     public void createTabsLayout() {
         view = mInflater.inflate(R.layout.rr_main, mContainer, false);
         FloatingActionButton mFab1 = (FloatingActionButton) view.findViewById(R.id.fab_event);
@@ -134,10 +141,13 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         mTabs = (PagerSlidingTabStrip) view.findViewById(R.id.tabs);
         mInterceptorFrame = (FrameLayout) view.findViewById(R.id.fl_interceptor);
+        final ActionBar ab = getActivity().getActionBar();
+        if (ab != null) {
+            ab.setTitle(R.string.rr_title);
+        }
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mTabs.setViewPager(mViewPager);
-        getActivity().setTitle(R.string.rr_title);
         mContext = getActivity().getApplicationContext();
         ContentResolver resolver = getActivity().getContentResolver();
         mInterceptorFrame.getBackground().setAlpha(0);
@@ -245,8 +255,11 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         final BottomNavigationViewCustom navigation = view.findViewById(R.id.navigation);
         mViewPager = view.findViewById(R.id.viewpager);
         mPagerAdapter = new PagerAdapter(getFragmentManager());
+        final ActionBar ab = getActivity().getActionBar();
+        if (ab != null) {
+            ab.setTitle(R.string.rr_title);
+        }
         mViewPager.setAdapter(mPagerAdapter);
-        getActivity().setTitle(R.string.rr_title);
         ContentResolver resolver = getActivity().getContentResolver();
 
 

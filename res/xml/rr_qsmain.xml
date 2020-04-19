@@ -16,6 +16,9 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="qs_customizations"
     android:title="@string/rr_qs_title">
+
+    <PreferenceCategory
+        android:title="@string/qs_tile_layout_title">
                     
     <PreferenceScreen
         android:key="qs_rows_columns"
@@ -32,25 +35,28 @@
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="qs_tile_title_visibility"
         android:title="@string/qs_tile_title_visibility_title"
-        android:defaultValue="false" />
+        android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:title="@string/quick_settings_vibrate_title"
         android:summary="@string/quick_settings_vibrate_summary"
         android:defaultValue="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/qs_blur_cat">
 
     <!-- QS blur -->
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="qs_background_blur"
         android:title="@string/qs_blur_title"
         android:summary="@string/qs_blur_summary"
-        android:defaultValue="false" />
+        android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="qs_background_blur_alpha"
         android:title="@string/qs_background_blur_alpha_title"
-        android:defaultValue="255"
+        android:defaultValue="100"
         android:dependency="qs_background_blur"
         android:max="255"
         settings:min="0"
@@ -59,7 +65,7 @@
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="qs_background_blur_intensity"
         android:title="@string/qs_background_blur_intensity_title"
-        android:defaultValue="30"
+        android:defaultValue="80"
         android:dependency="qs_background_blur"
         android:max="100"
         settings:min="0"
@@ -68,11 +74,15 @@
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="qs_panel_bg_alpha"
         android:title="@string/qs_panel_alpha_title"
-        android:defaultValue="255"
+        android:defaultValue="190"
         android:max="255"
         settings:min="0"
         settings:units="" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/qs_animation_title">
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="anim_tile_style"
@@ -104,5 +114,25 @@
         android:title="@string/qs_datausage_title"
         android:summary="@string/qs_datausage_subtitle"
         android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/status_bar_brightness_category">
+
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="qs_show_brightness_slider"
+            android:title="@string/status_bar_brightness_slider_title"
+            android:summary="@string/status_bar_brightness_slider_summary"
+            android:defaultValue="true" />
+
+        <lineageos.preference.LineageSecureSettingSwitchPreference
+            android:key="qs_show_auto_brightness"
+            android:title="@string/status_bar_brightness_slider_auto_title"
+            android:summary="@string/status_bar_brightness_slider_auto_summary"
+            android:dependency="qs_show_brightness_slider"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
