@@ -68,15 +68,15 @@
             android:fragment="com.android.settings.rr.fragments.GamingMode" />
 
       <com.android.settings.rr.Preferences.CategoryPreference
-            android:key="rr_ui_other"
-            android:icon="@drawable/rr_misc_icon_nav"
-            android:title="@string/rr_misc_title"
-            android:fragment="com.android.settings.rr.MiscInterfaceSettings" />
-
-      <com.android.settings.rr.Preferences.CategoryPreference
             android:key="lockscreen_visualizer"
             android:icon="@drawable/rr_visualizer_icon_nav"
             android:title="@string/music_visualizer_title"
             android:fragment="com.android.settings.rr.LockScreenVisualizer" />
+
+      <com.android.settings.rr.Preferences.CategoryPreference
+            android:key="rr_ui_other"
+            android:icon="@drawable/rr_misc_icon_nav"
+            android:title="@string/rr_misc_title"
+            android:fragment="com.android.settings.rr.MiscInterfaceSettings" />
 
 </PreferenceScreen>

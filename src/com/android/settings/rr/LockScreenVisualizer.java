@@ -30,7 +30,6 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.internal.util.crdroid.Utils;
 import com.android.settings.SettingsPreferenceFragment;
 
 import com.android.settings.R;

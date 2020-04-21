@@ -42,6 +42,14 @@
         <intent android:action="org.lineageos.lineageparts.PROFILES_SETTINGS" />
     </Preference>
 
+
+    <PreferenceScreen
+        android:key="rounded_corners"
+        android:icon="@drawable/ic_rounded_corner"
+        android:title="@string/corners_title"
+        android:summary="@string/corners_summary"
+        android:fragment="com.android.settings.rr.RoundedCorners" />
+
     <Preference
         android:key="stock_tuner"
         android:enabled="true"
