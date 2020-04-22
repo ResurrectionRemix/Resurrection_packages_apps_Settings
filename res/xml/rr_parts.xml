@@ -16,6 +16,7 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     android:key="rr_parts"
     android:title="@string/rr_parts_title">
 
@@ -45,7 +46,7 @@
         <!-- Custom charging sounds -->
      <org.lineageos.internal.lineageparts.LineagePartsPreference
         android:key="charging_sounds_settings"
-        android:icon="@drawable/rr_charging sounds_icons"
+        android:icon="@drawable/rr_chargingsounds_icons"
         android:title="@string/charging_sounds_settings_title"
         android:summary="@string/charging_sounds_settings_summary"
         lineage:replacesKey="charging_sounds" />

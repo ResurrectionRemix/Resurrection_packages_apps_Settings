@@ -79,13 +79,14 @@
             android:title="@string/pulse_ambient_auto_color_title"
             android:summary="@string/pulse_ambient_auto_color_summary"
             android:dependency="pulse_ambient_light"
+            android:disableDependentsState="true"
             android:defaultValue="false" />
 	
         <net.margaritov.preference.colorpicker.ColorPickerPreference
             android:key="pulse_ambient_light_color"
             android:title="@string/pulse_ambient_light_color_title"
             android:persistent="false"
-            android:dependency="pulse_ambient_light"
+            android:dependency="pulse_ambient_light_auto_color"
             android:defaultValue="0xFF3980FF" />
     </PreferenceCategory>
 
