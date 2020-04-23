@@ -69,41 +69,54 @@
         android:title="@string/notification_screen_title" >
 	
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="pulse_ambient_light"
+            android:key="ambient_notification_light"
             android:title="@string/pulse_ambient_light_title"
             android:summary="@string/pulse_ambient_light_summary"
             android:defaultValue="false" />
+
+        <!--com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="ambient_light_pulse_for_all"
+            android:title="@string/ambient_light_pulse_for_all_title"
+            android:summary="@string/ambient_light_pulse_for_all_summary"
+            android:defaultValue="true" />
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="pulse_ambient_auto_color"
             android:title="@string/pulse_ambient_auto_color_title"
             android:summary="@string/pulse_ambient_auto_color_summary"
-            android:dependency="pulse_ambient_light"
+            android:dependency="ambient_notification_light"
             android:disableDependentsState="true"
-            android:defaultValue="false" />
-	
-        <net.margaritov.preference.colorpicker.ColorPickerPreference
-            android:key="pulse_ambient_light_color"
-            android:title="@string/pulse_ambient_light_color_title"
-            android:persistent="false"
-            android:dependency="pulse_ambient_auto_color"
-            android:defaultValue="0xFF3980FF" />
+            android:defaultValue="false" /-->
+
+        <ListPreference
+            android:key="ambient_light_color"
+            android:dialogTitle="@string/ambient_notification_light_color_title"
+            android:title="@string/ambient_notification_light_color_title"
+            android:entries="@array/ambient_notification_light_color_entries"
+            android:entryValues="@array/ambient_notification_light_color_values"
+            android:defaultValue="0" />
+
+        <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+            android:key="ambient_light_custom_color"
+            android:title="@string/pulse_ambient_light_color_custom_title"
+            android:dependency="ambient_notification_light"
+            android:defaultValue="0x3980FF" />
 
         <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-            android:key="ambient_light_duration"
+            android:key="pulse_ambient_light_duration"
             android:title="@string/ambient_light_duration_title"
-            android:dependency="pulse_ambient_light"
-            android:max="4500"
-            android:min="100"
+            android:dependency="ambient_notification_light"
+            android:max="10"
+            android:min="1"
             settings:unitsLeft=""
-            settings:unitsRight="ms"	
-            android:defaultValue="2000" />
+            settings:unitsRight="s"	
+            android:defaultValue="3" />
 
         <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-            android:key="ambient_light_repeat_count"
+            android:key="pulse_ambient_light_repeat_count"
             android:title="@string/ambient_light_repeat_count_title"
-            android:dependency="pulse_ambient_light"
-            android:max="50"
+            android:dependency="ambient_notification_light"
+            android:max="10"
             android:min="0"
             settings:unitsLeft=""
             settings:unitsRight=""	
