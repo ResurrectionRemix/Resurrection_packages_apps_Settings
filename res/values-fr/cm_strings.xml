@@ -16,6 +16,13 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <plurals name="show_dev_countdown_cm">
+        <item quantity="one">Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étape de l\'activation des paramètres de développement.
+Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'activation des paramètres de développement.</item>
+        <item quantity="other">Vous êtes maintenant à <xliff:g id="step_count">%1$d</xliff:g> étapes de l\'activation des paramètres de développement.</item>
+    </plurals>
+    <string name="show_dev_on_cm">Vous avez activé les paramètres de développement !</string>
+    <string name="show_dev_already_cm">Inutile, vous avez déjà activé les paramètres de développement.</string>
     <string name="advanced_reboot_title">Redémarrage avancé</string>
     <string name="advanced_reboot_summary">Inclure les options de redémarrage en mode recovery et bootloader dans le menu Marche/Arrêt lorsque l\'appareil est déverrouillé</string>
     <string name="adb_enable">Débogage Android</string>
@@ -63,6 +70,12 @@
     <string name="status_bar_double_tap_to_sleep_summary">Appuyer deux fois sur la barre d\'état ou sur l\'écran de verrouillage pour éteindre l\'écran</string>
     <string name="touchscreen_gesture_settings_title">Gestes tactiles</string>
     <string name="touchscreen_gesture_settings_summary">Effectuer différents gestes tactiles pour des actions rapides</string>
+    <string name="data_usage_app_restrict_data">Données mobiles</string>
+    <string name="data_usage_app_restrict_data_summary">Activer l\'utilisation des données mobiles</string>
+    <string name="data_usage_app_restrict_vpn">Données VPN</string>
+    <string name="data_usage_app_restrict_vpn_summary">Activer l\'utilisation des données VPN</string>
+    <string name="data_usage_app_restrict_wifi">Données Wi\u2011Fi</string>
+    <string name="data_usage_app_restrict_wifi_summary">Activer l\'utilisation des données Wi\u2011Fi</string>
     <string name="proximity_wake_title">Empêcher un réveil accidentel</string>
     <string name="proximity_wake_summary">Vérifier le capteur de proximité avant d\'allumer l\'écran</string>
     <string name="wake_when_plugged_or_unplugged_title">Réveiller au branchement</string>
@@ -71,4 +84,8 @@
     <string name="high_touch_sensitivity_summary">Augmenter la sensibilité de l\'écran permettant ainsi le port de gants</string>
     <string name="touchscreen_hovering_title">Survol de l\'écran tactile</string>
     <string name="touchscreen_hovering_summary">Permet de survoler l\'écran comme avec une souris dans les navigateurs web, les bureaux à distance, etc.</string>
+    <string name="update_recovery_title">Mise à jour du recovery</string>
+    <string name="update_recovery_summary">Mettre à jour la partition de récupération avec les mises à jour système</string>
+    <string name="update_recovery_on_warning">REMARQUE : Lorsque cette fonction est activée, la partition de récupération installée sera remplacée par celle du système d\'exploitation.\n\nVotre partition de récupération sera mise à jour lors des mises à niveau du système d\'exploitation, assurant ainsi la compatibilité avec les futures versions.\n\nVoulez-vous activer cette fonction ?</string>
+    <string name="update_recovery_off_warning">AVERTISSEMENT : Lorsque cette fonction est désactivée, votre partition de récupération ne sera pas mise à jour lors des mises à niveau du système d\'exploitation.\n\nLes futures mises à jour du système d\'exploitation peuvent ne pas être installées en cas de versions obsolètes ou personnalisées de la partition de récupération.\n\nVoulez-vous vraiment désactiver cette fonction ?</string>
 </resources>
