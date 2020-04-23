@@ -88,6 +88,26 @@
             android:persistent="false"
             android:dependency="pulse_ambient_light_auto_color"
             android:defaultValue="0xFF3980FF" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="ambient_light_duration"
+            android:title="@string/ambient_light_duration_title"
+            android:dependency="pulse_ambient_light"
+            android:max="4500"
+            android:min="100"
+            settings:unitsLeft=""
+            settings:unitsRight="ms"	
+            android:defaultValue="2000" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="ambient_light_repeat_count"
+            android:title="@string/ambient_light_repeat_count_title"
+            android:dependency="pulse_ambient_light"
+            android:max="50"
+            android:min="0"
+            settings:unitsLeft=""
+            settings:unitsRight=""	
+            android:defaultValue="0" />
     </PreferenceCategory>
 
     <PreferenceCategory
