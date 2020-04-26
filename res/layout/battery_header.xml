@@ -17,43 +17,48 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/battery_entity_header"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     style="@style/EntityHeader">
 
-    <LinearLayout
-        android:layout_width="170dp"
+    <FrameLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginEnd="8dp"
-        android:orientation="vertical">
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="12dp"
+        android:background="@drawable/battery_metter_gauage"
+        android:padding="4dp">
 
-        <TextView
-            android:id="@+id/battery_percent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textAppearance="@style/TextAppearance.EntityHeaderTitle"
-            android:textSize="36sp" />
+        <com.android.settings.fuelgauge.BatteryMeterView
+            android:id="@+id/battery_header_icon"
+            android:layout_width="@dimen/battery_meter_width"
+            android:layout_height="@dimen/battery_meter_height"
+            android:layout_margin="8dp"
+            app:cardElevation="5dp" />
 
-        <TextView
-            android:id="@+id/summary1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:minLines="3"
-            android:textAppearance="@android:style/TextAppearance.DeviceDefault.Small"/>
-            android:textColor="?android:attr/textColorPrimary"/>
+    </FrameLayout>
 
-    </LinearLayout>
-
-    <com.android.settings.fuelgauge.BatteryMeterView
-        android:id="@+id/battery_header_icon"
+    <TextView
+        android:id="@+id/battery_percent"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/battery_meter_height"
-        android:layout_gravity="center"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textAppearance="@style/TextAppearance.EntityHeaderTitle"
+        android:visibility="gone"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/summary1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:minLines="3"
+        android:textColor="?android:attr/textColorPrimary"/>
 
 </LinearLayout>
