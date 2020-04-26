@@ -16,36 +16,39 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:key="qs_rows_columns"
         android:title="@string/qs_rows_columns_title">
 
     <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="qs_rows_portrait"
         android:title="@string/qs_rows_portrait_title"
+        android:icon="@drawable/rr_qs_rows_icon"
         android:max="5"
-        settings:min="1"
+        android:min="1"
         settings:units="" />
 
     <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="qs_rows_landscape"
         android:title="@string/qs_rows_landscape_title"
+        android:icon="@drawable/rr_qs_rows_land_icon"
         android:max="3"
-        settings:min="1"
+        android:min="1"
         settings:units="" />
 
     <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="qs_columns_portrait"
         android:title="@string/qs_columns_portrait_title"
+        android:icon="@drawable/rr_qs_columns_icon"
         android:max="7"
-        settings:min="1"
+        android:min="1"
         android:defaultValue="3"
         settings:units="" />
 
     <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="qs_columns_landscape"
         android:title="@string/qs_columns_landscape_title"
+        android:icon="@drawable/rr_qs_columns_landscape_icon"
         android:max="9"
-        settings:min="1"
+        android:min="1"
         android:defaultValue="4"
         settings:units="" />
 

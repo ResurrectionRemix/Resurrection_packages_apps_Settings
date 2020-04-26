@@ -12,7 +12,6 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:key="animation_settings"
         android:title="@string/animation_title">
 
     <ListPreference
@@ -22,7 +21,7 @@
         android:icon="@drawable/rr_screen_off_animations_icon"
         android:entryValues="@array/screen_off_animation_values" />
 
-    <PreferenceScreen
+    <Preference
         android:key="system_animation"
         android:title="@string/system_animation_title"
         android:summary="@string/system_animation_summary"
@@ -55,7 +54,7 @@
         android:icon="@drawable/rr_scroll_icon"
         android:entryValues="@array/values_scrollingcache" />
 
-     <PreferenceScreen
+     <Preference
         android:key="rr_toast"
         android:fragment="com.android.settings.rr.ToastAnimations"
         android:title="@string/rr_toast_title"

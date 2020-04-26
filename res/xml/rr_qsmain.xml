@@ -14,19 +14,21 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:key="qs_customizations"
     android:title="@string/rr_qs_title">
 
     <PreferenceCategory
         android:title="@string/qs_tile_layout_title">
                     
-    <PreferenceScreen
+    <Preference
         android:key="qs_rows_columns"
+        android:icon="@drawable/rr_rows_icon"
+        android:summary="@string/qs_rows_columns_summary"
         android:fragment="com.android.settings.rr.fragments.QsRowsColumns"
         android:title="@string/qs_rows_columns_title"/>
 
     <lineageos.preference.LineageSystemSettingListPreference
         android:key="qs_quick_pulldown"
+        android:icon="@drawable/rr_pulldown_icon"
         android:title="@string/status_bar_quick_qs_pulldown_title"
         android:entries="@array/status_bar_quick_qs_pulldown_entries"
         android:entryValues="@array/status_bar_quick_qs_pulldown_values"
@@ -34,11 +36,13 @@
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="qs_tile_title_visibility"
+        android:icon="@drawable/rr_visib_icon"
         android:title="@string/qs_tile_title_visibility_title"
         android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="quick_settings_vibrate"
+        android:icon="@drawable/rr_haptic_icon"
         android:title="@string/quick_settings_vibrate_title"
         android:summary="@string/quick_settings_vibrate_summary"
         android:defaultValue="false"/>
@@ -49,6 +53,7 @@
     <!-- QS blur -->
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="qs_background_blur"
+        android:icon="@drawable/rr_qs_blur_icon"
         android:title="@string/qs_blur_title"
         android:summary="@string/qs_blur_summary"
         android:defaultValue="true" />
@@ -57,6 +62,7 @@
         android:key="qs_background_blur_alpha"
         android:title="@string/qs_background_blur_alpha_title"
         android:defaultValue="100"
+        android:icon="@drawable/rr_custom_icon"
         android:dependency="qs_background_blur"
         android:max="255"
         settings:min="0"
@@ -66,6 +72,7 @@
         android:key="qs_background_blur_intensity"
         android:title="@string/qs_background_blur_intensity_title"
         android:defaultValue="80"
+        android:icon="@drawable/rr_intensity_icon"
         android:dependency="qs_background_blur"
         android:max="100"
         settings:min="0"
@@ -75,10 +82,10 @@
         android:key="qs_panel_bg_alpha"
         android:title="@string/qs_panel_alpha_title"
         android:defaultValue="190"
+        android:icon="@drawable/rr_bb_light_icon"
         android:max="255"
         settings:min="0"
         settings:units="" />
-
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -86,6 +93,7 @@
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="anim_tile_style"
+        android:icon="@drawable/rr_style_icon"
         android:dialogTitle="@string/qs_tile_animation_style_title"
         android:title="@string/qs_tile_animation_style_title"
         android:entries="@array/qs_tile_animation_style_entries"
@@ -94,6 +102,7 @@
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="anim_tile_duration"
+        android:icon="@drawable/rr_duration_icon"
         android:dialogTitle="@string/qs_tile_animation_duration_title"
         android:title="@string/qs_tile_animation_duration_title"
         android:entries="@array/qs_tile_animation_duration_entries"
@@ -102,6 +111,7 @@
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="anim_tile_interpolator"
+        android:icon="@drawable/rr_int_icon"
         android:dialogTitle="@string/qs_tile_animation_interpolator_title"
         android:title="@string/qs_tile_animation_interpolator_title"
         android:entries="@array/qs_tile_animation_interpolator_entries"
@@ -111,6 +121,7 @@
     <!-- QS data usage  -->
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="qs_datausage"
+        android:icon="@drawable/rr_data_usage_icon"
         android:title="@string/qs_datausage_title"
         android:summary="@string/qs_datausage_subtitle"
         android:defaultValue="false" />
@@ -122,12 +133,14 @@
 
         <lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="qs_show_brightness_slider"
+            android:icon="@drawable/rr_brightness_slider_icon"
             android:title="@string/status_bar_brightness_slider_title"
             android:summary="@string/status_bar_brightness_slider_summary"
             android:defaultValue="true" />
 
         <lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="qs_show_auto_brightness"
+            android:icon="@drawable/rr_brightness_slider_auto_icon"
             android:title="@string/status_bar_brightness_slider_auto_title"
             android:summary="@string/status_bar_brightness_slider_auto_summary"
             android:dependency="qs_show_brightness_slider"

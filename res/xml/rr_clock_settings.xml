@@ -12,7 +12,6 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:key="status_bar_clock_date_settings"
     android:title="@string/status_bar_clock_date_settings_title">
 
    <!-- Clock position -->
@@ -20,12 +19,14 @@
         android:key="status_bar_clock_position"
         android:entries="@array/clock_position_entries"
         android:entryValues="@array/clock_position_values"
+        android:icon="@drawable/rr_clock_position_icon"
         android:defaultValue="2"
         android:title="@string/clock_position" />
 
     <!-- Clock AM/PM -->
     <com.android.settings.rr.Preferences.SecureSettingIntListPreference
         android:key="statusbar_clock_am_pm_style"
+        android:icon="@drawable/rr_clock_date_icon"
         android:entries="@array/entries_status_bar_am_pm"
         android:entryValues="@array/values_status_bar_am_pm"
         android:defaultValue="2"
@@ -34,6 +35,7 @@
     <!-- Clock seconds -->
     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="status_bar_clock_seconds"
+        android:icon="@drawable/rr_clock_seconds_icon"
         android:title="@string/status_bar_clock_seconds_title"
         android:summary="@string/status_bar_clock_seconds_summary"
         android:defaultValue="false" />
@@ -41,6 +43,7 @@
     <!-- Date before clock style -->
     <com.android.settings.rr.Preferences.SecureSettingIntListPreference
         android:key="statusbar_clock_date_display"
+        android:icon="@drawable/rr_clock_ampm_icon"
         android:entries="@array/clock_date_display_entries"
         android:entryValues="@array/clock_date_display_values"
         android:defaultValue="0"
@@ -49,6 +52,7 @@
     <!-- Date before date style -->
     <com.android.settings.rr.Preferences.SecureSettingIntListPreference
         android:key="statusbar_clock_date_style"
+        android:icon="@drawable/rr_clock_date_icon"
         android:entries="@array/clock_date_style_entries"
         android:entryValues="@array/clock_date_style_values"
         android:defaultValue="0"
@@ -57,6 +61,7 @@
     <!-- Date before date position -->
     <com.android.settings.rr.Preferences.SecureSettingIntListPreference
         android:key="statusbar_clock_date_position"
+        android:icon="@drawable/rr_clock_date_pos_icon"
         android:entries="@array/clock_date_position_entries"
         android:entryValues="@array/clock_date_position_values"
         android:defaultValue="0"
@@ -65,6 +70,7 @@
     <!-- Date before date style -->
     <com.android.settings.rr.Preferences.SecureSettingListPreference
         android:key="statusbar_clock_date_format"
+        android:icon="@drawable/rr_clock_format_icon"
         android:entries="@array/clock_date_format_entries_values"
         android:entryValues="@array/clock_date_format_entries_values"
         android:defaultValue="EEE"

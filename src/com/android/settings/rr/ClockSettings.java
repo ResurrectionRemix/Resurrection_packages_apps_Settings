@@ -14,7 +14,7 @@
 package com.android.settings.rr;
 
 import android.os.Bundle;
-
+import android.content.Context;
 import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -36,20 +36,28 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import lineageos.preference.LineageSystemSettingListPreference;
 
-import com.android.settings.R;
-import com.android.settings.rr.utils.RRUtils;
-import com.android.settings.search.Indexable.SearchIndexProvider;
-import com.android.settings.SettingsPreferenceFragment;
 
 import java.util.Date;
+import android.content.Context;
+import android.provider.SearchIndexableResource;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
+
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 @SearchIndexable
 public class ClockSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "ClockSettings";
 
 
@@ -73,6 +81,25 @@ public class ClockSettings extends SettingsPreferenceFragment implements
         return false;
     }
 
+    /**
+     * For Search.
+     */
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.rr_clock_settings);
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(Context context, boolean enabled) {
+                ArrayList<SearchIndexableResource> result =
+                    new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_clock_settings;
+                    result.add(sir);
+                    return result;
+            }
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                return keys;
+            }
+        };
 }

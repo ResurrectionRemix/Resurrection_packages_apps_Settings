@@ -278,7 +278,4 @@ public class SlimRecentsBlacklist extends SettingsPreferenceFragment implements
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
     }
-
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.slim_recents_blacklist);
 }

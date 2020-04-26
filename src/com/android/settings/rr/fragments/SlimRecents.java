@@ -34,10 +34,8 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
-
-import com.android.settings.SettingsPreferenceFragment;
+import com.android.settings.rr.Preferences.MasterSwitchPreference;
 import com.android.settings.rr.Preferences.CustomSeekBarPreference;
-import com.android.settings.R;
 import android.provider.Settings;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -51,20 +49,28 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import android.provider.SearchIndexableResource;
+import com.android.internal.logging.nano.MetricsProto;
+
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settingslib.search.SearchIndexable;
+
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.android.settings.rr.Preferences.MasterSwitchPreference;
-import com.android.internal.logging.nano.MetricsProto;
-import com.android.settings.rr.utils.RRUtils;
-import com.android.settings.search.Indexable.SearchIndexProvider;
-import com.android.settingslib.search.SearchIndexable;
+import java.util.List;
 @SearchIndexable
 public class SlimRecents extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener, DialogInterface.OnDismissListener  {
+        implements Preference.OnPreferenceChangeListener, DialogInterface.OnDismissListener, Indexable  {
 
     private static final String RECENT_PANEL_LEFTY_MODE = "recent_panel_lefty_mode";
 
@@ -294,6 +300,25 @@ public class SlimRecents extends SettingsPreferenceFragment
         }
     }
 
+    /**
+     * For Search.
+     */
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.slim_recents);
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(Context context, boolean enabled) {
+                ArrayList<SearchIndexableResource> result =
+                    new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.slim_recents;
+                    result.add(sir);
+                    return result;
+            }
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                return keys;
+            }
+        };
 }

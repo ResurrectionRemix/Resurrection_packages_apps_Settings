@@ -12,7 +12,6 @@
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:key="rr_battery"
     android:title="@string/rr_battery">
 
     <PreferenceCategory
@@ -22,6 +21,7 @@
         <!-- Battery styles -->
         <com.android.settings.rr.Preferences.SystemSettingListPreference
             android:key="status_bar_battery_style"
+            android:icon="@drawable/rr_battery_style_icon"
             android:title="@string/status_bar_battery_style_title"
             android:summary="%s"
             android:dialogTitle="@string/status_bar_battery_style_title"
@@ -32,6 +32,7 @@
         <!-- Battery percent -->
         <com.android.settings.rr.Preferences.SystemSettingListPreference
             android:key="status_bar_show_battery_percent"
+            android:icon="@drawable/rr_battery_style_percent_icon"
             android:title="@string/battery_percentage_title"
             android:entries="@array/battery_percentage_entries"
             android:entryValues="@array/battery_percentage_values"
@@ -40,6 +41,7 @@
         <!-- Show battery percent when charging -->
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="status_bar_battery_text_charging"
+            android:icon="@drawable/rr_battery_style_text_icon"
             android:title="@string/status_bar_battery_text_charging_title"
             android:summary="@string/status_bar_battery_text_charging_summary"
             android:defaultValue="true" />

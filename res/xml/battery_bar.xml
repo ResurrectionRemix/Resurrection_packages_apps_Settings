@@ -24,11 +24,14 @@
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="statusbar_battery_bar"
+        android:icon="@drawable/rr_bb_enable_icon"
         android:title="@string/battery_bar_title"
         android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingIntListPreference
         android:key="statusbar_battery_bar_location"
+        android:dependency="statusbar_battery_bar"
+        android:icon="@drawable/rr_bb_pos_icon"
         android:title="@string/battery_bar_location_title"
         android:entries="@array/battery_bar_location_entries"
         android:entryValues="@array/battery_bar_location_values"
@@ -36,7 +39,9 @@
 
     <com.android.settings.rr.Preferences.SystemSettingColorBlendPreference
         android:title="@string/battery_bar_color_title"
+        android:icon="@drawable/rr_bb_light_icon"
         android:summary="@string/battery_bar_color_summary"
+        android:dependency="statusbar_battery_bar"
         settings:keyColorStart="statusbar_battery_bar_battery_low_color"
         settings:keyColorEnd="statusbar_battery_bar_color"
         settings:keyBlendReverse="statusbar_battery_bar_blend_color_reverse"
@@ -48,7 +53,9 @@
 
     <com.android.settings.rr.Preferences.SystemSettingColorBlendPreference
         android:title="@string/battery_bar_dark_color_title"
+        android:icon="@drawable/rr_bb_dark_icon"
         android:summary="@string/battery_bar_dark_color_summary"
+        android:dependency="statusbar_battery_bar"
         settings:keyColorStart="statusbar_battery_bar_battery_low_dark_color"
         settings:keyColorEnd="statusbar_battery_bar_dark_color"
         settings:keyBlendReverse="statusbar_battery_bar_blend_color_dark_reverse"
@@ -60,11 +67,14 @@
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="statusbar_battery_bar_enable_charging_color"
+        android:icon="@drawable/rr_bb_charge_icon"
         android:title="@string/battery_bar_use_charging_color_title"
+        android:dependency="statusbar_battery_bar"
         android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="statusbar_battery_bar_charging_color"
+        android:icon="@drawable/rr_bb_chargecolor_icon"
         android:title="@string/battery_bar_charging_color_title"
         android:summary="@string/battery_bar_charging_color_summary"
         android:defaultValue="0xffffff00"
@@ -72,6 +82,7 @@
 
     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="statusbar_battery_bar_charging_dark_color"
+        android:icon="@drawable/rr_bb_chargedark_icon"
         android:title="@string/battery_bar_charging_dark_color_title"
         android:summary="@string/battery_bar_charging_dark_color_summary"
         android:defaultValue="0xff0d47a1"
@@ -79,23 +90,28 @@
 
     <com.android.settings.rr.Preferences.SystemSettingIntListPreference
         android:key="statusbar_battery_bar_style"
+        android:icon="@drawable/rr_bb_algin_icon"
         android:title="@string/battery_bar_style_title"
         android:entries="@array/battery_bar_style_entries"
         android:entryValues="@array/battery_bar_style_values"
+        android:dependency="statusbar_battery_bar"
         android:defaultValue="0" />
 
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="statusbar_battery_bar_thickness"
         android:title="@string/battery_bar_thickness_title"
+        android:icon="@drawable/rr_bb_thickness_icon"
         android:min="1"
         android:max="4"
         android:defaultValue="2"
-        settings:unitsLeft=""
-        settings:unitsRight="dp" />
+        android:dependency="statusbar_battery_bar"
+        settings:units="dp" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="statusbar_battery_bar_animate"
+        android:icon="@drawable/rr_bb_animate_icon"
         android:title="@string/battery_bar_animate_title"
+        android:dependency="statusbar_battery_bar"
         android:defaultValue="false" />
 
 </PreferenceScreen>

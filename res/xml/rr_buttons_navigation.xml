@@ -16,12 +16,12 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-        android:key="rr_system_nav"
         android:title="@string/rr_system_settings">
 
     <com.android.settings.rr.Preferences.CategoryPreference
         android:key="navbar_category"
-        android:fragment="com.android.settings.rr.Navigation"
+        android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
+        settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController" 
         android:title="@string/navbar_tuner_title"
         android:icon="@drawable/rr_buttons_icon_nav" />
 

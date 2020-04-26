@@ -46,10 +46,6 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 
-import com.android.internal.logging.nano.MetricsProto;
-
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.R;
 import com.android.settings.rr.utils.PackageListAdapter;
 import com.android.settings.rr. utils.PackageListAdapter.PackageItem;
 
@@ -60,17 +56,26 @@ import com.android.internal.util.rr.DeviceUtils;
 import com.android.internal.util.rr.ActionConstants;
 // com.android.internal.util.rr.ActionUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+
+import android.provider.SearchIndexableResource;
+import com.android.internal.logging.nano.MetricsProto;
 
 import com.android.settings.rr.utils.RRUtils;
-import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
+
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 @SearchIndexable
 public class GamingMode extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceClickListener {
+        implements Preference.OnPreferenceClickListener, Indexable {
 
     private static final int DIALOG_GAMING_APPS = 1;
     private static final String GAMING_MODE_ENABLED = "gaming_mode_enabled";
@@ -371,6 +376,25 @@ public class GamingMode extends SettingsPreferenceFragment
         return MetricsProto.MetricsEvent.RESURRECTED; //Error2
     }
 
+    /**
+     * For Search.
+     */
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.gaming_mode);
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(Context context, boolean enabled) {
+                ArrayList<SearchIndexableResource> result =
+                    new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.gaming_mode;
+                    result.add(sir);
+                    return result;
+            }
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                return keys;
+            }
+        };
 }

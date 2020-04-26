@@ -19,63 +19,63 @@
     android:key="rr_interface"
     android:title="@string/rr_ui_title">
 
-       <PreferenceScreen
+       <Preference
             android:key="rr_fp"
             android:icon="@drawable/rr_fingerprint_icon"
             android:title="@string/rr_fp_title"
             android:summary="@string/rr_fp_summary"
             android:fragment="com.android.settings.rr.fragments.FingerprintSettings" />
 
-       <PreferenceScreen
+       <Preference
             android:key="rr_lockscreen"
             android:title="@string/rr_lockscreen_title"
             android:summary="@string/rr_lock_summary"
 	   	    android:fragment="com.android.settings.rr.LockSettings" 
 	   		android:icon="@drawable/rr_lock_icon" />
 
-       <PreferenceScreen
+       <Preference
             android:key="heads_up_settings"
             android:title="@string/rr_headsup_cat"
             android:summary="@string/rr_heads_up_summary"
             android:icon="@drawable/rr_heads_up_icon"
             android:fragment="com.android.settings.rr.HeadsUp" />
 
-       <PreferenceScreen
+       <Preference
             android:key="dashboard"
             android:icon="@drawable/rr_dashboard_icon"
             android:summary="@string/rr_dash_board_summary"
             android:title="@string/rr_dash_board_title"
             android:fragment="com.android.settings.rr.DashBoardSettings"/>
 
-       <PreferenceScreen
+       <Preference
             android:key="screen_zoom"
             android:icon="@drawable/rr_display_icon"
             android:summary="@string/rr_display_size_summary"
             android:title="@string/screen_zoom_title"
             android:fragment="com.android.settings.display.ScreenZoomSettings" />
 
-       <PreferenceScreen
+       <Preference
             android:key="font_size"
             android:title="@string/title_font_size"
             android:summary="@string/rr_font_size_summary"
             android:fragment="com.android.settings.display.ToggleFontSizePreferenceFragment"
             android:icon="@drawable/rr_font_size_icon"  />
 
-       <PreferenceScreen
+       <Preference
             android:key="gaming"
             android:title="@string/gaming_mode_title"
             android:icon="@drawable/ic_gaming"
             android:summary="@string/gaming_mode_summary"
             android:fragment="com.android.settings.rr.fragments.GamingMode" />
 
-       <PreferenceScreen
+       <Preference
             android:key="lockscreen_visualizer"
             android:icon="@drawable/rr_visualizer_icon"
             android:title="@string/music_visualizer_title"
             android:summary="@string/music_visualizer_summary"
             android:fragment="com.android.settings.rr.LockScreenVisualizer" />
 
-      <PreferenceScreen
+      <Preference
             android:key="rr_ui_other"
             android:icon="@drawable/rr_misc_ui_icon"
             android:title="@string/rr_misc_title"

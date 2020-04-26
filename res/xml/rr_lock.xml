@@ -22,6 +22,7 @@
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
        android:key="lockscreen_charging_animation_style"
+       android:icon="@drawable/rr_charging_icon"
        android:title="@string/lockscreen_charging_animation_title"
        android:entries="@array/lockscreen_charging_animation_entries"
        android:entryValues="@array/lockscreen_charging_animation_values"
@@ -29,12 +30,14 @@
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
        android:key="lockscreen_charging_indicator_doze"
+       android:icon="@drawable/rr_lockdown_icon"
        android:title="@string/charging_indicator_doze_title"
        android:summary="@string/charging_indicator_doze_summary"
        android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
        android:key="lockscreen_battery_info"
+       android:icon="@drawable/rr_text_icon"
        android:title="@string/lockscreen_battery_info_title"
        android:summary="@string/lockscreen_battery_info_summary"
        android:defaultValue="false" />
@@ -46,18 +49,21 @@
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
        android:key="lockscreen_hide_status_bar"
+       android:icon="@drawable/rr_statusbar_icon"
        android:title="@string/hide_lockscreen_status_bar_title"
        android:summary="@string/hide_lockscreen_status_bar_summary"
        android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
        android:key="pulse_on_new_tracks"
+       android:icon="@drawable/rr_pulse_icon"
        android:title="@string/pulse_on_new_tracks_title"
        android:summary="@string/pulse_on_new_tracks_summary"
        android:defaultValue="false"/>
 
     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="lockscreen_visualizer_enabled"
+        android:icon="@drawable/rr_visualizer_icon"
         android:title="@string/music_visualizer_title"
         android:summary="@string/music_visualizer_summary"
         android:defaultValue="true" />
@@ -70,6 +76,7 @@
 	
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="ambient_notification_light"
+            android:icon="@drawable/rr_edge_light_icon"
             android:title="@string/pulse_ambient_light_title"
             android:summary="@string/pulse_ambient_light_summary"
             android:defaultValue="false" />
@@ -90,6 +97,7 @@
 
         <ListPreference
             android:key="ambient_light_color"
+            android:icon="@drawable/rr_color_icon"
             android:dialogTitle="@string/ambient_notification_light_color_title"
             android:title="@string/ambient_notification_light_color_title"
             android:entries="@array/ambient_notification_light_color_entries"
@@ -98,6 +106,7 @@
 
         <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
             android:key="ambient_light_custom_color"
+            android:icon="@drawable/rr_custom_icon"
             android:title="@string/pulse_ambient_light_color_custom_title"
             android:dependency="ambient_notification_light"
             android:defaultValue="0x3980FF" />
@@ -105,21 +114,21 @@
         <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
             android:key="pulse_ambient_light_duration"
             android:title="@string/ambient_light_duration_title"
+            android:icon="@drawable/rr_duration_icon"
             android:dependency="ambient_notification_light"
             android:max="10"
             android:min="1"
-            settings:unitsLeft=""
-            settings:unitsRight="s"	
+            settings:units="s"	
             android:defaultValue="3" />
 
         <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
             android:key="pulse_ambient_light_repeat_count"
             android:title="@string/ambient_light_repeat_count_title"
             android:dependency="ambient_notification_light"
+            android:icon="@drawable/rr_add_icon"
             android:max="10"
             android:min="0"
-            settings:unitsLeft=""
-            settings:unitsRight=""	
+            settings:units="times"	
             android:defaultValue="0" />
     </PreferenceCategory>
 
@@ -128,11 +137,13 @@
 
     <lineageos.preference.LineageSecureSettingSwitchPreference
        android:key="lockscreen_translucent_notifications_bg_enabled"
+       android:icon="@drawable/rr_blur_icon"
        android:title="@string/translucent_lockscreen_notifications_bg_title"
        android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
        android:key="lock_screen_custom_notif"
+       android:icon="@drawable/rr_notif_icon"
        android:title="@string/lock_screen_custom_notif_title"
        android:summary="@string/lock_screen_custom_notif_summary"
        android:defaultValue="false" />
@@ -141,10 +152,10 @@
        android:key="lockscreen_max_notif_config"
        android:title="@string/lockscreen_max_notif_config_title"
        android:summary="@string/lockscreen_max_notif_config_summary"
+       android:icon="@drawable/rr_add_icon"
        android:max="3"
        android:min="1"
-       settings:unitsLeft=""
-       settings:unitsRight=""
+       settings:units=""
        android:defaultValue="3"
        android:dependency="lock_screen_custom_notif" />
     </PreferenceCategory>
@@ -154,17 +165,18 @@
 
     <lineageos.preference.LineageSecureSettingSwitchPreference
        android:key="lockscreen_media_metadata"
+       android:icon="@drawable/rr_media_icon"
        android:title="@string/lockscreen_media_art_title"
        android:defaultValue="true" />
 
      <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
        android:key="lockscreen_media_blur"
        android:title="@string/lockscreen_media_blur_title"
+       android:icon="@drawable/rr_blur_icon"
        android:summary="@string/lockscreen_media_blur_summary"
        android:max="2500"
        android:min="1"
-       settings:unitsLeft=""
-       settings:unitsRight="dp"	
+       settings:units=""	
        android:defaultValue="25" />
     </PreferenceCategory>
 

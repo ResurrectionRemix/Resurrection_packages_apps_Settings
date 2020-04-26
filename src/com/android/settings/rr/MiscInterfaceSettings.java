@@ -18,39 +18,29 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager.NameNotFoundException;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.os.RemoteException;
-import android.os.UserHandle;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.Preference.OnPreferenceChangeListener;
+import androidx.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
-import android.provider.Settings;
-import androidx.preference.*;
-import androidx.*;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.android.settings.R;
-import com.android.settings.rr.Preferences.SecureSettingSwitchPreference;
-import com.android.settings.rr.Preferences.CustomSeekBarPreference;
-import com.android.settings.rr.utils.RRUtils;
-import com.android.settings.search.Indexable.SearchIndexProvider;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settings.Utils;
-import java.util.ArrayList;
-import java.util.List;
-
-
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
+
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 @SearchIndexable
 public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "MiscInterfaceSettings";
 
     @Override
@@ -68,6 +58,25 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         return false;
     }
 
+     /**
+     * For Search.
+     */
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.rr_interface_other_settings);
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(Context context, boolean enabled) {
+                ArrayList<SearchIndexableResource> result =
+                    new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_interface_other_settings;
+                    result.add(sir);
+                    return result;
+            }
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                return keys;
+            }
+        };
 }

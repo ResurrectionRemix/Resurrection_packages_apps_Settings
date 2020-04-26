@@ -14,6 +14,7 @@ package com.android.settings.rr;
 import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -33,24 +34,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.android.settings.R;
-import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.rr.Preferences.SystemSettingSeekBarPreference;
-import com.android.settings.search.Indexable.SearchIndexProvider;
-import com.android.settings.SettingsPreferenceFragment;
 
+import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settingslib.search.SearchIndexable;
+
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import com.android.settingslib.search.SearchIndexable;
 @SearchIndexable
 public class Header extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+        Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String QS_QUICKBAR_COLUMNS_AUTO = "qs_quickbar_columns_auto";
     private static final String QS_QUICKBAR_COLUMNS_COUNT = "qs_quickbar_columns";
@@ -207,6 +212,25 @@ public class Header extends SettingsPreferenceFragment implements
         return MetricsEvent.RESURRECTED;
     }
 
+    /**
+     * For Search.
+     */
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.rr_header);
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(Context context, boolean enabled) {
+                ArrayList<SearchIndexableResource> result =
+                    new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_header;
+                    result.add(sir);
+                    return result;
+            }
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                return keys;
+            }
+        };
 }

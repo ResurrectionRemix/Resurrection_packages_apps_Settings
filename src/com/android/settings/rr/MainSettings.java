@@ -14,29 +14,31 @@
 package com.android.settings.rr;
 
 import android.os.Bundle;
+import android.content.Context;
 import androidx.preference.ListPreference;
 import androidx.preference.SwitchPreference;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceScreen;
+import com.android.settings.Utils;
 
+import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
+import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
-import android.content.Context;
-import com.android.settings.search.Indexable;
-import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
+
+import android.util.Log;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
-
 @SearchIndexable
-public class MainSettings extends SettingsPreferenceFragment implements Indexable,
-        Preference.OnPreferenceChangeListener {
+public class MainSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "MainSettings";
 
     @Override
@@ -47,7 +49,6 @@ public class MainSettings extends SettingsPreferenceFragment implements Indexabl
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         addPreferencesFromResource(R.xml.rr_main_settings);
     }
 
@@ -55,17 +56,27 @@ public class MainSettings extends SettingsPreferenceFragment implements Indexabl
         return true;
     }
 
-    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
+    /**
+     * For Search.
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(Context context, boolean enabled) {
+                ArrayList<SearchIndexableResource> result =
+                    new ArrayList<SearchIndexableResource>();
                     SearchIndexableResource sir = new SearchIndexableResource(context);
                     sir.xmlResId = R.xml.rr_main_settings;
                     result.add(sir);
+                    Log.d(TAG, "Main Settings keys added!!!!!!!");
                     return result;
-                }
-            };
+            }
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                    Log.d(TAG, "Main Settings NOT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!keys added");
+                return keys;
+            }
+        };
 }

@@ -19,7 +19,6 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/com.android.settings"
-    android:key="rr_fp"
     android:title="@string/rr_fp_title">
 
     <PreferenceCategory
@@ -29,6 +28,7 @@
             <!-- FOD icon picker -->
             <Preference
                 android:key="fod_icon_picker_category"
+                android:icon="@drawable/rr_fp_custom_icon"
                 android:title="@string/fod_icon_picker_title"
                 android:summary="@string/fod_icon_picker_summary"
                 android:fragment="com.android.settings.rr.fragments.FODIconPickerFragment" />
@@ -36,18 +36,21 @@
           <!-- FOD recognizing animation -->
             <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="fod_recognizing_animation"
+                android:icon="@drawable/rr_fp_anim_icon"
                 android:title="@string/fod_recog_animation"
                 android:summary="@string/fod_recog_animation_summary"
                 android:defaultValue="false" />
 
             <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="fod_icon_wallpaper_color"
+                android:icon="@drawable/rr_screenshot_icon"
                 android:title="@string/fod_wallpaper_color"
                 android:summary="@string/fod_wallpaper_color_summary"
                 android:defaultValue="false" />
 
             <com.android.settings.rr.Preferences.SystemSettingListPreference
                 android:key="fod_anim"
+                android:icon="@drawable/rr_animation_icon"
                 android:title="@string/fod_recog_animation_effect_title"
                 android:summary="%s"
                 android:entries="@array/fod_recog_animation_entries"
@@ -57,13 +60,9 @@
 
     </PreferenceCategory>
 
-           <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
-                android:key="unlock_without_bouncer"
-                android:title="@string/unlock_without_bouncer_title"
-                android:summary="@string/unlock_without_bouncer_summary" />
-
            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="fp_success_vibrate"
+                android:icon="@drawable/rr_intensity_icon"
                 android:title="@string/fp_success_vibrate_title"
                 android:summary="@string/fp_success_vibrate_summary"
                 android:defaultValue="true" />
@@ -71,6 +70,7 @@
 
            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="fp_error_vibrate"
+                android:icon="@drawable/rr_error_icon"
                 android:title="@string/fp_error_vibrate_title"
                 android:summary="@string/fp_error_vibrate_summary"
                 android:defaultValue="true" />

@@ -119,9 +119,9 @@ public class DashboardFragmentRegistry {
         PARENT_TO_CATEGORY_KEY_MAP.put(BatterySaverSettings.class.getName(),
                 CategoryKey.CATEGORY_BATTERY_SAVER_SETTINGS);
         PARENT_TO_CATEGORY_KEY_MAP.put(MainSettingsLayout.class.getName(),
-                CategoryKey.CATEGORY_SYSTEM_DEVELOPMENT);
+                CategoryKey.CATEGORY_RR);
         PARENT_TO_CATEGORY_KEY_MAP.put(MainSettings.class.getName(),
-                CategoryKey.CATEGORY_SYSTEM_DEVELOPMENT);
+                CategoryKey.CATEGORY_RR);
 
         CATEGORY_KEY_TO_PARENT_MAP = new ArrayMap<>(PARENT_TO_CATEGORY_KEY_MAP.size());
 

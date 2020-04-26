@@ -19,17 +19,20 @@
         android:key="heads_up_notifications_enabled"
         android:title="@string/heads_up_title"
         android:summaryOn="@string/heads_up_summary_enabled"
+        android:icon="@drawable/rr_headsup_enable_icon"
         android:summaryOff="@string/heads_up_summary_disabled"
         android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="less_boring_heads_up"
         android:title="@string/less_boring_heads_up_title"
+        android:icon="@drawable/rr_notif_icon"
         android:summary="@string/less_boring_heads_up_summary"
         android:defaultValue="0" />
 
     <ListPreference
         android:key="heads_up_time_out"
+        android:icon="@drawable/rr_clock_icon"
         android:title="@string/heads_up_time_out_title"
         android:entries="@array/heads_up_time_out_entries"
         android:entryValues="@array/heads_up_time_out_values"
@@ -38,6 +41,7 @@
     <ListPreference
         android:key="heads_up_snooze_time"
         android:title="@string/heads_up_snooze_title"
+        android:icon="@drawable/rr_pattern_icon"
         android:entries="@array/heads_up_snooze_entries"
         android:entryValues="@array/heads_up_snooze_values"
         android:persistent="false" />

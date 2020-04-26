@@ -22,12 +22,14 @@
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="smart_charging"
         android:summary="@string/smart_charging_summary"
+        android:icon="@drawable/rr_charging_icon"
         android:title="@string/smart_charging_switch_title"
         android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="smart_charging_reset_stats"
         android:title="@string/smart_charging_reset_stats_title"
+        android:icon="@drawable/rr_clear_all_icon"
         android:summary="@string/smart_charging_reset_stats_summary"
         android:defaultValue="false"
         android:dependency="smart_charging" />
@@ -35,6 +37,7 @@
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="smart_charging_level"
         android:title="@string/smart_charging_level_title"
+        android:icon="@drawable/rr_add_icon"
         android:max="100"
         settings:min="65"
         settings:units="%"
@@ -44,6 +47,7 @@
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="smart_charging_resume_level"
         android:title="@string/smart_charging_resume_level_title"
+        android:icon="@drawable/rr_disabled_icon"
         android:max="99"
         settings:min="15"
         settings:units="%"

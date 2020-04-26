@@ -22,6 +22,7 @@
 
     <DropDownPreference
         android:key="network_traffic_mode"
+        android:icon="@drawable/rr_nt_display_icon"
         android:title="@string/network_traffic_mode_title"
         android:entries="@array/network_traffic_mode_entries"
         android:entryValues="@array/network_traffic_mode_values"
@@ -30,12 +31,14 @@
 
     <lineageos.preference.LineageSecureSettingSwitchPreference
         android:key="network_traffic_autohide"
+        android:icon="@drawable/rr_nt_hide_icon"
         android:title="@string/network_traffic_autohide"
         android:summary="@string/network_traffic_autohide_summary"
         android:defaultValue="false" />
 
     <DropDownPreference
         android:key="network_traffic_units"
+        android:icon="@drawable/rr_nt_measure_icon"
         android:title="@string/network_traffic_units_title"
         android:entries="@array/network_traffic_units_entries"
         android:entryValues="@array/network_traffic_units_values"
@@ -44,6 +47,7 @@
 
     <lineageos.preference.LineageSecureSettingSwitchPreference
         android:key="network_traffic_show_units"
+        android:icon="@drawable/rr_nt_unit_icon"
         android:title="@string/network_traffic_show_units"
         android:summary="@string/network_traffic_show_units_summary"
         android:defaultValue="true" />

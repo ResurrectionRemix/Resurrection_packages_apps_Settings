@@ -49,7 +49,4 @@ public class SlimRecentAppSidebar extends SettingsPreferenceFragment {
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.RESURRECTED;
     }
-
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.slim_recent_app_sidebar);
 }

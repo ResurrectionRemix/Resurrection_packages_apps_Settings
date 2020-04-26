@@ -23,11 +23,13 @@
        android:key="sysui_rounded_fwvals"
        android:title="@string/corner_fwvals"
        android:defaultValue="true"
+       android:icon="@drawable/rr_reset2_icon"
        android:disableDependentsState="true" />
 
     <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="sysui_rounded_size"
         android:title="@string/corner_radius"
+        android:icon="@drawable/rr_radius_icon"
         android:max="60"
         settings:min="0"
         settings:units="@string/unit_pixels"
@@ -37,6 +39,7 @@
     <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="sysui_rounded_content_padding"
         android:title="@string/content_padding"
+        android:icon="@drawable/rr_statusbar_icon"
         android:max="30"
         settings:min="0"
         settings:units="@string/unit_pixels"
@@ -46,6 +49,7 @@
     <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="sysui_status_bar_padding"
         android:title="@string/status_bar_padding"
+        android:icon="@drawable/rr_position_icon"
         android:max="30"
         settings:min="15"
         settings:units="@string/unit_pixels"

@@ -23,24 +23,28 @@
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="three_finger_gesture"
         android:title="@string/three_finger_gesture"
+        android:icon="@drawable/rr_tap_icon"
         android:summary="@string/three_finger_gesture_summary"
         android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference	
         android:key="notification_guts_kill_app_button"
         android:title="@string/notification_guts_kill_app_button_title"
+        android:icon="@drawable/rr_kill_app_icon"
         android:summary="@string/notification_guts_kill_app_button_summary"	
         android:defaultValue="false" />
 
      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference  
         android:key="disable_fc_notifications" 
         android:title="@string/disable_fc_notifications_title" 
+        android:icon="@drawable/rr_disabled_icon"
         android:summary="@string/disable_fc_notifications_summary" 
         android:defaultValue="false" />
 
     <lineageos.preference.LineageGlobalSettingSwitchPreference
         android:key="wake_when_plugged_or_unplugged"
         android:title="@string/wake_when_plugged_or_unplugged_title"
+        android:icon="@drawable/rr_wake_icon"
         android:summary="@string/wake_when_plugged_or_unplugged_summary"
         android:defaultValue="@*android:bool/config_unplugTurnsOnScreen" />
 
@@ -48,6 +52,7 @@
     <lineageos.preference.LineageSystemSettingSwitchPreference
         android:key="proximity_on_wake"
         android:title="@string/proximity_wake_title"
+        android:icon="@drawable/rr_tuner_parts_activity_icon"
         android:summary="@string/proximity_wake_summary"
         android:defaultValue="@*lineageos.platform:bool/config_proximityCheckOnWakeEnabledByDefault"
         lineage:requiresConfig="@*lineageos.platform:bool/config_proximityCheckOnWake" />
@@ -57,6 +62,7 @@
         android:title="@string/high_touch_sensitivity_title"
         android:summary="@string/high_touch_sensitivity_summary"
         android:defaultValue="false"
+        android:icon="@drawable/rr_fp_anim_icon"
         lineage:requiresFeature="lineagehardware:FEATURE_HIGH_TOUCH_SENSITIVITY" />
 
 

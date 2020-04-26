@@ -21,11 +21,13 @@
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="status_bar_custom_header"
+            android:icon="@drawable/rr_header_enable_icon"
             android:title="@string/status_bar_custom_header_title"
             android:defaultValue="false" />
 	
         <ListPreference
             android:key="custom_header_provider"
+            android:icon="@drawable/rr_custom_icon"
             android:title="@string/custom_header_provider_title"
             android:persistent="false"
             android:entries="@array/custom_header_provider_entries"
@@ -34,11 +36,13 @@
 
         <ListPreference
             android:key="daylight_header_pack"
+            android:icon="@drawable/rr_package_icon"
             android:title="@string/daylight_header_pack_title"
             android:dependency="status_bar_custom_header" />
 	
         <Preference
             android:key="custom_header_browse"
+            android:icon="@drawable/rr_search_icon"
             android:title="@string/custom_header_browse_title"
             android:persistent="false"
 	        android:dependency="status_bar_custom_header" >
@@ -49,10 +53,10 @@
         <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
             android:key="status_bar_custom_header_shadow"
             android:title="@string/status_bar_custom_header_shadow_title"
+            android:icon="@drawable/rr_bb_dark_icon"
             android:max="100"
             android:min="0"
-            settings:unitsLeft=""
-            settings:unitsRight="@string/unit_percent"
+            settings:units="@string/unit_percent"
             android:defaultValue="0"
             android:dependency="status_bar_custom_header" />
     </PreferenceCategory>

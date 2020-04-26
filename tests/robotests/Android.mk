@@ -36,11 +36,14 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     androidx.recyclerview_recyclerview \
     com.google.android.material_material \
     setupcompat \
+    BlurView \
     setupdesign
 
 LOCAL_JAVA_LIBRARIES := \
     telephony-common \
     ims-common
+
+LOCAL_JAVA_LIBRARIES += org.apache.http.legacy
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     androidx-constraintlayout_constraintlayout-solver \
@@ -52,7 +55,10 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     settings-log-bridge-protos-lite \
     contextualcards \
     settings-logtags \
-    zxing-core-1.7
+    zxing-core-1.7 \
+    faceunlock_utils \
+    org.lineageos.platform.internal
+
 
 include frameworks/base/packages/SettingsLib/common.mk
 include frameworks/base/packages/SettingsLib/search/common.mk

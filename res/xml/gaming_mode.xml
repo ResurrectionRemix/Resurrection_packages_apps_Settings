@@ -22,6 +22,7 @@
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_enabled"
         android:title="@string/gaming_mode_title"
+        android:icon="@drawable/rr_gaming_mode_enabled_icon"
         android:summary="@string/gaming_mode_enabled_summary"
         android:defaultValue="false" />
 
@@ -31,6 +32,7 @@
         android:title="@string/gaming_mode_headsup_title"
         android:summary="@string/gaming_mode_headsup_summary"
         android:dependency="gaming_mode_enabled"
+        android:icon="@drawable/rr_heads_up_icon"
         android:defaultValue="true" />
 
     <!-- Hardware keys -->
@@ -39,6 +41,7 @@
         android:title="@string/gaming_mode_hardware_keys_title"
         android:summary="@string/gaming_mode_hardware_keys_summary"
         android:dependency="gaming_mode_enabled"
+        android:icon="@drawable/rr_buttons_icon"
         android:defaultValue="false" />
 
     <!-- Manual brightness -->
@@ -47,6 +50,7 @@
         android:title="@string/gaming_mode_brightness_title"
         android:summary="@string/gaming_mode_brightness_summary"
         android:dependency="gaming_mode_enabled"
+        android:icon="@drawable/rr_brightness_icon"
         android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
@@ -56,6 +60,7 @@
         android:entryValues="@array/gaming_mode_ringer_values"
         android:defaultValue="0"
         android:dependency="gaming_mode_enabled"
+        android:icon="@drawable/rr_call_icon"
         android:summary="%s" />
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
@@ -65,6 +70,7 @@
         android:entryValues="@array/gaming_mode_notifications_values"
         android:defaultValue="3"
         android:dependency="gaming_mode_enabled"
+        android:icon="@drawable/rr_notif_icon"
         android:summary="%s" />
 
     <!-- Dynamic gaming mode -->
@@ -73,6 +79,7 @@
         android:title="@string/gaming_mode_dynamic_title"
         android:summary="@string/gaming_mode_dynamic_summary"
         android:dependency="gaming_mode_enabled"
+        android:icon="@drawable/rr_scroll_icon"
         android:defaultValue="false" />
 
     <!-- App picker activity for gaming mode -->

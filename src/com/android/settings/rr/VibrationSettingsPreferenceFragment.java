@@ -44,12 +44,18 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.rr.Preferences.SystemSettingListPreference;
 
-import com.android.settings.rr.utils.RRUtils;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+import com.android.settings.search.Indexable;
 import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settings.rr.utils.RRUtils;
+import android.provider.SearchIndexableResource;
+import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 @SearchIndexable
 public class VibrationSettingsPreferenceFragment extends SettingsPreferenceFragment
-            implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
+            implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = "VibrationSettingsPreferenceFragment";
 
@@ -301,6 +307,25 @@ public class VibrationSettingsPreferenceFragment extends SettingsPreferenceFragm
         return MetricsProto.MetricsEvent.RESURRECTED;
     }
 
+    /**
+     * For Search.
+     */
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.vibration_settings);
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(Context context, boolean enabled) {
+                ArrayList<SearchIndexableResource> result =
+                    new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.vibration_settings;
+                    result.add(sir);
+                    return result;
+            }
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                return keys;
+            }
+        };
 }

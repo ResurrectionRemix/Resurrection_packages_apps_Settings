@@ -58,6 +58,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     faceunlock_utils \
     org.lineageos.platform.internal
 
+LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
+
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
 ifneq ($(INCREMENTAL_BUILDS),)

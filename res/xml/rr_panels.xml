@@ -13,31 +13,30 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:key="rr_panels"
     android:title="@string/rr_panels_title" >
 
-    <PreferenceScreen
+    <Preference
         android:key="qs_customizations"
         android:title="@string/rr_qs_title"
         android:summary="@string/qs_advanced_summary"
         android:fragment="com.android.settings.rr.QSMainSettings" 
         android:icon="@drawable/rr_quick_settings_icon" />
 
-    <PreferenceScreen
+    <Preference
         android:key="rr_header"
         android:fragment="com.android.settings.rr.Header" 
         android:title="@string/rr_header_title"
         android:summary="@string/rr_header_summary"
         android:icon="@drawable/rr_header_icon" />
 
-    <PreferenceScreen
+    <Preference
         android:key="rr_recents"
         android:fragment="com.android.settings.rr.RecentsSettings" 
         android:title="@string/rr_recents_title"
         android:summary="@string/rr_recents_ui_summary"
-        android:icon="@drawable/rr_recents_clear_all_icon" />
+        android:icon="@drawable/rr_recents_icon" />
 
-     <PreferenceScreen
+     <Preference
         android:key="rr_volume"
         android:fragment="com.android.settings.rr.VolumePanelSettings"
         android:title="@string/rr_volume_title"

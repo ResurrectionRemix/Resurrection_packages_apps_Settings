@@ -35,9 +35,8 @@ import java.util.ArrayList;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
-@SearchIndexable
 public class LockscreenItemSettings extends SettingsPreferenceFragment implements
-        Preference.OnPreferenceChangeListener, Indexable {
+        Preference.OnPreferenceChangeListener{
 
     private static final String TAG = "LockscreenItemSettings";
 
@@ -61,8 +60,6 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         return true;
     }
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.lockscreenitems);
   /*  public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
             new BaseSearchIndexProvider() {
                 @Override

@@ -15,6 +15,7 @@ package com.android.settings.rr;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.content.Context;
 import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.res.Configuration;
@@ -31,25 +32,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import android.provider.Settings;
-
-import android.content.Context;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-import com.android.settings.Utils;
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import android.content.Context;
-import com.android.settings.search.Indexable;
 import android.provider.SearchIndexableResource;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+
+import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
+
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
-
 @SearchIndexable
-public class StatusBarSettings extends SettingsPreferenceFragment implements Indexable,
-        Preference.OnPreferenceChangeListener {
+public class StatusBarSettings extends SettingsPreferenceFragment implements
+        Preference.OnPreferenceChangeListener, Indexable {
 
 
     @Override
@@ -59,33 +58,37 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements Ind
 
         PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
-
     }
-
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 	ContentResolver resolver = getActivity().getContentResolver();
 	return false;
     }
 
-
-
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
     }
 
-    public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
+    /**
+     * For Search.
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(Context context, boolean enabled) {
+                ArrayList<SearchIndexableResource> result =
+                    new ArrayList<SearchIndexableResource>();
                     SearchIndexableResource sir = new SearchIndexableResource(context);
                     sir.xmlResId = R.xml.rr_statusbar;
                     result.add(sir);
                     return result;
-                }
-            };
+            }
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                return keys;
+            }
+        };
 }

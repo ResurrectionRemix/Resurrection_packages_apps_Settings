@@ -22,6 +22,7 @@
 
         <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference
             android:key="disable_transition_animations"
+            android:icon="@drawable/rr_disabled_icon"
             android:title="@string/disable_transition_animations_title"
             android:summary="@string/disable_transition_animations_summary"
             android:defaultValue="false" />
@@ -29,6 +30,7 @@
         <com.android.settings.rr.Preferences.CustomSeekBarPreference
             android:key="animation_controls_duration"
             android:title="@string/animation_duration_title"
+            android:icon="@drawable/rr_duration_icon"
             android:max="400"
             settings:min="0"
             settings:interval="8"
@@ -42,45 +44,56 @@
 
         <ListPreference
             android:key="activity_open"
+            android:icon="@drawable/rr_act_open_icon"
             android:title="@string/activity_open_title" />
 
         <ListPreference
             android:key="activity_close"
+            android:icon="@drawable/rr_clear_all_icon"
             android:title="@string/activity_close_title" />
 
         <ListPreference
             android:key="task_open"
+            android:icon="@drawable/rr_task_open_icon"
             android:title="@string/task_open_title" />
 
         <ListPreference
             android:key="task_open_behind"
+            android:icon="@drawable/rr_task_behind_icon"
             android:title="@string/task_open_behind_title" />
 
         <ListPreference
             android:key="task_close"
+            android:icon="@drawable/rr_task_close_icon"
             android:title="@string/task_close_title" />
 
         <ListPreference
             android:key="task_move_to_front"
+            android:icon="@drawable/rr_task_move_front_icon"
             android:title="@string/task_move_to_front_title" />
 
         <ListPreference
             android:key="task_move_to_back"
+            android:icon="@drawable/rr_task_move_behind_icon"
             android:title="@string/task_move_to_back_title" />
 
         <ListPreference
             android:key="wallpaper_open"
+            android:icon="@drawable/rr_wallpaper_open_icon"
             android:title="@string/wallpaper_open_title" />
 
         <ListPreference
             android:key="wallpaper_close"
+            android:icon="@drawable/rr_bw_icon"
             android:title="@string/wallpaper_close_title" />
 
         <ListPreference
             android:key="wallpaper_intra_open"
+            android:icon="@drawable/rr_fw_icon"
             android:title="@string/wallpaper_intra_open_title" />
 
         <ListPreference
             android:key="wallpaper_intra_close"
+            android:icon="@drawable/rr_wallpaper_icon"
             android:title="@string/wallpaper_intra_close_title" />
 </PreferenceScreen>

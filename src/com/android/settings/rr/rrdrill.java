@@ -12,7 +12,6 @@ public class rrdrill extends SettingsPreferenceFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         addPreferencesFromResource(R.xml.rr_drill);
     }
 
@@ -25,7 +24,4 @@ public class rrdrill extends SettingsPreferenceFragment {
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
      }
-
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.rr_drill);
 }

@@ -26,18 +26,23 @@ import androidx.preference.*;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
-//import com.android.settings.rr.utils.TelephonyUtils;
-
 import com.android.settings.rr.utils.RRUtils;
-import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-@SearchIndexable
+import android.provider.SearchIndexableResource;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.android.internal.logging.nano.MetricsProto;
+
 public class UISettingsNav extends SettingsPreferenceFragment implements
-    Preference.OnPreferenceChangeListener {
+    Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "UI";
     private static final String RR_FP = "rr_fp";
 
@@ -46,7 +51,7 @@ public class UISettingsNav extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.RESURRECTED;
+        return MetricsProto.MetricsEvent.RESURRECTED;
     }
 
     @Override
@@ -75,6 +80,25 @@ public class UISettingsNav extends SettingsPreferenceFragment implements
         return false;
     }
 
+    /**
+     * For Search.
+     */
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.rr_ui_settings_navigation);
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(Context context, boolean enabled) {
+                ArrayList<SearchIndexableResource> result =
+                    new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.rr_ui_settings_navigation;
+                    result.add(sir);
+                    return result;
+            }
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                return keys;
+            }
+        };
 }

@@ -15,7 +15,7 @@
  */
 
 package com.android.settings.rr;
-
+import android.content.Context;
 import android.content.ContentResolver;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -26,17 +26,25 @@ import android.provider.Settings;
 
 import lineageos.preference.LineageSecureSettingSwitchPreference;
 import lineageos.providers.LineageSettings;
-import com.android.settings.R;
-import com.android.settings.SettingsPreferenceFragment;
 
 
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;  
+import android.provider.SearchIndexableResource;
+import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+
 import com.android.settings.rr.utils.RRUtils;
-import com.android.settings.search.Indexable.SearchIndexProvider;
+import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
+
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 @SearchIndexable
 public class NetworkTrafficSettings extends SettingsPreferenceFragment
-        implements Preference.OnPreferenceChangeListener  {
+        implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = "NetworkTrafficSettings";
 
@@ -120,6 +128,25 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         return MetricsEvent.RESURRECTED;
     }
 
+    /**
+     * For Search.
+     */
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-        RRUtils.addSearchIndexProvider(R.xml.network_traffic_settings);
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(Context context, boolean enabled) {
+                ArrayList<SearchIndexableResource> result =
+                    new ArrayList<SearchIndexableResource>();
+                    SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.network_traffic_settings;
+                    result.add(sir);
+                    return result;
+            }
+
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                return keys;
+            }
+        };
 }

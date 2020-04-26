@@ -16,11 +16,11 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:key="dashboard"
     android:title="@string/rr_dash_board_title">
 
     <com.android.settings.rr.Preferences.SystemSettingIntListPreference
         android:key="theming_settings_dashboard_icons"
+        android:icon="@drawable/rr_shape_icon"
         android:title="@string/theming_settings_dashboard_icons_title"
         android:entries="@array/theming_settings_dashboard_icons_entries"
         android:entryValues="@array/theming_settings_dashboard_icons_values"
@@ -39,12 +39,14 @@
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="enable_conditions"
                 android:title="@string/dashboard_conditions_title"
+                android:icon="@drawable/rr_condition_icon"
                 android:summaryOn="@string/summary_dashboard_conditions_enabled"
                 android:summaryOff="@string/summary_dashboard_conditions_disabled"
                 android:defaultValue="true" />
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="enable_suggestions"
+                android:icon="@drawable/rr_text_icon"
                 android:title="@string/dashboard_suggestions_title"
                 android:summaryOn="@string/summary_dashboard_suggestions_enabled"
                 android:summaryOff="@string/summary_dashboard_suggestions_disabled"
