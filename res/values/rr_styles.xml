@@ -19,6 +19,19 @@
         <item name="android:textSize">@dimen/design_bottom_navigation_text_size</item>
     </style>
 
+    <style name="SeekBarPreferenceChamValueTextAppearance" parent="@*android:style/TextAppearance.Toast" />
+
+    <!-- SeekBarPreferenceCham value popup -->
+    <style name="SeekBarPreferenceChamValueView">
+        <item name="android:textColor">?attr/value_popup_view_fg</item>
+        <item name="android:textAppearance">@style/SeekBarPreferenceChamValueTextAppearance</item>
+        <item name="android:background">@drawable/seekbar_popup_bg</item>
+        <item name="android:paddingHorizontal">24dp</item>
+        <item name="android:paddingVertical">15dp</item>
+        <item name="android:fitsSystemWindows">false</item>
+    </style>
+
+
     <style name="BottomNavTextAppearanceActive" parent="BottomNavTextAppearance">
         <item name="android:textStyle">bold</item>
     </style>

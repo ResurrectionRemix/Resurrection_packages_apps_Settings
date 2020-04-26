@@ -18,14 +18,23 @@
 <resources>
      
     <!-- Base attributes available to CustomSeekBarPreference. -->
+    <declare-styleable name="CustomSeekBarPreference">
+        <attr name="defaultValueText" format="string" />
+        <attr name="interval" format="integer" />
+        <attr name="showSign" format="boolean" />
+        <attr name="units" format="string|reference" />
+        <attr name="continuousUpdates" format="boolean" />
+    </declare-styleable>
+
     <declare-styleable name="SeekBarPreference">
-       <attr name="interval" format="integer" />
-        <attr name="minimum" format="integer" />
+        <!-- preference -->
         <attr name="unitsLeft" format="string|reference" />
         <attr name="unitsRight" format="string|reference" />
-        <attr name="defaultVal" format="integer" />
-        <attr name="maximum" format="integer" />
-        <attr name="units" format="string|reference" />
+        <attr name="interval" format="integer" />
+        <!-- style -->
+        <attr name="thumb_default_value_color" format="color" />
+        <attr name="value_popup_view_fg" format="color" />
+        <attr name="value_popup_view_bg" format="color" />
     </declare-styleable>
 
     <declare-styleable name="IntervalSeekBar">
@@ -139,14 +148,6 @@
             <enum name="left" value="2"/>
             <enum name="right" value="3"/>
         </attr>
-    </declare-styleable>
-
-    <!-- Base attributes available to CustomSeekBarPreference. -->
-    <declare-styleable name="CustomSeekBarPreference">
-        <attr name="interval" format="integer" />
-        <attr name="min" format="integer" />
-        <attr name="units" format="string|reference" />
-        <attr name="defaultText" format="string|reference" />
     </declare-styleable>
 
     <declare-styleable name="ColorBlendPreference">
