@@ -61,6 +61,15 @@
             android:icon="@drawable/rr_font_size_icon_nav" />
 
        <com.android.settings.rr.Preferences.CategoryPreference
+            android:key="themes"
+            android:title="@string/rr_themes_title"
+            android:icon="@drawable/rr_styles_icon_nav" >
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.wallpaper"
+            android:targetClass="com.android.customization.picker.CustomizationPickerActivity" />
+    </com.android.settings.rr.Preferences.CategoryPreference> 
+
+       <com.android.settings.rr.Preferences.CategoryPreference
             android:key="gaming"
             android:title="@string/gaming_mode_title"
             android:icon="@drawable/ic_gaming_nav"
