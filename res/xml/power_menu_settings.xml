@@ -19,6 +19,10 @@
     android:key="power_menu"
     android:title="@string/rr_power_title">
 
+     <PreferenceCategory
+        android:key="ui"
+        android:title="@string/rr_ui_title">
+
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="transparent_power_menu"
         android:title="@string/power_menu_transparency"
@@ -36,44 +40,58 @@
         android:min="0"
         settings:units="%"
         android:defaultValue="50" />
+     </PreferenceCategory>
+
+     <PreferenceCategory
+        android:key="buttons"
+        android:title="@string/rr_buttons_title">
 
      <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="reboot_in_power_menu"
         android:icon="@drawable/rr_restart_icon"
+        android:summary="@string/summary_global_actions_restart"
         android:title="@string/global_actions_restart"
         android:defaultValue="true" />
-
 
      <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="advanced_reboot_in_power_menu"
         android:icon="@drawable/rr_advanced_icon"
         android:title="@string/global_actions_advanced_reboot_title"
+        android:summary="@string/global_actions_advanced_reboot_summary"
         android:defaultValue="false" />
 
      <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="screenshot_in_power_menu"
         android:icon="@drawable/rr_screenshot_icon"
         android:title="@string/global_actions_screenshot"
+        android:summary="@string/summary_global_actions_screenshot"
         android:defaultValue="false" />
 
      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="global_actions_screenrecord"
         android:icon="@drawable/rr_screenrecord_icon"
         android:title="@string/global_actions_screenrecord"
+        android:summary="@string/summary_global_actions_screenrecord"
         android:defaultValue="false" />
 
      <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="lockdown_in_power_menu"
         android:icon="@drawable/rr_lockdown_icon"
         android:title="@string/global_actions_lockdown"
+        android:summary="@string/summary_global_actions_lockdown"
         android:defaultValue="false" />
-
 
      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="global_actions_onthego"
         android:icon="@drawable/rr_onthego_icon"
         android:title="@string/global_actions_onthego_title"
+        android:summary="@string/summary_global_actions_onthego"
         android:defaultValue="false" />
+     </PreferenceCategory>
+
+     <PreferenceCategory
+        android:key="security"
+        android:title="@string/rr_ls_security">
 
      <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference
         android:key="lockscreen_enable_power_menu"
@@ -81,5 +99,6 @@
         android:title="@string/lockscreen_enable_power_menu_title"
         android:summary="@string/lockscreen_enable_power_menu_summary"
         android:defaultValue="true" />
+     </PreferenceCategory>
 
 </PreferenceScreen>

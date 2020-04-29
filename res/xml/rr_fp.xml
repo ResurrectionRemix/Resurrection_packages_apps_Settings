@@ -57,8 +57,11 @@
                 android:entryValues="@array/fod_recog_animation_values"
                 android:defaultValue="0"
                 android:dependency="fod_recognizing_animation" />
-
     </PreferenceCategory>
+
+    <PreferenceCategory
+            android:key="fp_general"
+            android:title="@string/general" >
 
            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="fp_success_vibrate"
@@ -67,13 +70,12 @@
                 android:summary="@string/fp_success_vibrate_summary"
                 android:defaultValue="true" />
 
-
            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="fp_error_vibrate"
                 android:icon="@drawable/rr_error_icon"
                 android:title="@string/fp_error_vibrate_title"
                 android:summary="@string/fp_error_vibrate_summary"
                 android:defaultValue="true" />
-
+    </PreferenceCategory>
 
 </PreferenceScreen>

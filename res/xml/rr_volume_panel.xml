@@ -25,6 +25,7 @@
         android:key="audio_panel_view_media"
         android:icon="@drawable/rr_media_icon"
         android:title="@string/audio_panel_view_media_title"
+        android:summary="@string/audio_panel_view_media_summary"
         android:defaultValue="true"
         android:enabled="false"/>
 
@@ -32,30 +33,35 @@
         android:key="audio_panel_view_notification"
         android:icon="@drawable/rr_call_vol_icon"
         android:title="@string/audio_panel_view_ringer_title"
+        android:summary="@string/audio_panel_view_ringer_summary"
         android:defaultValue="false"/>
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="audio_panel_view_notification"
         android:icon="@drawable/rr_notif_icon"
         android:title="@string/audio_panel_view_notification_title"
+        android:summary="@string/audio_panel_view_notification_summary"
         android:defaultValue="false"/>
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="audio_panel_view_alarm"
         android:icon="@drawable/rr_clock_icon"
         android:title="@string/audio_panel_view_alarm_title"
+        android:summary="@string/audio_panel_view_alarm_summary"
         android:defaultValue="false"/>
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="audio_panel_view_voice"
         android:icon="@drawable/rr_mic_icon"
         android:title="@string/audio_panel_view_voice_title"
+        android:summary="@string/audio_panel_view_voice_summary"
         android:defaultValue="false"/>
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="audio_panel_view_bt_sco"
         android:icon="@drawable/rr_bt_headset_icon"
         android:title="@string/audio_panel_view_bt_sco_title"
+        android:summary="@string/audio_panel_view_bt_sco_summary"
         android:defaultValue="false"/>
 
 </PreferenceScreen>

@@ -21,12 +21,14 @@
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="status_bar_logo"
         android:icon="@drawable/rr_logo_enable_icon"
+        android:summary="@string/status_bar_logo_summary"
         android:title="@string/status_bar_logo_category_title"
         android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="status_bar_logo_color_accent"
         android:icon="@drawable/rr_accent_color_icon"
+        android:summary="@string/status_bar_logo_color_accent_summary"
 	    android:title="@string/status_bar_logo_color_accent_title"
         android:disableDependentsState="true"
 	    android:defaultValue="true" />
@@ -34,6 +36,7 @@
     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="status_bar_logo_color"
         android:icon="@drawable/rr_custom_color_icon"
+        android:summary="@string/rr_custom_color_summary"
 	    android:title="@string/status_bar_logo_color_title"
         android:dependency="status_bar_logo_color_accent"
 	    android:defaultValue="0xffffffff" />
