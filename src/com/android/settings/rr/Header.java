@@ -35,6 +35,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.android.settings.rr.Preferences.SystemSettingSeekBarPreference;
+import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
 
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -69,12 +70,14 @@ public class Header extends SettingsPreferenceFragment implements
     private static final String CUSTOM_HEADER_PROVIDER = "custom_header_provider";
     private static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String CUSTOM_HEADER_ENABLED = "status_bar_custom_header";
+    private static final String NOTIF_HEADER = "notification_headers";
 
     private Preference mHeaderBrowse;
     private ListPreference mDaylightHeaderPack;
     private SystemSettingSeekBarPreference mHeaderShadow;
     private ListPreference mHeaderProvider;
     private String mDaylightHeaderProvider;
+    private SystemSettingSwitchPreference mNotifHeader;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -86,6 +89,9 @@ public class Header extends SettingsPreferenceFragment implements
         mHeaderBrowse.setEnabled(isBrowseHeaderAvailable());
 
         mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
+
+        mNotifHeader = (SystemSettingSwitchPreference) findPreference(NOTIF_HEADER);
+        mNotifHeader.setOnPreferenceChangeListener(this);
 
         List<String> entries = new ArrayList<String>();
         List<String> values = new ArrayList<String>();
@@ -180,7 +186,10 @@ public class Header extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-        if (preference == mHeaderShadow) {
+          if (preference == mNotifHeader) {
+              RRUtils.showSystemUiRestartDialog(getContext());
+              return true;
+        } else if (preference == mHeaderShadow) {
             Integer headerShadow = (Integer) newValue;
             int realHeaderValue = (int) (((double) headerShadow / 100) * 255);
             Settings.System.putInt(resolver,
