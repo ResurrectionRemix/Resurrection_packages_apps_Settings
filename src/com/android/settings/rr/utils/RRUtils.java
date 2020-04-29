@@ -353,6 +353,10 @@ public class RRUtils {
                 .show();
     }
 
+    public static void restartSystemUi(Context context) {
+        new RestartSystemUiTask(context).execute();
+    }
+
     private static class RestartSystemUiTask extends AsyncTask<Void, Void, Void> {
         private Context mContext;
 
