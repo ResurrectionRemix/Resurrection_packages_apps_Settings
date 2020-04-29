@@ -50,6 +50,12 @@
         android:summary="@string/charging_sounds_settings_summary"
         lineage:replacesKey="charging_sounds" />
 
+    <PreferenceScreen
+        android:key="smart_pixels"
+        android:icon="@drawable/rr_smart_pixels_icon"
+        android:title="@string/smart_pixels_title"
+        android:summary="@string/smart_pixels_summary"
+        android:fragment="com.android.settings.rr.SmartPixels" />
 
     <PreferenceScreen
         android:key="rounded_corners"

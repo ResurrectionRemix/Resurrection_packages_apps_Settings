@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.os.UserHandle;
 import android.app.Fragment;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,10 +48,22 @@ import java.util.ArrayList;
 public class PartSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String SMART_PIXELS = "smart_pixels";
+    private Preference mSmartPixels;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_parts);
+        Context mContext = getActivity().getApplicationContext();
+
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        final Resources res = getResources();
+        mSmartPixels = (Preference) prefScreen.findPreference(SMART_PIXELS);
+        boolean mSmartPixelsSupported = res.getBoolean(
+                com.android.internal.R.bool.config_supportSmartPixels);
+        if (!mSmartPixelsSupported)
+            prefScreen.removePreference(mSmartPixels);
     }
 
      @Override
@@ -85,6 +98,11 @@ public class PartSettings extends SettingsPreferenceFragment implements
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
+                    final Resources res = context.getResources();
+                    boolean mSmartPixelsSupported = res.getBoolean(
+                            com.android.internal.R.bool.config_supportSmartPixels);
+                    if (!mSmartPixelsSupported)
+                        keys.add(SMART_PIXELS);
                 return keys;
             }
         };

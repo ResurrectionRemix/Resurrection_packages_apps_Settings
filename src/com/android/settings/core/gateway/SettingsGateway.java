@@ -152,6 +152,7 @@ import com.android.settings.rr.About;
 import com.android.settings.rr.HeadsUp;
 import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.MainSettingsLayout;
+import com.android.settings.rr.SmartPixels;
 import com.android.settings.rr.fragments.GamingMode;
 import com.android.settings.rr.omnigears.interfacesettings.LockscreenItemSettings;
 
@@ -296,6 +297,7 @@ public class SettingsGateway {
             LockscreenItemSettings.class.getName(),
             MainSettingsLayout.class.getName(),
             MainSettings.class.getName(),
+            SmartPixels.class.getName(),
             DarkModeSettingsFragment.class.getName()
     };
 
@@ -341,5 +343,6 @@ public class SettingsGateway {
             Settings.WeatherSettingsActivity.class.getName(),
             Settings.MainSettingsLayoutActivity.class.getName(),
             Settings.MainSettingsActivity.class.getName(),
+            Settings.SmartPixelsActivity.class.getName(),
     };
 }
