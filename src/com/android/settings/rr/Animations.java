@@ -115,6 +115,7 @@ public class Animations extends SettingsPreferenceFragment implements
         mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
         mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
                 SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
+        mScrollingCachePref.setSummary(mScrollingCachePref.getEntry());
         mScrollingCachePref.setOnPreferenceChangeListener(this);
 
         mRefreshRate = (ListPreference) prefs.findPreference(KEY_REFRESH_RATE);
@@ -167,7 +168,10 @@ public class Animations extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mScrollingCachePref) {
             if (newValue != null) {
+                String value = (String) newValue;
                 SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
+                int valueIndex = mScrollingCachePref.findIndexOfValue(value);
+                mScrollingCachePref.setSummary(mScrollingCachePref.getEntries()[valueIndex]);
                 return true;
             }
         }
