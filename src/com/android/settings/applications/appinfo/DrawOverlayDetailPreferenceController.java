@@ -18,16 +18,23 @@ package com.android.settings.applications.appinfo;
 
 import static android.Manifest.permission.SYSTEM_ALERT_WINDOW;
 
+import android.app.AppLockManager;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.os.UserManager;
 
+import com.android.settingslib.applications.ApplicationsState.AppEntry;
+
+import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
 public class DrawOverlayDetailPreferenceController extends AppInfoPreferenceControllerBase {
 
+    private final AppLockManager mAppLockManager;
+
     public DrawOverlayDetailPreferenceController(Context context, String key) {
         super(context, key);
+        mAppLockManager = (AppLockManager) context.getSystemService(Context.APPLOCK_SERVICE);
     }
 
     @Override
@@ -38,6 +45,9 @@ public class DrawOverlayDetailPreferenceController extends AppInfoPreferenceCont
         final PackageInfo packageInfo = mParent.getPackageInfo();
         if (packageInfo == null || packageInfo.requestedPermissions == null) {
             return DISABLED_FOR_USER;
+        }
+        if (mAppLockManager.isAppLocked(packageInfo.packageName)) {
+            return DISABLED_DEPENDENT_SETTING;
         }
         for (int i = 0; i < packageInfo.requestedPermissions.length; i++) {
             if (packageInfo.requestedPermissions[i].equals(SYSTEM_ALERT_WINDOW)) {
@@ -54,6 +64,13 @@ public class DrawOverlayDetailPreferenceController extends AppInfoPreferenceCont
 
     @Override
     public CharSequence getSummary() {
-        return DrawOverlayDetails.getSummary(mContext, mParent.getAppEntry());
+        final AppEntry entry = mParent.getAppEntry();
+        final CharSequence summary;
+        if (mAppLockManager.isAppLocked(entry.info.packageName)) {
+            summary = mContext.getString(R.string.applock_overlay_summary);
+        } else {
+            summary = DrawOverlayDetails.getSummary(mContext, entry);
+        }
+        return summary;
     }
 }

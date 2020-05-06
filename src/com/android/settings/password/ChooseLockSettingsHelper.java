@@ -278,6 +278,33 @@ public final class ChooseLockSettingsHelper {
      * @param title title of the confirmation screen; shown in the action bar
      * @param header header of the confirmation screen; shown as large text
      * @param description description of the confirmation screen
+     * @param userId The userId for whom the lock should be confirmed.
+     * @param foregroundOnly if the confirmation activity should be finished if it loses foreground.
+     * @return true if one exists and we launched an activity to confirm it
+     * @see Activity#onActivityResult(int, int, android.content.Intent)
+     */
+    public boolean launchConfirmationActivity(int request, @Nullable CharSequence title,
+            @Nullable CharSequence header, @Nullable CharSequence description,
+            int userId, boolean foregroundOnly) {
+        return launchConfirmationActivity(
+                request /* request */,
+                title /* title */,
+                header /* header */,
+                description /* description */,
+                true /* returnCredentials */,
+                false /* external */,
+                false /* hasChallenge */,
+                0 /* challenge */,
+                Utils.enforceSameOwner(mActivity, userId) /* userId */,
+                foregroundOnly);
+    }
+
+    /**
+     * If a pattern, password or PIN exists, prompt the user before allowing them to change it.
+     *
+     * @param title title of the confirmation screen; shown in the action bar
+     * @param header header of the confirmation screen; shown as large text
+     * @param description description of the confirmation screen
      * @param external specifies whether this activity is launched externally, meaning that it will
      *                 get a dark theme, allow fingerprint authentication and it will forward
      *                 activity result.
