@@ -98,10 +98,8 @@ public static final String TAG = "About";
 private static final String RR_ROM_SHARE = "share";
     
     Preference mSiteUrl;
-    Preference mForumUrl;
     Preference mSourceUrl;
     Preference mFacebookUrl;
-    Preference mGoogleUrl;
     Preference mDonateUrl;
     
     @Override
@@ -111,10 +109,8 @@ private static final String RR_ROM_SHARE = "share";
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getContentResolver();
         mSiteUrl = findPreference("rr_website");
-        mForumUrl = findPreference("rr_forum");
         mSourceUrl = findPreference("rr_source");
         mFacebookUrl = findPreference("rr_facebook");
-        mGoogleUrl = findPreference("rr_google_plus");
         mDonateUrl = findPreference("rr_donate");
         PreferenceGroup devsGroup = (PreferenceGroup) findPreference("devs");
         ArrayList<Preference> devs = new ArrayList<Preference>();
@@ -140,14 +136,10 @@ private static final String RR_ROM_SHARE = "share";
     public boolean onPreferenceTreeClick(Preference preference) {
         if (preference == mSiteUrl) {
             launchUrl("http://resurrectionremix.com/");
-        } else if (preference == mForumUrl) {
-            launchUrl("http://forum.resurrectionremix.com/");
         } else if (preference == mSourceUrl) {
             launchUrl("https://github.com/ResurrectionRemix");
         } else if (preference == mFacebookUrl) {
             launchUrl("https://www.facebook.com/resurrectionremixrom");
-        } else if (preference == mGoogleUrl) {
-            launchUrl("https://plus.google.com/u/0/communities/109352646351468373340");
         } else if (preference == mDonateUrl) {
             launchUrl("https://paypal.me/varundate");
         } else if (preference.getKey().equals(RR_ROM_SHARE)) {

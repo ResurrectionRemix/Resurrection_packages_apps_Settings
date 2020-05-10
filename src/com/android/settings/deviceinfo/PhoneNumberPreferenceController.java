@@ -77,6 +77,7 @@ public class PhoneNumberPreferenceController extends BasePreferenceController {
             final Preference multiSimPreference = createNewPreference(screen.getContext());
             multiSimPreference.setOrder(phonePreferenceOrder + simSlotNumber);
             multiSimPreference.setKey(KEY_PHONE_NUMBER + simSlotNumber);
+            multiSimPreference.setIcon(mContext.getDrawable(R.drawable.rr_ph_icon_2));
             screen.addPreference(multiSimPreference);
             mPreferenceList.add(multiSimPreference);
         }

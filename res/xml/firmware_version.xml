@@ -26,6 +26,7 @@
     <Preference
         android:key="os_firmware_version"
         android:title="@string/firmware_version"
+        android:icon="@drawable/rr_fw_version_icon"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
@@ -33,7 +34,8 @@
     <!-- RR version -->
     <Preference
         android:key="rr_version"
-        android:title="@string/rr_version"
+        android:title="@string/rr_version_info"
+        android:icon="@drawable/rr_main_conf_icon"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.RRVersionDetailPreferenceController"/>
@@ -42,6 +44,7 @@
     <Preference
         android:key="rr_build_type"
         android:title="@string/rr_build_type"
+        android:icon="@drawable/rr_build_info_icon"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.rrBuildVersionDialogController"/>
@@ -50,12 +53,14 @@
     <Preference
         android:key="security_key"
         android:title="@string/security_patch"
+        android:icon="@drawable/rr_security_version_icon"
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"/>
 
     <!-- Vendor security patch -->
     <Preference
         android:key="vendor_security_key"
+        android:icon="@drawable/rr_vendor_icon"
         android:title="@*lineageos.platform:string/lineage_vendor_security_patch"
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.LineageVendorSecurityPatchLevelPreferenceController"/>
@@ -63,6 +68,7 @@
     <!-- Mainline module version -->
     <Preference
         android:key="module_version"
+        android:icon="@drawable/rr_google_play_icon"
         android:title="@string/module_version"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
@@ -71,6 +77,7 @@
     <!-- Baseband -->
     <Preference
         android:key="base_band"
+       android:icon="@drawable/rr_imei_info_icon"
         android:title="@string/baseband_version"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
@@ -79,6 +86,7 @@
     <!-- Kernel -->
     <Preference
         android:key="kernel_version"
+        android:icon="@drawable/rr_kernel_icon"
         android:title="@string/kernel_version"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
@@ -87,6 +95,7 @@
     <!-- Build date -->
     <Preference
         android:key="os_build_date"
+        android:icon="@drawable/rr_clock_icon_version"
         android:title="@*lineageos.platform:string/build_date"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"
@@ -95,6 +104,7 @@
     <!-- Build -->
     <Preference
         android:key="os_build_number"
+        android:icon="@drawable/rr_text_icon_about"
         android:title="@string/build_number"
         android:summary="@string/summary_placeholder"
         settings:enableCopying="true"

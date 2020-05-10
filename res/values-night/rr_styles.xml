@@ -14,11 +14,17 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:state_checked="true"
-        android:color="@color/bottom_nav_icon_tint" />
-    <item
-        android:state_checked="false"
-        android:color="@color/material_grey500" />
-</selector>
+
+<resources>
+
+    <style name="ChangelogTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorAccent">@color/theme_accent</item>
+        <item name="changelog_color_bg">?android:attr/colorBackground</item>
+        <item name="changelog_color_header_back">?attr/colorBackgroundFloating</item>
+        <item name="changelog_color_commit_message">?android:attr/textColorPrimary</item>
+        <item name="changelog_color_commit_bg">#eeeeee</item>
+        <!-- Changelog image behind status bar -->
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+</resources>

@@ -67,15 +67,17 @@
 	</style>
 
     <style name="ChangelogTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="changelog_color_bg">@color/rr_changelog_actionbar_bg</item>
-        <item name="changelog_color_header_back">@color/rr_changelog_actionbar_bg</item>
-        <item name="changelog_color_commit_message">@*android:color/accent_material_dark</item>
-        <item name="changelog_color_commit_bg">@color/rr_changelog_commit_bg</item>
-        <item name="android:textColor">@*android:color/accent_material_dark</item>
-        <item name="android:textColorPrimary">@*android:color/accent_material_dark</item>
-        <item name="android:textColorSecondary">@*android:color/accent_material_dark</item>
-        <item name="android:colorPrimaryDark">@color/rr_changelog_actionbar_bg</item>
-        <item name="android:statusBarColor">@color/rr_changelog_actionbar_bg</item>
-        <item name="android:navigationBarColor">@color/rr_changelog_actionbar_bg</item>
+        <item name="colorAccent">@color/theme_accent</item>
+        <item name="changelog_color_bg">?android:attr/colorBackground</item>
+        <item name="changelog_color_header_back">?attr/colorBackgroundFloating</item>
+        <item name="changelog_color_commit_message">?android:attr/textColorPrimary</item>
+        <item name="changelog_color_commit_bg">#eeeeee</item>
+        <!-- Changelog image behind status bar -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <!-- White navbar -->
+        <item name="android:navigationBarDividerColor">#1f000000</item>
+        <item name="android:navigationBarColor">@android:color/white</item>
+        <item name="android:windowLightNavigationBar">true</item>
     </style>
+
 </resources>

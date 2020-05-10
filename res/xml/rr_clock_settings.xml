@@ -14,6 +14,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/status_bar_clock_date_settings_title">
 
+    <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+        android:key="status_bar_clock"
+        android:title="@string/status_bar_clock_enable"
+        android:icon="@drawable/rr_clock_icon"
+        android:summary="@string/status_bar_clock_enable_summary"
+        android:defaultValue="true" />
+
    <!-- Clock position -->
     <com.android.settings.rr.Preferences.SecureSettingIntListPreference
         android:key="status_bar_clock_position"

@@ -34,10 +34,12 @@
         android:title="@string/keyboard_and_input_methods_category">
         <Preference
             android:key="virtual_keyboard_pref"
+            android:icon="@drawable/rr_virtual_icon"
             android:title="@string/virtual_keyboard_category"
             android:fragment="com.android.settings.inputmethod.VirtualKeyboardFragment" />
         <Preference
             android:key="physical_keyboard_pref"
+            android:icon="@drawable/rr_keyboard_icon"
             android:title="@string/physical_keyboard_title"
             android:summary="@string/summary_placeholder"
             android:fragment="com.android.settings.inputmethod.PhysicalKeyboardFragment"
@@ -52,6 +54,7 @@
              See: InputMethodAndSubtypeUtil.removeUnnecessaryNonPersistentPreference. -->
         <Preference
             android:key="spellcheckers_settings"
+            android:icon="@drawable/rr_spell_check_icon"
             android:title="@string/spellcheckers_settings_title"
             android:persistent="false"
             android:fragment="com.android.settings.inputmethod.SpellCheckersSettings" />
@@ -59,6 +62,7 @@
         <Preference
             android:key="default_autofill"
             android:title="@string/autofill_app"
+            android:icon="@drawable/rr_autoenable_icon"
             android:fragment="com.android.settings.applications.defaultapps.AutofillPicker"
             settings:keywords="@string/autofill_keywords" />
 
@@ -66,6 +70,7 @@
         <Preference
             android:key="key_user_dictionary_settings"
             android:title="@string/user_dict_settings_title"
+            android:icon="@drawable/rr_dictionary_icon"
             android:fragment="com.android.settings.inputmethod.UserDictionaryList"
             settings:controller="com.android.settings.language.UserDictionaryPreferenceController" />
     </PreferenceCategory>
@@ -76,17 +81,20 @@
 
         <com.android.settings.PointerSpeedPreference
             android:key="pointer_speed"
+            android:icon="@drawable/rr_cursor_icon"
             android:title="@string/pointer_speed"
             android:dialogTitle="@string/pointer_speed" />
 
         <Preference
             android:key="tts_settings_summary"
             android:title="@string/tts_settings_title"
+            android:icon="@drawable/rr_text_icon"
             android:fragment="com.android.settings.tts.TextToSpeechSettings"
             settings:searchable="false"/>
 
         <lineageos.preference.LineageSecureSettingSwitchPreference
             android:key="feature_touch_hovering"
+            android:icon="@drawable/rr_tap_icon"
             android:title="@string/touchscreen_hovering_title"
             android:summary="@string/touchscreen_hovering_summary"
             android:defaultValue="false"
@@ -97,6 +105,7 @@
     <SwitchPreference
         android:key="vibrate_input_devices"
         android:title="@string/vibrate_input_devices"
+        android:icon="@drawable/rr_haptic_icon"
         android:summary="@string/vibrate_input_devices_summary"
         settings:controller="com.android.settings.inputmethod.GameControllerPreferenceController" />
 
@@ -107,18 +116,21 @@
 
         <Preference
             android:key="virtual_keyboards_for_work_pref"
+            android:icon="@drawable/rr_styles_icon"
             android:title="@string/virtual_keyboards_for_work_title"
             android:fragment="com.android.settings.inputmethod.VirtualKeyboardFragment"
             settings:controller="com.android.settings.inputmethod.VirtualKeyboardForWorkPreferenceController" />
 
         <Preference
             android:key="spellcheckers_settings_for_work_pref"
+            android:icon="@drawable/rr_vib_pattern_icon"
             android:title="@string/spellcheckers_settings_for_work_title"
             android:fragment="com.android.settings.inputmethod.SpellCheckersSettings"
             settings:controller="com.android.settings.language.UserDictionaryForWorkPreferenceController" />
 
         <Preference
             android:key="user_dictionary_settings_for_work_pref"
+            android:icon="@drawable/rr_shape_icon"
             android:title="@string/user_dict_settings_for_work_title"
             android:fragment="com.android.settings.inputmethod.UserDictionaryList"
             settings:controller="com.android.settings.inputmethod.SpellCheckerForWorkPreferenceController" />

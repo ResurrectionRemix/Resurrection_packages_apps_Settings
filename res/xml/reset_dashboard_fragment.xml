@@ -24,6 +24,7 @@
     <!-- Network reset -->
     <com.android.settingslib.RestrictedPreference
         android:key="network_reset_pref"
+        android:icon="@drawable/rr_restart_ui_icon"
         android:title="@string/reset_network_title"
         settings:userRestriction="no_network_reset"
         settings:useAdminDisabledSummary="true"
@@ -32,12 +33,14 @@
     <!-- Reset app preferences -->
     <Preference
         android:key="reset_app_prefs"
+        android:icon="@drawable/rr_app_pref_icon"
         android:title="@string/reset_app_preferences" />
 
     <!-- Factory reset -->
     <com.android.settingslib.RestrictedPreference
         android:key="factory_reset"
         android:title="@string/master_clear_title"
+        android:icon="@drawable/phone_tint"
         settings:keywords="@string/keywords_factory_data_reset"
         settings:userRestriction="no_factory_reset"
         settings:useAdminDisabledSummary="true"

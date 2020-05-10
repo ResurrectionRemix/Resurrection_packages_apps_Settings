@@ -28,23 +28,27 @@
         <com.android.settings.RestrictedListPreference
             android:key="security_setting_lock_screen_notif"
             android:title="@string/lock_screen_notifications_title"
+            android:icon="@drawable/rr_lock_icon"
             android:summary="@string/summary_placeholder"
             settings:keywords="@string/keywords_lock_screen_notif"/>
 
         <SwitchPreference
             android:key="security_dispaly_lockscreen_bypass"
             android:title="@string/lockscreen_bypass_title"
+            android:icon="@drawable/rr_advanced_icon"
             android:summary="@string/lockscreen_bypass_summary"
             settings:searchable="false"
             settings:controller="com.android.settings.biometrics.face.FaceSettingsLockscreenBypassPreferenceController" />
 
         <com.android.settingslib.RestrictedSwitchPreference
             android:key="security_lockscreen_add_users_when_locked"
+            android:icon="@drawable/rr_add_icon"
             android:title="@string/user_add_on_lockscreen_menu"
             settings:controller="com.android.settings.users.AddUserWhenLockedPreferenceController" />
 
         <com.android.settingslib.RestrictedPreference
             android:key="owner_info_settings"
+            android:icon="@drawable/rr_info_icon"
             android:title="@string/owner_info_settings_title"
             android:summary="@string/owner_info_settings_summary" />
 
@@ -57,6 +61,7 @@
 
         <com.android.settingslib.RestrictedSwitchPreference
             android:key="ambient_display_always_on"
+            android:icon="@drawable/rr_autoenable_icon"
             android:title="@string/doze_always_on_title"
             android:summary="@string/doze_always_on_summary"
             settings:controller="com.android.settings.display.AmbientDisplayAlwaysOnPreferenceController"
@@ -64,18 +69,21 @@
 
         <Preference
             android:key="ambient_display_tap"
+            android:icon="@drawable/rr_tap_icon"
             android:title="@string/ambient_display_tap_screen_title"
             android:fragment="com.android.settings.gestures.TapScreenGestureSettings"
             settings:controller="com.android.settings.gestures.TapScreenGesturePreferenceController" />
 
         <Preference
             android:key="ambient_display_double_tap"
+            android:icon="@drawable/rr_doubletap_icon"
             android:title="@string/ambient_display_title"
             android:fragment="com.android.settings.gestures.DoubleTapScreenSettings"
             settings:controller="com.android.settings.gestures.DoubleTapScreenPreferenceController" />
 
         <Preference
             android:key="ambient_display_pick_up"
+            android:icon="@drawable/rr_lift_icon"
             android:title="@string/ambient_display_pickup_title"
             android:fragment="com.android.settings.gestures.PickupGestureSettings"
             settings:controller="com.android.settings.gestures.PickupGesturePreferenceController" />
@@ -83,11 +91,13 @@
         <SwitchPreference
             android:key="ambient_display_notification"
             android:title="@string/doze_title"
+            android:icon="@drawable/rr_notif_icon"
             android:summary="@string/doze_summary"
             settings:controller="com.android.settings.display.AmbientDisplayNotificationsPreferenceController" />
 
         <lineageos.preference.RemotePreference
             android:key="doze_device_settings"
+            android:icon="@drawable/phone_tint"
             android:title="@string/ambient_display_screen_title"
             lineage:replacesKey="ambient_display_notification">
             <intent android:action="org.lineageos.settings.device.DOZE_SETTINGS" />
@@ -96,12 +106,14 @@
 
         <SwitchPreference
             android:key="ambient_wake_gestures"
+            android:icon="@drawable/rr_fp_anim_icon"
             android:title="@string/ambient_wake_gestures_title"
             android:summary="@string/ambient_wake_gestures_summary"
             settings:controller="com.android.settings.display.AmbientWakeGesturesPreferenceController" />
 
         <SwitchPreference
             android:key="pulse_on_new_tracks"
+            android:icon="@drawable/rr_pulse_icon"
             android:title="@string/pulse_on_new_tracks_title"
             android:summary="@string/pulse_on_new_tracks_summary"
             settings:controller="com.android.settings.display.PulseOnNewTracksPreferenceController" />
@@ -117,6 +129,7 @@
 
         <com.android.settings.RestrictedListPreference
             android:key="security_setting_lock_screen_notif_work"
+            android:icon="@drawable/rr_security_icon"
             android:title="@string/locked_work_profile_notification_title"
             android:summary="@string/summary_placeholder"
             settings:searchable="false"/>

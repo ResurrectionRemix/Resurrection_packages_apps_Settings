@@ -26,18 +26,21 @@
         android:layout="@layout/preference_category_no_label">
         <com.android.settingslib.RestrictedSwitchPreference
             android:key="auto_time"
+            android:icon="@drawable/rr_autoenable_icon"
             android:title="@string/date_time_auto"
             settings:useAdditionalSummary="true"
             settings:userRestriction="no_config_date_time" />
 
         <com.android.settingslib.RestrictedPreference
             android:key="date"
+            android:icon="@drawable/rr_clock_date_pos_icon"
             android:title="@string/date_time_set_date_title"
             android:summary="@string/summary_placeholder"
             settings:userRestriction="no_config_date_time" />
 
         <com.android.settingslib.RestrictedPreference
             android:key="time"
+            android:icon="@drawable/rr_clock_icon"
             android:title="@string/date_time_set_time_title"
             android:summary="@string/summary_placeholder"
             settings:userRestriction="no_config_date_time" />
@@ -48,11 +51,13 @@
         android:layout="@layout/preference_category_no_label">
         <com.android.settingslib.RestrictedSwitchPreference
             android:key="auto_zone"
+            android:icon="@drawable/rr_clock_date_icon"
             android:title="@string/zone_auto_title"
             settings:userRestriction="no_config_date_time" />
 
         <com.android.settingslib.RestrictedPreference
             android:key="timezone"
+            android:icon="@drawable/rr_clock_format_icon"
             android:title="@string/date_time_set_timezone_title"
             android:summary="@string/summary_placeholder"
             android:fragment="com.android.settings.datetime.timezone.TimeZoneSettings"
@@ -66,10 +71,12 @@
         settings:keywords="@string/keywords_time_format">
         <SwitchPreference
             android:key="auto_24hour"
+            android:icon="@drawable/rr_clock_ampm_icon"
             android:title="@string/date_time_24hour_auto"/>
 
         <SwitchPreference
             android:key="24 hour"
+            android:icon="@drawable/rr_24_icon"
             android:title="@string/date_time_24hour" />
     </PreferenceCategory>
 

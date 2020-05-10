@@ -23,6 +23,7 @@
 
     <ListPreference
         android:key="dark_ui_auto_mode"
+        android:icon="@drawable/rr_autoenable_icon"
         android:title="@string/dark_ui_auto_mode_title"
         android:summary="%s"
         android:entries="@array/dark_ui_scheduler_preference_titles"
@@ -32,6 +33,7 @@
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="berry_dark_style"
+        android:icon="@drawable/rr_styles_icon"
         android:title="@string/style_dark_overlay_title"
         android:entries="@array/dark_overlay_entries"
         android:entryValues="@array/dark_overlay_values"
@@ -39,6 +41,7 @@
 
     <com.android.settingslib.widget.LayoutPreference
         android:key="dark_ui_activated"
+        android:icon="@drawable/rr_condition_icon"
         android:title="@string/dark_ui_title"
         android:selectable="false"
         android:layout="@layout/dark_ui_activation_button"
