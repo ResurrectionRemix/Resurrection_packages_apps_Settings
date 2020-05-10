@@ -39,15 +39,17 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
     private boolean mArrowSwitchChecked;
     private boolean mGestureHapticChecked;
     private boolean mBlockImeChecked;
+    private boolean mShowNavChecked;
 
     private static final String TAG = "GestureNavigationBackSensitivityDialog";
     private static final String KEY_BACK_SENSITIVITY = "back_sensitivity";
     private static final String KEY_BACK_HEIGHT = "back_height";
     private static final String KEY_BACK_BLOCK_IME = "back_block_ime";
     private static final String KEY_HOME_HANDLE_SIZE = "home_handle_width";
+    private static final String KEY_SHOW_NAV = "show_nav";
 
     public static void show(SystemNavigationGestureSettings parent, int sensitivity, int height,
-            boolean blockIme, int length) {
+            boolean blockIme, int length, boolean showNav) {
         if (!parent.isAdded()) {
             return;
         }
@@ -59,6 +61,7 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
         bundle.putInt(KEY_BACK_HEIGHT, height);
         bundle.putBoolean(KEY_BACK_BLOCK_IME, blockIme);
         bundle.putInt(KEY_HOME_HANDLE_SIZE, length);
+        bundle.putBoolean(KEY_SHOW_NAV, showNav);
         dialog.setArguments(bundle);
         dialog.setTargetFragment(parent, 0);
         dialog.show(parent.getFragmentManager(), TAG);
@@ -109,6 +112,16 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
                 mBlockImeChecked = blockImeSwitch.isChecked() ? true : false;
             }
         });
+        final Switch showNavSwitch = view.findViewById(R.id.show_gestures_navbar);
+        mShowNavChecked = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.GESTURE_NAVBAR_SHOW, 1) == 1;
+        showNavSwitch.setChecked(mShowNavChecked);
+        showNavSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mShowNavChecked = showNavSwitch.isChecked() ? true : false;
+            }
+        });
 
         return new AlertDialog.Builder(getContext())
                 .setTitle(R.string.back_options_dialog_title)
@@ -123,17 +136,22 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
                     getArguments().putBoolean(KEY_BACK_BLOCK_IME, blockIme);
                     int length = seekBarHandleSize.getProgress();
                     getArguments().putInt(KEY_HOME_HANDLE_SIZE, length);
+                    boolean showNav = showNavSwitch.isChecked();
+                    getArguments().putBoolean(KEY_SHOW_NAV, showNav);
                     Settings.Secure.putInt(getActivity().getContentResolver(),
                             Settings.Secure.SHOW_BACK_ARROW_GESTURE, mArrowSwitchChecked ? 1 : 0);
                     Settings.System.putInt(getActivity().getContentResolver(),
                             Settings.System.BACK_GESTURE_HAPTIC, mGestureHapticChecked ? 1 : 0);
                     Settings.System.putInt(getActivity().getContentResolver(),
                             Settings.System.BACK_GESTURE_BLOCK_IME, mBlockImeChecked ? 1 : 0);
+                    Settings.System.putInt(getActivity().getContentResolver(),
+                            Settings.System.GESTURE_NAVBAR_SHOW, mShowNavChecked ? 1 : 0);
                     SystemNavigationGestureSettings.setBackHeight(getActivity(), height);
                     SystemNavigationGestureSettings.setBackSensitivity(getActivity(),
                             getOverlayManager(), sensitivity);
                     SystemNavigationGestureSettings.setBackBlockIme(getActivity(), blockIme);
                     SystemNavigationGestureSettings.setHomeHandleSize(getActivity(), length);
+                    SystemNavigationGestureSettings.setShowNav(getActivity(), showNav);
                 })
                 .create();
     }
