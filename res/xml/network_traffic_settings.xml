@@ -20,30 +20,51 @@
     android:key="network_traffic_settings"
     android:title="@string/network_traffic_title">
 
-    <DropDownPreference
+    <lineageos.preference.LineageSecureSettingListPreference
+        android:key="network_traffic_location"
+        android:icon="@drawable/rr_position_icon"
+        android:title="@string/network_traffic_location_title"
+        android:entries="@array/network_traffic_location_entries"
+        android:entryValues="@array/network_traffic_location_values"
+        android:summary="%s"
+        android:defaultValue="0" />
+
+    <lineageos.preference.LineageSecureSettingListPreference
         android:key="network_traffic_mode"
         android:icon="@drawable/rr_nt_display_icon"
         android:title="@string/network_traffic_mode_title"
         android:entries="@array/network_traffic_mode_entries"
         android:entryValues="@array/network_traffic_mode_values"
         android:summary="%s"
-        android:persistent="false" />
+        android:defaultValue="0" />
 
     <lineageos.preference.LineageSecureSettingSwitchPreference
         android:key="network_traffic_autohide"
         android:icon="@drawable/rr_nt_hide_icon"
         android:title="@string/network_traffic_autohide"
         android:summary="@string/network_traffic_autohide_summary"
-        android:defaultValue="false" />
+        android:defaultValue="true" />
 
-    <DropDownPreference
-        android:key="network_traffic_units"
-        android:icon="@drawable/rr_nt_measure_icon"
-        android:title="@string/network_traffic_units_title"
-        android:entries="@array/network_traffic_units_entries"
-        android:entryValues="@array/network_traffic_units_values"
-        android:summary="%s"
-        android:persistent="false" />
+    <com.crdroid.settings.preferences.LineageSecureSettingSeekBarPreference
+        android:key="network_traffic_autohide_threshold"
+        android:icon="@drawable/rr_duration_icon"
+        android:title="@string/network_traffic_autohide_threshold"
+        android:defaultValue="0"
+        android:max="10000"
+        settings:min="0"
+        settings:units="@string/network_traffic_autohide_kilobits"
+        settings:interval="10"
+        android:dependency="network_traffic_autohide" />
+
+    <com.crdroid.settings.preferences.LineageSecureSettingSeekBarPreference
+        android:key="network_traffic_refresh_interval"
+        android:icon="@drawable/rr_refresh_icon"
+        android:title="@string/network_traffic_refresh_interval_title"
+        android:summary="@string/network_traffic_refresh_interval_summary"
+        android:defaultValue="2"
+        android:max="10"
+        settings:min="1"
+        settings:units="@string/unit_seconds" />
 
     <lineageos.preference.LineageSecureSettingSwitchPreference
         android:key="network_traffic_show_units"
@@ -52,4 +73,19 @@
         android:summary="@string/network_traffic_show_units_summary"
         android:defaultValue="true" />
 
+    <lineageos.preference.LineageSecureSettingListPreference
+        android:key="network_traffic_units"
+        android:title="@string/network_traffic_units_title"
+        android:icon="@drawable/rr_nt_measure_icon"
+        android:entries="@array/network_traffic_units_entries"
+        android:entryValues="@array/network_traffic_units_values"
+        android:summary="%s"
+        android:defaultValue="1"
+        android:dependency="network_traffic_show_units" />
+
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+        android:key="network_traffic_hidearrow"
+        android:title="@string/network_traffic_hidearrow"
+        android:icon="@drawable/rr_visib_icon"
+        android:summary="@string/network_traffic_hidearrow_summary" />
 </PreferenceScreen>
