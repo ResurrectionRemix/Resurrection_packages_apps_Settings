@@ -31,6 +31,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
@@ -542,6 +543,34 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 LineageSettings.Secure.NETWORK_TRAFFIC_REFRESH_INTERVAL, 2, UserHandle.USER_CURRENT);
         LineageSettings.Secure.putIntForUser(resolver,
                 LineageSettings.Secure.NETWORK_TRAFFIC_HIDEARROW, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.AUDIO_PANEL_VIEW_RINGER, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.AUDIO_PANEL_VIEW_NOTIFICATION, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.AUDIO_PANEL_VIEW_ALARM, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.AUDIO_PANEL_VIEW_VOICE, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.AUDIO_PANEL_VIEW_BT_SCO, 0, UserHandle.USER_CURRENT);
+        LineageSettings.Secure.putIntForUser(resolver,
+                LineageSettings.Secure.VOLUME_PANEL_ON_LEFT, isAudioPanelOnLeftSide(mContext) ? 1 : 0,
+                UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.AUDIO_PANEL_VIEW_TIMEOUT, 3, UserHandle.USER_CURRENT);
+        Settings.Secure.putIntForUser(resolver,
+                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1, UserHandle.USER_CURRENT);
+    }
+
+    private static boolean isAudioPanelOnLeftSide(Context context) {
+        try {
+            Context con = context.createPackageContext("com.android.systemui", 0);
+            int id = con.getResources().getIdentifier("config_audioPanelOnLeftSide",
+                    "bool", "com.android.systemui");
+            return con.getResources().getBoolean(id);
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 
     @Override
