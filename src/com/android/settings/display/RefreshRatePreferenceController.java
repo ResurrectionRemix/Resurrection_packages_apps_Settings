@@ -51,8 +51,8 @@ public class RefreshRatePreferenceController extends AbstractPreferenceControlle
             return;
         }
         mRefreshRate = (ListPreference) screen.findPreference(KEY_REFRESH_RATE);
-        int refreshRate = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.REFRESH_RATE_SETTING, 0);
+        int refreshRate = Settings.Global.getInt(mContext.getContentResolver(),
+                Settings.Global.REFRESH_RATE_SETTING, 0);
         mRefreshRate.setValue(String.valueOf(refreshRate));
         mRefreshRate.setOnPreferenceChangeListener(this);
         updateRefreshRate(refreshRate);
@@ -61,8 +61,8 @@ public class RefreshRatePreferenceController extends AbstractPreferenceControlle
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         int refreshRate = Integer.valueOf((String) newValue);
-        Settings.System.putInt(mContext.getContentResolver(),
-                Settings.System.REFRESH_RATE_SETTING, refreshRate);
+        Settings.Global.putInt(mContext.getContentResolver(),
+                Settings.Global.REFRESH_RATE_SETTING, refreshRate);
         updateRefreshRate(refreshRate);
         return true;
     }

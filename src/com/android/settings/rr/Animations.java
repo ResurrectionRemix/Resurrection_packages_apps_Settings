@@ -120,8 +120,10 @@ public class Animations extends SettingsPreferenceFragment implements
 
         mRefreshRate = (ListPreference) prefs.findPreference(KEY_REFRESH_RATE);
         if (isAvailable()) {
-            int refreshRate = Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.REFRESH_RATE_SETTING, 0);
+           int defVarRateSetting = getContext().getResources().getInteger(
+                 com.android.internal.R.integer.config_defaultVariableRefreshRateSetting);
+            int refreshRate = Settings.Global.getInt(mContext.getContentResolver(),
+                Settings.Global.REFRESH_RATE_SETTING, defVarRateSetting);
             mRefreshRate.setValue(String.valueOf(refreshRate));
             mRefreshRate.setOnPreferenceChangeListener(this);
             updateRefreshRate(refreshRate);
@@ -162,8 +164,8 @@ public class Animations extends SettingsPreferenceFragment implements
             return true;
         } else if (preference == mRefreshRate) {
             int refreshRate = Integer.valueOf((String) newValue);
-            Settings.System.putInt(mContext.getContentResolver(),
-                Settings.System.REFRESH_RATE_SETTING, refreshRate);
+            Settings.Global.putInt(mContext.getContentResolver(),
+                Settings.Global.REFRESH_RATE_SETTING, refreshRate);
             updateRefreshRate(refreshRate);
             return true;
         } else if (preference == mScrollingCachePref) {
