@@ -43,7 +43,7 @@
                 android:entryValues="@array/fod_pressed_state_values"
                 android:defaultValue="2" />
 
-          <!-- FOD recognizing animation -->
+            <!-- FOD recognizing animation -->
             <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="fod_recognizing_animation"
                 android:icon="@drawable/rr_fp_anim_icon"
@@ -56,6 +56,13 @@
                 android:icon="@drawable/rr_screenshot_icon"
                 android:title="@string/fod_wallpaper_color"
                 android:summary="@string/fod_wallpaper_color_summary"
+                android:defaultValue="false" />
+
+            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+                android:key="fod_bright_icon"
+                android:icon="@drawable/rr_brightness_icon"
+                android:title="@string/fod_bright_icon_title"
+                android:summary="@string/fod_bright_icon_summary"
                 android:defaultValue="false" />
 
             <com.android.settings.rr.Preferences.SystemSettingListPreference
