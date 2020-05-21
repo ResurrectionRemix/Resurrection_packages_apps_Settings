@@ -23,7 +23,7 @@
     <SwitchPreference
         android:key="screen_state_toggles_enable_key"
         android:title="@string/screen_state_toggles_title"
-        android:summary="screen_state_toggles_summary"
+        android:summary="@string/screen_state_toggles_summary"
         android:defaultValue="false"
         android:icon="@drawable/rr_alert_icon" />
 
@@ -35,6 +35,7 @@
         android:max="30"
         android:min="0"
         settings:units="@string/unit_sec"
+        android:dependency="screen_state_toggles_enable_key"
         android:defaultValue="5" />
 
     <com.android.settings.rr.Preferences.GlobalSettingSeekBarPreference
@@ -45,6 +46,7 @@
         android:max="30"
         android:min="0"
         settings:units="@string/unit_sec"
+        android:dependency="screen_state_toggles_enable_key"
         android:defaultValue="5" />
 
     <PreferenceCategory
