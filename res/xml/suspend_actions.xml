@@ -44,31 +44,25 @@
         android:key="screen_state_toggles_mobile_key"
         android:title="@string/screen_state_toggles_mobile_title">
 
-        <com.android.settings.rr.Preferences.SystemSettingMasterSwitchPreference
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="screen_state_twog"
             android:title="@string/screen_state_toggles_twog"
             android:icon="@drawable/rr_2g_icon"
             android:summary="@string/screen_state_toggles_twog_summary"
-            settings:thereCanBeOnlyOneGroupId="1"
-            settings:plainSwitch="true"
             android:defaultValue="false"/>
 
-        <com.android.settings.rr.Preferences.SystemSettingMasterSwitchPreference
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="screen_state_threeg"
             android:icon="@drawable/rr_3g_icon"
             android:title="@string/screen_state_toggles_threeg"
             android:summary="@string/screen_state_toggles_threeg_summary"
-            settings:thereCanBeOnlyOneGroupId="1"
-            settings:plainSwitch="true"
             android:defaultValue="false"/>
 
-        <com.android.settings.rr.Preferences.SystemSettingMasterSwitchPreference
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="screen_state_mobile_data"
             android:icon="@drawable/rr_mob_data_icon"
             android:title="@string/screen_state_toggles_mobile_data"
             android:summary="@string/screen_state_toggles_mobile_data_summary"
-            settings:thereCanBeOnlyOneGroupId="1"
-            settings:plainSwitch="true"
             android:defaultValue="false"/>
     </PreferenceCategory>
 
