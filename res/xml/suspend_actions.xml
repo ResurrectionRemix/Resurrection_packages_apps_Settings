@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="suspend_actions"
+    android:title="@string/screen_state_toggles_title">
+
+    <com.android.settings.rr.Preferences.GlobalSettingSeekBarPreference
+        android:key="screen_state_off_delay"
+        android:icon="@drawable/rr_bb_dark_icon"
+        android:title="@string/screen_state_off_delay_title"
+        android:summary="@string/screen_state_off_delay_summary"
+        android:max="30"
+        android:min="0"
+        settings:units="@string/unit_sec"
+        android:defaultValue="5" />
+
+    <com.android.settings.rr.Preferences.GlobalSettingSeekBarPreference
+        android:key="screen_state_on_delay"
+        android:icon="@drawable/rr_bb_light_icon"
+        android:title="@string/screen_state_on_delay_title"
+        android:summary="@string/screen_state_on_delay_summary"
+        android:max="30"
+        android:min="0"
+        settings:units="@string/unit_sec"
+        android:defaultValue="5" />
+
+    <PreferenceCategory
+        android:key="screen_state_toggles_mobile_key"
+        android:title="@string/screen_state_toggles_mobile_title">
+
+        <com.android.settings.rr.Preferences.SystemSettingMasterSwitchPreference
+            android:key="screen_state_twog"
+            android:title="@string/screen_state_toggles_twog"
+            android:icon="@drawable/rr_2g_icon"
+            android:summary="@string/screen_state_toggles_twog_summary"
+            settings:thereCanBeOnlyOneGroupId="1"
+            settings:plainSwitch="true"
+            android:defaultValue="false"/>
+
+        <com.android.settings.rr.Preferences.SystemSettingMasterSwitchPreference
+            android:key="screen_state_threeg"
+            android:icon="@drawable/rr_3g_icon"
+            android:title="@string/screen_state_toggles_threeg"
+            android:summary="@string/screen_state_toggles_threeg_summary"
+            settings:thereCanBeOnlyOneGroupId="1"
+            settings:plainSwitch="true"
+            android:defaultValue="false"/>
+
+        <com.android.settings.rr.Preferences.SystemSettingMasterSwitchPreference
+            android:key="screen_state_mobile_data"
+            android:icon="@drawable/rr_mob_data_icon"
+            android:title="@string/screen_state_toggles_mobile_data"
+            android:summary="@string/screen_state_toggles_mobile_data_summary"
+            settings:thereCanBeOnlyOneGroupId="1"
+            settings:plainSwitch="true"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="screen_state_toggles_location_key"
+        android:title="@string/screen_state_toggles_location_title">
+
+       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="screen_state_gps"
+            android:title="@string/screen_state_toggles_gps"
+            android:icon="@drawable/rr_gps_icon"
+            android:summary="@string/screen_state_toggles_gps_summary"
+            android:defaultValue="false"/>
+
+    </PreferenceCategory>
+</PreferenceScreen>

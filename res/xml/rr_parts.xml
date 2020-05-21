@@ -98,5 +98,12 @@
         android:icon="@drawable/rr_fab_enable"
         android:defaultValue="true" />
 
+    <com.android.settings.rr.Preferences.SystemSettingMasterSwitchPreference
+        android:key="start_screen_state_service"
+        android:title="@string/screen_state_toggles_title"
+        android:defaultValue="false"
+        android:icon="@drawable/rr_alert_icon"
+        android:fragment="com.android.settings.rr.SuspendActions" />
+
 </PreferenceScreen>
 

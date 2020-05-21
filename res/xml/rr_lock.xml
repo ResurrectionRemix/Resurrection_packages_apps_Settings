@@ -145,6 +145,16 @@
             android:min="0"
             settings:units="times"	
             android:defaultValue="0" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="pulse_ambient_light_width"
+            android:title="@string/pulse_ambient_light_width_title"
+            android:icon="@drawable/rr_bb_thickness_icon"
+            android:max="150"
+            android:min="1"
+            settings:units="px"
+            android:defaultValue="125"
+            android:dependency="ambient_notification_light" />
     </PreferenceCategory>
 
     <PreferenceCategory
