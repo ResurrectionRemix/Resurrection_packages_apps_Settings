@@ -67,6 +67,12 @@
         android:icon="@drawable/rr_carrier_label_icon_nav" />
 
     <com.android.settings.rr.Preferences.CategoryPreference
+        android:key="rr_weather"
+		android:fragment="com.android.settings.rr.StatusBarWeather"
+        android:title="@string/rr_weather_title"
+        android:icon="@drawable/rr_sb_weather_icon_nav"/>
+
+    <com.android.settings.rr.Preferences.CategoryPreference
         android:key="rr_sb_gestures"
         android:title="@string/rr_sb_gestures_title"
         android:fragment="com.android.settings.rr.StatusBarGestures"

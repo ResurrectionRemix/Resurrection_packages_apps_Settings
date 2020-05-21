@@ -27,6 +27,12 @@
         android:defaultValue="false" />
 
     <Preference
+        android:title="@string/weather_prefs"
+        android:icon="@drawable/rr_data_usage_icon"
+        android:summary="@string/misc_weather_settings_summary"   
+        android:fragment="com.android.settings.rr.omnigears.moresettings.OmniJawsSettings" />
+
+    <Preference
         android:icon="@drawable/ic_info_outline_24dp"
         android:persistent="false"
         android:summary="@string/lockscreen_items_aod_info_title" />
