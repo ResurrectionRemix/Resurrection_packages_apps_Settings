@@ -20,6 +20,13 @@
     android:key="suspend_actions"
     android:title="@string/screen_state_toggles_title">
 
+    <SwitchPreference
+        android:key="screen_state_toggles_enable_key"
+        android:title="@string/screen_state_toggles_title"
+        android:summary="screen_state_toggles_summary"
+        android:defaultValue="false"
+        android:icon="@drawable/rr_alert_icon" />
+
     <com.android.settings.rr.Preferences.GlobalSettingSeekBarPreference
         android:key="screen_state_off_delay"
         android:icon="@drawable/rr_bb_dark_icon"
@@ -44,21 +51,21 @@
         android:key="screen_state_toggles_mobile_key"
         android:title="@string/screen_state_toggles_mobile_title">
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="screen_state_twog"
+        <SwitchPreference
+            android:key="screen_state_toggles_twog"
             android:title="@string/screen_state_toggles_twog"
             android:icon="@drawable/rr_2g_icon"
             android:summary="@string/screen_state_toggles_twog_summary"
             android:defaultValue="false"/>
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        <SwitchPreference
             android:key="screen_state_threeg"
             android:icon="@drawable/rr_3g_icon"
             android:title="@string/screen_state_toggles_threeg"
             android:summary="@string/screen_state_toggles_threeg_summary"
             android:defaultValue="false"/>
 
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        <SwitchPreference
             android:key="screen_state_mobile_data"
             android:icon="@drawable/rr_mob_data_icon"
             android:title="@string/screen_state_toggles_mobile_data"
@@ -70,8 +77,8 @@
         android:key="screen_state_toggles_location_key"
         android:title="@string/screen_state_toggles_location_title">
 
-       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="screen_state_gps"
+        <SwitchPreference
+            android:key="screen_state_toggles_gps"
             android:title="@string/screen_state_toggles_gps"
             android:icon="@drawable/rr_gps_icon"
             android:summary="@string/screen_state_toggles_gps_summary"
