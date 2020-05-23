@@ -130,10 +130,30 @@
         android:title="@string/qs_clock_title"
         android:summary="@string/qs_clock_summary"
         android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_datausage"
+        android:icon="@drawable/rr_data_usage_icon"
+        android:title="@string/qs_datausage_title"
+        android:summary="@string/qs_datausage_subtitle"
+        android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="dismiss_all_button"
+        android:title="@string/enable_clear_all_button"
+        android:icon="@drawable/rr_clear_all_icon"
+        android:summary="@string/enable_clear_all_button_summary"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_battery">
+
         <!-- Battery percent -->
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="qs_show_battery_percent"
-        android:icon="@drawable/rr_package_icon"
+        android:icon="@drawable/rr_battery_style_percent_icon"
         android:title="@string/battery_percentage_title"
         android:entries="@array/battery_percentage_entries"
         android:entryValues="@array/battery_percentage_values"
@@ -164,16 +184,8 @@
         android:icon="@drawable/rr_est_icon"
         android:title="@string/battery_estimate_title"
         android:summary="@string/battery_estimate_summary" />
-
-    <!-- QS data usage  -->
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="qs_datausage"
-        android:icon="@drawable/rr_data_usage_icon"
-        android:title="@string/qs_datausage_title"
-        android:summary="@string/qs_datausage_subtitle"
-        android:defaultValue="false" />
-
     </PreferenceCategory>
+    <!-- QS data usage  -->
 
     <PreferenceCategory
         android:title="@string/status_bar_brightness_category">
@@ -185,13 +197,15 @@
             android:summary="@string/status_bar_brightness_slider_summary"
             android:defaultValue="true" />
 
-        <lineageos.preference.LineageSecureSettingSwitchPreference
-            android:key="qs_show_auto_brightness"
+        <com.android.settings.rr.Preferences.SystemSettingListPreference
+            android:key="qs_auto_icon_pos"
             android:icon="@drawable/rr_brightness_slider_auto_icon"
-            android:title="@string/status_bar_brightness_slider_auto_title"
-            android:summary="@string/status_bar_brightness_slider_auto_summary"
             android:dependency="qs_show_brightness_slider"
-            android:defaultValue="true" />
+            android:dialogTitle="@string/qs_brightness_icon_position_title"
+            android:title="@string/qs_brightness_icon_position_title"
+            android:entries="@array/auto_birhtness_position_entries"
+            android:entryValues="@array/auto_birhtness_position_values"
+            android:defaultValue="0" />
 
     </PreferenceCategory>
 
