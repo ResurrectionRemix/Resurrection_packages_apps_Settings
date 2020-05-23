@@ -20,6 +20,15 @@
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     android:title="@string/rr_misc_title">
 
+	
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        adroid:key="flashlight_on_call"
+        android:title="@string/flashlight_on_call_title"
+        android:icon="@drawable/rr_flashlight_icon"
+        android:entries="@array/flashlight_on_call_entries"
+        android:entryValues="@array/flashlight_on_call_values"
+        android:defaultValue="0" />
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="three_finger_gesture"
         android:title="@string/three_finger_gesture"
