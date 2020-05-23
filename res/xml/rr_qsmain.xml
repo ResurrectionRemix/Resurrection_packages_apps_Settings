@@ -119,12 +119,32 @@
         android:entryValues="@array/qs_tile_animation_interpolator_values"
         android:defaultValue="0" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/recents_ui_title">
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="show_qs_clock"
         android:icon="@drawable/rr_clock_icon"
         android:title="@string/qs_clock_title"
         android:summary="@string/qs_clock_summary"
         android:defaultValue="true" />
+        <!-- Battery percent -->
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="qs_show_battery_percent"
+        android:icon="@drawable/rr_package_icon"
+        android:title="@string/battery_percentage_title"
+        android:entries="@array/battery_percentage_entries"
+        android:entryValues="@array/battery_percentage_values"
+        android:defaultValue="2" />
+
+        <!-- Battery estimate -->
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_show_battery_estimate"
+            android:icon="@drawable/rr_est_icon"
+            android:title="@string/battery_estimate_title"
+            android:summary="@string/battery_estimate_summary" />
 
     <!-- QS data usage  -->
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
