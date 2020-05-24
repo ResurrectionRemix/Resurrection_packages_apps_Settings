@@ -26,7 +26,7 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-
+import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -42,6 +42,9 @@ import java.util.ArrayList;
 public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "MiscInterfaceSettings";
+    private static final String KEY_DOZE_ON_CHARGE = "doze_on_charge";
+
+    private SystemSettingSwitchPreference mAod;
 
     @Override
     public int getMetricsCategory() {
@@ -52,6 +55,12 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_interface_other_settings);
+        mAod = (SystemSettingSwitchPreference) findPreference(KEY_DOZE_ON_CHARGE);
+        boolean dozeAlwaysOnDisplayAvailable = getContext().getResources().
+                getBoolean(com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
+        if (!dozeAlwaysOnDisplayAvailable && mAod != null) {
+            getPreferenceScreen().removePreference(mAod);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
