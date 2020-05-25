@@ -48,6 +48,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
+    private static final String QS_TILE_STYLE = "qs_tile_style";
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
@@ -66,17 +67,31 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
 
+        mQsTileStyle = (ListPreference) findPreference(QS_TILE_STYLE);
+        int qsTileStyle = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_TILE_STYLE, 0,
+  	        UserHandle.USER_CURRENT);
+        int valueIndex = mQsTileStyle.findIndexOfValue(String.valueOf(qsTileStyle));
+        mQsTileStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+        mQsTileStyle.setSummary(mQsTileStyle.getEntry());
+        mQsTileStyle.setOnPreferenceChangeListener(this);
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-	    int value = Integer.parseInt((String) newValue);
-        String key = preference.getKey();
-        switch (key) {
-            case STATUS_BAR_QUICK_QS_PULLDOWN:
-                updateQuickPulldownSummary(value);
-                break;
+		ContentResolver resolver = getActivity().getContentResolver();
+         if (preference == mQuickPulldown) {
+             int value = Integer.parseInt((String) newValue);
+             updateQuickPulldownSummary(value);
+             return true;
+        } else if (preference == mQsTileStyle) {
+             int qsTileStyleValue = Integer.valueOf((String) newValue);
+             Settings.System.putIntForUser(resolver, Settings.System.QS_TILE_STYLE,
+                     qsTileStyleValue, UserHandle.USER_CURRENT);
+             mQsTileStyle.setSummary(mQsTileStyle.getEntries()[qsTileStyleValue]);
+             return true;
         }
-        return true;
+        return false;
     }
 
     private void updateQuickPulldownSummary(int value) {

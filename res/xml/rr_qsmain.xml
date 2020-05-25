@@ -145,6 +145,14 @@
         android:summary="@string/enable_clear_all_button_summary"
         android:defaultValue="false" />
 
+    <ListPreference
+         android:key="qs_tile_style"
+         android:title="@string/qs_tile_style_title"
+         android:persistent="false"
+         android:icon="@drawable/rr_shape_icon"
+         android:entries="@array/qs_selector_entries"
+         android:entryValues="@array/qs_selector_values" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
