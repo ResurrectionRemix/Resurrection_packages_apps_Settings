@@ -31,9 +31,18 @@
         android:title="@string/custom_header_title">
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_header_transparency"
+            android:icon="@drawable/rr_blur_icon"
+            android:title="@string/qs_header_transparency_title"
+            android:summary="@string/qs_header_transparency_summary"
+	        android:dependency="status_bar_custom_header"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="status_bar_custom_header"
             android:icon="@drawable/rr_header_enable_icon"
             android:title="@string/status_bar_custom_header_title"
+            android:disableDependentsState="true"
             android:summary="@string/status_bar_custom_header_summary"
             android:defaultValue="false" />
 	
