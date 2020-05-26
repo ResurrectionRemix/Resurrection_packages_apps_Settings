@@ -18,6 +18,10 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/qs_rows_columns_title">
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_qs_rows_layout"
+        android:selectable="false"/>
+
     <com.android.settings.rr.Preferences.CustomSeekBarPreference
         android:key="qs_rows_portrait"
         android:title="@string/qs_rows_portrait_title"

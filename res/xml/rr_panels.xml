@@ -14,6 +14,9 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_panels_title" >
+	<com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_panels_layout"
+        android:selectable="false"/>
 
     <Preference
         android:key="qs_customizations"

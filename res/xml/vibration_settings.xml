@@ -20,6 +20,10 @@
     android:title="@string/vibration_preferences"
     settings:keywords="@string/keywords_vibration_preferences">
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_vib_layout"
+        android:selectable="false"/>
+
     <!-- In-call feedback -->
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="incall_feeedback_vibrate"

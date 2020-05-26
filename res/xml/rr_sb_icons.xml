@@ -14,6 +14,9 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/status_bar_system_icons_title">
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_sb_icons_layout"
+        android:selectable="false"/>
 	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
          android:key="roaming_indicator_icon"
          android:icon="@drawable/rr_roaming_icon"

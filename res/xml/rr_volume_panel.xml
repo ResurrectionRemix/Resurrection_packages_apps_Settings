@@ -21,6 +21,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_volume_title">
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_volume_layout"
+        android:selectable="false"/>
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="audio_panel_view_media"
         android:icon="@drawable/rr_media_icon"

@@ -22,6 +22,10 @@
     android:key="battery_bar"
     android:title="@string/battery_bar_title">
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_battery_bar_layout"
+        android:selectable="false"/>
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="statusbar_battery_bar"
         android:icon="@drawable/rr_bb_enable_icon"

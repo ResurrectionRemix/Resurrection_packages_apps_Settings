@@ -18,6 +18,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_recents_title">
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_recents_layout"
+        android:selectable="false"/>
+
     <PreferenceCategory
         android:key="alternative_recents_category"
         android:title="@string/alternative_recents_category">

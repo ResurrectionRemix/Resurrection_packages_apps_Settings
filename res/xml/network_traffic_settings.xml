@@ -20,6 +20,10 @@
     android:key="network_traffic_settings"
     android:title="@string/network_traffic_title">
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_network_traffic_layout"
+        android:selectable="false"/>
+
     <lineageos.preference.LineageSecureSettingListPreference
         android:key="network_traffic_location"
         android:icon="@drawable/rr_position_icon"

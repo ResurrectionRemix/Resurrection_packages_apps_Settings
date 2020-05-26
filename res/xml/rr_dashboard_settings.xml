@@ -18,6 +18,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_dash_board_title">
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_dashboard_layout"
+        android:selectable="false"/>
+
     <com.android.settings.rr.Preferences.SystemSettingIntListPreference
         android:key="theming_settings_dashboard_icons"
         android:icon="@drawable/rr_shape_icon"

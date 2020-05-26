@@ -19,6 +19,10 @@
     android:key="rr_charge"
     android:title="@string/rr_charging_title">
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_charging_layout"
+        android:selectable="false"/>
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="smart_charging"
         android:summary="@string/smart_charging_summary"

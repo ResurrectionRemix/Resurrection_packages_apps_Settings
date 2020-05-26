@@ -18,6 +18,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_title">
 
+	<com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_main_layout"
+        android:selectable="false"/>
+
     <PreferenceScreen
       android:key="rr_sb"
       android:title="@string/rr_statusbar_title"

@@ -20,6 +20,11 @@
     android:key="suspend_actions"
     android:title="@string/screen_state_toggles_title">
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_suspend_layout"
+        android:selectable="false"/>
+
+
     <SwitchPreference
         android:key="screen_state_toggles_enable_key"
         android:title="@string/screen_state_toggles_title"

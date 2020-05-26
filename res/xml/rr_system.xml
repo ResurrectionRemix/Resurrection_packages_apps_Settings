@@ -18,6 +18,10 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/rr_system_settings">
 
+	<com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_system_layout"
+        android:selectable="false"/>
+
     <Preference
         android:key="navbar_category"
         android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"

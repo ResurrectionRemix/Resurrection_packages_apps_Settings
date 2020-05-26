@@ -21,6 +21,15 @@
     xmlns:settings="http://schemas.android.com/apk/com.android.settings"
     android:title="@string/rr_sound_title">
 
+
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_sound_layout"
+        android:selectable="false"/>
+
+     <PreferenceCategory
+        android:key="rr_headset"
+        android:title="@string/rr_headset_cat">
+
     <com.android.settings.rr.Preferences.GlobalSettingListPreference
         android:key="ringtone_focus_mode"
         android:title="@string/ringtone_focus_mode_title"

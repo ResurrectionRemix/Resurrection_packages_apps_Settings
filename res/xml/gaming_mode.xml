@@ -18,6 +18,10 @@
     android:key="gaming"
     android:title="@string/gaming_mode_title">
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_gaming_layout"
+        android:selectable="false"/>
+
     <!-- Master switch -->
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_enabled"
