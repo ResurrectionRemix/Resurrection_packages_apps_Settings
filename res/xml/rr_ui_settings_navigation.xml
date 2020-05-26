@@ -22,17 +22,20 @@
             android:key="rr_fp"
             android:icon="@drawable/rr_fingerprint_icon_nav"
             android:title="@string/rr_fp_title"
+            android:summary="@string/rr_fp_summary"
             android:fragment="com.android.settings.rr.fragments.FingerprintSettings" />
 
        <com.android.settings.rr.Preferences.CategoryPreference
             android:key="rr_lockscreen"
             android:title="@string/rr_lockscreen_title"
+            android:summary="@string/rr_lock_summary"
 	   	    android:fragment="com.android.settings.rr.LockSettings" 
 	   		android:icon="@drawable/rr_lock_icon_nav" />
 
        <com.android.settings.rr.Preferences.CategoryPreference
             android:key="edge_lighting"
             android:title="@string/pulse_ambient_light_title"
+            android:summary="@string/pulse_ambient_light_summary"
             android:fragment="com.android.settings.rr.EdgeLighting"
             android:icon="@drawable/rr_edge_main_icon_nav" />
 
@@ -40,11 +43,13 @@
             android:key="animation_settings"
             android:title="@string/animation_title"
             android:icon="@drawable/rr_animations_icon_nav"
+            android:summary="@string/rr_animations_settings_summary"
             android:fragment="com.android.settings.rr.Animations" />
 
        <com.android.settings.rr.Preferences.CategoryPreference
             android:key="heads_up_settings"
             android:title="@string/rr_headsup_cat"
+            android:summary="@string/rr_heads_up_summary"
             android:icon="@drawable/rr_heads_up_icon_nav"
             android:fragment="com.android.settings.rr.HeadsUp" />
 
@@ -52,23 +57,27 @@
             android:key="dashboard"
             android:icon="@drawable/rr_dashboard_icon_nav"
             android:title="@string/rr_dash_board_title"
+            android:summary="@string/rr_dash_board_summary"
             android:fragment="com.android.settings.rr.DashBoardSettings"/>
 
        <com.android.settings.rr.Preferences.CategoryPreference
             android:key="screen_zoom"
             android:icon="@drawable/rr_display_icon_nav"
             android:title="@string/screen_zoom_title"
+            android:summary="@string/rr_display_size_summary"
             android:fragment="com.android.settings.display.ScreenZoomSettings" />
 
        <com.android.settings.rr.Preferences.CategoryPreference
             android:key="font_size"
             android:title="@string/title_font_size"
+            android:summary="@string/rr_font_size_summary"
             android:fragment="com.android.settings.display.ToggleFontSizePreferenceFragment"
             android:icon="@drawable/rr_font_size_icon_nav" />
 
        <com.android.settings.rr.Preferences.CategoryPreference
             android:key="themes"
             android:title="@string/rr_themes_title"
+            android:summary="@string/rr_themes_sum"
             android:icon="@drawable/rr_styles_icon_nav" >
         <intent android:action="android.intent.action.MAIN"
             android:targetPackage="com.android.wallpaper"
@@ -79,18 +88,21 @@
             android:key="gaming"
             android:title="@string/gaming_mode_title"
             android:icon="@drawable/ic_gaming_nav"
+            android:summary="@string/gaming_mode_summary"
             android:fragment="com.android.settings.rr.fragments.GamingMode" />
 
       <com.android.settings.rr.Preferences.CategoryPreference
             android:key="lockscreen_visualizer"
             android:icon="@drawable/rr_visualizer_icon_nav"
             android:title="@string/music_visualizer_title"
+            android:summary="@string/music_visualizer_summary"
             android:fragment="com.android.settings.rr.LockScreenVisualizer" />
 
       <com.android.settings.rr.Preferences.CategoryPreference
             android:key="rr_ui_other"
             android:icon="@drawable/rr_misc_icon_nav"
             android:title="@string/rr_misc_title"
+            android:summary="@string/interface_other_summary"
             android:fragment="com.android.settings.rr.MiscInterfaceSettings" />
 
 </PreferenceScreen>
