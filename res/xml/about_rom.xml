@@ -18,6 +18,11 @@
     xmlns:resurrection="http://schemas.android.com/apk/res/com.android.settings"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/about_rr_settings">
+
+       <com.android.settings.rr.preview.AboutSettingsPreview
+            android:key="about_rom"
+            android:layout="@layout/about_layout"
+            android:selectable="false"/>
                 
         <PreferenceCategory
             android:key="links"

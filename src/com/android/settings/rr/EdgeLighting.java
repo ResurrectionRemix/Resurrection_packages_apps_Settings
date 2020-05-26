@@ -19,6 +19,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.RemoteException;
 import androidx.preference.ListPreference;
@@ -39,6 +40,7 @@ import com.android.settings.Utils;
 import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 
 import com.android.settings.rr.Preferences.SystemSettingColorPickerPreference;
+import com.android.settings.rr.preview.AmbientLightSettingsPreview;
 
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -49,7 +51,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import java.util.Arrays;
 import java.util.List;
@@ -72,7 +74,6 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
 
         mEdgeLightColorPreference = (SystemSettingColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_CUSTOM_COLOR);
-        mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
 
         mColorType = (ListPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
         int type = Settings.System.getInt(resolver,
@@ -80,7 +81,17 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
         mColorType.setValue(String.valueOf(type));
         mColorType.setSummary(mColorType.getEntry());
         updateprefs(type);
+        boolean isAccent = type == 2;
+        updateEdgeLightColorPreferences(isAccent);
         mColorType.setOnPreferenceChangeListener(this);
+
+        int edgeLightColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.AMBIENT_LIGHT_CUSTOM_COLOR, 0xFF3980FF);
+        mEdgeLightColorPreference.setNewPreviewColor(edgeLightColor);
+        mEdgeLightColorPreference.setAlphaSliderEnabled(false);
+        String edgeLightColorHex = convertToRGB(edgeLightColor);
+        mEdgeLightColorPreference.setSummary(edgeLightColorHex);
+        mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -92,8 +103,19 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
                     Settings.System.AMBIENT_LIGHT_COLOR, val);
             mColorType.setSummary(mColorType.getEntries()[index]);
             updateprefs(val);
+            boolean isOn = index == 2;
+            updateEdgeLightColorPreferences(isOn);
             return true;
-        }
+        }  else if (preference == mEdgeLightColorPreference) {
+            String hex = convertToRGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            AmbientLightSettingsPreview.setAmbientLightPreviewColor(Integer.valueOf(String.valueOf(newValue)));
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putInt(resolver,
+                    Settings.System.AMBIENT_LIGHT_CUSTOM_COLOR, intHex);
+            return true;
+        } 
        return false;
     }
 
@@ -108,6 +130,36 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
          } else {
              mEdgeLightColorPreference.setEnabled(false);
          }
+    }
+
+    public static String convertToRGB(int color) {
+        String red = Integer.toHexString(Color.red(color));
+        String green = Integer.toHexString(Color.green(color));
+        String blue = Integer.toHexString(Color.blue(color));
+
+        if (red.length() == 1) {
+            red = "0" + red;
+        }
+
+        if (green.length() == 1) {
+            green = "0" + green;
+        }
+
+        if (blue.length() == 1) {
+            blue = "0" + blue;
+        }
+
+        return "#" + red + green + blue;
+    }
+
+    private void updateEdgeLightColorPreferences(boolean useAccentColor) {
+        if (useAccentColor) {
+            AmbientLightSettingsPreview.setAmbientLightPreviewColor(Utils.getColorAccentDefaultColor(getContext()));
+        } else {
+            int edgeLightColor = Settings.System.getInt(getContentResolver(),
+                    Settings.System.AMBIENT_LIGHT_CUSTOM_COLOR, 0xFF3980FF);
+            AmbientLightSettingsPreview.setAmbientLightPreviewColor(edgeLightColor);
+        }
     }
 
     /**
