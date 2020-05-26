@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright (C) 2018 RR
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="rr_lock"
+    android:title="@string/pulse_ambient_light_title">
+
+       <com.android.settings.rr.preview.AmbientLightSettingsPreview
+            android:key="ambientlight_preview"
+            android:layout="@layout/ambient_light"
+            android:selectable="false"/>
+
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="ambient_notification_light"
+            android:icon="@drawable/rr_edge_light_icon"
+            android:title="@string/pulse_ambient_light_title"
+            android:summary="@string/pulse_ambient_light_summary"
+            android:defaultValue="false" />
+
+	
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="pulse_ambient_light_repeat_direction"
+            android:defaultValue="false"
+            android:icon="@drawable/rr_reverse_icon"
+            android:title="@string/pulse_ambient_light_repeat_direction_title"
+            android:summary="@string/pulse_ambient_light_repeat_direction_summary"
+            android:dependency="ambient_notification_light" />
+
+        <com.android.settings.rr.Preferences.SystemSettingListPreference
+            android:key="pulse_ambient_light_layout"
+            android:icon="@drawable/rr_edge_icon"
+            android:title="@string/pulse_ambient_light_layout_title"
+            android:entries="@array/pulse_ambient_light_layout_entries"
+            android:entryValues="@array/pulse_ambient_light_layout_values"
+            android:defaultValue="0"
+            android:dependency="ambient_notification_light" />
+
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="ambient_light_pulse_for_all"
+            android:icon="@drawable/rr_autoenable_icon"
+            android:title="@string/ambient_light_pulse_for_all_title"
+            android:summary="@string/ambient_light_pulse_for_all_summary"
+            android:dependency="ambient_notification_light"
+            android:defaultValue="false" />
+
+        <ListPreference
+            android:key="ambient_light_color"
+            android:icon="@drawable/rr_color_icon"
+            android:dialogTitle="@string/ambient_notification_light_color_title"
+            android:title="@string/ambient_notification_light_color_title"
+            android:entries="@array/ambient_notification_light_color_entries"
+            android:entryValues="@array/ambient_notification_light_color_values"
+            android:dependency="ambient_notification_light"
+            android:defaultValue="0" />
+
+        <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+            android:key="ambient_light_custom_color"
+            android:icon="@drawable/rr_custom_icon"
+            android:title="@string/pulse_ambient_light_color_custom_title"
+            android:dependency="ambient_notification_light"
+            android:defaultValue="0x3980FF" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="pulse_ambient_light_duration"
+            android:title="@string/ambient_light_duration_title"
+            android:icon="@drawable/rr_duration_icon"
+            android:dependency="ambient_notification_light"
+            android:max="10"
+            android:min="1"
+            settings:units="s"	
+            android:defaultValue="3" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="pulse_ambient_light_repeat_count"
+            android:title="@string/ambient_light_repeat_count_title"
+            android:dependency="ambient_notification_light"
+            android:icon="@drawable/rr_add_icon"
+            android:max="10"
+            android:min="0"
+            settings:units="times"	
+            android:defaultValue="0" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="pulse_ambient_light_width"
+            android:title="@string/pulse_ambient_light_width_title"
+            android:icon="@drawable/rr_bb_thickness_icon"
+            android:max="150"
+            android:min="1"
+            settings:units="px"
+            android:defaultValue="125"
+            android:dependency="ambient_notification_light" />
+</PreferenceScreen>
+

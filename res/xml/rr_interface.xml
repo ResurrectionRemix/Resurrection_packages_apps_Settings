@@ -34,6 +34,13 @@
 	   		android:icon="@drawable/rr_lock_icon" />
 
        <Preference
+            android:key="edge_lighting"
+            android:title="@string/pulse_ambient_light_title"
+            android:summary="@string/pulse_ambient_light_summary"
+            android:fragment="com.android.settings.rr.EdgeLighting"
+            android:icon="@drawable/rr_edge_main_icon" />
+
+       <Preference
             android:key="heads_up_settings"
             android:title="@string/rr_headsup_cat"
             android:summary="@string/rr_heads_up_summary"

@@ -55,22 +55,59 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 @SearchIndexable
-public class LockSettings extends SettingsPreferenceFragment implements
+public class EdgeLighting extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
+
+    private static final String PULSE_AMBIENT_LIGHT_CUSTOM_COLOR = "ambient_light_custom_color";
+    private static final String PULSE_AMBIENT_LIGHT_COLOR = "ambient_light_color";
+	
+    private SystemSettingColorPickerPreference mEdgeLightColorPreference;
+    private ListPreference mColorType;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.rr_lock);
+        addPreferencesFromResource(R.xml.edge_lighting);
+        ContentResolver resolver = getActivity().getContentResolver();
+
+        mEdgeLightColorPreference = (SystemSettingColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_CUSTOM_COLOR);
+        mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
+
+        mColorType = (ListPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
+        int type = Settings.System.getInt(resolver,
+            Settings.System.AMBIENT_LIGHT_COLOR, 0);
+        mColorType.setValue(String.valueOf(type));
+        mColorType.setSummary(mColorType.getEntry());
+        updateprefs(type);
+        mColorType.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mColorType) {
+            int val = Integer.parseInt((String) newValue);
+            int index = mColorType.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.AMBIENT_LIGHT_COLOR, val);
+            mColorType.setSummary(mColorType.getEntries()[index]);
+            updateprefs(val);
+            return true;
+        }
        return false;
     }
 
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
+    }
+
+    public void updateprefs(int type) {
+         if (type == 3 ) {
+             mEdgeLightColorPreference.setEnabled(true);
+         } else {
+             mEdgeLightColorPreference.setEnabled(false);
+         }
     }
 
     /**
@@ -83,7 +120,7 @@ public class LockSettings extends SettingsPreferenceFragment implements
                 ArrayList<SearchIndexableResource> result =
                     new ArrayList<SearchIndexableResource>();
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.rr_lock;
+                    sir.xmlResId = R.xml.edge_lighting;
                     result.add(sir);
                     return result;
             }
