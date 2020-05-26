@@ -14,6 +14,10 @@
         xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
         android:title="@string/animation_title">
 
+	<com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_anim_layout"
+        android:selectable="false"/>
+
     <ListPreference
         android:key="screen_off_animation"
         android:title="@string/screen_off_animation_title"
@@ -54,10 +58,6 @@
         android:icon="@drawable/rr_scroll_icon"
         android:entryValues="@array/values_scrollingcache" />
 
-
-	<com.android.settings.rr.preview.AboutSettingsPreview
-        android:layout="@layout/rr_anim_layout"
-        android:selectable="false"/>
 
      <Preference
         android:key="rr_toast"

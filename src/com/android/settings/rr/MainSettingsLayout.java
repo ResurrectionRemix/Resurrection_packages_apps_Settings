@@ -114,7 +114,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mStyle = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.RR_CONFIG_STYLE, 0);
+                    Settings.System.RR_CONFIG_STYLE, 1);
         mContainer = container;
         mInflater = inflater;
         if (mStyle == 0 || mStyle == 1) { 
@@ -327,7 +327,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
     class SectionsPagerAdapter extends FragmentPagerAdapter {
         int mStyle = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.RR_CONFIG_STYLE, 0);
+                    Settings.System.RR_CONFIG_STYLE, 1);
         String titles[] = getTitles();
         private Fragment frags[] = new Fragment[titles.length];
 
@@ -364,7 +364,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         int mStyle = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.RR_CONFIG_STYLE, 0);
+                    Settings.System.RR_CONFIG_STYLE, 1);
         if (mStyle == 0) {
         titleString = new String[]{
                 getString(R.string.rr_statusbar_title),
@@ -591,7 +591,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
     public void chooseMode() {
         int mStyle = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.RR_CONFIG_STYLE, 0);
+                    Settings.System.RR_CONFIG_STYLE, 1);
         switch (mStyle) {
             case 0:
                 showDialogForClassic(getActivity());
