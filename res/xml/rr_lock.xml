@@ -105,13 +105,25 @@
             android:summary="@string/pulse_ambient_light_repeat_direction_summary"
             android:dependency="ambient_notification_light" />
 
-        <!--com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="ambient_light_pulse_for_all"
-            android:title="@string/ambient_light_pulse_for_all_title"
-            android:summary="@string/ambient_light_pulse_for_all_summary"
-            android:defaultValue="true" />
+        <com.android.settings.rr.Preferences.SystemSettingListPreference
+            android:key="pulse_ambient_light_layout"
+            android:icon="@drawable/rr_edge_icon"
+            android:title="@string/pulse_ambient_light_layout_title"
+            android:entries="@array/pulse_ambient_light_layout_entries"
+            android:entryValues="@array/pulse_ambient_light_layout_values"
+            android:defaultValue="0"
+            android:dependency="ambient_notification_light" />
+
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="ambient_light_pulse_for_all"
+            android:icon="@drawable/rr_autoenable_icon"
+            android:title="@string/ambient_light_pulse_for_all_title"
+            android:summary="@string/ambient_light_pulse_for_all_summary"
+            android:dependency="ambient_notification_light"
+            android:defaultValue="false" />
+
+        <!---com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="pulse_ambient_auto_color"
             android:title="@string/pulse_ambient_auto_color_title"
             android:summary="@string/pulse_ambient_auto_color_summary"
@@ -126,6 +138,7 @@
             android:title="@string/ambient_notification_light_color_title"
             android:entries="@array/ambient_notification_light_color_entries"
             android:entryValues="@array/ambient_notification_light_color_values"
+            android:dependency="ambient_notification_light"
             android:defaultValue="0" />
 
         <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
