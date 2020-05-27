@@ -56,6 +56,11 @@
             android:title="@string/data_usage_app_settings" />
 
         <com.android.settingslib.RestrictedSwitchPreference
+            android:key="restrict_all"
+            android:title="@string/data_usage_app_restrict_all"
+            android:summary="@string/data_usage_app_restrict_all_summary" />
+
+        <com.android.settingslib.RestrictedSwitchPreference
             android:key="restrict_wlan"
             android:title="@string/data_usage_app_restrict_wifi"
             android:summary="@string/data_usage_app_restrict_wifi_summary" />
