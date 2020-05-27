@@ -34,7 +34,7 @@ import android.provider.Settings;
 
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-
+import com.android.settings.rr.preview.AboutSettingsPreview;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -50,6 +50,10 @@ import java.util.ArrayList;
 public class Interface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String PREVIEW = "preview";
+
+    private AboutSettingsPreview mPreview;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,12 @@ public class Interface extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
+        mPreview = (AboutSettingsPreview) findPreference(PREVIEW);
+        int style = Settings.System.getInt(resolver,
+                    Settings.System.RR_CONFIG_STYLE, 1);
+        if (mPreview != null && style == 0) {
+            prefSet.removePreference(mPreview);
+        }
 
     }
 

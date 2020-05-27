@@ -44,7 +44,7 @@ import com.android.settings.rr.preview.AmbientLightSettingsPreview;
 
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-
+import com.android.settings.rr.preview.AboutSettingsPreview;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
