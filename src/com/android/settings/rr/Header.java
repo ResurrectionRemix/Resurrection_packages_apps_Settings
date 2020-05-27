@@ -71,7 +71,7 @@ public class Header extends SettingsPreferenceFragment implements
     private static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String CUSTOM_HEADER_ENABLED = "status_bar_custom_header";
     private static final String TRANSPARENT_HEADER = "qs_header_transparency";
-
+    private static final String R_STYLE_HEADER = "notification_headers";
 
     private Preference mHeaderBrowse;
     private ListPreference mDaylightHeaderPack;
@@ -94,7 +94,7 @@ public class Header extends SettingsPreferenceFragment implements
 
         mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
 
-        mNotifHeader = (SystemSettingSwitchPreference) findPreference(CUSTOM_HEADER_IMAGE);
+        mNotifHeader = (SystemSettingSwitchPreference) findPreference(R_STYLE_HEADER);
         mNotifHeader.setOnPreferenceChangeListener(this);
         mHeader = (SystemSettingSwitchPreference) findPreference(STATUS_BAR_CUSTOM_HEADER);
         mTransparentHeader = (SystemSettingSwitchPreference) findPreference(TRANSPARENT_HEADER);
