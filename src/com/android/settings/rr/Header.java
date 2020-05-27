@@ -70,7 +70,8 @@ public class Header extends SettingsPreferenceFragment implements
     private static final String CUSTOM_HEADER_PROVIDER = "custom_header_provider";
     private static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
     private static final String CUSTOM_HEADER_ENABLED = "status_bar_custom_header";
-    private static final String NOTIF_HEADER = "notification_headers";
+    private static final String TRANSPARENT_HEADER = "qs_header_transparency";
+
 
     private Preference mHeaderBrowse;
     private ListPreference mDaylightHeaderPack;
@@ -78,6 +79,9 @@ public class Header extends SettingsPreferenceFragment implements
     private ListPreference mHeaderProvider;
     private String mDaylightHeaderProvider;
     private SystemSettingSwitchPreference mNotifHeader;
+    private SystemSettingSwitchPreference mTransparentHeader;
+    private SystemSettingSwitchPreference mHeader;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,9 +94,10 @@ public class Header extends SettingsPreferenceFragment implements
 
         mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
 
-        mNotifHeader = (SystemSettingSwitchPreference) findPreference(NOTIF_HEADER);
+        mNotifHeader = (SystemSettingSwitchPreference) findPreference(CUSTOM_HEADER_IMAGE);
         mNotifHeader.setOnPreferenceChangeListener(this);
-
+        mHeader = (SystemSettingSwitchPreference) findPreference(STATUS_BAR_CUSTOM_HEADER);
+        mTransparentHeader = (SystemSettingSwitchPreference) findPreference(TRANSPARENT_HEADER);
         List<String> entries = new ArrayList<String>();
         List<String> values = new ArrayList<String>();
         getAvailableHeaderPacks(entries, values);
@@ -102,6 +107,8 @@ public class Header extends SettingsPreferenceFragment implements
         boolean headerEnabled = Settings.System.getInt(resolver,
                 Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER, 0) != 0;
         updateHeaderProviderSummary(headerEnabled);
+        updateTransparentHeaderpref(headerEnabled);
+        mHeader.setOnPreferenceChangeListener(this);
         mDaylightHeaderPack.setOnPreferenceChangeListener(this);
 
         mHeaderShadow = (SystemSettingSeekBarPreference) findPreference(CUSTOM_HEADER_IMAGE_SHADOW);
@@ -123,6 +130,14 @@ public class Header extends SettingsPreferenceFragment implements
         mHeaderProvider.setOnPreferenceChangeListener(this);
         mDaylightHeaderPack.setEnabled(providerName.equals(mDaylightHeaderProvider));
 
+    }
+
+    private void updateTransparentHeaderpref(boolean enabled) {
+       if (enabled) {
+           mTransparentHeader.setEnabled(false);
+       } else {
+           mTransparentHeader.setEnabled(true);
+       }
     }
 
     private void updateHeaderProviderSummary(boolean headerEnabled) {
@@ -186,10 +201,14 @@ public class Header extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
-          if (preference == mNotifHeader) {
+          if (preference == mHeader) {
+               boolean value = (Boolean) newValue;
+               updateTransparentHeaderpref(value);
+              return true;
+        } else if (preference == mNotifHeader) {
               RRUtils.showSystemUiRestartDialog(getContext());
               return true;
-        } else if (preference == mHeaderShadow) {
+        }  else if (preference == mHeaderShadow) {
             Integer headerShadow = (Integer) newValue;
             int realHeaderValue = (int) (((double) headerShadow / 100) * 255);
             Settings.System.putInt(resolver,
