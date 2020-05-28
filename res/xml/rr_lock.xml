@@ -89,6 +89,27 @@
 
     </PreferenceCategory>
 
+   <PreferenceCategory
+        android:key="brightness"
+        android:title="@string/brightness_title" >
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="ambient_doze_brightness"
+            android:title="@string/ambient_doze_brightness_title"
+            android:max="255"
+            settings:min="1"
+            android:icon="@drawable/rr_aod_icon"
+            android:persistent="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="ambient_pulse_brightness"
+            android:title="@string/ambient_pulse_brightness_title"
+            android:icon="@drawable/rr_brightness_icon"
+            android:max="255"
+            settings:min="1"
+            android:persistent="false" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:title="@string/rr_notif_settings_title">
 

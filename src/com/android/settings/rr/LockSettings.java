@@ -50,6 +50,7 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.android.settings.rr.Preferences.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -57,14 +58,50 @@ import java.util.ArrayList;
 @SearchIndexable
 public class LockSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
+        protected static final String DOZE_BRIGHTNESS_KEY = "ambient_doze_brightness";
+        protected static final String PULSE_BRIGHTNESS_KEY = "ambient_pulse_brightness";
+
+        private SystemSettingSeekBarPreference mDozeBrightness;
+        private SystemSettingSeekBarPreference mPulseBrightness;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_lock);
+
+            int defaultDoze = getResources().getInteger(
+                    com.android.internal.R.integer.config_screenBrightnessDoze);
+            int defaultPulse = getResources().getInteger(
+                    com.android.internal.R.integer.config_screenBrightnessPulse);
+            if (defaultPulse == -1) {
+                defaultPulse = defaultDoze;
+            }
+
+            mPulseBrightness = (SystemSettingSeekBarPreference) findPreference(PULSE_BRIGHTNESS_KEY);
+            int value = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.PULSE_BRIGHTNESS, defaultPulse);
+            mPulseBrightness.setValue(value);
+            mPulseBrightness.setOnPreferenceChangeListener(this);
+
+            mDozeBrightness = (SystemSettingSeekBarPreference) findPreference(DOZE_BRIGHTNESS_KEY);
+            value = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.DOZE_BRIGHTNESS, defaultDoze);
+            mDozeBrightness.setValue(value);
+            mDozeBrightness.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+             if (preference == mPulseBrightness) {
+                int value = (Integer) newValue;
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.PULSE_BRIGHTNESS, value);
+                return true;
+            } else if (preference == mDozeBrightness) {
+                int value = (Integer) newValue;
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.DOZE_BRIGHTNESS, value);
+                return true;
+            }
        return false;
     }
 
