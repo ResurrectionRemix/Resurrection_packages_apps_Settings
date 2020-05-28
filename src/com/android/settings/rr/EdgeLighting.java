@@ -39,7 +39,7 @@ import android.net.Uri;
 import com.android.settings.Utils;
 import com.android.settings.rr.Preferences.CustomSeekBarPreference;
 
-import com.android.settings.rr.Preferences.SystemSettingColorPickerPreference;
+import com.android.settings.rr.Preferences.*;
 import com.android.settings.rr.preview.AmbientLightSettingsPreview;
 
 import android.provider.SearchIndexableResource;
@@ -62,9 +62,14 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
 
     private static final String PULSE_AMBIENT_LIGHT_CUSTOM_COLOR = "ambient_light_custom_color";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "ambient_light_color";
+    private static final String PULSE_AOD = "ambient_notification_light_hide_aod";
+    private static final String PULSE_ALL = "ambient_light_pulse_for_all";
 	
     private SystemSettingColorPickerPreference mEdgeLightColorPreference;
     private ListPreference mColorType;
+    private SystemSettingSwitchPreference mAodPulse;
+    private SystemSettingSwitchPreference mPulseAll;
+
 
 
     @Override
@@ -74,6 +79,13 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
 
         mEdgeLightColorPreference = (SystemSettingColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_CUSTOM_COLOR);
+
+        mPulseAll = (SystemSettingSwitchPreference) findPreference(PULSE_ALL);
+        mAodPulse = (SystemSettingSwitchPreference) findPreference(PULSE_AOD);
+        boolean show = Settings.System.getInt(resolver,
+                Settings.System.AMBIENT_NOTIFICATION_LIGHT_HIDE_AOD, 0) == 1;
+        mAodPulse.setOnPreferenceChangeListener(this);
+        updatePulse(show);
 
         mColorType = (ListPreference) findPreference(PULSE_AMBIENT_LIGHT_COLOR);
         int type = Settings.System.getInt(resolver,
@@ -93,6 +105,15 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
         mEdgeLightColorPreference.setSummary(edgeLightColorHex);
         mEdgeLightColorPreference.setOnPreferenceChangeListener(this);
     }
+
+    private void updatePulse(boolean enabled) {
+       if (enabled) {
+           mPulseAll.setEnabled(false);
+       } else {
+           mPulseAll.setEnabled(true);
+       }
+    }
+
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
@@ -114,6 +135,10 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
                     Settings.System.AMBIENT_LIGHT_CUSTOM_COLOR, intHex);
+            return true;
+        } else if (preference == mAodPulse) {
+            boolean value = (Boolean) newValue;
+            updatePulse(value);
             return true;
         } 
        return false;
