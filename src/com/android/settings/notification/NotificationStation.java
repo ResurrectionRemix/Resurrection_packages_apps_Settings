@@ -27,6 +27,7 @@ import android.app.PendingIntent;
 import android.app.settings.SettingsEnums;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -60,13 +61,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settings.search.Indexable;
+import com.android.settings.search.SearchIndexableRaw;
+import com.android.settingslib.search.SearchIndexable;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class NotificationStation extends SettingsPreferenceFragment {
+@SearchIndexable
+public class NotificationStation extends SettingsPreferenceFragment implements Indexable {
     private static final String TAG = NotificationStation.class.getSimpleName();
 
     private static final boolean DEBUG = false;
@@ -645,4 +651,26 @@ public class NotificationStation extends SettingsPreferenceFragment {
 //            getContext().startActivity(intent);
         }
     }
+
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+
+                private static final String SUPPORT_SEARCH_INDEX_KEY = "NotificationStation";
+
+                @Override
+                public List<SearchIndexableRaw> getRawDataToIndex(Context context,
+                        boolean enabled) {
+                    final List<SearchIndexableRaw> result = new ArrayList<>();
+
+                    // Add the activity title
+                    SearchIndexableRaw data = new SearchIndexableRaw(context);
+                    data.title = context.getString(R.string.notification_log_title);
+                    data.screenTitle = context.getString(R.string.notification_log_title);
+                    data.key = SUPPORT_SEARCH_INDEX_KEY;
+                    data.keywords = context.getString(R.string.keywords_notification_log);
+                    result.add(data);
+
+                    return result;
+                }
+            };
 }
