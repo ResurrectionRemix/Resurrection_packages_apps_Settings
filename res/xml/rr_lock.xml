@@ -22,6 +22,17 @@
         android:selectable="false"/>
 
     <PreferenceCategory
+        android:title="@string/rr_doze">
+
+    <Preference
+        android:key="doze"
+        android:icon="@drawable/rr_aod_icon"
+        android:summary="@string/rr_doze_summary"
+        android:fragment="com.android.settings.rr.DozeSettings"
+        android:title="@string/rr_doze_title"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/rr_battery">
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
@@ -31,13 +42,6 @@
        android:entries="@array/lockscreen_charging_animation_entries"
        android:entryValues="@array/lockscreen_charging_animation_values"
        android:defaultValue="1" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-       android:key="lockscreen_charging_indicator_doze"
-       android:icon="@drawable/rr_lockdown_icon"
-       android:title="@string/charging_indicator_doze_title"
-       android:summary="@string/charging_indicator_doze_summary"
-       android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
        android:key="lockscreen_battery_info"
@@ -58,12 +62,12 @@
        android:summary="@string/hide_lockscreen_status_bar_summary"
        android:defaultValue="false" />
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-       android:key="pulse_on_new_tracks"
-       android:icon="@drawable/rr_pulse_icon"
-       android:title="@string/pulse_on_new_tracks_title"
-       android:summary="@string/pulse_on_new_tracks_summary"
-       android:defaultValue="false"/>
+    <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference
+       android:key="lockscreen_enable_qs"
+       android:icon="@drawable/rr_disabled_icon"
+       android:title="@string/lockscreen_enable_qs_title"
+       android:summary="@string/lockscreen_enable_qs_summary"
+       android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="lockscreen_visualizer_enabled"
@@ -80,34 +84,6 @@
        android:summary="@string/lockscreen_lock_icon_summary"
        android:defaultValue="true" />
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-       android:key="ls_weather_pulsing"
-       android:icon="@drawable/rr_weather_main_icon"
-       android:title="@string/ls_weather_pulsing_title"
-       android:summary="@string/ls_weather_pulsing_summary"
-       android:defaultValue="false" />
-
-    </PreferenceCategory>
-
-   <PreferenceCategory
-        android:key="brightness"
-        android:title="@string/brightness_title" >
-
-    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-            android:key="ambient_doze_brightness"
-            android:title="@string/ambient_doze_brightness_title"
-            android:max="255"
-            settings:min="1"
-            android:icon="@drawable/rr_aod_icon"
-            android:persistent="false" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-            android:key="ambient_pulse_brightness"
-            android:title="@string/ambient_pulse_brightness_title"
-            android:icon="@drawable/rr_brightness_icon"
-            android:max="255"
-            settings:min="1"
-            android:persistent="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -170,4 +146,3 @@
     </PreferenceCategory>
 
 </PreferenceScreen>
-
