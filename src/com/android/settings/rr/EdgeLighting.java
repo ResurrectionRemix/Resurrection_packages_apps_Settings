@@ -61,11 +61,13 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String PULSE_AMBIENT_LIGHT_CUSTOM_COLOR = "ambient_light_custom_color";
+    private static final String PULSE_AMBIENT_LIGHT_BLEND_COLOR = "ambient_light_blend_color";
     private static final String PULSE_AMBIENT_LIGHT_COLOR = "ambient_light_color";
     private static final String PULSE_AOD = "ambient_notification_light_hide_aod";
     private static final String PULSE_ALL = "ambient_light_pulse_for_all";
-	
+
     private SystemSettingColorPickerPreference mEdgeLightColorPreference;
+    private SystemSettingColorPickerPreference mEdgeLightColorBlendPreference;
     private ListPreference mColorType;
     private SystemSettingSwitchPreference mAodPulse;
     private SystemSettingSwitchPreference mPulseAll;
@@ -79,6 +81,13 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
 
         mEdgeLightColorPreference = (SystemSettingColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_CUSTOM_COLOR);
+        mEdgeLightColorBlendPreference = (SystemSettingColorPickerPreference) findPreference(PULSE_AMBIENT_LIGHT_BLEND_COLOR);
+        mEdgeLightColorBlendPreference.setAlphaSliderEnabled(false);
+        int edgeblendColor = Settings.System.getInt(getContentResolver(),
+                Settings.System.AMBIENT_LIGHT_BLEND_COLOR, 0xFF3980FF);
+        String sum = convertToRGB(edgeblendColor);
+        mEdgeLightColorBlendPreference.setSummary(sum);
+        mEdgeLightColorBlendPreference.setOnPreferenceChangeListener(this);
 
         mPulseAll = (SystemSettingSwitchPreference) findPreference(PULSE_ALL);
         mAodPulse = (SystemSettingSwitchPreference) findPreference(PULSE_AOD);
@@ -94,7 +103,12 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
         mColorType.setSummary(mColorType.getEntry());
         updateprefs(type);
         boolean isAccent = type == 2;
-        updateEdgeLightColorPreferences(isAccent);
+        if (type == 4) {
+            int color = mixColors(getCustomColor(), edgeblendColor);
+            AmbientLightSettingsPreview.setAmbientLightPreviewColor(color);
+        } else {
+            updateEdgeLightColorPreferences(isAccent);
+        }
         mColorType.setOnPreferenceChangeListener(this);
 
         int edgeLightColor = Settings.System.getInt(getContentResolver(),
@@ -114,6 +128,15 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
        }
     }
 
+   public int getCustomColor() {
+     return Settings.System.getInt(getContentResolver(),
+                Settings.System.AMBIENT_LIGHT_CUSTOM_COLOR, 0xFF3980FF);
+   }
+
+   public int getBlendColor() {
+     return Settings.System.getInt(getContentResolver(),
+                Settings.System.AMBIENT_LIGHT_BLEND_COLOR, 0xFF3980FF);
+   }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
@@ -125,7 +148,12 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
             mColorType.setSummary(mColorType.getEntries()[index]);
             updateprefs(val);
             boolean isOn = index == 2;
-            updateEdgeLightColorPreferences(isOn);
+            if (index == 4) {
+               int color = mixColors(getCustomColor(), getBlendColor());
+               AmbientLightSettingsPreview.setAmbientLightPreviewColor(color);
+            } else {
+               updateEdgeLightColorPreferences(isOn);
+            }     
             return true;
         }  else if (preference == mEdgeLightColorPreference) {
             String hex = convertToRGB(
@@ -135,6 +163,13 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
             int intHex = ColorPickerPreference.convertToColorInt(hex);
             Settings.System.putInt(resolver,
                     Settings.System.AMBIENT_LIGHT_CUSTOM_COLOR, intHex);
+            return true;
+        } else if (preference == mEdgeLightColorBlendPreference) {
+            String hex = convertToRGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int color = mixColors(getCustomColor(), getBlendColor());
+            AmbientLightSettingsPreview.setAmbientLightPreviewColor(color);
             return true;
         } else if (preference == mAodPulse) {
             boolean value = (Boolean) newValue;
@@ -150,10 +185,15 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
     }
 
     public void updateprefs(int type) {
-         if (type == 3 ) {
+         if (type == 3) {
              mEdgeLightColorPreference.setEnabled(true);
-         } else {
+             mEdgeLightColorBlendPreference.setEnabled(false);
+         } else if (type == 4) {
+             mEdgeLightColorPreference.setEnabled(true);
+             mEdgeLightColorBlendPreference.setEnabled(true);
+         } else  {
              mEdgeLightColorPreference.setEnabled(false);
+             mEdgeLightColorBlendPreference.setEnabled(false);
          }
     }
 
@@ -177,13 +217,36 @@ public class EdgeLighting extends SettingsPreferenceFragment implements
         return "#" + red + green + blue;
     }
 
+    private int mixColors(int color1, int color2) {
+        int[] rgb1 = colorToRgb(color1);
+        int[] rgb2 = colorToRgb(color2);
+
+        rgb1[0] = mixedValue(rgb1[0], rgb2[0]);
+        rgb1[1] = mixedValue(rgb1[1], rgb2[1]);
+        rgb1[2] = mixedValue(rgb1[2], rgb2[2]);
+        rgb1[3] = mixedValue(rgb1[3], rgb2[3]);
+
+        return rgbToColor(rgb1);
+    }
+
+    private int[] colorToRgb(int color) {
+        int[] rgb = {(color & 0xFF000000) >> 24, (color & 0xFF0000) >> 16, (color & 0xFF00) >> 8, (color & 0xFF)};
+        return rgb;
+    }
+
+    private int rgbToColor(int[] rgb) {
+        return (rgb[0] << 24) + (rgb[1] << 16) + (rgb[2] << 8) + rgb[3];
+    }
+
+    private int mixedValue(int val1, int val2) {
+        return (int)Math.min((val1 + val2), 255f);
+    }
+
     private void updateEdgeLightColorPreferences(boolean useAccentColor) {
         if (useAccentColor) {
             AmbientLightSettingsPreview.setAmbientLightPreviewColor(Utils.getColorAccentDefaultColor(getContext()));
         } else {
-            int edgeLightColor = Settings.System.getInt(getContentResolver(),
-                    Settings.System.AMBIENT_LIGHT_CUSTOM_COLOR, 0xFF3980FF);
-            AmbientLightSettingsPreview.setAmbientLightPreviewColor(edgeLightColor);
+            AmbientLightSettingsPreview.setAmbientLightPreviewColor(getCustomColor());
         }
     }
 
