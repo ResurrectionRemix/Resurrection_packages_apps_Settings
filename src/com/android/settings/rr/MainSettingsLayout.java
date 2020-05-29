@@ -150,6 +150,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         }
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setClipChildren(true);
+        mViewPager.setClipToPadding(true);
         mTabs.setViewPager(mViewPager);
         mContext = getActivity().getApplicationContext();
         ContentResolver resolver = getActivity().getContentResolver();
