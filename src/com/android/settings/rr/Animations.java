@@ -47,7 +47,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.settings.rr.preview.AboutSettingsPreview;
+
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -72,9 +72,7 @@ public class Animations extends SettingsPreferenceFragment implements
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
     private static final String SCROLLINGCACHE_DEFAULT = "1";
     private static final String KEY_REFRESH_RATE = "refresh_rate_setting";
-    private static final String PREVIEW = "preview";
 
-    private AboutSettingsPreview mPreview;
     private ListPreference mRefreshRate;
     private Context mContext;
     private ListPreference mScreenOffAnimation;
@@ -93,12 +91,6 @@ public class Animations extends SettingsPreferenceFragment implements
         mContext = getActivity();
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefs = getPreferenceScreen();
-        mPreview = (AboutSettingsPreview) findPreference(PREVIEW);
-        int style = Settings.System.getInt(resolver,
-                    Settings.System.RR_CONFIG_STYLE, 1);
-        if (mPreview != null && style == 0) {
-            prefs.removePreference(mPreview);
-        }
         mListViewAnimation = (ListPreference) prefs.findPreference(KEY_LISTVIEW_ANIMATION);
         int listviewanimation = Settings.Global.getInt(getContentResolver(),
                 Settings.Global.LISTVIEW_ANIMATION, 0);
