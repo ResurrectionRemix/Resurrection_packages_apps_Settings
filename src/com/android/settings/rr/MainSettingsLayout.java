@@ -279,6 +279,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             ab.setTitle(R.string.rr_title);
         }
         mViewPager.setAdapter(mPagerAdapter);
+        mViewPager.setClipChildren(true);
+        mViewPager.setClipToPadding(true);
         ContentResolver resolver = getActivity().getContentResolver();
 
 
