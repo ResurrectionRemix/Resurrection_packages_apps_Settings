@@ -315,6 +315,14 @@ public class SliceBuilderUtils {
                 ListBuilder.ICON_IMAGE, sliceData.getTitle());
         final Set<String> keywords = buildSliceKeywords(sliceData);
 
+        int cur = sliderController.getSliderPosition();
+        if (cur < sliderController.getMin()) {
+            cur = sliderController.getMin();
+        }
+        if (cur > sliderController.getMax()) {
+            cur = sliderController.getMax();
+        }
+
         return new ListBuilder(context, sliceData.getUri(), ListBuilder.INFINITY)
                 .setAccentColor(color)
                 .addInputRange(new InputRangeBuilder()
@@ -323,7 +331,7 @@ public class SliceBuilderUtils {
                         .setPrimaryAction(primaryAction)
                         .setMax(sliderController.getMax())
                         .setMin(sliderController.getMin())
-                        .setValue(sliderController.getSliderPosition())
+                        .setValue(cur)
                         .setInputAction(actionIntent))
                 .setKeywords(keywords)
                 .build();
