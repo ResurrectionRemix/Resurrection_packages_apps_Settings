@@ -162,8 +162,8 @@ public class SystemNavigationGestureSettings extends RadioButtonPickerFragment {
             p.setExtraWidgetVisibility(EXTRA_WIDGET_VISIBILITY_SETTING);
             p.setExtraWidgetOnClickListener((v) -> GestureNavigationBackSensitivityDialog
                         .show(this, getBackSensitivity(getContext(), mOverlayManager),
-                        getBackHeight(getContext()), getBackBlockIme(getContext()),
-                        getHomeHandleSize(getContext()), getShowNav(getContext())));
+                        getBackHeight(getContext()), 
+                        getBackBlockIme(getContext(), getShowNav(getContext())));
         } else {
             p.setExtraWidgetVisibility(EXTRA_WIDGET_VISIBILITY_GONE);
         }
@@ -278,21 +278,6 @@ public class SystemNavigationGestureSettings extends RadioButtonPickerFragment {
         return Settings.System.getInt(context.getContentResolver(),
                 Settings.System.BACK_GESTURE_BLOCK_IME, 0) == 1;
     }
-
-    static void setHomeHandleSize(Context context, int length) {
-        // length cant be range 0 - 2
-        // 2 means long
-        // 1 1/3 and 1 2 /3 are middle sizes
-        // 0 means aosp size
-        Settings.System.putInt(context.getContentResolver(),
-                Settings.System.NAVIGATION_HANDLE_WIDTH, length);
-    }
-
-    static int getHomeHandleSize(Context context) {
-        return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.NAVIGATION_HANDLE_WIDTH, 0);
-    }
-
     static boolean getShowNav(Context context) {
         boolean show = Settings.System.getIntForUser(context.getContentResolver(),
                 Settings.System.GESTURE_NAVBAR_SHOW, 1,
