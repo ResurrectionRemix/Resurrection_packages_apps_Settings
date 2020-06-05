@@ -47,7 +47,7 @@ public class BluetoothAudioCodecPreferenceController extends
     @Override
     protected String[] getListSummaries() {
         return mContext.getResources().getStringArray(
-                R.array.bluetooth_a2dp_codec_summaries);
+                R.array.bluetooth_a2dp_codec_summaries_cm);
     }
 
     @Override
