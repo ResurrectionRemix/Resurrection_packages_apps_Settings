@@ -39,6 +39,9 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.android.settings.rr.Preferences.*;
+import com.android.settings.gestures.SystemNavigationPreferenceController;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,11 +50,25 @@ import java.util.ArrayList;
 public class RecentsSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
+   private SystemSettingMasterSwitchPreference mSlimRecents;
+   private static final String SLIM_RECENTS_KEY = "use_slim_recents";
+   private Context mContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_recents);
+        mContext = getActivity();
+        mSlimRecents = (SystemSettingMasterSwitchPreference) findPreference(SLIM_RECENTS_KEY);
+        if (SystemNavigationPreferenceController.isEdgeToEdgeEnabled(mContext) 
+            || SystemNavigationPreferenceController.isSwipeUpEnabled(mContext)) {
+            mSlimRecents.setEnabled(false);
+            mSlimRecents.setSummary(R.string.navbar_not_active);
+        } else {
+             mSlimRecents.setEnabled(true);
+             mSlimRecents.setSummary(R.string.slim_recents_summary);
+        }
+
     }
 
      @Override
