@@ -88,6 +88,7 @@ public class ColorPickerPreference extends Preference implements
     public ColorPickerPreference(Context context, AttributeSet attrs, int defStyleAttr,
             int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        setLayoutResource(R.layout.preference_material_settings);
         init(context, attrs);
     }
 
