@@ -136,18 +136,19 @@
         android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="qs_datausage"
-        android:icon="@drawable/rr_data_usage_icon"
-        android:title="@string/qs_datausage_title"
-        android:summary="@string/qs_datausage_subtitle"
-        android:defaultValue="false" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="dismiss_all_button"
         android:title="@string/enable_clear_all_button"
         android:icon="@drawable/rr_clear_all_icon"
         android:summary="@string/enable_clear_all_button_summary"
         android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="qs_datausage"
+        android:icon="@drawable/rr_data_usage_icon"
+        android:title="@string/qs_datausage_title"
+        android:entries="@array/qs_datausage_entries"
+        android:entryValues="@array/qs_datausage_values"
+        android:defaultValue="0" />
 
     <ListPreference
          android:key="qs_tile_style"
