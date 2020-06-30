@@ -14,6 +14,7 @@
 package com.android.settings.rr;
 
 import android.os.Bundle;
+import android.content.ContentResolver;
 import android.content.Context;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -34,12 +35,19 @@ import java.util.ArrayList;
 import com.android.settings.search.Indexable;
 import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.rr.utils.RRUtils;
+import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
+import android.provider.Settings;
 import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 @SearchIndexable
 public class VolumePanelSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
+
+    private static final String KEY_NOTIF = "audio_panel_view_notification";
+
+    private SystemSettingSwitchPreference mNotif;
+    private SystemSettingSwitchPreference mMedia;
 
     @Override
     public int getMetricsCategory() {
@@ -51,6 +59,17 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.rr_volume_panel);
+        ContentResolver resolver = getActivity().getContentResolver();
+        mNotif = (SystemSettingSwitchPreference) findPreference(KEY_NOTIF);
+        boolean show = Settings.Secure.getInt(resolver,
+                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+        if (show) {
+            mNotif.setEnabled(false);
+            mNotif.setSummary(R.string.vol_link_enabled_summary);
+        } else {
+            mNotif.setEnabled(true);
+            mNotif.setSummary(R.string.audio_panel_view_ringer_summary);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
