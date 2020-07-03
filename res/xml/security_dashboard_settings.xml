@@ -22,6 +22,11 @@
     android:title="@string/security_settings_title"
     settings:initialExpandedChildrenCount="9">
 
+    <Preference
+        android:key="security_animation"
+        android:layout="@layout/security_animation"
+        android:order="-20" />
+
     <!-- security_settings_status.xml -->
     <PreferenceCategory
         android:order="-10"

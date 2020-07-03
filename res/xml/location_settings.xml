@@ -20,6 +20,10 @@
         android:title="@string/location_settings_title"
         settings:keywords="@string/keywords_location">
 
+        <Preference
+            android:key="location_animation"
+            android:layout="@layout/location_animation" />
+
         <PreferenceCategory
             android:key="recent_location_requests"
             android:title="@string/location_category_recent_location_requests"/>

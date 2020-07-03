@@ -23,6 +23,11 @@
     settings:initialExpandedChildrenCount="4">
     <!-- the initial count should include the dynamic tiles -->
 
+   <Preference
+        android:key="notification_animation"
+        android:layout="@layout/notification_animation" 
+        android:order="-999"/>
+
     <Preference
         android:key="all_app_info"
         android:title="@string/applications_settings"
