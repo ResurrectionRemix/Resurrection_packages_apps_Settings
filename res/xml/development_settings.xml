@@ -326,6 +326,13 @@
             android:entryValues="@array/bluetooth_avrcp_version_values" />
 
         <ListPreference
+            android:key="a2dp_source_codec_priority"
+            android:title="@string/a2dp_source_codec_priority_title"
+            android:entries="@array/a2dp_source_codec_priority_entries"
+            android:entryValues="@array/a2dp_source_codec_priority_values"
+            android:defaultValue="0" />
+
+        <ListPreference
             android:key="bluetooth_select_a2dp_codec"
             android:title="@string/bluetooth_select_a2dp_codec_type"
             android:dialogTitle="@string/bluetooth_select_a2dp_codec_type_dialog_title"
