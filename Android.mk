@@ -36,7 +36,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     com.google.android.material_material \
     setupcompat \
     setupdesign \
-    android-support-design
+    android-support-design \
+    airbnb-lottie 
 
 LOCAL_JAVA_LIBRARIES := \
     telephony-common \
@@ -56,7 +57,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     settings-logtags \
     zxing-core-1.7 \
     faceunlock_utils \
-    org.lineageos.platform.internal
+    org.lineageos.platform.internal \
+    airbnb-lottie
 
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 
