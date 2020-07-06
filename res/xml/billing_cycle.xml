@@ -23,6 +23,14 @@
         android:key="billing_cycle"
         android:title="@string/app_usage_cycle" />
 
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="data_usage_period"
+        android:title="@string/data_usage_period"
+        android:entries="@array/data_usage_period_entries"
+        android:entryValues="@array/data_usage_period_values"
+        android:defaultValue="1" />
+
     <SwitchPreference
         android:key="set_data_warning"
         android:title="@string/set_data_warning"/>

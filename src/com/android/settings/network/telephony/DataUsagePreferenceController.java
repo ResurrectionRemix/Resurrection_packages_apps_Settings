@@ -87,9 +87,12 @@ public class DataUsagePreferenceController extends TelephonyBasePreferenceContro
         if (mSubId != SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
             mTemplate = DataUsageUtils.getDefaultTemplate(mContext, mSubId);
 
+            boolean showDailyDataUsage = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.DATA_USAGE_PERIOD, 1) == 0;
             final DataUsageController controller = new DataUsageController(mContext);
             controller.setSubscriptionId(mSubId);
-            mDataUsageInfo = controller.getDataUsageInfo(mTemplate);
+            mDataUsageInfo = showDailyDataUsage ? controller.getDailyDataUsageInfo(mTemplate)
+                    : controller.getDataUsageInfo(mTemplate);
 
             mIntent = new Intent(Settings.ACTION_MOBILE_DATA_USAGE);
             mIntent.putExtra(Settings.EXTRA_NETWORK_TEMPLATE, mTemplate);

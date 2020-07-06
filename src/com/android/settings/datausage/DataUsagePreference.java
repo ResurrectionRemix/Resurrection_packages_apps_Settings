@@ -21,6 +21,7 @@ import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
 import android.net.NetworkTemplate;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.AttributeSet;
 
 import androidx.annotation.VisibleForTesting;
@@ -56,8 +57,11 @@ public class DataUsagePreference extends Preference implements TemplatePreferenc
         if (mTemplate.isMatchRuleMobile()) {
             setTitle(R.string.app_cellular_data_usage);
         } else {
+            boolean showDailyDataUsage = Settings.System.getInt(getContext().getContentResolver(),
+                    Settings.System.DATA_USAGE_PERIOD, 1) == 0;
             final DataUsageController.DataUsageInfo usageInfo =
-                    controller.getDataUsageInfo(mTemplate);
+                    showDailyDataUsage ? controller.getDailyDataUsageInfo(mTemplate)
+                    : controller.getDataUsageInfo(mTemplate);
             setTitle(mTitleRes);
             setSummary(getContext().getString(R.string.data_usage_template,
                     DataUsageUtils.formatDataUsage(getContext(), usageInfo.usageLevel),
