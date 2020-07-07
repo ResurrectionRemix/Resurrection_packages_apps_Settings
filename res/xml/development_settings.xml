@@ -332,6 +332,12 @@
             android:entryValues="@array/a2dp_source_codec_priority_values"
             android:defaultValue="0" />
 
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="sbc_hd_priority"
+            android:title="@string/sbc_hd_priority_title"
+            android:summary="@string/sbc_hd_priority_summary"
+            android:defaultValue="false" />
+
         <ListPreference
             android:key="bluetooth_select_a2dp_codec"
             android:title="@string/bluetooth_select_a2dp_codec_type"
