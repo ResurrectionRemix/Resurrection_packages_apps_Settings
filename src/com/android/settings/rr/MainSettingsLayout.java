@@ -578,6 +578,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 Settings.Secure.VOLUME_LINK_NOTIFICATION, 1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKSCREEN_WEATHER_STYLE, 1, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.A2DP_SOURCE_CODEC_PRIORITY, 0, UserHandle.USER_CURRENT);
     }
 
     private static boolean isAudioPanelOnLeftSide(Context context) {
