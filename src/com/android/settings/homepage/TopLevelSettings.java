@@ -22,6 +22,7 @@ import static com.android.settingslib.search.SearchIndexable.MOBILE;
 import android.app.settings.SettingsEnums;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
@@ -44,6 +45,7 @@ import com.android.settingslib.widget.AdaptiveIcon;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 @SearchIndexable(forTarget = MOBILE)
 public class TopLevelSettings extends DashboardFragment implements
@@ -54,6 +56,7 @@ public class TopLevelSettings extends DashboardFragment implements
     private int mIconStyle;
     private int mNormalColor;
     private int mAccentColor;
+    private int mRandomColor;
 
     public TopLevelSettings() {
         final Bundle args = new Bundle();
@@ -134,6 +137,7 @@ public class TopLevelSettings extends DashboardFragment implements
     public void onResume() {
         super.onResume();
         updateTheme();
+        getRandomColor();
     }
 
     private void updateTheme() {
@@ -144,6 +148,7 @@ public class TopLevelSettings extends DashboardFragment implements
         TypedArray ta = getContext().getTheme().obtainStyledAttributes(attrs);
         mNormalColor = ta.getColor(0, 0xff808080);
         mAccentColor = ta.getColor(1, 0xff808080);
+        mRandomColor = getRandomColor();
         ta.recycle();
 
         mIconStyle = Settings.System.getInt(getContext().getContentResolver(),
@@ -182,6 +187,21 @@ public class TopLevelSettings extends DashboardFragment implements
                         aIcon.setForegroundColorAicp(mAccentColor);
                         aIcon.setBackgroundColorAicp(0);
                         break;
+                    case 4:
+                        aIcon.setBackgroundColorAicp(mRandomColor);
+                        break;
+                    case 5:
+                        aIcon.setForegroundColorAicp(mRandomColor);
+                        aIcon.setBackgroundColorAicp(0);
+                        break;
+                    case 6:
+                        aIcon.setForegroundColorAicp(mRandomColor);
+                        aIcon.setBackgroundColorAicp(mAccentColor);
+                        break;
+                    case 7:
+                        aIcon.setForegroundColorAicp(mAccentColor);
+                        aIcon.setBackgroundColorAicp(mRandomColor);
+                        break;
                 }
             } else if (icon instanceof LayerDrawable) {
                 LayerDrawable lIcon = (LayerDrawable) icon;
@@ -203,9 +223,29 @@ public class TopLevelSettings extends DashboardFragment implements
                             fg.setTint(mAccentColor);
                             bg.setTint(0);
                             break;
+                        case 4:
+                            bg.setTint(mRandomColor);
+                            break;
+                        case 5:
+                            fg.setTint(mRandomColor);
+                            bg.setTint(0);
+                            break;
+                        case 6:
+                            fg.setTint(mRandomColor);
+                            bg.setTint(mAccentColor);
+                            break;
+                        case 7:
+                            fg.setTint(mAccentColor);
+                            bg.setTint(mRandomColor);
+                            break;
                     }
                 }
             }
         }
+    }
+
+    public int getRandomColor(){
+       Random rnd = new Random();
+       return Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
     }
 }
