@@ -29,6 +29,13 @@
     <com.android.settingslib.widget.FooterPreference
         android:title="@string/rr_doze_footer_text" />
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="doze_brightness_force"
+            android:icon="@drawable/rr_autoenable_icon"
+            android:title="@string/doze_brightness_force_title"
+            android:summary="@string/doze_brightness_force_summary"
+            android:defaultValue="false" />
+
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
             android:key="ambient_doze_brightness"
             android:title="@string/ambient_doze_brightness_title"
