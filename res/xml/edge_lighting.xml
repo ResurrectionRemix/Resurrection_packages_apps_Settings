@@ -57,6 +57,14 @@
             android:defaultValue="false" />
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="ambient_notification_light_hide_aod_content"
+            android:icon="@drawable/rr_visual_icon"
+            android:title="@string/ambient_notification_light_hide_content_title"
+            android:summary="@string/ambient_notification_light_hide_content_summary"
+            android:dependency="ambient_notification_light"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="ambient_notification_light_hide_aod"
             android:defaultValue="false"
             android:icon="@drawable/rr_vib_pattern_icon"
