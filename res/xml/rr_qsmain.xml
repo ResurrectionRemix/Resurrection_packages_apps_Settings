@@ -167,6 +167,13 @@
          android:entryValues="@array/qs_tile_tint_values"
          android:defaultValue="0" />
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_tile_accent_tint_inactive"
+        android:title="@string/qs_tile_accent_tint_inactive_title"
+        android:icon="@drawable/rr_act_open_icon"
+        android:summary="@string/qs_tile_accent_tint_inactive_summary"
+        android:defaultValue="false" />
+
     <com.android.settings.rr.Preferences.SystemSettingListPreference
          android:key="qs_label_use_new_tint"
          android:title="@string/qs_label_tint_title"
@@ -174,6 +181,13 @@
          android:entries="@array/qs_tile_tint_entries"
          android:entryValues="@array/qs_tile_tint_values"
          android:defaultValue="0" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_label_inactive_tint"
+        android:title="@string/qs_label_inactive_tint_title"
+        android:icon="@drawable/rr_vib_pattern_icon"
+        android:summary="@string/qs_label_inactive_tint_summary"
+        android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="qs_datausage"
