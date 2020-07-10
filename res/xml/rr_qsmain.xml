@@ -168,6 +168,14 @@
          android:defaultValue="0" />
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
+         android:key="qs_label_use_new_tint"
+         android:title="@string/qs_label_tint_title"
+         android:icon="@drawable/rr_text_icon"
+         android:entries="@array/qs_tile_tint_entries"
+         android:entryValues="@array/qs_tile_tint_values"
+         android:defaultValue="0" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="qs_datausage"
         android:icon="@drawable/rr_data_usage_icon"
         android:title="@string/qs_datausage_title"
