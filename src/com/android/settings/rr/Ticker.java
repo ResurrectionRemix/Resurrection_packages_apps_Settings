@@ -33,7 +33,7 @@ import android.provider.Settings;
 
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-
+import com.android.settings.rr.Preferences.*;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -48,24 +48,52 @@ import java.util.ArrayList;
 @SearchIndexable
 public class Ticker extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
+    private SystemSettingListPreference mTicker;
+    private SystemSettingListPreference mType;
+    private SystemSettingSeekBarPreference mDuration;
 
-        private static final String TAG = "Ticker";
+    private static final String KEY_TICKER = "status_bar_show_ticker";
+    private static final String KEY_TYPE = "status_bar_ticker_animation_mode";
+    private static final String KEY_DURATION = "status_bar_ticker_tick_duration";
+          
 
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
+    private static final String TAG = "Ticker";
 
-            addPreferencesFromResource(R.xml.ticker);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       addPreferencesFromResource(R.xml.ticker);
+       mTicker = (SystemSettingListPreference) findPreference(KEY_TICKER);
+       mTicker.setOnPreferenceChangeListener(this);
+       mType = (SystemSettingListPreference) findPreference(KEY_TYPE);
+       mDuration = (SystemSettingSeekBarPreference) findPreference(KEY_DURATION);
+       updatePrefs(getTickerMode());
+    }
 
-            PreferenceScreen prefSet = getPreferenceScreen();
-            ContentResolver resolver = getActivity().getContentResolver();
+    public int getTickerMode() {
+       return Settings.System.getInt(getContentResolver(),
+           Settings.System.STATUS_BAR_SHOW_TICKER,0);
+    }
 
-        }
+    private void updatePrefs(int enabled) {
+       if (enabled == 0) {
+           mDuration.setEnabled(false);
+           mType.setEnabled(false);
+       } else {
+           mDuration.setEnabled(true);
+           mType.setEnabled(true);
+       }
+    }
 
-        public boolean onPreferenceChange(Preference preference, Object newValue) {
-            ContentResolver resolver = getActivity().getContentResolver();
-            return false;
-        }
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+         ContentResolver resolver = getActivity().getContentResolver();
+         if (preference == mTicker) {
+             int val = Integer.parseInt((String) newValue);
+             updatePrefs(val);
+             return true;
+         }  
+         return false;
+     }
 
     @Override
     public int getMetricsCategory() {
