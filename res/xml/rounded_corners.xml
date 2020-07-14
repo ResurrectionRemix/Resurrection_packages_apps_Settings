@@ -23,6 +23,15 @@
         android:layout="@layout/rr_corners_layout"
         android:selectable="false"/>
 
+    <!-- Display cutout -->
+    <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+        android:key="sysui_display_cutout"
+        android:icon="@drawable/ic_cutout"
+        android:title="@string/sysui_display_cutout_title"
+        android:summary="@string/sysui_display_cutout_summary"
+        android:defaultValue="true"/>
+
+
     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
        android:key="sysui_rounded_fwvals"
        android:title="@string/corner_fwvals"
