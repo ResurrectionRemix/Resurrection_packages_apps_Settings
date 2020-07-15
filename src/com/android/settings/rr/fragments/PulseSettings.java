@@ -39,15 +39,15 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
-
+import com.android.settings.Utils;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-
-
+import android.provider.Settings;
+import android.provider.SearchIndexableResource;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
@@ -70,7 +70,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     private Preference mRenderMode;
     private ListPreference mColorModePref;
-    private ColorPickerPreference mColorPickerPref;
+    private SystemSettingColorPickerPreference mColorPickerPref;
     private Preference mLavaSpeedPref;
 
     @Override
@@ -80,16 +80,15 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
         mFooterPreferenceMixin.createFooterPreference()
                 .setTitle(R.string.pulse_help_policy_notice_summary);
-
         mColorModePref = (ListPreference) findPreference(PULSE_COLOR_MODE_KEY);
-        mColorPickerPref = (ColorPickerPreference) findPreference(PULSE_COLOR_MODE_CHOOSER_KEY);
+        mColorPickerPref = (SystemSettingColorPickerPreference) findPreference(PULSE_COLOR_MODE_CHOOSER_KEY);
         mLavaSpeedPref = findPreference(PULSE_COLOR_MODE_LAVA_SPEED_KEY);
         mColorModePref.setOnPreferenceChangeListener(this);
         int colorMode = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_COLOR_TYPE, COLOR_TYPE_ACCENT, UserHandle.USER_CURRENT);
-        mColorPickerPref.setDefaultValue(DirtyTweaks.getThemeAccentColor(getContext()));
+        mColorPickerPref.setDefaultValue(Utils.getColorAccentDefaultColor(getContext()));
         updateColorPrefs(colorMode);
-
+        
         mRenderMode = findPreference(PULSE_RENDER_MODE_KEY);
         mRenderMode.setOnPreferenceChangeListener(this);
         int renderMode = Settings.System.getIntForUser(getContentResolver(),
@@ -162,11 +161,6 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
-                    final Resources res = context.getResources();
-                    boolean mSmartPixelsSupported = res.getBoolean(
-                            com.android.internal.R.bool.config_supportSmartPixels);
-                    if (!mSmartPixelsSupported)
-                        keys.add(SMART_PIXELS);
                 return keys;
             }
         };

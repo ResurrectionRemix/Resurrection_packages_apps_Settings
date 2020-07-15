@@ -38,7 +38,6 @@
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="pulse_smoothing_enabled"
         android:title="@string/smoothing_enabled_title"
-        android:icon="@drawable/rr_visualizer_icon"
         android:icon="@drawable/rr_autoenable_icon"
         android:summary="@string/smoothing_enabled_summary"
         android:defaultValue="false"
@@ -60,9 +59,7 @@
         <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
             android:key="navbar_pulse_color_user"
             android:icon="@drawable/rr_custom_icon"
-            android:title="@string/pulse_color_chooser"
-            settings:showReset="false"
-            settings:showPreview="true"/>
+            android:title="@string/pulse_color_chooser"/>
 
         <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
             android:key="navbar_pulse_lavalamp_speed"
