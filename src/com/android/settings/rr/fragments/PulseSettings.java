@@ -183,7 +183,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                 ArrayList<SearchIndexableResource> result =
                     new ArrayList<SearchIndexableResource>();
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.rr_parts;
+                    sir.xmlResId = R.xml.pulse_settings;
                     result.add(sir);
                     return result;
             }
