@@ -82,11 +82,16 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                 .setTitle(R.string.pulse_help_policy_notice_summary);
         mColorModePref = (ListPreference) findPreference(PULSE_COLOR_MODE_KEY);
         mColorPickerPref = (SystemSettingColorPickerPreference) findPreference(PULSE_COLOR_MODE_CHOOSER_KEY);
+        int Color = Settings.System.getInt(getContentResolver(),
+                Settings.System.PULSE_COLOR_USER, R.color.rr_accent);
+        mColorModePref.setOnPreferenceChangeListener(this);
+        String ColorHex = convertToRGB(Color);
+        mColorPickerPref.setSummary(ColorHex);
         mLavaSpeedPref = findPreference(PULSE_COLOR_MODE_LAVA_SPEED_KEY);
         mColorModePref.setOnPreferenceChangeListener(this);
         int colorMode = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_COLOR_TYPE, COLOR_TYPE_ACCENT, UserHandle.USER_CURRENT);
-        mColorPickerPref.setDefaultValue(Utils.getColorAccentDefaultColor(getContext()));
+        mColorPickerPref.setDefaultValue(R.color.rr_accent);
         updateColorPrefs(colorMode);
         
         mRenderMode = findPreference(PULSE_RENDER_MODE_KEY);
@@ -96,6 +101,26 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         updateRenderCategories(renderMode);
     }
 
+    public static String convertToRGB(int color) {
+        String red = Integer.toHexString(Color.red(color));
+        String green = Integer.toHexString(Color.green(color));
+        String blue = Integer.toHexString(Color.blue(color));
+
+        if (red.length() == 1) {
+            red = "0" + red;
+        }
+
+        if (green.length() == 1) {
+            green = "0" + green;
+        }
+
+        if (blue.length() == 1) {
+            blue = "0" + blue;
+        }
+
+        return "#" + red + green + blue;
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference.equals(mColorModePref)) {
@@ -103,6 +128,11 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             return true;
         } else if (preference.equals(mRenderMode)) {
             updateRenderCategories(Integer.valueOf(String.valueOf(newValue)));
+            return true;
+        } if (preference.equals(mColorPickerPref)) {
+              String hex = convertToRGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
             return true;
         }
         return false;

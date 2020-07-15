@@ -69,13 +69,6 @@ public class PartSettings extends SettingsPreferenceFragment implements
         mPulse = (Preference) prefScreen.findPreference(PULSE);
         if (!mSmartPixelsSupported)
             prefScreen.removePreference(mSmartPixels);
-        if (SystemNavigationPreferenceController.isEdgeToEdgeEnabled(mContext)) {
-            mPulse.setEnabled(false);
-            mPulse.setSummary(R.string.navbar_not_active);
-        } else {
-             mPulse.setEnabled(true);
-             mPulse.setSummary(R.string.pulse_settings_summary);
-        }
 
     }
 
