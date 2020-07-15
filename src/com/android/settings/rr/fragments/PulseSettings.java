@@ -84,14 +84,13 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mColorPickerPref = (SystemSettingColorPickerPreference) findPreference(PULSE_COLOR_MODE_CHOOSER_KEY);
         int Color = Settings.System.getInt(getContentResolver(),
                 Settings.System.PULSE_COLOR_USER, R.color.rr_accent);
-        mColorModePref.setOnPreferenceChangeListener(this);
+        mColorPickerPref.setOnPreferenceChangeListener(this);
         String ColorHex = convertToRGB(Color);
         mColorPickerPref.setSummary(ColorHex);
         mLavaSpeedPref = findPreference(PULSE_COLOR_MODE_LAVA_SPEED_KEY);
         mColorModePref.setOnPreferenceChangeListener(this);
         int colorMode = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.PULSE_COLOR_TYPE, COLOR_TYPE_ACCENT, UserHandle.USER_CURRENT);
-        mColorPickerPref.setDefaultValue(R.color.rr_accent);
         updateColorPrefs(colorMode);
         
         mRenderMode = findPreference(PULSE_RENDER_MODE_KEY);
