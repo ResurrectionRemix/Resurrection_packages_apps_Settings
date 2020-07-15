@@ -84,6 +84,15 @@
        android:summary="@string/lockscreen_lock_icon_summary"
        android:defaultValue="true" />
 
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="lockscreen_timeout"
+        android:icon="@drawable/rr_clock_icon"
+        android:title="@string/lockscreen_timeout_title"
+        android:entries="@array/screen_timeout_entries"
+        android:entryValues="@array/screen_timeout_values"
+        android:defaultValue="15000" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
