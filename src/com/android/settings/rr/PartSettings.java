@@ -40,8 +40,6 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
-import com.android.settings.gestures.SystemNavigationPreferenceController;
-
 
 import java.util.Arrays;
 import java.util.List;
@@ -51,9 +49,7 @@ public class PartSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String SMART_PIXELS = "smart_pixels";
-    private static final String PULSE = "pulse";
     private Preference mSmartPixels;
-    private Preference mPulse;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,7 +62,6 @@ public class PartSettings extends SettingsPreferenceFragment implements
         mSmartPixels = (Preference) prefScreen.findPreference(SMART_PIXELS);
         boolean mSmartPixelsSupported = res.getBoolean(
                 com.android.internal.R.bool.config_supportSmartPixels);
-        mPulse = (Preference) prefScreen.findPreference(PULSE);
         if (!mSmartPixelsSupported)
             prefScreen.removePreference(mSmartPixels);
 

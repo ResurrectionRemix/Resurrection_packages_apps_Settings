@@ -19,6 +19,10 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/pulse_settings" >
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:layout="@layout/rr_pulse_settings_layout"
+        android:selectable="false"/>
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="navbar_pulse_enabled"
         android:title="@string/show_pulse_title"
