@@ -53,6 +53,7 @@
     <!-- App permissions -->
     <Preference
         android:key="privacy_manage_perms"
+        android:icon="@drawable/ic_manage_perms"
         android:title="@string/app_permissions"
         settings:allowDividerAbove="true"
         settings:keywords="@string/keywords_app_permissions"
@@ -63,6 +64,7 @@
     <!-- Show passwords -->
     <SwitchPreference
         android:key="show_password"
+        android:icon="@drawable/ic_show_password"
         android:title="@string/show_password"
         android:summary="@string/show_password_summary"
         settings:controller="com.android.settings.security.ShowPasswordPreferenceController"/>
@@ -70,6 +72,7 @@
     <!-- On lock screen notifications -->
     <com.android.settings.RestrictedListPreference
         android:key="privacy_lock_screen_notifications"
+        android:icon="@drawable/ic_privacy_lock_screen_notifications"
         android:title="@string/lock_screen_notifications_title"
         android:summary="@string/summary_placeholder"
         settings:searchable="false"/>
