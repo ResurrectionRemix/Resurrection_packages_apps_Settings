@@ -54,6 +54,14 @@
         android:summary="@string/vibrate_on_touch_summary"
         android:defaultValue="false"/>
 
+    <!-- Vibrate on touch -->
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_panel_vibrate"
+        android:icon="@drawable/rr_haptic_icon"
+        android:title="@string/qs_panel_vibrate_title"
+        android:summary="@string/qs_panel_vibrate_summary"
+        android:defaultValue="false"/>
+
     <PreferenceCategory
         android:key="vibrate_when_ringing_settings"
         android:title="@string/vibrate_when_ringing_title">
