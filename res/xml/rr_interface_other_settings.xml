@@ -101,4 +101,13 @@
         android:summary="@string/alert_slider_notifications_summary"
         android:defaultValue="true" />
 
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="screenshot_delay"
+        android:title="@string/screenshot_delay_title"
+        android:icon="@drawable/rr_clock_icon"
+        android:max="10"
+        android:min="0"
+        settings:units="sec"
+        android:defaultValue="0"/>
+ 
 </PreferenceScreen>
