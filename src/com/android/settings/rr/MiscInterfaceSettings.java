@@ -33,18 +33,24 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-
+import lineageos.hardware.LineageHardwareManager;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
+import lineageos.preference.LineageSystemSettingSwitchPreference;
+
 @SearchIndexable
 public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "MiscInterfaceSettings";
     private static final String KEY_DOZE_ON_CHARGE = "doze_on_charge";
+    private static final String KEY_PROX_WAKE = "proximity_on_wake";
+    private static final String KEY_HIGH_TOUCH = "high_touch_sensitivity_enable";
 
     private SystemSettingSwitchPreference mAod;
+    private LineageSystemSettingSwitchPreference mWakeProx;
+    private LineageSystemSettingSwitchPreference mHighTouch;
 
     @Override
     public int getMetricsCategory() {
@@ -56,6 +62,8 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_interface_other_settings);
         mAod = (SystemSettingSwitchPreference) findPreference(KEY_DOZE_ON_CHARGE);
+        mWakeProx = (LineageSystemSettingSwitchPreference) findPreference(KEY_PROX_WAKE);
+        mHighTouch = (LineageSystemSettingSwitchPreference) findPreference(KEY_HIGH_TOUCH);
         boolean dozeAlwaysOnDisplayAvailable = getContext().getResources().
                 getBoolean(com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
         if (!dozeAlwaysOnDisplayAvailable && mAod != null) {
@@ -85,6 +93,15 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
+                    LineageHardwareManager hardware = LineageHardwareManager.getInstance(context);
+                    if (!context.getResources().getBoolean(
+                            org.lineageos.platform.internal.R.bool.config_proximityCheckOnWake)) {
+                        keys.add(KEY_PROX_WAKE);
+                    }
+                    if (!hardware.isSupported(
+                            LineageHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
+                        keys.add(KEY_HIGH_TOUCH);
+                    }
                 return keys;
             }
         };
