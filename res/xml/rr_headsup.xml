@@ -32,6 +32,7 @@
         android:title="@string/less_boring_heads_up_title"
         android:icon="@drawable/rr_notif_icon"
         android:summary="@string/less_boring_heads_up_summary"
+        android:dependency="heads_up_notifications_enabled"
         android:defaultValue="0" />
 
     <ListPreference
@@ -40,6 +41,7 @@
         android:title="@string/heads_up_time_out_title"
         android:entries="@array/heads_up_time_out_entries"
         android:entryValues="@array/heads_up_time_out_values"
+        android:dependency="heads_up_notifications_enabled"
         android:persistent="false" />
 
     <ListPreference
@@ -48,6 +50,7 @@
         android:icon="@drawable/rr_pattern_icon"
         android:entries="@array/heads_up_snooze_entries"
         android:entryValues="@array/heads_up_snooze_values"
+        android:dependency="heads_up_notifications_enabled"
         android:persistent="false" />
 
 </PreferenceScreen>

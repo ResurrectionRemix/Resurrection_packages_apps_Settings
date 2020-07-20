@@ -34,6 +34,7 @@
         android:icon="@drawable/rr_accent_color_icon"
         android:summary="@string/status_bar_logo_color_accent_summary"
 	    android:title="@string/status_bar_logo_color_accent_title"
+        android:dependency="status_bar_logo"
         android:disableDependentsState="true"
 	    android:defaultValue="true" />
 
@@ -51,6 +52,7 @@
         android:title="@string/status_bar_logo_position_title"
         android:entries="@array/status_bar_logo_position_entries"
         android:entryValues="@array/status_bar_logo_position_values"
+        android:dependency="status_bar_logo"
         android:defaultValue="0" />
 
     <com.android.settings.rr.Preferences.SystemSettingIntListPreference
@@ -59,6 +61,7 @@
         android:title="@string/status_bar_logo_style_title"
         android:entries="@array/status_bar_logo_style_entries"
         android:entryValues="@array/status_bar_logo_style_values"
+        android:dependency="status_bar_logo"
         android:defaultValue="0" />
 
 </PreferenceScreen>

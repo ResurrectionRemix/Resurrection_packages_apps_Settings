@@ -64,6 +64,7 @@
         android:entries="@array/clock_position_entries"
         android:entryValues="@array/clock_position_values"
         android:icon="@drawable/rr_clock_position_icon"
+        android:dependency="status_bar_clock"
         android:defaultValue="2"
         android:title="@string/clock_position" />
 
@@ -74,6 +75,7 @@
         android:entries="@array/entries_status_bar_am_pm"
         android:entryValues="@array/values_status_bar_am_pm"
         android:defaultValue="2"
+        android:dependency="status_bar_clock"
         android:title="@string/status_bar_am_pm_title" />
 
     <!-- Clock seconds -->
@@ -82,6 +84,7 @@
         android:icon="@drawable/rr_clock_seconds_icon"
         android:title="@string/status_bar_clock_seconds_title"
         android:summary="@string/status_bar_clock_seconds_summary"
+        android:dependency="status_bar_clock"
         android:defaultValue="false" />
 
     <!-- Date before clock style -->
@@ -90,6 +93,7 @@
         android:icon="@drawable/rr_clock_ampm_icon"
         android:entries="@array/clock_date_display_entries"
         android:entryValues="@array/clock_date_display_values"
+        android:dependency="status_bar_clock"
         android:defaultValue="0"
         android:title="@string/clock_date_display" />
 
@@ -99,6 +103,7 @@
         android:icon="@drawable/rr_clock_date_icon"
         android:entries="@array/clock_date_style_entries"
         android:entryValues="@array/clock_date_style_values"
+        android:dependency="status_bar_clock"
         android:defaultValue="0"
         android:title="@string/clock_date_style" />
 
@@ -108,6 +113,7 @@
         android:icon="@drawable/rr_clock_date_pos_icon"
         android:entries="@array/clock_date_position_entries"
         android:entryValues="@array/clock_date_position_values"
+        android:dependency="status_bar_clock"
         android:defaultValue="0"
         android:title="@string/clock_date_position" />
 
@@ -117,6 +123,7 @@
         android:icon="@drawable/rr_clock_format_icon"
         android:entries="@array/clock_date_format_entries_values"
         android:entryValues="@array/clock_date_format_entries_values"
+        android:dependency="status_bar_clock"
         android:defaultValue="EEE"
         android:title="@string/clock_date_format_custom" />
 
