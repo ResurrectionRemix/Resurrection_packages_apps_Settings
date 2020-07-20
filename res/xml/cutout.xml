@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2019-2020 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/cutout_main">
+
+     <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="display_cutout_mode"
+        android:title="@string/display_cutout_style_title"
+        android:icon="@drawable/rr_styles_icon"
+        android:entries="@array/display_cutout_style_entries"
+        android:entryValues="@array/display_cutout_style_values"
+        android:defaultValue="0" />
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="stock_statusbar_in_hide"
+        android:icon="@drawable/rr_statusbar_icon"
+        android:title="@string/stock_statusbar_in_hide"
+        android:summary="@string/stock_statusbar_in_hide_summary"
+        android:defaultValue="true" />
+
+     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+        android:key="sysui_display_cutout"
+        android:title="@string/sysui_display_cutout_title"
+        android:icon="@drawable/ic_cutout"
+        android:summary="@string/sysui_display_cutout_summary"
+        android:defaultValue="true"/>
+
+    <Preference
+        android:key="display_cutout_force_fullscreen_settings"
+        android:title="@string/display_cutout_force_fullscreen_title"
+        android:icon="@drawable/rr_immersive_icon"
+        android:summary="@string/display_cutout_force_fullscreen_summary"
+        android:fragment="com.android.settings.rr.DisplayCutoutForceFullscreenSettings" />
+</PreferenceScreen>
