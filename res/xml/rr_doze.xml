@@ -30,27 +30,27 @@
         android:title="@string/rr_doze_footer_text" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="doze_brightness_force"
-            android:icon="@drawable/rr_autoenable_icon"
-            android:title="@string/doze_brightness_force_title"
-            android:summary="@string/doze_brightness_force_summary"
-            android:defaultValue="false" />
+       android:key="doze_brightness_force"
+       android:icon="@drawable/rr_autoenable_icon"
+       android:title="@string/doze_brightness_force_title"
+       android:summary="@string/doze_brightness_force_summary"
+       android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-            android:key="ambient_doze_brightness"
-            android:title="@string/ambient_doze_brightness_title"
-            android:max="255"
-            settings:min="1"
-            android:icon="@drawable/rr_aod_icon"
-            android:persistent="false" />
+       android:key="ambient_doze_brightness"
+       android:title="@string/ambient_doze_brightness_title"
+       android:max="255"
+       settings:min="1"
+       android:icon="@drawable/rr_aod_icon"
+       android:persistent="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-            android:key="ambient_pulse_brightness"
-            android:title="@string/ambient_pulse_brightness_title"
-            android:icon="@drawable/rr_brightness_icon"
-            android:max="255"
-            settings:min="1"
-            android:persistent="false" />
+       android:key="ambient_pulse_brightness"
+       android:title="@string/ambient_pulse_brightness_title"
+       android:icon="@drawable/rr_brightness_icon"
+       android:max="255"
+       settings:min="1"
+       android:persistent="false" />
     </PreferenceCategory>
 
    <PreferenceCategory
@@ -77,6 +77,13 @@
        android:title="@string/pulse_on_new_tracks_title"
        android:summary="@string/pulse_on_new_tracks_summary"
        android:defaultValue="false"/>
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+       android:key="ambient_battery_percent"
+       android:icon="@drawable/rr_battery_style_percent_icon"
+       android:title="@string/ambient_battery_percent_title"
+       android:summary="@string/ambient_battery_percent_summary"
+       android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
        android:key="ambient_visualizer"
