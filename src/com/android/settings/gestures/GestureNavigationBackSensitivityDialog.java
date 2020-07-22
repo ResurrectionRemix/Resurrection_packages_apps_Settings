@@ -160,6 +160,8 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
                             getOverlayManager(), sensitivity);
                     Settings.Secure.putInt(getActivity().getContentResolver(),
                             Settings.Secure.SHOW_BACK_ARROW_GESTURE, mArrowSwitchChecked ? 1 : 0);
+                    Settings.System.putInt(getContext().getContentResolver(),
+                            Settings.System.BACK_GESTURE_HAPTIC, mGestureHapticChecked ? 1 : 0);
                     SystemNavigationGestureSettings.setHomeHandleSize(getActivity(), length);
                     SystemNavigationGestureSettings.setBackBlockIme(getActivity(), blockIme);
                     SystemNavigationGestureSettings.setShowNav(getActivity(), showNav);
