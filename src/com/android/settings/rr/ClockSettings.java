@@ -65,11 +65,15 @@ public class ClockSettings extends SettingsPreferenceFragment implements
     private static final String CLOCK_DATE_AUTO_HIDE_HDUR = "status_bar_clock_auto_hide_hduration";
     private static final String CLOCK_DATE_AUTO_HIDE_SDUR = "status_bar_clock_auto_hide_sduration";
     private static final String CLOCK_DATE_FORMAT = "statusbar_clock_date_format";
+    private static final String CLOCK_DATE = "statusbar_clock_date_display";
+    private static final String CLOCK_DATE_CAT = "date_cat";
     private static final int CLOCK_DATE_STYLE_LOWERCASE = 1;
     private static final int CLOCK_DATE_STYLE_UPPERCASE = 2;
     private static final int CUSTOM_CLOCK_DATE_FORMAT_INDEX = 18;
     private CustomSeekBarPreference mHideDuration, mShowDuration;
     private SecureSettingListPreference mClockDateFormat;
+    private SecureSettingListPreference mClockDate;
+    private PreferenceCategory mClockDateCat;
 
 
     @Override
@@ -89,8 +93,12 @@ public class ClockSettings extends SettingsPreferenceFragment implements
                 Settings.System.STATUS_BAR_CLOCK_AUTO_HIDE_HDURATION, 60, UserHandle.USER_CURRENT);
         mHideDuration.setValue(hideVal);
         mHideDuration.setOnPreferenceChangeListener(this);
-
+        int showdate = Settings.Secure.getInt(resolver,
+                Settings.Secure.STATUSBAR_CLOCK_DATE_DISPLAY, 0);
         mShowDuration = (CustomSeekBarPreference) findPreference(CLOCK_DATE_AUTO_HIDE_SDUR);
+        mClockDate = (SecureSettingListPreference) findPreference(CLOCK_DATE);
+        mClockDate.setOnPreferenceChangeListener(this);
+        mClockDateCat = (PreferenceCategory) findPreference(CLOCK_DATE_CAT);
         int showVal = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_CLOCK_AUTO_HIDE_SDURATION, 5, UserHandle.USER_CURRENT);
         mShowDuration.setValue(showVal);
@@ -102,6 +110,7 @@ public class ClockSettings extends SettingsPreferenceFragment implements
         }
 
         parseClockDateFormats();
+        updateDatePrefs(showdate);
     }
 
     @Override
@@ -122,7 +131,11 @@ public class ClockSettings extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(resolver,
                     Settings.System.STATUS_BAR_CLOCK_AUTO_HIDE_SDURATION, value, UserHandle.USER_CURRENT);
             return true;
-      }  else if (preference == mClockDateFormat) {
+      } else if (preference == mClockDate) {
+            int value = Integer.parseInt((String) newValue);
+            updateDatePrefs(value);
+            return true;
+      } else if (preference == mClockDateFormat) {
             int index = mClockDateFormat.findIndexOfValue((String) newValue);
 
             if (index == CUSTOM_CLOCK_DATE_FORMAT_INDEX) {
@@ -169,6 +182,15 @@ public class ClockSettings extends SettingsPreferenceFragment implements
             return true;
         }
         return false;
+    }
+
+
+    private void updateDatePrefs(int mode) {
+        if (mode == 0) {
+            mClockDateCat.setEnabled(false);
+        } else {
+            mClockDateCat.setEnabled(true);
+        }
     }
 
     private void parseClockDateFormats() {

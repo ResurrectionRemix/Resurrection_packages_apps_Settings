@@ -97,6 +97,10 @@
         android:defaultValue="0"
         android:title="@string/clock_date_display" />
 
+    <PreferenceCategory
+        android:key="date_cat"
+        android:title="@string/date_cat">
+
     <!-- Date before date style -->
     <com.android.settings.rr.Preferences.SecureSettingIntListPreference
         android:key="statusbar_clock_date_style"
@@ -126,5 +130,8 @@
         android:dependency="status_bar_clock"
         android:defaultValue="EEE"
         android:title="@string/clock_date_format_custom" />
+
+    </PreferenceCategory>
+
 
 </PreferenceScreen>
