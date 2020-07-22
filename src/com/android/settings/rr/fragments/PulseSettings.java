@@ -72,18 +72,19 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private ListPreference mColorModePref;
     private SystemSettingColorPickerPreference mColorPickerPref;
     private Preference mLavaSpeedPref;
+    protected Context mContext;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.pulse_settings);
-
+        mContext = getActivity().getApplicationContext();
         mFooterPreferenceMixin.createFooterPreference()
                 .setTitle(R.string.pulse_help_policy_notice_summary);
         mColorModePref = (ListPreference) findPreference(PULSE_COLOR_MODE_KEY);
         mColorPickerPref = (SystemSettingColorPickerPreference) findPreference(PULSE_COLOR_MODE_CHOOSER_KEY);
         int Color = Settings.System.getInt(getContentResolver(),
-                Settings.System.PULSE_COLOR_USER, R.color.rr_accent);
+                Settings.System.PULSE_COLOR_USER, 0x3980FF);
         mColorPickerPref.setOnPreferenceChangeListener(this);
         String ColorHex = convertToRGB(Color);
         mColorPickerPref.setSummary(ColorHex);

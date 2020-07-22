@@ -126,6 +126,49 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/clear_all_cat">
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="dismiss_all_button"
+        android:title="@string/enable_clear_all_button"
+        android:icon="@drawable/rr_clear_all_icon"
+        android:summary="@string/enable_clear_all_button_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="notif_bg_color_mode"
+        android:icon="@drawable/rr_circle_icon"
+        android:title="@string/notif_bg_color_mode_title"
+        android:entries="@array/notif_bg_color_mode_entries"
+        android:entryValues="@array/notif_bg_color_mode_values"
+        android:dependency="dismiss_all_button"
+        android:defaultValue="0" />
+
+     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+        android:key="notif_bg_color"
+        android:icon="@drawable/rr_picker_icon"
+        android:title="@string/notif_bg_color_title"
+        android:dependency="dismiss_all_button"
+        android:defaultValue="0x3980FF" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="notif_icon_color_mode"
+        android:icon="@drawable/rr_dismiss_icon"
+        android:title="@string/notif_icon_color_mode_title"
+        android:entries="@array/notif_bg_color_mode_entries"
+        android:entryValues="@array/notif_bg_color_mode_values"
+        android:dependency="dismiss_all_button"
+        android:defaultValue="0" />
+
+     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+        android:key="notif_icon_color"
+        android:icon="@drawable/rr_dismiss_color_icon"
+        android:title="@string/notif_icon_color_title"
+        android:dependency="dismiss_all_button"
+        android:defaultValue="0x3980FF" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
         android:title="@string/recents_ui_title">
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
@@ -134,13 +177,6 @@
         android:title="@string/qs_clock_title"
         android:summary="@string/qs_clock_summary"
         android:defaultValue="true" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="dismiss_all_button"
-        android:title="@string/enable_clear_all_button"
-        android:icon="@drawable/rr_clear_all_icon"
-        android:summary="@string/enable_clear_all_button_summary"
-        android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="qs_panel_bg_rgb"
