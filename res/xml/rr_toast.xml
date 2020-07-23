@@ -30,6 +30,14 @@
        android:summary="@string/toast_icon_summary"
        android:defaultValue="true" />
 
+     <!-- Clipboard access toast notification -->
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference 
+        android:key="show_clipboard_toast"
+        android:icon="@drawable/rr_clipboard_icon"
+        android:title="@string/show_clipboard_toast"
+        android:summary="@string/show_clipboard_toast_summary"
+        android:defaultValue="false" />
+
      <ListPreference
        android:key="toast_animation"
        android:title="@string/toast_animation_title"
