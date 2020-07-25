@@ -19,6 +19,14 @@
         android:title="@string/rr_system_settings">
 
     <com.android.settings.rr.Preferences.CategoryPreference
+        android:key="accent"
+        android:title="@string/rr_color_settings"
+        android:icon="@drawable/rr_accent_icon_nav"
+        android:summary="@string/rr_color_settings_summary"
+        android:fragment="com.android.settings.rr.ColorSettings" />
+
+
+    <com.android.settings.rr.Preferences.CategoryPreference
         android:key="navbar_category"
         android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
         settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController" 

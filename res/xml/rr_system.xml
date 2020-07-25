@@ -23,6 +23,13 @@
         android:selectable="false"/>
 
     <Preference
+        android:key="accent"
+        android:title="@string/rr_color_settings"
+        android:icon="@drawable/rr_accent_icon"
+        android:summary="@string/rr_color_settings_summary"
+        android:fragment="com.android.settings.rr.ColorSettings" />
+
+    <Preference
         android:key="navbar_category"
         android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
         settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController" 

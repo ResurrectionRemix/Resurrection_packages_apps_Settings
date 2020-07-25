@@ -44,18 +44,13 @@ import lineageos.preference.LineageSystemSettingSwitchPreference;
 import android.provider.Settings;
 
 @SearchIndexable
-public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
+public class ColorSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
-    private static final String TAG = "MiscInterfaceSettings";
-    private static final String KEY_DOZE_ON_CHARGE = "doze_on_charge";
-    private static final String KEY_PROX_WAKE = "proximity_on_wake";
-    private static final String KEY_HIGH_TOUCH = "high_touch_sensitivity_enable";
+    private static final String TAG = "ColorSettings";
+    private static final String ACCENT_COLOR = "accent_color";
+    static final int DEFAULT_ACCENT_COLOR = 0xff0060ff;
 
-
-
-    private SystemSettingSwitchPreference mAod;
-    private LineageSystemSettingSwitchPreference mWakeProx;
-    private LineageSystemSettingSwitchPreference mHighTouch;
+    private SystemSettingColorPickerPreference mAccentColor;
 
     @Override
     public int getMetricsCategory() {
@@ -65,22 +60,39 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.rr_interface_other_settings);
-        mAod = (SystemSettingSwitchPreference) findPreference(KEY_DOZE_ON_CHARGE);
-        mWakeProx = (LineageSystemSettingSwitchPreference) findPreference(KEY_PROX_WAKE);
-        mHighTouch = (LineageSystemSettingSwitchPreference) findPreference(KEY_HIGH_TOUCH);
-        boolean dozeAlwaysOnDisplayAvailable = getContext().getResources().
-                getBoolean(com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
-        if (!dozeAlwaysOnDisplayAvailable && mAod != null) {
-            getPreferenceScreen().removePreference(mAod);
+        addPreferencesFromResource(R.xml.rr_color_settings);
+        mAccentColor = (SystemSettingColorPickerPreference) findPreference(ACCENT_COLOR);
+        int intColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR, UserHandle.USER_CURRENT);
+        String hexColor = String.format("#%08x", (0xff0060ff & intColor));
+        if (hexColor.equals("#ff0060ff")) {
+            mAccentColor.setSummary(R.string.theme_picker_default);
+        } else {
+            mAccentColor.setSummary(hexColor);
         }
+        mAccentColor.setNewPreviewColor(intColor);
+        mAccentColor.setAlphaSliderEnabled(false);
+        mAccentColor.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return false;
+         if (preference == mAccentColor) {
+             String hex = SystemSettingColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+             if (hex.equals("#ff0060ff")) {
+                 mAccentColor.setSummary(R.string.theme_picker_default);
+             } else {
+                 mAccentColor.setSummary(hex);
+             }
+             int intHex = SystemSettingColorPickerPreference.convertToColorInt(hex);
+                  Settings.System.putIntForUser(getContext().getContentResolver(),
+                  Settings.System.ACCENT_COLOR, intHex, UserHandle.USER_CURRENT);
+             return true;
+           }
+        return true;
     }
 
-     /**
+    /**
      * For Search.
      */
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
@@ -90,7 +102,7 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
                 ArrayList<SearchIndexableResource> result =
                     new ArrayList<SearchIndexableResource>();
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.rr_interface_other_settings;
+                    sir.xmlResId = R.xml.rr_color_settings;
                     result.add(sir);
                     return result;
             }
@@ -98,15 +110,6 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
-                    LineageHardwareManager hardware = LineageHardwareManager.getInstance(context);
-                    if (!context.getResources().getBoolean(
-                            org.lineageos.platform.internal.R.bool.config_proximityCheckOnWake)) {
-                        keys.add(KEY_PROX_WAKE);
-                    }
-                    if (!hardware.isSupported(
-                            LineageHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
-                        keys.add(KEY_HIGH_TOUCH);
-                    }
                 return keys;
             }
         };
