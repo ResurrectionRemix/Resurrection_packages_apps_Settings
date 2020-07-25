@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.graphics.Color;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -25,8 +26,9 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
+import android.os.UserHandle;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
+import com.android.settings.rr.Preferences.*;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -39,6 +41,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import lineageos.preference.LineageSystemSettingSwitchPreference;
+import android.provider.Settings;
 
 @SearchIndexable
 public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
@@ -47,10 +50,15 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOZE_ON_CHARGE = "doze_on_charge";
     private static final String KEY_PROX_WAKE = "proximity_on_wake";
     private static final String KEY_HIGH_TOUCH = "high_touch_sensitivity_enable";
+    private static final String ACCENT_COLOR = "accent_color";
+    static final int DEFAULT_ACCENT_COLOR = 0xff0060ff;
+
+
 
     private SystemSettingSwitchPreference mAod;
     private LineageSystemSettingSwitchPreference mWakeProx;
     private LineageSystemSettingSwitchPreference mHighTouch;
+    private SystemSettingColorPickerPreference mAccentColor;
 
     @Override
     public int getMetricsCategory() {
@@ -69,9 +77,35 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         if (!dozeAlwaysOnDisplayAvailable && mAod != null) {
             getPreferenceScreen().removePreference(mAod);
         }
+
+
+        mAccentColor = (SystemSettingColorPickerPreference) findPreference(ACCENT_COLOR);
+        int intColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR, UserHandle.USER_CURRENT);
+        String hexColor = String.format("#%08x", (0xff0060ff & intColor));
+        if (hexColor.equals("#ff0060ff")) {
+            mAccentColor.setSummary(R.string.theme_picker_default);
+        } else {
+            mAccentColor.setSummary(hexColor);
+        }
+        mAccentColor.setNewPreviewColor(intColor);
+        mAccentColor.setOnPreferenceChangeListener(this):
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+         if (preference == mAccentColor) {
+                    String hex = ColorPickerPreference.convertToARGB(
+                            Integer.valueOf(String.valueOf(newValue)));
+                    if (hex.equals("#ff0060ff")) {
+                    mAccentColor.setSummary(R.string.theme_picker_default);
+                    } else {
+                    mAccentColor.setSummary(hex);
+                    }
+                    int intHex = ColorPickerPreference.convertToColorInt(hex);
+                    Settings.System.putIntForUser(getContext().getContentResolver(),
+                    Settings.System.ACCENT_COLOR, intHex, UserHandle.USER_CURRENT);
+                    return true;
+           }
         return false;
     }
 
