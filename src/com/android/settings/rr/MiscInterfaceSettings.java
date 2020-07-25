@@ -89,19 +89,19 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
             mAccentColor.setSummary(hexColor);
         }
         mAccentColor.setNewPreviewColor(intColor);
-        mAccentColor.setOnPreferenceChangeListener(this):
+        mAccentColor.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
          if (preference == mAccentColor) {
-                    String hex = ColorPickerPreference.convertToARGB(
+                    String hex = SystemSettingColorPickerPreference.convertToARGB(
                             Integer.valueOf(String.valueOf(newValue)));
                     if (hex.equals("#ff0060ff")) {
                     mAccentColor.setSummary(R.string.theme_picker_default);
                     } else {
                     mAccentColor.setSummary(hex);
                     }
-                    int intHex = ColorPickerPreference.convertToColorInt(hex);
+                    int intHex = SystemSettingColorPickerPreference.convertToColorInt(hex);
                     Settings.System.putIntForUser(getContext().getContentResolver(),
                     Settings.System.ACCENT_COLOR, intHex, UserHandle.USER_CURRENT);
                     return true;
