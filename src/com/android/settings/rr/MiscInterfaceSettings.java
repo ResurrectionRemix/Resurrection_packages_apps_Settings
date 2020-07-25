@@ -37,6 +37,7 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 import lineageos.hardware.LineageHardwareManager;
+import android.hardware.display.DcDimmingManager;
 import android.provider.Settings;
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -62,6 +63,7 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     private static final String KEY_ASPECT_RATIO_CATEGORY = "aspect_ratio_category";
     private static final String KEY_ASPECT_RATIO_APPS_LIST_SCROLLER = "aspect_ratio_apps_list_scroller";
     private static final String KEY_SCREENSHOT_DELAY = "screenshot_delay";
+    private static final String KEY_DISPLAY_CAT = "rr_display";
 
     private SystemSettingSwitchPreference mAod;
     private SystemSettingSwitchPreference mPixel;
@@ -70,6 +72,7 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     private AppMultiSelectListPreference mAspectRatioAppsSelect;
     private ScrollAppsViewPreference mAspectRatioApps;
     private CustomSeekBarPreference mScreenshotDelay;
+    private PreferenceCategory mDisplay;
 
 
     @Override
@@ -81,12 +84,19 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_interface_other_settings);
+        Context mContext = getActivity().getApplicationContext();
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
         mAod = (SystemSettingSwitchPreference) findPreference(KEY_DOZE_ON_CHARGE);
+        mDisplay = (PreferenceCategory) findPreference(KEY_DISPLAY_CAT);
         mPixel = (SystemSettingSwitchPreference) findPreference(PIXEL);
         mWakeProx = (LineageSystemSettingSwitchPreference) findPreference(KEY_PROX_WAKE);
         mHighTouch = (LineageSystemSettingSwitchPreference) findPreference(KEY_HIGH_TOUCH);
+        DcDimmingManager dm = (DcDimmingManager) mContext
+                            .getSystemService(Context.DC_DIM_SERVICE);
+        if (dm == null || !dm.isAvailable()) {
+            mDisplay.setVisible(false);
+        } 
         boolean dozeAlwaysOnDisplayAvailable = getContext().getResources().
                 getBoolean(com.android.internal.R.bool.config_dozeAlwaysOnDisplayAvailable);
         if (!dozeAlwaysOnDisplayAvailable && mAod != null) {
@@ -180,6 +190,8 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
+                    DcDimmingManager dm = (DcDimmingManager) context
+                            .getSystemService(Context.DC_DIM_SERVICE);
                     LineageHardwareManager hardware = LineageHardwareManager.getInstance(context);
                     if (!context.getResources().getBoolean(
                             org.lineageos.platform.internal.R.bool.config_proximityCheckOnWake)) {
@@ -188,6 +200,10 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
                     if (!hardware.isSupported(
                             LineageHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
                         keys.add(KEY_HIGH_TOUCH);
+                    }
+                    if (dm == null || !dm.isAvailable()) {
+                        keys.add(KEY_DISPLAY_CAT);
+                        keys.add("dc_dimming");
                     }
                     boolean hasAlertSlider = context.getResources().getBoolean(
                        com.android.internal.R.bool.config_hasAlertSlider);

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2020 Paranoid Android
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res-auto"
+        android:title="@string/dc_dimming_title"
+        android:key="dc_dimming_title"
+        settings:keywords="@string/keywords_display_dc_dimming">
+
+    <DropDownPreference
+        android:key="dc_dimming_auto_mode"
+        android:icon="@drawable/rr_clock_icon"
+        android:title="@string/dc_dimming_auto_mode_title"
+        android:summary="%s" />
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="dc_dimming_brightness"
+        android:icon="@drawable/rr_brightness_slider_icon"
+        android:title="@string/dc_dimming_brightness_title"
+        android:selectable="false"
+        android:layout="@layout/dc_dimming_brightness_slider" />
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="dc_dimming_button"
+        android:icon="@drawable/rr_dc_icon"
+        android:title="@string/dc_dimming_title"
+        android:selectable="false"
+        android:layout="@layout/dc_dimming_activation_button" />
+
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="dc_dimming_restore_button"
+        android:icon="@drawable/rr_reset3_icon"
+        android:title="@string/dc_dimming_title"
+        android:selectable="false"
+        android:layout="@layout/dc_dimming_restoration_button" />
+
+    <PreferenceCategory android:key="dc_dimming_footer_category">
+        <com.android.settingslib.widget.FooterPreference />
+    </PreferenceCategory>
+
+</PreferenceScreen>

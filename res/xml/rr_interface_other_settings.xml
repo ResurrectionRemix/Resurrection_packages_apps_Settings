@@ -30,6 +30,19 @@
         android:selectable="false"/>
 
     <PreferenceCategory
+        android:key="rr_display"
+        android:title="@string/rr_display">
+
+    <com.android.settings.display.DcDimmingPreference
+        android:key="dc_dimming"
+        android:title="@string/dc_dimming_title"
+        android:fragment="com.android.settings.display.DcDimmingSettings"
+        android:icon="@drawable/rr_dc_icon"
+        android:widgetLayout="@null"
+        settings:widgetLayout="@null"
+        settings:searchable="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory
         android:title="@string/rr_notif_settings_title">
 
      <!-- Alert Slider Notifications -->
