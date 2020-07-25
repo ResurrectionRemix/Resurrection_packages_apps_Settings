@@ -40,6 +40,10 @@ public class AppLockInfo {
         return mLabel;
     }
 
+    void setLabel(String label) {
+        mLabel = label;
+    }
+
     String getPackageName() {
         return mPackageName;
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Copyright (C) 2019 The ParanoidAndroid Project
+  Copyright (C) 2020 Paranoid Android
 
   Licensed under the Apache License, Version 2.0 (the "License");
   you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@
   -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:title="@string/applock_title">
 
     <SwitchPreference
@@ -26,13 +27,12 @@
         android:summaryOff="@string/applock_show_only_on_wake_off_summary"
         android:order="-999" />
 
-    <SwitchPreference
-        android:key="lock_notifications"
-        android:title="@string/applock_lock_notifications"
-        android:defaultValue="true"
-        android:summaryOn="@string/lock_screen_notifications_summary_hide"
-        android:summaryOff="@string/lock_screen_notifs_redact_summary"
-        android:order="-998" />
+    <Preference 
+        android:key="applock_notification_info"
+        android:order="-998"
+        android:icon="@drawable/ic_info_outline_24dp"
+        android:summary="@string/applock_notification_info"
+        app:allowDividerAbove="true"/>
 
     <PreferenceCategory
         android:key="locked_apps"
