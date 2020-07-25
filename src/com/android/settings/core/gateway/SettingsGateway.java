@@ -150,6 +150,7 @@ import com.android.settings.wifi.tether.WifiTetherSettings;
 
 import com.android.settings.rr.About;
 import com.android.settings.rr.HeadsUp;
+import com.android.settings.rr.ColorSettings;
 import com.android.settings.rr.MainSettings;
 import com.android.settings.rr.MainSettingsLayout;
 import com.android.settings.rr.SmartPixels;
@@ -295,6 +296,7 @@ public class SettingsGateway {
             GamingMode.class.getName(),
             About.class.getName(),
             HeadsUp.class.getName(),
+            ColorSettings.class.getName(),
             LockscreenItemSettings.class.getName(),
             MainSettingsLayout.class.getName(),
             MainSettings.class.getName(),
@@ -347,5 +349,6 @@ public class SettingsGateway {
             Settings.MainSettingsLayoutActivity.class.getName(),
             Settings.MainSettingsActivity.class.getName(),
             Settings.SmartPixelsActivity.class.getName(),
+            Settings.AccentColorSettingsActivity.class.getName(),
     };
 }

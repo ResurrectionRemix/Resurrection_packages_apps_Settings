@@ -44,6 +44,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.settings.R;
+import com.android.settings.Utils;
 
 public class PagerSlidingTabStrip extends HorizontalScrollView {
 
@@ -161,11 +162,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         // get custom attrs for tabs and container
         a = context.obtainStyledAttributes(attrs, R.styleable.PagerSlidingTabStrip);
-        mIndicatorColor = context.getResources().getColor(R.color.tab_indicator_color);
+        mIndicatorColor = Utils.getColorAccentDefaultColor(getContext());
         mIndicatorHeight = a.getDimensionPixelSize(R.styleable.PagerSlidingTabStrip_pstsIndicatorHeight, mIndicatorHeight);
-        mUnderlineColor = context.getResources().getColor(R.color.tab_underline_color);
+        mUnderlineColor = Utils.getColorAccentDefaultColor(getContext());
         mUnderlineHeight = a.getDimensionPixelSize(R.styleable.PagerSlidingTabStrip_pstsUnderlineHeight, mUnderlineHeight);
-        mDividerColor = context.getResources().getColor(R.color.tab_divider_color);
+        mDividerColor = Utils.getColorAccentDefaultColor(getContext());
         mDividerWidth = a.getDimensionPixelSize(R.styleable.PagerSlidingTabStrip_pstsDividerWidth, mDividerWidth);
         mDividerPadding = a.getDimensionPixelSize(R.styleable.PagerSlidingTabStrip_pstsDividerPadding, mDividerPadding);
         isExpandTabs = a.getBoolean(R.styleable.PagerSlidingTabStrip_pstsShouldExpand, isExpandTabs);

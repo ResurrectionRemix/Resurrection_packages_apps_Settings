@@ -187,4 +187,5 @@ public class Settings extends SettingsActivity {
     public static class SmartPixelsActivity extends SettingsActivity {}
     public static class HeadsUpSettingsActivity extends SettingsActivity { /* empty */ }
     public static class PulseSettingsActivity extends SettingsActivity { /* empty */ }
+    public static class AccentColorSettingsActivity extends SettingsActivity { /* empty */ }
 }
