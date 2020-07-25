@@ -111,6 +111,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     private static final String SETTINGS_ACTION = "com.android.settings.action.IA_SETTINGS";
     private static final String ABOUT_FRAG = "com.android.settings.rr.About";
     private static final String ABOUT_FRAG_ACT = "com.android.settings.Settings$AboutSettingsActivity";
+    private static final String SETTINGS_ACCENT = "com.android.settings.Settings$AccentColorSettingsActivity";
+    static final int DEFAULT_ACCENT_COLOR = 0xff4285f4;
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mStyle = Settings.System.getInt(getActivity().getContentResolver(),
@@ -139,6 +141,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         FloatingActionButton mFab3 = (FloatingActionButton) view.findViewById(R.id.fab_reset);
         FloatingActionButton mFab4 = (FloatingActionButton) view.findViewById(R.id.fab_info);
         FloatingActionButton mFab5 = (FloatingActionButton) view.findViewById(R.id.fab_config);
+        FloatingActionButton mFab6 = (FloatingActionButton) view.findViewById(R.id.fab_picker);
         mFab = (FloatingActionsMenu) view.findViewById(R.id.fab_menu);
         mLayout = (LinearLayout) view.findViewById(R.id.main_content);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
@@ -220,6 +223,15 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              public void onClick(View v) {
                    Intent settings = new Intent(Intent.ACTION_MAIN);
                    settings.setClassName(SETTINGS_FRAG, ABOUT_FRAG_ACT);
+                   startActivity(settings);
+           }
+        });
+
+        mFab6.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                   Intent settings = new Intent(Intent.ACTION_MAIN);
+                   settings.setClassName(SETTINGS_FRAG, SETTINGS_ACCENT);
                    startActivity(settings);
            }
         });
@@ -582,6 +594,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 Settings.System.A2DP_SOURCE_CODEC_PRIORITY, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.SBC_HD_PRIORITY, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR,
+                UserHandle.USER_CURRENT);
         CutoutSettings.reset(mContext);
     }
 

@@ -14,10 +14,16 @@
 package com.android.settings.rr;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -48,9 +54,11 @@ public class ColorSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "ColorSettings";
     private static final String ACCENT_COLOR = "accent_color";
-    static final int DEFAULT_ACCENT_COLOR = 0xff0060ff;
+    private static final String RESET = "reset";
+    static final int DEFAULT_ACCENT_COLOR = 0xff4285f4;
 
     private SystemSettingColorPickerPreference mAccentColor;
+    private Preference mReset;
 
     @Override
     public int getMetricsCategory() {
@@ -64,8 +72,8 @@ public class ColorSettings extends SettingsPreferenceFragment implements
         mAccentColor = (SystemSettingColorPickerPreference) findPreference(ACCENT_COLOR);
         int intColor = Settings.System.getIntForUser(getContext().getContentResolver(),
                 Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR, UserHandle.USER_CURRENT);
-        String hexColor = String.format("#%08x", (0xff0060ff & intColor));
-        if (hexColor.equals("#ff0060ff")) {
+        String hexColor = String.format("#%08x", (0xff4285f4 & intColor));
+        if (hexColor.equals("#ff4285f4")) {
             mAccentColor.setSummary(R.string.theme_picker_default);
         } else {
             mAccentColor.setSummary(hexColor);
@@ -73,13 +81,16 @@ public class ColorSettings extends SettingsPreferenceFragment implements
         mAccentColor.setNewPreviewColor(intColor);
         mAccentColor.setAlphaSliderEnabled(false);
         mAccentColor.setOnPreferenceChangeListener(this);
+
+        mReset = (Preference) findPreference(RESET);
+        mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.rr_accent_tutorial);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
          if (preference == mAccentColor) {
              String hex = SystemSettingColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-             if (hex.equals("#ff0060ff")) {
+             if (hex.equals("#ff4285f4")) {
                  mAccentColor.setSummary(R.string.theme_picker_default);
              } else {
                  mAccentColor.setSummary(hex);
@@ -89,6 +100,28 @@ public class ColorSettings extends SettingsPreferenceFragment implements
                   Settings.System.ACCENT_COLOR, intHex, UserHandle.USER_CURRENT);
              return true;
            }
+        return false;
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(final Preference preference) {
+        if (preference == mReset) {
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+            alertDialog.setTitle(getString(R.string.rr_reset));
+            alertDialog.setMessage(getString(R.string.rr_reset_message_warning_sum));
+            alertDialog.setPositiveButton(getString(android.R.string.ok),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Settings.System.putIntForUser(getContext().getContentResolver(),
+                        Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR,
+                        UserHandle.USER_CURRENT);
+                    }
+                });
+            alertDialog.setNegativeButton(getString(android.R.string.cancel), null);
+            alertDialog.show();
+        } else {
+          super.onPreferenceTreeClick(preference);
+        }
         return true;
     }
 
