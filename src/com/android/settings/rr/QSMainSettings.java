@@ -33,6 +33,7 @@ import android.os.UserHandle;
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import lineageos.preference.LineageSystemSettingListPreference;
+import lineageos.preference.LineageSecureSettingListPreference;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.rr.Preferences.*;
@@ -40,7 +41,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-
+import lineageos.providers.LineageSettings;
 
 import java.util.Arrays;
 import java.util.List;
@@ -58,7 +59,11 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private static final String ICON_COLOR = "notif_icon_color";
     private static final String BG_MODE = "notif_bg_color_mode";
     private static final String ICON_MODE = "notif_icon_color_mode";
+    private static final String QS_POS = "qs_show_brightness_slider";
+    private static final String QS_AUTO = "qs_auto_icon_pos";
 
+    private LineageSecureSettingListPreference mQsPos;
+    private SystemSettingListPreference mQsAuto;
     private ListPreference mQsTileStyle;
     private SystemSettingListPreference mBgMode;
     private SystemSettingListPreference mIconMode;
@@ -75,6 +80,14 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
 
         mQuickPulldown =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
+        mQsPos =
+                (LineageSecureSettingListPreference) findPreference(QS_POS);
+        mQsPos.setOnPreferenceChangeListener(this);
+        mQsAuto =
+                (SystemSettingListPreference) findPreference(QS_AUTO);
+        int position = LineageSettings.Secure.getInt(getContentResolver(),
+                LineageSettings.Secure.QS_SHOW_BRIGHTNESS_SLIDER, 1);
+
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
         mContext = getActivity().getApplicationContext();
@@ -122,6 +135,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
 
         updateprefs(mode);
         updateIconprefs(iconmode);
+        updatesliderprefs(position);
 
     }
 
@@ -155,7 +169,11 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
                     Integer.valueOf(String.valueOf(newValue)));
              preference.setSummary(hex);
              return true;
-        } 
+        }  else if (preference == mQsPos) {
+             int value = Integer.parseInt((String) newValue);
+             updatesliderprefs(value);
+             return true;
+        }
         return false;
     }
 
@@ -165,6 +183,14 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         else 
             mBgColor.setEnabled(false);
     }
+
+    private void updatesliderprefs(int mode) {
+        if (mode == 0)
+            mQsAuto.setEnabled(false);
+        else 
+            mQsAuto.setEnabled(true);
+    }
+
 
     private void updateIconprefs(int mode) {
         if (mode == 2)
