@@ -16,6 +16,7 @@
 
 package com.android.settings.gestures;
 
+import static android.provider.Settings.Secure.VOLUME_HUSH_CYCLE;
 import static android.provider.Settings.Secure.VOLUME_HUSH_GESTURE;
 import static android.provider.Settings.Secure.VOLUME_HUSH_MUTE;
 import static android.provider.Settings.Secure.VOLUME_HUSH_MUTE_NO_MEDIA;
@@ -56,6 +57,9 @@ public class PreventRingingParentPreferenceController extends BasePreferenceCont
                 break;
             case VOLUME_HUSH_MUTE_NO_MEDIA:
                 summary = R.string.prevent_ringing_option_mute_no_media_summary;
+                break;
+            case VOLUME_HUSH_CYCLE:
+                summary = R.string.prevent_ringing_option_cycle_summary;
                 break;
             default:
                 summary = R.string.prevent_ringing_option_none_summary;

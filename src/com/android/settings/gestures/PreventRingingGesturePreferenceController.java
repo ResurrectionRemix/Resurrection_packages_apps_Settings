@@ -54,6 +54,8 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
     @VisibleForTesting
     static final String KEY_MUTE_NO_MEDIA = "prevent_ringing_option_mute_no_media";
 
+    static final String KEY_CYCLE = "prevent_ringing_option_cycle";
+
     private final String KEY_VIDEO_PAUSED = "key_video_paused";
     private final String PREF_KEY_VIDEO = "gesture_prevent_ringing_video";
     private final String KEY = "gesture_prevent_ringing_category";
@@ -70,6 +72,7 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
     RadioButtonPreference mMutePref;
     @VisibleForTesting
     RadioButtonPreference mMuteNoMediaPref;
+    RadioButtonPreference mCyclePref;
 
     private SettingObserver mSettingObserver;
 
@@ -92,6 +95,7 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
         mVibratePref = makeRadioPreference(KEY_VIBRATE, R.string.prevent_ringing_option_vibrate);
         mMutePref = makeRadioPreference(KEY_MUTE, R.string.prevent_ringing_option_mute);
         mMuteNoMediaPref = makeRadioPreference(KEY_MUTE_NO_MEDIA, R.string.prevent_ringing_option_mute_no_media);
+        mCyclePref = makeRadioPreference(KEY_CYCLE, R.string.prevent_ringing_option_cycle);
 
         if (mPreferenceCategory != null) {
             mSettingObserver = new SettingObserver(mPreferenceCategory);
@@ -137,6 +141,7 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
         final boolean isVibrate = preventRingingSetting == Settings.Secure.VOLUME_HUSH_VIBRATE;
         final boolean isMute = preventRingingSetting == Settings.Secure.VOLUME_HUSH_MUTE;
         final boolean isMuteNoMedia = preventRingingSetting == Settings.Secure.VOLUME_HUSH_MUTE_NO_MEDIA;
+        final boolean isCycle = preventRingingSetting == Settings.Secure.VOLUME_HUSH_CYCLE;
         if (mVibratePref != null && mVibratePref.isChecked() != isVibrate) {
             mVibratePref.setChecked(isVibrate);
         }
@@ -146,15 +151,24 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
         if (mMuteNoMediaPref != null && mMuteNoMediaPref.isChecked() != isMuteNoMedia) {
             mMuteNoMediaPref.setChecked(isMuteNoMedia);
         }
+        if (mCyclePref != null && mCyclePref.isChecked() != isCycle) {
+            mCyclePref.setChecked(isCycle);
+        }
 
         if (preventRingingSetting == Settings.Secure.VOLUME_HUSH_OFF) {
             mVibratePref.setEnabled(false);
             mMutePref.setEnabled(false);
             mMuteNoMediaPref.setEnabled(false);
+            if (mCyclePref != null) {
+                mCyclePref.setEnabled(false);
+            }
         } else {
             mVibratePref.setEnabled(true);
             mMutePref.setEnabled(true);
             mMuteNoMediaPref.setEnabled(true);
+            if (mCyclePref != null) {
+                mCyclePref.setEnabled(true);
+            }
         }
     }
 
@@ -197,6 +211,8 @@ public class PreventRingingGesturePreferenceController extends AbstractPreferenc
                 return Settings.Secure.VOLUME_HUSH_VIBRATE;
             case KEY_MUTE_NO_MEDIA:
                 return Settings.Secure.VOLUME_HUSH_MUTE_NO_MEDIA;
+            case KEY_CYCLE:
+                return Settings.Secure.VOLUME_HUSH_CYCLE;
             default:
                 return Settings.Secure.VOLUME_HUSH_OFF;
         }
