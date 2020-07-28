@@ -57,7 +57,7 @@ public class ColorSettings extends SettingsPreferenceFragment implements
     private static final String GRADIENT_COLOR = "gradient_color_prop";
     private static final String RESET = "reset";
     static final int DEFAULT_ACCENT_COLOR = 0xff4285f4;
-
+    static final int DEFAULT_GRADIENT_COLOR = 0xff0d5bd9;
     private SystemSettingColorPickerPreference mAccentColor;
     private SystemSettingColorPickerPreference mGradientColor;
     private Preference mReset;
@@ -116,7 +116,7 @@ public class ColorSettings extends SettingsPreferenceFragment implements
            } else if (preference == mGradientColor) {
              String hex = SystemSettingColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-             if (hex.equals("#ff4285f4")) {
+             if (hex.equals("#ff0d5bd9")) {
                  mGradientColor.setSummary(R.string.theme_picker_default);
              } else {
                  mGradientColor.setSummary(hex);
@@ -142,7 +142,7 @@ public class ColorSettings extends SettingsPreferenceFragment implements
                         Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR,
                         UserHandle.USER_CURRENT);
                         Settings.System.putIntForUser(getContext().getContentResolver(),
-                        Settings.System.GRADIENT_COLOR_PROP, DEFAULT_ACCENT_COLOR,
+                        Settings.System.GRADIENT_COLOR_PROP, DEFAULT_GRADIENT_COLOR,
                         UserHandle.USER_CURRENT);
                     }
                 });
