@@ -54,8 +54,14 @@
     </PreferenceCategory>
 
    <PreferenceCategory
-        android:key="brightness"
         android:title="@string/general" >
+
+    <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+       android:key="doze_trigger_doubletap"
+        android:icon="@drawable/rr_tap_icon"
+        android:title="@string/doze_trigger_doubletap_title"
+        android:summary="@string/doze_trigger_doubletap_summary"
+        android:defaultValue="false"/>
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
        android:key="lockscreen_charging_indicator_doze"
