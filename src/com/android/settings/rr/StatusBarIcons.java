@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.UserHandle;
 import androidx.preference.Preference;
@@ -48,6 +49,12 @@ import java.util.ArrayList;
 public class StatusBarIcons extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "StatusBarIcons";
+    private static final String SMS_BREATH = "sms_breath";
+    private static final String MISSED_CALL_BREATH = "missed_call_breath";
+    private static final String VOICEMAIL_BREATH = "voicemail_breath";
+    private SwitchPreference mSmsBreath;
+    private SwitchPreference mMissedCallBreath;
+    private SwitchPreference mVoicemailBreath;
 
     @Override
     public int getMetricsCategory() {
@@ -58,10 +65,46 @@ public class StatusBarIcons extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_sb_icons);
+
+        ContentResolver resolver = getActivity().getContentResolver();
+           // Breathing Notifications
+           mSmsBreath = (SwitchPreference) findPreference(SMS_BREATH);
+           mMissedCallBreath = (SwitchPreference) findPreference(MISSED_CALL_BREATH);
+           mVoicemailBreath = (SwitchPreference) findPreference(VOICEMAIL_BREATH);
+           ConnectivityManager cm = (ConnectivityManager)
+                   getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+           if (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE)) {
+               mSmsBreath.setChecked(Settings.Global.getInt(resolver,
+                       Settings.Global.KEY_SMS_BREATH, 0) == 1);
+               mSmsBreath.setOnPreferenceChangeListener(this);
+               mMissedCallBreath.setChecked(Settings.Global.getInt(resolver,
+                       Settings.Global.KEY_MISSED_CALL_BREATH, 0) == 1);
+               mMissedCallBreath.setOnPreferenceChangeListener(this);
+               mVoicemailBreath.setChecked(Settings.System.getInt(resolver,
+                       Settings.System.KEY_VOICEMAIL_BREATH, 0) == 1);
+               mVoicemailBreath.setOnPreferenceChangeListener(this);
+           } else {
+               prefSet.removePreference(mSmsBreath);
+               prefSet.removePreference(mMissedCallBreath);
+               prefSet.removePreference(mVoicemailBreath);
+           }
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+	    if (preference == mSmsBreath) {
+            boolean value = (Boolean) newValue;
+            Settings.Global.putInt(getContentResolver(), SMS_BREATH, value ? 1 : 0);
+            return true;
+        } else if (preference == mMissedCallBreath) {
+            boolean value = (Boolean) newValue;
+            Settings.Global.putInt(getContentResolver(), MISSED_CALL_BREATH, value ? 1 : 0);
+            return true;
+        } else if (preference == mVoicemailBreath) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getContentResolver(), VOICEMAIL_BREATH, value ? 1 : 0);
+            return true;
+	    }
         return false;
     }
 
