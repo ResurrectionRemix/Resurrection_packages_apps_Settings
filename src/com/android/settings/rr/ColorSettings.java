@@ -115,6 +115,9 @@ public class ColorSettings extends SettingsPreferenceFragment implements
                         Settings.System.putIntForUser(getContext().getContentResolver(),
                         Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR,
                         UserHandle.USER_CURRENT);
+                        Settings.System.putIntForUser(getContext().getContentResolver(),
+                        Settings.System.GRADIENT_COLOR_PROP, DEFAULT_ACCENT_COLOR,
+                        UserHandle.USER_CURRENT);
                     }
                 });
             alertDialog.setNegativeButton(getString(android.R.string.cancel), null);

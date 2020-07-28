@@ -26,6 +26,8 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.UserHandle;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -65,7 +67,7 @@ public class StatusBarIcons extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_sb_icons);
-
+        final PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
            // Breathing Notifications
            mSmsBreath = (SwitchPreference) findPreference(SMS_BREATH);
@@ -91,7 +93,7 @@ public class StatusBarIcons extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public boolean onPreferenceChange(Preference preference, Object objValue) {
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
 	    if (preference == mSmsBreath) {
             boolean value = (Boolean) newValue;
             Settings.Global.putInt(getContentResolver(), SMS_BREATH, value ? 1 : 0);
