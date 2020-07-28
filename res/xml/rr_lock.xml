@@ -55,6 +55,13 @@
     <PreferenceCategory
         android:title="@string/rr_ui_title">
 
+    <Preference
+        android:key="clock_ui"
+        android:icon="@drawable/rr_styles_icon"
+        android:summary="@string/rr_clock_styles_sum"
+        android:fragment="com.android.settings.rr.LockStyleSettings"
+        android:title="@string/rr_clock_styles_title"/>
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
        android:key="lockscreen_hide_status_bar"
        android:icon="@drawable/rr_statusbar_icon"

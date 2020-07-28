@@ -28,7 +28,7 @@ import android.text.Spannable;
 import android.text.TextUtils;
 import android.widget.EditText;
 import com.android.settings.Utils;
-
+import android.os.UserHandle;
 import com.android.internal.logging.nano.MetricsProto;
 import android.provider.SearchIndexableResource;
 import com.android.settings.rr.utils.RRUtils;
@@ -38,7 +38,9 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.android.settings.rr.Preferences.*;
 
+import android.provider.Settings;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
@@ -47,21 +49,42 @@ public class CarrierLabel extends SettingsPreferenceFragment implements Preferen
 
     public static final String TAG = "CarrierLabel";
     private static final String KEY_CUSTOM_CARRIER_LABEL = "custom_carrier_label";
-
+    private static final String LABEL = "status_bar_show_carrier";
+    private static final String CUSTOM_CAT = "general_ui";
+    private SystemSettingIntListPreference mCarrier;
     private Preference mCustomCarrierLabel;
     private String mCustomCarrierLabelText;
+    private PreferenceCategory mCustomCat;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.carrier_label);
-
+        int showVal = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_SHOW_CARRIER, 1, UserHandle.USER_CURRENT);
         mCustomCarrierLabel = (Preference) findPreference(KEY_CUSTOM_CARRIER_LABEL);
+        mCarrier = (SystemSettingIntListPreference)findPreference(LABEL);
+        mCarrier.setOnPreferenceChangeListener(this);
+        mCustomCat = (PreferenceCategory) findPreference(CUSTOM_CAT);
         updateCustomLabelTextSummary();
+        updateprefs(showVal);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return false;
+      if (preference == mCarrier) {
+            int value = (Integer) newValue;
+            updateprefs(value);
+            return true;
+       } 
+       return false;
+    }
+
+    private void updateprefs(int mode) {
+        if (mode == 0) {
+            mCustomCat.setEnabled(false);
+        } else {
+            mCustomCat.setEnabled(true);
+        }
     }
 
     @Override

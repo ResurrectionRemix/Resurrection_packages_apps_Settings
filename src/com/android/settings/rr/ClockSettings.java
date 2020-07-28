@@ -25,7 +25,6 @@ import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.preference.EditTextPreference;
-import android.provider.Settings;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
