@@ -18,6 +18,11 @@
     android:title="@string/lockscreen_ui_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
+
+       <com.android.settings.rr.preview.AboutSettingsPreview
+            android:layout="@layout/rr_clock_layout"
+            android:selectable="false"/>
+
     <PreferenceCategory
         android:title="LockClock"/>
 
@@ -29,17 +34,15 @@
         android:entries="@array/lock_clock_fonts_entries"
         android:entryValues="@array/lock_clock_fonts_values"
         android:summary="%s"
-        android:defaultValue="34"
-        android:persistent="false" />
+        android:defaultValue="34" />
 
-     <com.android.settings.rr.Preferences.CustomSeekBarPreference
+     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="lockclock_font_size"
         android:title="@string/lockclock_font_size_title"
         android:icon="@drawable/rr_styles_icon"
         android:max="101"
         settings:min="65"
         settings:units="dp"
-        android:persistent="false"
         android:defaultValue="78" />
 
     <PreferenceCategory
@@ -53,8 +56,7 @@
         android:entries="@array/lock_clock_fonts_entries"
         android:entryValues="@array/lock_clock_fonts_values"
         android:summary="%s"
-        android:defaultValue="32"
-        android:persistent="false" />
+        android:defaultValue="32" />
 
      <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="lockdate_font_size"
@@ -63,8 +65,7 @@
         android:max="25"
         settings:min="10"
         settings:units="dp"
-        android:defaultValue="18"
-        android:persistent="false" />
+        android:defaultValue="18" />
 
     <PreferenceCategory
         android:title="Owner Info"/>
@@ -77,8 +78,7 @@
         android:entries="@array/lock_clock_fonts_entries"
         android:entryValues="@array/lock_clock_fonts_values"
         android:summary="%s"
-        android:defaultValue="0"
-        android:persistent="false" />
+        android:defaultValue="0" />
 
      <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="lockowner_font_size"
@@ -87,8 +87,7 @@
         android:max="25"
         settings:min="10"
         settings:units="dp"
-        android:defaultValue="21"
-        android:persistent="false" />
+        android:defaultValue="21" />
 
     <PreferenceScreen
     	android:key="lockscreen_colors"

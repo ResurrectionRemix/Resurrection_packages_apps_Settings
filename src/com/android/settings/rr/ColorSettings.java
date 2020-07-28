@@ -54,10 +54,12 @@ public class ColorSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "ColorSettings";
     private static final String ACCENT_COLOR = "accent_color";
+    private static final String GRADIENT_COLOR = "gradient_color_prop";
     private static final String RESET = "reset";
     static final int DEFAULT_ACCENT_COLOR = 0xff4285f4;
 
     private SystemSettingColorPickerPreference mAccentColor;
+    private SystemSettingColorPickerPreference mGradientColor;
     private Preference mReset;
 
     @Override
@@ -81,6 +83,18 @@ public class ColorSettings extends SettingsPreferenceFragment implements
         mAccentColor.setNewPreviewColor(intColor);
         mAccentColor.setAlphaSliderEnabled(false);
         mAccentColor.setOnPreferenceChangeListener(this);
+        mGradientColor = (SystemSettingColorPickerPreference) findPreference(GRADIENT_COLOR);
+        int intgColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.GRADIENT_COLOR_PROP, DEFAULT_ACCENT_COLOR, UserHandle.USER_CURRENT);
+        String hexColor1 = String.format("#%08x", (0xff4285f4 & intColor));
+        if (hexColor.equals("#ff4285f4")) {
+            mGradientColor.setSummary(R.string.theme_picker_default);
+        } else {
+            mGradientColor.setSummary(hexColor1);
+        }
+        mGradientColor.setNewPreviewColor(intgColor);
+        mGradientColor.setAlphaSliderEnabled(false);
+        mGradientColor.setOnPreferenceChangeListener(this);
 
         mReset = (Preference) findPreference(RESET);
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.rr_accent_tutorial);
@@ -98,6 +112,18 @@ public class ColorSettings extends SettingsPreferenceFragment implements
              int intHex = SystemSettingColorPickerPreference.convertToColorInt(hex);
                   Settings.System.putIntForUser(getContext().getContentResolver(),
                   Settings.System.ACCENT_COLOR, intHex, UserHandle.USER_CURRENT);
+             return true;
+           } else if (preference == mGradientColor) {
+             String hex = SystemSettingColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+             if (hex.equals("#ff4285f4")) {
+                 mGradientColor.setSummary(R.string.theme_picker_default);
+             } else {
+                 mGradientColor.setSummary(hex);
+             }
+             int intHex = SystemSettingColorPickerPreference.convertToColorInt(hex);
+                  Settings.System.putIntForUser(getContext().getContentResolver(),
+                  Settings.System.GRADIENT_COLOR_PROP, intHex, UserHandle.USER_CURRENT);
              return true;
            }
         return false;

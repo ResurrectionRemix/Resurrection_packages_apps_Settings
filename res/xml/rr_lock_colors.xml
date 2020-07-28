@@ -19,50 +19,69 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
+       <com.android.settings.rr.preview.AboutSettingsPreview
+            android:layout="@layout/rr_clock_layout"
+            android:selectable="false"/>
+
+    <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="lockscreen_clock_color"
+        android:icon="@drawable/rr_clock_icon"
         android:title="@string/lockscreen_clock_color"
         android:defaultValue="0xffffffff" />
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
+    <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="lockscreen_clock_date_color"
         android:title="@string/lockscreen_clock_date_color"
+        android:icon="@drawable/rr_clock_date_icon"
         android:defaultValue="0xffffffff" />
 
-   <net.margaritov.preference.colorpicker.ColorPickerPreference
+    <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="lockscreen_owner_info_color"
         android:title="@string/lockscreen_owner_info_color"
+        android:icon="@drawable/rr_text_icon"
         android:defaultValue="0xffffffff" />
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
+    <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="lockscreen_phone_icon_color"
         android:title="@string/lockscreen_phone_icon_color"
+        android:icon="@drawable/rr_call_icon"
         android:defaultValue="0xffffffff" />
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
+    <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="lockscreen_camera_icon_color"
         android:title="@string/lockscreen_camera_icon_color"
+        android:icon="@drawable/rr_camera_icon"
         android:defaultValue="0xffffffff" />
     
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
+    <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="lockscreen_indication_text_color"
         android:title="@string/lockscreen_indication_text_color"
+        android:icon="@drawable/rr_cuout_icon"
         android:defaultValue="0xffffffff" />
 
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="lockscreen_weather_temp_color"
+
+    <PreferenceCategory
+        android:key="weather"
+        android:title="@string/lock_weather_title">
+
+    <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+        android:key="lock_screen_weather_temp_color"
         android:title="@string/lockscreen_weather_temp_color"
+        android:icon="@drawable/rr_text_icon"
         android:defaultValue="0xffffffff" />
 		
-    <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="lockscreen_weather_city_color"
+    <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+        android:key="lock_screen_weather_city_color"
         android:title="@string/lockscreen_weather_city_color"
+        android:icon="@drawable/rr_text_icon"
         android:defaultValue="0xffffffff" />
 
-   <net.margaritov.preference.colorpicker.ColorPickerPreference
-        android:key="lockscreen_weather_icon_color"
+    <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+        android:key="lock_screen_weather_icon_color"
         android:title="@string/lockscreen_weather_icon_color"
+        android:icon="@drawable/rr_weather_main_icon"
         android:defaultValue="0xffffffff" />
+</PreferenceCategory>
 
 </PreferenceScreen>
 

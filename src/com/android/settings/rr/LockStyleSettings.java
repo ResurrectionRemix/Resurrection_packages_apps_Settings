@@ -63,6 +63,7 @@ public class LockStyleSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_lock_ui);
+        mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.clock_ui_warning);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

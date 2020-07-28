@@ -73,7 +73,7 @@ public class CarrierLabel extends SettingsPreferenceFragment implements Preferen
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
       if (preference == mCarrier) {
-            int value = (Integer) newValue;
+            int value = Integer.parseInt((String) newValue);
             updateprefs(value);
             return true;
        } 

@@ -58,11 +58,23 @@ import java.util.ArrayList;
 @SearchIndexable
 public class LockColorSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
+    static final String WEATHER_CAT = "weather";
+
+    private PreferenceCategory mWeather;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_lock_colors);
+        mWeather = (PreferenceCategory) findPreference (WEATHER_CAT);
+        boolean enabled = Settings.System.getInt(getContext().getContentResolver(),
+                Settings.System.LOCKSCREEN_WEATHER_STYLE, 1) == 1;
+        if (enabled) {
+            mWeather.setEnabled(false);
+            mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.pixel_weather_warning);
+        } else {
+            mWeather.setEnabled(true);
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
