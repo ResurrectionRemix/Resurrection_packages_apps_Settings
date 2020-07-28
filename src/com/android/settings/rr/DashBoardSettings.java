@@ -63,23 +63,28 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.rr_dashboard_settings);
         final ContentResolver resolver = getActivity().getContentResolver();
-       /* mDashboardPortraitColumns = (SeekBarPreference) findPreference(KEY_DASHBOARD_PORTRAIT_COLUMNS);
-        int columnsPortrait = Settings.System.getInt(resolver,
-                Settings.SystemCustomSummary = (Preference) findPreference(PREF_RR_SETTINGS_SUMMARY);m.DASHBOARD_PORTRAIT_COLUMNS, DashboardSummary.mNumColumns);
-        mDashboardPortraitColumns.setValue(columnsPortrait / 1);
-        mDashboardPortraitColumns.setOnPreferenceChangeListener(this);
-
-        mDashboardLandscapeColumns = (SeekBarPreference) findPreference(KEY_DASHBOARD_LANDSCAPE_COLUMNS);
-        int columnsLandscape = Settings.System.getInt(resolver,
-                Settings.System.DASHBOARD_LANDSCAPE_COLUMNS, 2);
-        mDashboardLandscapeColumns.setValue(columnsLandscape / 1);
-        mDashboardLandscapeColumns.setOnPreferenceChangeListener(this);
-        mCustomSummary = (Preference) findPreference(PREF_RR_SETTINGS_SUMMARY); */
+        mConfig = (ListPreference) findPreference(RR_CONFIG);
+        mConfig.setValue(String.valueOf(Settings.System.getInt(
+                getContentResolver(), Settings.System.RR_CONFIG_STYLE, 0)));
+        mConfig.setSummary(mConfig.getEntry());
+        mConfig.setOnPreferenceChangeListener(this);
+        mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.switch_ui_warning);
 
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+           if (preference == mConfig) {
+            int style = Integer.parseInt((String) objValue);
+            Settings.System.putInt(getContentResolver(), Settings.System.RR_CONFIG_STYLE,
+            Integer.valueOf((String) objValue));
+            mConfig.setValue(String.valueOf(objValue));
+            mConfig.setSummary(mConfig.getEntry());
+            Intent fabIntent = new Intent();
+            fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$MainSettingsLayoutActivity");
+            startActivity(fabIntent);
+            return true;
+       }
         return false;
     }
 
