@@ -61,6 +61,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private static final String ICON_MODE = "notif_icon_color_mode";
     private static final String QS_POS = "qs_show_brightness_slider";
     private static final String QS_AUTO = "qs_auto_icon_pos";
+    private static final String RR_FOOTER_TEXT_STRING = "rr_footer_text_string";
 
     private LineageSecureSettingListPreference mQsPos;
     private SystemSettingListPreference mQsAuto;
@@ -70,6 +71,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private SystemSettingColorPickerPreference mBgColor;
     private SystemSettingColorPickerPreference mIconColor;
     private LineageSystemSettingListPreference mQuickPulldown;
+    private SystemSettingEditTextPreference mFooterString;
     protected Context mContext;
 
     @Override
@@ -78,6 +80,19 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_qsmain);
 		ContentResolver resolver = getActivity().getContentResolver();
 
+
+
+        mFooterString = (SystemSettingEditTextPreference) findPreference(RR_FOOTER_TEXT_STRING);
+        mFooterString.setOnPreferenceChangeListener(this);
+        String footerString = Settings.System.getString(getContentResolver(),
+                RR_FOOTER_TEXT_STRING);
+        if (footerString != null && footerString != "")
+            mFooterString.setText(footerString);
+        else {
+            mFooterString.setText("Resurrection Remix");
+            Settings.System.putString(getActivity().getContentResolver(),
+                    Settings.System.RR_FOOTER_TEXT_STRING, "Resurrection Remix");
+        }
         mQuickPulldown =
                 (LineageSystemSettingListPreference) findPreference(STATUS_BAR_QUICK_QS_PULLDOWN);
         mQsPos =
@@ -173,6 +188,17 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
              int value = Integer.parseInt((String) newValue);
              updatesliderprefs(value);
              return true;
+        } else if (preference == mFooterString) {
+            String value = (String) newValue;
+            if (value != "" && value != null) {
+                Settings.System.putString(getActivity().getContentResolver(),
+                      Settings.System.RR_FOOTER_TEXT_STRING, value);
+             } else {
+                mFooterString.setText("Resurrection Remix");
+                Settings.System.putString(getActivity().getContentResolver(),
+                        Settings.System.RR_FOOTER_TEXT_STRING, "Resurrection Remix");
+            }
+            return true;
         }
         return false;
     }

@@ -332,4 +332,26 @@
 
     </PreferenceCategory>
 
+
+    <PreferenceCategory
+        android:title="@string/status_bar_footer_cat">
+   <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="rr_footer_text_show"
+        android:title="@string/qs_footer_text_title"
+        android:icon="@drawable/rr_footer_icon"
+        android:summary="@string/qs_footer_text_summary"
+        android:defaultValue="false"/>
+
+
+    <!-- QS footer text string -->
+   <com.android.settings.rr.Preferences.SystemSettingEditTextPreference
+        android:key="rr_footer_text_string"
+        android:icon="@drawable/rr_color_icon"
+        android:title="@string/qs_footer_text_string_title"
+        android:summary="@string/qs_footer_text_string_summary"
+        android:dependency="rr_footer_text_show"
+        android:defaultValue="Resurrection Remix" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

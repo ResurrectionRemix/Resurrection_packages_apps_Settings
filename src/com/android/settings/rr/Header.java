@@ -87,6 +87,11 @@ public class Header extends SettingsPreferenceFragment implements
     private Preference mFileHeader;
     private String mFileHeaderProvider;
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateEnablement();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -257,13 +262,13 @@ public class Header extends SettingsPreferenceFragment implements
                     Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER, value);
             int valueIndex = mHeaderProvider.findIndexOfValue(value);
             mHeaderProvider.setSummary(mHeaderProvider.getEntries()[valueIndex]);
-            updateEnablement();
+            updateEnablement(valueIndex);
             return true;
         }
         return false;
     }
 
-    private void updateEnablement() {
+    private void updateEnablement(int val) {
         String providerName = Settings.System.getString(getContentResolver(),
                 Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER);
         if (providerName == null) {
@@ -274,12 +279,11 @@ public class Header extends SettingsPreferenceFragment implements
         }
         int valueIndex = mHeaderProvider.findIndexOfValue(providerName);
         mHeaderProvider.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
-        mHeaderProvider.setSummary(mHeaderProvider.getEntry());
+        mHeaderProvider.setSummary(mHeaderProvider.getEntry()[val]);
         mDaylightHeaderPack.setEnabled(providerName.equals(mDaylightHeaderProvider));
         mFileHeader.setEnabled(providerName.equals(mFileHeaderProvider));
         mHeaderBrowse.setEnabled(isBrowseHeaderAvailable() && providerName.equals(mFileHeaderProvider));
     }
-
 
     @Override
     public int getMetricsCategory() {
