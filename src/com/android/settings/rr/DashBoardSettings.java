@@ -13,9 +13,13 @@
 */
 package com.android.settings.rr;
 
-import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ActionBar;
+import android.app.Activity;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.os.Bundle;
+import android.os.Process;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
@@ -33,7 +37,7 @@ import android.widget.EditText;
 
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-
+import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -50,8 +54,10 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "UI";
     private static final String RR_CONFIG = "rr_config_style";
+    private static final String ONE_UI = "settings_spacer";
 
     private ListPreference mConfig;
+    private SystemSettingSwitchPreference mUI;
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
@@ -68,13 +74,19 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
                 getContentResolver(), Settings.System.RR_CONFIG_STYLE, 0)));
         mConfig.setSummary(mConfig.getEntry());
         mConfig.setOnPreferenceChangeListener(this);
+        
+         mUI = (SystemSettingSwitchPreference) findPreference(ONE_UI);
+        mUI.setOnPreferenceChangeListener(this);
+
+
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.switch_ui_warning);
+       
 
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-           if (preference == mConfig) {
+      if (preference == mConfig) {
             int style = Integer.parseInt((String) objValue);
             Settings.System.putInt(getContentResolver(), Settings.System.RR_CONFIG_STYLE,
             Integer.valueOf((String) objValue));
@@ -84,7 +96,23 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
             fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$MainSettingsLayoutActivity");
             startActivity(fabIntent);
             return true;
-       }
+       } else if (preference == mUI) {
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
+             alertDialog.setMessage(getString(R.string.rr_dashboard_message));
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                         Process.killProcess(Process.myPid());
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+            return true;
+         }
         return false;
     }
 
