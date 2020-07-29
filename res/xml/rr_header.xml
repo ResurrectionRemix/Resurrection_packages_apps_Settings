@@ -90,6 +90,16 @@
             settings:units="@string/unit_percent"
             android:defaultValue="0"
             android:dependency="status_bar_custom_header" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="status_bar_custom_header_height"
+            android:title="@string/status_bar_custom_header_height_title"
+            android:max="100"
+            settings:min="0"
+            android:defaultValue="25"
+            android:icon="@drawable/rr_position_icon"
+            settings:units="dp"
+            android:dependency="status_bar_custom_header" />
     </PreferenceCategory>
 
 </PreferenceScreen>

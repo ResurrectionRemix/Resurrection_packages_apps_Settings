@@ -597,6 +597,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         Settings.System.putIntForUser(resolver,
                 Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR,
                 UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_HEIGHT, 5, UserHandle.USER_CURRENT);
         CutoutSettings.reset(mContext);
     }
 
