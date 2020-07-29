@@ -70,6 +70,15 @@
             android:icon="@drawable/rr_package_icon"
             android:title="@string/daylight_header_pack_title"
             android:dependency="status_bar_custom_header" />
+
+        <Preference
+            android:key="file_header_select"
+            android:title="@string/file_header_select_title"
+            android:icon="@drawable/rr_color_icon"
+            android:summary="@string/file_header_select_summary"
+            android:persistent="false"
+            android:dependency="status_bar_custom_header" >
+        </Preference>
 	
         <Preference
             android:key="custom_header_browse"

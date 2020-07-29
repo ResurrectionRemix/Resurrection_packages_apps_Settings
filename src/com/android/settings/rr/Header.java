@@ -24,6 +24,7 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.provider.Settings;
+import android.net.Uri;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -72,6 +73,8 @@ public class Header extends SettingsPreferenceFragment implements
     private static final String CUSTOM_HEADER_ENABLED = "status_bar_custom_header";
     private static final String TRANSPARENT_HEADER = "qs_header_transparency";
     private static final String R_STYLE_HEADER = "notification_headers";
+    private static final String FILE_HEADER_SELECT = "file_header_select";
+    private static final int REQUEST_PICK_IMAGE = 0;
 
     private Preference mHeaderBrowse;
     private ListPreference mDaylightHeaderPack;
@@ -81,6 +84,8 @@ public class Header extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mNotifHeader;
     private SystemSettingSwitchPreference mTransparentHeader;
     private SystemSettingSwitchPreference mHeader;
+    private Preference mFileHeader;
+    private String mFileHeaderProvider;
 
 
     @Override
@@ -91,7 +96,7 @@ public class Header extends SettingsPreferenceFragment implements
 
         mHeaderBrowse = findPreference(CUSTOM_HEADER_BROWSE);
         mHeaderBrowse.setEnabled(isBrowseHeaderAvailable());
-
+        mFileHeaderProvider = getResources().getString(R.string.file_header_provider);
         mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
 
         mNotifHeader = (SystemSettingSwitchPreference) findPreference(R_STYLE_HEADER);
@@ -129,7 +134,20 @@ public class Header extends SettingsPreferenceFragment implements
         mHeaderProvider.setSummary(mHeaderProvider.getEntry());
         mHeaderProvider.setOnPreferenceChangeListener(this);
         mDaylightHeaderPack.setEnabled(providerName.equals(mDaylightHeaderProvider));
+        mFileHeader = findPreference(FILE_HEADER_SELECT);
 
+    }
+
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mFileHeader) {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(intent, REQUEST_PICK_IMAGE);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
     private void updateTransparentHeaderpref(boolean enabled) {
@@ -199,6 +217,18 @@ public class Header extends SettingsPreferenceFragment implements
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent result) {
+        if (requestCode == REQUEST_PICK_IMAGE) {
+            if (resultCode != Activity.RESULT_OK) {
+                return;
+            }
+            final Uri imageUri = result.getData();
+            Settings.System.putString(getContentResolver(), Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER, "file");
+            Settings.System.putString(getContentResolver(), Settings.System.OMNI_STATUS_BAR_FILE_HEADER_IMAGE, imageUri.toString());
+        }
+    }
+
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         ContentResolver resolver = getActivity().getContentResolver();
           if (preference == mHeader) {
@@ -227,13 +257,29 @@ public class Header extends SettingsPreferenceFragment implements
                     Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER, value);
             int valueIndex = mHeaderProvider.findIndexOfValue(value);
             mHeaderProvider.setSummary(mHeaderProvider.getEntries()[valueIndex]);
-            mDaylightHeaderPack.setEnabled(value.equals(mDaylightHeaderProvider));
-            mHeaderBrowse.setTitle(valueIndex == 0 ? R.string.custom_header_browse_title : R.string.custom_header_pick_title);
-            mHeaderBrowse.setSummary(valueIndex == 0 ? R.string.custom_header_browse_summary_new : R.string.custom_header_pick_summary);
+            updateEnablement();
             return true;
         }
         return false;
     }
+
+    private void updateEnablement() {
+        String providerName = Settings.System.getString(getContentResolver(),
+                Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER);
+        if (providerName == null) {
+            providerName = mDaylightHeaderProvider;
+        }
+        if (!providerName.equals(mDaylightHeaderProvider)) {
+            providerName = mFileHeaderProvider;
+        }
+        int valueIndex = mHeaderProvider.findIndexOfValue(providerName);
+        mHeaderProvider.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
+        mHeaderProvider.setSummary(mHeaderProvider.getEntry());
+        mDaylightHeaderPack.setEnabled(providerName.equals(mDaylightHeaderProvider));
+        mFileHeader.setEnabled(providerName.equals(mFileHeaderProvider));
+        mHeaderBrowse.setEnabled(isBrowseHeaderAvailable() && providerName.equals(mFileHeaderProvider));
+    }
+
 
     @Override
     public int getMetricsCategory() {
