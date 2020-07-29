@@ -46,5 +46,18 @@
        android:entryValues="@array/toast_animation_values"
        android:persistent="false" />
 
+     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+            android:key="toast_icon_color"
+            android:title="@string/toast_icon_color"
+            android:icon="@drawable/rr_color_icon"
+            android:defaultValue="0xffffffff"
+            android:dependency="toast_icon" />
+
+     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+            android:key="toast_text_color"
+            android:title="@string/toast_text_color"
+            android:icon="@drawable/rr_text_icon"
+            android:defaultValue="0xeeff0000" />
+
 </PreferenceScreen>
 
