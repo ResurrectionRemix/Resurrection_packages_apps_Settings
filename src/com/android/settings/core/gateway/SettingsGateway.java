@@ -150,6 +150,7 @@ import com.android.settings.wifi.savedaccesspoints.SavedAccessPointsWifiSettings
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
 import com.android.settings.rr.About;
+import com.android.settings.rr.DozeSettings;
 import com.android.settings.rr.HeadsUp;
 import com.android.settings.rr.ColorSettings;
 import com.android.settings.rr.MainSettings;
@@ -300,6 +301,7 @@ public class SettingsGateway {
             About.class.getName(),
             HeadsUp.class.getName(),
             ColorSettings.class.getName(),
+            DozeSettings.class.getName(),
             LockscreenItemSettings.class.getName(),
             MainSettingsLayout.class.getName(),
             MainSettings.class.getName(),
@@ -355,6 +357,7 @@ public class SettingsGateway {
             Settings.SmartPixelsActivity.class.getName(),
             Settings.AccentColorSettingsActivity.class.getName(),
             Settings.GestureAnywhereSettingsActivity.class.getName(),
+            Settings.DozeSettingsActivity.class.getName(),
             Settings.DevRunningServicesActivity.class.getName(),
     };
 }

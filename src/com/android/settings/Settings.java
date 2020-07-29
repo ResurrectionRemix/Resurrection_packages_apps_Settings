@@ -190,4 +190,5 @@ public class Settings extends SettingsActivity {
     public static class AccentColorSettingsActivity extends SettingsActivity { /* empty */ }
     public static class GestureAnywhereSettingsActivity extends SettingsActivity { /* empty */ }
     public static class DevRunningServicesActivity extends SettingsActivity { /* empty */ }
+    public static class DozeSettingsActivity extends SettingsActivity { /* empty */ }
 }
