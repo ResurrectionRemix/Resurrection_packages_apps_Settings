@@ -56,6 +56,17 @@
    <PreferenceCategory
         android:title="@string/general" >
 
+    <Preference
+        android:key="ambient_display_custom"
+        android:icon="@drawable/rr_aod_icon"
+        android:title="@string/ambient_display_screen_title"
+        android:summary="@string/ambient_display_screen_summary" >
+        <intent
+            android:action="com.android.settings.action.EXTRA_SETTINGS"
+            android:targetPackage="com.custom.ambient.display"
+            android:targetClass="com.custom.ambient.display.DozeSettings" />
+    </Preference>
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
        android:key="doze_trigger_doubletap"
         android:icon="@drawable/rr_tap_icon"
@@ -69,13 +80,6 @@
        android:title="@string/charging_indicator_doze_title"
        android:summary="@string/charging_indicator_doze_summary"
        android:defaultValue="false" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-       android:key="ls_weather_pulsing"
-       android:icon="@drawable/rr_weather_main_icon"
-       android:title="@string/ls_weather_pulsing_title"
-       android:summary="@string/ls_weather_pulsing_summary"
-       android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
        android:key="pulse_on_new_tracks"

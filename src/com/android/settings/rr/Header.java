@@ -262,13 +262,13 @@ public class Header extends SettingsPreferenceFragment implements
                     Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER, value);
             int valueIndex = mHeaderProvider.findIndexOfValue(value);
             mHeaderProvider.setSummary(mHeaderProvider.getEntries()[valueIndex]);
-            updateEnablement(valueIndex);
+            updateEnablement();
             return true;
         }
         return false;
     }
 
-    private void updateEnablement(int val) {
+    private void updateEnablement() {
         String providerName = Settings.System.getString(getContentResolver(),
                 Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER);
         if (providerName == null) {
@@ -279,7 +279,7 @@ public class Header extends SettingsPreferenceFragment implements
         }
         int valueIndex = mHeaderProvider.findIndexOfValue(providerName);
         mHeaderProvider.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
-        mHeaderProvider.setSummary(mHeaderProvider.getEntry()[val]);
+        mHeaderProvider.setSummary(mHeaderProvider.getEntry());
         mDaylightHeaderPack.setEnabled(providerName.equals(mDaylightHeaderProvider));
         mFileHeader.setEnabled(providerName.equals(mFileHeaderProvider));
         mHeaderBrowse.setEnabled(isBrowseHeaderAvailable() && providerName.equals(mFileHeaderProvider));
