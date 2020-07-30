@@ -56,11 +56,14 @@ public class ColorSettings extends SettingsPreferenceFragment implements
     private static final String ACCENT_COLOR = "accent_color";
     private static final String GRADIENT_COLOR = "gradient_color_prop";
     private static final String RESET = "reset";
+    private static final String RESET_GRAD = "reset_2";
     static final int DEFAULT_ACCENT_COLOR = 0xff4285f4;
     static final int DEFAULT_GRADIENT_COLOR = 0xff0d5bd9;
     private SystemSettingColorPickerPreference mAccentColor;
     private SystemSettingColorPickerPreference mGradientColor;
     private Preference mReset;
+    private Preference mResetGrad;
+
 
     @Override
     public int getMetricsCategory() {
@@ -97,6 +100,7 @@ public class ColorSettings extends SettingsPreferenceFragment implements
         mGradientColor.setOnPreferenceChangeListener(this);
 
         mReset = (Preference) findPreference(RESET);
+        mResetGrad = (Preference) findPreference(RESET_GRAD);
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.rr_accent_tutorial);
     }
 
@@ -143,6 +147,22 @@ public class ColorSettings extends SettingsPreferenceFragment implements
                         UserHandle.USER_CURRENT);
                         Settings.System.putIntForUser(getContext().getContentResolver(),
                         Settings.System.GRADIENT_COLOR_PROP, DEFAULT_GRADIENT_COLOR,
+                        UserHandle.USER_CURRENT);
+                    }
+                });
+            alertDialog.setNegativeButton(getString(android.R.string.cancel), null);
+            alertDialog.show();
+        } else if (preference == mResetGrad) {
+            int intColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR, UserHandle.USER_CURRENT);
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
+            alertDialog.setTitle(getString(R.string.rr_reset_grad));
+            alertDialog.setMessage(getString(R.string.rr_reset_grad_summary));
+            alertDialog.setPositiveButton(getString(android.R.string.ok),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Settings.System.putIntForUser(getContext().getContentResolver(),
+                        Settings.System.GRADIENT_COLOR_PROP, intColor,
                         UserHandle.USER_CURRENT);
                     }
                 });
