@@ -95,6 +95,16 @@
     <PreferenceCategory
         android:title="@string/rr_ui_title">
 
+    <ListPreference
+        android:key="theme_switch"
+        android:title="@string/theme_type_title"
+        android:summary="@string/theme_type_summary"
+        android:icon="@drawable/rr_styles_icon"
+        android:dialogTitle="@string/theme_type_summary"
+        android:entries="@array/theme_type_titles"
+        android:entryValues="@array/theme_type_values"
+        android:defaultValue="1"/>
+
      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference  
         android:key="sysui_show_assistant_handles"
         android:icon="@drawable/rr_assist_2_icon"
