@@ -111,7 +111,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
     private static final String SETTINGS_ACTION = "com.android.settings.action.IA_SETTINGS";
     private static final String ABOUT_FRAG = "com.android.settings.rr.About";
     private static final String ABOUT_FRAG_ACT = "com.android.settings.Settings$AboutSettingsActivity";
-    private static final String SETTINGS_ACCENT = "com.android.settings.Settings$AccentColorSettingsActivity";
+    private static final String SETTINGS_ACCENT = "com.android.settings.Settings$ThemeSettingsActivity";
     static final int DEFAULT_ACCENT_COLOR = 0xff4285f4;
 
  	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

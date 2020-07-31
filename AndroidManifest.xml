@@ -2496,6 +2496,18 @@
                 android:value="com.android.settings.rr.fragments.PulseSettings" />
         </activity>
 
+        <activity android:name=".Settings$ThemeSettingsActivity"
+            android:label="@string/rr_themes_title"
+            android:taskAffinity="com.android.settings"
+            android:parentActivityName="Settings">
+            <intent-filter android:priority="1">
+                <action android:name="android.settings.RR_THEMES" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.ThemeSettings" />
+        </activity>
+
         <activity android:name=".Settings$DozeSettingsActivity"
             android:label="@string/rr_doze"
             android:taskAffinity="com.android.settings"
