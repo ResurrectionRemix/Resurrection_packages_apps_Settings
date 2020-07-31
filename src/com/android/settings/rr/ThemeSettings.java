@@ -67,12 +67,14 @@ public class ThemeSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "ThemeSettings";
     private static final String PREF_THEME_SWITCH = "theme_switch";
+    private static final String HEADER = "qs_header_style";
     private static final String RESET = "reset";
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
     private LineageSystemSettingSwitchPreference mWakeProx;
     private LineageSystemSettingSwitchPreference mHighTouch;
     private ListPreference mThemeSwitch;
+    private ListPreference mHeaderStyle;
     private Preference mReset;
     protected Context mContext;
 
@@ -88,6 +90,7 @@ public class ThemeSettings extends SettingsPreferenceFragment implements
         mContext = getActivity();
         mReset = (Preference) findPreference(RESET);
         mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
+        mHeaderStyle = (ListPreference) findPreference(HEADER);
         mThemeSwitch.setOnPreferenceChangeListener(this);
         int systemTheme = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.SYSTEM_THEME, 1, UserHandle.USER_CURRENT);
@@ -95,6 +98,14 @@ public class ThemeSettings extends SettingsPreferenceFragment implements
         mThemeSwitch.setValueIndex(valueIndex);
         mThemeSwitch.setSummary(mThemeSwitch.getEntry());
         mThemeSwitch.setOnPreferenceChangeListener(this);
+
+        boolean enabled = Settings.System.getInt(getContext().getContentResolver(),
+                Settings.System.QS_HIDE_GRADIENT, 0) == 1;
+        if (enabled) {
+            mHeaderStyle.setEnabled(false);
+            mHeaderStyle.setSummary(R.string.gardient_enabled_summary);
+        }
+           
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.rr_themes_tutorial);
     }
 
