@@ -41,6 +41,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 import lineageos.preference.LineageSystemSettingSwitchPreference;
+import com.android.settings.gestures.SystemNavigationPreferenceController;
 import android.provider.Settings;
 
 @SearchIndexable
@@ -50,10 +51,10 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     private static final String KEY_DOZE_ON_CHARGE = "doze_on_charge";
     private static final String KEY_PROX_WAKE = "proximity_on_wake";
     private static final String KEY_HIGH_TOUCH = "high_touch_sensitivity_enable";
-
-
+    private static final String PIXEL = "pixel_nav_animation";
 
     private SystemSettingSwitchPreference mAod;
+    private SystemSettingSwitchPreference mPixel;
     private LineageSystemSettingSwitchPreference mWakeProx;
     private LineageSystemSettingSwitchPreference mHighTouch;
 
@@ -67,6 +68,7 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_interface_other_settings);
         mAod = (SystemSettingSwitchPreference) findPreference(KEY_DOZE_ON_CHARGE);
+        mPixel = (SystemSettingSwitchPreference) findPreference(PIXEL);
         mWakeProx = (LineageSystemSettingSwitchPreference) findPreference(KEY_PROX_WAKE);
         mHighTouch = (LineageSystemSettingSwitchPreference) findPreference(KEY_HIGH_TOUCH);
         boolean dozeAlwaysOnDisplayAvailable = getContext().getResources().
@@ -74,6 +76,13 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         if (!dozeAlwaysOnDisplayAvailable && mAod != null) {
             getPreferenceScreen().removePreference(mAod);
         }
+        if (SystemNavigationPreferenceController.isEdgeToEdgeEnabled(getContext())) {
+            mPixel.setEnabled(false);
+            mPixel.setSummary(R.string.navbar_not_active_pulse);
+        } else {
+            mPixel.setEnabled(true);
+        }
+     
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
