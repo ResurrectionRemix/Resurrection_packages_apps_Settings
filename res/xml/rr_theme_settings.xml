@@ -43,12 +43,26 @@
         android:entries="@array/qs_header_style_entries"
         android:entryValues="@array/qs_header_style_values"/>
 
+    <Preference
+        android:key="accent"
+        android:title="@string/rr_color_settings"
+        android:icon="@drawable/rr_accent_icon"
+        android:summary="@string/rr_color_settings_summary"
+        android:fragment="com.android.settings.rr.ColorSettings" />
+
+    <ListPreference
+        android:key="android.theme.customization.font"
+        android:icon="@drawable/rr_font_size_icon"
+        android:title="@string/theme_customization_font_title"/>
+
     <ListPreference
         android:key="android.theme.customization.adaptive_icon_shape"
+        android:icon="@drawable/rr_shape_icon"
         android:title="@string/theme_customization_icon_shape_title"/>
 
     <ListPreference
         android:key="android.theme.customization.icon_pack.android"
+        android:icon="@drawable/rr_statusbar_icons_icon"
         android:title="@string/theme_customization_sysui_icon_title"/>
 
     <ListPreference
@@ -58,7 +72,7 @@
 
     <ListPreference
         android:key="android.theme.customization.ui_radius"
-        android:icon="@drawable/ic_rounded_corner"
+        android:icon="@drawable/rr_radius_2_icon"
         android:title="@string/theme_customization_ui_radius_title"/>
 
  

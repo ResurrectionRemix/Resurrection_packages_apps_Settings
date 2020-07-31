@@ -76,13 +76,10 @@
 
        <com.android.settings.rr.Preferences.CategoryPreference
             android:key="themes"
-            android:title="@string/rr_themes_title"
+            android:title="@string/rr_themes_rr_title"
             android:summary="@string/rr_themes_sum"
-            android:icon="@drawable/rr_styles_icon_nav" >
-        <intent android:action="android.intent.action.MAIN"
-            android:targetPackage="com.android.wallpaper"
-            android:targetClass="com.android.customization.picker.CustomizationPickerActivity" />
-    </com.android.settings.rr.Preferences.CategoryPreference> 
+            android:icon="@drawable/rr_styles_icon_nav"         
+            android:fragment="com.android.settings.rr.ThemeSettings" />
 
        <com.android.settings.rr.Preferences.CategoryPreference
             android:key="gaming"

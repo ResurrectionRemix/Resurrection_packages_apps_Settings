@@ -25,6 +25,7 @@ import android.app.UiModeManager;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Context;
+import android.content.Intent;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
 import android.graphics.Color;
@@ -74,6 +75,10 @@ public class ThemeSettings extends DashboardFragment implements
     private static final String PREF_THEME_SWITCH = "theme_switch";
     private static final String HEADER = "qs_header_style";
     private static final String RESET = "reset";
+    private static final String ACCENT = "accent";
+    private static final String SETTINGS_FRAG = "com.android.settings";
+    private static final String SETTINGS_ACTION = "com.android.settings.Settings$AccentColorSettingsActivity";
+
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
     private LineageSystemSettingSwitchPreference mWakeProx;
@@ -82,6 +87,7 @@ public class ThemeSettings extends DashboardFragment implements
     private ListPreference mHeaderStyle;
     private Preference mReset;
     protected Context mContext;
+    private Preference mAccent;
 
     @Override
     public int getMetricsCategory() {
@@ -94,7 +100,7 @@ public class ThemeSettings extends DashboardFragment implements
 
 //  
         mContext = getActivity();
-        mReset = (Preference) findPreference(RESET);
+        mAccent = (Preference) findPreference(ACCENT);
         mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
         mHeaderStyle = (ListPreference) findPreference(HEADER);
         mThemeSwitch.setOnPreferenceChangeListener(this);
@@ -122,9 +128,23 @@ public class ThemeSettings extends DashboardFragment implements
         return buildPreferenceControllers(context, getSettingsLifecycle(), this);
     }
 
+    @Override
+    public boolean onPreferenceTreeClick(final Preference preference) {
+         if (preference == mAccent) {
+              Intent settings = new Intent(Intent.ACTION_MAIN);
+              settings.setClassName(SETTINGS_FRAG, SETTINGS_ACTION);
+              startActivity(settings);
+        } else {
+          super.onPreferenceTreeClick(preference);
+        }
+        return true;
+    }
+
     private static List<AbstractPreferenceController> buildPreferenceControllers(
             Context context, Lifecycle lifecycle, Fragment fragment) {
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.font"));
         controllers.add(new OverlayCategoryPreferenceController(context,
                 "android.theme.customization.adaptive_icon_shape"));
         controllers.add(new OverlayCategoryPreferenceController(context,
@@ -150,11 +170,6 @@ public class ThemeSettings extends DashboardFragment implements
     @Override
     protected int getPreferenceScreenResId() {
         return R.xml.rr_theme_settings;
-    }
-
-    @Override
-    public boolean onPreferenceTreeClick(final Preference preference) {
-        return true;
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
