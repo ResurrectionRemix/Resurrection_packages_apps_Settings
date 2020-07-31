@@ -29,16 +29,10 @@
         android:title="@string/theme_type_title"
         android:summary="@string/theme_type_summary"
         android:icon="@drawable/rr_styles_icon"
+        android:persistent="false"
         android:dialogTitle="@string/theme_type_summary"
         android:entries="@array/theme_type_titles"
-        android:entryValues="@array/theme_type_values"
-        android:defaultValue="1"/>
-
-    <Preference
-        android:key="reset"
-        android:title="@string/rr_reset"
-        android:summary="@string/rr_reset_theme_summary"
-        android:icon="@drawable/rr_reset3_icon" />
+        android:entryValues="@array/theme_type_values"/>
 
  
 </PreferenceScreen>
