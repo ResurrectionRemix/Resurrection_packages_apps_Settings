@@ -21,7 +21,6 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.app.UiModeManager;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
@@ -29,6 +28,7 @@ import android.content.Context;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
 import android.graphics.Color;
+import androidx.fragment.app.Fragment;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
@@ -62,8 +62,13 @@ import com.android.settingslib.utils.ThreadUtils;
 import com.android.internal.statusbar.ThemeAccentUtils;
 import com.android.internal.util.rr.RRUtils;
 
+import com.android.settings.dashboard.DashboardFragment;
+import com.android.settings.development.OverlayCategoryPreferenceController;
+import com.android.settingslib.core.AbstractPreferenceController;
+import com.android.settingslib.core.lifecycle.Lifecycle;
+
 @SearchIndexable
-public class ThemeSettings extends SettingsPreferenceFragment implements
+public class ThemeSettings extends DashboardFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "ThemeSettings";
     private static final String PREF_THEME_SWITCH = "theme_switch";
@@ -84,9 +89,10 @@ public class ThemeSettings extends SettingsPreferenceFragment implements
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.rr_theme_settings);
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+
+//  
         mContext = getActivity();
         mReset = (Preference) findPreference(RESET);
         mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
@@ -107,6 +113,43 @@ public class ThemeSettings extends SettingsPreferenceFragment implements
         }
            
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.rr_themes_tutorial);
+    }
+
+
+
+    @Override
+    protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
+        return buildPreferenceControllers(context, getSettingsLifecycle(), this);
+    }
+
+    private static List<AbstractPreferenceController> buildPreferenceControllers(
+            Context context, Lifecycle lifecycle, Fragment fragment) {
+        final List<AbstractPreferenceController> controllers = new ArrayList<>();
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.adaptive_icon_shape"));
+        controllers.add(new OverlayCategoryPreferenceController(context,
+                "android.theme.customization.icon_pack.android"));
+	    controllers.add(new OverlayCategoryPreferenceController(context,
+		"android.theme.customization.statusbar_height"));
+	     controllers.add(new OverlayCategoryPreferenceController(context,
+		    "android.theme.customization.ui_radius"));
+        return controllers;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+
+    @Override
+    protected String getLogTag() {
+        return TAG;
+    }
+
+    @Override
+    protected int getPreferenceScreenResId() {
+        return R.xml.rr_theme_settings;
     }
 
     @Override
