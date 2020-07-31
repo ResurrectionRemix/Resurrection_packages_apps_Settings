@@ -28,6 +28,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import androidx.fragment.app.Fragment;
 import androidx.preference.ListPreference;
@@ -67,7 +68,7 @@ import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.development.OverlayCategoryPreferenceController;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
-
+import com.android.settings.display.darkmode.DarkModeObserver;
 @SearchIndexable
 public class ThemeSettings extends DashboardFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
@@ -88,6 +89,9 @@ public class ThemeSettings extends DashboardFragment implements
     private Preference mReset;
     protected Context mContext;
     private Preference mAccent;
+    private boolean mEnabled;
+    private DarkModeObserver mDarkModeObserver;
+    private Runnable mCallback;
 
     @Override
     public int getMetricsCategory() {
@@ -104,12 +108,25 @@ public class ThemeSettings extends DashboardFragment implements
         mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
         mHeaderStyle = (ListPreference) findPreference(HEADER);
         mThemeSwitch.setOnPreferenceChangeListener(this);
+        mDarkModeObserver = new DarkModeObserver(mContext);
         int systemTheme = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.SYSTEM_THEME, 1, UserHandle.USER_CURRENT);
         int valueIndex = mThemeSwitch.findIndexOfValue(String.valueOf(systemTheme));
         mThemeSwitch.setValueIndex(valueIndex);
         mThemeSwitch.setSummary(mThemeSwitch.getEntry());
         mThemeSwitch.setOnPreferenceChangeListener(this);
+
+        mCallback = () -> {
+            final boolean active = (getContext().getResources().getConfiguration().uiMode
+                    & Configuration.UI_MODE_NIGHT_YES) != 0;
+            if (active) {
+                mThemeSwitch.setEnabled(true);
+            } else {
+                mThemeSwitch.setEnabled(false);
+                mThemeSwitch.setSummary(R.string.dark_ui_warning);
+            }
+        };
+        mDarkModeObserver.subscribe(mCallback);
 
         boolean enabled = Settings.System.getInt(getContext().getContentResolver(),
                 Settings.System.QS_HIDE_GRADIENT, 0) == 1;
@@ -159,6 +176,13 @@ public class ThemeSettings extends DashboardFragment implements
     @Override
     public void onResume() {
         super.onResume();
+        mDarkModeObserver.subscribe(mCallback);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mDarkModeObserver.unsubscribe();
     }
 
 
@@ -178,10 +202,6 @@ public class ThemeSettings extends DashboardFragment implements
             Settings.System.putIntForUser(mContext.getContentResolver(),
                     Settings.System.SYSTEM_THEME, systemThemeValue, UserHandle.USER_CURRENT);
              mThemeSwitch.setSummary(mThemeSwitch.getEntries()[systemThemeValue]);
-             if (systemThemeValue == 7) {
-                 Process.killProcess(Process.myPid());
-             }
-
             return true;
         }
         return false;

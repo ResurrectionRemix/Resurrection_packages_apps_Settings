@@ -18,11 +18,21 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="rr_ui_other"
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
-    android:title="@string/rr_misc_title">
+    android:title="@string/rr_themes_rr_title">
 
 	<com.android.settings.rr.preview.AboutSettingsPreview
         android:layout="@layout/rr_overlay_layout"
         android:selectable="false"/>
+
+    <com.android.settings.display.darkmode.DarkModePreference
+        android:key="dark_ui_mode"
+        android:title="@string/dark_ui_mode"
+        android:icon="@drawable/rr_dark_ui_icon"
+        android:widgetLayout="@null"
+        settings:widgetLayout="@null"
+        settings:controller="com.android.settings.display.DarkUIPreferenceController"
+        android:fragment="com.android.settings.display.darkmode.DarkModeSettingsFragment"
+        settings:searchable="false"/>
 
     <ListPreference
         android:key="theme_switch"
@@ -31,6 +41,7 @@
         android:icon="@drawable/rr_styles_icon"
         android:persistent="false"
         android:dialogTitle="@string/theme_type_summary"
+        android:dependency="dark_ui_mode"
         android:entries="@array/theme_type_titles"
         android:entryValues="@array/theme_type_values"/>
 
