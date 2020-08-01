@@ -37,9 +37,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
 @SearchIndexable
-public class MainSettings extends SettingsPreferenceFragment implements
+public class BatterySettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
-    private static final String TAG = "MainSettings";
+    private static final String TAG = "BatterySettings";
 
     @Override
     public int getMetricsCategory() {
@@ -49,7 +49,7 @@ public class MainSettings extends SettingsPreferenceFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.rr_main_settings);
+        addPreferencesFromResource(R.xml.aggressive_battery);
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) 		{
@@ -66,7 +66,7 @@ public class MainSettings extends SettingsPreferenceFragment implements
                 ArrayList<SearchIndexableResource> result =
                     new ArrayList<SearchIndexableResource>();
                     SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.rr_main_settings;
+                    sir.xmlResId = R.xml.aggressive_battery;
                     result.add(sir);
                     return result;
             }
