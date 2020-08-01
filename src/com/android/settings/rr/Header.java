@@ -76,6 +76,9 @@ public class Header extends SettingsPreferenceFragment implements
     private static final String FILE_HEADER_SELECT = "file_header_select";
     private static final int REQUEST_PICK_IMAGE = 0;
 
+    private static final String STATIC = "static";
+    private static final String DYNAMIC = "daylight";
+
     private Preference mHeaderBrowse;
     private ListPreference mDaylightHeaderPack;
     private SystemSettingSeekBarPreference mHeaderShadow;
@@ -136,7 +139,7 @@ public class Header extends SettingsPreferenceFragment implements
         mHeaderProvider = (ListPreference) findPreference(CUSTOM_HEADER_PROVIDER);
         int valueIndex = mHeaderProvider.findIndexOfValue(providerName);
         mHeaderProvider.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
-        mHeaderProvider.setSummary(mHeaderProvider.getEntry());
+        updateSummary(providerName);
         mHeaderProvider.setOnPreferenceChangeListener(this);
         mDaylightHeaderPack.setEnabled(providerName.equals(mDaylightHeaderProvider));
         mFileHeader = findPreference(FILE_HEADER_SELECT);
@@ -261,11 +264,25 @@ public class Header extends SettingsPreferenceFragment implements
             Settings.System.putString(resolver,
                     Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER, value);
             int valueIndex = mHeaderProvider.findIndexOfValue(value);
-            mHeaderProvider.setSummary(mHeaderProvider.getEntries()[valueIndex]);
+            updateSummary(value);
             updateEnablement();
             return true;
         }
         return false;
+    }
+
+
+    private void updateSummary(String provider) {
+         if (provider == null) {
+             mHeaderProvider.setSummary(R.string.custom_header_rr_title);
+         }
+         if (provider == STATIC) {
+             mHeaderProvider.setSummary(R.string.static_header_provider_title);
+         } else if (provider == STATIC)  {
+             mHeaderProvider.setSummary(R.string.daylight_header_provider_title);
+         }else  {
+             mHeaderProvider.setSummary(R.string.custom_header_rr_title);
+         }
     }
 
     private void updateEnablement() {
@@ -279,7 +296,7 @@ public class Header extends SettingsPreferenceFragment implements
         }
         int valueIndex = mHeaderProvider.findIndexOfValue(providerName);
         mHeaderProvider.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
-        mHeaderProvider.setSummary(mHeaderProvider.getEntry());
+        updateSummary(providerName);
         mDaylightHeaderPack.setEnabled(providerName.equals(mDaylightHeaderProvider));
         mFileHeader.setEnabled(providerName.equals(mFileHeaderProvider));
         mHeaderBrowse.setEnabled(isBrowseHeaderAvailable() && providerName.equals(mFileHeaderProvider));
