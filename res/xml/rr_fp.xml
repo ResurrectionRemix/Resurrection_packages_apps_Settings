@@ -21,9 +21,9 @@
     xmlns:settings="http://schemas.android.com/apk/com.android.settings"
     android:title="@string/rr_fp_title">
 
-    <com.android.settings.rr.preview.AboutSettingsPreview
-        android:layout="@layout/rr_fp_layout"
-        android:selectable="false"/>
+   <Preference
+        android:key="pulse_layout"
+        android:layout="@layout/rr_fingerprint_animation" />
 
     <PreferenceCategory
             android:key="fod_icon_picker"
@@ -45,7 +45,7 @@
                 android:summary="%s"
                 android:entries="@array/fod_pressed_state_entries"
                 android:entryValues="@array/fod_pressed_state_values"
-                android:defaultValue="2" />
+                android:defaultValue="4" />
 
             <!-- FOD recognizing animation -->
             <com.android.settings.rr.Preferences.SystemSettingSwitchPreference

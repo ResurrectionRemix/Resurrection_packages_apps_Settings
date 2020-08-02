@@ -20,9 +20,9 @@
     xmlns:lineage="http://schemas.android.com/apk/res/lineageos.platform"
     android:title="@string/rr_misc_title">
 
-	<com.android.settings.rr.preview.AboutSettingsPreview
-        android:layout="@layout/rr_misc_layout"
-        android:selectable="false"/>
+   <Preference
+        android:key="aod_layout"
+        android:layout="@layout/rr_signature_animation" />
 
     <PreferenceCategory
         android:title="@string/rr_notif_settings_title">
@@ -98,6 +98,11 @@
         android:summary="@string/three_finger_gesture_summary"
         android:defaultValue="false" />
     </PreferenceCategory>
+
+   <!--Preference
+        android:key="assitant_layout"
+        android:layout="@layout/rr_screenshot_animation" /-->
+
  
     <PreferenceCategory
         android:title="@string/rr_ui_title">
@@ -123,6 +128,9 @@
         android:summary="@string/navigation_bar_show_summary"
         android:defaultValue="true" />
     </PreferenceCategory>
+   <!--Preference
+        android:key="assitant_layout"
+        android:layout="@layout/rr_assistant_animation" /-->
 
     <PreferenceCategory
         android:title="@string/rr_call_cat_title">
@@ -135,6 +143,7 @@
         android:entryValues="@array/flashlight_on_call_values"
         android:defaultValue="0" />
     </PreferenceCategory>
+
 
     <PreferenceCategory
         android:title="@string/rr_charging_title">
@@ -183,6 +192,7 @@
         android:icon="@drawable/rr_fp_anim_icon"
         lineage:requiresFeature="lineagehardware:FEATURE_HIGH_TOUCH_SENSITIVITY" />
     </PreferenceCategory>
+
 
  
 </PreferenceScreen>
