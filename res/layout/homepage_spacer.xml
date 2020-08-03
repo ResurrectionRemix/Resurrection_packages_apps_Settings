@@ -25,7 +25,26 @@
     app:cardBackgroundColor="?android:attr/colorPrimary"
     app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
 
-        <include layout="@layout/homepage_animation"/>
+     <include layout="@layout/homepage_animation"/>
+   
+     <TextView 
+        android:id="@+id/spacer_text"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textAppearance="@style/homepage_spacer_title_style"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
+        android:text="@string/settings_label" />
+
+     <ImageView
+        android:id="@+id/spacer_image"
+        android:visibility="gone"
+        android:layout_width="@dimen/homepage_logo_size"
+        android:layout_height="@dimen/homepage_logo_size"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/homepage_spacer_imageview_marginBottom"
+        android:src="@drawable/rr_spacer"/>
 
 </com.google.android.material.card.MaterialCardView>
 

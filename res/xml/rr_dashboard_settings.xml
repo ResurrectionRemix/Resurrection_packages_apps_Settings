@@ -27,6 +27,10 @@
         android:key="animation"
         android:layout="@layout/rr_dashboard_animation" />
 
+         <PreferenceCategory
+            android:key="dashboard_category"
+            android:title="@string/dashboard_category">
+
     <com.android.settings.rr.Preferences.SystemSettingIntListPreference
         android:key="theming_settings_dashboard_icons"
         android:icon="@drawable/rr_shape_icon"
@@ -35,58 +39,83 @@
         android:entryValues="@array/theming_settings_dashboard_icons_values"
         android:defaultValue="0" />
 
-   <!-- Switch Style -->
-    <com.android.settings.rr.Preferences.SystemSettingListPreference
-        android:key="berry_switch_style"
-        android:icon="@drawable/rr_switch_icon"
-        android:title="@string/switch_style_title"
-        android:dialogTitle="@string/switch_style_title"
-        android:entries="@array/switch_style_entries"
-        android:entryValues="@array/switch_style_values"
+      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+    	android:key="enable_conditions"
+    	android:title="@string/dashboard_conditions_title"
+    	android:icon="@drawable/rr_condition_icon"
+    	android:summaryOn="@string/summary_dashboard_conditions_enabled"
+    	android:summaryOff="@string/summary_dashboard_conditions_disabled"
+    	android:defaultValue="true" />
+
+       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+    	android:key="enable_suggestions"
+    	android:icon="@drawable/rr_text_icon"
+    	android:title="@string/dashboard_suggestions_title"
+    	android:summaryOn="@string/summary_dashboard_suggestions_enabled"
+    	android:summaryOff="@string/summary_dashboard_suggestions_disabled"
+    	android:defaultValue="true"/>
+
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="settings_spacer"
+    	android:title="@string/enable_oneui"
+        android:icon="@drawable/rr_header_enable_icon"
+    	android:summary="@string/enable_oneui_summary"
+    	android:defaultValue="false" />
+
+     <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="settings_spacer_style"
+        android:title="@string/settings_spacer_style_title"
+        android:icon="@drawable/rr_styles_icon"
+        android:summary="%s"
+        android:entries="@array/settings_spacer_style_entries"
+        android:dependency="settings_spacer"
+        android:defaultValue="0"
+        android:entryValues="@array/settings_spacer_style_values" />
+
+     <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="settings_spacer_font_style"
+        android:title="@string/settings_spacer_font_style_title"
+        android:dialogTitle="@string/settings_spacer_font_style_title"
+        android:icon="@drawable/rr_font_size_icon"
+        android:entries="@array/lock_clock_fonts_entries"
+        android:entryValues="@array/lock_clock_fonts_values"
+        android:dependency="settings_spacer"
+        android:summary="%s"
         android:defaultValue="0" />
 
+     <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="settings_display_anim"
+        android:title="@string/spacer_font_size"
+        android:dialogTitle="@string/spacer_font_size"
+        android:icon="@drawable/rr_position_icon"
+        android:entries="@array/spacer_font_size_entries"
+        android:entryValues="@array/spacer_font_size_values"
+        android:dependency="settings_spacer"
+        android:summary="%s"
+        android:defaultValue="40" />
+
+        </PreferenceCategory>
+
          <PreferenceCategory
-                android:key="dashboard_category"
-                android:title="@string/dashboard_category">
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            	android:key="settings_spacer"
-            	android:title="@string/enable_oneui"
-                android:icon="@drawable/rr_header_enable_icon"
-            	android:summary="@string/enable_oneui_summary"
-            	android:defaultValue="false" />
+            android:key="rr_category"
+            android:title="@string/rr_tools_category">
 
         <com.android.settings.rr.Preferences.SystemSettingListPreference
-            	android:key="rr_config_style"
-            	android:title="@string/rr_config_style_title"
-                android:icon="@drawable/rr_system_icon"
-            	android:entries="@array/rr_config_style_entries"
-            	android:entryValues="@array/rr_config_style_values" />
+        	android:key="rr_config_style"
+        	android:title="@string/rr_config_style_title"
+            android:icon="@drawable/rr_system_icon"
+        	android:entries="@array/rr_config_style_entries"
+        	android:entryValues="@array/rr_config_style_values" />
 
         <com.android.settings.rr.Preferences.SystemSettingListPreference
-            	android:key="rr_config_anim"
-            	android:title="@string/rr_config_anim_title"
-                android:icon="@drawable/rr_animation_icon"
-            	android:entries="@array/rr_config_anim_entries"
-            	android:entryValues="@array/rr_config_anim_values"                
-                android:defaultValue="0"/>
+        	android:key="rr_config_anim"
+        	android:title="@string/rr_config_anim_title"
+            android:icon="@drawable/rr_animation_icon"
+        	android:entries="@array/rr_config_anim_entries"
+        	android:entryValues="@array/rr_config_anim_values"            
+            android:defaultValue="0"/>
 
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-                android:key="enable_conditions"
-                android:title="@string/dashboard_conditions_title"
-                android:icon="@drawable/rr_condition_icon"
-                android:summaryOn="@string/summary_dashboard_conditions_enabled"
-                android:summaryOff="@string/summary_dashboard_conditions_disabled"
-                android:defaultValue="true" />
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-                android:key="enable_suggestions"
-                android:icon="@drawable/rr_text_icon"
-                android:title="@string/dashboard_suggestions_title"
-                android:summaryOn="@string/summary_dashboard_suggestions_enabled"
-                android:summaryOff="@string/summary_dashboard_suggestions_disabled"
-                android:defaultValue="true"/>
 
         </PreferenceCategory>
 

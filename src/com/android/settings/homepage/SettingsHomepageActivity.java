@@ -31,6 +31,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import androidx.annotation.VisibleForTesting;
@@ -50,8 +51,10 @@ import com.android.settings.overlay.FeatureFactory;
 import eightbitlab.com.blurview.BlurView;
 import eightbitlab.com.blurview.RenderScriptBlur;
 import com.android.settingslib.drawable.CircleFramedDrawable;
+import com.airbnb.lottie.LottieAnimationView;
 
 import android.provider.Settings;
+import com.android.internal.util.rr.RRFontHelper;
 public class SettingsHomepageActivity extends FragmentActivity {
 
     Context context;
@@ -107,7 +110,30 @@ public class SettingsHomepageActivity extends FragmentActivity {
 
         homepageSpacer = findViewById(R.id.settings_homepage_spacer);
         homepageMainLayout = findViewById(R.id.main_content_scrollable_container);
-
+        LottieAnimationView view = homepageSpacer.findViewById(R.id.home_animation);
+        TextView tv = homepageSpacer.findViewById(R.id.spacer_text);
+        ImageView iv = homepageSpacer.findViewById(R.id.spacer_image);
+        try {
+            RRFontHelper.setFontType(tv, getFontStyle());
+            tv.setTextSize(getFontSize());
+            if (configAnim() == 0) {
+                 iv.setVisibility(View.VISIBLE);
+                 tv.setVisibility(View.GONE);
+                 view.setVisibility(View.GONE);
+            } else if (configAnim() == 1) {
+                 iv.setVisibility(View.GONE);
+                 tv.setVisibility(View.GONE);
+                 view.setVisibility(View.VISIBLE);
+            } else if (configAnim() == 2) {
+                 iv.setVisibility(View.GONE);
+                 tv.setVisibility(View.VISIBLE);
+                 view.setVisibility(View.GONE);
+            } else if (configAnim() == 3) {
+                 iv.setVisibility(View.GONE);
+                 tv.setVisibility(View.GONE);
+                 view.setVisibility(View.GONE);
+            } 
+        } catch (Exception e) {}
         if (!isHomepageSpacerEnabled() && homepageSpacer != null && homepageMainLayout != null) {
             homepageSpacer.setVisibility(View.GONE);
             setMargins(homepageMainLayout, 0,0,0,0);
@@ -132,6 +158,21 @@ public class SettingsHomepageActivity extends FragmentActivity {
         Settings.System.SETTINGS_SPACER, 0) != 0;
     }
 
+    private int configAnim() {
+         return Settings.System.getInt(this.getContentResolver(),
+                Settings.System.SETTINGS_SPACER_STYLE, 0);
+    }
+
+    private int getFontStyle() {
+         return Settings.System.getInt(this.getContentResolver(),
+                Settings.System.SETTINGS_SPACER_FONT_STYLE, 0);
+    }
+
+    private int getFontSize() {
+         return Settings.System.getInt(this.getContentResolver(),
+                Settings.System.SETTINGS_DISPLAY_ANIM, 40);
+    }
+
     private static void setMargins (View v, int l, int t, int r, int b) {
         if (v.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
@@ -139,6 +180,7 @@ public class SettingsHomepageActivity extends FragmentActivity {
             v.requestLayout();
         }
     }
+
 
     @VisibleForTesting
     void setHomepageContainerPaddingTop() {

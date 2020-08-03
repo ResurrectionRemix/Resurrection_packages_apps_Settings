@@ -41,13 +41,13 @@ import java.util.ArrayList;
 public class StatusBarWeather extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
     private static final String TAG = "StatusBarWeather";
-    private static final String LOCATION = "status_bar_show_weather_location";
     private static final String WEATHER = "status_bar_show_weather_temp";
-    private static final String UI = "general";
+    private static final String UI = "text";
+    private static final String UI2 = "general";
 
     private ListPreference mWeather;
-    private ListPreference mLocation;
     private PreferenceCategory mUI;
+    private PreferenceCategory mUI2;
 
     @Override
     public int getMetricsCategory() {
@@ -63,10 +63,10 @@ public class StatusBarWeather extends SettingsPreferenceFragment implements
                 Settings.System.STATUS_BAR_SHOW_WEATHER_TEMP, 0);
         mWeather =
                 (ListPreference) findPreference(WEATHER);
-        mLocation =
-                (ListPreference) findPreference(LOCATION);
         mUI =
                 (PreferenceCategory) findPreference(UI);
+        mUI2 =
+                (PreferenceCategory) findPreference(UI2);
         mWeather.setOnPreferenceChangeListener(this);
 
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
@@ -95,14 +95,14 @@ public class StatusBarWeather extends SettingsPreferenceFragment implements
 
     public void updateprefs(int enabled) {
        if (enabled == 0) {
-           mLocation.setEnabled(false);
+           mUI2.setEnabled(false);
            mUI.setEnabled(false);
            return;
        } else if (enabled == 5)  {
-           mLocation.setEnabled(true);
+           mUI2.setEnabled(true);
            mUI.setEnabled(false);
        } else if (enabled != 0 && enabled != 5) {          
-           mLocation.setEnabled(true);
+           mUI2.setEnabled(true);
            mUI.setEnabled(true);
         }
     }

@@ -56,10 +56,17 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
     private static final String RR_CONFIG = "rr_config_style";
     private static final String ONE_UI = "settings_spacer";
     private static final String ANIMATION = "rr_config_anim";
+    private static final String STYLE = "settings_spacer_style";
+    private static final String FONT = "settings_spacer_font_style";
+    private static final String SIZE = "settings_display_anim";
 
     private ListPreference mConfig;
     private SystemSettingSwitchPreference mUI;
     private ListPreference mAnim;
+    private ListPreference mHomeStyle;
+    private ListPreference mHomeFont;
+    private ListPreference mSize;
+
 
     @Override
     public int getMetricsCategory() {
@@ -83,6 +90,15 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
 
         mAnim = (ListPreference) findPreference(ANIMATION);
         mAnim.setOnPreferenceChangeListener(this);
+        int style = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SETTINGS_SPACER_STYLE, 0);
+        mHomeStyle = (ListPreference) findPreference(STYLE);
+        mHomeStyle.setOnPreferenceChangeListener(this);
+        mHomeFont = (ListPreference) findPreference(FONT);
+        mHomeFont.setOnPreferenceChangeListener(this);
+        mSize = (ListPreference) findPreference(SIZE);
+        mSize.setOnPreferenceChangeListener(this);
+        updatePrefs(style);
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -108,9 +124,23 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
             Integer.valueOf((String) objValue));
             mConfig.setValue(String.valueOf(objValue));
             mConfig.setSummary(mConfig.getEntry());
-            Intent fabIntent = new Intent();
-            fabIntent.setClassName("com.android.settings", "com.android.settings.Settings$MainSettingsLayoutActivity");
-            startActivity(fabIntent);
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
+             alertDialog.setMessage(getString(R.string.rr_tools_message));
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                               Intent fabIntent = new Intent();
+                               fabIntent.setClassName("com.android.settings", 
+                                     "com.android.settings.Settings$MainSettingsLayoutActivity");
+                                startActivity(fabIntent);
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
             return true;
        } else if (preference == mUI) {
              AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
@@ -131,12 +161,64 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
          } else if (preference == mAnim) {
              AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
              alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
-             alertDialog.setMessage(getString(R.string.rr_dashboard_message));
+             alertDialog.setMessage(getString(R.string.rr_tools_ui));
              alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int which) {
-                         Process.killProcess(Process.myPid());
-                       }
-                    });
+                             Process.killProcess(Process.myPid());
+                     }
+               });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+            return true;
+         } else if (preference == mHomeStyle) {
+             int val = Integer.parseInt((String) objValue);
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
+             alertDialog.setMessage(getString(R.string.rr_tools_ui));
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                             Process.killProcess(Process.myPid());
+                     }
+               });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+             updatePrefs(val);
+            return true;
+         } else if (preference == mHomeFont) {
+             int val = Integer.parseInt((String) objValue);
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
+             alertDialog.setMessage(getString(R.string.rr_tools_ui));
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                             Process.killProcess(Process.myPid());
+                     }
+               });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+            return true;
+         } else if (preference == mSize) {
+             int val = Integer.parseInt((String) objValue);
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
+             alertDialog.setMessage(getString(R.string.rr_tools_ui));
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                             Process.killProcess(Process.myPid());
+                     }
+               });
               alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
                  public void onClick(DialogInterface dialog, int which) {
                             return;
@@ -151,9 +233,17 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
      @Override
      public boolean onPreferenceTreeClick(Preference preference) {
         return false;
-
     }
 
+    private void updatePrefs(int which) {
+        if (which == 2) {
+            mHomeFont.setEnabled(true);
+            mSize.setEnabled(true);
+        } else {
+            mHomeFont.setEnabled(false);
+            mSize.setEnabled(false);
+        }
+    }
     /**
      * For Search.
      */
