@@ -23,17 +23,6 @@
         android:layout="@layout/rr_header_layout"
         android:selectable="false"/>
 
-     <PreferenceCategory
-        android:key="category_custom_header_general"
-        android:title="@string/general">
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="notification_headers"
-        android:icon="@drawable/rr_new_header_icon"
-        android:title="@string/notification_headers_title"
-        android:summary="@string/notification_headers_summary"
-        android:defaultValue="false" />
-      </PreferenceCategory>
       <PreferenceCategory
         android:key="category_custom_header"
         android:title="@string/custom_header_title">
@@ -113,5 +102,12 @@
             settings:units="dp"
             android:dependency="status_bar_custom_header" />
     </PreferenceCategory>
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="notification_headers"
+        android:icon="@drawable/rr_new_header_icon"
+        android:title="@string/notification_headers_title"
+        android:summary="@string/notification_headers_summary"
+        android:defaultValue="false" />
 
 </PreferenceScreen>

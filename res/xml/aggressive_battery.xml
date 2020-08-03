@@ -27,18 +27,7 @@
 
    <Preference
         android:key="animation"
-        android:layout="@layout/rr_battery_animation" />
-
-    <PreferenceCategory
-        android:title="@string/sensors_title">
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="sensor_block"
-        android:title="@string/sensor_block_title"
-        android:icon="@drawable/rr_sensor_icon"
-        android:summary="@string/sensor_block_summary"
-        android:defaultValue="false" />
-    </PreferenceCategory>
+        android:layout="@layout/rr_battery2_animation" />
 
 
     <PreferenceCategory
@@ -67,6 +56,17 @@
         android:icon="@drawable/rr_battery_style_icon"
         android:defaultValue="true"
         android:disableDependentsState="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/sensors_title">
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="sensor_block"
+        android:title="@string/sensor_block_title"
+        android:icon="@drawable/rr_sensor_icon"
+        android:summary="@string/sensor_block_summary"
+        android:defaultValue="false" />
     </PreferenceCategory>
 </PreferenceScreen>
 

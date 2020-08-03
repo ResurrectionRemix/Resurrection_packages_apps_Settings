@@ -648,7 +648,7 @@ public class FloatingActionsMenu extends ViewGroup {
   }
 
   public void initfabcolor(TypedArray attr,Context ctx) {
-          mAddButtonColorNormal = attr.getColor(R.styleable.FloatingActionsMenu_fab_addButtonColorNormal, getColor(android.R.color.holo_blue_dark));
+          mAddButtonColorNormal = attr.getColor(R.styleable.FloatingActionsMenu_fab_addButtonColorNormal,  Utils.getColorAccentDefaultColor(getContext()));
           mAddButtonColorPressed = attr.getColor(R.styleable.FloatingActionsMenu_fab_addButtonColorPressed, getColor(android.R.color.holo_blue_light));
   }
 }

@@ -166,6 +166,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             mTabs.setVisibility(View.GONE);
             mFab5.setTitle(getString(R.string.fab_layout_toggle));
         }
+        
 
         mFab1.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -182,7 +183,6 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
              Process.killProcess(Process.myPid());
              }
         });
-
         mFab3.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {

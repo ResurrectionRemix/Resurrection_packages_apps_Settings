@@ -28,16 +28,6 @@
         android:key="animation"
         android:layout="@layout/rr_radius_animation" />
 
-    <PreferenceCategory
-        android:title="@string/rr_cutout_main">
-
-    <PreferenceScreen
-        android:key="cutout_settings"
-        android:icon="@drawable/ic_cutout"
-        android:title="@string/cutout_main"
-        android:summary="@string/cutout_main_summary"
-        android:fragment="com.android.settings.rr.CutoutSettings" />
-    </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/rr_ui_title">
@@ -80,4 +70,15 @@
         android:dependency="sysui_rounded_fwvals" />
 
     </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/rr_cutout_main">
+
+    <PreferenceScreen
+        android:key="cutout_settings"
+        android:icon="@drawable/ic_cutout"
+        android:title="@string/cutout_main"
+        android:summary="@string/cutout_main_summary"
+        android:fragment="com.android.settings.rr.CutoutSettings" />
+    </PreferenceCategory>
+
 </PreferenceScreen>

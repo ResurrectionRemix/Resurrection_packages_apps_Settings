@@ -26,16 +26,6 @@
         android:key="animation"
         android:layout="@layout/rr_lock_animation" />
 
-    <PreferenceCategory
-        android:title="@string/rr_doze">
-
-    <Preference
-        android:key="doze"
-        android:icon="@drawable/rr_ad_icon"
-        android:summary="@string/rr_doze_summary"
-        android:fragment="com.android.settings.rr.DozeSettings"
-        android:title="@string/rr_doze_title"/>
-    </PreferenceCategory>
 
     <PreferenceCategory
         android:title="@string/rr_battery">
@@ -55,6 +45,17 @@
        android:summary="@string/lockscreen_battery_info_summary"
        android:defaultValue="false" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_doze">
+
+    <Preference
+        android:key="doze"
+        android:icon="@drawable/rr_ad_icon"
+        android:summary="@string/rr_doze_summary"
+        android:fragment="com.android.settings.rr.DozeSettings"
+        android:title="@string/rr_doze_title"/>
     </PreferenceCategory>
 
     <PreferenceCategory

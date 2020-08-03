@@ -32,6 +32,54 @@
         android:layout="@layout/rr_sound_animation" />
 
      <PreferenceCategory
+
+        android:key="rr_vol"
+        android:title="@string/rr_vol_steps_cat">
+
+        <ListPreference
+                android:key="volume_steps_alarm"
+                android:icon="@drawable/rr_clock_icon"
+                android:title="@string/volume_steps_alarm_title"
+                android:entries="@array/volume_steps_entries"
+                android:entryValues="@array/volume_steps_entries" />
+        <ListPreference
+                android:key="volume_steps_dtmf"
+                android:icon="@drawable/rr_dnd_icon"
+                android:title="@string/volume_steps_dtmf_title"
+                android:entries="@array/volume_steps_entries"
+                android:entryValues="@array/volume_steps_entries" />
+        <ListPreference
+                android:key="volume_steps_music"
+                android:icon="@drawable/rr_media_icon"
+                android:title="@string/volume_steps_music_title"
+                android:entries="@array/volume_steps_entries"
+                android:entryValues="@array/volume_steps_entries" />
+        <ListPreference
+                android:key="volume_steps_notification"
+                android:icon="@drawable/rr_notif_icon"
+                android:title="@string/volume_steps_notification_title"
+                android:entries="@array/volume_steps_entries"
+                android:entryValues="@array/volume_steps_entries" />
+        <ListPreference
+                android:key="volume_steps_ring"
+                android:icon="@drawable/rr_call_vol_icon"
+                android:title="@string/volume_steps_ring_title"
+                android:entries="@array/volume_steps_entries"
+                android:entryValues="@array/volume_steps_entries" />
+        <ListPreference
+                android:key="volume_steps_system"
+                android:icon="@drawable/rr_system_icon"
+                android:title="@string/volume_steps_system_title"
+                android:entries="@array/volume_steps_entries"
+                android:entryValues="@array/volume_steps_entries" />
+        <ListPreference
+                android:key="volume_steps_voice_call"
+                android:icon="@drawable/rr_call_int_icon"
+                android:title="@string/volume_steps_voice_call_title"
+                android:entries="@array/volume_steps_entries"
+                android:entryValues="@array/volume_steps_entries" />
+     </PreferenceCategory>
+     <PreferenceCategory>
         android:key="rr_headset"
         android:title="@string/rr_headset_cat">
 
@@ -43,4 +91,8 @@
         android:entries="@array/ringtone_focus_mode_entries"
         android:entryValues="@array/ringtone_focus_mode_values"
         android:defaultValue="1" />
+
+
+     </PreferenceCategory>
+
 </PreferenceScreen>
