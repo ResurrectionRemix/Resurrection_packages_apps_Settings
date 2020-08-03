@@ -43,9 +43,12 @@ public class StatusBarWeather extends SettingsPreferenceFragment implements
     private static final String TAG = "StatusBarWeather";
     private static final String LOCATION = "status_bar_show_weather_location";
     private static final String WEATHER = "status_bar_show_weather_temp";
+    private static final String UI = "general";
 
     private ListPreference mWeather;
     private ListPreference mLocation;
+    private PreferenceCategory mUI;
+
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
@@ -62,6 +65,8 @@ public class StatusBarWeather extends SettingsPreferenceFragment implements
                 (ListPreference) findPreference(WEATHER);
         mLocation =
                 (ListPreference) findPreference(LOCATION);
+        mUI =
+                (PreferenceCategory) findPreference(UI);
         mWeather.setOnPreferenceChangeListener(this);
 
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
@@ -91,9 +96,15 @@ public class StatusBarWeather extends SettingsPreferenceFragment implements
     public void updateprefs(int enabled) {
        if (enabled == 0) {
            mLocation.setEnabled(false);
-       } else {
+           mUI.setEnabled(false);
+           return;
+       } else if (enabled == 5)  {
            mLocation.setEnabled(true);
-       }
+           mUI.setEnabled(false);
+       } else if (enabled != 0 && enabled != 5) {          
+           mLocation.setEnabled(true);
+           mUI.setEnabled(true);
+        }
     }
 
     /**
