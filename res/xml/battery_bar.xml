@@ -30,7 +30,7 @@
    <Preference
         android:key="animation"
         android:layout="@layout/rr_batterybar_animation" />
-
+ <PreferenceCategory>
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="statusbar_battery_bar"
         android:icon="@drawable/rr_bb_enable_icon"
@@ -131,5 +131,5 @@
         android:title="@string/battery_bar_animate_title"
         android:dependency="statusbar_battery_bar"
         android:defaultValue="false" />
-
+ </PreferenceCategory>
 </PreferenceScreen>

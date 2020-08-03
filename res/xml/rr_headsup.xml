@@ -23,7 +23,7 @@
    <Preference
         android:key="animation"
         android:layout="@layout/rr_volume_animation" />
-
+ <PreferenceCategory>
     <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference
         android:key="heads_up_notifications_enabled"
         android:title="@string/heads_up_title"
@@ -57,5 +57,5 @@
         android:entryValues="@array/heads_up_snooze_values"
         android:dependency="heads_up_notifications_enabled"
         android:persistent="false" />
-
+ </PreferenceCategory>
 </PreferenceScreen>

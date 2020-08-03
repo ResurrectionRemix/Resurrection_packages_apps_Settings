@@ -22,7 +22,7 @@
    <Preference
         android:key="animation"
         android:layout="@layout/rr_visual_animation" />
-
+ <PreferenceCategory>
     <com.android.settings.rr.preview.AboutSettingsPreview
         android:key="preview"
         android:layout="@layout/rr_visual_layout"
@@ -89,4 +89,5 @@
         android:max="255"
         settings:min="0"
         android:dependency="lockscreen_visualizer_enabled"/>
+ </PreferenceCategory>
 </PreferenceScreen>

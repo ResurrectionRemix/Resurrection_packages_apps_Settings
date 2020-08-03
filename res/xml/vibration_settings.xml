@@ -28,7 +28,7 @@
    <Preference
         android:key="animation"
         android:layout="@layout/rr_vib_animation" />
-
+ <PreferenceCategory>
     <!-- In-call feedback -->
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="incall_feeedback_vibrate"
@@ -66,7 +66,7 @@
         android:title="@string/qs_panel_vibrate_title"
         android:summary="@string/qs_panel_vibrate_summary"
         android:defaultValue="false"/>
-
+ </PreferenceCategory>
     <PreferenceCategory
         android:key="vibrate_when_ringing_settings"
         android:title="@string/vibrate_when_ringing_title">

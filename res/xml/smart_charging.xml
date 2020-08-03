@@ -29,6 +29,8 @@
         android:key="animation"
         android:layout="@layout/rr_smart_animation" />
 
+   <PreferenceCategory>
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="smart_charging"
         android:summary="@string/smart_charging_summary"
@@ -63,4 +65,6 @@
         settings:units="%"
         android:defaultValue="60"
         android:dependency="smart_charging" />
+
+   </PreferenceCategory>
 </PreferenceScreen>

@@ -27,7 +27,7 @@
    <Preference
         android:key="animation"
         android:layout="@layout/rr_weather_animation" />
-
+ <PreferenceCategory>
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="lockscreen_weather_enabled"
         android:title="@string/lockscreen_weather_title"
@@ -53,5 +53,6 @@
         android:icon="@drawable/ic_info_outline_24dp"
         android:persistent="false"
         android:summary="@string/lockscreen_items_aod_info_title" />
+ </PreferenceCategory>
 </PreferenceScreen>
 

@@ -29,7 +29,7 @@
         android:key="animation"
         android:layout="@layout/rr_suspend_animation" />
 
-
+ <PreferenceCategory>
     <SwitchPreference
         android:key="screen_state_toggles_enable_key"
         android:title="@string/screen_state_toggles_title"
@@ -58,7 +58,7 @@
         settings:units="@string/unit_sec"
         android:dependency="screen_state_toggles_enable_key"
         android:defaultValue="5" />
-
+ </PreferenceCategory>
     <PreferenceCategory
         android:key="screen_state_toggles_mobile_key"
         android:title="@string/screen_state_toggles_mobile_title">

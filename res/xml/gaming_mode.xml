@@ -27,7 +27,7 @@
         android:key="animation"
         android:layout="@layout/rr_gaming_animation" />
 
-
+ <PreferenceCategory>
     <!-- Master switch -->
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_enabled"
@@ -91,7 +91,7 @@
         android:dependency="gaming_mode_enabled"
         android:icon="@drawable/rr_scroll_icon"
         android:defaultValue="false" />
-
+ </PreferenceCategory>
     <!-- App picker activity for gaming mode -->
     <PreferenceCategory
         android:title="@string/gaming_mode_app_picker_title"

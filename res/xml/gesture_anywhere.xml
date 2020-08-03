@@ -26,7 +26,7 @@
         android:key="preview"
         android:layout="@layout/rr_gesture_anywhere_layout"
         android:selectable="false"/>
-
+ <PreferenceCategory>
     <SwitchPreference
         android:key="gesture_anywhere_enabled"
         android:icon="@drawable/rr_gesture_anywhere_icon"
@@ -82,6 +82,6 @@
         settings:min="1"
         settings:units="%"
         android:dependency="gesture_anywhere_enabled" />
-
+ </PreferenceCategory>
 </PreferenceScreen>
 

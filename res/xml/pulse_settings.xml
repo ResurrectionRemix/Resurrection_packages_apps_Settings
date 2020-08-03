@@ -28,7 +28,7 @@
    <Preference
         android:key="animation"
         android:layout="@layout/pulse_layout" />
-
+ <PreferenceCategory>
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="navbar_pulse_enabled"
         android:title="@string/show_pulse_title"
@@ -52,7 +52,7 @@
         android:summary="@string/smoothing_enabled_summary"
         android:defaultValue="false"
         android:dependency="navbar_pulse_enabled" />
-
+ </PreferenceCategory>
     <PreferenceCategory
         android:key="pulse_color_category"
         android:title="@string/pulse_color"

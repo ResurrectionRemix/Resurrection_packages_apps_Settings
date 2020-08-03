@@ -26,7 +26,7 @@
         android:key="preview"
         android:layout="@layout/rr_logo_layout"
         android:selectable="false"/>
-
+ <PreferenceCategory>
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="status_bar_logo"
         android:icon="@drawable/rr_logo_enable_icon"
@@ -68,5 +68,5 @@
         android:entryValues="@array/status_bar_logo_style_values"
         android:dependency="status_bar_logo"
         android:defaultValue="0" />
-
+ </PreferenceCategory>
 </PreferenceScreen>
