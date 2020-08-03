@@ -96,6 +96,19 @@ public class GestureAnywhereSettings extends SettingsPreferenceFragment implemen
                 return true;
             }
         });
+
+        int anim = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.RR_CONFIG_ANIM, 0);
+        try {
+            if (anim == 0) {
+                removePreference("animation");
+            } else if (anim == 1) {
+                removePreference("preview");
+            } else if (anim == 2) {
+                removePreference("animation");
+                removePreference("preview");
+            }
+        } catch (Exception e) {}
         if (SystemNavigationPreferenceController.isEdgeToEdgeEnabled(mContext)) {
             mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.ga_warning_message);
         } 

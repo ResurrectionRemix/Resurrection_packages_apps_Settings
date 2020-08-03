@@ -28,7 +28,7 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
-
+import android.provider.Settings;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -49,6 +49,19 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.lockscreenitems);
+
+        int anim = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.RR_CONFIG_ANIM, 0);
+        try {
+            if (anim == 0) {
+                removePreference("animation");
+            } else if (anim == 1) {
+                removePreference("preview");
+            } else if (anim == 2) {
+                removePreference("animation");
+                removePreference("preview");
+            }
+        } catch (Exception e) {}
     }
 
     @Override

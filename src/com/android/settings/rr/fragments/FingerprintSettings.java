@@ -38,7 +38,7 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
-
+import android.provider.Settings;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
@@ -62,6 +62,19 @@ public class FingerprintSettings extends SettingsPreferenceFragment implements I
         if (fodIconPickerCategory != null && !supportsFod) {
             fodIconPickerCategory.getParent().removePreference(fodIconPickerCategory);
         }
+
+        int anim = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.RR_CONFIG_ANIM, 0);
+        try {
+            if (anim == 0) {
+                removePreference("animation");
+            } else if (anim == 1) {
+                removePreference("preview");
+            } else if (anim == 2) {
+                removePreference("animation");
+                removePreference("preview");
+            }
+        } catch (Exception e) {}
     }
 
     @Override

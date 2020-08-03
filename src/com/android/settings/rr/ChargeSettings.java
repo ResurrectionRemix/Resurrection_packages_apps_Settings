@@ -56,6 +56,19 @@ public class ChargeSettings extends SettingsPreferenceFragment implements Indexa
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.smart_charging);
+
+        int anim = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.RR_CONFIG_ANIM, 0);
+        try {
+            if (anim == 0) {
+                removePreference("animation");
+            } else if (anim == 1) {
+                removePreference("preview");
+            } else if (anim == 2) {
+                removePreference("animation");
+                removePreference("preview");
+            }
+        } catch (Exception e) {}
     }
 
     @Override

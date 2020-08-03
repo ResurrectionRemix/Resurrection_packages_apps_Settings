@@ -66,6 +66,19 @@ public class ToastAnimations extends SettingsPreferenceFragment implements
         mToastAnimation.setValueIndex(CurrentToastAnimation); //set to index of default value
         mToastAnimation.setSummary(mToastAnimation.getEntries()[CurrentToastAnimation]);
         mToastAnimation.setOnPreferenceChangeListener(this);
+
+        int anim = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.RR_CONFIG_ANIM, 0);
+        try {
+            if (anim == 0) {
+                removePreference("animation");
+            } else if (anim == 1) {
+                removePreference("preview");
+            } else if (anim == 2) {
+                removePreference("animation");
+                removePreference("preview");
+            }
+        } catch (Exception e) {}
     }
 
     @Override

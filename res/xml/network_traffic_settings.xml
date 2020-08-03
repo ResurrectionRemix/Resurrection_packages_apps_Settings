@@ -21,8 +21,13 @@
     android:title="@string/network_traffic_title">
 
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_network_traffic_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_traffic_animation" />
 
     <lineageos.preference.LineageSecureSettingListPreference
         android:key="network_traffic_location"

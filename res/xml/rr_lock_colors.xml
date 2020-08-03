@@ -19,9 +19,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
-       <com.android.settings.rr.preview.AboutSettingsPreview
-            android:layout="@layout/rr_clock_layout"
-            android:selectable="false"/>
+	<com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
+        android:layout="@layout/rr_accent_layout"
+        android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/accent_animation" />
+
 
     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="lockscreen_clock_color"

@@ -20,7 +20,12 @@
 
     <com.android.settings.rr.preview.AboutSettingsPreview
         android:layout="@layout/rr_carrier_layout"
+        android:key="preview"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_label_animation" />
 
     <com.android.settings.rr.Preferences.SystemSettingIntListPreference
            android:key="status_bar_show_carrier"

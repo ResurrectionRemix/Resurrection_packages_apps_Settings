@@ -15,8 +15,13 @@
     android:title="@string/rr_misc_title">
 
 	<com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_misc_main_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_misc_animation" />
 
     <!--Preference
       android:key="rr_about"

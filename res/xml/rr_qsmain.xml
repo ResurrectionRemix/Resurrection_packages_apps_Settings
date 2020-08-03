@@ -17,8 +17,13 @@
     android:title="@string/rr_qs_title">
 
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_qs_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_qs_animation" />
 
     <PreferenceCategory
         android:title="@string/qs_tile_layout_title">

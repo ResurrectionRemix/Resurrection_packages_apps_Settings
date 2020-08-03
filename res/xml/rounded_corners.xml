@@ -20,8 +20,13 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_corners_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_radius_animation" />
 
     <PreferenceCategory
         android:title="@string/rr_cutout_main">

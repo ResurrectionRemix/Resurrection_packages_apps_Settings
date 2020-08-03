@@ -21,8 +21,13 @@
     android:title="@string/rr_battery_saving" >
 
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_sensor_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_battery_animation" />
 
     <PreferenceCategory
         android:title="@string/sensors_title">

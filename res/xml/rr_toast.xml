@@ -18,10 +18,15 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_toast_title">
 
-	<com.android.settings.rr.preview.AboutSettingsPreview
-        android:layout="@layout/rr_toast_layout"
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_toast_animation" />
+
+    <com.android.settings.rr.preview.AboutSettingsPreview
         android:key="preview"
+        android:layout="@layout/rr_toast_layout"
         android:selectable="false"/>
+
 
      <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference
        android:key="toast_icon"

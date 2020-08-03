@@ -18,8 +18,13 @@
     android:key="gaming"
     android:title="@string/gaming_mode_title">
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
+        android:layout="@layout/rr_gaming_layout"
+        android:selectable="false"/>
+
    <Preference
-        android:key="aod_layout"
+        android:key="animation"
         android:layout="@layout/rr_gaming_animation" />
 
 

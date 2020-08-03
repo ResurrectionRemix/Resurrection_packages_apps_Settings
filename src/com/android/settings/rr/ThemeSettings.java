@@ -63,7 +63,7 @@ import java.util.Objects;
 import com.android.settingslib.utils.ThreadUtils;
 import com.android.internal.statusbar.ThemeAccentUtils;
 import com.android.internal.util.rr.RRUtils;
-
+import com.android.settings.rr.preview.AboutSettingsPreview;
 import com.android.settings.dashboard.DashboardFragment;
 import com.android.settings.development.OverlayCategoryPreferenceController;
 import com.android.settingslib.core.AbstractPreferenceController;
@@ -79,7 +79,8 @@ public class ThemeSettings extends DashboardFragment implements
     private static final String ACCENT = "accent";
     private static final String SETTINGS_FRAG = "com.android.settings";
     private static final String SETTINGS_ACTION = "com.android.settings.Settings$AccentColorSettingsActivity";
-
+    private static final String ANIM = "animation";
+    private static final String STATIC = "preview";
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
     private LineageSystemSettingSwitchPreference mWakeProx;
@@ -93,6 +94,9 @@ public class ThemeSettings extends DashboardFragment implements
     private DarkModeObserver mDarkModeObserver;
     private Runnable mCallback;
 
+    private Preference mAnim;
+    private AboutSettingsPreview mStatic;
+
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
@@ -101,8 +105,6 @@ public class ThemeSettings extends DashboardFragment implements
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-
-//  
         mContext = getActivity();
         mAccent = (Preference) findPreference(ACCENT);
         mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
@@ -127,14 +129,34 @@ public class ThemeSettings extends DashboardFragment implements
             }
         };
         mDarkModeObserver.subscribe(mCallback);
-
+        mAnim = (Preference) findPreference(ANIM);
+        mStatic = (AboutSettingsPreview) findPreference(STATIC);
         boolean enabled = Settings.System.getInt(getContext().getContentResolver(),
                 Settings.System.QS_HIDE_GRADIENT, 0) == 1;
         if (enabled) {
             mHeaderStyle.setEnabled(false);
             mHeaderStyle.setSummary(R.string.gardient_enabled_summary);
         }
-           
+
+        int nav = Settings.System.getInt(getContext().getContentResolver(),
+                Settings.System.RR_CONFIG_STYLE, 0);
+        if (nav != 2) {
+            if (mRRbg != null) {
+                screen.removePreference(mRRbg);
+            }
+        }
+        int anim = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.RR_CONFIG_ANIM, 0);
+        try {
+            if (anim == 0) {
+                screen.removePreference(mAnim);
+            } else if (anim == 1) {
+                screen.removePreference(mStatic);
+            } else if (anim == 2) {
+                screen.removePreference(mAnim);
+                screen.removePreference(mStatic);
+            }
+        } catch (Exception e) {}
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.rr_themes_tutorial);
     }
 

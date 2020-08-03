@@ -20,8 +20,13 @@
     android:title="@string/rr_parts_title">
 
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_parts_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_parts_animation" />
 
     <Preference
         android:key="lockscreen_settings"

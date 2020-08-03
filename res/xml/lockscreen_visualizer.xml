@@ -19,7 +19,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/music_visualizer_title" >
 
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_visual_animation" />
+
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_visual_layout"
         android:selectable="false"/>
 

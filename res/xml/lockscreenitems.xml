@@ -20,8 +20,13 @@
     android:key="rr_ls_weather">
 
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_weather_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_weather_animation" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="lockscreen_weather_enabled"

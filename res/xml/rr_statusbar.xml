@@ -20,8 +20,13 @@
 
 
 	<com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_sb_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_statusbar_animation" />
 
     <Preference
         android:key="status_bar_clock_date_settings"

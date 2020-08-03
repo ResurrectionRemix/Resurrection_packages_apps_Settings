@@ -55,9 +55,12 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
     private static final String TAG = "UI";
     private static final String RR_CONFIG = "rr_config_style";
     private static final String ONE_UI = "settings_spacer";
+    private static final String ANIMATION = "rr_config_anim";
 
     private ListPreference mConfig;
     private SystemSettingSwitchPreference mUI;
+    private ListPreference mAnim;
+
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
@@ -75,10 +78,23 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         mConfig.setSummary(mConfig.getEntry());
         mConfig.setOnPreferenceChangeListener(this);
         
-         mUI = (SystemSettingSwitchPreference) findPreference(ONE_UI);
+        mUI = (SystemSettingSwitchPreference) findPreference(ONE_UI);
         mUI.setOnPreferenceChangeListener(this);
 
-
+        mAnim = (ListPreference) findPreference(ANIMATION);
+        mAnim.setOnPreferenceChangeListener(this);
+        int anim = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.RR_CONFIG_ANIM, 0);
+        try {
+            if (anim == 0) {
+                removePreference("animation");
+            } else if (anim == 1) {
+                removePreference("preview");
+            } else if (anim == 2) {
+                removePreference("animation");
+                removePreference("preview");
+            }
+        } catch (Exception e) {}
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.switch_ui_warning);
        
 
@@ -97,6 +113,22 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
             startActivity(fabIntent);
             return true;
        } else if (preference == mUI) {
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
+             alertDialog.setMessage(getString(R.string.rr_dashboard_message));
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                         Process.killProcess(Process.myPid());
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+            return true;
+         } else if (preference == mAnim) {
              AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
              alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
              alertDialog.setMessage(getString(R.string.rr_dashboard_message));

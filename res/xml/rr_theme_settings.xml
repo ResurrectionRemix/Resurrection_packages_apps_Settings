@@ -21,8 +21,14 @@
     android:title="@string/rr_themes_rr_title">
 
 	<com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_overlay_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_themes_animation" />
+
 
     <com.android.settings.display.darkmode.DarkModePreference
         android:key="dark_ui_mode"

@@ -18,7 +18,12 @@
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:title="@string/rr_sb_gestures_title">
 
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_gesture_animation" />
+
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_gestures_layout"
         android:selectable="false"/>
 

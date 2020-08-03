@@ -19,8 +19,13 @@
         android:title="@string/rr_system_settings">
 
 	<com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_system_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_buttons_animation" />
 
     <Preference
         android:key="accent"

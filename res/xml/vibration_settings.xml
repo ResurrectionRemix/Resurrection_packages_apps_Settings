@@ -21,8 +21,13 @@
     settings:keywords="@string/keywords_vibration_preferences">
 
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_vib_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_vib_animation" />
 
     <!-- In-call feedback -->
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference

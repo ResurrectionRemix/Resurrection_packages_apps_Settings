@@ -24,7 +24,12 @@
 
     <com.android.settings.rr.preview.AboutSettingsPreview
         android:layout="@layout/rr_sound_layout"
+        android:key="preview"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_sound_animation" />
 
      <PreferenceCategory
         android:key="rr_headset"

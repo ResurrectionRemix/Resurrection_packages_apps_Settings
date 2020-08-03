@@ -20,9 +20,13 @@
     android:title="@string/weather_title">
 
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_weather_layout"
         android:selectable="false"/>
 
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_weather_animation" />
         <PreferenceScreen
             android:title="@string/weather_config_title"
             android:icon="@drawable/rr_clock_date_pos_icon"

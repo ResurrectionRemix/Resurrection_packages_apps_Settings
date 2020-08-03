@@ -19,8 +19,13 @@
     android:title="@string/rr_dash_board_title">
 
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_dashboard_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_dashboard_animation" />
 
     <com.android.settings.rr.Preferences.SystemSettingIntListPreference
         android:key="theming_settings_dashboard_icons"
@@ -57,6 +62,15 @@
                 android:icon="@drawable/rr_system_icon"
             	android:entries="@array/rr_config_style_entries"
             	android:entryValues="@array/rr_config_style_values" />
+
+        <com.android.settings.rr.Preferences.SystemSettingListPreference
+            	android:key="rr_config_anim"
+            	android:title="@string/rr_config_anim_title"
+                android:icon="@drawable/rr_animation_icon"
+            	android:entries="@array/rr_config_anim_entries"
+            	android:entryValues="@array/rr_config_anim_values"                
+                android:defaultValue="0"/>
+
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="enable_conditions"

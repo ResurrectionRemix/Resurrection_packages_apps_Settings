@@ -60,6 +60,66 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.rr_sound);
+        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        mAvailableKeys = volume_map.keySet();
+        // remove invalid audio stream prefs
+        boolean isPhone = TelephonyManager.getDefault().getCurrentPhoneType() != TelephonyManager.PHONE_TYPE_NONE;
+        if (!isPhone) {
+            // remove telephony keys from available set
+            mAvailableKeys.removeAll(telephony_set);
+            for (String key : telephony_set) {
+                Preference toRemove = prefScreen.findPreference(key);
+                if (toRemove != null) {
+                    prefScreen.removePreference(toRemove);
+                }
+            }
+        }
+        // check prefs for initial run of this fragment
+        final boolean firstRun = checkForFirstRun();
+        // entries array isn't translatable ugh
+        final String defEntry = getString(R.string.volume_steps_reset);
+        // initialize prefs: set defaults if first run, set listeners and update values
+        for (String key : mAvailableKeys) {
+            Preference pref = prefScreen.findPreference(key);
+            if (pref == null || !(pref instanceof ListPreference)) {
+                continue;
+            }
+            final ListPreference listPref = (ListPreference) pref;
+            int steps = mAudioManager.getStreamMaxVolume(volume_map.get(key));
+            if (firstRun) {
+                saveDefaultSteps(listPref, steps);
+            }
+            final int defSteps = getDefaultSteps(listPref);
+            CharSequence[] entries = new CharSequence[listPref.getEntries().length + 1];
+            CharSequence[] values = new CharSequence[listPref.getEntryValues().length + 1];
+            for (int i = 0; i < entries.length; i++) {
+                if (i == 0) {
+                    entries[i] = defEntry;
+                    values[i] = String.valueOf(defSteps);
+                    continue;
+                }
+                entries[i] = listPref.getEntries()[i - 1];
+                values[i] = listPref.getEntryValues()[i - 1];
+            }
+            listPref.setEntries(entries);
+            listPref.setEntryValues(values);
+            updateVolumeStepPrefs(listPref, steps);
+            listPref.setOnPreferenceChangeListener(this);
+        }
+
+        int anim = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.RR_CONFIG_ANIM, 0);
+        try {
+            if (anim == 0) {
+                removePreference("animation");
+            } else if (anim == 1) {
+                removePreference("preview");
+            } else if (anim == 2) {
+                removePreference("animation");
+                removePreference("preview");
+            }
+        } catch (Exception e) {}
     }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {

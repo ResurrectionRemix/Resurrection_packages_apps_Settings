@@ -22,8 +22,14 @@
     android:title="@string/rr_volume_title">
 
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_volume_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_volume_animation" />
+ 
 
     <PreferenceCategory
         android:title="@string/rr_ui_title">

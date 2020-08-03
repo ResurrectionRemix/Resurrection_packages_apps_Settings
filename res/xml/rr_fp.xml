@@ -21,8 +21,14 @@
     xmlns:settings="http://schemas.android.com/apk/com.android.settings"
     android:title="@string/rr_fp_title">
 
+
+
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
+        android:layout="@layout/rr_fp_layout"
+        android:selectable="false"/>
    <Preference
-        android:key="pulse_layout"
+        android:key="animation"
         android:layout="@layout/rr_fingerprint_animation" />
 
     <PreferenceCategory

@@ -15,8 +15,13 @@
     android:title="@string/rr_battery">
 
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_battery_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_battery_animation" />
 
     <PreferenceCategory
         android:key="status_bar_battery_key"

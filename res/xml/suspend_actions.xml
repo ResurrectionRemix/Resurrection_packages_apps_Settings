@@ -22,7 +22,12 @@
 
     <com.android.settings.rr.preview.AboutSettingsPreview
         android:layout="@layout/rr_suspend_layout"
+        android:key="preview"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_suspend_animation" />
 
 
     <SwitchPreference

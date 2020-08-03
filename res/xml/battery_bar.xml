@@ -23,8 +23,13 @@
     android:title="@string/battery_bar_title">
 
     <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
         android:layout="@layout/rr_battery_bar_layout"
         android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_batterybar_animation" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="statusbar_battery_bar"

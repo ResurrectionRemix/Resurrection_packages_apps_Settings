@@ -101,6 +101,20 @@ public class ColorSettings extends SettingsPreferenceFragment implements
 
         mReset = (Preference) findPreference(RESET);
         mResetGrad = (Preference) findPreference(RESET_GRAD);
+
+        int anim = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.RR_CONFIG_ANIM, 0);
+        try {
+            if (anim == 0) {
+                removePreference("animation");
+            } else if (anim == 1) {
+                removePreference("preview");
+            } else if (anim == 2) {
+                removePreference("animation");
+                removePreference("preview");
+            }
+        } catch (Exception e) {}
+
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.rr_accent_tutorial);
     }
 

@@ -20,6 +20,16 @@
     android:title="@string/system_animation_title"
     android:key="system_animation">
 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
+        android:layout="@layout/rr_anim_layout"
+        android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_anim_animation" />
+
+
         <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference
             android:key="disable_transition_animations"
             android:icon="@drawable/rr_disabled_icon"

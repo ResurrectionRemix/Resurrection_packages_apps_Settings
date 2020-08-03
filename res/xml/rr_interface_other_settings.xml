@@ -21,8 +21,13 @@
     android:title="@string/rr_misc_title">
 
    <Preference
-        android:key="aod_layout"
+        android:key="animation"
         android:layout="@layout/rr_signature_animation" />
+ 
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
+        android:layout="@layout/rr_misc_layout"
+        android:selectable="false"/>
 
     <PreferenceCategory
         android:title="@string/rr_notif_settings_title">

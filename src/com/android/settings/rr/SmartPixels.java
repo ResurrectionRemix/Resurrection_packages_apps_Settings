@@ -40,7 +40,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-
+import android.provider.Settings;
 
 import java.util.Arrays;
 import java.util.List;
@@ -56,6 +56,19 @@ public class SmartPixels extends SettingsPreferenceFragment implements Indexable
 
         addPreferencesFromResource(R.xml.smart_pixels);
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.smart_pixels_warning_text);
+
+        int anim = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.RR_CONFIG_ANIM, 0);
+        try {
+            if (anim == 0) {
+                removePreference("animation");
+            } else if (anim == 1) {
+                removePreference("preview");
+            } else if (anim == 2) {
+                removePreference("animation");
+                removePreference("preview");
+            }
+        } catch (Exception e) {}
     }
 
     @Override
