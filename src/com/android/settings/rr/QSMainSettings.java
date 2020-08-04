@@ -51,7 +51,6 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
-    private static final String QS_TILE_STYLE = "qs_tile_style";
     private static final int PULLDOWN_DIR_NONE = 0;
     private static final int PULLDOWN_DIR_RIGHT = 1;
     private static final int PULLDOWN_DIR_LEFT = 2;
@@ -65,7 +64,6 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
 
     private LineageSecureSettingListPreference mQsPos;
     private SystemSettingListPreference mQsAuto;
-    private ListPreference mQsTileStyle;
     private SystemSettingListPreference mBgMode;
     private SystemSettingListPreference mIconMode;
     private SystemSettingColorPickerPreference mBgColor;
@@ -106,14 +104,6 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
         mContext = getActivity().getApplicationContext();
-        mQsTileStyle = (ListPreference) findPreference(QS_TILE_STYLE);
-        int qsTileStyle = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_TILE_STYLE, 0,
-  	        UserHandle.USER_CURRENT);
-        int valueIndex = mQsTileStyle.findIndexOfValue(String.valueOf(qsTileStyle));
-        mQsTileStyle.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
-        mQsTileStyle.setSummary(mQsTileStyle.getEntry());
-        mQsTileStyle.setOnPreferenceChangeListener(this);
 
         int color = Settings.System.getInt(getContentResolver(),
                 Settings.System.NOTIF_CLEAR_ALL_BG_COLOR, 0x3980FF) ;
@@ -172,12 +162,6 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
          if (preference == mQuickPulldown) {
              int value = Integer.parseInt((String) newValue);
              updateQuickPulldownSummary(value);
-             return true;
-        } else if (preference == mQsTileStyle) {
-             int qsTileStyleValue = Integer.valueOf((String) newValue);
-             Settings.System.putIntForUser(resolver, Settings.System.QS_TILE_STYLE,
-                     qsTileStyleValue, UserHandle.USER_CURRENT);
-             mQsTileStyle.setSummary(mQsTileStyle.getEntries()[qsTileStyleValue]);
              return true;
         } else if (preference == mBgMode) {
              int value = Integer.parseInt((String) newValue);

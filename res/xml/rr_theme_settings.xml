@@ -81,6 +81,15 @@
         android:defaultValue="0" />
 
     <ListPreference
+         android:key="qs_tile_style"
+         android:title="@string/qs_tile_style_title"
+         android:summary="%s"
+         android:persistent="false"
+         android:icon="@drawable/rr_shape2_icon"
+         android:entries="@array/qs_selector_entries"
+         android:entryValues="@array/qs_selector_values" />
+
+    <ListPreference
         android:key="android.theme.customization.font"
         android:icon="@drawable/rr_font_size_icon"
         android:title="@string/theme_customization_font_title"/>
