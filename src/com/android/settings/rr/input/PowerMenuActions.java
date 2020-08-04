@@ -40,7 +40,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
-
+import com.android.settings.rr.Preferences.*;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,11 @@ import java.util.Map;
 @SearchIndexable
 public class PowerMenuActions extends SettingsPreferenceFragment
                 implements Preference.OnPreferenceChangeListener, Indexable {
+    private static final String DIM = "transparent_power_dialog_dim";
+    private static final String FILTER = "power_menu_bg";
 
+    private SystemSettingSwitchPreference mFilter;
+    private SystemSettingSeekBarPreference mDim;
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
@@ -58,6 +62,12 @@ public class PowerMenuActions extends SettingsPreferenceFragment
 
         final ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefScreen = getPreferenceScreen();
+
+        mDim = (SystemSettingSeekBarPreference) findPreference(DIM);
+        mFilter = (SystemSettingSwitchPreference) findPreference(FILTER);
+        mFilter.setOnPreferenceChangeListener(this);
+        boolean ischecked = mFilter.isChecked();
+        updatepref(ischecked);
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -73,9 +83,20 @@ public class PowerMenuActions extends SettingsPreferenceFragment
 
     }
 
+    public void updatepref(boolean enabled) {
+        if (enabled) 
+            mDim.setEnabled(false);
+        else
+            mDim.setEnabled(true);
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-
+          if (preference == mFilter) {
+               boolean value = (Boolean) newValue;
+               updatepref(value);
+              return true;
+        }
         return false;
     }
 

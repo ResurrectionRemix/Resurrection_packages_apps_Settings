@@ -49,6 +49,23 @@
         android:min="0"
         settings:units="%"
         android:defaultValue="50" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="power_menu_bg"
+            android:title="@string/power_menu_bg_title"
+            android:icon="@drawable/rr_color_icon"
+            android:summary="@string/power_menu_bg_summary"
+            android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+            android:key="power_menu_bg_style"
+            android:title="@string/power_menu_bg_style_title"
+            android:icon="@drawable/rr_styles_icon"
+            android:entries="@array/power_menu_bg_style_entries"
+            android:entryValues="@array/power_menu_bg_style_values"
+            android:dependency="power_menu_bg"
+            android:defaultValue="0" />
+
      </PreferenceCategory>
 
      <PreferenceCategory
