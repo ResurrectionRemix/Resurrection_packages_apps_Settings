@@ -72,12 +72,16 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
     private static final String GRAD_TILE = "qs_tile_gradient";
     private static final String TILE_INACTIVE = "qs_tile_accent_tint_inactive";
+    private static final String QS_FW = "qs_panel_bg_use_fw";
+    private static final String DARK_TILE = "qs_tile_icon_primary";
 
     private LineageSecureSettingListPreference mQsPos;
     private SystemSettingListPreference mQsAuto;
     private SystemSettingListPreference mBgMode;
     private SystemSettingListPreference mIconMode;
     private SystemSettingSwitchPreference mRgb;
+    private SystemSettingSwitchPreference mUseFw;
+    private SystemSettingSwitchPreference mDarkTile;
     private SystemSettingSwitchPreference mInactiveTile;
     private SystemSettingSwitchPreference mTileGradient;
     private PreferenceCategory mThemes;
@@ -96,6 +100,12 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         mRgb =
                 (SystemSettingSwitchPreference) findPreference(RGB);
         mRgb.setOnPreferenceChangeListener(this);
+
+        mUseFw =
+                (SystemSettingSwitchPreference) findPreference(QS_FW);
+        mUseFw.setOnPreferenceChangeListener(this);
+        mDarkTile =
+                (SystemSettingSwitchPreference) findPreference(DARK_TILE);
         mThemes =
                 (PreferenceCategory) findPreference(THEMES);
         int qsTileStyle = Settings.System.getIntForUser(resolver,
@@ -172,6 +182,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         updateIconprefs(iconmode);
         updatesliderprefs(position);
         updateThemespref(mRgb.isChecked());
+        updateDarktileState(mUseFw.isChecked());
         updateInactivePrefs(qsTileStyle, mTileGradient.isChecked());
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
@@ -186,6 +197,15 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
             }
         } catch (Exception e) {}
 
+    }
+
+    public void updateDarktileState(boolean enabled) {
+        if (enabled) 
+            mDarkTile.setEnabled(true);
+        else {
+            mDarkTile.setEnabled(false);
+            mDarkTile.setSummary(R.string.enable_custom_fw); 
+        }
     }
  
     public void updateInactivePrefs(int mode, boolean active) {
@@ -265,7 +285,11 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
   	         UserHandle.USER_CURRENT);
              updateInactivePrefs(qsTileStyle, value);
              return true;
-        }
+        }  else if (preference == mUseFw) {
+             boolean value = (Boolean) newValue;
+             updateDarktileState(value);
+             return true;
+        } 
         return false;
     }
 
