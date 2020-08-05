@@ -78,11 +78,6 @@ public class ColorSettings extends SettingsPreferenceFragment implements
         int intColor = Settings.System.getIntForUser(getContext().getContentResolver(),
                 Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR, UserHandle.USER_CURRENT);
         String hexColor = String.format("#%08x", (0xff4285f4 & intColor));
-        if (hexColor.equals("#ff4285f4")) {
-            mAccentColor.setSummary(R.string.theme_picker_default);
-        } else {
-            mAccentColor.setSummary(hexColor);
-        }
         mAccentColor.setNewPreviewColor(intColor);
         mAccentColor.setAlphaSliderEnabled(false);
         mAccentColor.setOnPreferenceChangeListener(this);
@@ -90,11 +85,6 @@ public class ColorSettings extends SettingsPreferenceFragment implements
         int intgColor = Settings.System.getIntForUser(getContext().getContentResolver(),
                 Settings.System.GRADIENT_COLOR_PROP, DEFAULT_ACCENT_COLOR, UserHandle.USER_CURRENT);
         String hexColor1 = String.format("#%08x", (0xff4285f4 & intColor));
-        if (hexColor.equals("#ff4285f4")) {
-            mGradientColor.setSummary(R.string.theme_picker_default);
-        } else {
-            mGradientColor.setSummary(hexColor1);
-        }
         mGradientColor.setNewPreviewColor(intgColor);
         mGradientColor.setAlphaSliderEnabled(false);
         mGradientColor.setOnPreferenceChangeListener(this);
@@ -122,11 +112,6 @@ public class ColorSettings extends SettingsPreferenceFragment implements
          if (preference == mAccentColor) {
              String hex = SystemSettingColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-             if (hex.equals("#ff4285f4")) {
-                 mAccentColor.setSummary(R.string.theme_picker_default);
-             } else {
-                 mAccentColor.setSummary(hex);
-             }
              int intHex = SystemSettingColorPickerPreference.convertToColorInt(hex);
                   Settings.System.putIntForUser(getContext().getContentResolver(),
                   Settings.System.ACCENT_COLOR, intHex, UserHandle.USER_CURRENT);
@@ -134,11 +119,6 @@ public class ColorSettings extends SettingsPreferenceFragment implements
            } else if (preference == mGradientColor) {
              String hex = SystemSettingColorPickerPreference.convertToARGB(
                     Integer.valueOf(String.valueOf(newValue)));
-             if (hex.equals("#ff0d5bd9")) {
-                 mGradientColor.setSummary(R.string.theme_picker_default);
-             } else {
-                 mGradientColor.setSummary(hex);
-             }
              int intHex = SystemSettingColorPickerPreference.convertToColorInt(hex);
                   Settings.System.putIntForUser(getContext().getContentResolver(),
                   Settings.System.GRADIENT_COLOR_PROP, intHex, UserHandle.USER_CURRENT);
