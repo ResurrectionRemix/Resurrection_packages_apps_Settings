@@ -22,6 +22,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.RemoteException;
 import androidx.preference.Preference;
+import androidx.preference.PreferenceCategory;
 import androidx.preference.ListPreference;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,7 +43,7 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 import lineageos.providers.LineageSettings;
-
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
@@ -61,16 +62,23 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private static final String QS_POS = "qs_show_brightness_slider";
     private static final String QS_AUTO = "qs_auto_icon_pos";
     private static final String RR_FOOTER_TEXT_STRING = "rr_footer_text_string";
+    private static final String QS_PANEL_COLOR = "qs_panel_color";
+    private static final String THEMES = "qs_themes";
+    private static final String RGB = "qs_panel_bg_rgb";
+    static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
 
     private LineageSecureSettingListPreference mQsPos;
     private SystemSettingListPreference mQsAuto;
     private SystemSettingListPreference mBgMode;
     private SystemSettingListPreference mIconMode;
+    private SystemSettingSwitchPreference mRgb;
+    private PreferenceCategory mThemes;
     private SystemSettingColorPickerPreference mBgColor;
     private SystemSettingColorPickerPreference mIconColor;
     private LineageSystemSettingListPreference mQuickPulldown;
     private SystemSettingEditTextPreference mFooterString;
     protected Context mContext;
+    private SystemSettingColorPickerPreference mQsPanelColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,7 +86,11 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_qsmain);
 		ContentResolver resolver = getActivity().getContentResolver();
 
-
+        mRgb =
+                (SystemSettingSwitchPreference) findPreference(RGB);
+        mRgb.setOnPreferenceChangeListener(this);
+        mThemes =
+                (PreferenceCategory) findPreference(THEMES);
 
         mFooterString = (SystemSettingEditTextPreference) findPreference(RR_FOOTER_TEXT_STRING);
         mFooterString.setOnPreferenceChangeListener(this);
@@ -137,11 +149,11 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         mIconColor.setAlphaSliderEnabled(false);
         mIconColor.setSummary(Hex2);
         mIconColor.setOnPreferenceChangeListener(this);
-
+        getQsPanelColorPref();
         updateprefs(mode);
         updateIconprefs(iconmode);
         updatesliderprefs(position);
-
+        updateThemespref(mRgb.isChecked());
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -155,6 +167,16 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
             }
         } catch (Exception e) {}
 
+    }
+
+    private void getQsPanelColorPref() {
+        mQsPanelColor = (SystemSettingColorPickerPreference) findPreference(QS_PANEL_COLOR);
+        mQsPanelColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.QS_PANEL_BG_COLOR, DEFAULT_QS_PANEL_COLOR, UserHandle.USER_CURRENT);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mQsPanelColor.setSummary(hexColor);
+        mQsPanelColor.setNewPreviewColor(intColor);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -184,9 +206,6 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         }  else if (preference == mQsPos) {
              int value = Integer.parseInt((String) newValue);
              updatesliderprefs(value);
-             if (value == 3 || value == 4) {
-                 RRUtils.showSystemUiRestartDialog(getContext());
-             }
              return true;
         } else if (preference == mFooterString) {
             String value = (String) newValue;
@@ -199,8 +218,27 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
                         Settings.System.RR_FOOTER_TEXT_STRING, "Resurrection Remix");
             }
             return true;
+        }  else if (preference == mQsPanelColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_PANEL_BG_COLOR, intHex, UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mRgb) {
+             boolean value = (Boolean) newValue;
+             updateThemespref(value);
+             return true;
         }
         return false;
+    }
+
+    public void updateThemespref(boolean enabled) {
+        if (enabled) 
+            mThemes.setEnabled(false);
+        else 
+            mThemes.setEnabled(true);
     }
 
     private void updateprefs(int mode) {

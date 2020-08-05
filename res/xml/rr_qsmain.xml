@@ -246,6 +246,14 @@
         android:summary="@string/qs_tile_accent_tint_inactive_summary"
         android:defaultValue="false" />
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_icon_primary"
+            android:icon="@drawable/rr_buttons_icon"
+            android:title="@string/qs_icon_primary_title"
+            android:summary="@string/qs_icon_primary_summary"
+            android:defaultValue="false"
+            android:dependency="qs_new_bg_enabled" />
+
     <com.android.settings.rr.Preferences.SystemSettingListPreference
          android:key="qs_label_use_new_tint"
          android:title="@string/qs_label_tint_title"
@@ -270,7 +278,44 @@
         android:defaultValue="0" />
 
     </PreferenceCategory>
+    <PreferenceCategory
+        android:key="qs_themes"
+        android:title="@string/qs_themes_category_title">
 
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_fw"
+            android:title="@string/qs_bg_use_fw"
+            android:icon="@drawable/rr_system_icon"
+            android:summary="@string/qs_bg_use_fw_summary"
+            android:defaultValue="true"
+            android:disableDependentsState="true" />
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_wall"
+            android:title="@string/qs_bg_wall_title"
+            android:icon="@drawable/rr_screenshot_icon"
+            android:summary="@string/qs_bg_wall_summary"
+            android:defaultValue="false"
+            android:dependency="qs_panel_bg_use_fw" />
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_accent"
+            android:title="@string/qs_bg_accent_title"
+            android:summary="@string/qs_bg_accent_summary"
+            android:icon="@drawable/rr_themes_icon"
+            android:defaultValue="false"
+            android:dependency="qs_panel_bg_use_fw" />
+
+     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+            android:key="qs_panel_color"
+            android:title="@string/qs_panel_color_title"
+            android:icon="@drawable/rr_color_icon"
+            android:defaultValue="0xffffff"
+            android:persistent="false"
+            settings:alphaSlider="false"
+            android:dependency="qs_panel_bg_use_fw" />
+
+    </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/rr_battery">
 
