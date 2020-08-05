@@ -18,9 +18,12 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.RemoteException;
+import android.os.ServiceManager;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.ListPreference;
@@ -35,7 +38,6 @@ import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import lineageos.preference.LineageSystemSettingListPreference;
 import lineageos.preference.LineageSecureSettingListPreference;
-import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.rr.Preferences.*;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -47,6 +49,8 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
+
+import com.android.settings.rr.utils.RRUtils;
 @SearchIndexable
 public class QSMainSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
@@ -66,12 +70,14 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private static final String THEMES = "qs_themes";
     private static final String RGB = "qs_panel_bg_rgb";
     static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
+    private static final String GRAD_TILE = "qs_tile_gradient";
 
     private LineageSecureSettingListPreference mQsPos;
     private SystemSettingListPreference mQsAuto;
     private SystemSettingListPreference mBgMode;
     private SystemSettingListPreference mIconMode;
     private SystemSettingSwitchPreference mRgb;
+    private SystemSettingSwitchPreference mTileGradient;
     private PreferenceCategory mThemes;
     private SystemSettingColorPickerPreference mBgColor;
     private SystemSettingColorPickerPreference mIconColor;
@@ -85,13 +91,21 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_qsmain);
 		ContentResolver resolver = getActivity().getContentResolver();
-
         mRgb =
                 (SystemSettingSwitchPreference) findPreference(RGB);
         mRgb.setOnPreferenceChangeListener(this);
         mThemes =
                 (PreferenceCategory) findPreference(THEMES);
-
+        int qsTileStyle = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_TILE_STYLE, 0,
+  	        UserHandle.USER_CURRENT);
+        mTileGradient = (SystemSettingSwitchPreference) findPreference(GRAD_TILE);
+        if (qsTileStyle == 0) { 
+            mTileGradient.setEnabled(true);
+        } else {
+            mTileGradient.setEnabled(false);
+            mTileGradient.setSummary(R.string.qs_themes_warning);
+        }
         mFooterString = (SystemSettingEditTextPreference) findPreference(RR_FOOTER_TEXT_STRING);
         mFooterString.setOnPreferenceChangeListener(this);
         String footerString = Settings.System.getString(getContentResolver(),

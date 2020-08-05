@@ -35,6 +35,16 @@
          android:title="@string/volte_icon_title"
          android:summary="@string/volte_icon_summary"
          android:defaultValue="false"/>
+    <com.msm.xtended.preferences.SystemSettingListPreference
+         android:key="volte_icon_style"
+         android:title="@string/volte_icon_style_title"
+         android:icon="@drawable/rr_volte2_icon"
+         android:entries="@array/volte_icon_type_entries"
+         android:entryValues="@array/volte_icon_type_values"
+         android:dependency="volte_icon"
+         android:summary="%s"
+         android:defaultValue="0"/>
+
 	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
          android:key="data_disabled_icon"
          android:icon="@drawable/rr_disabled_icon"
