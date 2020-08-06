@@ -1315,9 +1315,10 @@
     <string name="file_header_select_title">Select local image</string>
     <string name="file_header_select_summary">Select image from storage</string>
     <string name="qs_tile_gradient_title">Tint tiles to gradient</string>
-    <string name="qs_tile_gradient_summary">Show gradient background on qs tiles instead of regular color</string>
+    <string name="qs_tile_gradient_summary">Show gradient background on qs tiles instead of regular color. Note: in case of rgb tile tint, background will not tint to rgb colors only icons will tint if you turn on the above switch. This will not work wih custom tiles.</string>
     <string name="qs_themes_warning">Disable qs themes and use stock system qs tile theme to use this feature</string>
-    <string name="enable_custom_fw">Use custom qs values from the switch below to use this setting</string>
+    <string name="enable_custom_fw">Can only be used on default values. Turn on default switch below</string>
+    <string name="disable_rgb">Disabled because only applies to non-rgb or accent tints. Use only for primary default tint</string>
 
     <!-- AOKP custom system animations -->
     <string name="system_animation_title">System animations</string>
@@ -1341,7 +1342,7 @@
 
     <!-- Show VoLTE icon on statusbar -->
     <string name="volte_icon_style_title">Select VoLTE Icon</string>
-    <string name="volte_icon_vo">Volte Icon 7</string>
+    <string name="volte_icon_vo">Volte Icon 6</string>
     <string name="volte_icon_volte">Volte Icon 6</string>
     <string name="volte_icon_oos">Volte Icon 5</string>
     <string name="volte_icon_hd">Volte Icon 4</string>
@@ -1358,6 +1359,8 @@
     <string name="qs_tile_animation_duration_low">Low</string>
     <string name="qs_tile_animation_duration_default">Default</string>
     <string name="qs_tile_animation_duration_fast">Fast</string>
+    <string name="qs_tile_rgb_tint_title">Tint icons to rgb</string>
+    <string name="qs_tile_rgb_tint_summary">Tint the icon inside to random rgb tint</string>
 
     <!-- Tiles animation interpolator -->
     <string name="qs_tile_animation_interpolator_title">QS tile animation interpolator</string>
@@ -2306,7 +2309,7 @@
 
     <!-- Qs Tile Icon Bright-Dark -->
     <string name="qs_icon_primary_title">Qs Tile Icon Bright|Dark</string>
-    <string name="qs_icon_primary_summary">Make Qs Icon Bright-Dark if gradient tint enabled</string>
+    <string name="qs_icon_primary_summary">Make Qs Icon Bright-Dark if the qs panel color and icon color matches</string>
 
     <!-- QS themes -->
     <string name="qs_themes_category_title">QS Themes</string>

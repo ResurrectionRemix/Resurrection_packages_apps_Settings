@@ -74,6 +74,8 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private static final String TILE_INACTIVE = "qs_tile_accent_tint_inactive";
     private static final String QS_FW = "qs_panel_bg_use_fw";
     private static final String DARK_TILE = "qs_tile_icon_primary";
+    private static final String RGB_ICON = "qs_tile_rgb_tint";
+    private static final String RGB_MODE = "qs_tile_accent_tint";
 
     private LineageSecureSettingListPreference mQsPos;
     private SystemSettingListPreference mQsAuto;
@@ -84,6 +86,8 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mDarkTile;
     private SystemSettingSwitchPreference mInactiveTile;
     private SystemSettingSwitchPreference mTileGradient;
+    private SystemSettingListPreference mTintMode;
+    private SystemSettingSwitchPreference mRgbIcon;
     private PreferenceCategory mThemes;
     private SystemSettingColorPickerPreference mBgColor;
     private SystemSettingColorPickerPreference mIconColor;
@@ -108,6 +112,13 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
                 (SystemSettingSwitchPreference) findPreference(DARK_TILE);
         mThemes =
                 (PreferenceCategory) findPreference(THEMES);
+        int isrgb = Settings.System.getInt(getContentResolver(),
+                Settings.System.QS_TILE_ACCENT_TINT, 0) ;
+        mTintMode =
+                (SystemSettingListPreference) findPreference(RGB_MODE);
+        mRgbIcon =
+                (SystemSettingSwitchPreference) findPreference(RGB_ICON);
+        mTintMode.setOnPreferenceChangeListener(this);
         int qsTileStyle = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_TILE_STYLE, 0,
   	        UserHandle.USER_CURRENT);
@@ -156,7 +167,8 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
 
         int iconmode = Settings.System.getInt(getContentResolver(),
                 Settings.System.NOTIF_DISMISALL_ICON_COLOR_MODE, 0);
-
+        boolean tintgradient = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.QS_TILE_GRADIENT, 0, UserHandle.USER_CURRENT) == 1;
 
         mBgMode = (SystemSettingListPreference) findPreference(BG_MODE);
         mBgMode.setOnPreferenceChangeListener(this);
@@ -177,13 +189,14 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         mIconColor.setAlphaSliderEnabled(false);
         mIconColor.setSummary(Hex2);
         mIconColor.setOnPreferenceChangeListener(this);
+        updatesTintPrefs(isrgb);
         getQsPanelColorPref();
         updateprefs(mode);
         updateIconprefs(iconmode);
         updatesliderprefs(position);
         updateThemespref(mRgb.isChecked());
-        updateDarktileState(mUseFw.isChecked());
-        updateInactivePrefs(qsTileStyle, mTileGradient.isChecked());
+        updateDarktileState(isrgb);
+        updateInactivePrefs(tintgradient);
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -199,22 +212,24 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
 
     }
 
-    public void updateDarktileState(boolean enabled) {
-        if (enabled) 
+    public void updateDarktileState(int rgb) {
+        if (rgb == 0){
             mDarkTile.setEnabled(true);
-        else {
+        } else {
             mDarkTile.setEnabled(false);
-            mDarkTile.setSummary(R.string.enable_custom_fw); 
+            mDarkTile.setSummary(R.string.disable_rgb); 
         }
     }
  
-    public void updateInactivePrefs(int mode, boolean active) {
-        if ((mode == 0) && !active)
-            mInactiveTile.setEnabled(true);
-        else if (active)
+    public void updateInactivePrefs(boolean active) {
+        int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.QS_TILE_STYLE, 0,
+  	        UserHandle.USER_CURRENT);
+       if (qsTileStyle != 0) return;
+       if (active)
             mInactiveTile.setEnabled(false);
         else
-            mInactiveTile.setEnabled(false);
+            mInactiveTile.setEnabled(true);
     }
 
     private void getQsPanelColorPref() {
@@ -280,17 +295,27 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
              return true;
         } else if (preference == mTileGradient) {
              boolean value = (Boolean) newValue;
-             int qsTileStyle = Settings.System.getIntForUser(resolver,
-                Settings.System.QS_TILE_STYLE, 0,
-  	         UserHandle.USER_CURRENT);
-             updateInactivePrefs(qsTileStyle, value);
+             updateInactivePrefs(value);
              return true;
         }  else if (preference == mUseFw) {
              boolean value = (Boolean) newValue;
+             int isrgb = Settings.System.getInt(getContentResolver(),
+                Settings.System.QS_TILE_ACCENT_TINT, 0) ;
+             return true;
+        } else if (preference == mTintMode) {
+             int value = Integer.parseInt((String) newValue);
+             updatesTintPrefs(value);
              updateDarktileState(value);
              return true;
         } 
         return false;
+    }
+
+    public void updatesTintPrefs(int enabled) {
+        if (enabled == 2) 
+            mRgbIcon.setEnabled(true);
+        else 
+            mRgbIcon.setEnabled(false);
     }
 
     public void updateThemespref(boolean enabled) {
