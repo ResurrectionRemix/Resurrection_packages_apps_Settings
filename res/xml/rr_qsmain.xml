@@ -255,14 +255,6 @@
         android:summary="@string/qs_tile_accent_tint_inactive_summary"
         android:defaultValue="false" />
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="qs_tile_icon_primary"
-            android:icon="@drawable/rr_buttons_icon"
-            android:title="@string/qs_icon_primary_title"
-            android:summary="@string/qs_icon_primary_summary"
-            android:dependency="qs_panel_bg_use_fw"
-            android:defaultValue="false" />
-
     <com.android.settings.rr.Preferences.SystemSettingListPreference
          android:key="qs_label_use_new_tint"
          android:title="@string/qs_label_tint_title"
@@ -285,6 +277,13 @@
         android:entries="@array/qs_datausage_entries"
         android:entryValues="@array/qs_datausage_values"
         android:defaultValue="0" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_icon_primary"
+            android:icon="@drawable/rr_buttons_icon"
+            android:title="@string/qs_icon_primary_title"
+            android:summary="@string/qs_icon_primary_summary"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
     <PreferenceCategory
