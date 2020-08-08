@@ -200,13 +200,6 @@
         android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="show_qs_clock"
-        android:icon="@drawable/rr_clock_icon"
-        android:title="@string/qs_clock_title"
-        android:summary="@string/qs_clock_summary"
-        android:defaultValue="true" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="qs_panel_bg_rgb"
         android:title="@string/qs_panel_bg_rgb_title"
         android:icon="@drawable/rr_disco_icon"
@@ -292,6 +285,47 @@
             android:title="@string/qs_icon_primary_title"
             android:summary="@string/qs_icon_primary_summary"
             android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_clock"
+        android:title="@string/qs_clock_cat">
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="show_qs_clock"
+        android:icon="@drawable/rr_clock_icon"
+        android:title="@string/qs_clock_title"
+        android:summary="@string/qs_clock_summary"
+        android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+            android:key="qs_header_clock_size"
+            android:title="@string/rr_font_size"
+            android:icon="@drawable/rr_immersive_icon"
+            android:dependency="show_qs_clock"
+            android:max="30"
+            settings:min="8"
+            android:defaultValue="14"
+            settings:units="sp"/>
+
+    <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+            android:key="qs_header_clock_color"
+            android:title="@string/rr_color"
+            android:dependency="show_qs_clock"
+            android:icon="@drawable/rr_color_icon"
+            android:defaultValue="0xffffffff" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+            android:key="qs_header_clock_font_style"
+            android:title="@string/rr_font_style"
+            android:dialogTitle="@string/rr_font_style"
+            android:dependency="show_qs_clock"
+            android:icon="@drawable/rr_font_size_icon"
+            android:entries="@array/lock_clock_fonts_entries"
+            android:entryValues="@array/lock_clock_fonts_values"
+            android:summary="%s"
+            android:defaultValue="0" />
 
     </PreferenceCategory>
     <PreferenceCategory
