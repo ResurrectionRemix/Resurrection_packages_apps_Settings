@@ -40,6 +40,13 @@
         android:dependency="heads_up_notifications_enabled"
         android:defaultValue="0" />
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="show_media_heads_up"
+        android:icon="@drawable/rr_media_icon"
+        android:title="@string/show_media_heads_up_title"
+        android:summary="@string/show_media_heads_up_summary"
+        android:defaultValue="false" />
+
     <ListPreference
         android:key="heads_up_time_out"
         android:icon="@drawable/rr_clock_icon"
