@@ -75,6 +75,16 @@
         settings:min="1"
         settings:units="@string/unit_seconds" />
 
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+            android:key="traffic_font_style"
+            android:title="@string/rr_font_style"
+            android:dialogTitle="@string/rr_font_style"
+            android:icon="@drawable/rr_font_size_icon"
+            android:entries="@array/lock_clock_fonts_entries"
+            android:entryValues="@array/lock_clock_fonts_values"
+            android:summary="%s"
+            android:defaultValue="0" />
+
     <lineageos.preference.LineageSecureSettingListPreference
         android:key="network_traffic_units"
         android:title="@string/network_traffic_units_title"

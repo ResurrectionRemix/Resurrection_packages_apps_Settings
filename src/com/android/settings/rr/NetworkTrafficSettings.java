@@ -50,12 +50,14 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String TAG = "NetworkTrafficSettings";
+    private static final String TRAFFIC_FONT = "traffic_font_style";
 
     private CustomSeekBarPreference mNetTrafficAutohideThreshold;
     private CustomSeekBarPreference mNetTrafficRefreshInterval;
     private ListPreference mNetTrafficLocation;
     private ListPreference mNetTrafficMode;
     private ListPreference mNetTrafficUnits;
+    private ListPreference mFontStyle;
     private SwitchPreference mNetTrafficAutohide;
     private SwitchPreference mNetTrafficHideArrow;
 
@@ -79,6 +81,8 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
                 findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_AUTOHIDE);
         mNetTrafficUnits = (ListPreference)
                 findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_UNITS);
+        mFontStyle = (ListPreference)
+                findPreference(TRAFFIC_FONT);
         mNetTrafficHideArrow = (SwitchPreference)
                 findPreference(LineageSettings.Secure.NETWORK_TRAFFIC_HIDEARROW);
 
@@ -118,6 +122,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         mNetTrafficHideArrow.setEnabled(enabled);
         mNetTrafficRefreshInterval.setEnabled(enabled);
         mNetTrafficUnits.setEnabled(enabled);
+        mFontStyle.setEnabled(enabled);
     }
 
     public static void reset(Context mContext) {
@@ -138,6 +143,8 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
                 LineageSettings.Secure.NETWORK_TRAFFIC_REFRESH_INTERVAL, 2, UserHandle.USER_CURRENT);
         LineageSettings.Secure.putIntForUser(resolver,
                 LineageSettings.Secure.NETWORK_TRAFFIC_HIDEARROW, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+              Settings.System.TRAFFIC_FONT_STYLE, 0, UserHandle.USER_CURRENT);
     }
 
     @Override
