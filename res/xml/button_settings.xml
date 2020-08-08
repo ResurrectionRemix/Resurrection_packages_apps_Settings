@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2018 Havoc-OS
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:title="@string/buttons_title" >
+
+    <PreferenceCategory
+        android:key="hw_keys"
+        android:title="@string/hardware_keys_title" >
+
+        <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+            android:key="hardware_keys_enable"
+            android:title="@string/hardware_keys_disable_title"
+            android:summary="@string/hardware_keys_disable_summary"
+            android:defaultValue="true" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="home_wake_screen"
+            android:icon="@drawable/rr_wake_icon"
+            android:title="@string/hardware_keys_wake_home"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="back_wake_screen"
+            android:icon="@drawable/rr_wake_icon"
+            android:title="@string/hardware_keys_wake_back"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="app_switch_wake_screen"
+            android:icon="@drawable/rr_wake_icon"
+            android:title="@string/hardware_keys_wake_app_switch"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="menu_wake_screen"
+            android:icon="@drawable/rr_wake_icon"
+            android:title="@string/hardware_keys_wake_menu"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="assist_wake_screen"
+            android:icon="@drawable/rr_wake_icon"
+            android:title="@string/hardware_keys_wake_assist"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="swap_navigation_keys"
+            android:title="@string/swap_navigation_keys_title"
+            android:summary="@string/swap_navigation_keys_title_summary"
+            android:defaultValue="false"
+            android:dependency="hardware_keys_enable" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="anbi_enabled_option"
+            android:title="@string/anbi_title"
+            android:summary="@string/anbi_summary"
+            android:defaultValue="false"
+            android:dependency="hardware_keys_enable" />
+
+        <Preference
+            android:key="button_backlight"
+            android:title="@string/button_backlight_title"
+            android:summary="@string/button_backlight_summary"
+            android:fragment="com.android.settings.rr.fragments.ButtonBrightness"
+            android:dependency="hardware_keys_enable" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="navigation_keys"
+        android:title="@string/navigation_title" >
+
+        <SwitchPreference
+            android:key="force_show_navbar"
+            android:icon="@drawable/rr_disabled_icon"
+            android:title="@string/navigation_bar_title"
+            android:summary="@string/navigation_bar_summary" />
+
+        <Preference
+            android:key="gesture_system_navigation"
+            android:icon="@drawable/rr_buttons_icon"
+            android:title="@string/system_navigation_title"
+            android:fragment="com.android.settings.gestures.SystemNavigationGestureSettings"
+            settings:controller="com.android.settings.gestures.SystemNavigationPreferenceController"
+            android:dependency="force_show_navbar" />
+
+        <ListPreference
+            android:key="nav_bar_layout"
+            android:title="@string/nav_bar_layout"
+            android:icon="@drawable/rr_navbar_icon"
+            android:summary="%s"
+            android:defaultValue="default"
+            android:persistent="false"
+            android:entries="@array/nav_bar_layouts"
+            android:entryValues="@array/nav_bar_layouts_values"
+            android:dependency="force_show_navbar" />
+
+        <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+            android:key="sysui_nav_bar_inverse"
+            android:title="@string/navbar_invert_layout_title"
+            android:summary="@string/navbar_invert_layout_summary"
+            android:icon="@drawable/rr_inverse_icon"
+            android:defaultValue="false"
+            android:dependency="force_show_navbar" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="navigation_bar_ime_space"
+            android:title="@string/navigation_bar_ime_space_title"
+            android:summary="@string/navigation_bar_ime_space_summary"
+            android:defaultValue="true"
+            android:icon="@drawable/rr_ime_settings"
+            android:dependency="force_show_navbar" />
+
+        <lineageos.preference.LineageSystemSettingSwitchPreference
+            android:key="navigation_bar_menu_arrow_keys"
+            android:icon="@drawable/rr_arrow_icon"
+            android:title="@string/navigation_bar_arrow_keys_title"
+            android:summary="@string/navigation_bar_arrow_keys_summary"
+            android:defaultValue="false"
+            android:dependency="force_show_navbar" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="hardware_keys_power"
+        android:title="@string/hardware_keys_power_category" >
+
+        <SwitchPreference
+            android:key="power_end_call"
+            android:icon="@drawable/rr_call_icon"
+            android:title="@string/power_end_call_title"
+            android:summary="@string/power_end_call_summary"
+            android:persistent="false"/>
+
+        <ListPreference
+            android:key="torch_power_button_gesture"
+            android:title="@string/torch_power_button_gesture_title"
+            android:icon="@drawable/rr_longpress_icon"
+            android:entries="@array/torch_power_button_gesture_entries"
+            android:entryValues="@array/torch_power_button_gesture_values" />
+
+        <ListPreference
+            android:key="torch_long_press_power_timeout"
+            android:icon="@drawable/rr_duration_icon"
+            android:dialogTitle="@string/torch_long_press_power_timeout_title"
+            android:title="@string/torch_long_press_power_timeout_title"
+            android:entries="@array/torch_long_press_power_timeout_entries"
+            android:entryValues="@array/torch_long_press_power_timeout_values"
+            android:persistent="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="volume_rocker"
+        android:title="@string/volume_title">
+
+        <SwitchPreference
+            android:key="swap_volume_buttons"
+            android:icon="@drawable/rr_swap_icon"
+            android:title="@string/swap_volume_buttons_title"
+            android:summary="@string/swap_volume_buttons_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="volume_button_music_control"
+            android:summary="@string/volume_rocker_music_controls_summary"
+            android:icon="@drawable/rr_media_icon"
+            android:title="@string/volume_rocker_music_controls_title"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="volume_rocker_wake"
+            android:icon="@drawable/rr_wake_icon"
+            android:summary="@string/volume_rocker_wake_summary"
+            android:title="@string/volume_rocker_wake_title"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="volume_answer_call"
+            android:icon="@drawable/rr_call_ok_icon"
+            android:title="@string/volume_answer_call_title"
+            android:summary="@string/volume_answer_call_summary"
+            android:defaultValue="false" />
+
+        <com.android.settings.rr.Preferences.SystemSettingListPreference
+            android:key="volume_key_cursor_control"
+            android:summary="%s"
+            android:title="@string/volume_key_cursor_control_title"
+            android:entries="@array/volume_key_cursor_control_entries"
+            android:entryValues="@array/volume_key_cursor_control_values"
+            android:defaultValue="0" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="back_gesture"
+        android:title="@string/back_gesture_title">
+
+        <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+            android:key="show_back_arrow_gesture"
+            android:icon="@drawable/rr_arrow_icon"
+            android:title="@string/back_arrow_gesture_title"
+            android:summary="@string/back_arrow_gesture_summary"
+            android:defaultValue="true" />
+
+        <com.android.settings.rr.Preferences.SystemSettingListPreference
+            android:key="back_swipe_type"
+            android:icon="@drawable/rr_swipe_down_icon"
+            android:title="@string/back_swipe_type_title"
+            android:entries="@array/back_swipe_type_entries"
+            android:entryValues="@array/back_swipe_type_values"
+            android:defaultValue="0" />
+
+        <com.android.settings.rr.Preferences.SystemSettingListPreference
+            android:key="long_back_swipe_timeout"
+            android:title="@string/long_back_swipe_timeout_title"
+            android:icon="@drawable/rr_long_swipe_icon"
+            android:entries="@array/long_back_swipe_timeout_entries"
+            android:entryValues="@array/long_back_swipe_timeout_values"
+            android:defaultValue="2000" />
+
+        <ListPreference
+            android:key="left_swipe_actions"
+            android:icon="@drawable/rr_left_icon"
+            android:title="@string/left_swipe_actions_title"
+            android:entries="@array/active_edge_actions_entries"
+            android:entryValues="@array/active_edge_actions_values"
+            android:defaultValue="0" />
+
+        <Preference
+            android:key="left_swipe_app_action"
+            android:icon="@drawable/rr_app_icon"
+            android:title="@string/left_swipe_app_action_title"
+            android:summary="@string/back_swipe_app_select_summary">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.statusbar.phone.LeftBackSwipeCustomApp" />
+        </Preference>
+
+        <ListPreference
+            android:key="right_swipe_actions"
+            android:icon="@drawable/rr_right_icon"
+            android:title="@string/right_swipe_actions_title"
+            android:entries="@array/active_edge_actions_entries"
+            android:entryValues="@array/active_edge_actions_values"
+            android:defaultValue="0" />
+
+        <Preference
+            android:key="right_swipe_app_action"
+            android:title="@string/right_swipe_app_action_title"
+            android:icon="@drawable/rr_app_icon"
+            android:summary="@string/back_swipe_app_select_summary">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.systemui"
+                android:targetClass="com.android.systemui.statusbar.phone.RightBackSwipeCustomApp" />
+        </Preference>
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="back_gesture_haptic"
+            android:icon="@drawable/rr_haptic_icon"
+            android:title="@string/back_gesture_haptic_title"
+            android:summary="@string/back_gesture_haptic_summary"
+            android:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="back_key"
+        android:title="@string/back_key_title">
+
+        <ListPreference
+            android:key="back_key_long_press"
+            android:icon="@drawable/rr_longpress_icon"
+            android:title="@string/long_press_title"
+            android:entries="@array/action_entries"
+            android:entryValues="@array/action_values" />
+
+        <Preference
+            android:key="back_key_long_press_custom_app"
+            android:title="@string/long_press_custom_app_title"
+            android:icon="@drawable/rr_app_icon"
+            android:summary="">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.rr.fragments.navbar.BackLongPress" />
+        </Preference>
+
+        <ListPreference
+            android:key="back_key_double_tap"
+            android:icon="@drawable/rr_doubletap_icon"
+            android:title="@string/double_tap_title"
+            android:entries="@array/action_entries"
+            android:entryValues="@array/action_values" />
+
+        <Preference
+            android:key="back_key_double_tap_custom_app"
+            android:title="@string/double_tap_custom_app_title"
+            android:summary="">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.rr.fragments.navbar.BackDoubleTap" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="home_key"
+        android:title="@string/home_key_title">
+
+        <ListPreference
+            android:key="home_key_long_press"
+            android:title="@string/long_press_title"
+            android:entries="@array/action_entries"
+            android:entryValues="@array/action_values" />
+
+        <Preference
+            android:key="home_key_long_press_custom_app"
+            android:icon="@drawable/rr_app_icon"
+            android:title="@string/long_press_custom_app_title"
+            android:summary="">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.rr.fragments.navbar.HomeLongPress" />
+        </Preference>
+
+        <ListPreference
+            android:key="home_key_double_tap"
+            android:title="@string/double_tap_title"
+            android:icon="@drawable/rr_doubletap_icon"
+            android:entries="@array/action_entries"
+            android:entryValues="@array/action_values" />
+
+        <Preference
+            android:key="home_key_double_tap_custom_app"
+            android:title="@string/double_tap_custom_app_title"
+            android:summary="">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.rr.fragments.navbar.HomeDoubleTap" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="app_switch_key"
+        android:title="@string/app_switch_key_title">
+
+        <ListPreference
+            android:key="app_switch_key_long_press"
+            android:title="@string/long_press_title"
+            android:icon="@drawable/rr_longpress_icon"
+            android:entries="@array/action_entries"
+            android:entryValues="@array/action_values" />
+
+        <Preference
+            android:key="app_switch_key_long_press_custom_app"
+            android:title="@string/long_press_custom_app_title"
+            android:icon="@drawable/rr_app_icon"
+            android:summary="">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.rr.fragments.navbar.AppSwitchLongPress" />
+        </Preference>
+
+        <ListPreference
+            android:key="app_switch_key_double_tap"
+            android:title="@string/double_tap_title"
+            android:icon="@drawable/rr_doubletap_icon"
+            android:entries="@array/action_entries"
+            android:entryValues="@array/action_values" />
+
+        <Preference
+            android:key="app_switch_key_double_tap_custom_app"
+            android:title="@string/double_tap_custom_app_title"
+            android:summary="">
+            <intent android:action="android.intent.action.MAIN"
+                android:targetPackage="com.android.settings"
+                android:targetClass="com.android.settings.rr.fragments.navbar.AppSwitchDoubleTap" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="menu_key"
+        android:title="@string/menu_key_title">
+
+        <ListPreference
+            android:key="menu_key_long_press"
+            android:title="@string/long_press_title"
+            android:icon="@drawable/rr_longpress_icon"
+            android:entries="@array/action_entries"
+            android:entryValues="@array/action_values" />
+
+        <ListPreference
+            android:key="menu_key_double_tap"
+            android:title="@string/double_tap_title"
+            android:icon="@drawable/rr_doubletap_icon"
+            android:entries="@array/action_entries"
+            android:entryValues="@array/action_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="assist_key"
+        android:title="@string/assist_key_title">
+
+        <ListPreference
+            android:key="assist_key_long_press"
+            android:title="@string/long_press_title"
+            android:icon="@drawable/rr_longpress_icon"
+            android:entries="@array/action_entries"
+            android:entryValues="@array/action_values" />
+
+        <ListPreference
+            android:key="assist_key_double_tap"
+            android:title="@string/double_tap_title"
+            android:icon="@drawable/rr_doubletap_icon"
+            android:entries="@array/action_entries"
+            android:entryValues="@array/action_values" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="camera_key"
+        android:title="@string/camera_key_title">
+
+        <ListPreference
+            android:key="camera_key_long_press"
+            android:title="@string/long_press_title"
+            android:icon="@drawable/rr_longpress_icon"
+            android:entries="@array/action_entries"
+            android:entryValues="@array/action_values" />
+
+        <ListPreference
+            android:key="camera_key_double_tap"
+            android:title="@string/double_tap_title"
+            android:icon="@drawable/rr_doubletap_icon"
+            android:entries="@array/action_entries"
+            android:entryValues="@array/action_values" />
+
+    </PreferenceCategory>
+
+    <com.android.settingslib.widget.FooterPreference
+        android:title="@string/gesture_nav_tweaks_footer_info" />
+
+</PreferenceScreen>

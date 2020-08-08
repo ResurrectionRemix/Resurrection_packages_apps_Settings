@@ -37,14 +37,6 @@
         android:fragment="com.android.settings.rr.omnigears.interfacesettings.LockscreenItemSettings" />
 
     <Preference
-        android:key="buttons"
-        android:title="@string/button_settings"
-        android:icon="@drawable/rr_input_icon"
-        android:summary="@string/rr_buttons_summary">
-        <intent android:action="org.lineageos.lineageparts.BUTTON_SETTINGS" />
-    </Preference>
-
-    <Preference
         android:key="profiles"
         android:title="@string/profiles_settings_title"
         android:icon="@drawable/rr_profiles_icon"
@@ -109,14 +101,6 @@
         <intent android:action="android.intent.action.MAIN"
             android:targetPackage="com.android.systemui"
             android:targetClass="com.android.systemui.tuner.TunerActivity" />
-    </Preference>
-
-    <Preference
-        android:key="rr_navigation"
-        android:title="@string/rr_navigation_title"
-        android:icon="@drawable/rr_navbar_icon"
-        android:summary="@string/rr_navbar_summary">
-        <intent android:action="com.android.settings.action.NAV_BAR_TUNER" />
     </Preference>
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2014 The OmniROM Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:settings="http://schemas.android.com/apk/res-auto"
+        android:key="button_brightness"
+        android:title="@string/button_backlight_title" >
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="button_backlight_enable"
+        android:title="@string/button_backlight_enable_title"
+        android:summary="@string/button_backlight_enable_summary"
+        android:defaultValue="true"/>
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="custom_button_use_screen_brightness"
+        android:title="@string/button_link_brightness"
+        android:summary="@string/button_link_brightness_summary"
+        android:defaultValue="false"
+        android:dependency="button_backlight_enable"
+        android:disableDependentsState="true" />
+
+    <com.android.settings.rr.Preferences.CustomSeekBarPreference
+        android:key="button_manual_brightness_new"
+        android:title="@string/button_manual_brightness"
+        android:max="255"
+        settings:min="1"
+        android:defaultValue="128"
+        android:persistent="false"
+        android:dependency="custom_button_use_screen_brightness" />
+
+    <com.android.settings.rr.Preferences.CustomSeekBarPreference
+        android:key="button_timeout"
+        android:title="@string/button_timeout_title"
+        android:max="30"
+        settings:min="0"
+        android:defaultValue="0"
+        android:persistent="false"
+        android:dependency="button_backlight_enable" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="button_backlight_on_touch_only"
+        android:title="@string/button_backlight_on_touch_only_title"
+        android:summary="@string/button_backlight_on_touch_only_summary"
+        android:defaultValue="false"
+        android:dependency="button_backlight_enable" />
+
+</PreferenceScreen>
