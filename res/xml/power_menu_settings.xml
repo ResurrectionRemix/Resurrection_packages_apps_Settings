@@ -66,11 +66,31 @@
             android:dependency="power_menu_bg"
             android:defaultValue="0" />
 
+    <ListPreference
+        android:key="power_menu_animations"
+        android:icon="@drawable/rr_animation_icon"
+        android:title="@string/power_menu_animation_title"
+        android:dialogTitle="@string/power_menu_animation_dialog_title"
+        android:entries="@array/power_menu_animations_entries"
+        android:entryValues="@array/power_menu_animations_values"
+        android:summary="@string/power_menu_animation_summary"
+        android:persistent="false" />
+
+
      </PreferenceCategory>
 
      <PreferenceCategory
         android:key="buttons"
         android:title="@string/rr_buttons_title">
+
+
+         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="powermenu_power"
+            android:icon="@drawable/rr_power_icon"
+            android:title="@string/powermenu_power"
+            android:summary="@string/powermenu_power_sum"
+            android:defaultValue="true" />
+			
 
      <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="reboot_in_power_menu"
@@ -113,6 +133,42 @@
         android:title="@string/global_actions_onthego_title"
         android:summary="@string/summary_global_actions_onthego"
         android:defaultValue="false" />
+
+         <SwitchPreference
+            android:key="powermenu_torch"
+            android:icon="@drawable/rr_flashlight_icon"
+            android:summary="@string/powermenu_torch_sum"
+            android:title="@string/powermenu_torch"
+            android:persistent="false" />
+
+         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="powermenu_settings"
+            android:icon="@drawable/rr_system_icon"
+            android:summary="@string/powermenu_settings_sum"
+            android:title="@string/powermenu_settings"
+            android:defaultValue="false" />
+			
+         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="powermenu_users"
+            android:title="@string/powermenu_users"
+            android:icon="@drawable/rr_user_icon"
+            android:summary="@string/powermenu_users_sum"
+            android:defaultValue="false" />
+			
+         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="powermenu_logout"
+            android:title="@string/powermenu_logout"
+            android:icon="@drawable/rr_logout_icon"
+            android:summary="@string/powermenu_logout_sum"
+            android:defaultValue="false" />
+
+         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="powermenu_airplane"
+            android:title="@string/powermenu_airplane"
+            android:icon="@drawable/rr_airplane_icon"
+            android:summary="@string/powermenu_airplane_sum"
+            android:defaultValue="false" />
+			
      </PreferenceCategory>
 
      <PreferenceCategory
