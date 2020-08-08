@@ -67,6 +67,18 @@
         android:icon="@drawable/rr_sensor_icon"
         android:summary="@string/sensor_block_summary"
         android:defaultValue="false" />
+
+
+        <!-- App picker activity for sensor block -->
+        <PreferenceCategory
+            android:title="@string/sensor_block_app_picker_title"
+            android:dependency="sensor_block"
+            android:icon="@drawable/rr_app_icon"
+            android:key="sensor_block_applications">
+            <Preference
+                android:key="add_sensor_block_packages"
+                android:title="@string/add_sensor_block_package_title" />
+        </PreferenceCategory>
     </PreferenceCategory>
 </PreferenceScreen>
 
