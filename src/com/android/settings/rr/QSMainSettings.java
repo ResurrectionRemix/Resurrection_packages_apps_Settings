@@ -269,6 +269,9 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         }  else if (preference == mQsPos) {
              int value = Integer.parseInt((String) newValue);
              updatesliderprefs(value);
+             if (value == 3 || value == 4) {
+                 RRUtils.showSystemUiRestartDialog(getContext());
+             }
              return true;
         } else if (preference == mFooterString) {
             String value = (String) newValue;
