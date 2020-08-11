@@ -51,13 +51,15 @@
         android:key="lockscreen_phone_icon_color"
         android:title="@string/lockscreen_phone_icon_color"
         android:icon="@drawable/rr_call_icon"
-        android:defaultValue="0xffffffff" />
+        settings:alphaSlider="true"
+        android:defaultValue="0x00ffffff" />
 
     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="lockscreen_camera_icon_color"
         android:title="@string/lockscreen_camera_icon_color"
         android:icon="@drawable/rr_camera_icon"
-        android:defaultValue="0xffffffff" />
+        settings:alphaSlider="true"
+        android:defaultValue="0x00ffffff" />
     
     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="lockscreen_indication_text_color"
