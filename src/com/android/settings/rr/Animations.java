@@ -61,17 +61,20 @@ public class Animations extends SettingsPreferenceFragment implements
     private static final String KEY_TOAST_ANIMATION = "toast_animation";
     private static final String KEY_LISTVIEW_ANIMATION = "listview_animation";
     private static final String KEY_LISTVIEW_INTERPOLATOR = "listview_interpolator";
+    private static final String KEY_SS_TABS_EFFECT = "tabs_effect";
     private static final String SCROLLINGCACHE_PREF = "pref_scrollingcache";
     private static final String SCROLLINGCACHE_PERSIST_PROP = "persist.sys.scrollingcache";
-    private static final String SCROLLINGCACHE_DEFAULT = "2";
-    private static final String KEY_SS_TABS_EFFECT = "tabs_effect";
+    private static final String SCROLLINGCACHE_DEFAULT = "1";
+    private static final String KEY_REFRESH_RATE = "refresh_rate_setting";
 
+    private ListPreference mRefreshRate;
     private Context mContext;
     private ListPreference mScreenOffAnimation;
     private ListPreference mToastAnimation;
     private ListPreference mListViewAnimation;
     private ListPreference mListViewInterpolator;
     ListPreference mListViewTabsEffect;
+    private ListPreference mScrollingCachePref;
 
 
     @Override
@@ -102,7 +105,27 @@ public class Animations extends SettingsPreferenceFragment implements
         mScreenOffAnimation.setValue(String.valueOf(screenOffStyle));
         mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntry());
         mScreenOffAnimation.setOnPreferenceChangeListener(this);
+	
+        mScrollingCachePref = (ListPreference) findPreference(SCROLLINGCACHE_PREF);
+        mScrollingCachePref.setValue(SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP,
+                SystemProperties.get(SCROLLINGCACHE_PERSIST_PROP, SCROLLINGCACHE_DEFAULT)));
+        mScrollingCachePref.setOnPreferenceChangeListener(this);
 
+        mRefreshRate = (ListPreference) prefs.findPreference(KEY_REFRESH_RATE);
+        if (isAvailable()) {
+            int refreshRate = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.REFRESH_RATE_SETTING, 0);
+            mRefreshRate.setValue(String.valueOf(refreshRate));
+            mRefreshRate.setOnPreferenceChangeListener(this);
+            updateRefreshRate(refreshRate);
+        } else {
+          prefs.removePreference(mRefreshRate);
+        }
+
+    }
+
+    public boolean isAvailable() {
+        return mContext.getResources().getBoolean(com.android.internal.R.bool.config_hasVariableRefreshRate);
     }
 
 
@@ -130,6 +153,17 @@ public class Animations extends SettingsPreferenceFragment implements
             int valueIndex = mScreenOffAnimation.findIndexOfValue(value);
             mScreenOffAnimation.setSummary(mScreenOffAnimation.getEntries()[valueIndex]);
             return true;
+        } else if (preference == mRefreshRate) {
+            int refreshRate = Integer.valueOf((String) newValue);
+            Settings.System.putInt(mContext.getContentResolver(),
+                Settings.System.REFRESH_RATE_SETTING, refreshRate);
+            updateRefreshRate(refreshRate);
+            return true;
+        } else if (preference == mScrollingCachePref) {
+            if (newValue != null) {
+                SystemProperties.set(SCROLLINGCACHE_PERSIST_PROP, (String) newValue);
+                return true;
+            }
         }
         return false;
     }
@@ -139,6 +173,42 @@ public class Animations extends SettingsPreferenceFragment implements
     @Override
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
+    }
+
+
+    public void updateRefreshRate(int refreshRate) {
+        switch (refreshRate) {
+            case 0:
+            default:
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.PEAK_REFRESH_RATE, 90);
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.MIN_REFRESH_RATE, 60);
+                break;
+            case 1:
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.PEAK_REFRESH_RATE, 60);
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.MIN_REFRESH_RATE, 60);
+                break;
+            case 2:
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.PEAK_REFRESH_RATE, 90);
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.MIN_REFRESH_RATE, 90);
+                break;
+        }
+        updateRefreshRateSummary(refreshRate);
+    }
+
+    public void updateRefreshRateSummary(int refreshRate) {
+        if (refreshRate == 1) {
+            mRefreshRate.setSummary(R.string.refresh_rate_summary_60);
+        } else if (refreshRate == 2) {
+            mRefreshRate.setSummary(R.string.refresh_rate_summary_90);
+        } else {
+            mRefreshRate.setSummary(R.string.refresh_rate_summary_auto);
+        }
     }
 
     public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =

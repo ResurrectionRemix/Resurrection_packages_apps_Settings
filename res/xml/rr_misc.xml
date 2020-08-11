@@ -19,22 +19,26 @@
       android:key="rr_about"
       android:icon="@drawable/rr_about_icon"
       android:title="@string/about_rr"
+      android:summary="@string/about_r0m_summary"   
 	  android:fragment="com.android.settings.rr.About" />
 
     <PreferenceScreen
       android:title="@string/weather_title"
       android:icon="@drawable/rr_weather_main_icon"
+      android:summary="@string/misc_weather_settings_summary"   
       android:fragment="com.android.settings.rr.omnigears.moresettings.OmniJawsSettings" />
 
     <PreferenceScreen
       android:key="rr_charge"
       android:title="@string/rr_charging_title"
       android:icon="@drawable/rr_charging_icon"
+      android:summary="@string/smart_charging_summary"   
       android:fragment="com.android.settings.rr.ChargeSettings" />
 
     <PreferenceScreen
       android:key="update_settings"
       android:title="@string/fab_updates"
+      android:summary="@string/rr_updater_summary"
       android:icon="@drawable/rr_ota_icon">
         <intent android:action="android.settings.SYSTEM_UPDATE_SETTINGS" />
     </PreferenceScreen>
