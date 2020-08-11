@@ -582,6 +582,7 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 Settings.System.A2DP_SOURCE_CODEC_PRIORITY, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.SBC_HD_PRIORITY, 0, UserHandle.USER_CURRENT);
+        CutoutSettings.reset(mContext);
     }
 
     private static boolean isAudioPanelOnLeftSide(Context context) {

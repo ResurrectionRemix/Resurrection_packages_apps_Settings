@@ -24,36 +24,16 @@
         android:layout="@layout/rr_misc_layout"
         android:selectable="false"/>
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="screenshot_sound"
-            android:title="@string/screenshot_shutter_sound_title"
-            android:icon="@drawable/rr_screenshot_icon"
-            android:summary="@string/screenshot_sound_summary"
-            android:defaultValue="true" />
+    <PreferenceCategory
+        android:title="@string/rr_notif_settings_title">
 
-    <com.android.settings.rr.Preferences.SystemSettingListPreference
-        android:key="flashlight_on_call"
-        android:title="@string/flashlight_on_call_title"
-        android:icon="@drawable/rr_flashlight_icon"
-        android:entries="@array/flashlight_on_call_entries"
-        android:entryValues="@array/flashlight_on_call_values"
-        android:defaultValue="0" />
-
-    <!-- Always On when charging-->
-	
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-         android:key="doze_on_charge"
-         android:icon="@drawable/rr_charging_icon"
-         android:title="@string/doze_on_charge_title"
-         android:summary="@string/doze_on_charge_summary"
-         android:defaultValue="false" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="three_finger_gesture"
-        android:title="@string/three_finger_gesture"
-        android:icon="@drawable/rr_tap_icon"
-        android:summary="@string/three_finger_gesture_summary"
-        android:defaultValue="false" />
+     <!-- Alert Slider Notifications -->
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference  
+        android:key="alert_slider_notifications"
+        android:icon="@drawable/rr_notif_icon"
+        android:title="@string/alert_slider_notifications_title"
+        android:summary="@string/alert_slider_notifications_summary"
+        android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference	
         android:key="notification_guts_kill_app_button"
@@ -68,6 +48,75 @@
         android:icon="@drawable/rr_disabled_icon"
         android:summary="@string/disable_fc_notifications_summary" 
         android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/global_actions_screenshot">
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="screenshot_delay"
+        android:title="@string/screenshot_delay_title"
+        android:icon="@drawable/rr_clock_icon"
+        android:max="10"
+        android:min="0"
+        settings:units="sec"
+        android:defaultValue="0"/>
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="screenshot_sound"
+        android:title="@string/screenshot_shutter_sound_title"
+        android:icon="@drawable/rr_screenshot_icon"
+        android:summary="@string/screenshot_sound_summary"
+        android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="three_finger_gesture"
+        android:title="@string/three_finger_gesture"
+        android:icon="@drawable/rr_tap_icon"
+        android:summary="@string/three_finger_gesture_summary"
+        android:defaultValue="false" />
+    </PreferenceCategory>
+ 
+    <PreferenceCategory
+        android:title="@string/rr_ui_title">
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference  
+        android:key="sysui_show_assistant_handles"
+        android:icon="@drawable/rr_assist_2_icon"
+        android:title="@string/tuner_keyguard_show_assistant_handle_title"
+        android:summary="@string/tuner_keyguard_show_assistant_handle_summary"
+        android:defaultValue="true" />
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference  
+        android:key="navigation_bar_show_new"
+        android:icon="@drawable/rr_navbar_icon"
+        android:title="@string/navigation_bar_show_title"
+        android:summary="@string/navigation_bar_show_summary"
+        android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_call_cat_title">
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="flashlight_on_call"
+        android:title="@string/flashlight_on_call_title"
+        android:icon="@drawable/rr_flashlight_icon"
+        android:entries="@array/flashlight_on_call_entries"
+        android:entryValues="@array/flashlight_on_call_values"
+        android:defaultValue="0" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_charging_title">
+
+    <!-- Always On when charging-->
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+         android:key="doze_on_charge"
+         android:icon="@drawable/rr_charging_icon"
+         android:title="@string/doze_on_charge_title"
+         android:summary="@string/doze_on_charge_summary"
+         android:defaultValue="false" />
 
     <lineageos.preference.LineageGlobalSettingSwitchPreference
         android:key="wake_when_plugged_or_unplugged"
@@ -75,6 +124,18 @@
         android:icon="@drawable/rr_wake_icon"
         android:summary="@string/wake_when_plugged_or_unplugged_summary"
         android:defaultValue="@*android:bool/config_unplugTurnsOnScreen" />
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="@string/rr_misc_title">
+
+     <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference  
+        android:key="allow_signature_fake"
+        android:icon="@drawable/rr_signature_icon"
+        android:title="@string/allow_signature_fake_title"
+        android:summary="@string/allow_signature_fake_summary"
+        android:defaultValue="false" />
 
     <!-- Prevent accidental wake-up -->
     <lineageos.preference.LineageSystemSettingSwitchPreference
@@ -92,36 +153,7 @@
         android:defaultValue="false"
         android:icon="@drawable/rr_fp_anim_icon"
         lineage:requiresFeature="lineagehardware:FEATURE_HIGH_TOUCH_SENSITIVITY" />
+    </PreferenceCategory>
 
-    <!-- Alert Slider Notifications -->
-     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference  
-        android:key="alert_slider_notifications"
-        android:icon="@drawable/rr_notif_icon"
-        android:title="@string/alert_slider_notifications_title"
-        android:summary="@string/alert_slider_notifications_summary"
-        android:defaultValue="true" />
-
-     <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference  
-        android:key="allow_signature_fake"
-        android:icon="@drawable/rr_signature_icon"
-        android:title="@string/allow_signature_fake_title"
-        android:summary="@string/allow_signature_fake_summary"
-        android:defaultValue="false" />
-
-     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference  
-        android:key="navigation_bar_show_new"
-        android:icon="@drawable/rr_navbar_icon"
-        android:title="@string/navigation_bar_show_title"
-        android:summary="@string/navigation_bar_show_summary"
-        android:defaultValue="true" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-        android:key="screenshot_delay"
-        android:title="@string/screenshot_delay_title"
-        android:icon="@drawable/rr_clock_icon"
-        android:max="10"
-        android:min="0"
-        settings:units="sec"
-        android:defaultValue="0"/>
  
 </PreferenceScreen>

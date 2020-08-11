@@ -55,6 +55,7 @@ public class CutoutSettings extends SettingsPreferenceFragment implements
     private static final String CUTOUT_BLACK = "sysui_display_cutout";
     private static final String CUTOUT_FULL = "display_cutout_force_fullscreen_settings";
     private static final String CUTOUT_CAT = "cutout_cat";
+    private Context mContext;
 
     // Dark Variants
     private static final String[] CUTOUT_STYLES_ARRAY = {
@@ -79,7 +80,7 @@ public class CutoutSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.cutout);
 
-        Context mContext = getActivity().getApplicationContext();
+        mContext = getActivity().getApplicationContext();
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = getResources();
@@ -115,6 +116,9 @@ public class CutoutSettings extends SettingsPreferenceFragment implements
     }
 
     public void updatestyles() {
+        boolean hasNotch = mContext.getResources().getBoolean(
+                org.lineageos.platform.internal.R.bool.config_haveNotch);
+        if (hasNotch)  return;
         if (isEnabled()) {
             mCutoutCat.setEnabled(true);
         } else {

@@ -23,13 +23,19 @@
         android:layout="@layout/rr_corners_layout"
         android:selectable="false"/>
 
+    <PreferenceCategory
+        android:title="@string/rr_cutout_main">
+
     <PreferenceScreen
         android:key="cutout_settings"
         android:icon="@drawable/ic_cutout"
         android:title="@string/cutout_main"
         android:summary="@string/cutout_main_summary"
         android:fragment="com.android.settings.rr.CutoutSettings" />
+    </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/rr_ui_title">
 
     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
        android:key="sysui_rounded_fwvals"
@@ -67,4 +73,6 @@
         settings:units="@string/unit_pixels"
         android:persistent="false"
         android:dependency="sysui_rounded_fwvals" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

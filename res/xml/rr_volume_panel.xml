@@ -25,11 +25,27 @@
         android:layout="@layout/rr_volume_layout"
         android:selectable="false"/>
 
+    <PreferenceCategory
+        android:title="@string/rr_ui_title">
+
      <lineageos.preference.LineageSecureSettingSwitchPreference
          android:key="volume_panel_on_left"
          android:icon="@drawable/rr_panel_left_icon"
          android:title="@string/volume_panel_on_left_title"
          android:summary="@string/volume_panel_on_left_summary" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="audio_panel_view_timeout"
+        android:icon="@drawable/rr_duration_icon"
+        android:title="@string/audio_panel_view_timeout_title"
+        android:defaultValue="3"
+        android:max="10"
+        settings:min="1"
+        settings:units="@string/unit_seconds" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_vol_items">
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="audio_panel_view_media"
@@ -73,14 +89,6 @@
         android:title="@string/audio_panel_view_bt_sco_title"
         android:summary="@string/audio_panel_view_bt_sco_summary"
         android:defaultValue="false"/>
-
-    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-        android:key="audio_panel_view_timeout"
-        android:icon="@drawable/rr_duration_icon"
-        android:title="@string/audio_panel_view_timeout_title"
-        android:defaultValue="3"
-        android:max="10"
-        settings:min="1"
-        settings:units="@string/unit_seconds" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
