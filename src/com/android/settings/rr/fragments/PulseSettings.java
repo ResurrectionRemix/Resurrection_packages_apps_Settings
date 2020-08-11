@@ -97,7 +97,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mRenderMode = findPreference(PULSE_RENDER_MODE_KEY);
         mRenderMode.setOnPreferenceChangeListener(this);
         int renderMode = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.PULSE_RENDER_STYLE_URI, 1, UserHandle.USER_CURRENT);
+                Settings.System.PULSE_RENDER_STYLE_URI, 0, UserHandle.USER_CURRENT);
         updateRenderCategories(renderMode);
 
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
