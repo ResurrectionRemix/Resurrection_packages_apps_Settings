@@ -35,9 +35,8 @@ LOCAL_STATIC_ANDROID_LIBRARIES := \
     BlurView \
     com.google.android.material_material \
     setupcompat \
-    setupdesign \
-    android-support-design \
-    airbnb-lottie 
+    airbnb-lottie \
+    setupdesign
 
 LOCAL_JAVA_LIBRARIES := \
     telephony-common \

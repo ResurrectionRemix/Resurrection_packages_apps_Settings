@@ -21,7 +21,6 @@
     xmlns:settings="http://schemas.android.com/apk/com.android.settings"
     android:title="@string/rr_sound_title">
 
-
     <com.android.settings.rr.preview.AboutSettingsPreview
         android:layout="@layout/rr_sound_layout"
         android:key="preview"
@@ -32,7 +31,6 @@
         android:layout="@layout/rr_sound_animation" />
 
      <PreferenceCategory
-
         android:key="rr_vol"
         android:title="@string/rr_vol_steps_cat">
 
@@ -78,8 +76,10 @@
                 android:title="@string/volume_steps_voice_call_title"
                 android:entries="@array/volume_steps_entries"
                 android:entryValues="@array/volume_steps_entries" />
+
      </PreferenceCategory>
-     <PreferenceCategory>
+
+     <PreferenceCategory
         android:key="rr_headset"
         android:title="@string/rr_headset_cat">
 

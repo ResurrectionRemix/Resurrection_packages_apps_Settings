@@ -93,7 +93,6 @@ public class Header extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
-        updateEnablement();
     }
 
     @Override
@@ -139,7 +138,6 @@ public class Header extends SettingsPreferenceFragment implements
         mHeaderProvider = (ListPreference) findPreference(CUSTOM_HEADER_PROVIDER);
         int valueIndex = mHeaderProvider.findIndexOfValue(providerName);
         mHeaderProvider.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
-        updateSummary(providerName);
         mHeaderProvider.setOnPreferenceChangeListener(this);
         mDaylightHeaderPack.setEnabled(providerName.equals(mDaylightHeaderProvider));
         mFileHeader = findPreference(FILE_HEADER_SELECT);
@@ -277,42 +275,16 @@ public class Header extends SettingsPreferenceFragment implements
             Settings.System.putString(resolver,
                     Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER, value);
             int valueIndex = mHeaderProvider.findIndexOfValue(value);
-            updateSummary(value);
-            updateEnablement();
+            mDaylightHeaderPack.setEnabled(value.equals(mDaylightHeaderProvider));
+            mHeaderBrowse.setTitle(valueIndex == 0 ? R.string.custom_header_browse_title : R.string.custom_header_pick_title);
+            mHeaderBrowse.setSummary(valueIndex == 0 ? R.string.custom_header_browse_summary_new : R.string.custom_header_pick_summary);
+            if (!value.equals(mDaylightHeaderProvider)) {
+                 value = mFileHeaderProvider;
+            }
+            mFileHeader.setEnabled(value.equals(mFileHeaderProvider));
             return true;
         }
         return false;
-    }
-
-
-    private void updateSummary(String provider) {
-         if (provider == null) {
-             mHeaderProvider.setSummary(R.string.custom_header_rr_title);
-         }
-         if (provider == STATIC) {
-             mHeaderProvider.setSummary(R.string.static_header_provider_title);
-         } else if (provider == STATIC)  {
-             mHeaderProvider.setSummary(R.string.daylight_header_provider_title);
-         }else  {
-             mHeaderProvider.setSummary(R.string.custom_header_rr_title);
-         }
-    }
-
-    private void updateEnablement() {
-        String providerName = Settings.System.getString(getContentResolver(),
-                Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER);
-        if (providerName == null) {
-            providerName = mDaylightHeaderProvider;
-        }
-        if (!providerName.equals(mDaylightHeaderProvider)) {
-            providerName = mFileHeaderProvider;
-        }
-        int valueIndex = mHeaderProvider.findIndexOfValue(providerName);
-        mHeaderProvider.setValueIndex(valueIndex >= 0 ? valueIndex : 0);
-        updateSummary(providerName);
-        mDaylightHeaderPack.setEnabled(providerName.equals(mDaylightHeaderProvider));
-        mFileHeader.setEnabled(providerName.equals(mFileHeaderProvider));
-        mHeaderBrowse.setEnabled(isBrowseHeaderAvailable() && providerName.equals(mFileHeaderProvider));
     }
 
     @Override

@@ -15,6 +15,8 @@ package com.android.settings.rr;
 
 import android.os.Bundle;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.media.AudioManager;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
@@ -49,6 +51,32 @@ import java.util.HashSet;
 public class SoundSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "SoundSettings";
+    private static final String VOLUME_STEP_DEFAULTS = "volume_step_defaults";
+    private static final String FIRST_RUN_KEY = "first_run";
+
+    // base map of all preference keys and the associated stream
+    private static final Map<String, Integer> volume_map = new HashMap<String, Integer>();
+    static {
+        volume_map.put("volume_steps_alarm", new Integer(AudioManager.STREAM_ALARM));
+        volume_map.put("volume_steps_dtmf", new Integer(AudioManager.STREAM_DTMF));
+        volume_map.put("volume_steps_music", new Integer(AudioManager.STREAM_MUSIC));
+        volume_map.put("volume_steps_notification", new Integer(AudioManager.STREAM_NOTIFICATION));
+        volume_map.put("volume_steps_ring", new Integer(AudioManager.STREAM_RING));
+        volume_map.put("volume_steps_system", new Integer(AudioManager.STREAM_SYSTEM));
+        volume_map.put("volume_steps_voice_call", new Integer(AudioManager.STREAM_VOICE_CALL));
+    }
+
+    // entries to remove on non-telephony devices	
+    private static final Set<String> telephony_set = new HashSet<String>();
+    static {
+        telephony_set.add("volume_steps_dtmf");
+        telephony_set.add("volume_steps_ring");
+        telephony_set.add("volume_steps_voice_call");
+    }
+
+    // set of available pref keys after device configuration filter
+    private Set<String> mAvailableKeys = new HashSet<String>();
+    private AudioManager mAudioManager;
 
     @Override
     public int getMetricsCategory() {
@@ -122,8 +150,62 @@ public class SoundSettings extends SettingsPreferenceFragment implements
         } catch (Exception e) {}
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
+        if (preference.hasKey() && mAvailableKeys.contains(preference.getKey())) {
+            commitVolumeSteps(preference, Integer.parseInt(objValue.toString()));
+        }
         return true;
+    }
+
+    private SharedPreferences getDefaultStepsPrefs() {
+        return getActivity().getSharedPreferences(VOLUME_STEP_DEFAULTS,
+                Context.MODE_PRIVATE);
+    }
+
+    // test for initial run of this fragment
+    private boolean checkForFirstRun() {
+        String isFirstRun = getDefaultStepsPrefs().getString(FIRST_RUN_KEY, null);
+        if (isFirstRun == null) {
+            getDefaultStepsPrefs().edit().putString(FIRST_RUN_KEY, "first_run_initialized").commit();
+            return true;
+        }
+        return false;
+    }
+
+    private int getDefaultSteps(Preference pref) {
+        if (pref == null || !(pref instanceof ListPreference)) {
+            // unlikely
+            return -1;
+        }
+        String key = pref.getKey();
+        String value = getDefaultStepsPrefs().getString(key, null);
+        if (value == null) {
+            // unlikely
+            return -1;
+        }
+        return Integer.parseInt(value);
+    }
+
+    // on the initial run, let's store true device defaults in sharedPrefs
+    private void saveDefaultSteps(Preference volPref, int defaultSteps) {
+        String key = volPref.getKey();
+        getDefaultStepsPrefs().edit().putString(key, String.valueOf(defaultSteps)).commit();
+    }
+
+    private void updateVolumeStepPrefs(Preference pref, int steps) {
+        if (pref == null || !(pref instanceof ListPreference)) {
+            return;
+        }
+        final ListPreference listPref = (ListPreference) pref;
+        listPref.setSummary(String.valueOf(steps));
+        listPref.setValue(String.valueOf(steps));
+    }
+    private void commitVolumeSteps(Preference pref, int steps) {
+        Settings.System.putInt(getContentResolver(), pref.getKey(), steps);
+        mAudioManager.setStreamMaxVolume(volume_map.get(pref.getKey()), steps);
+        updateVolumeStepPrefs(pref, steps);
+        Log.i(TAG, "Volume steps:" + pref.getKey() + "" + String.valueOf(steps));
     }
 
     /**
