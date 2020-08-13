@@ -118,7 +118,7 @@ public class Animations extends SettingsPreferenceFragment implements
         mScrollingCachePref.setSummary(mScrollingCachePref.getEntry());
         mScrollingCachePref.setOnPreferenceChangeListener(this);
 
-        mRefreshRate = (ListPreference) prefs.findPreference(KEY_REFRESH_RATE);
+        mRefreshRate = (ListPreference) findPreference(KEY_REFRESH_RATE);
         if (isAvailable()) {
            int defVarRateSetting = getContext().getResources().getInteger(
                  com.android.internal.R.integer.config_defaultVariableRefreshRateSetting);
@@ -128,7 +128,7 @@ public class Animations extends SettingsPreferenceFragment implements
             mRefreshRate.setOnPreferenceChangeListener(this);
             updateRefreshRate(refreshRate);
         } else {
-          prefs.removePreference(mRefreshRate);
+          removePreference("refresh_rate_setting");
         }
 
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
