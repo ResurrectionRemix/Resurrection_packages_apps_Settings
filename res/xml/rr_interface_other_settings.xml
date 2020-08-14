@@ -87,7 +87,15 @@
         android:title="@string/screenshot_type_title"
         android:entries="@array/screenshot_type_entries"
         android:entryValues="@array/screenshot_type_values"
-        android:defaultValue="0" /> 
+        android:defaultValue="0" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="long_screenshot_type"
+        android:title="@string/long_screenshot_type_title"
+        android:icon="@drawable/rr_longpress_icon"
+        android:summaryOn="@string/long_screenshot_type_summary_on"
+        android:summaryOff="@string/long_screenshot_type_summary_off"
+        android:defaultValue="true" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="screenshot_sound"
