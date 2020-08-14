@@ -438,7 +438,7 @@ public class PowerUsageSummary extends PowerUsageBase implements OnLongClickList
         mScreenUsagePref.setSummary(StringUtil.formatElapsedTime(getContext(),
                 mBatteryUtils.calculateScreenUsageTime(mStatsHelper), false));
         mBatteryTempPref.setSummary(BatteryInfo.batteryTemp / 10 + " °C");
-        mCurrentBatteryCapacity.setSubtitle(parseBatterymAhCurrentText(mBatCurCap));
+        mCurrentBatteryCapacity.setSubtitle(parseBatterymAhText(mBatCurCap));
         mDesignedBatteryCapacity.setSubtitle(parseBatterymAhText(mBatDesCap));
         mBatteryChargeCycles.setSubtitle(parseBatteryCycle(mBatChgCyc));
         final long elapsedRealtimeUs = SystemClock.elapsedRealtime() * 1000;
@@ -596,22 +596,9 @@ public class PowerUsageSummary extends PowerUsageBase implements OnLongClickList
         restartBatteryTipLoader();
     }
 
-    private String parseBatterymAhCurrentText(String file) {
-        try {
-            return Integer.parseInt(readLine(file))/1000 + " mAh";
-        } catch (IOException ioe) {
-            Log.e(TAG, "Cannot read battery capacity from "
-                    + file, ioe);
-        } catch (NumberFormatException nfe) {
-            Log.e(TAG, "Read a badly formatted battery capacity from "
-                    + file, nfe);
-        }
-        return getResources().getString(R.string.status_unavailable);
-    }
-
     private String parseBatterymAhText(String file) {
         try {
-            return Integer.parseInt(readLine(file))+ " mAh";
+            return Integer.parseInt(readLine(file)) / 1000 + " mAh";
         } catch (IOException ioe) {
             Log.e(TAG, "Cannot read battery capacity from "
                     + file, ioe);
