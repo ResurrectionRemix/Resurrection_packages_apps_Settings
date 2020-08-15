@@ -40,7 +40,6 @@ public class UnrestrictedDataAccess extends DashboardFragment {
     private static final String TAG = "UnrestrictedDataAccess";
 
     private static final int MENU_SHOW_SYSTEM = Menu.FIRST + 42;
-    private static final String EXTRA_SHOW_SYSTEM = "show_system";
 
     private boolean mShowSystem;
     private AppFilter mFilter;
@@ -48,39 +47,19 @@ public class UnrestrictedDataAccess extends DashboardFragment {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        mShowSystem = icicle != null && icicle.getBoolean(EXTRA_SHOW_SYSTEM);
 
         use(UnrestrictedDataAccessPreferenceController.class).setParentFragment(this);
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.add(Menu.NONE, MENU_SHOW_SYSTEM, Menu.NONE,
-                mShowSystem ? R.string.menu_hide_system : R.string.menu_show_system);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case MENU_SHOW_SYSTEM:
-                mShowSystem = !mShowSystem;
-                item.setTitle(mShowSystem ? R.string.menu_hide_system : R.string.menu_show_system);
-                mFilter = mShowSystem ? ApplicationsState.FILTER_ALL_ENABLED
-                        : ApplicationsState.FILTER_DOWNLOADED_AND_LAUNCHER;
-
-                use(UnrestrictedDataAccessPreferenceController.class).setFilter(mFilter);
-                use(UnrestrictedDataAccessPreferenceController.class).rebuild();
-
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putBoolean(EXTRA_SHOW_SYSTEM, mShowSystem);
     }
 
     @Override
