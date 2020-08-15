@@ -134,6 +134,11 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
                             LineageHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
                         keys.add(KEY_HIGH_TOUCH);
                     }
+                    boolean hasAlertSlider = context.getResources().getBoolean(
+                       com.android.internal.R.bool.config_hasAlertSlider);
+                    if (!hasAlertSlider) {
+                        keys.add("alert_slider_notifications");
+                    }
                 return keys;
             }
         };
