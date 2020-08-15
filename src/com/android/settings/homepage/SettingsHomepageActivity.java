@@ -47,9 +47,6 @@ import com.android.settings.accounts.AvatarViewMixin;
 import com.android.settings.core.HideNonSystemOverlayMixin;
 import com.android.settings.homepage.contextualcards.ContextualCardsFragment;
 import com.android.settings.overlay.FeatureFactory;
-
-import eightbitlab.com.blurview.BlurView;
-import eightbitlab.com.blurview.RenderScriptBlur;
 import com.android.settingslib.drawable.CircleFramedDrawable;
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -68,17 +65,12 @@ public class SettingsHomepageActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.settings_homepage_container);
-        final View decorView = getWindow().getDecorView();
-        final ViewGroup root = (ViewGroup) decorView.findViewById(android.R.id.content);
+        final View root = findViewById(R.id.settings_homepage_container);
         root.setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 
         setHomepageContainerPaddingTop();
 
-        final BlurView searchBarBlur = findViewById(R.id.search_bar_blur);
-        final Drawable windowBackground = decorView.getBackground();
-        searchBarBlur.setupWith(root).setFrameClearDrawable(windowBackground)
-                .setBlurAlgorithm(new RenderScriptBlur(this));
         Context context = getApplicationContext();
 
         mUserManager = context.getSystemService(UserManager.class);
