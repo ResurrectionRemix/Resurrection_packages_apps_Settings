@@ -82,6 +82,12 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         } else {
             mPixel.setEnabled(true);
         }
+
+        boolean hasAlertSlider = getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_hasAlertSlider);
+        if (!hasAlertSlider) {
+             removePreference("alert_slider_notifications");
+        }
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
