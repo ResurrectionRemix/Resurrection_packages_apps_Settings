@@ -428,8 +428,6 @@ public class Buttons extends SettingsPreferenceFragment implements
         }
 
         mHandler = new Handler();
-
-        updateHwKeys();
         navbarCheck();
         customAppCheck();
 
@@ -531,7 +529,6 @@ public class Buttons extends SettingsPreferenceFragment implements
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.FORCE_SHOW_NAVBAR, value ? 1 : 0);
             navbarCheck();
-            updateHwKeys();
             mHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -706,7 +703,6 @@ public class Buttons extends SettingsPreferenceFragment implements
         super.onResume();
         navbarCheck();
         customAppCheck();
-        updateHwKeys();
         actionPreferenceReload();
         // Power button ends calls.
         if (mPowerEndCall != null) {
@@ -732,7 +728,6 @@ public class Buttons extends SettingsPreferenceFragment implements
         super.onPause();
         navbarCheck();
         customAppCheck();
-        updateHwKeys();
         actionPreferenceReload();
     }
 
@@ -753,14 +748,6 @@ public class Buttons extends SettingsPreferenceFragment implements
                 String.valueOf(Settings.System.LEFT_LONG_BACK_SWIPE_APP_FR_ACTION), UserHandle.USER_CURRENT));
         mRightSwipeAppSelection.setSummary(Settings.System.getStringForUser(getActivity().getContentResolver(),
                 String.valueOf(Settings.System.RIGHT_LONG_BACK_SWIPE_APP_FR_ACTION), UserHandle.USER_CURRENT));
-    }
-
-    private void updateHwKeys() {
-        if (isNavbarVisible()) {
-            hwKeysCategory.setEnabled(false);
-        } else {
-            hwKeysCategory.setEnabled(true);
-        }
     }
 
     private boolean isNavbarVisible() {
