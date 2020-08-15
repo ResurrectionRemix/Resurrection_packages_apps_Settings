@@ -192,7 +192,7 @@ public class VibrationSettingsPreferenceFragment extends SettingsPreferenceFragm
             updateIntensityText();
         } else {
             mVibrationSettings.removePreference(mRingerVibrationIntensity);
-            prefScreen.removePreference(mNotifVibrationIntensity);
+            removePreference("notification_vibration_intensity");
         }
 
         mVibrationPattern.setOnPreferenceChangeListener(this);
