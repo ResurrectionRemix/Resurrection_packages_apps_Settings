@@ -46,6 +46,11 @@ public class MiscSettingsNav extends SettingsPreferenceFragment implements Index
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_misc_navigation);
+        boolean available = getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_smartChargingAvailable);
+        if (!available) {
+            removePreference("rr_charge");
+        }
     }
 
 

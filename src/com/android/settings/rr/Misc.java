@@ -54,11 +54,15 @@ public class Misc extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_misc);
-
         PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
+        boolean available = getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_smartChargingAvailable);
+        if (!available) {
+            removePreference("rr_charge");
+        }
         try {
             if (anim == 0) {
                 removePreference("animation");
