@@ -54,6 +54,14 @@
         android:icon="@drawable/rr_buttons_icon"
         android:defaultValue="false" />
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="gaming_mode_refresh_rate"
+        android:title="@string/gaming_mode_refresh_rate_title"
+        android:icon="@drawable/rr_refresh_icon"
+        android:dependency="gaming_mode_enabled"
+        android:summary="@string/gaming_mode_refresh_rate_summary"
+        android:defaultValue="false" />
+
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_notifications_feedback"
