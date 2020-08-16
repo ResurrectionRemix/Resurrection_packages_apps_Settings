@@ -35,6 +35,14 @@
          android:title="@string/volte_icon_title"
          android:summary="@string/volte_icon_summary"
          android:defaultValue="false"/>
+
+	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+         android:key="volte_vowifi_override"
+         android:icon="@drawable/rr_autoenable_icon"
+         android:title="@string/volte_vowifi_override_title"
+         android:summary="@string/volte_vowifi_override_summary"
+         android:defaultValue="true"/>
+
 	<com.android.settings.rr.Preferences.SystemSettingListPreference
          android:key="volte_icon_style"
          android:title="@string/volte_icon_style_title"
@@ -47,12 +55,12 @@
 
 	<com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
          android:key="vowifi_icon_style"
-         android:icon="@drawable/ic_vowifi"
+         android:icon="@drawable/rr_vowifi_icon"
          android:title="@string/vowifi_icon_title"
          android:summary="@string/vowifi_icon_summary"
          android:defaultValue="0"
          settings:defaultValueText="@string/disabled"
-         android:max="8"
+         android:max="4"
          settings:min="0"
          settings:units="" />
 
