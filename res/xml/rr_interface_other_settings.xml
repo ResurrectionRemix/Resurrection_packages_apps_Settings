@@ -169,6 +169,14 @@
     <PreferenceCategory
         android:title="@string/rr_charging_title">
 
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="charging_animation"
+        android:icon="@drawable/rr_animations_icon"
+        android:title="@string/charging_animation_title"
+        android:summary="@string/charging_animation_summary"
+        android:defaultValue="false" />
+
     <!-- Always On when charging-->
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
          android:key="doze_on_charge"
