@@ -45,6 +45,17 @@
          android:summary="%s"
          android:defaultValue="0"/>
 
+	<com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+         android:key="vowifi_icon_style"
+         android:icon="@drawable/ic_vowifi"
+         android:title="@string/vowifi_icon_title"
+         android:summary="@string/vowifi_icon_summary"
+         android:defaultValue="0"
+         settings:defaultValueText="@string/disabled"
+         android:max="8"
+         settings:min="0"
+         settings:units="" />
+
 	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
          android:key="data_disabled_icon"
          android:icon="@drawable/rr_disabled_icon"
@@ -77,25 +88,25 @@
         android:defaultValue="false" />
  </PreferenceCategory>
    <PreferenceCategory
-            android:key="statusbar_breathing_title"
-            android:title="@string/statusbar_breathing">
+         android:key="statusbar_breathing_title"
+         android:title="@string/statusbar_breathing">
 	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="sms_breath"
-            android:title="@string/sms_breath_title"
-            android:icon="@drawable/rr_carrier_label_icon"
-            android:summary="@string/sms_breath_summary"
-            android:persistent="false"/>
+         android:key="sms_breath"
+         android:title="@string/sms_breath_title"
+         android:icon="@drawable/rr_carrier_label_icon"
+         android:summary="@string/sms_breath_summary"
+         android:persistent="false"/>
 	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="missed_call_breath"
-            android:title="@string/missed_call_breath_title"
-            android:icon="@drawable/rr_call_icon"
-            android:summary="@string/missed_call_breath_summary"
-            android:persistent="false"/>
+         android:key="missed_call_breath"
+         android:title="@string/missed_call_breath_title"
+         android:icon="@drawable/rr_call_icon"
+         android:summary="@string/missed_call_breath_summary"
+         android:persistent="false"/>
 	<com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="voicemail_breath"
-            android:title="@string/voicemail_breath_title"
-            android:icon="@drawable/rr_mic_icon"
-            android:summary="@string/voicemail_breath_summary"
-            android:persistent="false"/>
+         android:key="voicemail_breath"
+         android:title="@string/voicemail_breath_title"
+         android:icon="@drawable/rr_mic_icon"
+         android:summary="@string/voicemail_breath_summary"
+         android:persistent="false"/>
 </PreferenceCategory>
 </PreferenceScreen>
