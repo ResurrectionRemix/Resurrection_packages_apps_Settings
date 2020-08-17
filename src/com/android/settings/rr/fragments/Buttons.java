@@ -802,8 +802,7 @@ public class Buttons extends SettingsPreferenceFragment implements
         if ((RRUtils.isThemeEnabled("com.android.internal.systemui.navbar.gestural")
                 || RRUtils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_wide_back")
                 || RRUtils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_extra_wide_back")
-                || RRUtils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back"))
-                && isNavbarVisible()) {
+                || RRUtils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back")) && !isHwKeysActive()) {
             homeCategory.setVisible(false);
             backCategory.setVisible(false);
             menuCategory.setVisible(false);
@@ -861,6 +860,11 @@ public class Buttons extends SettingsPreferenceFragment implements
         } else {
             mNavigationArrowKeys.setEnabled(true);
         }
+    }
+
+    private boolean isHwKeysActive() {
+       return Settings.Secure.getIntForUser(resolver,
+                    Settings.Secure.HARDWARE_KEYS_ENABLE, 1, UserHandle.USER_CURRENT) != 0;
     }
 
     private void actionPreferenceReload() {
