@@ -63,7 +63,9 @@ public class ColorSettings extends SettingsPreferenceFragment implements
     private SystemSettingColorPickerPreference mGradientColor;
     private Preference mReset;
     private Preference mResetGrad;
-
+    private int mDefaultAccentColor;
+    private int mDefaultGradientColor;
+    private int mDefaultMaterialColor;
 
     @Override
     public int getMetricsCategory() {
@@ -74,17 +76,24 @@ public class ColorSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_color_settings);
+
+        mDefaultMaterialColor = getResources().getColor(
+                       com.android.internal.R.color.accent_material_light);
+        mDefaultAccentColor = getResources().getColor(
+                       com.android.internal.R.color.accent_device_default_light);
+        mDefaultGradientColor = getResources().getColor(
+                       com.android.internal.R.color.gradient_device_default);
         mAccentColor = (SystemSettingColorPickerPreference) findPreference(ACCENT_COLOR);
         int intColor = Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR, UserHandle.USER_CURRENT);
-        String hexColor = String.format("#%08x", (0xff4285f4 & intColor));
+                Settings.System.ACCENT_COLOR, mDefaultAccentColor, UserHandle.USER_CURRENT);
+        String hexColor = String.format("#%08x", (mDefaultAccentColor & intColor));
         mAccentColor.setNewPreviewColor(intColor);
         mAccentColor.setAlphaSliderEnabled(false);
         mAccentColor.setOnPreferenceChangeListener(this);
         mGradientColor = (SystemSettingColorPickerPreference) findPreference(GRADIENT_COLOR);
         int intgColor = Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.GRADIENT_COLOR_PROP, DEFAULT_ACCENT_COLOR, UserHandle.USER_CURRENT);
-        String hexColor1 = String.format("#%08x", (0xff4285f4 & intColor));
+                Settings.System.GRADIENT_COLOR_PROP, mDefaultGradientColor, UserHandle.USER_CURRENT);
+        String hexColor1 = String.format("#%08x", (mDefaultGradientColor & intColor));
         mGradientColor.setNewPreviewColor(intgColor);
         mGradientColor.setAlphaSliderEnabled(false);
         mGradientColor.setOnPreferenceChangeListener(this);
@@ -137,7 +146,7 @@ public class ColorSettings extends SettingsPreferenceFragment implements
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Settings.System.putIntForUser(getContext().getContentResolver(),
-                        Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR,
+                        Settings.System.ACCENT_COLOR, mDefaultMaterialColor,
                         UserHandle.USER_CURRENT);
                         Settings.System.putIntForUser(getContext().getContentResolver(),
                         Settings.System.GRADIENT_COLOR_PROP, DEFAULT_GRADIENT_COLOR,
