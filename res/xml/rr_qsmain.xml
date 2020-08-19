@@ -181,70 +181,8 @@
     </PreferenceCategory>
 
     <PreferenceCategory
-        android:title="@string/recents_ui_title">
-
-    <com.android.settings.rr.Preferences.SystemSettingListPreference
-         android:key="qs_system_info"
-         android:icon="@drawable/rr_system_info_icon"
-         android:title="@string/qs_system_info_title"
-         android:entries="@array/qs_system_info_entries"
-         android:entryValues="@array/qs_system_info_values"
-         android:defaultValue="0"
-         android:summary="%s" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="qs_running_services_toggle"
-        android:icon="@drawable/rr_memory_icon"
-        android:title="@string/qs_running_services_title"
-        android:summary="@string/qs_running_services_summary"
-        android:defaultValue="false" />
-
-    <com.android.settings.rr.Preferences.SystemSettingListPreference
-        android:key="setting_button_toggle"
-        android:icon="@drawable/rr_system_icon"
-        android:title="@string/qs_footer_settings_title"
-        android:entries="@array/qs_footer_settings_entries"
-        android:entryValues="@array/qs_footer_settings_values"
-        android:defaultValue="1" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="qs_footer_show_edit"
-        android:icon="@drawable/rr_color_icon"
-        android:title="@string/qs_footer_edit_title"
-        android:summary="@string/qs_footer_edit_summary"
-        android:defaultValue="true" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="qs_footer_show_user"
-        android:icon="@drawable/rr_user_icon"
-        android:title="@string/qs_footer_user_title"
-        android:summary="@string/qs_footer_user_summary"
-        android:defaultValue="true" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="qs_panel_bg_rgb"
-        android:title="@string/qs_panel_bg_rgb_title"
-        android:icon="@drawable/rr_disco_icon"
-        android:summary="@string/qs_panel_bg_rgb_summary"
-        android:defaultValue="false" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-        android:key="qs_panel_bg_rgb_dur"
-        android:title="@string/qs_panel_bg_rgb_dur_title"
-        android:icon="@drawable/rr_duration_two_icon"
-        android:max="20"
-        android:min="1"
-        android:dependency="qs_panel_bg_rgb"
-        settings:units="sec"	
-        android:defaultValue="5" />
-
-     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference  
-        android:key="qs_new_bg_enabled"
-        android:icon="@drawable/rr_styles_icon"
-        android:title="@string/qs_new_bg_enabled_title"
-        android:summary="@string/qs_new_bg_enabled_summary"
-        android:defaultValue="false" />
-
+        android:key="qs_tile_options"
+        android:title="@string/rr_category_title">
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
          android:key="qs_tile_accent_tint"
@@ -293,6 +231,99 @@
         android:summary="@string/qs_label_inactive_tint_summary"
         android:defaultValue="false" />
 
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_icon_primary"
+            android:icon="@drawable/rr_buttons_icon"
+            android:title="@string/qs_icon_primary_title"
+            android:summary="@string/qs_icon_primary_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="qs_themes"
+        android:title="@string/qs_themes_category_title">
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_fw"
+            android:title="@string/qs_bg_use_fw"
+            android:icon="@drawable/rr_system_icon"
+            android:summary="@string/qs_bg_use_fw_summary"
+            android:defaultValue="true"
+            android:disableDependentsState="true" />
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_wall"
+            android:title="@string/qs_bg_wall_title"
+            android:icon="@drawable/rr_screenshot_icon"
+            android:summary="@string/qs_bg_wall_summary"
+            android:defaultValue="false"
+            android:dependency="qs_panel_bg_use_fw" />
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_panel_bg_use_accent"
+            android:title="@string/qs_bg_accent_title"
+            android:summary="@string/qs_bg_accent_summary"
+            android:icon="@drawable/rr_themes_icon"
+            android:defaultValue="false"
+            android:dependency="qs_panel_bg_use_fw" />
+
+     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+            android:key="qs_panel_color"
+            android:title="@string/qs_panel_color_title"
+            android:icon="@drawable/rr_color_icon"
+            android:defaultValue="0xffffffff"
+            android:persistent="false"
+            settings:alphaSlider="false"
+            android:dependency="qs_panel_bg_use_fw" />
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:key="qs_extra"
+        android:title="@string/rr_extra_settings">
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_panel_bg_rgb"
+        android:title="@string/qs_panel_bg_rgb_title"
+        android:icon="@drawable/rr_disco_icon"
+        android:summary="@string/qs_panel_bg_rgb_summary"
+        android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="qs_panel_bg_rgb_dur"
+        android:title="@string/qs_panel_bg_rgb_dur_title"
+        android:icon="@drawable/rr_duration_two_icon"
+        android:max="20"
+        android:min="1"
+        android:dependency="qs_panel_bg_rgb"
+        settings:units="sec"	
+        android:defaultValue="5" />
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference  
+        android:key="qs_new_bg_enabled"
+        android:icon="@drawable/rr_styles_icon"
+        android:title="@string/qs_new_bg_enabled_title"
+        android:summary="@string/qs_new_bg_enabled_summary"
+        android:defaultValue="false" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="qs_info"
+        android:title="@string/rr_category_usage">
+
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+         android:key="qs_system_info"
+         android:icon="@drawable/rr_system_info_icon"
+         android:title="@string/qs_system_info_title"
+         android:entries="@array/qs_system_info_entries"
+         android:entryValues="@array/qs_system_info_values"
+         android:defaultValue="0"
+         android:summary="%s" />
+
+
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="qs_datausage"
         android:icon="@drawable/rr_data_usage_icon"
@@ -310,15 +341,7 @@
         android:entryValues="@array/qs_data_usage_location_values"
         android:defaultValue="0" />
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="qs_tile_icon_primary"
-            android:icon="@drawable/rr_buttons_icon"
-            android:title="@string/qs_icon_primary_title"
-            android:summary="@string/qs_icon_primary_summary"
-            android:defaultValue="false" />
-
     </PreferenceCategory>
-
     <PreferenceCategory
         android:key="qs_clock"
         android:title="@string/qs_clock_cat">
@@ -357,44 +380,6 @@
             android:entryValues="@array/lock_clock_fonts_values"
             android:summary="%s"
             android:defaultValue="0" />
-
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:key="qs_themes"
-        android:title="@string/qs_themes_category_title">
-
-     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="qs_panel_bg_use_fw"
-            android:title="@string/qs_bg_use_fw"
-            android:icon="@drawable/rr_system_icon"
-            android:summary="@string/qs_bg_use_fw_summary"
-            android:defaultValue="true"
-            android:disableDependentsState="true" />
-
-     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="qs_panel_bg_use_wall"
-            android:title="@string/qs_bg_wall_title"
-            android:icon="@drawable/rr_screenshot_icon"
-            android:summary="@string/qs_bg_wall_summary"
-            android:defaultValue="false"
-            android:dependency="qs_panel_bg_use_fw" />
-
-     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="qs_panel_bg_use_accent"
-            android:title="@string/qs_bg_accent_title"
-            android:summary="@string/qs_bg_accent_summary"
-            android:icon="@drawable/rr_themes_icon"
-            android:defaultValue="false"
-            android:dependency="qs_panel_bg_use_fw" />
-
-     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
-            android:key="qs_panel_color"
-            android:title="@string/qs_panel_color_title"
-            android:icon="@drawable/rr_color_icon"
-            android:defaultValue="0xffffffff"
-            android:persistent="false"
-            settings:alphaSlider="false"
-            android:dependency="qs_panel_bg_use_fw" />
 
     </PreferenceCategory>
     <PreferenceCategory
@@ -483,6 +468,40 @@
         android:dependency="rr_footer_text_show"
         android:defaultValue="Resurrection Remix" />
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_category_footer">
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="setting_button_toggle"
+        android:icon="@drawable/rr_system_icon"
+        android:title="@string/qs_footer_settings_title"
+        android:entries="@array/qs_footer_settings_entries"
+        android:entryValues="@array/qs_footer_settings_values"
+        android:defaultValue="1" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_running_services_toggle"
+        android:icon="@drawable/rr_memory_icon"
+        android:title="@string/qs_running_services_title"
+        android:summary="@string/qs_running_services_summary"
+        android:defaultValue="false" />
+
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_footer_show_edit"
+        android:icon="@drawable/rr_color_icon"
+        android:title="@string/qs_footer_edit_title"
+        android:summary="@string/qs_footer_edit_summary"
+        android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_footer_show_user"
+        android:icon="@drawable/rr_user_icon"
+        android:title="@string/qs_footer_user_title"
+        android:summary="@string/qs_footer_user_summary"
+        android:defaultValue="true" />
     </PreferenceCategory>
 
 </PreferenceScreen>
