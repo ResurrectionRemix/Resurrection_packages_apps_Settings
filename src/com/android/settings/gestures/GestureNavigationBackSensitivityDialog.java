@@ -159,7 +159,7 @@ public class GestureNavigationBackSensitivityDialog extends InstrumentedDialogFr
                     boolean imeSpace = imeSpaceSwitch.isChecked();
                     getArguments().putBoolean(KEY_NAVIGATION_IME_SPACE, imeSpace);
                     Settings.System.putInt(getActivity().getContentResolver(),
-                            Settings.System.GESTURE_NAVBAR_SHOW, mShowNavChecked ? 1 : 0);
+                            Settings.System.FORCE_SHOW_NAVBAR, mShowNavChecked ? 1 : 0);
                     SystemNavigationGestureSettings.setBackHeight(getActivity(), height);
                     SystemNavigationGestureSettings.setBackSensitivity(getActivity(),
                             getOverlayManager(), sensitivity);
