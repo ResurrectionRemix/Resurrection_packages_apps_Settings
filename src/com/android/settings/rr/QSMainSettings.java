@@ -247,6 +247,11 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0,
   	        UserHandle.USER_CURRENT);
+       if (qsTileStyle == 27) {
+           mInactiveTile.setEnabled(false);
+           mInactiveTile.setSummary(R.string.switch_tile_warning);
+           return;
+       }
        if (qsTileStyle != 0) return;
        if (active)
             mInactiveTile.setEnabled(false);
