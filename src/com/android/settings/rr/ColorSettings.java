@@ -57,8 +57,6 @@ public class ColorSettings extends SettingsPreferenceFragment implements
     private static final String GRADIENT_COLOR = "gradient_color_prop";
     private static final String RESET = "reset";
     private static final String RESET_GRAD = "reset_2";
-    static final int DEFAULT_ACCENT_COLOR = 0xff4285f4;
-    static final int DEFAULT_GRADIENT_COLOR = 0xff0d5bd9;
     private SystemSettingColorPickerPreference mAccentColor;
     private SystemSettingColorPickerPreference mGradientColor;
     private Preference mReset;
@@ -149,7 +147,7 @@ public class ColorSettings extends SettingsPreferenceFragment implements
                         Settings.System.ACCENT_COLOR, mDefaultMaterialColor,
                         UserHandle.USER_CURRENT);
                         Settings.System.putIntForUser(getContext().getContentResolver(),
-                        Settings.System.GRADIENT_COLOR_PROP, DEFAULT_GRADIENT_COLOR,
+                        Settings.System.GRADIENT_COLOR_PROP, mDefaultGradientColor,
                         UserHandle.USER_CURRENT);
                     }
                 });
@@ -157,7 +155,7 @@ public class ColorSettings extends SettingsPreferenceFragment implements
             alertDialog.show();
         } else if (preference == mResetGrad) {
             int intColor = Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR, UserHandle.USER_CURRENT);
+                Settings.System.ACCENT_COLOR, mDefaultMaterialColor, UserHandle.USER_CURRENT);
             AlertDialog.Builder alertDialog = new AlertDialog.Builder(getActivity());
             alertDialog.setTitle(getString(R.string.rr_reset_grad));
             alertDialog.setMessage(getString(R.string.rr_reset_grad_summary));
