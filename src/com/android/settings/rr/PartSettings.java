@@ -59,11 +59,11 @@ public class PartSettings extends SettingsPreferenceFragment implements
 
         final PreferenceScreen prefScreen = getPreferenceScreen();
         final Resources res = getResources();
-        mSmartPixels = (Preference) prefScreen.findPreference(SMART_PIXELS);
+        mSmartPixels = (Preference) findPreference(SMART_PIXELS);
         boolean mSmartPixelsSupported = res.getBoolean(
                 com.android.internal.R.bool.config_supportSmartPixels);
         if (!mSmartPixelsSupported)
-            prefScreen.removePreference(mSmartPixels);
+            removePreference("smart_pixels");
 
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);

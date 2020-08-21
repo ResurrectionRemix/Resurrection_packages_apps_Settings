@@ -99,6 +99,9 @@
     <string name="screenshot_type_title">Screenshot type</string>
     <string name="screenshot_type_fullscreen">Take fullscreen screenshot via volume keys</string>
     <string name="screenshot_type_partial">Drag selection on the area for screenshot via volume keys</string>
+    <string name="long_screenshot_type_title">Disable long screenshot on non partial screenshot</string>
+    <string name="long_screenshot_type_summary_off">System is currently allowing user to generate long screenshot</string>
+    <string name="long_screenshot_type_summary_on">System is currently allowing user to generate default screenshot</string>
 
     <!-- Status bar - Brightness -->
     <string name="status_bar_brightness_category">Brightness</string>
@@ -136,6 +139,8 @@
     <string name="listview_translate_right">Translate (right)</string>
     <string name="listview_title">List Animation</string>
     <string name="listview_summary">Set Listview animation and interpolator </string>
+    <string name="volte_vowifi_override_title">VoWiFi override</string>
+    <string name="volte_vowifi_override_summary">Hide VoLTE when VoWiFi is available. This also overrides old style signal icon for VoWiFi.</string>
 
     <!-- Gesture Anywhere -->
     <string name="gesture_anywhere_title">Gesture Anywhere</string>
@@ -335,11 +340,11 @@
 
      <!-- About phone screen, RR version -->
     <string name="rr_version">ResurrectionRemix version</string>
-    <string name="rr_version_info">ResurrectionRemix build name</string>
+    <string name="rr_version_info">Resurrection Remix build version</string>
     <string name="rr_version_default">Unknown</string>
     <string name="keywords_rr_version">rr version</string>
     <string name="rr_info_title">Resurrection Remix Version</string>
-    <string name="rr_info_summary">8.5.7</string>
+    <string name="rr_info_summary">8.5.8</string>
 
     <!-- Share RR ROM -->
     <string name="share_rr">Share</string>
@@ -389,6 +394,10 @@
     <string name="rr_reset_grad_summary">Tap to make gradient and accent colors same for those who prefer not to use gradient colors</string>
     <string name="rr_themes_tutorial">These will override all other enabled dark /light themes. Some options here are similar to original theme chooser, but the layout is easier to use here for new users. UI Radius will not work with some icon shapes. If you encounter UI radius issues, please change icon shape</string>
     <string name="rr_category_title">Personalization</string>
+    <string name="rr_qs_tile_title">Tiles</string>
+    <string name="rr_category_footer">Qs footer</string>
+    <string name="rr_category_usage">Items</string>
+    <string name="rr_extra_settings">Extra settings</string>
     <string name="rr_title">Resurrection tools</string>
     <string name="rr_title_summary">Various customizations</string>
     <string name="rr_config_main_title">RR-OS</string>
@@ -519,7 +528,7 @@
     <string name="translucent_lockscreen_notifications_summary">Toggle to make notifications shown on lockscreen semi-transparent. This may not work on dark themes</string>
     <string name="statusbar_tuner_summary">Statusbar top level icon options</string>
     <string name="rr_headset_cat">Headset</string>
-    <string name="rr_doze_footer_text">Brightness of always on or ambient display will always be less than the screen brighness. So if your brightness is low you cannot force AOD or Amboent display to go higher than that. They can only go lower than or equal to current brightness. To get brightness values higher, turn the force doze brightness switch on</string>
+    <string name="rr_doze_footer_text">Brightness of always on or ambient display will always be less than the screen brighness. So if your brightness is low you cannot force AOD or Ambient display to go higher than that. They can only go lower than or equal to current brightness. To get brightness values higher, turn the force doze brightness switch on</string>
     <string name="rr_vol_steps_cat">Volume steps</string>
 
     <string name="rr_status_bar_settings_summary">Customize various elements of the statusbar</string>
@@ -717,7 +726,7 @@
     <string name="volume_skiptrack_summary">Long press the volume rocker to skip tracks when playing music, even remotely on tv or PC with e.g. Spotify (app must run on the phone and show the notification).</string>
 
     <string name="ambient_wake_gestures_title">Ambient wake gestures</string>
-    <string name="ambient_wake_gestures_summary">Show Ambient Display instead of normal losckreen on ambient wake gestures only if device supports it</string>
+    <string name="ambient_wake_gestures_summary">Show Ambient Display instead of normal lockscreen on ambient wake gestures only if device supports it</string>
 
     <string name="pulse_on_new_tracks_title">Ambient music ticker</string>
     <string name="pulse_on_new_tracks_summary">Show Ambient Display when a new music track is played</string>
@@ -805,7 +814,7 @@
     <string name="battery_blend_gradient_sum">Use gradient colors for battery bar background</string>
 
     <!-- Disabling FC notifications --> 
-    <string name="disable_fc_notifications_title">Diable FC Notifications</string> 
+    <string name="disable_fc_notifications_title">Disable FC Notifications</string> 
     <string name="disable_fc_notifications_summary">This will hide all force close notificaitons</string>
 
     <!-- smart replies --> 
@@ -1241,6 +1250,7 @@
     <string name="network_traffic_refresh_interval_summary">Duration after which speed is remeasured</string>
 
     <!--FOD -->
+    <string name="rr_fod_title">Fingerprint on display</string>
     <string name="fod_icon_picker_title">FOD icon picker</string>
     <string name="fod_icon_picker_summary">Pick your favourite fingerprint icon</string>
     <string name="fod_icon_picker_footer">In order to add your own icon, select the top left icon and use the OnePlus 6T FP Customizer app to select the icon you want.</string>
@@ -1270,6 +1280,8 @@
     <string name="gaming_mode_notifications_notif_title">Show notification</string>
     <string name="gaming_mode_notifications_toast_title">Show toasts</string>
     <string name="gaming_mode_notifications_all_title">Show toasts and notification</string>
+    <string name="gaming_mode_refresh_rate_title">Optimize refresh rate</string>
+    <string name="gaming_mode_refresh_rate_summary">Optimize refresh rate when switching to gaming mode. 60hz is used preferably for a smoother gameplay</string>
     <string name="gaming_mode_dynamic_title">Dynamic mode</string>
     <string name="gaming_mode_dynamic_summary">Try detecting and adding gaming apps automatically</string>
     <string name="fod_anim_lockscreen_title">Allow animation on all authentication screens</string>
@@ -1279,6 +1291,9 @@
     <string name="fod_recog_animation_effect_title">FOD recognizing animation effect</string>
     <string name="fod_bright_icon_title">Always keep icon bright</string>
     <string name="fod_bright_icon_summary">Keep the fingerprint on display icon bright at all times even on low brightness. This will increase fingerprint read performance but may consume sligtly more battery.Keeping this setting off will make the icon adapt screen brightness.</string>
+    <string name="gaming_mode_notifications_feedback_title">Disable notifications feedback</string>
+    <string name="gaming_mode_notifications_feedback_summary">Block notifications sound &amp; vibration when Gaming mode is turned on and game is running</string>
+
     <!-- FOD pressed state behavior -->
     <string name="fod_pressed_state_title">FOD pressed state behavior</string>
     <string name="fod_pressed_state_footer">Icons/colors may vary depending on which device you are using.</string>
@@ -1347,6 +1362,7 @@
     <string name="file_header_select_title">Select local image</string>
     <string name="file_header_select_summary">Select image from storage</string>
     <string name="qs_tile_gradient_title">Tint tiles to gradient</string>
+    <string name="switch_tile_warning">Tinting inactive tile is incompatible with this tile style. Please head to Resurrection themes and change qs tile style</string>
     <string name="qs_tile_gradient_summary">Show gradient background on qs tiles instead of regular color. Note: in case of rgb tile tint, background will not tint to rgb colors only icons will tint if you turn on the above switch. This will not work wih custom tiles.</string>
     <string name="qs_themes_warning">Disable qs themes and use stock system qs tile theme to use this feature</string>
     <string name="enable_custom_fw">Can only be used on default values. Turn on default switch below</string>
@@ -1452,8 +1468,8 @@
     <string name="qs_panel_vibrate_summary">Vibrate when pulling down quicksettings/ notification panel. It will vibrate once per cycle.</string>
 
     <!-- QS DataUsage Toggle -->
-    <string name="qs_datausage_title">Data usage in QS Header</string>
-    <string name="qs_datausage_subtitle">Shows data usage in quick settings header of sim used for data</string>
+    <string name="qs_datausage_title">Mobile data usage in QS Header</string>
+    <string name="qs_datausage_subtitle">Shows mobile data usage in quick settings header of sim used for data</string>
     <string name="qs_datausage_disabled">Disabled</string>
     <string name="qs_datausage_daily">Daily usage</string>
     <string name="qs_datausage_monthly">Monthly usage</string>
@@ -1544,7 +1560,7 @@
 
     <!-- Quick unlock -->
     <string name="unlock_quick_unlock_control_title">Quick unlock</string>
-    <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN/password is entered</string>
+    <string name="unlock_quick_unlock_control_summary">Unlock automatically when the correct PIN/password is entered. WARNING: DO NOT use a PIN more than 5 digits if you want to use this.</string>
 
     <!-- Rounded corners -->
     <string name="corners_title">Rounded corners</string>
@@ -1612,7 +1628,7 @@
     <string name="navigation_bar_show_summary">Force show/ hide navbar when needed</string>
     <!-- Gesture nav gear options -->
     <!-- [CHAR LIMIT=60] -->
-    <string name="show_gestures_navbar_switch_text">Enable to show gestures navbar and pill</string>
+    <string name="show_gestures_navbar_switch_text">Enable or disable whole navbar</string>
 
     <!-- SystemUI restart prompt -->
     <string name="systemui_restart_title">WARNING</string>
@@ -1799,6 +1815,7 @@
    <!-- QS tile styles -->
     <string name="qs_tile_style_title">QS tile style</string>
     <string name="qstile_default">Default</string>
+    <string name="qstile_justicons">Icons without circle</string>
     <string name="qstile_circle_trim">Circle with trim</string>
     <string name="qstile_squircle_trim">Squircle with trim</string>
     <string name="qstile_teardrop">Teardrop</string>
@@ -1894,9 +1911,11 @@
     <string name="pulse_filled_block_size">Block size</string>
     <string name="pulse_empty_block_size">Block spacing</string>
 
-    <!-- Clipboard toast toggle -->
-    <string name="show_clipboard_toast">Show clipboard access alerts</string>
-    <string name="show_clipboard_toast_summary">Display a toast when an app tries to access the clipboard</string>
+    <!-- Clipboard toast info -->
+    <string name="clipboard_toast_info_title">Clipboard access alerts</string>
+    <string name="clipboard_toast_info_disabled">Don\'t show any alerts</string>
+    <string name="clipboard_toast_info_show_important">Show only important alerts</string>
+    <string name="clipboard_toast_info_show_all">Show all access alerts</string>
 
     <!-- Accent Picker -->
     <string name="theme_picker_default">Default</string>
@@ -1904,9 +1923,9 @@
 
     <string name="statusbar_breathing_title">Breathing Notifications</string>
     <string name="sms_breath_title">Breathing SMS</string>
-    <string name="sms_breath_summary">Will give your sms notifications a breathing effect in the status bar</string>
+    <string name="sms_breath_summary">Will give your sms notifications a breathing effect in the status bar. Only works on AOSP messenger.</string>
     <string name="missed_call_breath_title">Breathing Missed Call</string>
-    <string name="missed_call_breath_summary">Will give your missed call notifications a breathing effect in the statusbar</string>
+    <string name="missed_call_breath_summary">Will give your missed call notifications a breathing effect in the statusbar. Only works with AOSP dialer</string>
     <string name="voicemail_breath_title">Breathing Voicemail</string>
     <string name="voicemail_breath_summary">Will give your voicemail notifications a breathing effect in the statusbar</string>
 
@@ -2504,6 +2523,18 @@
     <string name="back_gesture_haptic_title">Haptic feedback</string>
     <string name="back_gesture_haptic_summary">Vibrate when the back gesture is triggered</string>
 
+    <!-- Per App Aspect Ratio -->
+    <string name="aspect_ratio_apps_enabled_title">Enable scaling</string>
+    <string name="aspect_ratio_apps_enabled_summary">Allow legacy apps to use full screen</string>
+    <string name="aspect_ratio_apps_list_summary"></string>
+    <string name="aspect_ratio_apps_list_title">Apps allowed to use scaling</string>
+    <string name="aspect_ratio_category_title">Legacy app scaling</string>
+    <string name="aspect_ratio_apps_info">Applications need to be restarted after changes</string>
+    <string name="disabled_entry">Disabled</string>
+    <string name="not_ready_summary">Resolving...</string>
+    <string name="resolve_failed_summary">Resolving app failed</string>
+
+
     <!-- ANBI -->
     <string name="anbi_title">Accidental touch</string>
     <string name="anbi_summary">Prevent interaction with the hardware buttons while the screen is being used</string>
@@ -2529,5 +2560,29 @@
     <string name="sensor_block_app_picker_title">Block sensors for these apps</string>
     <string name="add_sensor_block_package_title">Add apps for Sensor block</string>
     <string name="add_sensor_block_package_summary">Significant motion, accelerometer, linear acceleration sensors will be blocked for these apps</string>
+
+    <!-- Charging animation -->
+    <string name="charging_animation_title">Pixel Charging animation</string>
+    <string name="charging_animation_summary">Display a brief animation when the device is plugged in</string>
+
+    <!-- VoWiFi icon -->
+    <string name="vowifi_icon_title">VoWiFi icon</string>
+    <string name="vowifi_icon_summary">Display VoWiFi icon when available. Enabled by default from statusbar tuner</string>
+
+    <!-- QS Settings button-->
+    <string name="qs_footer_settings_title">Settings icon</string>
+    <string name="qs_settings_disable">Disable</string>
+    <string name="qs_settings_expanded_panel">Show in expanded qs panel</string>
+    <string name="qs_settings_always">Show always</string>
+    <string name="qs_footer_user_title">User switcher icon</string>
+    <string name="qs_footer_user_summary">Display Multi-user switcher icon in quick settings footer</string>
+    <string name="qs_footer_edit_title">Edit icon</string>
+    <string name="qs_footer_edit_summary">Display the tile edit icon in quick settings footer</string>
+
+
+    <!-- QS data usage location -->
+    <string name="qs_data_usage_location_title">Qs Data Usage Location</string>
+    <string name="qs_data_usage_location_qs_panel">QS Panel</string>
+    <string name="qs_data_usage_location_qs_statusbar">Quick Statusbar</string>
 
 </resources>

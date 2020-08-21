@@ -38,14 +38,14 @@
         android:icon="@drawable/rr_color_icon"
         android:summary="@string/accent_summary"
         settings:showReset="false"
-        android:defaultValue="0xff4285f4" />
+        android:defaultValue="@*android:color/accent_device_default_light"/>
 
      <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="gradient_color_prop"
         android:title="@string/gradient_color"
         android:icon="@drawable/rr_themes_icon"
         android:summary="@string/gradient_summary"
-        android:defaultValue="0xff0d5bd9"
+        android:defaultValue="@*android:color/gradient_device_default"
         settings:showReset="false" />
 
     <Preference

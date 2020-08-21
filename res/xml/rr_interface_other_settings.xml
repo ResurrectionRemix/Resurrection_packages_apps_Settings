@@ -87,7 +87,15 @@
         android:title="@string/screenshot_type_title"
         android:entries="@array/screenshot_type_entries"
         android:entryValues="@array/screenshot_type_values"
-        android:defaultValue="0" /> 
+        android:defaultValue="0" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="long_screenshot_type"
+        android:title="@string/long_screenshot_type_title"
+        android:icon="@drawable/rr_longpress_icon"
+        android:summaryOn="@string/long_screenshot_type_summary_on"
+        android:summaryOff="@string/long_screenshot_type_summary_off"
+        android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="screenshot_sound"
@@ -161,6 +169,14 @@
     <PreferenceCategory
         android:title="@string/rr_charging_title">
 
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="charging_animation"
+        android:icon="@drawable/rr_animations_icon"
+        android:title="@string/charging_animation_title"
+        android:summary="@string/charging_animation_summary"
+        android:defaultValue="false" />
+
     <!-- Always On when charging-->
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
          android:key="doze_on_charge"
@@ -206,6 +222,38 @@
         lineage:requiresFeature="lineagehardware:FEATURE_HIGH_TOUCH_SENSITIVITY" />
     </PreferenceCategory>
 
-
+        <PreferenceCategory
+            android:key="aspect_ratio_category"
+            android:title="@string/aspect_ratio_category_title">
+			
+       <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+                android:key="aspect_ratio_apps_enabled"
+                android:icon="@drawable/rr_qs_rows_preview_icon"
+                android:title="@string/aspect_ratio_apps_enabled_title"
+                android:summary="@string/aspect_ratio_apps_enabled_summary"
+                android:defaultValue="false" />
+				
+       <com.android.settings.rr.Preferences.AppMultiSelectListPreference
+                android:dependency="aspect_ratio_apps_enabled"
+                android:key="aspect_ratio_apps_list"
+                android:icon="@drawable/rr_app_icon"
+                android:persistent="false"
+                android:summary="@string/aspect_ratio_apps_list_summary"
+                android:title="@string/aspect_ratio_apps_list_title" />
+				
+        <com.android.settings.rr.Preferences.ScrollAppsViewPreference
+                android:dependency="aspect_ratio_apps_enabled"
+                android:key="aspect_ratio_apps_list_scroller"
+                android:icon="@drawable/rr_app_icon"
+                android:persistent="false"
+                android:selectable="false" />
+				
+            <Preference
+                android:dependency="aspect_ratio_apps_enabled"
+                android:icon="@drawable/ic_info_outline_24dp"
+                android:persistent="false"
+                android:summary="@string/aspect_ratio_apps_info" />
+				
+        </PreferenceCategory>
  
 </PreferenceScreen>

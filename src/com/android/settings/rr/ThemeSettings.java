@@ -120,7 +120,7 @@ public class ThemeSettings extends DashboardFragment implements
         mThemeSwitch.setOnPreferenceChangeListener(this);
         mDarkModeObserver = new DarkModeObserver(mContext);
         int systemTheme = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.SYSTEM_THEME, 1, UserHandle.USER_CURRENT);
+                Settings.System.SYSTEM_THEME, 0, UserHandle.USER_CURRENT);
         int valueIndex = mThemeSwitch.findIndexOfValue(String.valueOf(systemTheme));
         mThemeSwitch.setValueIndex(valueIndex);
         mThemeSwitch.setSummary(mThemeSwitch.getEntry());

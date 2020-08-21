@@ -24,6 +24,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.Preference.OnPreferenceChangeListener;
+import android.text.TextUtils;
 import androidx.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import android.os.UserHandle;
@@ -38,11 +39,14 @@ import com.android.settingslib.search.SearchIndexable;
 import lineageos.hardware.LineageHardwareManager;
 import android.provider.Settings;
 import java.util.Arrays;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 import lineageos.preference.LineageSystemSettingSwitchPreference;
 import com.android.settings.gestures.SystemNavigationPreferenceController;
 import android.provider.Settings;
+
 
 @SearchIndexable
 public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
@@ -53,10 +57,17 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     private static final String KEY_HIGH_TOUCH = "high_touch_sensitivity_enable";
     private static final String PIXEL = "pixel_nav_animation";
 
+    private static final String KEY_ASPECT_RATIO_APPS_ENABLED = "aspect_ratio_apps_enabled";
+    private static final String KEY_ASPECT_RATIO_APPS_LIST = "aspect_ratio_apps_list";
+    private static final String KEY_ASPECT_RATIO_CATEGORY = "aspect_ratio_category";
+    private static final String KEY_ASPECT_RATIO_APPS_LIST_SCROLLER = "aspect_ratio_apps_list_scroller";
+
     private SystemSettingSwitchPreference mAod;
     private SystemSettingSwitchPreference mPixel;
     private LineageSystemSettingSwitchPreference mWakeProx;
     private LineageSystemSettingSwitchPreference mHighTouch;
+    private AppMultiSelectListPreference mAspectRatioAppsSelect;
+    private ScrollAppsViewPreference mAspectRatioApps;
 
     @Override
     public int getMetricsCategory() {
@@ -67,6 +78,8 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_interface_other_settings);
+        PreferenceScreen prefSet = getPreferenceScreen();
+        ContentResolver resolver = getActivity().getContentResolver();
         mAod = (SystemSettingSwitchPreference) findPreference(KEY_DOZE_ON_CHARGE);
         mPixel = (SystemSettingSwitchPreference) findPreference(PIXEL);
         mWakeProx = (LineageSystemSettingSwitchPreference) findPreference(KEY_PROX_WAKE);
@@ -81,6 +94,32 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
             mPixel.setSummary(R.string.navbar_not_active_pulse);
         } else {
             mPixel.setEnabled(true);
+        }
+
+        boolean hasAlertSlider = getContext().getResources().getBoolean(
+                com.android.internal.R.bool.config_hasAlertSlider);
+        if (!hasAlertSlider) {
+             removePreference("alert_slider_notifications");
+        }
+        final PreferenceCategory aspectRatioCategory =
+                (PreferenceCategory) getPreferenceScreen().findPreference(KEY_ASPECT_RATIO_CATEGORY);
+        final boolean supportMaxAspectRatio = getResources().getBoolean(com.android.internal.R.bool.config_haveHigherAspectRatioScreen);
+        if (!supportMaxAspectRatio) {
+            getPreferenceScreen().removePreference(aspectRatioCategory);
+        } else {
+            mAspectRatioAppsSelect = (AppMultiSelectListPreference) findPreference(KEY_ASPECT_RATIO_APPS_LIST);
+            mAspectRatioApps = (ScrollAppsViewPreference) findPreference(KEY_ASPECT_RATIO_APPS_LIST_SCROLLER);
+            final String valuesString = Settings.System.getString(resolver, Settings.System.OMNI_ASPECT_RATIO_APPS_LIST);
+            List<String> valuesList = new ArrayList<String>();
+            if (!TextUtils.isEmpty(valuesString)) {
+                valuesList.addAll(Arrays.asList(valuesString.split(":")));
+                mAspectRatioApps.setVisible(true);
+                mAspectRatioApps.setValues(valuesList);
+            } else {
+                mAspectRatioApps.setVisible(false);
+            }
+            mAspectRatioAppsSelect.setValues(valuesList);
+            mAspectRatioAppsSelect.setOnPreferenceChangeListener(this);
         }
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
@@ -97,7 +136,22 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
      
     }
 
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
+        if (preference == mAspectRatioAppsSelect) {
+            Collection<String> valueList = (Collection<String>) newValue;
+            mAspectRatioApps.setVisible(false);
+            if (valueList != null) {
+                Settings.System.putString(resolver, Settings.System.OMNI_ASPECT_RATIO_APPS_LIST,
+                        TextUtils.join(":", valueList));
+                mAspectRatioApps.setVisible(true);
+                mAspectRatioApps.setValues(valueList);
+            } else {
+                Settings.System.putString(resolver, Settings.System.OMNI_ASPECT_RATIO_APPS_LIST, "");
+            }
+            return true;
+        }
         return false;
     }
 
@@ -127,6 +181,11 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
                     if (!hardware.isSupported(
                             LineageHardwareManager.FEATURE_HIGH_TOUCH_SENSITIVITY)) {
                         keys.add(KEY_HIGH_TOUCH);
+                    }
+                    boolean hasAlertSlider = context.getResources().getBoolean(
+                       com.android.internal.R.bool.config_hasAlertSlider);
+                    if (!hasAlertSlider) {
+                        keys.add("alert_slider_notifications");
                     }
                 return keys;
             }
