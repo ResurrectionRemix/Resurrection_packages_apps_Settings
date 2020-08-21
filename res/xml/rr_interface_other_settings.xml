@@ -40,6 +40,13 @@
         android:summary="@string/alert_slider_notifications_summary"
         android:defaultValue="true" />
 
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="notification_sound_vib_screen_on"
+        android:icon="@drawable/rr_headsup_enable_icon"
+        android:title="@string/notification_sound_vib_screen_on_title"
+        android:summary="@string/notification_sound_vib_screen_on_summary"
+        android:defaultValue="true" />
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference	
         android:key="notification_guts_kill_app_button"
         android:title="@string/notification_guts_kill_app_button_title"
@@ -121,11 +128,11 @@
         android:title="@string/rr_ui_title">
 
        <lineageos.preference.GlobalSettingSwitchPreference
-                android:key="show_rotation_button"
-                android:icon="@drawable/rr_auto_rotate_icon"
-                android:title="@string/show_rotation_button_title"
-                android:summary="@string/show_rotation_button_summary"
-                android:defaultValue="true" />
+        android:key="show_rotation_button"
+        android:icon="@drawable/rr_auto_rotate_icon"
+        android:title="@string/show_rotation_button_title"
+        android:summary="@string/show_rotation_button_summary"
+        android:defaultValue="true" />
 
 
      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference  
