@@ -146,11 +146,7 @@ private static final String RR_ROM_SHARE = "share";
         } else if (preference == mDonateUrl) {
             launchUrl("https://paypal.me/varundate");
         }  else if (preference == mTelegramUrl) {
-            if (isTgInstalled()) {
-                launchUrl("https://t.me/resurrectionremixchat");
-            } else {
-                launchUrl("https://web.telegram.org/#/im?p=@resurrectionremixofficial");
-            }
+            launchUrl("https://t.me/resurrectionremixchat");
         } else if (preference.getKey().equals(RR_ROM_SHARE)) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_SEND);
@@ -175,22 +171,6 @@ private static final String RR_ROM_SHARE = "share";
     public int getMetricsCategory() {
         return MetricsEvent.RESURRECTED;
      }
-
-    public boolean isTgInstalled() {
-        return isAvailableApp("org.telegram.messenger");
-    }
-
-    private boolean isAvailableApp(String packageName) {
-        final PackageManager pm = getContext().getPackageManager();
-        try {
-            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
-            int enabled = pm.getApplicationEnabledSetting(packageName);
-            return enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED &&
-                    enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER;
-        } catch (NameNotFoundException e) {
-            return false;
-        }
-    }
 
     /**
      * For Search.
