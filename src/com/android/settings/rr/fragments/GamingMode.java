@@ -121,6 +121,12 @@ public class GamingMode extends SettingsPreferenceFragment
         mAddGamingPref.setOnPreferenceClickListener(this);
 
         mContext = getActivity().getApplicationContext();
+        if (!isAvailable()) {
+            try {
+                removePreference("gaming_mode_refresh_rate");
+            }
+            catch (Exception e) {}
+        }
 
         SettingsObserver observer = new SettingsObserver(new Handler(Looper.getMainLooper()));
         observer.observe();
@@ -143,6 +149,10 @@ public class GamingMode extends SettingsPreferenceFragment
     public void onResume() {
         super.onResume();
         refreshCustomApplicationPrefs();
+    }
+
+    public boolean isAvailable() {
+        return mContext.getResources().getBoolean(com.android.internal.R.bool.config_hasVariableRefreshRate);
     }
 
     class SettingsObserver extends ContentObserver {
