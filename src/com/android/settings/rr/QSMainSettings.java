@@ -235,9 +235,18 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     }
  
     public void updateDarktileState(int rgb) {
-        if (rgb == 0){
+        int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.QS_TILE_STYLE, 0,
+  	        UserHandle.USER_CURRENT);
+        if (rgb == 0 && (qsTileStyle == 7
+            || qsTileStyle == 9 || qsTileStyle == 10 
+            || qsTileStyle == 12 || qsTileStyle == 13
+            || qsTileStyle == 16 || qsTileStyle == 17)) {
+            mDarkTile.setEnabled(false);
+            mDarkTile.setSummary(R.string.already_enabled_sum); 
+        } else if (rgb == 0) {
             mDarkTile.setEnabled(true);
-        } else {
+        }  else {
             mDarkTile.setEnabled(false);
             mDarkTile.setSummary(R.string.disable_rgb); 
         }
