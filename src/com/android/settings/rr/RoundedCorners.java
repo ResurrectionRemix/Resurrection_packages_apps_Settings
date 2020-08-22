@@ -80,7 +80,8 @@ public class RoundedCorners extends SettingsPreferenceFragment implements
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
-
+        boolean customcutout = res.getBoolean(res.getIdentifier(
+                    "com.android.systemui:bool/config_customCutout", null, null));
         // Rounded Corner Radius
         mCornerRadius = (CustomSeekBarPreference) findPreference(SYSUI_ROUNDED_SIZE);
         int resourceIdRadius = (int) ctx.getResources().getDimension(com.android.internal.R.dimen.rounded_corner_radius);
@@ -89,6 +90,10 @@ public class RoundedCorners extends SettingsPreferenceFragment implements
         mCornerRadius.setValue(cornerRadius);
         mCornerRadius.setOnPreferenceChangeListener(this);
 
+        if (customcutout) {
+            if (mCornerRadius != null)
+                mCornerRadius.setVisible(false);
+        }
         // Rounded Content Padding
         mContentPadding = (CustomSeekBarPreference) findPreference(SYSUI_ROUNDED_CONTENT_PADDING);
         int resourceIdPadding = res.getIdentifier("com.android.systemui:dimen/rounded_corner_content_padding", null,
