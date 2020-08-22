@@ -1805,6 +1805,13 @@
         android:title="@string/device_category_google_title">
 
         <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_google_sailfish"
+            android:title="@string/device_google_sailfish"
+            app:codename="@string/device_google_sailfish_codename"
+            app:maintainer="@string/device_google_sailfish_maintainer"
+            app:type="phone" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
             android:id="@+id/device_google_marlin"
             android:title="@string/device_google_marlin"
             app:codename="@string/device_google_marlin_codename"
@@ -1832,5 +1839,12 @@
             app:codename="@string/device_google_dragon_codename"
             app:maintainer="@string/device_google_dragon_maintainer"
             app:type="tablet" />
+
+        <com.android.settings.rr.Preferences.DevicePreference
+            android:id="@+id/device_RMX1971"
+            android:title="@string/device_RMX1971"
+            app:codename="@string/device_RMX1971_codename"
+            app:maintainer="@string/device_RMX1971_maintainer"
+            app:type="phone" />
     </PreferenceCategory>
 </PreferenceScreen>
