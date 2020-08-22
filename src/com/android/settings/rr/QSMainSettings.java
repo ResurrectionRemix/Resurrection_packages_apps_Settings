@@ -76,6 +76,8 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private static final String DARK_TILE = "qs_tile_icon_primary";
     private static final String RGB_ICON = "qs_tile_rgb_tint";
     private static final String RGB_MODE = "qs_tile_accent_tint";
+    private static final String QS_DATA_MODE = "qs_datausage_location";
+    private static final String QS_DATA_USAGE = "qs_datausage";
 
     private LineageSecureSettingListPreference mQsPos;
     private SystemSettingListPreference mQsAuto;
@@ -87,6 +89,8 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mInactiveTile;
     private SystemSettingSwitchPreference mTileGradient;
     private SystemSettingListPreference mTintMode;
+    private SystemSettingListPreference mQsData;
+    private SystemSettingListPreference mDataLoc;
     private SystemSettingSwitchPreference mRgbIcon;
     private PreferenceCategory mThemes;
     private SystemSettingColorPickerPreference mBgColor;
@@ -101,6 +105,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_qsmain);
 		ContentResolver resolver = getActivity().getContentResolver();
+        mContext = getActivity().getApplicationContext();
         mRgb =
                 (SystemSettingSwitchPreference) findPreference(RGB);
         mRgb.setOnPreferenceChangeListener(this);
@@ -154,7 +159,15 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
 
         mQuickPulldown.setOnPreferenceChangeListener(this);
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
-        mContext = getActivity().getApplicationContext();
+        int dataloc = Settings.System.getInt(getContentResolver(),
+                Settings.System.QS_DATAUSAGE, 0);
+
+        mQsData =
+                (SystemSettingListPreference) findPreference(QS_DATA_USAGE);
+        mQsData.setOnPreferenceChangeListener(this);
+        mDataLoc =
+                (SystemSettingListPreference) findPreference(QS_DATA_MODE);
+
 
         int color = Settings.System.getInt(getContentResolver(),
                 Settings.System.NOTIF_CLEAR_ALL_BG_COLOR, 0x3980FF) ;
@@ -197,6 +210,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         updateThemespref(mRgb.isChecked());
         updateDarktileState(isrgb);
         updateInactivePrefs(tintgradient);
+        updateQsDataLoc(dataloc);
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -212,10 +226,27 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
 
     }
 
-    public void updateDarktileState(int rgb) {
-        if (rgb == 0){
-            mDarkTile.setEnabled(true);
+    public void updateQsDataLoc(int loc) {
+        if (loc == 0){
+            mDataLoc.setEnabled(false);
         } else {
+            mDataLoc.setEnabled(true);
+        }
+    }
+ 
+    public void updateDarktileState(int rgb) {
+        int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.QS_TILE_STYLE, 0,
+  	        UserHandle.USER_CURRENT);
+        if (rgb == 0 && (qsTileStyle == 7
+            || qsTileStyle == 9 || qsTileStyle == 10 
+            || qsTileStyle == 12 || qsTileStyle == 13
+            || qsTileStyle == 16 || qsTileStyle == 17)) {
+            mDarkTile.setEnabled(false);
+            mDarkTile.setSummary(R.string.already_enabled_sum); 
+        } else if (rgb == 0) {
+            mDarkTile.setEnabled(true);
+        }  else {
             mDarkTile.setEnabled(false);
             mDarkTile.setSummary(R.string.disable_rgb); 
         }
@@ -225,6 +256,11 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0,
   	        UserHandle.USER_CURRENT);
+       if (qsTileStyle == 27) {
+           mInactiveTile.setEnabled(false);
+           mInactiveTile.setSummary(R.string.switch_tile_warning);
+           return;
+       }
        if (qsTileStyle != 0) return;
        if (active)
             mInactiveTile.setEnabled(false);
@@ -251,6 +287,10 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         } else if (preference == mBgMode) {
              int value = Integer.parseInt((String) newValue);
              updateprefs(value);
+             return true;
+        } else if (preference ==  mQsData) {
+             int value = Integer.parseInt((String) newValue);
+             updateQsDataLoc(value);
              return true;
         } else if (preference == mIconMode) {
              int value = Integer.parseInt((String) newValue);

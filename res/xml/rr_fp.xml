@@ -33,7 +33,7 @@
 
     <PreferenceCategory
             android:key="fod_icon_picker"
-            android:title="@string/fod_icon_picker_title" >
+            android:title="@string/rr_fod_title" >
 
             <!-- FOD icon picker -->
             <Preference
@@ -51,7 +51,7 @@
                 android:summary="%s"
                 android:entries="@array/fod_pressed_state_entries"
                 android:entryValues="@array/fod_pressed_state_values"
-                android:defaultValue="4" />
+                android:defaultValue="@*android:integer/config_pressed_fod_icon" />
 
             <!-- FOD recognizing animation -->
             <com.android.settings.rr.Preferences.SystemSettingSwitchPreference

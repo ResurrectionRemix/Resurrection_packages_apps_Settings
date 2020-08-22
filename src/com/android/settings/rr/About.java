@@ -28,6 +28,7 @@ import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnMultiChoiceClickListener;
@@ -101,6 +102,7 @@ private static final String RR_ROM_SHARE = "share";
     Preference mSourceUrl;
     Preference mFacebookUrl;
     Preference mDonateUrl;
+    Preference mTelegramUrl;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -112,6 +114,7 @@ private static final String RR_ROM_SHARE = "share";
         mSourceUrl = findPreference("rr_source");
         mFacebookUrl = findPreference("rr_facebook");
         mDonateUrl = findPreference("rr_donate");
+        mTelegramUrl = findPreference("rr_tg");
         PreferenceGroup devsGroup = (PreferenceGroup) findPreference("devs");
         ArrayList<Preference> devs = new ArrayList<Preference>();
         for (int i = 0; i < devsGroup.getPreferenceCount(); i++) {
@@ -142,6 +145,8 @@ private static final String RR_ROM_SHARE = "share";
             launchUrl("https://www.facebook.com/resurrectionremixrom");
         } else if (preference == mDonateUrl) {
             launchUrl("https://paypal.me/varundate");
+        }  else if (preference == mTelegramUrl) {
+            launchUrl("https://t.me/resurrectionremixchat");
         } else if (preference.getKey().equals(RR_ROM_SHARE)) {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_SEND);
@@ -155,6 +160,7 @@ private static final String RR_ROM_SHARE = "share";
    			}
          return true; 
     }
+
     private void launchUrl(String url) {
         Uri uriUrl = Uri.parse(url);
         Intent donate = new Intent(Intent.ACTION_VIEW, uriUrl);

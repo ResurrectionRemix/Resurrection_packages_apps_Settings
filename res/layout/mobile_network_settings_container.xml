@@ -15,49 +15,36 @@
   limitations under the License.
   -->
 
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <Toolbar
+        android:id="@+id/mobile_action_bar"
+        style="?android:attr/actionBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:navigationContentDescription="@*android:string/action_bar_up_description"
+        android:theme="?android:attr/actionBarTheme"/>
+
     <FrameLayout
         android:id="@+id/main_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/mobile_action_bar_container"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@android:color/transparent"
-        app:cardElevation="8dp">
-        <eightbitlab.com.blurview.BlurView
-            android:id="@+id/mobile_action_bar_blur"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:blurOverlayColor="@color/blur_action_bar_bg">
-            <Toolbar
-                android:id="@+id/mobile_action_bar"
-                style="?android:attr/actionBarStyle"
-                android:background="@android:color/transparent"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:navigationContentDescription="@*android:string/action_bar_up_description"
-                android:theme="?android:attr/actionBarTheme"/>
-        </eightbitlab.com.blurview.BlurView>
-    </androidx.cardview.widget.CardView>
+        android:layout_weight="1"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="0dp"
         android:layout_marginStart="0dp"
         android:background="?android:attr/windowBackground"
         app:itemIconTint="@color/bottom_navigation_colors"
         app:itemTextColor="@color/bottom_navigation_colors"
         app:menu="@menu/home_bottom_navigation"/>
-</FrameLayout>
+</LinearLayout>

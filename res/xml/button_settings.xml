@@ -38,36 +38,6 @@
             android:defaultValue="true" />
 
         <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="home_wake_screen"
-            android:icon="@drawable/rr_wake_icon"
-            android:title="@string/hardware_keys_wake_home"
-            android:defaultValue="false" />
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="back_wake_screen"
-            android:icon="@drawable/rr_wake_icon"
-            android:title="@string/hardware_keys_wake_back"
-            android:defaultValue="false" />
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="app_switch_wake_screen"
-            android:icon="@drawable/rr_wake_icon"
-            android:title="@string/hardware_keys_wake_app_switch"
-            android:defaultValue="false" />
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="menu_wake_screen"
-            android:icon="@drawable/rr_wake_icon"
-            android:title="@string/hardware_keys_wake_menu"
-            android:defaultValue="false" />
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="assist_wake_screen"
-            android:icon="@drawable/rr_wake_icon"
-            android:title="@string/hardware_keys_wake_assist"
-            android:defaultValue="false" />
-
-        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
             android:key="swap_navigation_keys"
             android:title="@string/swap_navigation_keys_title"
             android:summary="@string/swap_navigation_keys_title_summary"
@@ -325,6 +295,13 @@
                 android:targetClass="com.android.settings.rr.fragments.navbar.BackDoubleTap" />
         </Preference>
 
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="back_wake_screen"
+            android:icon="@drawable/rr_wake_icon"
+            android:title="@string/hardware_keys_wake_back"
+            android:defaultValue="false" />
+
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -364,6 +341,11 @@
                 android:targetClass="com.android.settings.rr.fragments.navbar.HomeDoubleTap" />
         </Preference>
 
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="home_wake_screen"
+            android:icon="@drawable/rr_wake_icon"
+            android:title="@string/hardware_keys_wake_home"
+            android:defaultValue="false" />
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -403,6 +385,12 @@
                 android:targetClass="com.android.settings.rr.fragments.navbar.AppSwitchDoubleTap" />
         </Preference>
 
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="app_switch_wake_screen"
+            android:icon="@drawable/rr_wake_icon"
+            android:title="@string/hardware_keys_wake_app_switch"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -423,6 +411,13 @@
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values" />
 
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="menu_wake_screen"
+            android:icon="@drawable/rr_wake_icon"
+            android:title="@string/hardware_keys_wake_menu"
+            android:defaultValue="false" />
+
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -442,6 +437,12 @@
             android:icon="@drawable/rr_doubletap_icon"
             android:entries="@array/action_entries"
             android:entryValues="@array/action_values" />
+
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="assist_wake_screen"
+            android:icon="@drawable/rr_wake_icon"
+            android:title="@string/hardware_keys_wake_assist"
+            android:defaultValue="false" />
 
     </PreferenceCategory>
 

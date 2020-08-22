@@ -197,7 +197,9 @@ public class Buttons extends SettingsPreferenceFragment implements
 
         deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
-
+        // Hardware Wake Keys Config
+        final int deviceWakeKeys = getResources().getInteger(
+                com.android.internal.R.integer.config_deviceHardwareWakeKeys);
         int backKeyLongPress = getResources().getInteger(
                 com.android.internal.R.integer.config_longPressOnBackKeyBehavior);
         int backKeyDoubleTap = getResources().getInteger(
@@ -229,6 +231,11 @@ public class Buttons extends SettingsPreferenceFragment implements
         boolean hasAssist = (deviceKeys & KEY_MASK_ASSIST) != 0;
         boolean hasAppSwitch = (deviceKeys & KEY_MASK_APP_SWITCH) != 0;
         boolean hasCamera = (deviceKeys & KEY_MASK_CAMERA) != 0;
+        final boolean showHomeWake = (deviceWakeKeys & KEY_MASK_HOME) != 0;
+        final boolean showBackWake = (deviceWakeKeys & KEY_MASK_BACK) != 0;
+        final boolean showMenuWake = (deviceWakeKeys & KEY_MASK_MENU) != 0;
+        final boolean showAssistWake = (deviceWakeKeys & KEY_MASK_ASSIST) != 0;
+        final boolean showAppSwitchWake = (deviceWakeKeys & KEY_MASK_APP_SWITCH) != 0;
 
         homeCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_HOME);
         backCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_BACK);
@@ -251,6 +258,24 @@ public class Buttons extends SettingsPreferenceFragment implements
             mNavBarLayout.setVisible(true);
             mSwapNavbar.setVisible(true);
         }
+
+        try {
+        if (!showBackWake) {
+             removePreference("back_wake_screen");
+        }
+        if (!showHomeWake) {
+            removePreference("home_wake_screen");
+        }
+        if (!showAppSwitchWake) {
+            removePreference("app_switch_wake_screen");
+        }
+        if (!showMenuWake) {
+            removePreference("menu_wake_screen");
+        }
+        if (!showAssistWake) {
+            removePreference("assist_wake_screen");
+        }
+        } catch (Exception e) {}
         final PreferenceScreen prefScreen = getPreferenceScreen();
         mBackLongPressCustomApp = (Preference) findPreference(KEY_BACK_LONG_PRESS_CUSTOM_APP);
         mBackDoubleTapCustomApp = (Preference) findPreference(KEY_BACK_DOUBLE_TAP_CUSTOM_APP);

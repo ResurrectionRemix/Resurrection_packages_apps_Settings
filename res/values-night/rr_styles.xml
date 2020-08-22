@@ -19,10 +19,14 @@
 
     <style name="ChangelogTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorAccent">@color/theme_accent</item>
-        <item name="changelog_color_bg">?android:attr/colorBackground</item>
-        <item name="changelog_color_header_back">?attr/colorBackgroundFloating</item>
-        <item name="changelog_color_commit_message">?android:attr/textColorPrimary</item>
-        <item name="changelog_color_commit_bg">#eeeeee</item>
+        <item name="changelog_color_bg">@*android:color/background_floating_device_default_dark</item>
+        <item name="changelog_color_commit_bg">@color/rr_changelog_commit_bg</item>
+        <item name="changelog_color_header_back">@*android:color/background_floating_device_default_dark</item>
+        <item name="changelog_color_commit_message">@color/theme_accent</item>
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:textColorPrimary">#ffffffff</item>
+        <item name="android:textColorSecondary">#ffffffff</item>
+        <item name="changelog_color_commit_bg">@*android:color/background_floating_device_default_dark</item>
         <!-- Changelog image behind status bar -->
         <item name="android:windowTranslucentStatus">true</item>
     </style>

@@ -72,10 +72,18 @@
             android:targetClass="com.custom.ambient.display.DozeSettings" />
     </Preference>
 
+    <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
+        android:key="double_tap_to_wake"
+        android:icon="@drawable/rr_tap_icon"
+        android:title="@string/tap_to_wake"
+        android:summary="@string/tap_to_wake_summary"
+        android:defaultValue="true"/>
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
        android:key="doze_trigger_doubletap"
         android:icon="@drawable/rr_tap_icon"
         android:title="@string/doze_trigger_doubletap_title"
+        android:dependency="double_tap_to_wake"
         android:summary="@string/doze_trigger_doubletap_summary"
         android:defaultValue="false"/>
 

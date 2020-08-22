@@ -83,7 +83,7 @@ import com.android.settings.rr.navigation.fragments.MiscSettingsNav;
 import lineageos.providers.LineageSettings;
 
 import java.util.Random;
-
+import com.android.settings.Utils;
 
 public class MainSettingsLayout extends SettingsPreferenceFragment {
     private static final String TAG = "MainSettingsLayout";
@@ -166,7 +166,13 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             mTabs.setVisibility(View.GONE);
             mFab5.setTitle(getString(R.string.fab_layout_toggle));
         }
-        
+        int accent = Utils.getColorAccentDefaultColor(getContext());
+        mFab1.setColorFilter(accent);
+        mFab2.setColorFilter(accent);
+        mFab3.setColorFilter(accent);
+        mFab4.setColorFilter(accent);
+        mFab5.setColorFilter(accent);
+        mFab6.setColorFilter(accent);
 
         mFab1.setOnClickListener(new View.OnClickListener() {
              @Override

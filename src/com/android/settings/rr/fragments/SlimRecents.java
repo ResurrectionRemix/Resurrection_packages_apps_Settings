@@ -59,6 +59,7 @@ import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
+import com.android.settings.rr.Preferences.SystemSettingColorPickerPreference;
 
 import java.util.Arrays;
 import java.util.ArrayList;
@@ -75,7 +76,12 @@ public class SlimRecents extends SettingsPreferenceFragment
     private static final String RECENT_PANEL_LEFTY_MODE = "recent_panel_lefty_mode";
 
     private static final String RECENT_ICON_PACK = "slim_icon_pack";
+    static final String RECENTS_BG = "recent_panel_bg_color";
+    static final String RECENTS_CARD = "recent_card_bg_color";
 
+
+    private SystemSettingColorPickerPreference mBg;
+    private SystemSettingColorPickerPreference mCard;
     private SwitchPreference mRecentPanelLeftyMode;
     private Preference mIconPack;
 
@@ -100,6 +106,11 @@ public class SlimRecents extends SettingsPreferenceFragment
         mRecentPanelLeftyMode = (SwitchPreference) findPreference(RECENT_PANEL_LEFTY_MODE);
         mRecentPanelLeftyMode.setOnPreferenceChangeListener(this);
         mIconPack = findPreference(RECENT_ICON_PACK);
+
+        mBg = (SystemSettingColorPickerPreference) findPreference (RECENTS_BG);
+        mCard = (SystemSettingColorPickerPreference) findPreference (RECENTS_CARD);
+        mBg.setAlphaSliderEnabled(true);
+        mCard.setAlphaSliderEnabled(true);
     }
 
     @Override
