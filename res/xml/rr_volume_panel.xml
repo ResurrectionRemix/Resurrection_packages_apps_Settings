@@ -34,6 +34,13 @@
     <PreferenceCategory
         android:title="@string/rr_ui_title">
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="music_volume_panel_dialog"
+        android:icon="@drawable/rr_music_icon"
+        android:title="@string/music_volume_panel_dialog_title"
+        android:summary="@string/music_volume_panel_dialog_summary"
+        android:defaultValue="false"/>
+
      <lineageos.preference.LineageSecureSettingSwitchPreference
          android:key="volume_panel_on_left"
          android:icon="@drawable/rr_panel_left_icon"
