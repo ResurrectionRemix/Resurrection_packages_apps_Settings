@@ -241,7 +241,8 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         if (rgb == 0 && (qsTileStyle == 7
             || qsTileStyle == 9 || qsTileStyle == 10 
             || qsTileStyle == 12 || qsTileStyle == 13
-            || qsTileStyle == 16 || qsTileStyle == 17)) {
+            || qsTileStyle == 16 || qsTileStyle == 17
+            || qsTileStyle == 27)) {
             mDarkTile.setEnabled(false);
             mDarkTile.setSummary(R.string.already_enabled_sum); 
         } else if (rgb == 0) {
@@ -251,7 +252,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
             mDarkTile.setSummary(R.string.disable_rgb); 
         }
     }
- 
+
     public void updateInactivePrefs(boolean active) {
         int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0,
@@ -348,17 +349,28 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         } else if (preference == mTintMode) {
              int value = Integer.parseInt((String) newValue);
              updatesTintPrefs(value);
-             updateDarktileState(value);
              return true;
         } 
         return false;
     }
 
     public void updatesTintPrefs(int enabled) {
-        if (enabled == 2) 
-            mRgbIcon.setEnabled(true);
-        else 
+        int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.QS_TILE_STYLE, 0,
+  	        UserHandle.USER_CURRENT);
+        if (enabled == 2) { 
+            if (qsTileStyle == 27) {
+                mRgbIcon.setEnabled(false);
+                mRgbIcon.setSummary(R.string.rgb_already_enabled);
+            } else {
+                mRgbIcon.setEnabled(true);
+                mRgbIcon.setSummary(R.string.qs_tile_rgb_tint_summary);
+            }
+        } 
+        else {
             mRgbIcon.setEnabled(false);
+            mRgbIcon.setSummary(R.string.rgb_already_disabled);
+        }
     }
 
     public void updateThemespref(boolean enabled) {
