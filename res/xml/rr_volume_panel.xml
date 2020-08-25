@@ -29,17 +29,19 @@
    <Preference
         android:key="animation"
         android:layout="@layout/rr_volume_animation" />
- 
 
     <PreferenceCategory
-        android:title="@string/rr_ui_title">
+        android:key="volume_panel_stuff"
+        android:title="@string/volume_panel">
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="music_volume_panel_dialog"
-        android:icon="@drawable/rr_music_icon"
-        android:title="@string/music_volume_panel_dialog_title"
-        android:summary="@string/music_volume_panel_dialog_summary"
-        android:defaultValue="false"/>
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="systemui_plugin_volume"
+        android:title="@string/volume_panel"
+        android:icon="@drawable/rr_styles_icon"
+        android:entries="@array/volume_panel_entries"
+        android:entryValues="@array/volume_panel_values"
+        android:defaultValue="@string/volume_panel_rr_val" />
 
      <lineageos.preference.LineageSecureSettingSwitchPreference
          android:key="volume_panel_on_left"
@@ -55,9 +57,25 @@
         android:max="10"
         settings:min="1"
         settings:units="@string/unit_seconds" />
+
+    </PreferenceCategory>
+ 
+
+    <PreferenceCategory
+        android:key="rr_ui"
+        android:title="@string/rr_ui_title">
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="music_volume_panel_dialog"
+        android:icon="@drawable/rr_music_icon"
+        android:title="@string/music_volume_panel_dialog_title"
+        android:summary="@string/music_volume_panel_dialog_summary"
+        android:defaultValue="false"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:key="items"
         android:title="@string/rr_vol_items">
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
@@ -88,6 +106,10 @@
         android:title="@string/audio_panel_view_alarm_title"
         android:summary="@string/audio_panel_view_alarm_summary"
         android:defaultValue="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="extra_items"
+        android:title="@string/rr_extra_settings">
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="audio_panel_view_voice"
@@ -103,6 +125,12 @@
         android:summary="@string/audio_panel_view_bt_sco_summary"
         android:defaultValue="false"/>
 
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="ringer_button"
+        android:title="@string/rr_ringer_button">
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="show_ringer_volume_panel"
         android:icon="@drawable/rr_ringer_icon"
@@ -110,5 +138,4 @@
         android:summary="@string/volume_panel_show_ringer_summary"
         android:defaultValue="true"/>
     </PreferenceCategory>
-
 </PreferenceScreen>

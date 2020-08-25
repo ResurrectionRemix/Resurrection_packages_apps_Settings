@@ -35,19 +35,33 @@ import java.util.ArrayList;
 import com.android.settings.search.Indexable;
 import com.android.settings.search.Indexable.SearchIndexProvider;
 import com.android.settings.rr.utils.RRUtils;
-import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
+import com.android.settings.rr.Preferences.*;
 import android.provider.Settings;
 import android.provider.SearchIndexableResource;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
+
+import lineageos.preference.LineageSecureSettingSwitchPreference;
 @SearchIndexable
 public class VolumePanelSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
     private static final String KEY_NOTIF = "audio_panel_view_notification";
+    private static final String KEY_STYLE = "systemui_plugin_volume";
+    private static final String KEY_LEFT = "volume_panel_on_left";
+    private static final String UI = "rr_ui";
+    private static final String ITEMS = "items";
+    private static final String EXTRAITEMS = "extra_items";
+    private static final String RINGER = "ringer_button";
 
     private SystemSettingSwitchPreference mNotif;
     private SystemSettingSwitchPreference mMedia;
+    private SystemSettingListPreference mStyle;
+    private PreferenceCategory mUI;
+    private PreferenceCategory mItems;
+    private PreferenceCategory mExtra;
+    private PreferenceCategory mRinger;
+    private LineageSecureSettingSwitchPreference mLeft;
 
     @Override
     public int getMetricsCategory() {
@@ -60,9 +74,15 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.rr_volume_panel);
         ContentResolver resolver = getActivity().getContentResolver();
+        mUI = (PreferenceCategory) findPreference(UI);
+        mItems = (PreferenceCategory) findPreference(ITEMS);
+        mExtra = (PreferenceCategory) findPreference(EXTRAITEMS);
         mNotif = (SystemSettingSwitchPreference) findPreference(KEY_NOTIF);
+        mLeft = (LineageSecureSettingSwitchPreference) findPreference(KEY_LEFT);
         boolean show = Settings.Secure.getInt(resolver,
                 Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+        mStyle = (SystemSettingListPreference) findPreference(KEY_STYLE);
+        mStyle.setOnPreferenceChangeListener(this);
         if (show) {
             mNotif.setEnabled(false);
             mNotif.setSummary(R.string.vol_link_enabled_summary);
@@ -73,6 +93,9 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
 
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
+        String style = Settings.System.getString(resolver,
+                Settings.System.SYSTEMUI_PLUGIN_VOLUME);
+        updatePrefs(style);
         try {
             if (anim == 0) {
                 removePreference("animation");
@@ -84,9 +107,40 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
             }
         } catch (Exception e) {}
     }
+    
+    public void updatePrefs(String style) {
+        if (style == null) style = "com.android.systemui.volume";
+        if (!style.equals("com.android.systemui.volume")) {
+            if (style.equals("co.potatoproject.plugin.volume.oreo")) {
+                mLeft.setVisible(false);
+                mExtra.setVisible(true);
+            } else  if (style.equals("co.potatoproject.plugin.volume.compact")){
+                mLeft.setVisible(true);
+                mExtra.setVisible(true);
+            } else  if (style.equals("co.potatoproject.plugin.volume.tiled")){
+                mLeft.setVisible(true);
+                mExtra.setVisible(false);
+            } else  if (style.equals("co.potatoproject.plugin.volume.aosp")){
+                mLeft.setVisible(true);
+                mExtra.setVisible(true);
+            }
+            mItems.setVisible(false);
+            mUI.setVisible(false);
+            mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.volume_panel_warning);
+        } else {
+            mUI.setVisible(true);
+            mItems.setVisible(true);
+            mExtra.setVisible(true);
+        }
+    }
 
     public boolean onPreferenceChange(Preference preference, Object objValue) {
-        return true;
+         if (preference == mStyle) {
+             String style = (String) objValue;
+             updatePrefs(style);
+             return true;
+        } 
+        return false;
     }
 
     /**
