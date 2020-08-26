@@ -55,6 +55,15 @@
             android:summary="@string/status_bar_battery_text_charging_summary"
             android:defaultValue="true" />
 
+        <!-- Show battery percent when charging -->
+        <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="show_battery_symbol"
+            android:icon="@drawable/rr_charging_icon"
+            android:title="@string/show_battery_symbol_title"
+            android:summary="@string/show_battery_symbol_summary"
+            android:dependency="status_bar_battery_text_charging"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>
