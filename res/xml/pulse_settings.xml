@@ -29,37 +29,49 @@
         android:key="animation"
         android:layout="@layout/pulse_layout" />
  <PreferenceCategory>
+
+    <SwitchPreference
+        android:key="lockscreen_pulse_enabled"
+        android:title="@string/show_lockscreen_pulse_title"
+        android:icon="@drawable/rr_lock_icon"
+        android:summary="@string/show_lockscreen_pulse_summary"/>
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="ambient_pulse_enabled"
+        android:icon="@drawable/rr_vib_pattern_icon"
+        android:title="@string/ambient_visualizer_title"
+        android:summary="@string/ambient_visualizer_summary"
+        android:dependency="lockscreen_pulse_enabled"
+        android:defaultValue="false"/>
+
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="navbar_pulse_enabled"
-        android:title="@string/show_pulse_title"
+        android:title="@string/show_navbar_pulse_title"
         android:icon="@drawable/rr_visualizer_icon"
-        android:summary="@string/show_pulse_summary"
+        android:summary="@string/show_navbar_pulse_summary"
         android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
-        android:key="navbar_pulse_render_style"
+        android:key="pulse_render_style"
         android:title="@string/pulse_render_mode_title"
         android:icon="@drawable/rr_styles_icon"
         android:entries="@array/pulse_render_mode_entries"
         android:entryValues="@array/pulse_render_mode_values"
-        android:defaultValue="0"
-        android:dependency="navbar_pulse_enabled" />
+        android:defaultValue="0" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="pulse_smoothing_enabled"
         android:title="@string/smoothing_enabled_title"
         android:icon="@drawable/rr_autoenable_icon"
         android:summary="@string/smoothing_enabled_summary"
-        android:defaultValue="false"
-        android:dependency="navbar_pulse_enabled" />
+        android:defaultValue="false" />
  </PreferenceCategory>
     <PreferenceCategory
         android:key="pulse_color_category"
-        android:title="@string/pulse_color"
-        android:dependency="navbar_pulse_enabled">
+        android:title="@string/pulse_color">
 
         <com.android.settings.rr.Preferences.SystemSettingListPreference
-            android:key="navbar_pulse_color_type"
+            android:key="pulse_color_mode"
             android:title="@string/pulse_color_mode"
             android:icon="@drawable/rr_new_header_icon"
             android:entries="@array/pulse_color_mode_entries"
@@ -67,13 +79,13 @@
             android:defaultValue="0"/>
 
         <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
-            android:key="navbar_pulse_color_user"
+            android:key="pulse_color_user"
             android:icon="@drawable/rr_custom_icon"
             android:defaultValue="@color/rr_accent"
             android:title="@string/pulse_color_chooser"/>
 
         <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-            android:key="navbar_pulse_lavalamp_speed"
+            android:key="pulse_lavalamp_speed"
             android:icon="@drawable/rr_clock_icon"
             android:title="@string/lavamp_speed_title"
             android:max="30000"
@@ -85,8 +97,7 @@
 
     <PreferenceCategory
         android:key="pulse_fading_bars_category"
-        android:title="@string/pulse_legacy_mode_advanced_category"
-        android:dependency="navbar_pulse_enabled">
+        android:title="@string/pulse_legacy_mode_advanced_category">
 
         <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
             android:key="pulse_custom_dimen"
@@ -136,8 +147,7 @@
 
     <PreferenceCategory
         android:key="pulse_2"
-        android:title="@string/pulse_solid_dimen_category"
-        android:dependency="navbar_pulse_enabled">
+        android:title="@string/pulse_solid_dimen_category">
 
         <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
             android:key="pulse_solid_units_opacity"
