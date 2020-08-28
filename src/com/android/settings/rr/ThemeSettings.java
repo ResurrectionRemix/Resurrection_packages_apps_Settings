@@ -69,6 +69,7 @@ import com.android.settings.development.OverlayCategoryPreferenceController;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
 import com.android.settings.display.darkmode.DarkModeObserver;
+import com.android.settings.gestures.SystemNavigationPreferenceController;
 @SearchIndexable
 public class ThemeSettings extends DashboardFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
@@ -82,6 +83,7 @@ public class ThemeSettings extends DashboardFragment implements
     private static final String KEY_RR_BG = "android.theme.customization.rr_tools_bg";
     private static final String ANIM = "animation";
     private static final String STATIC = "preview";
+    private static final String NAV_STYLE = "navbar_style";
     private static final String QS_TILE_STYLE = "qs_tile_style";
 
     private IOverlayManager mOverlayService;
@@ -98,6 +100,7 @@ public class ThemeSettings extends DashboardFragment implements
     private DarkModeObserver mDarkModeObserver;
     private Runnable mCallback;
     private ListPreference mQsTileStyle;
+    private ListPreference mNavStyle;
 
     private Preference mAnim;
     private AboutSettingsPreview mStatic;
@@ -115,6 +118,7 @@ public class ThemeSettings extends DashboardFragment implements
 		ContentResolver resolver = getActivity().getContentResolver();
         mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
         mHeaderStyle = (ListPreference) findPreference(HEADER);
+        mNavStyle = (ListPreference) findPreference(NAV_STYLE);
         PreferenceScreen screen = getPreferenceScreen();
         mRRbg = (ListPreference) findPreference(KEY_RR_BG);
         mThemeSwitch.setOnPreferenceChangeListener(this);
@@ -134,6 +138,11 @@ public class ThemeSettings extends DashboardFragment implements
         mQsTileStyle.setValueIndex(valueInd >= 0 ? valueInd : 0);
         mQsTileStyle.setSummary(mQsTileStyle.getEntry());
         mQsTileStyle.setOnPreferenceChangeListener(this);
+
+        if (SystemNavigationPreferenceController.isEdgeToEdgeEnabled(mContext) 
+            || SystemNavigationPreferenceController.isSwipeUpEnabled(mContext)) {
+            mNavStyle.setVisible(false);
+        }
 
         mCallback = () -> {
             final boolean active = (getContext().getResources().getConfiguration().uiMode

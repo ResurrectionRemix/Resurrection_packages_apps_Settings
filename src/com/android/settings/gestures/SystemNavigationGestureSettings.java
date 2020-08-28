@@ -324,7 +324,7 @@ public class SystemNavigationGestureSettings extends RadioButtonPickerFragment {
 
     static int getHomeHandleHeight(Context context) {
         return Settings.System.getInt(context.getContentResolver(),
-                Settings.System.NAVIGATION_HANDLE_HEIGHT, 0);
+                Settings.System.NAVIGATION_HANDLE_HEIGHT, 1);
     }
 
     @VisibleForTesting

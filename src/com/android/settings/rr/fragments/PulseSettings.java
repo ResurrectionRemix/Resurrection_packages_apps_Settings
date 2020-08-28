@@ -32,7 +32,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.UserHandle;
-
+import android.content.ContentResolver;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -55,12 +55,15 @@ import java.util.ArrayList;
 public class PulseSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = PulseSettings.class.getSimpleName();
-    private static final String PULSE_COLOR_MODE_KEY = "navbar_pulse_color_type";
-    private static final String PULSE_COLOR_MODE_CHOOSER_KEY = "navbar_pulse_color_user";
-    private static final String PULSE_COLOR_MODE_LAVA_SPEED_KEY = "navbar_pulse_lavalamp_speed";
+    private static final String NAVBAR_PULSE_ENABLED_KEY = "navbar_pulse_enabled";
+    private static final String LOCKSCREEN_PULSE_ENABLED_KEY = "lockscreen_pulse_enabled";
+    private static final String PULSE_SMOOTHING_KEY = "pulse_smoothing_enabled";
+    private static final String PULSE_COLOR_MODE_KEY = "pulse_color_mode";
+    private static final String PULSE_COLOR_MODE_CHOOSER_KEY = "pulse_color_user";
+    private static final String PULSE_COLOR_MODE_LAVA_SPEED_KEY = "pulse_lavalamp_speed";
     private static final String PULSE_RENDER_CATEGORY_SOLID = "pulse_2";
     private static final String PULSE_RENDER_CATEGORY_FADING = "pulse_fading_bars_category";
-    private static final String PULSE_RENDER_MODE_KEY = "navbar_pulse_render_style";
+    private static final String PULSE_RENDER_MODE_KEY = "pulse_render_style";
     private static final int RENDER_STYLE_FADING_BARS = 0;
     private static final int RENDER_STYLE_SOLID_LINES = 1;
     private static final int COLOR_TYPE_ACCENT = 0;
@@ -68,11 +71,17 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private static final int COLOR_TYPE_LAVALAMP = 2;
     private static final int COLOR_TYPE_AUTO = 3;
 
+    private SwitchPreference mNavbarPulse;
+    private SwitchPreference mLockscreenPulse;
+    private SwitchPreference mPulseSmoothing;
     private Preference mRenderMode;
     private ListPreference mColorModePref;
     private SystemSettingColorPickerPreference mColorPickerPref;
     private Preference mLavaSpeedPref;
     protected Context mContext;
+
+    private PreferenceCategory mFadingBarsCat;
+    private PreferenceCategory mSolidBarsCat;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,6 +90,19 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mContext = getActivity().getApplicationContext();
         mFooterPreferenceMixin.createFooterPreference()
                 .setTitle(R.string.pulse_help_policy_notice_summary);
+
+        ContentResolver resolver = getContentResolver();
+        mNavbarPulse = (SwitchPreference) findPreference(NAVBAR_PULSE_ENABLED_KEY);
+        boolean navbarPulse = Settings.System.getIntForUser(resolver,
+                Settings.System.NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+        mNavbarPulse.setChecked(navbarPulse);
+        mNavbarPulse.setOnPreferenceChangeListener(this);
+        mLockscreenPulse = (SwitchPreference) findPreference(LOCKSCREEN_PULSE_ENABLED_KEY);
+        boolean lockscreenPulse = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+        mLockscreenPulse.setChecked(lockscreenPulse);
+        mLockscreenPulse.setOnPreferenceChangeListener(this);
+
         mColorModePref = (ListPreference) findPreference(PULSE_COLOR_MODE_KEY);
         mColorPickerPref = (SystemSettingColorPickerPreference) findPreference(PULSE_COLOR_MODE_CHOOSER_KEY);
         int Color = Settings.System.getInt(getContentResolver(),
@@ -91,15 +113,17 @@ public class PulseSettings extends SettingsPreferenceFragment implements
         mLavaSpeedPref = findPreference(PULSE_COLOR_MODE_LAVA_SPEED_KEY);
         mColorModePref.setOnPreferenceChangeListener(this);
         int colorMode = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.PULSE_COLOR_TYPE, COLOR_TYPE_ACCENT, UserHandle.USER_CURRENT);
+                Settings.System.PULSE_COLOR_MODE, COLOR_TYPE_ACCENT, UserHandle.USER_CURRENT);
         updateColorPrefs(colorMode);
         
         mRenderMode = findPreference(PULSE_RENDER_MODE_KEY);
         mRenderMode.setOnPreferenceChangeListener(this);
-        int renderMode = Settings.System.getIntForUser(getContentResolver(),
-                Settings.System.PULSE_RENDER_STYLE_URI, 0, UserHandle.USER_CURRENT);
-        updateRenderCategories(renderMode);
-
+        mFadingBarsCat = (PreferenceCategory) findPreference(
+                PULSE_RENDER_CATEGORY_FADING);
+        mSolidBarsCat = (PreferenceCategory) findPreference(
+                PULSE_RENDER_CATEGORY_SOLID);
+        mPulseSmoothing = (SwitchPreference) findPreference(PULSE_SMOOTHING_KEY);
+        updateAllPrefs();
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -136,19 +160,54 @@ public class PulseSettings extends SettingsPreferenceFragment implements
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference.equals(mColorModePref)) {
+        ContentResolver resolver = getContext().getContentResolver();
+        if (preference == mNavbarPulse) {
+            boolean val = (Boolean) newValue;
+            Settings.System.putIntForUser(resolver,
+                Settings.System.NAVBAR_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
+            updateAllPrefs();
+            return true;
+        } else if (preference == mLockscreenPulse) {
+            boolean val = (Boolean) newValue;
+            Settings.System.putIntForUser(resolver,
+                Settings.System.LOCKSCREEN_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
+            updateAllPrefs();
+            return true;
+        } else if (preference == mColorModePref) {
             updateColorPrefs(Integer.valueOf(String.valueOf(newValue)));
             return true;
-        } else if (preference.equals(mRenderMode)) {
+        } else if (preference == mRenderMode) {
             updateRenderCategories(Integer.valueOf(String.valueOf(newValue)));
-            return true;
-        } if (preference.equals(mColorPickerPref)) {
-              String hex = convertToRGB(
-                    Integer.valueOf(String.valueOf(newValue)));
-            preference.setSummary(hex);
             return true;
         }
         return false;
+    }
+
+    private void updateAllPrefs() {
+        ContentResolver resolver = getContentResolver();
+        boolean navbarPulse = Settings.System.getIntForUser(resolver,
+                Settings.System.NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+        boolean lockscreenPulse = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+        mPulseSmoothing.setEnabled(navbarPulse || lockscreenPulse);
+        mColorModePref.setEnabled(navbarPulse || lockscreenPulse);
+        if (navbarPulse || lockscreenPulse) {
+            int colorMode = Settings.System.getIntForUser(resolver,
+                Settings.System.PULSE_COLOR_MODE, COLOR_TYPE_ACCENT, UserHandle.USER_CURRENT);
+            updateColorPrefs(colorMode);
+        } else {
+            mColorPickerPref.setEnabled(false);
+            mLavaSpeedPref.setEnabled(false);
+        }
+        mRenderMode.setEnabled(navbarPulse || lockscreenPulse);
+        if (navbarPulse || lockscreenPulse) {
+            int renderMode = Settings.System.getIntForUser(resolver,
+                Settings.System.PULSE_RENDER_STYLE, RENDER_STYLE_FADING_BARS, UserHandle.USER_CURRENT);
+            updateRenderCategories(renderMode);
+        } else {
+            mFadingBarsCat.setEnabled(false);
+            mSolidBarsCat.setEnabled(false);
+        }
     }
 
     private void updateColorPrefs(int val) {
@@ -173,12 +232,8 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     }
 
     private void updateRenderCategories(int mode) {
-        PreferenceCategory fadingBarsCat = (PreferenceCategory) findPreference(
-                PULSE_RENDER_CATEGORY_FADING);
-        fadingBarsCat.setEnabled(mode == RENDER_STYLE_FADING_BARS);
-        PreferenceCategory solidBarsCat = (PreferenceCategory) findPreference(
-                PULSE_RENDER_CATEGORY_SOLID);
-        solidBarsCat.setEnabled(mode == RENDER_STYLE_SOLID_LINES);
+        mFadingBarsCat.setEnabled(mode == RENDER_STYLE_FADING_BARS);
+        mSolidBarsCat.setEnabled(mode == RENDER_STYLE_SOLID_LINES);
     }
 
     @Override

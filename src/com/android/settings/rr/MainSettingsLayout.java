@@ -517,20 +517,6 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE, 1, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_TICKER_TICK_DURATION, 3000, UserHandle.USER_CURRENT);
-        Settings.Secure.putIntForUser(resolver,
-                Settings.Secure.LOCKSCREEN_VISUALIZER_ENABLED, 1, UserHandle.USER_CURRENT);
-        Settings.Secure.putIntForUser(resolver,
-                Settings.Secure.LOCKSCREEN_LAVALAMP_ENABLED, 1, UserHandle.USER_CURRENT);
-        Settings.Secure.putIntForUser(resolver,
-                Settings.Secure.LOCKSCREEN_LAVALAMP_SPEED, 10000, UserHandle.USER_CURRENT);
-        Settings.Secure.putIntForUser(resolver,
-                Settings.Secure.LOCKSCREEN_VISUALIZER_AUTOCOLOR, 0, UserHandle.USER_CURRENT);
-        Settings.Secure.putIntForUser(resolver,
-                Settings.Secure.LOCKSCREEN_SOLID_UNITS_COUNT, 32, UserHandle.USER_CURRENT);
-        Settings.Secure.putIntForUser(resolver,
-                Settings.Secure.LOCKSCREEN_SOLID_FUDGE_FACTOR, 16, UserHandle.USER_CURRENT);
-        Settings.Secure.putIntForUser(resolver,
-                Settings.Secure.LOCKSCREEN_SOLID_UNITS_OPACITY, 140, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.SMART_CHARGING, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,

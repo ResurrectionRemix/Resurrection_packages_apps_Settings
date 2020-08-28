@@ -88,6 +88,8 @@
     <string name="status_bar_battery_text_position_right">Right of the icon</string>
     <string name="status_bar_battery_text_charging_title">Battery percentage when charging</string>
     <string name="status_bar_battery_text_charging_summary">Always display battery percentage when charging</string>
+    <string name="show_battery_symbol_title">Show lightning symbol</string>
+    <string name="show_battery_symbol_summary">Show lightning \u26A1\uFE0E symbol when charging</string>
 
     <!-- Battery percent -->
     <string name="battery_percentage_title">Battery percentage</string>
@@ -400,6 +402,7 @@
     <string name="rr_category_footer">Qs footer</string>
     <string name="rr_category_usage">Items</string>
     <string name="rr_extra_settings">Extra settings</string>
+    <string name="rr_ringer_button">Ringer</string>
     <string name="rr_title">Resurrection tools</string>
     <string name="rr_title_summary">Various customizations</string>
     <string name="rr_config_main_title">RR-OS</string>
@@ -1327,6 +1330,8 @@
     <string name="fod_coloros7_2_recognizing_anim">ColorOS7 2</string>
     <string name="fod_op_ripple_recognizing_anim">OnePlus Ripple</string>
     <string name="fod_op_energy_recognizing_anim">OnePlus Energy</string>
+    <string name="fod_miui_star_anim">MIUI star</string>
+    <string name="fod_miui_glow_aim">MIUI glow</string>
     <string name="fod_night_light_title">Disable night light when showing FOD</string>
     <string name="fod_night_light_summary">Disable night light when fingerprint is active. This is necessary for some devices that need correct colors for reading fingerprint. Disabling this might cause unreadable fingerprint on night light enabled. If this is enabled, everytime you are on auto night and you decide to disable it, FOD will re-enable night light on hiding</string>
 
@@ -1370,6 +1375,26 @@
     <string name="qs_themes_warning">Use system default Qs shape from resurrection themes to use this feature</string>
     <string name="enable_custom_fw">Can only be used on default values. Turn on default switch below</string>
     <string name="disable_rgb">Disabled because only applies to non-rgb or accent tints. Use only for primary default tint</string>
+    <string name="rgb_already_enabled">This style is enabled by default on current qs shape and cannot be changed</string>
+    <string name="rgb_already_disabled">Enable RGB tint first</string>
+
+    <!--  Volume Panel Plugin   -->
+    <string name="volume_panel">Volume Panel Style</string>
+    <string name="volume_panel_aosp">AOSP</string>
+    <string name="volume_panel_compat">Compact</string>
+    <string name="volume_panel_oreo">Oreo</string>
+    <string name="volume_panel_tiled">Tiled</string>
+    <string name="volume_panel_default">Default</string>
+    <!--  Volume Panel Plugin Values   -->
+    <string name="volume_panel_aosp_val">co.potatoproject.plugin.volume.aosp</string>
+    <string name="volume_panel_compat_val">co.potatoproject.plugin.volume.compact</string>
+    <string name="volume_panel_oreo_val">co.potatoproject.plugin.volume.oreo</string>
+    <string name="volume_panel_tiled_val">co.potatoproject.plugin.volume.tiled</string>
+    <string name="volume_panel_rr_val">com.android.systemui.volume</string>
+    <string name="volume_panel_warning">All volume panel customizations only work with stock volume panel and hence settings that don\'t work will be rendered invisible. Please wait for volume panel to change setting. It takes about 3-4 seconds to change a panel so do not worry. Until the time a new volume panel is created, the stock one will appear. If things don\'t go as expected please change styles again, it will work.</string>
+
+    <string name="volume_panel_plugin_enable_title">Enable custom volume panel</string>
+    <string name="volume_panel_plugin_enable_summary">Choose from various styles of volume panels. This will disable default system volume panel settings</string>
 
     <!-- AOKP custom system animations -->
     <string name="system_animation_title">System animations</string>
@@ -1400,6 +1425,7 @@
     <string name="volte_icon_4">Volte Icon 3</string>
     <string name="volte_icon_5">Volte Icon 2</string>
     <string name="volte_icon_6">Volte Icon 1</string>
+    <string name="volte_icon_7">Volte Icon OOS 10</string>
        
     <!-- Tiles animation style  -->
     <string name="qs_tile_animation_style_title">QS tile animation</string>
@@ -1410,6 +1436,9 @@
     <string name="qs_tile_animation_duration_low">Low</string>
     <string name="qs_tile_animation_duration_default">Default</string>
     <string name="qs_tile_animation_duration_fast">Fast</string>
+    <string name="qs_tile_animation_duration_faster">Faster</string>
+    <string name="qs_tile_animation_duration_faster_2">Even Faster</string>
+    <string name="qs_tile_animation_duration_fastest">Fastest</string>
     <string name="qs_tile_rgb_tint_title">Tint icons to rgb</string>
     <string name="qs_tile_rgb_tint_summary">Tint the icon inside to random rgb tint</string>
     <string name="already_enabled_sum">Looks like you have a Qs shape enabled where this tint cannot be changed</string>
@@ -1748,6 +1777,8 @@
     <string name="volume_panel_on_left_summary">Display volume panel on the left side of the screen</string>
     <string name="volume_panel_show_ringer">Show ringer</string>
     <string name="volume_panel_show_ringer_summary">Show ringer button on top of volume panel</string>
+    <string name="music_volume_panel_dialog_title">Music card</string>
+    <string name="music_volume_panel_dialog_summary">Show music card in volume panel when music is active. This is only meant for music players and not for apps like youtube</string>
 
     <!-- Alert Slider Notifications (OnePlus devices) -->
     <string name="alert_slider_notifications_title">Alert slider notifications</string>
@@ -1887,8 +1918,10 @@
     <string name="pulse_help_policy_notice_summary">Pulse does not work with some audio sources when listening on device speaker</string>
     <string name="pulse_settings">Pulse</string>
     <string name="pulse_settings_summary">Navigation bar audio graphic equalizer</string>
-    <string name="show_pulse_title">Show Pulse</string>
-    <string name="show_pulse_summary">Audio graphic equalizer on the navigation bar</string>
+    <string name="show_navbar_pulse_title">Navbar Pulse</string>
+    <string name="show_navbar_pulse_summary">Audio graphic equalizer on the navigation bar area, also if bar is hidden</string>
+    <string name="show_lockscreen_pulse_title">Lockscreen Pulse</string>
+    <string name="show_lockscreen_pulse_summary">Audio graphic equalizer on the lockscreen</string>
     <string name="pulse_render_mode_title">Render mode</string>
     <string name="pulse_render_mode_fading_bars">Fading blocks</string>
     <string name="pulse_render_mode_solid_lines">Solid lines</string>
@@ -1913,6 +1946,14 @@
     <string name="pulse_custom_div">Bar spacing</string>
     <string name="pulse_filled_block_size">Block size</string>
     <string name="pulse_empty_block_size">Block spacing</string>
+
+    <!-- Navbar styles -->
+    <string name="navbar_style_title">Navbar style</string>
+    <string name="navbar_default">Default</string>
+    <string name="navbar_asus">ASUS</string>
+    <string name="navbar_oneplus">OnePlus</string>
+    <string name="navbar_oneui">One UI</string>
+    <string name="navbar_tecno">Tecno Camon</string>
 
     <!-- Clipboard toast info -->
     <string name="clipboard_toast_info_title">Clipboard access alerts</string>
