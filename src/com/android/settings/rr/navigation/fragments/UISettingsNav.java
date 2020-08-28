@@ -44,10 +44,6 @@ import com.android.internal.logging.nano.MetricsProto;
 public class UISettingsNav extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "UI";
-    private static final String RR_FP = "rr_fp";
-
-    private Preference mFpFragment;
-    private FingerprintManager mFingerprintManager;
 
     @Override
     public int getMetricsCategory() {
@@ -59,13 +55,14 @@ public class UISettingsNav extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         final Activity activity = getActivity(); 
 		ContentResolver resolver = getActivity().getContentResolver();
-        mFingerprintManager = (FingerprintManager) getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         addPreferencesFromResource(R.xml.rr_ui_settings_navigation);
 
-        mFpFragment = (Preference) findPreference(RR_FP);
-        if (mFingerprintManager == null) {
-            getPreferenceScreen().removePreference(mFpFragment);
+        FingerprintManager mFingerprintManager = (FingerprintManager) 
+                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+
+        if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected()) {
+            removePreference("rr_fp");
         }
 
        /*

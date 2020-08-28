@@ -18,6 +18,7 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.os.RemoteException;
 import androidx.preference.ListPreference;
@@ -50,7 +51,6 @@ import java.util.ArrayList;
 public class Interface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +58,14 @@ public class Interface extends SettingsPreferenceFragment implements
 
         PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
+
+        FingerprintManager mFingerprintManager = (FingerprintManager) 
+                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
+
+        if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected()) {
+            removePreference("rr_fp");
+        }
+
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
