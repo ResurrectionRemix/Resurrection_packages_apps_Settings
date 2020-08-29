@@ -92,6 +92,15 @@
         settings:units="dp"
         android:defaultValue="18" />
 
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="lockscreen_date_selection"
+        android:title="@string/lockscreen_date_selection_title"
+        android:icon="@drawable/rr_style_icon"
+        android:dialogTitle="@string/lockscreen_date_dialog_title"
+        android:entries="@array/lockscreen_date_selection_entries"
+        android:entryValues="@array/lockscreen_date_selection_values"
+        android:defaultValue="0" />
+
     <PreferenceCategory
         android:title="Owner Info"/>
 	
