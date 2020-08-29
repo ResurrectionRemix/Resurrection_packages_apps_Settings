@@ -28,6 +28,12 @@
         android:key="animation"
         android:layout="@layout/rr_statusbar_animation" />
  <PreferenceCategory>
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="statusbar_dual"
+        android:title="@string/statusbar_dual_title"
+        android:summary="@string/statusbar_dual_summary"
+        android:defaultValue="false" 
+        android:icon="@drawable/rr_quick_settings_icon" />
     <Preference
         android:key="status_bar_clock_date_settings"
         android:title="@string/status_bar_clock_date_settings_title"
