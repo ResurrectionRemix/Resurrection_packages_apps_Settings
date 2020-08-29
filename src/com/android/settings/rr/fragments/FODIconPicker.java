@@ -143,7 +143,7 @@ public class FODIconPicker extends LayoutPreference {
         Button41 = findViewById(R.id.fodicon41_button);
 
         int defaultfodicon = Settings.System.getInt(
-                mContext.getContentResolver(), Settings.System.FOD_ICON, 0);
+                mContext.getContentResolver(), Settings.System.FOD_ICON, 3);
         if (defaultfodicon==0) {
             updateHighlightedItem(Button0);
         } else if (defaultfodicon == 1) {
@@ -571,6 +571,7 @@ public class FODIconPicker extends LayoutPreference {
         Button34.setBackgroundTintList(defaulttint);
         Button35.setBackgroundTintList(defaulttint);
         Button36.setBackgroundTintList(defaulttint);
+        Button37.setBackgroundTintList(defaulttint);
         Button38.setBackgroundTintList(defaulttint);
         Button39.setBackgroundTintList(defaulttint);
         Button40.setBackgroundTintList(defaulttint);
