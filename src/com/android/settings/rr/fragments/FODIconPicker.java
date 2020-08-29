@@ -66,6 +66,25 @@ public class FODIconPicker extends LayoutPreference {
     private static ImageButton Button21;
     private static ImageButton Button22;
     private static ImageButton Button23;
+    private static ImageButton Button24;
+    private static ImageButton Button25;
+    private static ImageButton Button26;
+    private static ImageButton Button27;
+    private static ImageButton Button28;
+    private static ImageButton Button29;
+    private static ImageButton Button30;
+    private static ImageButton Button31;
+    private static ImageButton Button32;
+    private static ImageButton Button33;
+    private static ImageButton Button34;
+    private static ImageButton Button35;
+    private static ImageButton Button36;
+    private static ImageButton Button37;
+    private static ImageButton Button38;
+    private static ImageButton Button39;
+    private static ImageButton Button40;
+    private static ImageButton Button41;
+
 
     private static final String TAG = "FODIconPicker";
 
@@ -104,6 +123,24 @@ public class FODIconPicker extends LayoutPreference {
         Button21 = findViewById(R.id.fodicon21_button);
         Button22 = findViewById(R.id.fodicon22_button);
         Button23 = findViewById(R.id.fodicon23_button);
+        Button24 = findViewById(R.id.fodiconunfunny_button);
+        Button25 = findViewById(R.id.fodiconspiral_button);
+        Button26 = findViewById(R.id.fodicon26_button);
+        Button27 = findViewById(R.id.fodicon27_button);
+        Button28 = findViewById(R.id.fodicon28_button);
+        Button29 = findViewById(R.id.fodicon29_button);
+        Button30 = findViewById(R.id.fodicon30_button);
+        Button31 = findViewById(R.id.fodicon31_button);
+        Button32 = findViewById(R.id.fodicon32_button);
+        Button33 = findViewById(R.id.fodicon33_button);
+        Button34 = findViewById(R.id.fodicon34_button);
+        Button35 = findViewById(R.id.fodicon35_button);
+        Button36 = findViewById(R.id.fodicon36_button);
+        Button37 = findViewById(R.id.fodicon37_button);
+        Button38 = findViewById(R.id.fodicon38_button);
+        Button39 = findViewById(R.id.fodicon39_button);
+        Button40 = findViewById(R.id.fodicon40_button);
+        Button41 = findViewById(R.id.fodicon41_button);
 
         int defaultfodicon = Settings.System.getInt(
                 mContext.getContentResolver(), Settings.System.FOD_ICON, 0);
@@ -155,6 +192,42 @@ public class FODIconPicker extends LayoutPreference {
             updateHighlightedItem(Button22);
         } else if (defaultfodicon == 23) {
             updateHighlightedItem(Button23);
+        } else if (defaultfodicon == 24) {
+            updateHighlightedItem(Button24);
+        } else if (defaultfodicon == 25) {
+            updateHighlightedItem(Button25);
+        } else if (defaultfodicon == 26) {
+            updateHighlightedItem(Button26);
+        } else if (defaultfodicon == 27) {
+            updateHighlightedItem(Button27);
+        } else if (defaultfodicon == 28) {
+            updateHighlightedItem(Button28);
+        } else if (defaultfodicon == 29) {
+            updateHighlightedItem(Button29);
+        } else if (defaultfodicon == 30) {
+            updateHighlightedItem(Button30);
+        } else if (defaultfodicon == 31) {
+            updateHighlightedItem(Button31);
+        } else if (defaultfodicon == 32) {
+            updateHighlightedItem(Button32);
+        } else if (defaultfodicon == 33) {
+            updateHighlightedItem(Button33);
+        } else if (defaultfodicon == 34) {
+            updateHighlightedItem(Button34);
+        } else if (defaultfodicon == 35) {
+            updateHighlightedItem(Button35);
+        } else if (defaultfodicon == 36) {
+            updateHighlightedItem(Button36);
+        } else if (defaultfodicon == 37) {
+            updateHighlightedItem(Button37);
+        } else if (defaultfodicon == 38) {
+            updateHighlightedItem(Button38);
+        } else if (defaultfodicon == 39) {
+            updateHighlightedItem(Button39);
+        } else if (defaultfodicon == 40) {
+            updateHighlightedItem(Button40);
+        } else if (defaultfodicon == 41) {
+            updateHighlightedItem(Button41);
         }
 
         Button0.setOnClickListener(new View.OnClickListener() {
@@ -325,6 +398,133 @@ public class FODIconPicker extends LayoutPreference {
                 updateHighlightedItem(Button23);
             }
         });
+        Button24.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(24);
+                updateHighlightedItem(Button24);
+            }
+        });
+        Button25.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(25);
+                updateHighlightedItem(Button25);
+            }
+        });
+        Button26.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(26);
+                updateHighlightedItem(Button26);
+            }
+        });
+        Button27.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(27);
+                updateHighlightedItem(Button27);
+            }
+        });
+        Button28.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(28);
+                updateHighlightedItem(Button28);
+            }
+        });
+        Button29.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(29);
+                updateHighlightedItem(Button29);
+            }
+        });
+        Button30.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(30);
+                updateHighlightedItem(Button30);
+            }
+        });
+        Button31.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(31);
+                updateHighlightedItem(Button31);
+            }
+        });
+        Button32.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(32);
+                updateHighlightedItem(Button32);
+            }
+        });
+        Button33.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(33);
+                updateHighlightedItem(Button33);
+            }
+        });
+        Button34.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(34);
+                updateHighlightedItem(Button34);
+            }
+        });
+        Button35.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(35);
+                updateHighlightedItem(Button35);
+            }
+        });
+        Button36.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(36);
+                updateHighlightedItem(Button36);
+            }
+        });
+        Button37.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(37);
+                updateHighlightedItem(Button37);
+            }
+        });
+        Button38.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(38);
+                updateHighlightedItem(Button38);
+            }
+        });
+        Button39.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(39);
+                updateHighlightedItem(Button39);
+            }
+        });
+        Button40.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(40);
+                updateHighlightedItem(Button40);
+            }
+        });
+        Button41.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateSettings(41);
+                updateHighlightedItem(Button41);
+            }
+        });
+
     }
 
     private void updateSettings(int fodicon) {
@@ -358,6 +558,23 @@ public class FODIconPicker extends LayoutPreference {
         Button21.setBackgroundTintList(defaulttint);
         Button22.setBackgroundTintList(defaulttint);
         Button23.setBackgroundTintList(defaulttint);
+        Button24.setBackgroundTintList(defaulttint);
+        Button25.setBackgroundTintList(defaulttint);
+        Button26.setBackgroundTintList(defaulttint);
+        Button27.setBackgroundTintList(defaulttint);
+        Button28.setBackgroundTintList(defaulttint);
+        Button29.setBackgroundTintList(defaulttint);
+        Button30.setBackgroundTintList(defaulttint);
+        Button31.setBackgroundTintList(defaulttint);
+        Button32.setBackgroundTintList(defaulttint);
+        Button33.setBackgroundTintList(defaulttint);
+        Button34.setBackgroundTintList(defaulttint);
+        Button35.setBackgroundTintList(defaulttint);
+        Button36.setBackgroundTintList(defaulttint);
+        Button38.setBackgroundTintList(defaulttint);
+        Button39.setBackgroundTintList(defaulttint);
+        Button40.setBackgroundTintList(defaulttint);
+        Button41.setBackgroundTintList(defaulttint);
         activebutton.setBackgroundTintList(Utils.getColorAttr(getContext(), android.R.attr.colorAccent));
     }
 }
