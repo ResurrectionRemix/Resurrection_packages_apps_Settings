@@ -42,6 +42,8 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -49,6 +51,8 @@ import java.util.ArrayList;
 @SearchIndexable
 public class StatusBarSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
+          private static final String STATUSBAR_DUAL = "statusbar_dual";
+          private SystemSettingSwitchPreference mStatusbarDual;
 
 
     @Override
@@ -70,11 +74,23 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
                 removePreference("preview");
             }
         } catch (Exception e) {}
+
+        mStatusbarDual = (SystemSettingSwitchPreference) findPreference(STATUSBAR_DUAL);
+        mStatusbarDual.setChecked((Settings.System.getInt(resolver,
+                Settings.System.STATUSBAR_DUAL, 0) == 1));
+        mStatusbarDual.setOnPreferenceChangeListener(this);
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
 	ContentResolver resolver = getActivity().getContentResolver();
-	return false;
+	      if (preference == mStatusbarDual) {
+            boolean value = (Boolean) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUSBAR_DUAL, value ? 1 : 0);
+            RRUtils.showSystemUiRestartDialog(getContext());
+            return true;
+	      }
+        return false;
     }
 
     @Override
