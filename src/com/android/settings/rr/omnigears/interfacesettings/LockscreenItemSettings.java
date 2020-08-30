@@ -100,6 +100,7 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
             mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.pixel_weather_warning);
         } else {
             mWeather.setEnabled(true);
+            mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.lockscreen_weather_summary);
         }
     }
 
