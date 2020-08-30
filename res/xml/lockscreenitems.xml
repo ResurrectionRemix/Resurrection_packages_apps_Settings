@@ -17,6 +17,7 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/lockscreen_item_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
     android:key="rr_ls_weather">
 
     <com.android.settings.rr.preview.AboutSettingsPreview
@@ -41,29 +42,7 @@
         android:summary="@string/lock_screen_weather_style_summary"
         android:icon="@drawable/rr_styles_icon"
         android:dependency="lockscreen_weather_enabled"
-        android:disableDependentsState="true"
         android:defaultValue="false" />
-
-    <com.android.settings.rr.Preferences.SystemSettingListPreference
-        android:key="lockscreen_weather_selection"
-        android:title="@string/lockscreen_weather_selection_title"
-        android:icon="@drawable/rr_style_icon"
-        android:dialogTitle="@string/lockscreen_weather_selection_title"
-        android:entries="@array/lockscreen_date_selection_entries"
-        android:entryValues="@array/lockscreen_date_selection_values"
-        android:dependency="lockscreen_weather_style"
-        android:defaultValue="0" />
-
-    <com.android.settings.rr.Preferences.SystemSettingListPreference
-        android:key="lockscreen_weather_alignment"
-        android:title="@string/lockscreen_weather_alignment_title"
-        android:icon="@drawable/rr_position_icon"
-        android:dialogTitle="@string/lockscreen_weather_alignment_title"
-        android:entries="@array/lockscreen_item_alignment_entries"
-        android:entryValues="@array/lockscreen_item_alignment_values"
-        android:dependency="lockscreen_weather_style"
-        android:summary="%s"
-        android:defaultValue="1" />
 
     <Preference
         android:title="@string/weather_prefs"
@@ -80,7 +59,7 @@
     <PreferenceCategory
         android:key="weather"
         android:dependency="lockscreen_weather_enabled"
-        android:title="@string/lock_weather_title">
+        android:title="@string/lock_weather_cust_title">
 
     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="lock_screen_weather_temp_color"
@@ -99,6 +78,34 @@
         android:title="@string/lockscreen_weather_icon_color"
         android:icon="@drawable/rr_weather_main_icon"
         android:defaultValue="0xffffffff" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="lockscreen_weather_selection"
+        android:title="@string/lockscreen_weather_selection_title"
+        android:icon="@drawable/rr_style_icon"
+        android:dialogTitle="@string/lockscreen_weather_selection_title"
+        android:entries="@array/lockscreen_date_selection_entries"
+        android:entryValues="@array/lockscreen_date_selection_values"
+        android:defaultValue="0" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="lockscreen_weather_alignment"
+        android:title="@string/lockscreen_weather_alignment_title"
+        android:icon="@drawable/rr_position_icon"
+        android:dialogTitle="@string/lockscreen_weather_alignment_title"
+        android:entries="@array/lockscreen_item_alignment_entries"
+        android:entryValues="@array/lockscreen_item_alignment_values"
+        android:summary="%s"
+        android:defaultValue="1" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="lockscreen_weather_padding"
+        android:title="@string/lockscreen_weather_padding_title"
+        android:icon="@drawable/rr_padding_icon"
+        android:max="65"
+        settings:min="0"
+        settings:units="dp"
+        android:defaultValue="35" />
 </PreferenceCategory>
 </PreferenceScreen>
 

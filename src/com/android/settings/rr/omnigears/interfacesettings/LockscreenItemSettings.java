@@ -17,6 +17,7 @@
 */
 package com.android.settings.rr.omnigears.interfacesettings;
 import android.os.Bundle;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -42,9 +43,14 @@ import java.util.ArrayList;
 @SearchIndexable
 public class LockscreenItemSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
+    private static final String TAG = "LockscreenItemSettings";
     static final String WEATHER_STYLE = "lockscreen_weather_style";
     static final String WEATHER_CAT = "weather";
-    private static final String TAG = "LockscreenItemSettings";
+    private static final String POSITION = "lockscreen_weather_alignment";
+    private static final String WEATHER_PADDING = "lockscreen_weather_padding";
+
+    private SystemSettingListPreference mPos;
+    private SystemSettingSeekBarPreference mPadding;
     private PreferenceCategory mWeather;
     private SystemSettingSwitchPreference mWeatherStyle;
 
@@ -57,10 +63,18 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.lockscreenitems);
+		ContentResolver resolver = getActivity().getContentResolver();
         mWeatherStyle = (SystemSettingSwitchPreference) findPreference(WEATHER_STYLE);
         mWeather = (PreferenceCategory) findPreference (WEATHER_CAT);
         mWeatherStyle.setOnPreferenceChangeListener(this);
+        mPadding = (SystemSettingSeekBarPreference) findPreference(WEATHER_PADDING);
+        mPos = (SystemSettingListPreference) findPreference(POSITION);
+        mPos.setOnPreferenceChangeListener(this);
+
+        int position = Settings.System.getInt(resolver,
+                Settings.System.LOCKSCREEN_WEATHER_ALIGNMENT, 1);
         updateprefs(mWeatherStyle.isChecked());
+        updatePaddingPref(position);
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -89,13 +103,25 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
         }
     }
 
+    public void  updatePaddingPref(int pos) {
+        if (pos == 1) {
+            mPadding.setEnabled(false);
+        } else {
+            mPadding.setEnabled(true);
+        }
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-       if (preference == mWeatherStyle) {
+        if (preference == mWeatherStyle) {
                boolean value = (Boolean) newValue;
                updateprefs(value);
               return true;
-        } 
+        } else if (preference == mPos) {
+               int value = Integer.parseInt((String) newValue);
+               updatePaddingPref(value);
+              return true;
+        }
         return false;
     }
 

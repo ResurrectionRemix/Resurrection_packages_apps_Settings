@@ -133,6 +133,16 @@
         android:entryValues="@array/lockscreen_item_alignment_values"
         android:summary="%s"
         android:defaultValue="1" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="lockscreen_date_padding"
+        android:dependency="lockscreen_date"
+        android:title="@string/lockscreen_date_padding_title"
+        android:icon="@drawable/rr_padding_icon"
+        android:max="65"
+        settings:min="0"
+        settings:units="dp"
+        android:defaultValue="35" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/lockscreen_owner_cat">
@@ -165,15 +175,10 @@
         android:icon="@drawable/rr_position_icon"
         android:summary="%s"
         android:defaultValue="1" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/lockscreen_padding_cat">
 
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="lockscreen_item_padding"
         android:title="@string/lockscreen_item_padding_title"
-        android:summary="@string/lockscreen_item_padding_summary"
         android:icon="@drawable/rr_padding_icon"
         android:max="65"
         settings:min="0"
@@ -181,6 +186,8 @@
         android:defaultValue="35" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/lockscreen_extra_cat">
     <Preference
         android:key="lockscreen_settings"
         android:title="@string/lock_weather_title"
@@ -194,6 +201,7 @@
         android:summary="@string/lockscreen_colors_summary"
         android:icon="@drawable/rr_color_icon"
        	android:fragment="com.android.settings.rr.LockColorSettings" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
 

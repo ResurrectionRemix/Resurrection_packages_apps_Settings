@@ -59,12 +59,37 @@ import java.util.ArrayList;
 public class LockStyleSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
+    private static final String DATE_POS = "lock_date_alignment";
+    private static final String DATE_PADDING = "lockscreen_date_padding";
+    private static final String OWNER_POS = "lock_ownerinfo_alignment";
+    private static final String OWNER_PADDING = "lockscreen_item_padding";
+
+    private SystemSettingListPreference mDatepos;
+    private SystemSettingSeekBarPreference mDatePadding;
+    private SystemSettingListPreference mOwnerPos;
+    private SystemSettingSeekBarPreference mOwnerPadding;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_lock_ui);
         mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.clock_ui_warning);
+		ContentResolver resolver = getActivity().getContentResolver();
+        int datepos = Settings.System.getInt(resolver,
+                Settings.System.LOCK_DATE_ALIGNMENT, 1);
 
+        int ownerpos = Settings.System.getInt(resolver,
+                Settings.System.LOCK_OWNERINFO_ALIGNMENT, 1);
+
+        mDatepos = (SystemSettingListPreference) findPreference(DATE_POS);
+        mOwnerPadding = (SystemSettingSeekBarPreference) findPreference(OWNER_PADDING);
+        mDatePadding = (SystemSettingSeekBarPreference) findPreference(DATE_PADDING);
+        mOwnerPos = (SystemSettingListPreference) findPreference(OWNER_POS);
+        mDatepos.setOnPreferenceChangeListener(this);
+        mOwnerPos.setOnPreferenceChangeListener(this);
+
+        updateDatePref(datepos);
+        updateOwnerPref(ownerpos);
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -79,7 +104,34 @@ public class LockStyleSettings extends SettingsPreferenceFragment implements
         } catch (Exception e) {}
     }
 
+    public void updateDatePref(int pos) {
+        if (pos == 1) {
+            mDatePadding.setEnabled(false);
+        } else {
+            mDatePadding.setEnabled(true);
+        }
+    }
+
+    public void updateOwnerPref(int pos) {
+        if (pos == 1) {
+            mOwnerPadding.setEnabled(false);
+        } else {
+            mOwnerPadding.setEnabled(true);
+        }
+
+    }
+
+    @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mDatepos) {
+             int value = Integer.parseInt((String) newValue);
+             updateDatePref(value);
+             return true;
+        } else if (preference == mOwnerPos) {
+             int value = Integer.parseInt((String) newValue);
+             updateOwnerPref(value);
+             return true;
+        } 
        return true;
     }
 
