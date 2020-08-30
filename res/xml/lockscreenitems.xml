@@ -27,7 +27,7 @@
    <Preference
         android:key="animation"
         android:layout="@layout/rr_lsweather_animation" />
- <PreferenceCategory>
+    <PreferenceCategory>
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="lockscreen_weather_enabled"
         android:title="@string/lockscreen_weather_title"
@@ -41,7 +41,18 @@
         android:summary="@string/lock_screen_weather_style_summary"
         android:icon="@drawable/rr_styles_icon"
         android:dependency="lockscreen_weather_enabled"
+        android:disableDependentsState="true"
         android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="lockscreen_weather_selection"
+        android:title="@string/lockscreen_weather_selection_title"
+        android:icon="@drawable/rr_style_icon"
+        android:dialogTitle="@string/lockscreen_weather_selection_title"
+        android:entries="@array/lockscreen_date_selection_entries"
+        android:entryValues="@array/lockscreen_date_selection_values"
+        android:dependency="lockscreen_weather_style"
+        android:defaultValue="0" />
 
     <Preference
         android:title="@string/weather_prefs"
