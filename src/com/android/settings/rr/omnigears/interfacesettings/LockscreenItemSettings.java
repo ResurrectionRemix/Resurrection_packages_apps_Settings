@@ -75,6 +75,13 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
                 Settings.System.LOCKSCREEN_WEATHER_ALIGNMENT, 1);
         updateprefs(mWeatherStyle.isChecked());
         updatePaddingPref(position);
+        if (!isDateEnabled()) {
+            mWeatherStyle.setEnabled(false);
+            mWeatherStyle.setSummary(R.string.date_disabled_summary);
+        } else {
+            mWeatherStyle.setEnabled(true);
+            mWeatherStyle.setSummary(R.string.lock_screen_weather_style_summary);
+        }
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -95,6 +102,9 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     }
 
     public void updateprefs(boolean enabled) {
+        if (!isDateEnabled()) {
+            return;
+        }
         if (enabled) {
             mWeather.setEnabled(false);
             mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.pixel_weather_warning);
@@ -124,6 +134,11 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
               return true;
         }
         return false;
+    }
+
+    public boolean isDateEnabled() {
+       return Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.LOCKSCREEN_DATE, 1) == 1;
     }
 
     /**
