@@ -49,7 +49,7 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
-
+import com.android.internal.util.rr.Utils;
 import com.android.settings.rr.utils.RRUtils;
 @SearchIndexable
 public class QSMainSettings extends SettingsPreferenceFragment implements
@@ -211,6 +211,12 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         updateDarktileState(isrgb);
         updateInactivePrefs(tintgradient);
         updateQsDataLoc(dataloc);
+
+
+        if (Utils.isWifiOnly(mContext)) {
+            mDataLoc.setVisible(false);
+            mQsData.setVisible(false);
+        }
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
