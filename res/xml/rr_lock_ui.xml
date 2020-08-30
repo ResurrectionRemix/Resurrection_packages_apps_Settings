@@ -29,7 +29,7 @@
         android:layout="@layout/rr_lockclock_animation" />
 
     <PreferenceCategory
-        android:title="LockClock"/>
+        android:title="@string/lockscreen_clock_cat"/>
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="lockscreen_clock"
@@ -83,7 +83,7 @@
 
     <PreferenceCategory
         android:dependency="lockscreen_clock"
-        android:title="Lock Date">
+        android:title="@string/lockscreen_date_cat">
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="lockscreen_date"
@@ -135,7 +135,7 @@
         android:defaultValue="1" />
     </PreferenceCategory>
     <PreferenceCategory
-        android:title="Owner Info"/>
+        android:title="@string/lockscreen_owner_cat">
 	
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="lock_ownerinfo_fonts"
@@ -165,6 +165,14 @@
         android:icon="@drawable/rr_position_icon"
         android:summary="%s"
         android:defaultValue="1" />
+    </PreferenceCategory>
+
+    <Preference
+        android:key="lockscreen_settings"
+        android:title="@string/lock_weather_title"
+	    android:summary="@string/lockscreen_weather_summary"
+        android:icon="@drawable/rr_weather_main_icon"
+        android:fragment="com.android.settings.rr.omnigears.interfacesettings.LockscreenItemSettings" />
 
     <PreferenceScreen
     	android:key="lockscreen_colors"

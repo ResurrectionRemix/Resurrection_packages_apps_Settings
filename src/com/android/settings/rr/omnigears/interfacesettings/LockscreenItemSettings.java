@@ -28,17 +28,25 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
+import com.android.settings.SettingsPreferenceFragment;
+import com.android.settingslib.search.SearchIndexable;
 import android.provider.Settings;
-import java.util.List;
-import java.util.ArrayList;
-
+import com.android.settings.rr.Preferences.*;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.search.Indexable.SearchIndexProvider;
-import com.android.settingslib.search.SearchIndexable;
+import android.provider.SearchIndexableResource;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
+@SearchIndexable
 public class LockscreenItemSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener{
-
+    static final String WEATHER_STYLE = "lockscreen_weather_style";
+    static final String WEATHER_CAT = "weather";
     private static final String TAG = "LockscreenItemSettings";
+    private PreferenceCategory mWeather;
+    private SystemSettingSwitchPreference mWeatherStyle;
 
     @Override
     public int getMetricsCategory() {
@@ -49,7 +57,10 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.lockscreenitems);
-
+        mWeatherStyle = (SystemSettingSwitchPreference) findPreference(WEATHER_STYLE);
+        mWeather = (PreferenceCategory) findPreference (WEATHER_CAT);
+        mWeatherStyle.setOnPreferenceChangeListener(this);
+        updateprefs(mWeatherStyle.isChecked());
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -69,30 +80,45 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
         return super.onPreferenceTreeClick(preference);
     }
 
+    public void updateprefs(boolean enabled) {
+        if (enabled) {
+            mWeather.setEnabled(false);
+            mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.pixel_weather_warning);
+        } else {
+            mWeather.setEnabled(true);
+        }
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return true;
+       if (preference == mWeatherStyle) {
+               boolean value = (Boolean) newValue;
+               updateprefs(value);
+              return true;
+        } 
+        return false;
     }
-  /*  public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
 
+    /**
+     * For Search.
+     */
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+        new BaseSearchIndexProvider() {
+            @Override
+            public List<SearchIndexableResource> getXmlResourcesToIndex(Context context, boolean enabled) {
+                ArrayList<SearchIndexableResource> result =
+                    new ArrayList<SearchIndexableResource>();
                     SearchIndexableResource sir = new SearchIndexableResource(context);
                     sir.xmlResId = R.xml.lockscreenitems;
                     result.add(sir);
-
                     return result;
-                }
+            }
 
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    ArrayList<String> result = new ArrayList<String>();
-                    return result;
-                }
-            };*/
+            @Override
+            public List<String> getNonIndexableKeys(Context context) {
+                List<String> keys = super.getNonIndexableKeys(context);
+                return keys;
+            }
+    };
 }
 
