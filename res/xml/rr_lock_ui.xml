@@ -122,6 +122,17 @@
         android:entries="@array/lockscreen_date_selection_entries"
         android:entryValues="@array/lockscreen_date_selection_values"
         android:defaultValue="0" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="lock_date_alignment"
+        android:dependency="lockscreen_date"
+        android:title="@string/lockscreen_date_alignment_title"
+        android:dialogTitle="@string/lockscreen_date_alignment_title"
+        android:icon="@drawable/rr_position_icon"
+        android:entries="@array/lockscreen_item_alignment_entries"
+        android:entryValues="@array/lockscreen_item_alignment_values"
+        android:summary="%s"
+        android:defaultValue="1" />
     </PreferenceCategory>
     <PreferenceCategory
         android:title="Owner Info"/>
@@ -144,6 +155,16 @@
         settings:min="10"
         settings:units="dp"
         android:defaultValue="21" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="lock_ownerinfo_alignment"
+        android:title="@string/lockscreen_ownerinfo_alignment_title"
+        android:dialogTitle="@string/lockscreen_ownerinfo_alignment_title"
+        android:entries="@array/lockscreen_item_alignment_entries"
+        android:entryValues="@array/lockscreen_item_alignment_values"
+        android:icon="@drawable/rr_position_icon"
+        android:summary="%s"
+        android:defaultValue="1" />
 
     <PreferenceScreen
     	android:key="lockscreen_colors"
