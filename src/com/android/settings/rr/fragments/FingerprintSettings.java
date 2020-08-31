@@ -30,7 +30,7 @@ import androidx.preference.SwitchPreference;
 import com.android.settings.rr.utils.RRContextConstants;
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto;
-
+import com.android.settings.rr.Preferences.*;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -38,6 +38,7 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
+import com.android.internal.widget.LockPatternUtils;
 import android.provider.Settings;
 import java.util.Arrays;
 import java.util.List;
@@ -46,7 +47,9 @@ import java.util.ArrayList;
 public class FingerprintSettings extends SettingsPreferenceFragment implements Indexable {
 
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
+    private static final String FP_KEYSTORE = "fp_unlock_keystore";
     private SwitchPreference mFingerprintVib;
+    private SystemSettingSwitchPreference mFingerprintUnlock;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,12 +58,24 @@ public class FingerprintSettings extends SettingsPreferenceFragment implements I
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
+        mFingerprintUnlock = (SystemSettingSwitchPreference) findPreference(FP_KEYSTORE);
+
         // FOD category
         PreferenceCategory fodIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
         PackageManager packageManager = getContext().getPackageManager();
         boolean supportsFod = packageManager.hasSystemFeature(RRContextConstants.Features.FOD);
         if (fodIconPickerCategory != null && !supportsFod) {
             fodIconPickerCategory.getParent().removePreference(fodIconPickerCategory);
+        }
+
+        if (mFingerprintUnlock != null) {
+           if (LockPatternUtils.isDeviceEncryptionEnabled()) {
+               mFingerprintUnlock.setEnabled(false);
+               mFingerprintUnlock.setSummary(R.string.fp_encrypt_warning);
+            } else {
+               mFingerprintUnlock.setEnabled(true);
+               mFingerprintUnlock.setSummary(R.string.fp_unlock_keystore_summary);
+            }
         }
 
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
