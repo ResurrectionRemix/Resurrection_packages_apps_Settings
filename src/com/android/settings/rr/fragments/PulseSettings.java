@@ -40,6 +40,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import com.android.settings.Utils;
+import com.android.settings.rr.Preferences.*;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -57,6 +58,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private static final String TAG = PulseSettings.class.getSimpleName();
     private static final String NAVBAR_PULSE_ENABLED_KEY = "navbar_pulse_enabled";
     private static final String LOCKSCREEN_PULSE_ENABLED_KEY = "lockscreen_pulse_enabled";
+    private static final String ALWAYS_ENABLED = "pulse_always_enabled";
     private static final String PULSE_SMOOTHING_KEY = "pulse_smoothing_enabled";
     private static final String PULSE_COLOR_MODE_KEY = "pulse_color_mode";
     private static final String PULSE_COLOR_MODE_CHOOSER_KEY = "pulse_color_user";
@@ -74,6 +76,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
     private SwitchPreference mNavbarPulse;
     private SwitchPreference mLockscreenPulse;
     private SwitchPreference mPulseSmoothing;
+    private SystemSettingSwitchPreference mAlwaysEnabled;
     private Preference mRenderMode;
     private ListPreference mColorModePref;
     private SystemSettingColorPickerPreference mColorPickerPref;
@@ -92,6 +95,8 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                 .setTitle(R.string.pulse_help_policy_notice_summary);
 
         ContentResolver resolver = getContentResolver();
+        mAlwaysEnabled = (SystemSettingSwitchPreference) findPreference(ALWAYS_ENABLED);
+        mAlwaysEnabled.setOnPreferenceChangeListener(this);
         mNavbarPulse = (SwitchPreference) findPreference(NAVBAR_PULSE_ENABLED_KEY);
         boolean navbarPulse = Settings.System.getIntForUser(resolver,
                 Settings.System.NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
@@ -124,6 +129,7 @@ public class PulseSettings extends SettingsPreferenceFragment implements
                 PULSE_RENDER_CATEGORY_SOLID);
         mPulseSmoothing = (SwitchPreference) findPreference(PULSE_SMOOTHING_KEY);
         updateAllPrefs();
+        updateAlwaysSummary(isAllPulseEnabled());
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -137,6 +143,11 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             }
         } catch (Exception e) {}
     }
+
+    private boolean isAllPulseEnabled() {
+        return Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.PULSE_ALWAYS_ENABLED, 0, UserHandle.USER_CURRENT) == 1;
+   }
 
     public static String convertToRGB(int color) {
         String red = Integer.toHexString(Color.red(color));
@@ -166,18 +177,24 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(resolver,
                 Settings.System.NAVBAR_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
             updateAllPrefs();
+            updateAlwaysSummary(isAllPulseEnabled());
             return true;
         } else if (preference == mLockscreenPulse) {
             boolean val = (Boolean) newValue;
             Settings.System.putIntForUser(resolver,
                 Settings.System.LOCKSCREEN_PULSE_ENABLED, val ? 1 : 0, UserHandle.USER_CURRENT);
             updateAllPrefs();
+            updateAlwaysSummary(isAllPulseEnabled());
             return true;
         } else if (preference == mColorModePref) {
             updateColorPrefs(Integer.valueOf(String.valueOf(newValue)));
             return true;
         } else if (preference == mRenderMode) {
             updateRenderCategories(Integer.valueOf(String.valueOf(newValue)));
+            return true;
+        } else if (preference == mAlwaysEnabled) {
+            boolean value = (Boolean) newValue;
+            updateAlwaysSummary(value);
             return true;
         }
         return false;
@@ -208,6 +225,39 @@ public class PulseSettings extends SettingsPreferenceFragment implements
             mFadingBarsCat.setEnabled(false);
             mSolidBarsCat.setEnabled(false);
         }
+    }
+
+    private void updateAlwaysSummary(boolean allPulse) {
+        ContentResolver resolver = getContentResolver();
+        boolean navbarPulse = Settings.System.getIntForUser(resolver,
+                Settings.System.NAVBAR_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+        boolean lockscreenPulse = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_PULSE_ENABLED, 0, UserHandle.USER_CURRENT) != 0;
+         if(!navbarPulse && !lockscreenPulse) {
+             mAlwaysEnabled.setEnabled(false);
+             mAlwaysEnabled.setSummary(R.string.pulse_disabled_warning);
+         } else if (!lockscreenPulse && navbarPulse) {
+             mAlwaysEnabled.setEnabled(true);
+             if (allPulse) {
+                 mAlwaysEnabled.setSummary(R.string.pulse_always_enabled_summary_navbar);
+             } else {
+                 mAlwaysEnabled.setSummary(R.string.pulse_always_enabled_summary_off);
+             }
+         } else if (lockscreenPulse && !navbarPulse) {
+             mAlwaysEnabled.setEnabled(true);
+             if (allPulse) {
+                 mAlwaysEnabled.setSummary(R.string.pulse_always_enabled_summary_lockscreen);
+             } else {
+                 mAlwaysEnabled.setSummary(R.string.pulse_always_enabled_summary_off_lockscreen);
+             }
+         } else if (lockscreenPulse && navbarPulse) {
+             mAlwaysEnabled.setEnabled(true);
+             if (allPulse) {
+                 mAlwaysEnabled.setSummary(R.string.pulse_always_enabled_summary);
+             } else {
+                 mAlwaysEnabled.setSummary(R.string.pulse_always_enabled_summary_off);
+             }
+         }
     }
 
     private void updateColorPrefs(int val) {
