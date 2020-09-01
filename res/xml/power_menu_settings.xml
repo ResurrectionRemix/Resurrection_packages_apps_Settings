@@ -66,6 +66,19 @@
             android:dependency="power_menu_bg"
             android:defaultValue="0" />
 
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="power_menu_bg_blur_radius"
+        android:title="@string/qs_background_blur_intensity_title"
+        android:icon="@drawable/rr_intensity_icon"
+        android:max="100"
+        android:defaultValue="90"
+        settings:min="5"
+        settings:interval="5"
+        settings:units="@string/unit_percent"
+        android:dependency="power_menu_bg"
+        android:persistent="false" />
+
     <ListPreference
         android:key="power_menu_animations"
         android:icon="@drawable/rr_animation_icon"

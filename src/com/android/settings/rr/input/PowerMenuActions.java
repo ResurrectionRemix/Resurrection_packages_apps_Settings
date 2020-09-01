@@ -34,6 +34,7 @@ import androidx.preference.SwitchPreference;
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto;
 
+import com.android.settings.rr.Preferences.*;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -56,9 +57,13 @@ public class PowerMenuActions extends SettingsPreferenceFragment
     private SystemSettingSeekBarPreference mDim;
     private static final String KEY_POWERMENU_TORCH = "powermenu_torch";
     private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
+    private static final String KEY_BG_STYLE = "power_menu_bg_style";
+    private static final String KEY_BG_BLUR_RADIUS = "power_menu_bg_blur_radius";
 
     private SwitchPreference mPowermenuTorch;
     private ListPreference mPowerMenuAnimations;
+    private SystemSettingListPreference mBgStyle;
+    private SystemSettingSeekBarPreference mBlurRadius;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -83,6 +88,18 @@ public class PowerMenuActions extends SettingsPreferenceFragment
         mFilter = (SystemSettingSwitchPreference) findPreference(FILTER);
         mFilter.setOnPreferenceChangeListener(this);
         boolean ischecked = mFilter.isChecked();
+
+        mBlurRadius = (SystemSettingSeekBarPreference) findPreference(KEY_BG_BLUR_RADIUS);
+        mBlurRadius.setOnPreferenceChangeListener(this);
+        int value = Settings.System.getInt(resolver, KEY_BG_BLUR_RADIUS, 100);
+        mBlurRadius.setValue(value);
+
+        mBgStyle = (SystemSettingListPreference) findPreference(KEY_BG_STYLE);
+        mBgStyle.setOnPreferenceChangeListener(this);
+        value = Settings.System.getInt(resolver, KEY_BG_STYLE, 0);
+        mBgStyle.setValue(String.valueOf(value));
+        mBlurRadius.setEnabled(value != 1 && value != 2); // if filter is blur
+
         updatepref(ischecked);
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
@@ -122,6 +139,17 @@ public class PowerMenuActions extends SettingsPreferenceFragment
                     Integer.valueOf((String) newValue));
             mPowerMenuAnimations.setValue(String.valueOf(newValue));
             mPowerMenuAnimations.setSummary(mPowerMenuAnimations.getEntry());
+            return true;
+        } else if (preference == mBgStyle) {
+            int value = Integer.parseInt((String) newValue);
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    KEY_BG_STYLE, value);
+            mBlurRadius.setEnabled(value != 1 && value != 2); // if filter is blur
+            return true;
+        } else if (preference == mBlurRadius) {
+            int value = (Integer) newValue;
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    KEY_BG_BLUR_RADIUS, value);
             return true;
         }
         return false;
