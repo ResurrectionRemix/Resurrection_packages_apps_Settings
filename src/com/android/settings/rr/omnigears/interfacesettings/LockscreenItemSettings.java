@@ -70,17 +70,25 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
         mPadding = (SystemSettingSeekBarPreference) findPreference(WEATHER_PADDING);
         mPos = (SystemSettingListPreference) findPreference(POSITION);
         mPos.setOnPreferenceChangeListener(this);
-
+        String currentClock = Settings.Secure.getString(
+                resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
         int position = Settings.System.getInt(resolver,
                 Settings.System.LOCKSCREEN_WEATHER_ALIGNMENT, 1);
-        updateprefs(mWeatherStyle.isChecked());
         updatePaddingPref(position);
-        if (!isDateEnabled()) {
+        boolean customface1 = currentClock == null ? false : (currentClock.contains("MNMLBoxClockController"));
+        boolean customface2 = currentClock == null ? false : (currentClock.contains("DividedLinesClockController"));
+        if (!isDateEnabled() || customface1 || customface2) {
             mWeatherStyle.setEnabled(false);
-            mWeatherStyle.setSummary(R.string.date_disabled_summary);
+            if (customface1)
+                mWeatherStyle.setSummary(R.string.mnml_summary);
+            else if (customface2)
+                mWeatherStyle.setSummary(R.string.divided_clock_summary);
+            else
+                mWeatherStyle.setSummary(R.string.date_disabled_summary);
         } else {
             mWeatherStyle.setEnabled(true);
             mWeatherStyle.setSummary(R.string.lock_screen_weather_style_summary);
+            updateprefs(mWeatherStyle.isChecked());
         }
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
@@ -102,9 +110,6 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     }
 
     public void updateprefs(boolean enabled) {
-        if (!isDateEnabled()) {
-            return;
-        }
         if (enabled) {
             mWeather.setEnabled(false);
             mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.pixel_weather_warning);
