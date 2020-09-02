@@ -355,6 +355,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         } else if (preference == mTintMode) {
              int value = Integer.parseInt((String) newValue);
              updatesTintPrefs(value);
+             updateDarktileState(value);
              return true;
         } 
         return false;
