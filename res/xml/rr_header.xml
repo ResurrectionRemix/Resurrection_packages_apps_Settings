@@ -110,4 +110,12 @@
         android:summary="@string/notification_headers_summary"
         android:defaultValue="false" />
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="center_notification_headers"
+        android:icon="@drawable/rr_position_icon"
+        android:title="@string/center_notification_headers_title"
+        android:summary="@string/center_notification_headers_summary"
+        android:dependency="notification_headers"
+        android:defaultValue="false" />
+
 </PreferenceScreen>

@@ -73,6 +73,7 @@ public class Header extends SettingsPreferenceFragment implements
     private static final String CUSTOM_HEADER_ENABLED = "status_bar_custom_header";
     private static final String TRANSPARENT_HEADER = "qs_header_transparency";
     private static final String R_STYLE_HEADER = "notification_headers";
+    private static final String R_STYLE_CENTER = "center_notification_headers";
     private static final String FILE_HEADER_SELECT = "file_header_select";
     private static final int REQUEST_PICK_IMAGE = 0;
 
@@ -87,6 +88,7 @@ public class Header extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mNotifHeader;
     private SystemSettingSwitchPreference mTransparentHeader;
     private SystemSettingSwitchPreference mHeader;
+    private SystemSettingSwitchPreference mCenterHeader;
     private Preference mFileHeader;
     private String mFileHeaderProvider;
 
@@ -105,6 +107,9 @@ public class Header extends SettingsPreferenceFragment implements
         mHeaderBrowse.setEnabled(isBrowseHeaderAvailable());
         mFileHeaderProvider = getResources().getString(R.string.file_header_provider);
         mDaylightHeaderPack = (ListPreference) findPreference(DAYLIGHT_HEADER_PACK);
+
+        mCenterHeader = (SystemSettingSwitchPreference) findPreference(R_STYLE_CENTER);
+        mCenterHeader.setOnPreferenceChangeListener(this);
 
         mNotifHeader = (SystemSettingSwitchPreference) findPreference(R_STYLE_HEADER);
         mNotifHeader.setOnPreferenceChangeListener(this);
@@ -257,7 +262,10 @@ public class Header extends SettingsPreferenceFragment implements
         } else if (preference == mNotifHeader) {
               RRUtils.showSystemUiRestartDialog(getContext());
               return true;
-        }  else if (preference == mHeaderShadow) {
+        } else if (preference == mCenterHeader) {
+              RRUtils.showSystemUiRestartDialog(getContext());
+              return true;
+        } else if (preference == mHeaderShadow) {
             Integer headerShadow = (Integer) newValue;
             int realHeaderValue = (int) (((double) headerShadow / 100) * 255);
             Settings.System.putInt(resolver,
