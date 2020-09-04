@@ -103,6 +103,12 @@
         android:max="100"
         settings:min="0"
         settings:units="" />
+     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+        android:key="qs_panel_filter_color"
+        android:icon="@drawable/rr_picker_icon"
+        android:title="@string/qs_panel_filter_color_title"
+        android:dependency="qs_background_blur"
+        android:defaultValue="0xffffffff" />
 
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="qs_panel_bg_alpha"
@@ -113,12 +119,6 @@
         settings:min="0"
         settings:units="" />
 
-     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
-        android:key="qs_panel_filter_color"
-        android:icon="@drawable/rr_picker_icon"
-        android:title="@string/qs_panel_filter_color_title"
-        android:dependency="qs_background_blur"
-        android:defaultValue="0xffffffff" />
     </PreferenceCategory>
 
     <PreferenceCategory

@@ -27,7 +27,23 @@
         android:key="animation"
         android:layout="@layout/rr_gaming_animation" />
 
- <PreferenceCategory>
+    <PreferenceCategory
+        android:key="gaming_driver"
+        android:title="@string/gaming_driver_title" >
+
+    <Preference
+        android:key="game_driver_dashboard"
+        android:icon="@drawable/rr_driver_icon"
+        android:title="@string/game_driver_dashboard_title"
+        android:summary="@string/game_driver_dashboard_summary"
+        android:fragment="com.android.settings.development.gamedriver.GameDriverDashboard"
+        settings:searchable="false" />
+
+  </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="gaming_key"
+        android:title="@string/gaming_mode_title" >
     <!-- Master switch -->
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_enabled"
@@ -61,14 +77,6 @@
         android:dependency="gaming_mode_enabled"
         android:summary="@string/gaming_mode_refresh_rate_summary"
         android:defaultValue="false" />
-
-    <Preference
-        android:key="game_driver_dashboard"
-        android:icon="@drawable/rr_driver_icon"
-        android:title="@string/game_driver_dashboard_title"
-        android:summary="@string/game_driver_dashboard_summary"
-        android:fragment="com.android.settings.development.gamedriver.GameDriverDashboard"
-        settings:searchable="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="gaming_mode_notifications_feedback"
