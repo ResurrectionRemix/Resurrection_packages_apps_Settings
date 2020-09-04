@@ -47,6 +47,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
+
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 @SearchIndexable
 public class PowerMenuActions extends SettingsPreferenceFragment
                 implements Preference.OnPreferenceChangeListener, Indexable {
@@ -59,11 +61,14 @@ public class PowerMenuActions extends SettingsPreferenceFragment
     private static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
     private static final String KEY_BG_STYLE = "power_menu_bg_style";
     private static final String KEY_BG_BLUR_RADIUS = "power_menu_bg_blur_radius";
+    private static final String FILTER_COLOR = "powermenu_filter_color";
+    static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
 
     private SwitchPreference mPowermenuTorch;
     private ListPreference mPowerMenuAnimations;
     private SystemSettingListPreference mBgStyle;
     private SystemSettingSeekBarPreference mBlurRadius;
+    private SystemSettingColorPickerPreference mFilterColor;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -77,6 +82,14 @@ public class PowerMenuActions extends SettingsPreferenceFragment
         mPowermenuTorch.setOnPreferenceChangeListener(this);
         mPowermenuTorch.setChecked((Settings.System.getInt(resolver,
                 Settings.System.POWERMENU_TORCH, 0) == 1));
+
+        mFilterColor = (SystemSettingColorPickerPreference) findPreference(FILTER_COLOR);
+        mFilterColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.POWERMENU_FILTER_COLOR, DEFAULT_QS_PANEL_COLOR, UserHandle.USER_CURRENT);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mFilterColor.setSummary(hexColor);
+        mFilterColor.setNewPreviewColor(intColor);
 
         mPowerMenuAnimations = (ListPreference) findPreference(POWER_MENU_ANIMATIONS);
         mPowerMenuAnimations.setValue(String.valueOf(Settings.System.getInt(
@@ -99,7 +112,7 @@ public class PowerMenuActions extends SettingsPreferenceFragment
         value = Settings.System.getInt(resolver, KEY_BG_STYLE, 0);
         mBgStyle.setValue(String.valueOf(value));
         mBlurRadius.setEnabled(value != 1 && value != 2); // if filter is blur
-
+        updatecolorpref(value);
         updatepref(ischecked);
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
@@ -114,6 +127,14 @@ public class PowerMenuActions extends SettingsPreferenceFragment
             }
         } catch (Exception e) {}
 
+    }
+
+    public void updatecolorpref(int filter) {
+        if (filter == 5 || filter == 6) {
+            mFilterColor.setEnabled(true);
+        } else {
+            mFilterColor.setEnabled(false);
+        }
     }
 
     public void updatepref(boolean enabled) {
@@ -145,11 +166,20 @@ public class PowerMenuActions extends SettingsPreferenceFragment
             Settings.System.putInt(getActivity().getContentResolver(),
                     KEY_BG_STYLE, value);
             mBlurRadius.setEnabled(value != 1 && value != 2); // if filter is blur
+            updatecolorpref(value);
             return true;
         } else if (preference == mBlurRadius) {
             int value = (Integer) newValue;
             Settings.System.putInt(getActivity().getContentResolver(),
                     KEY_BG_BLUR_RADIUS, value);
+            return true;
+        } else if (preference == mFilterColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.POWERMENU_FILTER_COLOR, intHex, UserHandle.USER_CURRENT);
             return true;
         }
         return false;

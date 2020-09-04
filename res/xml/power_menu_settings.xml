@@ -79,6 +79,13 @@
         android:dependency="power_menu_bg"
         android:persistent="false" />
 
+     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+        android:key="powermenu_filter_color"
+        android:icon="@drawable/rr_picker_icon"
+        android:title="@string/qs_panel_filter_color_title"
+        android:dependency="power_menu_bg"
+        android:defaultValue="0xffffffff" />
+
     <ListPreference
         android:key="power_menu_animations"
         android:icon="@drawable/rr_animation_icon"

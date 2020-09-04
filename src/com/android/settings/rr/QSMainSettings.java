@@ -81,6 +81,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private static final String QS_BG_FILTER = "qs_panel_bg_filter";
     private static final String QS_BLUR_INT = "qs_background_blur_intensity";
     private static final String QS_RADIUS = "qs_background_blur_alpha";
+    private static final String QS_FILTER_COLOR = "qs_panel_filter_color";
 
     private LineageSecureSettingListPreference mQsPos;
     private SystemSettingListPreference mQsAuto;
@@ -105,6 +106,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private SystemSettingEditTextPreference mFooterString;
     protected Context mContext;
     private SystemSettingColorPickerPreference mQsPanelColor;
+    private SystemSettingColorPickerPreference mFilterColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -120,6 +122,15 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
                 (SystemSettingSeekBarPreference) findPreference(QS_RADIUS);
         mBlurInt =
                 (SystemSettingSeekBarPreference) findPreference(QS_BLUR_INT);
+
+        mFilterColor = (SystemSettingColorPickerPreference) findPreference(QS_FILTER_COLOR);
+        mFilterColor.setOnPreferenceChangeListener(this);
+        int intColor = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.QS_PANEL_FILTER_COLOR, DEFAULT_QS_PANEL_COLOR, UserHandle.USER_CURRENT);
+        String hexColor = String.format("#%08x", (0xffffffff & intColor));
+        mFilterColor.setSummary(hexColor);
+        mFilterColor.setNewPreviewColor(intColor);
+
         int filter = Settings.System.getInt(getContentResolver(),
                 Settings.System.QS_PANEL_BG_FILTER, 0) ;
 
@@ -258,10 +269,15 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     }
 
     public void updateBlurPrefs(int filter) {
-        if (filter == 1 || filter == 2) {
+        if (filter == 1 || filter == 2 || filter == 5) {
             mBlurInt.setEnabled(false);
         } else {
             mBlurInt.setEnabled(true);
+        }
+        if (filter == 5 || filter == 6) {
+            mFilterColor.setEnabled(true);
+        } else {
+            mFilterColor.setEnabled(false);
         }
     }
  
@@ -386,7 +402,15 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
              updatesTintPrefs(value);
              updateDarktileState(value);
              return true;
-        } 
+        } else if (preference == mFilterColor) {
+            String hex = ColorPickerPreference.convertToARGB(
+                    Integer.valueOf(String.valueOf(newValue)));
+            preference.setSummary(hex);
+            int intHex = ColorPickerPreference.convertToColorInt(hex);
+            Settings.System.putIntForUser(getContentResolver(),
+                    Settings.System.QS_PANEL_FILTER_COLOR, intHex, UserHandle.USER_CURRENT);
+            return true;
+        }
         return false;
     }
 
