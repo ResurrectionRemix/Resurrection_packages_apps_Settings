@@ -888,6 +888,16 @@ public class Buttons extends SettingsPreferenceFragment implements
         boolean navbarSpaceEnabled = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.NAVIGATION_BAR_IME_SPACE, 1, UserHandle.USER_CURRENT) != 0;
 
+        if ((RRUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")
+            || RRUtils.isThemeEnabled("com.android.internal.systemui.navbar.twobutton")) {
+            mNavigationIMESpace.setVisible(false);
+        } else {
+            mNavigationIMESpace.setVisible(true);
+        }
+        boolean isenabled = RRUtils.isThemeEnabled("com.android.internal.systemui.navbar.threebutton")
+            || RRUtils.isThemeEnabled("com.android.internal.systemui.navbar.twobutton");
+        if (isenabled)
+            return;
         if (!navbarSpaceEnabled) {
             mNavigationArrowKeys.setEnabled(false);
             mNavigationArrowKeys.setSummary(R.string.show_ime_disabled);
