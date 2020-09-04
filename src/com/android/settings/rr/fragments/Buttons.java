@@ -888,16 +888,12 @@ public class Buttons extends SettingsPreferenceFragment implements
         boolean navbarSpaceEnabled = Settings.System.getIntForUser(getContentResolver(),
                 Settings.System.NAVIGATION_BAR_IME_SPACE, 1, UserHandle.USER_CURRENT) != 0;
 
-        if (navbarWidth == 0) {
-            mNavigationIMESpace.setVisible(true);
-        } else {
-            mNavigationIMESpace.setVisible(false);
-        }
-
-        if (navbarWidth == 0 && !navbarSpaceEnabled) {
+        if (!navbarSpaceEnabled) {
             mNavigationArrowKeys.setEnabled(false);
+            mNavigationArrowKeys.setSummary(R.string.show_ime_disabled);
         } else {
             mNavigationArrowKeys.setEnabled(true);
+            mNavigationArrowKeys.setSummary(R.string.navigation_bar_arrow_keys_summary);
         }
     }
 
