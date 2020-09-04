@@ -78,6 +78,9 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private static final String RGB_MODE = "qs_tile_accent_tint";
     private static final String QS_DATA_MODE = "qs_datausage_location";
     private static final String QS_DATA_USAGE = "qs_datausage";
+    private static final String QS_BG_FILTER = "qs_panel_bg_filter";
+    private static final String QS_BLUR_INT = "qs_background_blur_intensity";
+    private static final String QS_RADIUS = "qs_background_blur_alpha";
 
     private LineageSecureSettingListPreference mQsPos;
     private SystemSettingListPreference mQsAuto;
@@ -92,6 +95,9 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mQsData;
     private SystemSettingListPreference mDataLoc;
     private SystemSettingSwitchPreference mRgbIcon;
+    private SystemSettingListPreference mBgFilter;
+    private SystemSettingSeekBarPreference mBlurRad;
+    private SystemSettingSeekBarPreference mBlurInt;
     private PreferenceCategory mThemes;
     private SystemSettingColorPickerPreference mBgColor;
     private SystemSettingColorPickerPreference mIconColor;
@@ -106,6 +112,17 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_qsmain);
 		ContentResolver resolver = getActivity().getContentResolver();
         mContext = getActivity().getApplicationContext();
+
+        mBgFilter =
+                (SystemSettingListPreference) findPreference(QS_BG_FILTER);
+        mBgFilter.setOnPreferenceChangeListener(this);
+        mBlurRad =
+                (SystemSettingSeekBarPreference) findPreference(QS_RADIUS);
+        mBlurInt =
+                (SystemSettingSeekBarPreference) findPreference(QS_BLUR_INT);
+        int filter = Settings.System.getInt(getContentResolver(),
+                Settings.System.QS_PANEL_BG_FILTER, 0) ;
+
         mRgb =
                 (SystemSettingSwitchPreference) findPreference(RGB);
         mRgb.setOnPreferenceChangeListener(this);
@@ -211,7 +228,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         updateDarktileState(isrgb);
         updateInactivePrefs(tintgradient);
         updateQsDataLoc(dataloc);
-
+        updateBlurPrefs(filter);
 
         if (Utils.isWifiOnly(mContext)) {
             mDataLoc.setVisible(false);
@@ -237,6 +254,14 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
             mDataLoc.setEnabled(false);
         } else {
             mDataLoc.setEnabled(true);
+        }
+    }
+
+    public void updateBlurPrefs(int filter) {
+        if (filter == 1 || filter == 2) {
+            mBlurInt.setEnabled(false);
+        } else {
+            mBlurInt.setEnabled(true);
         }
     }
  
@@ -294,6 +319,10 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         } else if (preference == mBgMode) {
              int value = Integer.parseInt((String) newValue);
              updateprefs(value);
+             return true;
+        } else if (preference == mBgFilter) {
+             int value = Integer.parseInt((String) newValue);
+             updateBlurPrefs(value);
              return true;
         } else if (preference ==  mQsData) {
              int value = Integer.parseInt((String) newValue);
