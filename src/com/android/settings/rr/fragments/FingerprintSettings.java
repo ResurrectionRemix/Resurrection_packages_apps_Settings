@@ -50,6 +50,8 @@ public class FingerprintSettings extends SettingsPreferenceFragment implements I
     private static final String FP_KEYSTORE = "fp_unlock_keystore";
     private SwitchPreference mFingerprintVib;
     private SystemSettingSwitchPreference mFingerprintUnlock;
+    private static FingerprintManager mFingerprintManager;
+    private static boolean supportsFod;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,10 +65,13 @@ public class FingerprintSettings extends SettingsPreferenceFragment implements I
         // FOD category
         PreferenceCategory fodIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
         PackageManager packageManager = getContext().getPackageManager();
-        boolean supportsFod = packageManager.hasSystemFeature(RRContextConstants.Features.FOD);
+        supportsFod = packageManager.hasSystemFeature(RRContextConstants.Features.FOD);
         if (fodIconPickerCategory != null && !supportsFod) {
             fodIconPickerCategory.getParent().removePreference(fodIconPickerCategory);
         }
+
+        mFingerprintManager = (FingerprintManager) 
+                getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         if (mFingerprintUnlock != null) {
            if (LockPatternUtils.isDeviceEncryptionEnabled()) {
@@ -115,6 +120,27 @@ public class FingerprintSettings extends SettingsPreferenceFragment implements I
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
+                    if (!supportsFod) {
+                        try {
+                           keys.add("fod_icon_picker");
+                           keys.add("fod_icon_picker_category");
+                           keys.add("fod_pressed_state");
+                           keys.add("fod_recognizing_animation");
+                           keys.add("fod_anim");
+                           keys.add("fod_anim_lockscreen");
+                           keys.add("fod_icon_wallpaper_color");
+                           keys.add("fod_bright_icon");
+                           keys.add("fod_night_light");
+                        } catch (Exception e) {}
+                    }
+                    if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected()) {
+                        try {
+                           keys.add("fp_general");
+                           keys.add("fp_success_vibrate");
+                           keys.add("fp_error_vibrate");
+                           keys.add("fp_unlock_keystore");
+                        } catch (Exception e) {}
+                    }
                 return keys;
             }
         };

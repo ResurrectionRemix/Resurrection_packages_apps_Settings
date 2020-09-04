@@ -51,6 +51,7 @@ import java.util.ArrayList;
 public class Interface extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
 
+    private static FingerprintManager mFingerprintManager;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +60,7 @@ public class Interface extends SettingsPreferenceFragment implements
         PreferenceScreen prefSet = getPreferenceScreen();
 		ContentResolver resolver = getActivity().getContentResolver();
 
-        FingerprintManager mFingerprintManager = (FingerprintManager) 
+        mFingerprintManager = (FingerprintManager) 
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected()) {
@@ -112,6 +113,8 @@ public class Interface extends SettingsPreferenceFragment implements
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
+                if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected())
+                    keys.add("rr_fp");
                 return keys;
             }
         };

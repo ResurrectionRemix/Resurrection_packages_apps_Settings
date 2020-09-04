@@ -44,6 +44,7 @@ import com.android.internal.logging.nano.MetricsProto;
 public class UISettingsNav extends SettingsPreferenceFragment implements
     Preference.OnPreferenceChangeListener, Indexable {
     private static final String TAG = "UI";
+    private static FingerprintManager mFingerprintManager;
 
     @Override
     public int getMetricsCategory() {
@@ -58,7 +59,7 @@ public class UISettingsNav extends SettingsPreferenceFragment implements
 
         addPreferencesFromResource(R.xml.rr_ui_settings_navigation);
 
-        FingerprintManager mFingerprintManager = (FingerprintManager) 
+        mFingerprintManager = (FingerprintManager) 
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
         if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected()) {
@@ -95,6 +96,8 @@ public class UISettingsNav extends SettingsPreferenceFragment implements
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
+                if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected())
+                    keys.add("rr_fp");
                 return keys;
             }
         };
