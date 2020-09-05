@@ -46,8 +46,7 @@ import java.util.List;
  * Settings screen for lock screen preference
  */
 @SearchIndexable
-public class LockscreenDashboardFragment extends DashboardFragment
-        implements OwnerInfoPreferenceController.OwnerInfoCallback {
+public class LockscreenDashboardFragment extends DashboardFragment {
 
     public static final String KEY_AMBIENT_DISPLAY_ALWAYS_ON = "ambient_display_always_on";
 
@@ -113,18 +112,8 @@ public class LockscreenDashboardFragment extends DashboardFragment
                         KEY_LOCK_SCREEN_NOTIFICATON_WORK_PROFILE);
         lifecycle.addObserver(notificationController);
         controllers.add(notificationController);
-        mOwnerInfoPreferenceController =
-                new OwnerInfoPreferenceController(context, this, lifecycle);
-        controllers.add(mOwnerInfoPreferenceController);
 
         return controllers;
-    }
-
-    @Override
-    public void onOwnerInfoUpdated() {
-        if (mOwnerInfoPreferenceController != null) {
-            mOwnerInfoPreferenceController.updateSummary();
-        }
     }
 
     private AmbientDisplayConfiguration getConfig(Context context) {
@@ -149,8 +138,6 @@ public class LockscreenDashboardFragment extends DashboardFragment
                         Context context) {
                     final List<AbstractPreferenceController> controllers = new ArrayList<>();
                     controllers.add(new LockScreenNotificationPreferenceController(context));
-                    controllers.add(new OwnerInfoPreferenceController(
-                            context, null /* fragment */, null /* lifecycle */));
                     return controllers;
                 }
 

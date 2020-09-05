@@ -29,7 +29,8 @@
         android:layout="@layout/rr_lockclock_animation" />
 
     <PreferenceCategory
-        android:title="@string/lockscreen_clock_cat"/>
+        android:key="ls_master"
+        android:title="@string/lockscreen_clock_master">
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="lockscreen_clock"
@@ -37,6 +38,10 @@
         android:title="@string/lockscreen_clock_title"
         android:summary="@string/lockscreen_clock_summary"
         android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="ls_clock"
+        android:title="@string/lockscreen_clock_cat">
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="lock_clock_fonts"
@@ -58,7 +63,11 @@
         settings:min="35"
         settings:units="dp"
         android:defaultValue="78" />
+    </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="ls_type"
+        android:title="@string/type_clock_cat">
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="custom_text_clock_fonts"
         android:title="@string/custom_text_clock_font_title"
@@ -79,7 +88,7 @@
         settings:min="35"
         settings:units="dp"
         android:defaultValue="40" />
-
+    </PreferenceCategory>
 
     <PreferenceCategory
         android:dependency="lockscreen_clock"
@@ -145,7 +154,14 @@
         android:defaultValue="35" />
     </PreferenceCategory>
     <PreferenceCategory
+        android:key="owner_info_cat"
         android:title="@string/lockscreen_owner_cat">
+
+    <com.android.settingslib.RestrictedPreference
+        android:key="owner_info_settings"
+        android:icon="@drawable/rr_info_settings_icon"
+        android:title="@string/rr_owner_info_settings_title"
+        android:summary="@string/owner_info_settings_summary" />
 	
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="lock_ownerinfo_fonts"

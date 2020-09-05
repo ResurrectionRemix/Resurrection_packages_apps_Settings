@@ -129,7 +129,7 @@ public class OwnerInfoPreferenceController extends AbstractPreferenceController
     }
 
     @VisibleForTesting
-    boolean isOwnerInfoEnabled() {
+    public boolean isOwnerInfoEnabled() {
         return mLockPatternUtils.isOwnerInfoEnabled(MY_USER_ID);
     }
 
