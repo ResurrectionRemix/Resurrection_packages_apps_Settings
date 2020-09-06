@@ -128,6 +128,7 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
             mUI.setVisible(false);
             mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.volume_panel_warning);
         } else {
+            mLeft.setVisible(true);
             mUI.setVisible(true);
             mItems.setVisible(true);
             mExtra.setVisible(true);
