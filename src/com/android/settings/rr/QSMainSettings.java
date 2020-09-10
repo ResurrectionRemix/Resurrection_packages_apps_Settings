@@ -65,6 +65,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private static final String ICON_MODE = "notif_icon_color_mode";
     private static final String QS_POS = "qs_show_brightness_slider";
     private static final String QS_AUTO = "qs_auto_icon_pos";
+    private static final String QS_BUTTONS = "qs_brightness_buttons";
     private static final String RR_FOOTER_TEXT_STRING = "rr_footer_text_string";
     private static final String QS_PANEL_COLOR = "qs_panel_color";
     private static final String THEMES = "qs_themes";
@@ -92,6 +93,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private SystemSettingSwitchPreference mDarkTile;
     private SystemSettingSwitchPreference mInactiveTile;
     private SystemSettingSwitchPreference mTileGradient;
+    private SystemSettingSwitchPreference mButtons;
     private SystemSettingListPreference mTintMode;
     private SystemSettingListPreference mQsData;
     private SystemSettingListPreference mDataLoc;
@@ -130,7 +132,8 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         String hexColor = String.format("#%08x", (0xffffffff & intColor));
         mFilterColor.setSummary(hexColor);
         mFilterColor.setNewPreviewColor(intColor);
-
+        mButtons =
+                (SystemSettingSwitchPreference) findPreference(QS_BUTTONS);
         int filter = Settings.System.getInt(getContentResolver(),
                 Settings.System.QS_PANEL_BG_FILTER, 0) ;
 
@@ -448,10 +451,13 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     }
 
     private void updatesliderprefs(int mode) {
-        if (mode == 0)
+        if (mode == 0) {
             mQsAuto.setEnabled(false);
-        else 
+            mButtons.setEnabled(false);
+        } else {
             mQsAuto.setEnabled(true);
+            mButtons.setEnabled(true);
+        }
     }
 
 

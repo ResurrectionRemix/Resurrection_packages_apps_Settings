@@ -462,6 +462,13 @@
         android:entryValues="@array/auto_birhtness_position_values"
         android:defaultValue="0" />
 
+   <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_brightness_buttons"
+        android:title="@string/qs_brightness_buttons_title"
+        android:icon="@drawable/rr_brightness_side_icon"
+        android:summary="@string/qs_brightness_buttons_summary"
+        android:defaultValue="false"/>
+
     </PreferenceCategory>
 
 
@@ -518,6 +525,34 @@
         android:title="@string/qs_footer_user_title"
         android:summary="@string/qs_footer_user_summary"
         android:defaultValue="true" />
+
+   <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_drag_handle"
+        android:title="@string/qs_drag_handle_title"
+        android:icon="@drawable/rr_drag_icon"
+        android:summary="@string/qs_drag_handle_summary"
+        android:defaultValue="false"/>
+
+   <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_footer_auto_icon"
+        android:title="@string/qs_footer_auto_icon_title"
+        android:icon="@drawable/rr_brightness_slider_auto_icon"
+        android:summary="@string/qs_footer_auto_icon_summary"
+        android:defaultValue="true"/>
+
+   <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_panel_longpress_action"
+        android:title="@string/qs_panel_longpress_action_title"
+        android:icon="@drawable/rr_longpress_icon"
+        android:summary="@string/qs_panel_longpress_action_summary"
+        android:defaultValue="false"/>
+
+   <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_security_footer"
+        android:title="@string/qs_security_footer_title"
+        android:icon="@drawable/rr_footer_2_icon"
+        android:summary="@string/qs_security_footer_summary"
+        android:defaultValue="true"/>
     </PreferenceCategory>
 
 </PreferenceScreen>
