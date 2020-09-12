@@ -59,9 +59,12 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_recents);
         mContext = getActivity();
+        boolean mHwKeysState = Settings.Secure.getInt(mContext.getContentResolver(),
+                              Settings.Secure.HARDWARE_KEYS_ENABLE, 1) != 0;
         mSlimRecents = (SystemSettingMasterSwitchPreference) findPreference(SLIM_RECENTS_KEY);
         if (SystemNavigationPreferenceController.isEdgeToEdgeEnabled(mContext) 
-            || SystemNavigationPreferenceController.isSwipeUpEnabled(mContext)) {
+            || SystemNavigationPreferenceController.isSwipeUpEnabled(mContext)
+            || !mHwKeysState) {
             mSlimRecents.setEnabled(false);
             mSlimRecents.setSummary(R.string.navbar_not_active);
         } else {
