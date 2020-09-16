@@ -43,13 +43,6 @@
         android:entryValues="@array/status_bar_quick_qs_pulldown_values"
         android:defaultValue="0" />
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="qs_tile_title_visibility"
-        android:icon="@drawable/rr_visib_icon"
-        android:title="@string/qs_tile_title_visibility_title"
-        android:summary="@string/qs_tile_title_visibility_summary"
-        android:defaultValue="true" />
-
     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:icon="@drawable/rr_haptic_icon"
@@ -58,7 +51,15 @@
         android:defaultValue="false"/>
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_tile_title_visibility"
+        android:icon="@drawable/rr_visib_icon"
+        android:title="@string/qs_tile_title_visibility_title"
+        android:summary="@string/qs_tile_title_visibility_summary"
+        android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="qs_show_expand_indicator"
+        android:dependency="qs_tile_title_visibility"
         android:icon="@drawable/rr_arrow_down_icon"
         android:title="@string/qs_show_expand_indicator_title"
         android:summary="@string/qs_show_expand_indicator_summary"
