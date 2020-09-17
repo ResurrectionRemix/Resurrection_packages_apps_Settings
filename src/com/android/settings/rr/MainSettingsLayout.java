@@ -186,8 +186,22 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
         mFab2.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-             Process.killProcess(Process.myPid());
-             }
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.restart_systemui));
+             alertDialog.setMessage(getString(R.string.restart_settings_warning));
+
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int which) {
+                          Process.killProcess(Process.myPid());
+                   }
+              });
+             alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int which) {
+                                 return;
+                   }
+              });
+              alertDialog.show();
+           }
         });
         mFab3.setOnClickListener(new View.OnClickListener() {
              @Override
