@@ -43,13 +43,6 @@
         android:entryValues="@array/status_bar_quick_qs_pulldown_values"
         android:defaultValue="0" />
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="qs_tile_title_visibility"
-        android:icon="@drawable/rr_visib_icon"
-        android:title="@string/qs_tile_title_visibility_title"
-        android:summary="@string/qs_tile_title_visibility_summary"
-        android:defaultValue="true" />
-
     <com.android.settings.rr.Preferences.SecureSettingSwitchPreference
         android:key="quick_settings_vibrate"
         android:icon="@drawable/rr_haptic_icon"
@@ -58,7 +51,15 @@
         android:defaultValue="false"/>
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="qs_tile_title_visibility"
+        android:icon="@drawable/rr_visib_icon"
+        android:title="@string/qs_tile_title_visibility_title"
+        android:summary="@string/qs_tile_title_visibility_summary"
+        android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="qs_show_expand_indicator"
+        android:dependency="qs_tile_title_visibility"
         android:icon="@drawable/rr_arrow_down_icon"
         android:title="@string/qs_show_expand_indicator_title"
         android:summary="@string/qs_show_expand_indicator_summary"
@@ -232,6 +233,17 @@
         android:summary="@string/qs_tile_accent_tint_inactive_summary"
         android:defaultValue="false" />
 
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+            android:key="qs_tile_icon_primary"
+            android:icon="@drawable/rr_buttons_icon"
+            android:title="@string/qs_icon_primary_title"
+            android:summary="@string/qs_icon_primary_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="qs_label_options"
+        android:title="@string/rr_qs_label_title">
+
     <com.android.settings.rr.Preferences.SystemSettingListPreference
          android:key="qs_label_use_new_tint"
          android:title="@string/qs_label_tint_title"
@@ -247,13 +259,6 @@
         android:summary="@string/qs_label_inactive_tint_summary"
         android:defaultValue="false" />
 
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-            android:key="qs_tile_icon_primary"
-            android:icon="@drawable/rr_buttons_icon"
-            android:title="@string/qs_icon_primary_title"
-            android:summary="@string/qs_icon_primary_summary"
-            android:defaultValue="false" />
 
     </PreferenceCategory>
 
