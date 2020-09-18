@@ -83,6 +83,10 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private static final String QS_BLUR_INT = "qs_background_blur_intensity";
     private static final String QS_RADIUS = "qs_background_blur_alpha";
     private static final String QS_FILTER_COLOR = "qs_panel_filter_color";
+    private static final String QS_TITLE = "qs_tile_title_visibility";
+    private static final String QS_LABEL_CAT = "qs_label_options";
+    private static final String QS_LABEL_TINT = "qs_label_use_new_tint";
+    private static final String QS_LABEL_INACTIVE = "qs_label_inactive_tint";
 
     private LineageSecureSettingListPreference mQsPos;
     private SystemSettingListPreference mQsAuto;
@@ -110,12 +114,29 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private SystemSettingColorPickerPreference mQsPanelColor;
     private SystemSettingColorPickerPreference mFilterColor;
 
+    private SystemSettingSwitchPreference mTitle;
+    private SystemSettingListPreference mLabelTint;
+    private SystemSettingSwitchPreference mInactiveLabel;
+    private PreferenceCategory mLabels;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_qsmain);
 		ContentResolver resolver = getActivity().getContentResolver();
         mContext = getActivity().getApplicationContext();
+
+        mTitle =
+                (SystemSettingSwitchPreference) findPreference(QS_TITLE);
+        mLabelTint =
+                (SystemSettingListPreference) findPreference(QS_LABEL_TINT);
+        mInactiveLabel =
+                (SystemSettingSwitchPreference) findPreference(QS_LABEL_INACTIVE);
+        mLabels =
+                (PreferenceCategory) findPreference(QS_LABEL_CAT);
+
+        mTitle.setOnPreferenceChangeListener(this);
+        mLabelTint.setOnPreferenceChangeListener(this);
 
         mBgFilter =
                 (SystemSettingListPreference) findPreference(QS_BG_FILTER);
@@ -243,7 +264,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         updateInactivePrefs(tintgradient);
         updateQsDataLoc(dataloc);
         updateBlurPrefs(filter);
-
+        updatelabelCat(mTitle.isChecked());
         if (Utils.isWifiOnly(mContext)) {
             mDataLoc.setVisible(false);
             mQsData.setVisible(false);
@@ -271,6 +292,23 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         }
     }
 
+    public void updatelabelCat(boolean enabled) {
+        int labeltint = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.QS_LABEL_USE_NEW_TINT, 0,
+  	        UserHandle.USER_CURRENT);
+        int valueInd = mLabelTint.findIndexOfValue(String.valueOf(labeltint));
+        mLabelTint.setValueIndex(valueInd);
+        if (!enabled){
+            mLabels.setEnabled(false);
+            mLabelTint.setSummary(R.string.qs_title_disabled);
+            mInactiveLabel.setSummary(R.string.qs_title_disabled);
+        } else {
+            mLabels.setEnabled(true);
+            mLabelTint.setSummary(mLabelTint.getEntry());
+            mInactiveLabel.setSummary(R.string.qs_label_inactive_tint_summary);
+        }
+    }
+
     public void updateBlurPrefs(int filter) {
         if (filter == 1 || filter == 2 || filter == 5) {
             mBlurInt.setEnabled(false);
@@ -288,14 +326,14 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0,
   	        UserHandle.USER_CURRENT);
-        if (rgb == 0 && (qsTileStyle == 7
+        if ((rgb == 0 || rgb == 3) && (qsTileStyle == 7
             || qsTileStyle == 9 || qsTileStyle == 10 
             || qsTileStyle == 12 || qsTileStyle == 13
             || qsTileStyle == 16 || qsTileStyle == 17
             || qsTileStyle == 27)) {
             mDarkTile.setEnabled(false);
             mDarkTile.setSummary(R.string.already_enabled_sum); 
-        } else if (rgb == 0) {
+        } else if (rgb == 0 || rgb == 3) {
             mDarkTile.setEnabled(true);
         }  else {
             mDarkTile.setEnabled(false);
@@ -391,14 +429,16 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
              boolean value = (Boolean) newValue;
              updateThemespref(value);
              return true;
+        } else if (preference == mTitle) {
+             boolean value = (Boolean) newValue;
+             updatelabelCat(value);
+             return true;
         } else if (preference == mTileGradient) {
              boolean value = (Boolean) newValue;
              updateInactivePrefs(value);
              return true;
         }  else if (preference == mUseFw) {
              boolean value = (Boolean) newValue;
-             int isrgb = Settings.System.getInt(getContentResolver(),
-                Settings.System.QS_TILE_ACCENT_TINT, 0) ;
              return true;
         } else if (preference == mTintMode) {
              int value = Integer.parseInt((String) newValue);
@@ -413,7 +453,11 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
             Settings.System.putIntForUser(getContentResolver(),
                     Settings.System.QS_PANEL_FILTER_COLOR, intHex, UserHandle.USER_CURRENT);
             return true;
-        }
+        } else if (preference == mLabelTint) {
+            int labeltint = Integer.valueOf((String) newValue);
+            mLabelTint.setSummary(mLabelTint.getEntries()[labeltint]);
+            return true;
+        } 
         return false;
     }
 
@@ -421,7 +465,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0,
   	        UserHandle.USER_CURRENT);
-        if (enabled == 2) { 
+        if (enabled == 2 || enabled == 3) { 
             if (qsTileStyle == 27) {
                 mRgbIcon.setEnabled(false);
                 mRgbIcon.setSummary(R.string.rgb_already_enabled);
