@@ -17,6 +17,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Configuration;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
@@ -33,6 +34,7 @@ import android.view.ViewGroup;
 import android.content.Context;
 import android.provider.Settings;
 import android.os.UserHandle;
+import android.net.Uri;
 
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
@@ -87,6 +89,10 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private static final String QS_LABEL_CAT = "qs_label_options";
     private static final String QS_LABEL_TINT = "qs_label_use_new_tint";
     private static final String QS_LABEL_INACTIVE = "qs_label_inactive_tint";
+    private static final String FILE_QSPANEL_SELECT = "file_qspanel_select";
+    private static final String QS_IMAGE_SWITCH = "qs_panel_type_background";
+    private static final String QS_IMAGE = "qs_image";
+    private static final int REQUEST_PICK_IMAGE = 0;
 
     private LineageSecureSettingListPreference mQsPos;
     private SystemSettingListPreference mQsAuto;
@@ -113,11 +119,12 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     protected Context mContext;
     private SystemSettingColorPickerPreference mQsPanelColor;
     private SystemSettingColorPickerPreference mFilterColor;
-
     private SystemSettingSwitchPreference mTitle;
     private SystemSettingListPreference mLabelTint;
     private SystemSettingSwitchPreference mInactiveLabel;
     private PreferenceCategory mLabels;
+    private SystemSettingSwitchPreference mQsImage;
+    private Preference mQsPanelImage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,6 +133,8 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
 		ContentResolver resolver = getActivity().getContentResolver();
         mContext = getActivity().getApplicationContext();
 
+        mQsPanelImage = findPreference(FILE_QSPANEL_SELECT);
+        mQsImage = (SystemSettingSwitchPreference) findPreference(QS_IMAGE_SWITCH);
         mTitle =
                 (SystemSettingSwitchPreference) findPreference(QS_TITLE);
         mLabelTint =
@@ -137,6 +146,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
 
         mTitle.setOnPreferenceChangeListener(this);
         mLabelTint.setOnPreferenceChangeListener(this);
+        mQsImage.setOnPreferenceChangeListener(this);
 
         mBgFilter =
                 (SystemSettingListPreference) findPreference(QS_BG_FILTER);
@@ -259,7 +269,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         updateprefs(mode);
         updateIconprefs(iconmode);
         updatesliderprefs(position);
-        updateThemespref(mRgb.isChecked());
+        updateThemespref(mRgb.isChecked() || mQsImage.isChecked());
         updateDarktileState(isrgb);
         updateInactivePrefs(tintgradient);
         updateQsDataLoc(dataloc);
@@ -282,6 +292,28 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
             }
         } catch (Exception e) {}
 
+    }
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mQsPanelImage) {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(intent, REQUEST_PICK_IMAGE);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
+    }
+
+   @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent result) {
+        if (requestCode == REQUEST_PICK_IMAGE) {
+            if (resultCode != Activity.RESULT_OK) {
+                return;
+            }
+            final Uri imageUri = result.getData();
+            Settings.System.putString(getContentResolver(), Settings.System.QS_PANEL_CUSTOM_IMAGE, imageUri.toString());
+        }
     }
 
     public void updateQsDataLoc(int loc) {
@@ -426,6 +458,10 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
                     Settings.System.QS_PANEL_BG_COLOR, intHex, UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mRgb) {
+             boolean value = (Boolean) newValue;
+             updateThemespref(value);
+             return true;
+        } else if (preference == mQsImage) {
              boolean value = (Boolean) newValue;
              updateThemespref(value);
              return true;
