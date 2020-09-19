@@ -54,6 +54,8 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
     private static final String EXTRAITEMS = "extra_items";
     private static final String RINGER = "ringer_button";
     private static final String APP = "app_button";
+    private static final String VOL_RINGER = "audio_panel_view_ringer";
+    private static final String VOL_ALARM = "audio_panel_view_alarm";
 
     private SystemSettingSwitchPreference mNotif;
     private SystemSettingSwitchPreference mMedia;
@@ -64,6 +66,8 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mRinger;
     private PreferenceCategory mApps;
     private LineageSecureSettingSwitchPreference mLeft;
+    private SystemSettingSwitchPreference mAlarm;
+    private SystemSettingSwitchPreference mRingerRow;
 
     @Override
     public int getMetricsCategory() {
@@ -80,6 +84,9 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
         mItems = (PreferenceCategory) findPreference(ITEMS);
         mExtra = (PreferenceCategory) findPreference(EXTRAITEMS);
         mNotif = (SystemSettingSwitchPreference) findPreference(KEY_NOTIF);
+        mAlarm = (SystemSettingSwitchPreference) findPreference(VOL_ALARM);
+        mRinger = (PreferenceCategory) findPreference(RINGER);
+        mRingerRow = (SystemSettingSwitchPreference) findPreference(VOL_RINGER);
         mLeft = (LineageSecureSettingSwitchPreference) findPreference(KEY_LEFT);
         mApps = (PreferenceCategory) findPreference(APP);
         mStyle = (SystemSettingListPreference) findPreference(KEY_STYLE);
@@ -111,15 +118,23 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
             if (style.equals("co.potatoproject.plugin.volume.oreo")) {
                 mLeft.setVisible(false);
                 mApps.setVisible(true);
+                mAlarm.setVisible(true);
+                mRingerRow.setVisible(true);
             } else  if (style.equals("co.potatoproject.plugin.volume.compact")){
                 mLeft.setVisible(true);
                 mApps.setVisible(true);
+                mAlarm.setVisible(true);
+                mRingerRow.setVisible(false);
             } else  if (style.equals("co.potatoproject.plugin.volume.tiled")){
                 mLeft.setVisible(true);
                 mApps.setVisible(false);
+                mAlarm.setVisible(true);
+                mRingerRow.setVisible(true);
             } else  if (style.equals("co.potatoproject.plugin.volume.aosp")){
                 mLeft.setVisible(true);
                 mApps.setVisible(true);
+                mAlarm.setVisible(true);
+                mRingerRow.setVisible(false);
             }
             mExtra.setVisible(true);
             mItems.setVisible(true);
@@ -131,6 +146,8 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
             mItems.setVisible(true);
             mExtra.setVisible(true);
             mApps.setVisible(true);
+            mAlarm.setVisible(true);
+            mRingerRow.setVisible(true);
             mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.rr_volume_summary);
         }
         if (show && style.equals("com.android.systemui.volume")) {
