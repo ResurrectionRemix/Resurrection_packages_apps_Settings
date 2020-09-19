@@ -58,6 +58,13 @@
       android:icon="@drawable/rr_ui_settings_icon"/>
 
     <PreferenceScreen
+      android:key="rr_lockscreen"
+      android:title="@string/rr_lockscreen_title"
+      android:summary="@string/rr_lock_summary"
+      android:fragment="com.android.settings.rr.LockSettings" 
+      android:icon="@drawable/rr_lock_icon" />
+
+    <PreferenceScreen
       android:key="animation_settings"
       android:title="@string/animation_title"
       android:icon="@drawable/rr_animations_icon"

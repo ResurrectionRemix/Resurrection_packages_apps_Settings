@@ -26,29 +26,7 @@
         android:key="animation"
         android:layout="@layout/rr_lock_animation" />
 
-
-    <PreferenceCategory
-        android:title="@string/rr_battery">
-
-    <com.android.settings.rr.Preferences.SystemSettingListPreference
-       android:key="lockscreen_charging_animation_style"
-       android:icon="@drawable/rr_charging_icon"
-       android:title="@string/lockscreen_charging_animation_title"
-       android:entries="@array/lockscreen_charging_animation_entries"
-       android:entryValues="@array/lockscreen_charging_animation_values"
-       android:defaultValue="1" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-       android:key="lockscreen_battery_info"
-       android:icon="@drawable/rr_text_icon"
-       android:title="@string/lockscreen_battery_info_title"
-       android:summary="@string/lockscreen_battery_info_summary"
-       android:defaultValue="false" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/rr_doze">
+    <PreferenceCategory>
 
     <Preference
         android:key="doze"
@@ -56,10 +34,13 @@
         android:summary="@string/rr_doze_summary"
         android:fragment="com.android.settings.rr.DozeSettings"
         android:title="@string/rr_doze_title"/>
-    </PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/rr_ui_title">
+    <Preference
+        android:key="lock_battery"
+        android:icon="@drawable/rr_battery_3_icon"
+        android:summary="@string/rr_ls_battery_sum"
+        android:fragment="com.android.settings.rr.LockBatterySettings"
+        android:title="@string/rr_ls_battery"/>
 
     <Preference
         android:key="clock_ui"
@@ -68,103 +49,38 @@
         android:fragment="com.android.settings.rr.LockStyleSettings"
         android:title="@string/rr_clock_styles_title"/>
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-       android:key="lockscreen_hide_status_bar"
-       android:icon="@drawable/rr_statusbar_icon"
-       android:title="@string/hide_lockscreen_status_bar_title"
-       android:summary="@string/hide_lockscreen_status_bar_summary"
-       android:defaultValue="false" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-       android:key="double_tap_sleep_lockscreen"
-       android:icon="@drawable/rr_doubletap_icon"
-       android:title="@string/double_tap_sleep_lockscreen_title"
-       android:summary="@string/double_tap_sleep_lockscreen_summary"
-       android:defaultValue="true" />
-
-    <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference
-       android:key="lockscreen_enable_qs"
-       android:icon="@drawable/rr_disabled_icon"
-       android:title="@string/lockscreen_enable_qs_title"
-       android:summary="@string/lockscreen_enable_qs_summary"
-       android:defaultValue="true" />
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="lockscreen_pulse_enabled"
-        android:icon="@drawable/rr_visualizer_icon"
-        android:title="@string/music_visualizer_title"
-        android:summary="@string/music_visualizer_summary"
-        android:defaultValue="true" />
+    <Preference
+        android:key="lock_items"
+        android:icon="@drawable/rr_text_icon"
+        android:summary="@string/rr_lock_items_sum"
+        android:fragment="com.android.settings.rr.LockItemSettings"
+        android:title="@string/rr_lock_items_title"/>
 
 
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-       android:key="lockscreen_lock_icon"
-       android:icon="@drawable/rr_lock_icon"
-       android:title="@string/lockscreen_lock_icon_title"
-       android:summary="@string/lockscreen_lock_icon_summary"
-       android:defaultValue="true" />
+    <Preference
+        android:key="stock_tuner"
+        android:enabled="true"
+        android:icon="@drawable/rr_tuner_parts_activity_icon"
+        android:title="@string/rr_lockscreen_shortcuts"
+        android:summary="@string/rr_lockscreen_shortcuts_summary">
+        <intent android:action="android.intent.action.MAIN"
+            android:targetPackage="com.android.systemui"
+            android:targetClass="com.android.systemui.tuner.LockscreenActivity" />
+    </Preference>
 
+    <Preference
+        android:key="lock_notif"
+        android:icon="@drawable/rr_notif_3_icon"
+        android:summary="@string/rr_ls_notif_sum"
+        android:fragment="com.android.settings.rr.LockNotifSettings"
+        android:title="@string/rr_ls_notif"/>
 
-    <com.android.settings.rr.Preferences.SystemSettingListPreference
-        android:key="lockscreen_timeout"
-        android:icon="@drawable/rr_clock_icon"
-        android:title="@string/lockscreen_timeout_title"
-        android:entries="@array/screen_timeout_entries"
-        android:entryValues="@array/screen_timeout_values"
-        android:defaultValue="15000" />
-
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/rr_notif_settings_title">
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-       android:key="lock_screen_custom_notif"
-       android:icon="@drawable/rr_notif_icon"
-       android:title="@string/lock_screen_custom_notif_title"
-       android:summary="@string/lock_screen_custom_notif_summary"
-       android:defaultValue="false" />
-	
-    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-       android:key="lockscreen_max_notif_config"
-       android:title="@string/lockscreen_max_notif_config_title"
-       android:summary="@string/lockscreen_max_notif_config_summary"
-       android:icon="@drawable/rr_add_icon"
-       android:max="3"
-       android:min="1"
-       settings:units=""
-       android:defaultValue="3"
-       android:dependency="lock_screen_custom_notif" />
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/audio_panel_view_media_title">
-
-    <lineageos.preference.LineageSecureSettingSwitchPreference
-       android:key="lockscreen_media_metadata"
-       android:icon="@drawable/rr_media_icon"
-       android:title="@string/lockscreen_media_art_title"
-       android:summary="@string/lockscreen_media_art_summary"
-       android:defaultValue="true" />
-
-    <com.android.settings.rr.Preferences.SecureSettingListPreference
-       android:key="lockscreen_albumart_filter"
-       android:icon="@drawable/rr_movie_icon"
-       android:title="@string/lockscreen_albumart_filter_title"
-       android:entries="@array/lockscreen_albumart_filter_entries"
-       android:entryValues="@array/lockscreen_albumart_filter_values"
-       android:dependency="lockscreen_media_metadata"
-       android:defaultValue="0" />
-
-     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
-       android:key="lockscreen_media_blur"
-       android:title="@string/lockscreen_media_blur_title"
-       android:icon="@drawable/rr_blur_icon"
-       android:summary="@string/lockscreen_media_blur_summary"
-       android:max="2500"
-       android:min="1"
-       settings:units=""	
-       android:defaultValue="25" />
+    <Preference
+        android:key="lock_media"
+        android:icon="@drawable/rr_media_3_icon"
+        android:summary="@string/rr_ls_media_sum"
+        android:fragment="com.android.settings.rr.LockMediaSettings"
+        android:title="@string/rr_ls_media"/>
     </PreferenceCategory>
 
 </PreferenceScreen>
