@@ -98,7 +98,7 @@
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="qs_background_blur_intensity"
         android:title="@string/qs_background_blur_intensity_title"
-        android:defaultValue="80"
+        android:defaultValue="30"
         android:icon="@drawable/rr_intensity_icon"
         android:dependency="qs_background_blur"
         android:max="100"
@@ -328,6 +328,16 @@
            android:summary="@string/qs_bg_blur_image_summary"
            android:dependency="qs_panel_type_background"
            android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="qs_image_blur_intesity"
+        android:title="@string/qs_background_blur_intensity_title"
+        android:defaultValue="30"
+        android:icon="@drawable/rr_intensity_icon"
+        android:dependency="qs_panel_custom_image_blur"
+        android:max="100"
+        settings:min="25"
+        settings:units="" />
 
     </PreferenceCategory>
     <PreferenceCategory
