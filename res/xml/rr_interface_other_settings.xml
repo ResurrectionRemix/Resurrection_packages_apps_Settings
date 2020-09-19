@@ -47,14 +47,6 @@
         android:summary="@string/notification_sound_vib_screen_on_summary"
         android:defaultValue="true" />
 
-    <!-- Permissions hub -->
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="permissions_hub_enabled"
-        android:title="@string/show_permissions_hub"
-        android:icon="@drawable/rr_visual_icon"
-        android:summary="@string/show_permissions_hub_summary"
-        android:defaultValue="true" />
-
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference	
         android:key="notification_guts_kill_app_button"
         android:title="@string/notification_guts_kill_app_button_title"
@@ -84,6 +76,25 @@
         android:defaultValue="false" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/rr_privacy_title">
+    <!-- Permissions hub -->
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="permissions_hub_enabled"
+        android:title="@string/show_permissions_hub"
+        android:icon="@drawable/rr_privacy_icon"
+        android:summary="@string/show_permissions_hub_summary"
+        android:defaultValue="true" />
+
+    <!-- Permissions hub -->
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="permissions_hub_qs_enabled"
+        android:title="@string/permissions_hub_qs"
+        android:icon="@drawable/rr_qs_preview_icon"
+        android:summary="@string/permissions_hub_qs_summary"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/global_actions_screenshot">
 
