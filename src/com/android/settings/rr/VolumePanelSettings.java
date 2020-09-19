@@ -53,6 +53,7 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
     private static final String ITEMS = "items";
     private static final String EXTRAITEMS = "extra_items";
     private static final String RINGER = "ringer_button";
+    private static final String APP = "app_button";
 
     private SystemSettingSwitchPreference mNotif;
     private SystemSettingSwitchPreference mMedia;
@@ -61,6 +62,7 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mItems;
     private PreferenceCategory mExtra;
     private PreferenceCategory mRinger;
+    private PreferenceCategory mApps;
     private LineageSecureSettingSwitchPreference mLeft;
 
     @Override
@@ -79,9 +81,10 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
         mExtra = (PreferenceCategory) findPreference(EXTRAITEMS);
         mNotif = (SystemSettingSwitchPreference) findPreference(KEY_NOTIF);
         mLeft = (LineageSecureSettingSwitchPreference) findPreference(KEY_LEFT);
+        mApps = (PreferenceCategory) findPreference(EXTRAITEMS);
         boolean show = Settings.Secure.getInt(resolver,
                 Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
-        mStyle = (SystemSettingListPreference) findPreference(KEY_STYLE);
+        mStyle = (SystemSettingListPreference) findPreference(APP);
         mStyle.setOnPreferenceChangeListener(this);
         if (show) {
             mNotif.setEnabled(false);
@@ -114,17 +117,21 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
             if (style.equals("co.potatoproject.plugin.volume.oreo")) {
                 mLeft.setVisible(false);
                 mExtra.setVisible(true);
+                mApps.setVisible(true);
             } else  if (style.equals("co.potatoproject.plugin.volume.compact")){
                 mLeft.setVisible(true);
                 mExtra.setVisible(true);
+                mApps.setVisible(true);
             } else  if (style.equals("co.potatoproject.plugin.volume.tiled")){
                 mLeft.setVisible(true);
+                mApps.setVisible(false);
                 mExtra.setVisible(false);
             } else  if (style.equals("co.potatoproject.plugin.volume.aosp")){
                 mLeft.setVisible(true);
+                mApps.setVisible(true);
                 mExtra.setVisible(true);
             }
-            mItems.setVisible(false);
+            mItems.setVisible(true);
             mUI.setVisible(false);
             mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.volume_panel_warning);
         } else {
@@ -132,6 +139,7 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
             mUI.setVisible(true);
             mItems.setVisible(true);
             mExtra.setVisible(true);
+            mApps.setVisible(true);
             mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.rr_volume_summary);
         }
     }
