@@ -35,7 +35,7 @@ import android.content.Context;
 import android.provider.Settings;
 import android.os.UserHandle;
 import android.net.Uri;
-
+import android.util.Log;
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import lineageos.preference.LineageSystemSettingListPreference;
@@ -56,6 +56,7 @@ import com.android.settings.rr.utils.RRUtils;
 @SearchIndexable
 public class QSMainSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
+    private static final String TAG = "QSMainSettings";
 
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
     private static final int PULLDOWN_DIR_NONE = 0;
@@ -132,6 +133,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mQsImageCat;
     private boolean mIsRGB;
     private boolean mIsImage;
+    private boolean TintGradEnabled = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -388,8 +390,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
             || qsTileStyle == 27)) {
             mDarkTile.setEnabled(false);
             mDarkTile.setSummary(R.string.already_enabled_sum); 
-        } else if (rgb == 0 || rgb == 3|| rgb == 4 
-            || rgb == 5) {
+        } else if (rgb == 0) {
             mDarkTile.setEnabled(true);
         }  else {
             mDarkTile.setEnabled(false);
@@ -401,6 +402,9 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0,
   	        UserHandle.USER_CURRENT);
+        int isrgb = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.QS_TILE_ACCENT_TINT, 0,
+                UserHandle.USER_CURRENT);
        if (qsTileStyle == 27) {
            mInactiveTile.setEnabled(false);
            mInactiveTile.setSummary(R.string.switch_tile_warning);
@@ -411,6 +415,8 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
             mInactiveTile.setEnabled(false);
         else
             mInactiveTile.setEnabled(true);
+        TintGradEnabled = active;
+        updatesTintPrefs(isrgb);
     }
 
     private void getQsPanelColorPref() {
@@ -526,13 +532,21 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0,
   	        UserHandle.USER_CURRENT);
+        boolean tintgradient = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.QS_TILE_GRADIENT, 0, UserHandle.USER_CURRENT) == 1;
         if (enabled == 2 || enabled == 3 || enabled == 4 || enabled == 5) { 
             if (qsTileStyle == 27) {
                 mRgbIcon.setEnabled(false);
                 mRgbIcon.setSummary(R.string.rgb_already_enabled);
             } else {
-                mRgbIcon.setEnabled(true);
-                mRgbIcon.setSummary(R.string.qs_tile_rgb_tint_summary);
+                if (TintGradEnabled) {
+                    mRgbIcon.setEnabled(false);
+                    mRgbIcon.setSummary(R.string.rgb_already_enabled);
+                    TintGradEnabled = false;
+                } else {
+                   mRgbIcon.setEnabled(true);
+                   mRgbIcon.setSummary(R.string.qs_tile_rgb_tint_summary);
+                } 
             }
         } 
         else {
