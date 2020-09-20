@@ -387,9 +387,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
             frags[0] = new StatusBarSettings();
             frags[1] = new Panels();
             frags[2] = new SystemSettings();
-            frags[3] = new Animations();
-            frags[4] = new Interface();
-            frags[5] = new LockSettings();
+            frags[3] = new Interface();
+            frags[4] = new LockSettings();
+            frags[5] = new Animations();
             frags[6] = new Misc();
         	} else if (mStyle == 1) {
             frags[0] = new MainSettings();
@@ -421,9 +421,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 getString(R.string.rr_statusbar_title),
                 getString(R.string.rr_panels_title),
 		        getString(R.string.rr_system_settings),
-                getString(R.string.animation_title),
 		        getString(R.string.rr_ui_title),
 		        getString(R.string.rr_lockscreen_title),
+                getString(R.string.animation_title),
                 getString(R.string.rr_misc_title),};
         } else {
                 titleString = new String[]{
