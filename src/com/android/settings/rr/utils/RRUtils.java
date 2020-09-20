@@ -353,6 +353,19 @@ public class RRUtils {
                 .show();
     }
 
+    public static void showSystemUiRestartMaybeDialog(Context context) {
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.systemui_restart_title_maybe)
+                .setMessage(R.string.systemui_restart_message_maybe)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        restartSystemUi(context);
+                    }
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+    }
+
     public static void restartSystemUi(Context context) {
         new RestartSystemUiTask(context).execute();
     }

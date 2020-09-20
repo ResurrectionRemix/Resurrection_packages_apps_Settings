@@ -163,6 +163,7 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
          if (preference == mStyle) {
              String style = (String) objValue;
              updatePrefs(style);
+             RRUtils.showSystemUiRestartMaybeDialog(getContext());
              return true;
         } 
         return false;
