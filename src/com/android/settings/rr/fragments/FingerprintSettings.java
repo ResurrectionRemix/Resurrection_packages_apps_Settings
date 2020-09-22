@@ -48,10 +48,13 @@ public class FingerprintSettings extends SettingsPreferenceFragment implements I
 
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private static final String FP_KEYSTORE = "fp_unlock_keystore";
+    private static final String SCREENOFF = "fod_gesture";
     private SwitchPreference mFingerprintVib;
+    private SystemSettingSwitchPreference mScreenoff;
     private SystemSettingSwitchPreference mFingerprintUnlock;
     private static FingerprintManager mFingerprintManager;
     private static boolean supportsFod;
+    private boolean mSupported;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,16 +63,20 @@ public class FingerprintSettings extends SettingsPreferenceFragment implements I
         PreferenceScreen prefSet = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
 
+        mSupported =  getResources().getBoolean(
+                R.bool.config_supportScreenOffFod);
         mFingerprintUnlock = (SystemSettingSwitchPreference) findPreference(FP_KEYSTORE);
-
+        mScreenoff = (SystemSettingSwitchPreference) findPreference(SCREENOFF);
         // FOD category
+        if (!mSupported) {
+            if (mScreenoff != null) mScreenoff.setVisible(false);
+        }
         PreferenceCategory fodIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
         PackageManager packageManager = getContext().getPackageManager();
         supportsFod = packageManager.hasSystemFeature(RRContextConstants.Features.FOD);
         if (fodIconPickerCategory != null && !supportsFod) {
             fodIconPickerCategory.getParent().removePreference(fodIconPickerCategory);
         }
-
         mFingerprintManager = (FingerprintManager) 
                 getActivity().getSystemService(Context.FINGERPRINT_SERVICE);
 
