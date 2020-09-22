@@ -53,6 +53,14 @@
                 android:entryValues="@array/fod_pressed_state_values"
                 android:defaultValue="@*android:integer/config_pressed_fod_icon" />
 
+            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+                android:key="fod_gesture"
+                android:title="@string/fod_gesture_title"
+                android:icon="@drawable/rr_screenoff_fod_icon"
+                android:summary="@string/fod_gesture_summary"
+                android:defaultValue="false" />
+
+
             <!-- FOD recognizing animation -->
             <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="fod_recognizing_animation"
@@ -70,6 +78,7 @@
                 android:entryValues="@array/fod_recog_animation_values"
                 android:defaultValue="7"
                 android:dependency="fod_recognizing_animation" />
+
 
             <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="fod_anim_lockscreen"
