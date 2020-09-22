@@ -60,6 +60,14 @@
                 android:summary="@string/fod_gesture_summary"
                 android:defaultValue="false" />
 
+            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+                android:key="fod_gesture_wake"
+                android:title="@string/fod_gesture_wake_title"
+                android:icon="@drawable/rr_wake_icon"
+                android:summaryOn="@string/fod_gesture_wake_summary_on"
+                android:summaryOff="@string/fod_gesture_wake_summary_off"
+                android:dependency="fod_gesture" 
+                android:defaultValue="@*android:bool/config_fodScreenOffDoze" />
 
             <!-- FOD recognizing animation -->
             <com.android.settings.rr.Preferences.SystemSettingSwitchPreference

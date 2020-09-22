@@ -49,8 +49,10 @@ public class FingerprintSettings extends SettingsPreferenceFragment implements I
     private static final String FOD_ICON_PICKER_CATEGORY = "fod_icon_picker";
     private static final String FP_KEYSTORE = "fp_unlock_keystore";
     private static final String SCREENOFF = "fod_gesture";
+    private static final String SCREENOFF_WAKE = "fod_gesture_wake";
     private SwitchPreference mFingerprintVib;
     private SystemSettingSwitchPreference mScreenoff;
+    private SystemSettingSwitchPreference mScreenoffWake;
     private SystemSettingSwitchPreference mFingerprintUnlock;
     private static FingerprintManager mFingerprintManager;
     private static boolean supportsFod;
@@ -67,9 +69,11 @@ public class FingerprintSettings extends SettingsPreferenceFragment implements I
                 R.bool.config_supportScreenOffFod);
         mFingerprintUnlock = (SystemSettingSwitchPreference) findPreference(FP_KEYSTORE);
         mScreenoff = (SystemSettingSwitchPreference) findPreference(SCREENOFF);
+        mScreenoffWake = (SystemSettingSwitchPreference) findPreference(SCREENOFF_WAKE);
         // FOD category
         if (!mSupported) {
             if (mScreenoff != null) mScreenoff.setVisible(false);
+            if (mScreenoffWake != null) mScreenoffWake.setVisible(false);
         }
         PreferenceCategory fodIconPickerCategory = (PreferenceCategory) findPreference(FOD_ICON_PICKER_CATEGORY);
         PackageManager packageManager = getContext().getPackageManager();
