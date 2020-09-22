@@ -131,10 +131,7 @@ public class FingerprintSettings extends SettingsPreferenceFragment implements I
                            keys.add("fod_pressed_state");
                            keys.add("fod_recognizing_animation");
                            keys.add("fod_anim");
-                           keys.add("fod_anim_lockscreen");
                            keys.add("fod_icon_wallpaper_color");
-                           keys.add("fod_bright_icon");
-                           keys.add("fod_night_light");
                         } catch (Exception e) {}
                     }
                     if (mFingerprintManager == null || !mFingerprintManager.isHardwareDetected()) {
