@@ -58,6 +58,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Toast;
 import android.widget.FrameLayout;
@@ -607,6 +608,9 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.STATUS_BAR_CUSTOM_HEADER_HEIGHT, 5, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.SCREENSHOT_DELAY,
+                (int) ViewConfiguration.get(mContext).getScreenshotChordKeyTimeout(), UserHandle.USER_CURRENT);
         CutoutSettings.reset(mContext);
     }
 
