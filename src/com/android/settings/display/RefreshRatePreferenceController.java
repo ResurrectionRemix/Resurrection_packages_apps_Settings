@@ -108,10 +108,14 @@ public class RefreshRatePreferenceController extends AbstractPreferenceControlle
             mRefreshRate.setSummary(R.string.refresh_rate_summary_60);
         } else if (refreshRate == 2) {
             mRefreshRate.setSummary(R.string.refresh_rate_summary_90);
-        }else if (refreshRate == 3) {
+        } else if (refreshRate == 3) {
             mRefreshRate.setSummary(R.string.refresh_rate_summary_120);
         } else {
-            mRefreshRate.setSummary(R.string.refresh_rate_summary_auto);
+            if (maxRate() > 90) {
+                mRefreshRate.setSummary(R.string.refresh_rate_summary_auto_120);
+            } else {
+                mRefreshRate.setSummary(R.string.refresh_rate_summary_auto);
+            }
         }
     }
 }
