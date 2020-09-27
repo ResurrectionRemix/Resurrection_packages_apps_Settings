@@ -94,10 +94,10 @@ public class BatteryMeterView extends CardView {
         waveView = new WaveView(context);
         progress_Text = new TextView(context);
         progress_Text.setTextSize(52);
-        progress_Text.setTextColor(Utils.getColorAttrDefaultColor(context, android.R.attr.textColorSecondary));
+        progress_Text.setTextColor(Utils.getColorAttrDefaultColor(context, android.R.attr.textColorPrimary));
         progress_Text.setGravity(Gravity.CENTER_HORIZONTAL);
         progress_Text.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
-        progress_Text.setAlpha((float) 0.7);
+        //progress_Text.setAlpha((float) 0.7);
         LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
@@ -107,11 +107,8 @@ public class BatteryMeterView extends CardView {
         layout.addView(waveView);
         layout.addView(linearLayout);
         addView(layout);
-        setRadius(getLayoutParams().height);
+//        setRadius(getLayoutParams().height);
 		final int frameColor = context.getColor(R.color.meter_background_color);
-        mAccentColorFilter = new PorterDuffColorFilter(
-                Utils.getColorAttrDefaultColor(context, android.R.attr.colorAccent),
-                PorterDuff.Mode.SRC);
         mErrorColorFilter = new PorterDuffColorFilter(
                 context.getColor(R.color.battery_icon_color_error), PorterDuff.Mode.SRC_IN);
         mForegroundColorFilter = new PorterDuffColorFilter(

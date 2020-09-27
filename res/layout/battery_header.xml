@@ -17,48 +17,34 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/battery_entity_header"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:orientation="vertical"
-    style="@style/EntityHeader">
-	
-	<FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="12dp"
-        android:background="@drawable/battery_metter_gauage"
-        android:padding="4dp">
+    style="@style/BatteryEntityHeader">
 
 		<com.android.settings.fuelgauge.BatteryMeterView
 			android:id="@+id/battery_header_icon"
-			android:layout_width="@dimen/battery_meter_width"
-			android:layout_height="@dimen/battery_meter_height"
-			android:layout_margin="8dp"
-			app:cardElevation="5dp" />
-    
-	</FrameLayout>
-	
-	<TextView
-        android:id="@+id/battery_percent"
-		android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-		android:layout_marginTop="12dp"
-		android:textAppearance="@style/TextAppearance.EntityHeaderTitle"
-		android:visibility="gone"
-		android:textSize="36sp" />
+			android:layout_width="411dp"
+			android:layout_height="175dp"
+			android:layout_gravity="bottom"/>
 
-    <TextView
+        <TextView
+        android:id="@+id/battery_percent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+	android:visibility="gone"
+        android:textSize="36sp" />
+
+        <TextView
         android:id="@+id/summary1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:textAlignment="center"
-        android:textSize="20sp"
-		android:minLines="3"
+	android:textSize="20sp"
+        android:visibility="gone"
         android:textColor="?android:attr/textColorPrimary"/>
 
 </LinearLayout>
