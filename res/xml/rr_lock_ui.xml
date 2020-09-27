@@ -90,6 +90,23 @@
         android:defaultValue="40" />
     </PreferenceCategory>
 
+
+    <PreferenceCategory
+        android:key="ls_analog"
+        android:title="@string/ls_analog_cat">
+
+     <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="analog_clock_size"
+        android:title="@string/analog_clock_size_title"
+        android:dialogTitle="@string/analog_clock_size_title"
+        android:entries="@array/analog_clock_size_entries"
+        android:entryValues="@array/analog_clock_size_values"
+        android:dependency="lockscreen_clock"
+        android:icon="@drawable/rr_clock_icon"
+        android:summary="%s"
+        android:defaultValue="0" />
+    </PreferenceCategory>
+
     <PreferenceCategory
         android:dependency="lockscreen_clock"
         android:title="@string/lockscreen_date_cat">

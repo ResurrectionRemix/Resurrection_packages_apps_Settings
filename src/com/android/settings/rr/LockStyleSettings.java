@@ -69,6 +69,7 @@ public class LockStyleSettings extends DashboardFragment implements
     private static final String OWNER_PADDING = "lockscreen_item_padding";
     private static final String CLOCK_CAT = "ls_clock";
     private static final String TYPE_CAT = "ls_type";
+    private static final String ANALOG_CAT = "ls_analog";
     private static final String OWNER_INFO = "lock_ownerinfo_fonts";
     private static final String OWNER_INFO_SIZE = "lockowner_font_size";
 
@@ -80,6 +81,7 @@ public class LockStyleSettings extends DashboardFragment implements
 
     private PreferenceCategory mClockCat;
     private PreferenceCategory mTypeCat;
+    private PreferenceCategory mAnalogCat;
     private Preference mOwnerInfoFont;
     private Preference mOwnerInfoStyle;
     private Preference mOwnerInfoAlign;
@@ -97,6 +99,7 @@ public class LockStyleSettings extends DashboardFragment implements
                 Settings.System.LOCK_OWNERINFO_ALIGNMENT, 1);
         mClockCat = (PreferenceCategory) findPreference(CLOCK_CAT);
         mTypeCat = (PreferenceCategory) findPreference(TYPE_CAT);
+        mAnalogCat = (PreferenceCategory) findPreference(ANALOG_CAT);
 
         mOwnerInfoFont = (Preference) findPreference(OWNER_INFO);
         mOwnerInfoStyle = (Preference) findPreference(OWNER_INFO_SIZE);
@@ -207,6 +210,9 @@ public class LockStyleSettings extends DashboardFragment implements
         boolean analog9 = currentClock == null ? false : (currentClock.contains("SpectrumClockController"));
         boolean analog10 = currentClock == null ? false : (currentClock.contains("SpideyClockController"));
         boolean analog11 = currentClock == null ? false : (currentClock.contains("LineageClockController"));
+        boolean analog12 = currentClock == null ? false : (currentClock.contains("OPRomanClockController"));
+        boolean analog13 = currentClock == null ? false : (currentClock.contains("OPMinimalClockController"));
+        boolean analog14 = currentClock == null ? false : (currentClock.contains("OPMinimalismClockController"));
 
         boolean clock1 = currentClock == null ? false : (currentClock.contains("DefaultClockController"));
         boolean clock2 = currentClock == null ? false : (currentClock.contains("SamsungClockController"));
@@ -220,15 +226,19 @@ public class LockStyleSettings extends DashboardFragment implements
         if (type1 || type2 || type3 || type4) {
             mClockCat.setVisible(false);
             mTypeCat.setVisible(true);
+            mAnalogCat.setVisible(false);
         } else if (clock1 || clock2 || clock3 || clock4 
             || clock5 || clock6 || clock7 || clock8) {
             mClockCat.setVisible(true);
             mTypeCat.setVisible(false);
+            mAnalogCat.setVisible(false);
         } else if (analog1 || analog2 || analog3 || analog4
             || analog5 || analog6 || analog7 || analog8
-            || analog9 || analog10 || analog11) {
+            || analog9 || analog10 || analog11 || analog12 
+            || analog13 || analog14){
             mClockCat.setVisible(false);
             mTypeCat.setVisible(false);
+            mAnalogCat.setVisible(true);
         }
     }
     @Override
