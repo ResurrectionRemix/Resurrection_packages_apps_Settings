@@ -45,7 +45,6 @@ import com.android.settings.search.Indexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settingslib.search.SearchIndexable;
 
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
@@ -59,6 +58,8 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
     private static final String STYLE = "settings_spacer_style";
     private static final String FONT = "settings_spacer_font_style";
     private static final String SIZE = "settings_display_anim";
+    private static final String IMAGE = "settings_spacer_image_style";
+    private static final String SEARCHBAR = "settings_spacer_image_searchbar";
 
     private ListPreference mConfig;
     private SystemSettingSwitchPreference mUI;
@@ -66,7 +67,8 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
     private ListPreference mHomeStyle;
     private ListPreference mHomeFont;
     private ListPreference mSize;
-
+    private SystemSettingSwitchPreference mImage;
+    private SystemSettingSwitchPreference mSearchbarImage;
 
     @Override
     public int getMetricsCategory() {
@@ -87,6 +89,12 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         
         mUI = (SystemSettingSwitchPreference) findPreference(ONE_UI);
         mUI.setOnPreferenceChangeListener(this);
+
+        mImage = (SystemSettingSwitchPreference) findPreference(IMAGE);
+        mImage.setOnPreferenceChangeListener(this);
+
+        mSearchbarImage = (SystemSettingSwitchPreference) findPreference(SEARCHBAR);
+        mSearchbarImage.setOnPreferenceChangeListener(this);
 
         mAnim = (ListPreference) findPreference(ANIMATION);
         mAnim.setOnPreferenceChangeListener(this);
@@ -226,7 +234,39 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
                   });
              alertDialog.show();
             return true;
-         }
+         } else if (preference == mImage) {
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
+             alertDialog.setMessage(getString(R.string.rr_dashboard_message));
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                         Process.killProcess(Process.myPid());
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+            return true;
+         } else if (preference == mSearchbarImage) {
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
+             alertDialog.setMessage(getString(R.string.rr_dashboard_message));
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                         Process.killProcess(Process.myPid());
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+            return true;
+         } 
         return false;
     }
 
@@ -235,14 +275,28 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         return false;
     }
 
+    private void updatesearchprefs(int style) {
+        //for future use
+    }
+
     private void updatePrefs(int which) {
         if (which == 2) {
             mHomeFont.setEnabled(true);
             mSize.setEnabled(true);
-        } else {
+            mImage.setEnabled(false);
+            mImage.setSummary(R.string.settings_spacer_image_style_summary);
+        } else if (which == 0) {
+            mImage.setEnabled(true);
+            mImage.setSummary(R.string.settings_spacer_image_style_summary);
             mHomeFont.setEnabled(false);
             mSize.setEnabled(false);
+        } else {
+            mImage.setEnabled(false);
+            mHomeFont.setEnabled(false);
+            mSize.setEnabled(false);
+            mImage.setSummary(R.string.settings_spacer_image_style_summary);
         }
+        updatesearchprefs(which);
     }
     /**
      * For Search.

@@ -59,6 +59,8 @@ public class SettingsHomepageActivity extends FragmentActivity {
     UserManager mUserManager;
     View homepageSpacer;
     View homepageMainLayout;
+    ImageView iv;
+    Drawable mStockDrawable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,12 +106,28 @@ public class SettingsHomepageActivity extends FragmentActivity {
         homepageMainLayout = findViewById(R.id.main_content_scrollable_container);
         LottieAnimationView view = homepageSpacer.findViewById(R.id.home_animation);
         TextView tv = homepageSpacer.findViewById(R.id.spacer_text);
-        ImageView iv = homepageSpacer.findViewById(R.id.spacer_image);
+        iv = homepageSpacer.findViewById(R.id.spacer_image);
+        mStockDrawable = context.getDrawable(R.drawable.rr_spacer);
         try {
             RRFontHelper.setFontType(tv, getFontStyle());
             tv.setTextSize(getFontSize());
             if (configAnim() == 0) {
                  iv.setVisibility(View.VISIBLE);
+                 if (isProfileAvatar()) {
+                     iv.setImageDrawable(getCircularUserIcon(context));
+                     iv.setOnClickListener(new View.OnClickListener() {
+                         @Override
+                         public void onClick(View v) {
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.setComponent(new ComponentName("com.android.settings","com.android.settings.Settings$UserSettingsActivity"));
+                            startActivity(intent);
+                         }
+                     });
+                 } else {
+                     if (mStockDrawable != null) {
+                         iv.setImageDrawable(mStockDrawable);
+                     }
+                 }
                  tv.setVisibility(View.GONE);
                  view.setVisibility(View.GONE);
             } else if (configAnim() == 1) {
@@ -124,7 +142,10 @@ public class SettingsHomepageActivity extends FragmentActivity {
                  iv.setVisibility(View.GONE);
                  tv.setVisibility(View.GONE);
                  view.setVisibility(View.GONE);
-            } 
+            }
+            if (avatarView != null) {
+                avatarView.setVisibility(isSearchDisabled()? View.GONE: View.VISIBLE);
+             }
         } catch (Exception e) {}
         if (!isHomepageSpacerEnabled() && homepageSpacer != null && homepageMainLayout != null) {
             homepageSpacer.setVisibility(View.GONE);
@@ -148,6 +169,16 @@ public class SettingsHomepageActivity extends FragmentActivity {
     private boolean isHomepageSpacerEnabled() {
         return Settings.System.getInt(this.getContentResolver(),
         Settings.System.SETTINGS_SPACER, 0) != 0;
+    }
+
+    private boolean isProfileAvatar() {
+        return Settings.System.getInt(this.getContentResolver(),
+        Settings.System.SETTINGS_SPACER_IMAGE_STYLE, 0) == 1;
+    }
+
+    private boolean isSearchDisabled() {
+        return Settings.System.getInt(this.getContentResolver(),
+        Settings.System.SETTINGS_SPACER_IMAGE_SEARCHBAR, 0) == 1;
     }
 
     private int configAnim() {
@@ -205,6 +236,14 @@ public class SettingsHomepageActivity extends FragmentActivity {
     public void onResume() {
         super.onResume();
         avatarView.setImageDrawable(getCircularUserIcon(getApplicationContext()));
-
+        if (iv != null & configAnim() == 0) {
+           if (isProfileAvatar()) {
+               iv.setImageDrawable(getCircularUserIcon(getApplicationContext()));
+           } else {
+               if (mStockDrawable != null) {
+                  iv.setImageDrawable(mStockDrawable);
+               }
+           }
+       }
     }
 }

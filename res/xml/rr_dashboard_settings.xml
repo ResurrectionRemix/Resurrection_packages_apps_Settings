@@ -55,7 +55,10 @@
     	android:summaryOn="@string/summary_dashboard_suggestions_enabled"
     	android:summaryOff="@string/summary_dashboard_suggestions_disabled"
     	android:defaultValue="true"/>
-
+        </PreferenceCategory>
+     <PreferenceCategory
+            android:key="spacer"
+            android:title="@string/rr_spacer_cat">
 
      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="settings_spacer"
@@ -73,6 +76,21 @@
         android:dependency="settings_spacer"
         android:defaultValue="0"
         android:entryValues="@array/settings_spacer_style_values" />
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="settings_spacer_image_style"
+        android:title="@string/settings_spacer_image_style_title"
+        android:icon="@drawable/rr_user_icon"
+        android:dependency="settings_spacer"
+        android:summary="@string/settings_spacer_image_style_summary"
+        android:defaultValue="false" />
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="settings_spacer_image_searchbar"
+        android:title="@string/settings_spacer_image_searchbar_title"
+        android:icon="@drawable/rr_search_icon"
+        android:summary="@string/settings_spacer_image_searchbar_summary"
+        android:defaultValue="false" />
 
      <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="settings_spacer_font_style"
