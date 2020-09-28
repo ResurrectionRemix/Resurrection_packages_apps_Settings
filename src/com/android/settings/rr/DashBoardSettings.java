@@ -34,10 +34,12 @@ import android.provider.Settings;
 import android.text.Spannable;
 import android.text.TextUtils;
 import android.widget.EditText;
+import android.net.Uri;
+import android.os.UserHandle;
 
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
-import com.android.settings.rr.Preferences.SystemSettingSwitchPreference;
+import com.android.settings.rr.Preferences.*;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
@@ -60,6 +62,9 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
     private static final String SIZE = "settings_display_anim";
     private static final String IMAGE = "settings_spacer_image_style";
     private static final String SEARCHBAR = "settings_spacer_image_searchbar";
+    private static final String FILE_SPACER_SELECT = "file_spacer_select";
+    private static final String CROP = "settings_spacer_image_crop";
+    private static final int REQUEST_PICK_IMAGE = 0;
 
     private ListPreference mConfig;
     private SystemSettingSwitchPreference mUI;
@@ -67,8 +72,10 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
     private ListPreference mHomeStyle;
     private ListPreference mHomeFont;
     private ListPreference mSize;
-    private SystemSettingSwitchPreference mImage;
+    private SystemSettingListPreference mImage;
+    private SystemSettingListPreference mImageSize;
     private SystemSettingSwitchPreference mSearchbarImage;
+    private Preference mSpacerImage;
 
     @Override
     public int getMetricsCategory() {
@@ -90,8 +97,14 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         mUI = (SystemSettingSwitchPreference) findPreference(ONE_UI);
         mUI.setOnPreferenceChangeListener(this);
 
-        mImage = (SystemSettingSwitchPreference) findPreference(IMAGE);
+        mSpacerImage = findPreference(FILE_SPACER_SELECT);
+        int imagetype = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SETTINGS_SPACER_IMAGE_STYLE, 0);
+        mImage = (SystemSettingListPreference) findPreference(IMAGE);
         mImage.setOnPreferenceChangeListener(this);
+
+        mImageSize = (SystemSettingListPreference) findPreference(CROP);
+        mImageSize.setOnPreferenceChangeListener(this);
 
         mSearchbarImage = (SystemSettingSwitchPreference) findPreference(SEARCHBAR);
         mSearchbarImage.setOnPreferenceChangeListener(this);
@@ -235,6 +248,8 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
              alertDialog.show();
             return true;
          } else if (preference == mImage) {
+             int value = Integer.parseInt((String) objValue);
+             updateImagePrefs(value);
              AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
              alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
              alertDialog.setMessage(getString(R.string.rr_dashboard_message));
@@ -266,17 +281,95 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
                   });
              alertDialog.show();
             return true;
+         }  else if (preference == mImageSize) {
+             int value = Integer.parseInt((String) objValue);
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
+             alertDialog.setMessage(getString(R.string.rr_dashboard_message));
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                         Process.killProcess(Process.myPid());
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+             updateSummaries(value);
+            return true;
          } 
         return false;
     }
 
      @Override
      public boolean onPreferenceTreeClick(Preference preference) {
-        return false;
+        if (preference == mSpacerImage) {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(intent, REQUEST_PICK_IMAGE);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
     }
 
-    private void updatesearchprefs(int style) {
-        //for future use
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent result) {
+        if (requestCode == REQUEST_PICK_IMAGE) {
+            if (resultCode != Activity.RESULT_OK) {
+                return;
+            }
+            final Uri imageUri = result.getData();
+            Settings.System.putString(getContentResolver(), Settings.System.SETTINGS_SPACER_CUSTOM, imageUri.toString());
+            AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+            alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
+            alertDialog.setMessage(getString(R.string.rr_dashboard_message));
+            alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
+              public void onClick(DialogInterface dialog, int which) {
+                         Process.killProcess(Process.myPid());
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
+               public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+        }
+    }
+
+    private void updateSummaries(int style) {
+        if (style == 0) {
+            mSpacerImage.setSummary(R.string.file_spacer_select_summary_fill);
+        } else {
+            mSpacerImage.setSummary(R.string.file_spacer_select_summary);
+        }
+    }
+
+    private void updateImagePrefs(int style) {
+        int spacer = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SETTINGS_SPACER_STYLE, 0);
+        String imageUri = Settings.System.getStringForUser(getActivity().getContentResolver(),
+                Settings.System.SETTINGS_SPACER_CUSTOM,
+                UserHandle.USER_CURRENT);
+        
+        if (spacer != 0) {
+            mSpacerImage.setEnabled(false);
+            mImageSize.setEnabled(false);
+            return;
+        }
+        if (style == 3) {
+            mSpacerImage.setEnabled(true);
+            if (imageUri == null) {
+                mImageSize.setEnabled(false);
+            } else {
+                mImageSize.setEnabled(true);
+            }
+        } else {
+            mSpacerImage.setEnabled(false);
+            mImageSize.setEnabled(false);
+        }
     }
 
     private void updatePrefs(int which) {
@@ -284,10 +377,8 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
             mHomeFont.setEnabled(true);
             mSize.setEnabled(true);
             mImage.setEnabled(false);
-            mImage.setSummary(R.string.settings_spacer_image_style_summary);
         } else if (which == 0) {
             mImage.setEnabled(true);
-            mImage.setSummary(R.string.settings_spacer_image_style_summary);
             mHomeFont.setEnabled(false);
             mSize.setEnabled(false);
         } else {
@@ -296,7 +387,9 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
             mSize.setEnabled(false);
             mImage.setSummary(R.string.settings_spacer_image_style_summary);
         }
-        updatesearchprefs(which);
+        int style = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SETTINGS_SPACER_IMAGE_STYLE, 0);
+        updateImagePrefs(style);
     }
     /**
      * For Search.
