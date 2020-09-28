@@ -135,7 +135,7 @@ public class SettingsHomepageActivity extends FragmentActivity {
         iv = homepageSpacer.findViewById(R.id.spacer_image);
         mCustomImage = homepageSpacer.findViewById(R.id.custom_image);
         mStockDrawable = context.getDrawable(R.drawable.rr_spacer);
-        Drawable rrDrawable = context.getDrawable(R.drawable.rr_dashboard_main_icon);
+        Drawable rrDrawable = context.getDrawable(R.drawable.rr_spacer_main_icon);
         Drawable rrDrawable2 = context.getDrawable(R.drawable.rr_main_conf_shortcut_icon_primay);
         Drawable rrDrawable3 = context.getDrawable(R.drawable.rr_main_conf_shortcut_icon);
 

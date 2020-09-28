@@ -99,6 +99,8 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         mSpacerImage = findPreference(FILE_SPACER_SELECT);
         int imagetype = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.SETTINGS_SPACER_IMAGE_STYLE, 0);
+        int size = Settings.System.getInt(getActivity().getContentResolver(),
+                Settings.System.SETTINGS_SPACER_IMAGE_CROP, 1);
         mImage = (SystemSettingListPreference) findPreference(IMAGE);
         mImage.setOnPreferenceChangeListener(this);
 
@@ -115,6 +117,7 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         mHomeFont = (ListPreference) findPreference(FONT);
         mSize = (ListPreference) findPreference(SIZE);
         updatePrefs(style);
+        updateSummaries(size);
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
