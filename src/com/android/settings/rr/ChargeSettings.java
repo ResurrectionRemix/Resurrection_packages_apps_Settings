@@ -94,6 +94,16 @@ public class ChargeSettings extends SettingsPreferenceFragment implements Indexa
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
+                boolean available = context.getResources().getBoolean(
+                    com.android.internal.R.bool.config_smartChargingAvailable);
+                if (!available) {
+                    try {
+                       keys.add("smart_charging");
+                       keys.add("smart_charging_reset_stats");
+                       keys.add("smart_charging_level");
+                       keys.add("smart_charging_resume_level");
+                    } catch (Exception e) {}
+                }
                 return keys;
             }
         };
