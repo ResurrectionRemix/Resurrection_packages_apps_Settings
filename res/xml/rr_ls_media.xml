@@ -34,7 +34,7 @@
        android:icon="@drawable/rr_media_icon"
        android:title="@string/lockscreen_media_art_title"
        android:summary="@string/lockscreen_media_art_summary"
-       android:defaultValue="true" />
+       android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SecureSettingListPreference
        android:key="lockscreen_albumart_filter"
@@ -48,12 +48,13 @@
      <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
        android:key="lockscreen_media_blur"
        android:title="@string/lockscreen_media_blur_title"
+       android:dependency="lockscreen_media_metadata"
        android:icon="@drawable/rr_blur_icon"
        android:summary="@string/lockscreen_media_blur_summary"
        android:max="2500"
-       android:min="1"
+       android:min="26"
        settings:units=""	
-       android:defaultValue="25" />
+       android:defaultValue="26" />
     </PreferenceCategory>
 
 </PreferenceScreen>
