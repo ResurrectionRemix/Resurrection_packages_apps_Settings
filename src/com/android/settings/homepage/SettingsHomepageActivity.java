@@ -21,12 +21,16 @@ import android.app.ActivityManager;
 import android.app.settings.SettingsEnums;
 import android.content.ComponentName;
 import android.content.Context;
+import android.database.ContentObserver;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.net.Uri;
@@ -89,7 +93,7 @@ public class SettingsHomepageActivity extends FragmentActivity {
 
         setHomepageContainerPaddingTop();
 
-        Context context = getApplicationContext();
+        context = getApplicationContext();
 
         mUserManager = context.getSystemService(UserManager.class);
 
@@ -118,7 +122,13 @@ public class SettingsHomepageActivity extends FragmentActivity {
         ((FrameLayout) findViewById(R.id.main_content))
                 .getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
-        homepageSpacer = findViewById(R.id.settings_homepage_spacer);
+        SettingsObserver observer = new SettingsObserver(new Handler(Looper.getMainLooper()));
+        observer.observe();
+        recreateSpacer();
+    }
+
+    private void recreateSpacer() {
+       homepageSpacer = findViewById(R.id.settings_homepage_spacer);
         homepageMainLayout = findViewById(R.id.main_content_scrollable_container);
         LottieAnimationView view = homepageSpacer.findViewById(R.id.home_animation);
         TextView tv = homepageSpacer.findViewById(R.id.spacer_text);
@@ -128,6 +138,7 @@ public class SettingsHomepageActivity extends FragmentActivity {
         Drawable rrDrawable = context.getDrawable(R.drawable.rr_dashboard_main_icon);
         Drawable rrDrawable2 = context.getDrawable(R.drawable.rr_main_conf_shortcut_icon_primay);
         Drawable rrDrawable3 = context.getDrawable(R.drawable.rr_main_conf_shortcut_icon);
+
         try {
             RRFontHelper.setFontType(tv, getFontStyle());
             tv.setTextSize(getFontSize());
@@ -151,6 +162,7 @@ public class SettingsHomepageActivity extends FragmentActivity {
                      mCustomImage.setImageDrawable(null);
                      mCustomImage.setVisibility(View.GONE);
                      iv.setVisibility(View.VISIBLE);
+                     iv.setClickable(false);
                      if (mStockDrawable != null) {
                          iv.setImageDrawable(mStockDrawable);
                      }
@@ -162,6 +174,14 @@ public class SettingsHomepageActivity extends FragmentActivity {
                      if (rrDrawable != null) {
                          iv.setImageDrawable(rrDrawable);
                      }
+                     iv.setOnClickListener(new View.OnClickListener() {
+                         @Override
+                         public void onClick(View v) {
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.setComponent(new ComponentName("com.android.settings","com.android.settings.Settings$MainSettingsLayoutActivity"));
+                            startActivity(intent);
+                         }
+                     });
                  } else if (isProfileAvatar() == 3) {
 
                      iv.setVisibility(View.GONE);
@@ -185,6 +205,14 @@ public class SettingsHomepageActivity extends FragmentActivity {
                      if (rrDrawable2 != null) {
                          iv.setImageDrawable(rrDrawable2);
                      }
+                     iv.setOnClickListener(new View.OnClickListener() {
+                         @Override
+                         public void onClick(View v) {
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.setComponent(new ComponentName("com.android.settings","com.android.settings.Settings$MainSettingsLayoutActivity"));
+                            startActivity(intent);
+                         }
+                     });
                  } else if (isProfileAvatar() == 5) {
                      homepageSpacer.setBackground(null);
                      mCustomImage.setImageDrawable(null);
@@ -193,6 +221,14 @@ public class SettingsHomepageActivity extends FragmentActivity {
                      if (rrDrawable3 != null) {
                          iv.setImageDrawable(rrDrawable3);
                      }
+                     iv.setOnClickListener(new View.OnClickListener() {
+                         @Override
+                         public void onClick(View v) {
+                            Intent intent = new Intent(Intent.ACTION_MAIN);
+                            intent.setComponent(new ComponentName("com.android.settings","com.android.settings.Settings$MainSettingsLayoutActivity"));
+                            startActivity(intent);
+                         }
+                     });
                  }
                  tv.setVisibility(View.GONE);
                  view.setVisibility(View.GONE);
@@ -227,6 +263,48 @@ public class SettingsHomepageActivity extends FragmentActivity {
             setMargins(homepageMainLayout, 0,0,0,0);
         }
     }
+
+
+
+    class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = context.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SETTINGS_SPACER), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SETTINGS_SPACER_IMAGE_CROP), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SETTINGS_SPACER_IMAGE_STYLE), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SETTINGS_DISPLAY_ANIM), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SETTINGS_SPACER_FONT_STYLE), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SETTINGS_SPACER_STYLE), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SETTINGS_SPACER_IMAGE_SEARCHBAR), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SETTINGS_SPACER_CUSTOM), false, this,
+                    UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            recreateSpacer();
+        }
+    }
+
 
     private void showFragment(Fragment fragment, int id) {
         final FragmentManager fragmentManager = getSupportFragmentManager();
@@ -350,5 +428,10 @@ public class SettingsHomepageActivity extends FragmentActivity {
     public void onResume() {
         super.onResume();
         avatarView.setImageDrawable(getCircularUserIcon(getApplicationContext()));
+        if (configAnim() == 0 && isProfileAvatar() == 1 && isHomepageSpacerEnabled()) {
+            if (iv != null) {
+                iv.setImageDrawable(getCircularUserIcon(getApplicationContext()));
+            }
+        }
     }
 }

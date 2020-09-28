@@ -95,7 +95,6 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         mConfig.setOnPreferenceChangeListener(this);
         
         mUI = (SystemSettingSwitchPreference) findPreference(ONE_UI);
-        mUI.setOnPreferenceChangeListener(this);
 
         mSpacerImage = findPreference(FILE_SPACER_SELECT);
         int imagetype = Settings.System.getInt(getActivity().getContentResolver(),
@@ -107,18 +106,14 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         mImageSize.setOnPreferenceChangeListener(this);
 
         mSearchbarImage = (SystemSettingSwitchPreference) findPreference(SEARCHBAR);
-        mSearchbarImage.setOnPreferenceChangeListener(this);
 
         mAnim = (ListPreference) findPreference(ANIMATION);
-        mAnim.setOnPreferenceChangeListener(this);
         int style = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.SETTINGS_SPACER_STYLE, 0);
         mHomeStyle = (ListPreference) findPreference(STYLE);
         mHomeStyle.setOnPreferenceChangeListener(this);
         mHomeFont = (ListPreference) findPreference(FONT);
-        mHomeFont.setOnPreferenceChangeListener(this);
         mSize = (ListPreference) findPreference(SIZE);
-        mSize.setOnPreferenceChangeListener(this);
         updatePrefs(style);
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
@@ -163,140 +158,16 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
                   });
              alertDialog.show();
             return true;
-       } else if (preference == mUI) {
-             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
-             alertDialog.setMessage(getString(R.string.rr_dashboard_message));
-             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                         Process.killProcess(Process.myPid());
-                       }
-                    });
-              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
-                 public void onClick(DialogInterface dialog, int which) {
-                            return;
-                         }
-                  });
-             alertDialog.show();
-            return true;
-         } else if (preference == mAnim) {
-             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
-             alertDialog.setMessage(getString(R.string.rr_tools_ui));
-             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                             Process.killProcess(Process.myPid());
-                     }
-               });
-              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
-                 public void onClick(DialogInterface dialog, int which) {
-                            return;
-                         }
-                  });
-             alertDialog.show();
-            return true;
          } else if (preference == mHomeStyle) {
              int val = Integer.parseInt((String) objValue);
-             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
-             alertDialog.setMessage(getString(R.string.rr_tools_ui));
-             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                             Process.killProcess(Process.myPid());
-                     }
-               });
-              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
-                 public void onClick(DialogInterface dialog, int which) {
-                            return;
-                         }
-                  });
-             alertDialog.show();
              updatePrefs(val);
-            return true;
-         } else if (preference == mHomeFont) {
-             int val = Integer.parseInt((String) objValue);
-             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
-             alertDialog.setMessage(getString(R.string.rr_tools_ui));
-             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                             Process.killProcess(Process.myPid());
-                     }
-               });
-              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
-                 public void onClick(DialogInterface dialog, int which) {
-                            return;
-                         }
-                  });
-             alertDialog.show();
-            return true;
-         } else if (preference == mSize) {
-             int val = Integer.parseInt((String) objValue);
-             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
-             alertDialog.setMessage(getString(R.string.rr_tools_ui));
-             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                             Process.killProcess(Process.myPid());
-                     }
-               });
-              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
-                 public void onClick(DialogInterface dialog, int which) {
-                            return;
-                         }
-                  });
-             alertDialog.show();
-            return true;
-         } else if (preference == mImage) {
+             return true;
+         }  else if (preference == mImage) {
              int value = Integer.parseInt((String) objValue);
              updateImagePrefs(value);
-             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
-             alertDialog.setMessage(getString(R.string.rr_dashboard_message));
-             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                         Process.killProcess(Process.myPid());
-                       }
-                    });
-              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
-                 public void onClick(DialogInterface dialog, int which) {
-                            return;
-                         }
-                  });
-             alertDialog.show();
-            return true;
-         } else if (preference == mSearchbarImage) {
-             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
-             alertDialog.setMessage(getString(R.string.rr_dashboard_message));
-             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                         Process.killProcess(Process.myPid());
-                       }
-                    });
-              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
-                 public void onClick(DialogInterface dialog, int which) {
-                            return;
-                         }
-                  });
-             alertDialog.show();
-            return true;
+             return true;
          }  else if (preference == mImageSize) {
              int value = Integer.parseInt((String) objValue);
-             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
-             alertDialog.setMessage(getString(R.string.rr_dashboard_message));
-             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int which) {
-                         Process.killProcess(Process.myPid());
-                       }
-                    });
-              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
-                 public void onClick(DialogInterface dialog, int which) {
-                            return;
-                         }
-                  });
-             alertDialog.show();
              updateSummaries(value);
             return true;
          } 
@@ -322,20 +193,6 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
             }
             final Uri imageUri = result.getData();
             Settings.System.putString(getContentResolver(), Settings.System.SETTINGS_SPACER_CUSTOM, imageUri.toString());
-            AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-            alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
-            alertDialog.setMessage(getString(R.string.rr_dashboard_message));
-            alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
-              public void onClick(DialogInterface dialog, int which) {
-                         Process.killProcess(Process.myPid());
-                       }
-                    });
-              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
-               public void onClick(DialogInterface dialog, int which) {
-                            return;
-                         }
-                  });
-             alertDialog.show();
         }
     }
 
