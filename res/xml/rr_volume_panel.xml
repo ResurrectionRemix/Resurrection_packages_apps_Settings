@@ -72,6 +72,23 @@
         android:summary="@string/music_volume_panel_dialog_summary"
         android:defaultValue="false"/>
 
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="volume_tint_alpha"
+        android:icon="@drawable/rr_custom_icon"
+        android:title="@string/volume_tint_alpha"
+        android:summary="@string/volume_tint_alpha_summary"
+        android:defaultValue="255"
+        android:max="255"
+        settings:min="1"
+        settings:units="" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="tint_inactive_slider"
+        android:icon="@drawable/rr_act_open_icon"
+        android:title="@string/tint_inactive_slider"
+        android:summary="@string/tint_inactive_slider_summary"
+        android:defaultValue="false"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
