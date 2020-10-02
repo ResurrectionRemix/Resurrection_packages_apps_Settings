@@ -62,7 +62,14 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
         boolean mHwKeysState = Settings.Secure.getInt(mContext.getContentResolver(),
                               Settings.Secure.HARDWARE_KEYS_ENABLE, 1) != 0;
         mSlimRecents = (SystemSettingMasterSwitchPreference) findPreference(SLIM_RECENTS_KEY);
-        if (SystemNavigationPreferenceController.isEdgeToEdgeEnabled(mContext) 
+        int mLeftLongSwipeAction = Settings.System.getIntForUser(getContentResolver(),
+            Settings.System.LEFT_LONG_BACK_SWIPE_ACTION, 0,
+            UserHandle.USER_CURRENT);
+        int mRightLongSwipeAction = Settings.System.getIntForUser(getContentResolver(),
+            Settings.System.RIGHT_LONG_BACK_SWIPE_ACTION, 0,
+            UserHandle.USER_CURRENT);
+        if ((SystemNavigationPreferenceController.isEdgeToEdgeEnabled(mContext) 
+            && (mRightLongSwipeAction != 17 || mLeftLongSwipeAction != 17))
             || SystemNavigationPreferenceController.isSwipeUpEnabled(mContext)
             || !mHwKeysState) {
             mSlimRecents.setEnabled(false);
