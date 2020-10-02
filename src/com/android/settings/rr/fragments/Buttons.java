@@ -394,14 +394,14 @@ public class Buttons extends SettingsPreferenceFragment implements
         mRightSwipeActions.setOnPreferenceChangeListener(this);
 
         mLeftSwipeAppSelection = (Preference) findPreference("left_swipe_app_action");
-        boolean isAppSelection = Settings.System.getIntForUser(resolver,
-                Settings.System.LEFT_LONG_BACK_SWIPE_ACTION, 0, UserHandle.USER_CURRENT) == 5/*action_app_action*/;
-        mLeftSwipeAppSelection.setEnabled(isAppSelection);
+        int isAppSelection = Settings.System.getIntForUser(resolver,
+                Settings.System.LEFT_LONG_BACK_SWIPE_ACTION, 0, UserHandle.USER_CURRENT);/*action_app_action*/;
+        mLeftSwipeAppSelection.setEnabled(isAppSelection  == 5);
 
         mRightSwipeAppSelection = (Preference) findPreference("right_swipe_app_action");
-        isAppSelection = Settings.System.getIntForUser(resolver,
-                Settings.System.RIGHT_LONG_BACK_SWIPE_ACTION, 0, UserHandle.USER_CURRENT) == 5/*action_app_action*/;
-        mRightSwipeAppSelection.setEnabled(isAppSelection);
+        int isAppSelectionRight = Settings.System.getIntForUser(resolver,
+                Settings.System.RIGHT_LONG_BACK_SWIPE_ACTION, 0, UserHandle.USER_CURRENT);/*action_app_action*/;
+        mRightSwipeAppSelection.setEnabled(isAppSelectionRight == 5);
 
         mTimeout = (SystemSettingListPreference) findPreference("long_back_swipe_timeout");
 
@@ -457,7 +457,6 @@ public class Buttons extends SettingsPreferenceFragment implements
         updateHwKeys();
         navbarCheck();
         customAppCheck();
-
         mBackLongPressCustomApp.setVisible(mBackLongPress.getEntryValues()
                 [backlongpress].equals("16"));
         mBackDoubleTapCustomApp.setVisible(mBackDoubleTap.getEntryValues()
@@ -470,10 +469,8 @@ public class Buttons extends SettingsPreferenceFragment implements
                 [appswitchlongpress].equals("16"));
         mAppSwitchDoubleTapCustomApp.setVisible(mAppSwitchDoubleTap.getEntryValues()
                 [appswitchdoubletap].equals("16"));
-        mLeftSwipeAppSelection.setVisible(mLeftSwipeActions.getEntryValues()
-                [leftSwipeActions].equals("5"));
-        mLeftSwipeAppSelection.setVisible(mRightSwipeActions.getEntryValues()
-                [rightSwipeActions].equals("5"));
+        mLeftSwipeAppSelection.setVisible(isAppSelection == 5);
+        mRightSwipeAppSelection.setVisible(isAppSelectionRight == 5);
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -923,10 +920,8 @@ public class Buttons extends SettingsPreferenceFragment implements
         mRightSwipeActions.setValue(Integer.toString(rightSwipeActions));
         mRightSwipeActions.setSummary(mRightSwipeActions.getEntry());
 
-        mLeftSwipeAppSelection.setVisible(mLeftSwipeActions.getEntryValues()
-                [leftSwipeActions].equals("5"));
-        mRightSwipeAppSelection.setVisible(mRightSwipeActions.getEntryValues()
-                [rightSwipeActions].equals("5"));
+        mLeftSwipeAppSelection.setVisible(leftSwipeActions == 5);
+        mRightSwipeAppSelection.setVisible(rightSwipeActions == 5);
     }
 
     private IOverlayManager getOverlayManager() {
