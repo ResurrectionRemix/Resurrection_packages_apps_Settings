@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright (C) 2018 RR
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="rr_lock"
+    android:title="@string/rr_ls_media">
+
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
+        android:layout="@layout/rr_anim_layout"
+        android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_lock_animation_3" />
+
+    <PreferenceCategory
+        android:title="@string/audio_panel_view_media_title">
+
+    <lineageos.preference.LineageSecureSettingSwitchPreference
+       android:key="lockscreen_media_metadata"
+       android:icon="@drawable/rr_media_icon"
+       android:title="@string/lockscreen_media_art_title"
+       android:summary="@string/lockscreen_media_art_summary"
+       android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SecureSettingListPreference
+       android:key="lockscreen_albumart_filter"
+       android:icon="@drawable/rr_movie_icon"
+       android:title="@string/lockscreen_albumart_filter_title"
+       android:entries="@array/lockscreen_albumart_filter_entries"
+       android:entryValues="@array/lockscreen_albumart_filter_values"
+       android:dependency="lockscreen_media_metadata"
+       android:defaultValue="0" />
+
+     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+       android:key="lockscreen_media_blur"
+       android:title="@string/lockscreen_media_blur_title"
+       android:dependency="lockscreen_media_metadata"
+       android:icon="@drawable/rr_blur_icon"
+       android:summary="@string/lockscreen_media_blur_summary"
+       android:max="2500"
+       android:min="26"
+       settings:units=""	
+       android:defaultValue="26" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
+

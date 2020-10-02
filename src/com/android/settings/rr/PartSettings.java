@@ -116,7 +116,7 @@ public class PartSettings extends SettingsPreferenceFragment implements
                     boolean mSmartPixelsSupported = res.getBoolean(
                             com.android.internal.R.bool.config_supportSmartPixels);
                     if (!mSmartPixelsSupported)
-                        keys.add(SMART_PIXELS);
+                        keys.add("smart_pixels");
                 return keys;
             }
         };

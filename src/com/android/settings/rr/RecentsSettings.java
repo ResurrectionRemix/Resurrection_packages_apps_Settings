@@ -32,7 +32,7 @@ import android.view.ViewGroup;
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
-import com.android.settings.rr.utils.RRUtils;
+import com.android.internal.util.rr.RRUtils;
 import com.android.settings.R;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.search.Indexable;
@@ -59,17 +59,60 @@ public class RecentsSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.rr_recents);
         mContext = getActivity();
+        mSlimRecents = (SystemSettingMasterSwitchPreference) findPreference(SLIM_RECENTS_KEY);
+        int backKeyLongPress = getResources().getInteger(
+                com.android.internal.R.integer.config_longPressOnBackKeyBehavior);
+        int backKeyDoubleTap = getResources().getInteger(
+                com.android.internal.R.integer.config_doubleTapOnBackKeyBehavior);
+        int homeKeyLongPress = getResources().getInteger(
+                com.android.internal.R.integer.config_longPressOnHomeKeyBehavior);
+        int homeKeyDoubleTap = getResources().getInteger(
+                com.android.internal.R.integer.config_doubleTapOnHomeKeyBehavior);
         boolean mHwKeysState = Settings.Secure.getInt(mContext.getContentResolver(),
                               Settings.Secure.HARDWARE_KEYS_ENABLE, 1) != 0;
-        mSlimRecents = (SystemSettingMasterSwitchPreference) findPreference(SLIM_RECENTS_KEY);
-        if (SystemNavigationPreferenceController.isEdgeToEdgeEnabled(mContext) 
-            || SystemNavigationPreferenceController.isSwipeUpEnabled(mContext)
+        int mLeftLongSwipeAction = Settings.System.getIntForUser(getContentResolver(),
+            Settings.System.LEFT_LONG_BACK_SWIPE_ACTION, 0,
+            UserHandle.USER_CURRENT);
+        int mRightLongSwipeAction = Settings.System.getIntForUser(getContentResolver(),
+            Settings.System.RIGHT_LONG_BACK_SWIPE_ACTION, 0,
+            UserHandle.USER_CURRENT);
+        int homedoubletap = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.KEY_HOME_DOUBLE_TAP_ACTION, homeKeyDoubleTap, UserHandle.USER_CURRENT);
+        int homelongpress = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.KEY_HOME_LONG_PRESS_ACTION, homeKeyLongPress, UserHandle.USER_CURRENT);
+        int backdoubletap = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.KEY_BACK_DOUBLE_TAP_ACTION, backKeyDoubleTap, UserHandle.USER_CURRENT);
+        int backlongpress = Settings.System.getIntForUser(getContentResolver(),
+                Settings.System.KEY_BACK_LONG_PRESS_ACTION, backKeyLongPress, UserHandle.USER_CURRENT);
+        if ((SystemNavigationPreferenceController.isEdgeToEdgeEnabled(mContext) 
+            && (mRightLongSwipeAction != 17 && mLeftLongSwipeAction != 17))
+            || (SystemNavigationPreferenceController.isSwipeUpEnabled(mContext) 
+            && (homelongpress != 2 && backlongpress != 2 && backdoubletap != 2
+            && backlongpress != 2))
             || !mHwKeysState) {
             mSlimRecents.setEnabled(false);
-            mSlimRecents.setSummary(R.string.navbar_not_active);
         } else {
-             mSlimRecents.setEnabled(true);
-             mSlimRecents.setSummary(R.string.slim_recents_summary);
+            mSlimRecents.setEnabled(true);
+        }
+
+        if (SystemNavigationPreferenceController.isEdgeToEdgeEnabled(mContext) 
+            && (mRightLongSwipeAction != 17 && mLeftLongSwipeAction != 17)) {
+            mSlimRecents.setSummary(R.string.navbar_not_active_edge);
+        } else if (SystemNavigationPreferenceController.isSwipeUpEnabled(mContext)
+            &&(homelongpress != 2 && backlongpress != 2 && backdoubletap != 2
+            && backlongpress != 2)) {
+            mSlimRecents.setSummary(R.string.two_button_navbar_not_active);
+        } else if (!mHwKeysState) {
+            mSlimRecents.setSummary(R.string.navbar_not_active);
+        } else if (SystemNavigationPreferenceController.isEdgeToEdgeEnabled(mContext) 
+            && (mRightLongSwipeAction == 17 || mLeftLongSwipeAction == 17)) {
+            mSlimRecents.setSummary(R.string.navbar_long_active_edge);
+        } else if (SystemNavigationPreferenceController.isSwipeUpEnabled(mContext)
+            && (homelongpress == 2 || backlongpress == 2 || backdoubletap == 2
+            || backlongpress == 2)) {
+            mSlimRecents.setSummary(R.string.navbar_two_button_long_summary);
+        } else {
+            mSlimRecents.setSummary(R.string.slim_recents_summary);
         }
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);

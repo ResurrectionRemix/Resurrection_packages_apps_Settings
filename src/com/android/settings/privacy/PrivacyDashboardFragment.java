@@ -24,6 +24,7 @@ import android.view.View;
 
 import androidx.annotation.VisibleForTesting;
 
+import androidx.preference.PreferenceCategory;
 import com.android.settings.R;
 import com.android.settings.Utils;
 import com.android.settings.dashboard.DashboardFragment;
@@ -49,6 +50,7 @@ public class PrivacyDashboardFragment extends DashboardFragment {
     View mProgressHeader;
     @VisibleForTesting
     View mProgressAnimation;
+    PreferenceCategory mWorkCat;
 
     @Override
     public int getMetricsCategory() {
@@ -85,6 +87,8 @@ public class PrivacyDashboardFragment extends DashboardFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Utils.setActionBarShadowAnimation(getActivity(), getSettingsLifecycle(), getListView());
+        mWorkCat = (PreferenceCategory) findPreference(KEY_WORK_PROFILE_CATEGORY);
+        mWorkCat.setVisible(false);
         initLoadingBar();
     }
 

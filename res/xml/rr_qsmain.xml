@@ -98,7 +98,7 @@
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="qs_background_blur_intensity"
         android:title="@string/qs_background_blur_intensity_title"
-        android:defaultValue="80"
+        android:defaultValue="30"
         android:icon="@drawable/rr_intensity_icon"
         android:dependency="qs_background_blur"
         android:max="100"
@@ -248,8 +248,8 @@
          android:key="qs_label_use_new_tint"
          android:title="@string/qs_label_tint_title"
          android:icon="@drawable/rr_text_icon"
-         android:entries="@array/qs_tile_tint_entries"
-         android:entryValues="@array/qs_tile_tint_values"
+         android:entries="@array/qs_label_tint_entries"
+         android:entryValues="@array/qs_label_tint_values"
          android:defaultValue="0" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
@@ -301,7 +301,45 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="qs_image"
+        android:title="@string/qs_image_title">
 
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+           android:key="qs_panel_type_background"
+           android:title="@string/qs_bg_type_title"
+            android:icon="@drawable/rr_themes_icon"
+           android:summary="@string/qs_bg_type_summary"
+           android:defaultValue="false" />
+
+       <Preference
+           android:key="file_qspanel_select"
+           android:icon="@drawable/rr_package_icon"
+           android:title="@string/file_header_select_title"
+           android:summary="@string/file_header_select_summary"
+           android:dependency="qs_panel_type_background"
+           android:persistent="false" >
+       </Preference>
+
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+           android:key="qs_panel_custom_image_blur"
+           android:icon="@drawable/rr_blur_icon"
+           android:title="@string/qs_bg_blur_image_title"
+           android:summary="@string/qs_bg_blur_image_summary"
+           android:dependency="qs_panel_type_background"
+           android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="qs_image_blur_intesity"
+        android:title="@string/qs_background_blur_intensity_title"
+        android:defaultValue="30"
+        android:icon="@drawable/rr_intensity_icon"
+        android:dependency="qs_panel_custom_image_blur"
+        android:max="100"
+        settings:min="25"
+        settings:units="" />
+
+    </PreferenceCategory>
     <PreferenceCategory
         android:key="qs_extra"
         android:title="@string/rr_extra_settings">

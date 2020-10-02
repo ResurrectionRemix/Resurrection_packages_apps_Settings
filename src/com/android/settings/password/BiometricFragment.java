@@ -153,6 +153,7 @@ public class BiometricFragment extends InstrumentedFragment {
                 .setFromConfirmDeviceCredential()
                 .setSubtitle(mBundle.getString(BiometricPrompt.KEY_SUBTITLE))
                 .setDescription(mBundle.getString(BiometricPrompt.KEY_DESCRIPTION))
+                .setApplockPackage(mBundle.getString(BiometricPrompt.KEY_APPLOCK_PKG))
                 .setConfirmationRequired(
                         mBundle.getBoolean(BiometricPrompt.KEY_REQUIRE_CONFIRMATION, true));
 

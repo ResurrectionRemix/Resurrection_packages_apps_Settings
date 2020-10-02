@@ -62,7 +62,7 @@
     <string name="status_bar_battery_style_solid">Solid</string>
     <string name="status_bar_battery_style_text">Text</string>
     <string name="status_bar_battery_style_hidden">Hidden</string>
-
+    <string name="status_bar_battery_style_big_circle">Big circle</string>
     <string name="status_bar_battery_style_tile_title">Override battery tile</string>
     <string name="status_bar_battery_style_tile_summary">Use same icon style as above in QS battery tile</string>
 
@@ -295,8 +295,13 @@
     <string name="title_about">About</string>
     <string name="dev_categorie_title">Dev Tag</string>
     <string name="rr_lockscreen_title">Lock screen</string>
+    <string name="rr_lockscreen_shortcuts">Bottom shortcuts</string>
+    <string name="rr_lock_items_title">Lockscreen items</string>
     <string name="rr_ls_gestures">System Gestures</string>
     <string name="rr_ls_ui">Lock UI</string>
+    <string name="rr_ls_battery">Lockscreen battery</string>
+    <string name="rr_ls_notif">Lockscreen notifications</string>
+    <string name="rr_ls_media">Lockscreen media</string>
     <string name="rr_ls_security">Security</string>
     <string name="updater_title">Updates</string>
     <string name="rr_themes_title">Themes</string>
@@ -349,7 +354,7 @@
     <string name="rr_version_default">Unknown</string>
     <string name="keywords_rr_version">rr version</string>
     <string name="rr_info_title">Resurrection Remix Version</string>
-    <string name="rr_info_summary" translatable="false">8.6.0</string>
+    <string name="rr_info_summary" translatable="false">8.6.1</string>
 
     <!-- Share RR ROM -->
     <string name="share_rr">Share</string>
@@ -388,6 +393,7 @@
     <string name="rr_reset_message_warning">WARNING! This setting will change all your options to default settings and it may take some time. You may run into issues and you may not like some defaults. Are you really sure you want to continue?</string>
     <string name="lockscreen_clock_cat">Lockscreen clock</string>
     <string name="type_clock_cat">Type clock</string>
+    <string name="ls_analog_cat">Analog clock</string>
     <string name="lockscreen_clock_master">Clock Master switch</string>
     <string name="lockscreen_date_cat">Lockscreen Date</string>
     <string name="lockscreen_owner_cat">Lockscreen Owner info</string>
@@ -419,8 +425,9 @@
     <string name="rr_category_usage">Items</string>
     <string name="rr_extra_settings">Extra settings</string>
     <string name="rr_ringer_button">Ringer</string>
+    <string name="rr_app_button">Apps</string>
     <string name="rr_title">Resurrection tools</string>
-    <string name="rr_title_summary">Various customizations</string>
+    <string name="rr_title_summary">Various customisations</string>
     <string name="rr_config_main_title">RR-OS</string>
     <string name="rr_ota_fab_title">Show floating button</string>
     <string name="rr_ota_fab_summary">Enable/disable to show/hide floating button in RR tools. Enter/exit once when switch used</string>
@@ -438,7 +445,7 @@
     <string name="rr_panels_title">Panels</string>
     <string name="rr_tuner">System UI tuner</string>
     <string name="rr_sb_tuner_title">Status bar tuner</string>
-    <string name="rr_tuner_summary">Part of stock customizations</string>
+    <string name="rr_tuner_summary">Part of stock customisations</string>
     <string name="rr_battery">Battery</string>
     <string name="rr_battery_saving">Battery optimizations</string>
     <string name="rr_sb_icons">System icons</string>
@@ -465,6 +472,10 @@
     <string name="statusbar_breathing">Breathing notifications</string>
     <string name="apps_category">Apps</string>
     <string name="volume_key_category_title">Volume Shortcut</string>
+    <string name="volume_tint_alpha">Active slider color alpha</string>
+    <string name="volume_tint_alpha_summary">Tint active slider color alpha(excludes app row tint)</string>
+    <string name="tint_inactive_slider">Tint inactive slider</string>
+    <string name="tint_inactive_slider_summary">Tint inactive slider to same color as active slider in extended volume panel(excludes app row tint)</string>
     <string name="connected_devices_category_title">Connected Devices</string>
     <string name="normal_layout">Normal</string>
     <string name="compact_layout">Compact</string>
@@ -472,57 +483,61 @@
     <string name="right_learn_layout">Right-learning</string>
 
    <!--RR Configurations Summaries-->
-    <string name="status_bar_clock_summary">Customize various elements of the statusbar clock </string>
-    <string name="status_bar_logo_summary">Enable or disable custom logo in statusbar. Customize colour and position</string>
-    <string name="sb_custom_logos_summary">Enable or disable icons in statusbar. Customize their elements and position</string>
-    <string name="rr_battery_summary">Customize battery elements in statusbar and also customize the batterybar</string>
+    <string name="status_bar_clock_summary">Customise various elements of the statusbar clock </string>
+    <string name="status_bar_logo_summary">Enable or disable custom logo in statusbar. Customise color and position</string>
+    <string name="sb_custom_logos_summary">Enable or disable icons in statusbar. Customise their elements and position</string>
+    <string name="rr_battery_summary">Customise battery elements in statusbar and also customise the batterybar</string>
     <string name="rr_battery_saving_summary">Tweaks to save your juice</string>
     <string name="rr_sb_icons_summary">Enable or disable icons of your choice in statusbar</string>
-    <string name="ticker_screen_summary">Customize the ticker style in statusbar</string>
-    <string name="status_bar_temperature_summary">Enable or disable temperature in statusbar and customize its style </string>
-    <string name="network_traffic_summary">Enable or disable network traffic monitor in statusbar and customize its style, activity threshold and readings</string>
-    <string name="carrier_summary">Enable or disable carrier label in statusbar and customize its style </string>
+    <string name="ticker_screen_summary">Customise the ticker style in statusbar</string>
+    <string name="status_bar_temperature_summary">Enable or disable temperature in statusbar and customise its style </string>
+    <string name="network_traffic_summary">Enable or disable network traffic monitor in statusbar and customise its style, activity threshold and readings</string>
+    <string name="carrier_summary">Enable or disable carrier label in statusbar and customise its style </string>
     <string name="rr_sb_gestures_summary">Enable or disable gestures used on statusbar</string>
     <string name="breathing_notifications_summary">Give a breathing effect to notifications such as sms, missed call and voice mail</string>
-    <string name="rr_trans_summary">Customize various elements in notification drawer such as transparency and stroke</string>
-    <string name="rr_volume_summary">Customize various elements in volume dialog</string>
-    <string name="rr_power_summary">Customize the dim and transparency of the power menu interface</string>
-    <string name="rr_recents_ui_summary">Customize the various elements in recents panel such as slim recents.</string>
-    <string name="recents_clear_all_summary">Replace native clear all button with original floating action button and customize its position</string>
+    <string name="rr_trans_summary">Customise various elements in notification drawer such as transparency and stroke</string>
+    <string name="rr_volume_summary">Customise various elements in volume dialog</string>
+    <string name="rr_power_summary">Customise the dim and transparency of the power menu interface</string>
+    <string name="rr_recents_ui_summary">Customise the various elements in recents panel such as slim recents.</string>
+    <string name="recents_clear_all_summary">Replace native clear all button with original floating action button and customise its position</string>
     <string name="omniswitch_summary">Replace stock recents with Omni-recents</string>
     <string name="rr_buttons_summary">Customise different buttons</string>
+    <string name="rr_ls_notif_sum">Customise lockscreen notification count</string>
+    <string name="rr_ls_media_sum">Customise lockscreen media album art</string>
     <string name="rr_color_settings_summary">Choose system accent color of your choice. No more limits</string>
-    <string name="rr_qs_animation_summary">Enable or disable animations when tapping qs tiles and customize them</string>
-    <string name="rr_themes_sum">Simpler than Styles &amp; wallpapers. Customize colors, icons and various layouts of system</string>
+    <string name="rr_qs_animation_summary">Enable or disable animations when tapping qs tiles and customise them</string>
+    <string name="rr_themes_sum">Simpler than Styles &amp; wallpapers. Customise colors, icons and various layouts of system</string>
     <string name="rr_qs_pulldown_summary">Adjust quick panel pull-down settings</string>
-    <string name="qs_tile_layout_summary">Customize quick settings tiles layout</string>
-    <string name="qs_advanced_summary">Miscellaneous quick settings customization</string>
+    <string name="qs_tile_layout_summary">Customise quick settings tiles layout</string>
+    <string name="qs_advanced_summary">Miscellaneous quick settings customisation</string>
     <string name="rr_ls_gesture_summary">Choose various gestures acquired on screen</string>
-    <string name="rr_ls_ui_summary">Enable, disable and customize various elements provided on lockscreen</string>
-    <string name="lockscreen_targets_summary">Customize the bottom left and right shortcuts to your choice on lockscreen</string>
-    <string name="lockscreen_weather_summary">Customize the weather layout on lockscreen</string>
-    <string name="sb_weather_summary">Customize the weather items on statusbar</string>
+    <string name="rr_ls_ui_summary">Enable, disable and customise various elements provided on lockscreen</string>
+    <string name="lockscreen_targets_summary">Customise the bottom left and right shortcuts to your choice on lockscreen</string>
+    <string name="lockscreen_weather_summary">Customise the weather layout on lockscreen</string>
+    <string name="rr_lock_items_sum">Customise various lockscreen items</string>
+    <string name="rr_lockscreen_shortcuts_summary">Customise bottom shortcuts on lockscreen</string>
+    <string name="sb_weather_summary">Customise the weather items on statusbar</string>
     <string name="rr_ls_security_summary">Enable or disable various security features provided for lockscreen</string>
     <string name="gesture_anywhere_summary">Draw your gestures to launch preferred activity</string>
     <string name="app_sidebar_summary">Use a side bar to store your apps and activities that can be launched quickly with ease</string>
     <string name="app_circle_bar_summary">Use a circular sidebar to store your quick apps and activities</string>
     <string name="pa_pie_control_summary">Swipe from the edge to enable/disable a pie that consists of cool shortcuts and navigation controls</string>
     <string name="rr_navbar_summary">Customise Navigation bar if present</string>
-    <string name="system_animations_summary">Customize the animations of each window in system</string>
+    <string name="system_animations_summary">Customise the animations of each window in system</string>
     <string name="rr_power_anim_summary">Enable or disable animations in power menu and also choose from a list of animations</string>
-    <string name="rr_toast_summary">Customize various toast popup animations and icons</string>
+    <string name="rr_toast_summary">Customise various toast popup animations and icons</string>
     <string name="rr_expanded_desktop_summary">Expanded desktop options per-app</string>
-    <string name="rr_doze_summary">View various ambient display options and customize its components</string>
+    <string name="rr_doze_summary">View various ambient display options and customise its components</string>
     <string name="rr_heads_up_summary">Choose to enable or disable heads up notifications and also set up their timeouts </string>
-    <string name="rr_dash_board_summary">Customize dashboard layout and icons</string>
-    <string name="misc_weather_settings_summary">Customize various options for system weather settings</string>
+    <string name="rr_dash_board_summary">Customise dashboard layout and icons</string>
+    <string name="misc_weather_settings_summary">Customise various options for system weather settings</string>
     <string name="system_app_remover_summary">Remove unnecessary system apps</string>
     <string name="rr_updater_summary">Check for OTA updates and other links</string>
-    <string name="rr_notif_settings_summary">Customize the look of your notifications in notification panel</string>
-    <string name="rr_fp_summary">Customize various options for the fingerpint sensor</string>
-    <string name="rr_sound_summary">Customize misc sound settings</string>
-    <string name="rr_np_summary">Customize various elements on notification panel</string>
-    <string name="rr_density_summary">Customize the density of the screen to scale screen to its absolute limit</string>
+    <string name="rr_notif_settings_summary">Customise the look of your notifications in notification panel</string>
+    <string name="rr_fp_summary">Customise various options for the fingerpint sensor</string>
+    <string name="rr_sound_summary">Customise misc sound settings</string>
+    <string name="rr_np_summary">Customise various elements on notification panel</string>
+    <string name="rr_density_summary">Customise the density of the screen to scale screen to its absolute limit</string>
     <string name="rr_fonts_summary">Choose your prefered font size</string>
     <string name="rr_fonts_style_summary">Choose your prefered font</string>
     <string name="stock_recents_category">Stock recents</string>
@@ -530,11 +545,16 @@
     <string name="lockscreen_title">Lock screen</string>
     <string name="rr_headsup_cat">HeadsUp</string>
     <string name="clear_all_cat">Notification clear all</string>
-    <string name="date_cat">Date customizations</string>
+    <string name="date_cat">Date customisations</string>
     <string name="rr_headsup_summary">Advanced headsup options</string>
     <string name="slim_recents_summary">View recents options</string>
-    <string name="navbar_not_active">This option will only work with the 3 button classic navbar or hardware keys (if available). Please enable navbar from navigation settings and come back here</string>
-    <string name="navbar_not_active_pulse">This option will only work with the navbar. Please enable navbar from navigation settings and come back here</string>
+    <string name="navbar_not_active">This option will only work with the 3 button classic navbar or hardware keys (if available). Please enable navbar from navigation settings and come back here.</string>
+    <string name="navbar_not_active_edge">Looks like you have edge gestures navbar enabled.Consider using recents action in edge long swipe gesture to use this feature.</string>
+    <string name="navbar_not_active_pulse">This option will only work with the navbar. Please enable navbar from navigation settings and come back here.</string>
+    <string name="two_button_navbar_not_active">Looks like you have 2 button navbar enabled.Consider using recents action in home or back button double tap or long press to use this feature. Swiping up will trigger regular recents.</string>
+    <string name="navbar_long_active_edge">Looks like you have edge gesture navbar enabled.Slim recents can only be used with long swipe gestures.Swiping up will trigger regular recents.</string>
+    <string name="navbar_two_button_long_summary">Looks like you have 2 button navbar enabled.Slim recents can only be used with double tap or longpress actions for home or back button. Swiping up will trigger regular recents.</string>
+    <string name="slim_recents_full_disabled_summary">Looks like you have have no navigating options enabled. You need to enable atleast one of the system navigations to enable this option.</string>
     <string name="system_animations">System animations</string>
     <string name="rr_ui_title">Interface</string>
     <string name="weather">Weather</string>
@@ -545,7 +565,7 @@
     <string name="rr_header_title">Header</string>
     <string name="rr_power_panel_title">Power menu</string>
     <string name="rr_parts_summary">Discover different miscellaneous parts in the system</string>
-    <string name="rr_lock_summary">Customize lockscreen elements</string>
+    <string name="rr_lock_summary">Customise lockscreen elements</string>
     <string name="rr_display_size_summary">Select your prefered display size</string>
     <string name="rr_font_size_summary">Select your prefered font size</string>
     <string name="rr_custom_color_summary">Choose custom color</string>
@@ -556,10 +576,10 @@
     <string name="rr_doze_footer_text">Brightness of always on or ambient display will always be less than the screen brighness. So if your brightness is low you cannot force AOD or Ambient display to go higher than that. They can only go lower than or equal to current brightness. To get brightness values higher, turn the force doze brightness switch on</string>
     <string name="rr_vol_steps_cat">Volume steps</string>
 
-    <string name="rr_status_bar_settings_summary">Customize various elements of the statusbar</string>
-    <string name="rr_panel_settings_summary">Customize different system panels</string>
-    <string name="rr_system_settings_summary">Customize various elements of the system</string>
-    <string name="rr_animations_settings_summary">Customize various animations</string>
+    <string name="rr_status_bar_settings_summary">Customise various elements of the statusbar</string>
+    <string name="rr_panel_settings_summary">Customise different system panels</string>
+    <string name="rr_system_settings_summary">Customise various elements of the system</string>
+    <string name="rr_animations_settings_summary">Customise various animations</string>
     <string name="rr_misc_settings_summary">click to view misc options</string>
     <string name="rr_ui_settings_summary">View various User Interface options</string>
 
@@ -570,7 +590,7 @@
     <string name="recents_slim">Slim</string>
     <string name="bottom_nav_navigation_title">Navigation</string>
     <string name="hw_keys_summary">Enable hardware keys</string>
-    <string name="rr_hw_keys_summary">Customize various hardware buttons on your device like home, back, and menu</string>
+    <string name="rr_hw_keys_summary">Customise various hardware buttons on your device like home, back, and menu</string>
     <string name="rr_notif_settings_title">Notifications</string>
     <string name="rr_call_cat_title">Calls</string>
 
@@ -598,7 +618,7 @@
 
     <!-- Interface -->
     <string name="interface_other_title">Misc</string>
-    <string name="interface_other_summary">Customize miscellaneous contents of the system interface</string>
+    <string name="interface_other_summary">Customise miscellaneous contents of the system interface</string>
     <string name="lockscreen_item_title">Lock screen items</string>
     <string name="lockscreen_weather_title">Show weather condition</string>
     <string name="lockscreen_items_aod_info_title">This visibility configuration also applies to the ambient display</string>
@@ -628,7 +648,7 @@
     <string name="weather_config_summary">Choose wether to enable or disable weather service</string>
     <string name="header_weather_title">Header view weather</string>
     <string name="header_weather_summary">Enable notification panel header weather display</string>
-    <string name="rr_header_summary">Customize the header</string>
+    <string name="rr_header_summary">Customise the header</string>
     <string name="weather_icon_pack_title">Condition icon pack</string>
     <string name="weather_icon_pack_color_warn">Note: Some weather icons cannot be colored</string>
     <string name="weather_icon_pack_note">Note\u003a you can install new icon packs from play store by searching for \"Chronus icons\"</string>
@@ -667,7 +687,7 @@
     <!-- QS Footer Text -->
     <string name="qs_footer_text_title">QS footer text</string>
     <string name="qs_footer_text_summary">Display text at bottom of QS panel</string>
-    <string name="qs_footer_text_string_title">Customize footer text</string>
+    <string name="qs_footer_text_string_title">Customise footer text</string>
     <string name="qs_footer_text_string_summary">Set to empty for default Resurrection Remix</string>
     <string name="status_bar_footer_cat">Footer</string> 
 
@@ -690,6 +710,8 @@
     <string name="toast">Toast</string>
     <string name="listview">ListView</string>
     <string name="icons">Icons</string>
+    <string name="rr_icon">Icon</string>
+    <string name="rr_nightlight">Night light</string>
     <string name="general">General</string>
     <string name="ka_title">Performance</string>
     <string name="profiles_settings_title">System profiles</string>
@@ -734,8 +756,10 @@
     <!-- Refresh rate -->
     <string name="refresh_rate_title">Screen refresh rate</string>
     <string name="refresh_rate_summary_auto">Auto / Automatically raises the refresh rate from 60 to 90Hz for some content</string>
+    <string name="refresh_rate_summary_auto_120">Auto / Automatically raises the refresh rate from 60 to 120Hz for some content</string>
     <string name="refresh_rate_summary_60">60Hz / Refresh rate locked at 60Hz for all content</string>
     <string name="refresh_rate_summary_90">90Hz / Refresh rate locked at 90Hz for all content. Increased battery usage</string>
+    <string name="refresh_rate_summary_120">120Hz / Refresh rate locked at 120Hz for all content. Increased battery usage</string>
     <string name="auto_refresh_rate">Auto</string>
 
     <!-- Battery stats reset -->
@@ -745,7 +769,8 @@
     <!-- Screenshot shutter sound -->
     <string name="screenshot_shutter_sound_title">Screenshot shutter sound</string>
     <string name="screenshot_sound_summary">Screenshot shutter sound enabled or disabled</string>
-    <string name="screenshot_delay_title">Screenshot delay</string>
+    <string name="screenshot_delay_title">Volume button screenshot delay</string>
+    <string name="screenshot_delay_global_title">Power menu screenshot delay</string>
 
     <string name="fp_swipe_to_dismiss_notifications_title">Swipe fingerprint left or right to dismiss notifications</string>
     <string name="fp_swipe_to_dismiss_notifications_summary">To dismiss your notifications, swipe left or right on the fingerprint sensor on the back of your phone.</string>
@@ -842,6 +867,8 @@
     <string name="battery_blend_between">Between</string>
     <string name="battery_blend_gradient">Use gradient colors</string>
     <string name="battery_blend_gradient_sum">Use gradient colors for battery bar background</string>
+    <string name="battery_bar_gradient_color_title">Gradient color</string>
+    <string name="battery_bar_gradient_color_summary">Choose the gradient color</string>
 
     <!-- Disabling FC notifications --> 
     <string name="disable_fc_notifications_title">Disable FC Notifications</string> 
@@ -898,6 +925,7 @@
     <string name="global_actions_soundpanel">Sound Panel</string>
     <string name="global_actions_users">Users</string>
     <string name="global_actions_screenshot">Screenshot</string>
+    <string name="power_global_actions_screenshot">Power menu screenshot</string>
     <string name="global_actions_screenrecord">Screenrecord</string>
     <string name="global_actions_flashlight">Flashlight</string>
     <string name="global_actions_advanced_reboot_title">Enable advanced restart</string>
@@ -999,6 +1027,7 @@
     <string name="switch_contained">Contained (gradient)</string>
     <string name="switch_retro">Retro</string>
     <string name="switch_stockish">Stockish</string>
+    <string name="switch_contained_fluid">MD2 Fluid (gradient)</string>
     <string name="switch_telegram">Telegram (gradient)</string>
     <string name="switch_telegram_normal">Telegram</string>
     <string name="switch_oneplus_grad">Oneplus (gradient)</string>
@@ -1024,11 +1053,43 @@
     <string name="prevent_ringing_option_mute_no_media">Mute, no media</string>
     <string name="prevent_ringing_option_mute_no_media_summary">On (mute, no media)</string>
 
+    <!-- App lock -->
+    <string name="applock_title">App locker</string>
+    <string name="applock_locked">Locked</string>
+    <string name="applock_unlocked">Unlocked</string>
+    <string name="applock_locked_apps">Locked apps</string>
+    <string name="applock_unlocked_apps">Unlocked apps</string>
+    <string name="applock_show_only_on_wake">Authenticate only once</string>
+    <string name="applock_show_only_on_wake_on_summary">Once authenticated, an app stays unlocked until the screen turns off</string>
+    <string name="applock_show_only_on_wake_off_summary">Once authenticated, an app stays unlocked for 15 seconds after exiting</string>
+    <string name="applock_lock_notifications">Hide notification content while app is locked</string>
+    <string name="applock_setup">Setup app locker</string>
+    <string name="applock_overlay_summary">This feature is not available because this app is locked</string>
+    <plurals name="applock_summary">
+        <item quantity="one">1 app locked</item>
+        <item quantity="other">%d apps locked</item>
+    </plurals>
+
+    <!-- Screen off fod -->
+    <string name="rr_screenoff">Screen off</string>
+    <string name="fod_gesture_title">Screen off FOD</string>
+    <string name="fod_gesture_summary">Allows unlocking the device when screen is off when touching fingerprint sensor area. Screen wakes up upon authenticating. NOTE: this is an experimental feature. Oneplus devices do not have screen off FOD support but this is made to work in a different way. Sometimes it may not authenticate since burn-in protection timer makes pixels shift</string>
+
+    <!-- Screen off fod -->
+    <string name="fod_gesture_wake_title">Show ambient display for Screen off FOD</string>
+    <string name="fod_gesture_wake_summary_on">Enabled!When Screen off FOD is being used, screen will show ambient display when fingerprint area is touched. It is recommended to keep this switch off for more accuracy.</string>
+    <string name="fod_gesture_wake_summary_off">Disabled!When Screen off FOD is being used, device will wake when fingerprint area is being touched. It is recommended to keep this switch off for more accuracy.</string>
+    <string name="fod_experimental_title">Experimental features</string>
+    <string name="fod_experimental_summary">Try out features that are still a work in progress for FOD</string>
+    <string name="fod_exp_warning">These features especially screen off features are HIGHLY EXPERIMENTAL! Please avoid reporting issues on them.</string>
+    <string name="fod_anim_disabled_warning">FOD Animation is disabled. Please enable to use.</string>
+
     <!-- Toast icon switch -->
     <string name="toast_icon_title">Toast icon</string>
     <string name="toast_icon_summary">Display the app icon corresponding with the toast</string>
     <string name="toast_text_color">Toast text color</string>
     <string name="toast_icon_color">Toast icon color</string>
+    <string name="toast_text_reset">Resetting toast color will set to default system color of toast</string>
 
     <!-- Signature spoof -->
     <string name="allow_signature_fake_title">Toggle signature spoofing</string>
@@ -1056,7 +1117,7 @@
     <!-- Display cutout options -->
     <string name="rr_cutout_main">Notch</string>
     <string name="cutout_main">Display cutout</string>
-    <string name="cutout_main_summary">Customize notch settings</string>
+    <string name="cutout_main_summary">Customise notch settings</string>
     <string name="display_cutout_style_title">Cutout style</string>
     <string name="display_cutout_style_normal">Normal</string>
     <string name="display_cutout_style_immerse">Immerse</string>
@@ -1266,11 +1327,11 @@
     <string name="rr_config_navigation_color_title">Custom bottom navigation color</string>
 
     <string name="charging_sounds_settings_title">Charging sounds</string>
-    <string name="charging_sounds_settings_summary">Customize your plugged in charging sounds</string>
+    <string name="charging_sounds_settings_summary">Customise your plugged in charging sounds</string>
 
     <!-- Network traffic -->
     <string name="network_traffic_settings_title">Network traffic monitor</string>
-    <string name="network_traffic_settings_summary">Display and customize current network traffic levels</string>
+    <string name="network_traffic_settings_summary">Display and customise current network traffic levels</string>
     <string name="network_traffic_location_title">Location</string>
     <string name="network_traffic_location_disable">Disabled</string>
     <string name="network_traffic_location_statusbar">Statusbar</string>
@@ -1302,7 +1363,7 @@
     <string name="rr_fod_title">Fingerprint on display</string>
     <string name="fod_icon_picker_title">FOD icon picker</string>
     <string name="fod_icon_picker_summary">Pick your favourite fingerprint icon</string>
-    <string name="fod_icon_picker_footer">In order to add your own icon, select the top left icon and use the OnePlus 6T FP Customizer app to select the icon you want.</string>
+    <string name="fod_icon_picker_footer">In order to add your own icon, select the top left icon and use the OnePlus 6T FP Customiser app to select the icon you want.</string>
     <string name="fod_wallpaper_color">Use wallpaper color for FOD icon</string>
     <string name="fod_wallpaper_color_summary">Uses adjusted primary wallpaper color for FOD icon\nNOTE: might look good only with some wallpapers</string>
 
@@ -1310,7 +1371,7 @@
     <string name="rr_gaming">Gaming</string>
     <string name="gaming_mode_title">Gaming mode</string>
     <string name="gaming_driver_title">Driver</string>
-    <string name="gaming_mode_summary">Customize Gaming mode preferences and game drivers</string>
+    <string name="gaming_mode_summary">Customise Gaming mode preferences and game drivers</string>
     <string name="gaming_mode_enabled_summary">Allow turning on Gaming mode</string>
     <string name="gaming_mode_app_picker_title">Automatically turn on for these apps</string>
     <string name="add_gaming_mode_package_title">Add apps for Gaming mode</string>
@@ -1336,7 +1397,7 @@
     <string name="gaming_mode_dynamic_title">Dynamic mode</string>
     <string name="gaming_mode_dynamic_summary">Try detecting and adding gaming apps automatically</string>
     <string name="fod_anim_lockscreen_title">Allow animation on all authentication screens</string>
-    <string name="fod_anim_lockscreen_summary">Shows animation on all authentication screens even outside lockscreen. Keep in mind some apps may not unlock with this enabled. If you have issues unlocking apps with fingerprint, disable this option.</string>
+    <string name="fod_anim_lockscreen_summary">Shows animation on all authentication screens even outside lockscreen. Keep in mind some apps may not unlock with this enabled. If you have issues unlocking apps with fingerprint, disable this option. Some apps have already been blacklisted by default to fix fingerprint authorization.</string>
     <string name="fod_recog_animation">FOD recognizing animation</string>
     <string name="fod_recog_animation_summary">Shows animation while reading your finger. This will not work on AOD. It will only work on pulsing notifications/ambient display</string>
     <string name="fod_recog_animation_effect_title">FOD recognizing animation effect</string>
@@ -1382,6 +1443,10 @@
     <string name="fod_miui_glow_aim">MIUI spiral</string>
     <string name="fod_realme_cloud">Realme cloud</string>
     <string name="fod_realme_ripple">Realme ripple</string>
+    <string name="fod_vivo1">Vivo Endless </string>
+    <string name="fod_asus_rog_1">Asus Pulsar</string>
+    <string name="fod_asus_rog_2">Asus Supernova</string>
+    <string name="fod_asus_rog_3">Asus Cosmos</string>
     <string name="fod_night_light_title">Disable night light when showing FOD</string>
     <string name="fod_night_light_summary">Disable night light when fingerprint is active. This is necessary for some devices that need correct colors for reading fingerprint. Disabling this might cause unreadable fingerprint on night light enabled. If this is enabled, everytime you are on auto night and you decide to disable it, FOD will re-enable night light on hiding</string>
 
@@ -1419,6 +1484,8 @@
     <string name="qs_hide_gradient_summary">Hide the darkish gradient behind the qs panel under the header. You will notice this over the edges of quick tiles bar</string>
     <string name="file_header_select_title">Select local image</string>
     <string name="file_header_select_summary">Select image from storage</string>
+    <string name="file_spacer_select_summary">Select image from storage. Currently using original resolution</string>
+    <string name="file_spacer_select_summary_fill">Select image from storage. Currently fitting to settings header</string>
     <string name="qs_tile_gradient_title">Tint tiles to gradient</string>
     <string name="switch_tile_warning">Tinting inactive tile is incompatible with this tile style. Please head to Resurrection themes and change qs tile style</string>
     <string name="qs_tile_gradient_summary">Show gradient background on qs tiles instead of regular color. Note: in case of rgb tile tint or random tint, background will not tint to rgb colors only icons will tint if you turn on the above switch. This will not work wih custom tiles.</string>
@@ -1441,14 +1508,15 @@
     <string name="volume_panel_oreo_val">co.potatoproject.plugin.volume.oreo</string>
     <string name="volume_panel_tiled_val">co.potatoproject.plugin.volume.tiled</string>
     <string name="volume_panel_rr_val">com.android.systemui.volume</string>
-    <string name="volume_panel_warning">All volume panel customizations only work with stock volume panel and hence settings that don\'t work will be rendered invisible. Please wait for volume panel to change setting. It takes about 3-4 seconds to change a panel so do not worry. Until the time a new volume panel is created, the stock one will appear. If things don\'t go as expected please change styles again, it will work.</string>
+    <string name="volume_panel_warning">All volume panel customisations only work with stock volume panel and hence settings that don\'t work will be rendered invisible. Please wait for volume panel to change setting. It takes about 3-4 seconds to change a panel so do not worry. Until the time a new volume panel is created, the stock one will appear. If things don\'t go as expected please change styles again, it will work.</string>
 
     <string name="volume_panel_plugin_enable_title">Enable custom volume panel</string>
     <string name="volume_panel_plugin_enable_summary">Choose from various styles of volume panels. This will disable default system volume panel settings</string>
+    <string name="volume_panel_animation_title">Volume panel entry animations</string>
 
     <!-- AOKP custom system animations -->
     <string name="system_animation_title">System animations</string>
-    <string name="system_animation_summary">Customize the animations of each window in system</string>
+    <string name="system_animation_summary">Customise the animations of each window in system</string>
     <string name="activity_open_title">Activity open animation</string>
     <string name="activity_close_title">Activity close animation</string>
     <string name="task_open_title">Task open animation</string>
@@ -1526,6 +1594,11 @@
     <string name="lockscreen_charging_animation_phone">Phone</string>
     <string name="lockscreen_charging_animation_stack">Stack</string>
     <string name="lockscreen_charging_animation_wavy">Wavy</string>
+    <string name="lockscreen_charging_animation_split">Split Loading</string>
+    <string name="lockscreen_charging_animation_yellow">Yellow Animation</string>
+    <string name="lockscreen_charging_animation_virus">Virus</string>
+    <string name="lockscreen_charging_animation_wash">Precaution 1</string>
+    <string name="lockscreen_charging_animation_wear">Precaution 2</string>
 
     <!-- QS blur -->
     <string name="qs_blur_title">Qs background filter</string>
@@ -1538,6 +1611,8 @@
 
     <!-- QS background opacity -->
     <string name="qs_panel_alpha_title">Background opacity</string>
+    <string name="opacity_warning">RGB mode is enabled. Disable to use.</string>
+    <string name="qs_opactiy">Set background opacity</string>
     <string name="qs_panel_bg_rgb_title">RGB mode</string>
     <string name="qs_panel_bg_rgb_summary">Enable RGB mode on qs background to show different rgb colors</string>
 
@@ -1648,7 +1723,7 @@
 
     <!-- Rounded corners -->
     <string name="corners_title">Rounded corners</string>
-    <string name="corners_summary">Allow customized rounded corners</string>
+    <string name="corners_summary">Allow customised rounded corners</string>
     <string name="corner_radius">Rounded corner radius</string>
     <string name="content_padding">Corner content padding</string>
     <string name="status_bar_padding">Statusbar extra padding</string>
@@ -1717,6 +1792,8 @@
     <!-- SystemUI restart prompt -->
     <string name="systemui_restart_title">WARNING</string>
     <string name="systemui_restart_message">SystemUI will be restarted so that selected setting can be applied correctly.</string>
+    <string name="systemui_restart_title_maybe">ATTENTION</string>
+    <string name="systemui_restart_message_maybe">SystemUI MIGHT need to be restarted in order to avoid issues when changing volume panel styles. Would you like to continue? You can choose to press cancel but this is just a precaution.</string>
     <string name="restarting_ui">Restarting UI\u2026</string>
     <string name="print_restart">Restart</string>
 
@@ -1955,6 +2032,8 @@
     <string name="qs_tile_rgb">RGB</string>
     <string name="qs_tile_random">Random (smoother RGB)</string>
     <string name="qs_tile_random_static">Random (static)</string>
+    <string name="qs_tile_rgbdark">Random for dark theme, RGB for light theme</string>
+    <string name="qs_tile_rgblight">Random for light theme, RGB for dark theme</string>
     <string name="qs_tile_accent">Accent</string>
     <string name="qs_panel_bg_rgb_dur_title">Duration of animation</string>
     <string name="qs_label_tint_title">Active Label tint</string>
@@ -2069,8 +2148,8 @@
     <string name="qs_new_bg_enabled_title">Use gradient backgrounds</string>
     <string name="qs_new_bg_enabled_summary">Use gradient colors wherever possible</string>
     <string name="gradient_color">Gradient color</string>
-    <string name="gradient_summary">Customize gradient color</string>
-    <string name="accent_summary">Customize accent color</string>
+    <string name="gradient_summary">Customise gradient color</string>
+    <string name="accent_summary">Customise accent color</string>
     <string name="general_ui">UI</string>
     <!-- Lockscreen Colors -->
     <string name="lockscreen_date_title">Show lockscreen date</string>
@@ -2097,7 +2176,7 @@
     <string name="lockscreen_weather_selection_title">Weather Background</string>
     <string name="lockscreen_weather_alignment_title">Lockscreen Weather Alignment</string>
     <string name="lockscreen_date_alignment_title">Lockscreen date Alignment</string>
-    <string name="lock_weather_cust_title">Weather customizations</string>
+    <string name="lock_weather_cust_title">Weather customisations</string>
     <string name="lockscreen_ownerinfo_alignment_title">Lockscreen ownerInfo Alignment</string>
     <string name="lockscreen_item_padding_title">Ownerinfo Padding</string>
     <string name="rr_owner_info_settings_title">Owner info text</string>
@@ -2106,8 +2185,9 @@
     <string name="divided_clock_summary">It seems you have Divided lines clock enabled and hence pixel style weather cannot be used.</string>
     <string name="mnml_summary">It seems you have MNML\'s Box clock enabled and hence pixel style weather cannot be used</string>
     <string name="yes">YES</string>
-    <string name="pixel_weather_warning">Pixel style weather is enabled. Please disable to customize weather colors. Also pixel style weather is aligned with lockscreen date. To customize weather bg, alignment &amp; color consider heading back to lockscreen settings to align date and use lockdate colors to customize colors.</string>
+    <string name="pixel_weather_warning">Pixel style weather is enabled. Please disable to customise weather colors. Also pixel style weather is aligned with lockscreen date. To customise weather bg, alignment &amp; color consider heading back to lockscreen settings to align date and use lockdate colors to customise colors.</string>
     <string name="clock_ui_warning">These settings will not work with all custom clocks. It is intended to work with default system clock</string>
+    <string name="rr_ls_battery_sum">Choose and customise battery options on lockscreen such as charging style</string>
     <string name="date_disabled_summary">Lockscreen date is disabled. Weather will be forced to non-pixel style. Go back and enable lockscreen date to use this setting.</string>
 
 	<!-- Battery health -->
@@ -2153,6 +2233,13 @@
     <!-- Lock Clock & Date Size -->
     <string name="lockdate_font_size_title">Date font size</string>
     <string name="lockclock_font_size_title">Clock font size</string>
+    <string name="analog_clock_size_title">Analog clock size</string>
+    <string name="analog_normal">Normal</string>
+    <string name="analog_small">Small</string>
+    <string name="analog_smallest">Smallest</string>
+    <string name="analog_large">Large</string>
+    <string name="analog_larger">Extra large</string>
+    <string name="analog_insane">Insane</string>
     <string name="custom_text_clock_font_size_title">Typography Clock size</string>    
     <!-- Lock Date Fonts -->
     <string name="lock_date_font_title">Date font options</string>
@@ -2175,7 +2262,7 @@
 
     <!-- Lock Clock Fonts -->
     <string name="rr_clock_styles_title">Lockscreen style</string>
-    <string name="rr_clock_styles_sum">Customize various fonts and colors of lockscreen clock</string>
+    <string name="rr_clock_styles_sum">Customise various fonts and colors of lockscreen clock</string>
     <string name="lock_clock_font_title">Clock font options</string>
     <string name="custom_text_clock_font_title">Typo Clock font options</string>
     <string name="lock_clock_font_summary">Change the default font of the lockscreen clock widget</string>
@@ -2254,13 +2341,29 @@
 
     <!-- One ui actionbar -->
     <string name="enable_oneui">OneUI</string>
-    <string name="enable_oneui_summary">Show spacer above settings dashboard for easier use with one hand.\nNOTE: restart settings app to see effect</string>
+    <string name="rr_spacer_cat">Dashboard spacer</string>
+    <string name="enable_oneui_summary">Show spacer above settings dashboard for easier use with one hand</string>
     <string name="settings_spacer_style_title">Spacer style</string>
     <string name="settings_spacer_font_style_title">Spacer font style</string>
-    <string name="settings_spacer_style_0">Static Image</string>
+    <string name="settings_spacer_image_style_title">Spacer image style</string>
+    <string name="settings_spacer_image_style_summary">Toggle to show profile avatar , rr logo or custom image</string>
+    <string name="settings_spacer_image_searchbar_title">Hide searchbar image</string>
+    <string name="settings_spacer_image_searchbar_summary">Toggle to hide profile avatar from searchbar</string>
+    <string name="rr_avatar_disabled">Set an avatar first from user settings.</string>
+    <string name="settings_spacer_style_0">Image</string>
     <string name="settings_spacer_style_1">Animation</string>
     <string name="settings_spacer_style_2">Text</string>
     <string name="settings_spacer_style_3">Blank</string>
+    <string name="settings_crop_0">Fit to settings header (wide image recommended)</string>
+    <string name="settings_crop_1">Original resolution</string>
+    <string name="settings_spacer_image_crop_title">Image size</string>
+    <string name="settings_image_style_0">Static image</string>
+    <string name="settings_image_style_1">User avatar</string>
+    <string name="settings_image_style_2">RR logo (material)</string>
+    <string name="settings_image_style_3">Custom image</string>
+    <string name="settings_image_style_4">RR logo (primary color tinted)</string>
+    <string name="settings_image_style_5">RR logo (accent tinted)</string>
+    <string name="use_compatible_gallery">Current app is not supported. Please use another gallery app to set image</string>
     <string name="spacer_font_size_30">30sp</string>
     <string name="spacer_font_size_31">31sp</string>
     <string name="spacer_font_size_32">32sp</string>
@@ -2334,7 +2437,7 @@
     <string name="spacer_font_size_100">100sp</string>
 
     <string name="pixel_nav_animation_title">Show Pixel Navbar animation</string>
-    <string name="pixel_nav_animation_summary">Show animation on longpress navbar</string>
+    <string name="pixel_nav_animation_summary">Show animation on longpress navbar home button</string>
 
     <string name="force_expanded_notifications_title">Force expand notifications</string>
     <string name="force_expanded_notifications_summary">Always keep notifications expanded. Warning! This feature has known to cause some performance regression in notification panel. Use at your own risk</string>
@@ -2760,5 +2863,20 @@
     <string name="qs_data_usage_location_title">Qs Data Usage Location</string>
     <string name="qs_data_usage_location_qs_panel">QS Panel</string>
     <string name="qs_data_usage_location_qs_statusbar">Quick Statusbar</string>
+
+    <!-- QS Themes Type Background -->
+    <string name="qs_image_title">QS Image</string>
+    <string name="qs_bg_type_title">QS Panel Background</string>
+    <string name="qs_bg_type_summary">Enable custom qs background</string>
+    <string name="qs_bg_blur_image_title">Blur Image</string>
+    <string name="qs_bg_blur_image_summary">Blur custom image.Note: blur may not work on some images</string>
+
+    <!-- Permissions hub toggle -->
+    <string name="rr_privacy_title">Privacy indicators</string>
+    <string name="show_permissions_hub">Show privacy indicator in statusbar</string>
+    <string name="show_permissions_hub_summary_off">Privacy indicators disabled. Toggle to display privacy indicators like camera &amp; microphone in statusbar when being used.</string>
+    <string name="show_permissions_hub_summary_on">Privacy indicators enabled in status bar, if you wish to disable camera or microphone individually, head back to status bar tuner and un-check them.</string>
+    <string name="permissions_hub_qs">Show privacy indicator in QS header</string>
+    <string name="permissions_hub_qs_summary">Display privacy indicators like camera &amp; microphone in QS header when being used.</string>
 
 </resources>

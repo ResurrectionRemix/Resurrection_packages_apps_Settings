@@ -77,16 +77,37 @@
     </PreferenceCategory>
 
     <PreferenceCategory
+        android:title="@string/rr_privacy_title">
+    <!-- Permissions hub -->
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="permissions_hub_enabled"
+        android:title="@string/show_permissions_hub"
+        android:icon="@drawable/rr_privacy_icon"
+        android:summaryOn="@string/show_permissions_hub_summary_on"
+        android:summaryOff="@string/show_permissions_hub_summary_off"
+        android:defaultValue="false" />
+
+    <!-- Permissions hub -->
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="permissions_hub_qs_enabled"
+        android:title="@string/permissions_hub_qs"
+        android:icon="@drawable/rr_qs_preview_icon"
+        android:summary="@string/permissions_hub_qs_summary"
+        android:defaultValue="false" />
+
+    </PreferenceCategory>
+    <PreferenceCategory
         android:title="@string/global_actions_screenshot">
 
     <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
         android:key="screenshot_delay"
-        android:title="@string/screenshot_delay_title"
         android:icon="@drawable/rr_clock_icon"
-        android:max="10"
-        android:min="0"
-        settings:units="sec"
-        android:defaultValue="0"/>
+        android:title="@string/screenshot_delay_title"
+        android:max="3000"
+        settings:min="0"
+        settings:interval="10"
+        settings:units="@string/unit_milliseconds" />
+
 
     <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="screenshot_type"

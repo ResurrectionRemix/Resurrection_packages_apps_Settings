@@ -94,6 +94,17 @@ public class SmartPixels extends SettingsPreferenceFragment implements Indexable
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
+                    final Resources res = context.getResources();
+                    boolean mSmartPixelsSupported = res.getBoolean(
+                            com.android.internal.R.bool.config_supportSmartPixels);
+                    if (!mSmartPixelsSupported) {
+                        try {
+                           keys.add("smart_pixels_enable");
+                           keys.add("smart_pixels_pattern");
+                           keys.add("smart_pixels_on_power_save");
+                           keys.add("smart_pixels_shift_timeout");
+                        } catch (Exception e) {}
+                    }
                 return keys;
             }
         };

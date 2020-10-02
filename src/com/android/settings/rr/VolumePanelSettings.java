@@ -53,6 +53,9 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
     private static final String ITEMS = "items";
     private static final String EXTRAITEMS = "extra_items";
     private static final String RINGER = "ringer_button";
+    private static final String APP = "app_button";
+    private static final String VOL_RINGER = "audio_panel_view_ringer";
+    private static final String VOL_ALARM = "audio_panel_view_alarm";
 
     private SystemSettingSwitchPreference mNotif;
     private SystemSettingSwitchPreference mMedia;
@@ -61,7 +64,10 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
     private PreferenceCategory mItems;
     private PreferenceCategory mExtra;
     private PreferenceCategory mRinger;
+    private PreferenceCategory mApps;
     private LineageSecureSettingSwitchPreference mLeft;
+    private SystemSettingSwitchPreference mAlarm;
+    private SystemSettingSwitchPreference mRingerRow;
 
     @Override
     public int getMetricsCategory() {
@@ -78,23 +84,19 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
         mItems = (PreferenceCategory) findPreference(ITEMS);
         mExtra = (PreferenceCategory) findPreference(EXTRAITEMS);
         mNotif = (SystemSettingSwitchPreference) findPreference(KEY_NOTIF);
+        mAlarm = (SystemSettingSwitchPreference) findPreference(VOL_ALARM);
+        mRinger = (PreferenceCategory) findPreference(RINGER);
+        mRingerRow = (SystemSettingSwitchPreference) findPreference(VOL_RINGER);
         mLeft = (LineageSecureSettingSwitchPreference) findPreference(KEY_LEFT);
-        boolean show = Settings.Secure.getInt(resolver,
-                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+        mApps = (PreferenceCategory) findPreference(APP);
         mStyle = (SystemSettingListPreference) findPreference(KEY_STYLE);
         mStyle.setOnPreferenceChangeListener(this);
-        if (show) {
-            mNotif.setEnabled(false);
-            mNotif.setSummary(R.string.vol_link_enabled_summary);
-        } else {
-            mNotif.setEnabled(true);
-            mNotif.setSummary(R.string.audio_panel_view_ringer_summary);
-        }
+        String style = Settings.System.getString(resolver,
+                Settings.System.SYSTEMUI_PLUGIN_VOLUME);
+
 
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
-        String style = Settings.System.getString(resolver,
-                Settings.System.SYSTEMUI_PLUGIN_VOLUME);
         updatePrefs(style);
         try {
             if (anim == 0) {
@@ -109,22 +111,33 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
     }
     
     public void updatePrefs(String style) {
+        boolean show = Settings.Secure.getInt(getActivity().getContentResolver(),
+                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
         if (style == null) style = "com.android.systemui.volume";
         if (!style.equals("com.android.systemui.volume")) {
             if (style.equals("co.potatoproject.plugin.volume.oreo")) {
                 mLeft.setVisible(false);
-                mExtra.setVisible(true);
+                mApps.setVisible(true);
+                mAlarm.setVisible(true);
+                mRingerRow.setVisible(true);
             } else  if (style.equals("co.potatoproject.plugin.volume.compact")){
                 mLeft.setVisible(true);
-                mExtra.setVisible(true);
+                mApps.setVisible(true);
+                mAlarm.setVisible(true);
+                mRingerRow.setVisible(false);
             } else  if (style.equals("co.potatoproject.plugin.volume.tiled")){
                 mLeft.setVisible(true);
-                mExtra.setVisible(false);
+                mApps.setVisible(false);
+                mAlarm.setVisible(true);
+                mRingerRow.setVisible(true);
             } else  if (style.equals("co.potatoproject.plugin.volume.aosp")){
                 mLeft.setVisible(true);
-                mExtra.setVisible(true);
+                mApps.setVisible(true);
+                mAlarm.setVisible(true);
+                mRingerRow.setVisible(false);
             }
-            mItems.setVisible(false);
+            mExtra.setVisible(true);
+            mItems.setVisible(true);
             mUI.setVisible(false);
             mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.volume_panel_warning);
         } else {
@@ -132,7 +145,17 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
             mUI.setVisible(true);
             mItems.setVisible(true);
             mExtra.setVisible(true);
+            mApps.setVisible(true);
+            mAlarm.setVisible(true);
+            mRingerRow.setVisible(true);
             mFooterPreferenceMixin.createFooterPreference().setTitle(R.string.rr_volume_summary);
+        }
+        if (show && style.equals("com.android.systemui.volume")) {
+            mNotif.setEnabled(false);
+            mNotif.setSummary(R.string.vol_link_enabled_summary);
+        } else {
+            mNotif.setEnabled(true);
+            mNotif.setSummary(R.string.audio_panel_view_ringer_summary);
         }
     }
 
@@ -140,6 +163,7 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
          if (preference == mStyle) {
              String style = (String) objValue;
              updatePrefs(style);
+             RRUtils.showSystemUiRestartMaybeDialog(getContext());
              return true;
         } 
         return false;

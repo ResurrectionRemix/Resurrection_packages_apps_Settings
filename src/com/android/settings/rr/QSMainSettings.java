@@ -17,6 +17,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Configuration;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
@@ -33,7 +34,8 @@ import android.view.ViewGroup;
 import android.content.Context;
 import android.provider.Settings;
 import android.os.UserHandle;
-
+import android.net.Uri;
+import android.util.Log;
 import android.provider.SearchIndexableResource;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import lineageos.preference.LineageSystemSettingListPreference;
@@ -54,6 +56,7 @@ import com.android.settings.rr.utils.RRUtils;
 @SearchIndexable
 public class QSMainSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
+    private static final String TAG = "QSMainSettings";
 
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
     private static final int PULLDOWN_DIR_NONE = 0;
@@ -87,6 +90,12 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private static final String QS_LABEL_CAT = "qs_label_options";
     private static final String QS_LABEL_TINT = "qs_label_use_new_tint";
     private static final String QS_LABEL_INACTIVE = "qs_label_inactive_tint";
+    private static final String FILE_QSPANEL_SELECT = "file_qspanel_select";
+    private static final String QS_IMAGE_SWITCH = "qs_panel_type_background";
+    private static final String QS_IMAGE = "qs_image";
+    private static final String QS_BG_ALPHA = "qs_panel_bg_alpha";
+    private static final String QS_GRADIENT_BG = "qs_new_bg_enabled";
+    private static final int REQUEST_PICK_IMAGE = 0;
 
     private LineageSecureSettingListPreference mQsPos;
     private SystemSettingListPreference mQsAuto;
@@ -105,6 +114,7 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private SystemSettingListPreference mBgFilter;
     private SystemSettingSeekBarPreference mBlurRad;
     private SystemSettingSeekBarPreference mBlurInt;
+    private SystemSettingSeekBarPreference mQsOpacity;
     private PreferenceCategory mThemes;
     private SystemSettingColorPickerPreference mBgColor;
     private SystemSettingColorPickerPreference mIconColor;
@@ -113,11 +123,17 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     protected Context mContext;
     private SystemSettingColorPickerPreference mQsPanelColor;
     private SystemSettingColorPickerPreference mFilterColor;
-
     private SystemSettingSwitchPreference mTitle;
     private SystemSettingListPreference mLabelTint;
     private SystemSettingSwitchPreference mInactiveLabel;
+    private SystemSettingSwitchPreference mQsNewBG;
     private PreferenceCategory mLabels;
+    private SystemSettingSwitchPreference mQsImage;
+    private Preference mQsPanelImage;
+    private PreferenceCategory mQsImageCat;
+    private boolean mIsRGB;
+    private boolean mIsImage;
+    private boolean TintGradEnabled = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,6 +142,8 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
 		ContentResolver resolver = getActivity().getContentResolver();
         mContext = getActivity().getApplicationContext();
 
+        mQsPanelImage = findPreference(FILE_QSPANEL_SELECT);
+        mQsImage = (SystemSettingSwitchPreference) findPreference(QS_IMAGE_SWITCH);
         mTitle =
                 (SystemSettingSwitchPreference) findPreference(QS_TITLE);
         mLabelTint =
@@ -134,9 +152,15 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
                 (SystemSettingSwitchPreference) findPreference(QS_LABEL_INACTIVE);
         mLabels =
                 (PreferenceCategory) findPreference(QS_LABEL_CAT);
-
+        mQsImageCat =
+                (PreferenceCategory) findPreference(QS_IMAGE);
+        mQsOpacity =
+                (SystemSettingSeekBarPreference) findPreference(QS_BG_ALPHA);
+        mQsNewBG =
+                (SystemSettingSwitchPreference) findPreference(QS_GRADIENT_BG);
         mTitle.setOnPreferenceChangeListener(this);
         mLabelTint.setOnPreferenceChangeListener(this);
+        mQsImage.setOnPreferenceChangeListener(this);
 
         mBgFilter =
                 (SystemSettingListPreference) findPreference(QS_BG_FILTER);
@@ -213,7 +237,6 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         updateQuickPulldownSummary(mQuickPulldown.getIntValue(0));
         int dataloc = Settings.System.getInt(getContentResolver(),
                 Settings.System.QS_DATAUSAGE, 0);
-
         mQsData =
                 (SystemSettingListPreference) findPreference(QS_DATA_USAGE);
         mQsData.setOnPreferenceChangeListener(this);
@@ -259,12 +282,15 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         updateprefs(mode);
         updateIconprefs(iconmode);
         updatesliderprefs(position);
-        updateThemespref(mRgb.isChecked());
         updateDarktileState(isrgb);
         updateInactivePrefs(tintgradient);
         updateQsDataLoc(dataloc);
         updateBlurPrefs(filter);
         updatelabelCat(mTitle.isChecked());
+        updateQsImageCat(mRgb.isChecked());
+        updateThemespref(mRgb.isChecked());
+        updateThemesprefImage(mQsImage.isChecked());
+
         if (Utils.isWifiOnly(mContext)) {
             mDataLoc.setVisible(false);
             mQsData.setVisible(false);
@@ -284,11 +310,41 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
 
     }
 
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if (preference == mQsPanelImage) {
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType("image/*");
+            startActivityForResult(intent, REQUEST_PICK_IMAGE);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
+    }
+
+   @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent result) {
+        if (requestCode == REQUEST_PICK_IMAGE) {
+            if (resultCode != Activity.RESULT_OK) {
+                return;
+            }
+            final Uri imageUri = result.getData();
+            Settings.System.putString(getContentResolver(), Settings.System.QS_PANEL_CUSTOM_IMAGE, imageUri.toString());
+        }
+    }
+
     public void updateQsDataLoc(int loc) {
         if (loc == 0){
             mDataLoc.setEnabled(false);
         } else {
             mDataLoc.setEnabled(true);
+        }
+    }
+
+    public void updateQsImageCat(boolean enabled) {
+        if (enabled){
+            mQsImageCat.setEnabled(false);
+        } else {
+            mQsImageCat.setEnabled(true);
         }
     }
 
@@ -326,14 +382,15 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0,
   	        UserHandle.USER_CURRENT);
-        if ((rgb == 0 || rgb == 3) && (qsTileStyle == 7
+        if ((rgb == 0 || rgb == 3 || rgb == 4 
+            || rgb == 5) && (qsTileStyle == 7
             || qsTileStyle == 9 || qsTileStyle == 10 
             || qsTileStyle == 12 || qsTileStyle == 13
             || qsTileStyle == 16 || qsTileStyle == 17
             || qsTileStyle == 27)) {
             mDarkTile.setEnabled(false);
             mDarkTile.setSummary(R.string.already_enabled_sum); 
-        } else if (rgb == 0 || rgb == 3) {
+        } else if (rgb == 0) {
             mDarkTile.setEnabled(true);
         }  else {
             mDarkTile.setEnabled(false);
@@ -345,6 +402,9 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0,
   	        UserHandle.USER_CURRENT);
+        int isrgb = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.QS_TILE_ACCENT_TINT, 0,
+                UserHandle.USER_CURRENT);
        if (qsTileStyle == 27) {
            mInactiveTile.setEnabled(false);
            mInactiveTile.setSummary(R.string.switch_tile_warning);
@@ -355,6 +415,8 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
             mInactiveTile.setEnabled(false);
         else
             mInactiveTile.setEnabled(true);
+        TintGradEnabled = active;
+        updatesTintPrefs(isrgb);
     }
 
     private void getQsPanelColorPref() {
@@ -428,6 +490,11 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         } else if (preference == mRgb) {
              boolean value = (Boolean) newValue;
              updateThemespref(value);
+             updateQsImageCat(value);
+             return true;
+        } else if (preference == mQsImage) {
+             boolean value = (Boolean) newValue;
+             updateThemesprefImage(value);
              return true;
         } else if (preference == mTitle) {
              boolean value = (Boolean) newValue;
@@ -465,13 +532,21 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         int qsTileStyle = Settings.System.getIntForUser(getActivity().getContentResolver(),
                 Settings.System.QS_TILE_STYLE, 0,
   	        UserHandle.USER_CURRENT);
-        if (enabled == 2 || enabled == 3) { 
+        boolean tintgradient = Settings.System.getIntForUser(getActivity().getContentResolver(),
+                Settings.System.QS_TILE_GRADIENT, 0, UserHandle.USER_CURRENT) == 1;
+        if (enabled == 2 || enabled == 3 || enabled == 4 || enabled == 5) { 
             if (qsTileStyle == 27) {
                 mRgbIcon.setEnabled(false);
                 mRgbIcon.setSummary(R.string.rgb_already_enabled);
             } else {
-                mRgbIcon.setEnabled(true);
-                mRgbIcon.setSummary(R.string.qs_tile_rgb_tint_summary);
+                if (TintGradEnabled) {
+                    mRgbIcon.setEnabled(false);
+                    mRgbIcon.setSummary(R.string.rgb_already_enabled);
+                    TintGradEnabled = false;
+                } else {
+                   mRgbIcon.setEnabled(true);
+                   mRgbIcon.setSummary(R.string.qs_tile_rgb_tint_summary);
+                } 
             }
         } 
         else {
@@ -480,11 +555,42 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         }
     }
 
-    public void updateThemespref(boolean enabled) {
-        if (enabled) 
+    public void updateThemespref(boolean rgb) {
+		ContentResolver resolver = getActivity().getContentResolver();
+        boolean mIsImage = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_PANEL_CUSTOM_IMAGE, 0, UserHandle.USER_CURRENT)  != 0;
+        if (mIsImage) {
+            return;
+        }
+        if (rgb) 
             mThemes.setEnabled(false);
-        else 
+        else if(mQsImage.isChecked())
+            mThemes.setEnabled(false);
+        else
             mThemes.setEnabled(true);
+        if (rgb) {
+            mQsOpacity.setEnabled(false);
+            mQsOpacity.setSummary(R.string.opacity_warning);
+        } else {
+            mQsOpacity.setEnabled(true);
+            mQsOpacity.setSummary(R.string.qs_opactiy);
+        }
+    }
+
+    public void updateThemesprefImage(boolean image) {
+		ContentResolver resolver = getActivity().getContentResolver();
+        boolean mIsRGB = Settings.System.getIntForUser(resolver,
+                Settings.System.QS_PANEL_BG_RGB, 0, UserHandle.USER_CURRENT)  != 0;
+        if (mIsRGB) { 
+            return;
+        }
+        if (image) {
+            mThemes.setEnabled(false);
+            mQsNewBG.setEnabled(false);
+        } else {
+            mThemes.setEnabled(true);
+            mQsNewBG.setEnabled(true);
+        }
     }
 
     private void updateprefs(int mode) {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2019 The ParanoidAndroid Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="@string/applock_title">
+
+    <SwitchPreference
+        android:key="show_only_on_wake"
+        android:title="@string/applock_show_only_on_wake"
+        android:defaultValue="false"
+        android:summaryOn="@string/applock_show_only_on_wake_on_summary"
+        android:summaryOff="@string/applock_show_only_on_wake_off_summary"
+        android:order="-999" />
+
+    <SwitchPreference
+        android:key="lock_notifications"
+        android:title="@string/applock_lock_notifications"
+        android:defaultValue="true"
+        android:summaryOn="@string/lock_screen_notifications_summary_hide"
+        android:summaryOff="@string/lock_screen_notifs_redact_summary"
+        android:order="-998" />
+
+    <PreferenceCategory
+        android:key="locked_apps"
+        android:title="@string/applock_locked_apps"
+        android:order="-997" />
+
+    <PreferenceCategory
+        android:key="unlocked_apps"
+        android:title="@string/applock_unlocked_apps"
+        android:order="500"/>
+</PreferenceScreen>

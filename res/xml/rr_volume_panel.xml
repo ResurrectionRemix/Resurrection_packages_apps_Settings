@@ -72,6 +72,23 @@
         android:summary="@string/music_volume_panel_dialog_summary"
         android:defaultValue="false"/>
 
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="volume_tint_alpha"
+        android:icon="@drawable/rr_custom_icon"
+        android:title="@string/volume_tint_alpha"
+        android:summary="@string/volume_tint_alpha_summary"
+        android:defaultValue="255"
+        android:max="255"
+        settings:min="1"
+        settings:units="" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="tint_inactive_slider"
+        android:icon="@drawable/rr_act_open_icon"
+        android:title="@string/tint_inactive_slider"
+        android:summary="@string/tint_inactive_slider_summary"
+        android:defaultValue="false"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -119,18 +136,40 @@
         android:defaultValue="false"/>
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-        android:key="show_app_volume"
-        android:icon="@drawable/rr_app_icon"
-        android:title="@string/show_app_volume_title"
-        android:summary="@string/show_app_volume_summary"
-        android:defaultValue="false"/>
-
-    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="audio_panel_view_bt_sco"
         android:icon="@drawable/rr_bt_headset_icon"
         android:title="@string/audio_panel_view_bt_sco_title"
         android:summary="@string/audio_panel_view_bt_sco_summary"
         android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="app_button"
+        android:title="@string/rr_app_button">
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="show_app_volume"
+        android:icon="@drawable/rr_app_icon"
+        android:title="@string/show_app_volume_title"
+        android:summary="@string/show_app_volume_summary"
+        android:defaultValue="false"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="animations"
+        android:title="@string/rr_config_anim_1">
+
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="volume_panel_animation"
+        android:icon="@drawable/rr_animation_icon"
+        android:title="@string/volume_panel_animation_title"
+        android:dialogTitle="@string/volume_panel_animation_title"
+        android:entries="@array/volume_panel_animation_entries"
+        android:entryValues="@array/volume_panel_animation_values"
+        android:summary="%s"
+        android:defaultValue="11" />
 
     </PreferenceCategory>
 

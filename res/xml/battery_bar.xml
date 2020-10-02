@@ -91,6 +91,15 @@
         android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
+        android:key="battery_bar_gradient_color"
+        android:icon="@drawable/rr_custom_icon"
+        android:title="@string/battery_bar_gradient_color_title"
+        android:summary="@string/battery_bar_gradient_color_summary"
+        android:defaultValue="0xffffffff"
+        android:dependency="battery_bar_use_gradient_color" />
+
+
+    <com.android.settings.rr.Preferences.SystemSettingColorPickerPreference
         android:key="statusbar_battery_bar_charging_color"
         android:icon="@drawable/rr_bb_chargecolor_icon"
         android:title="@string/battery_bar_charging_color_title"

@@ -69,13 +69,14 @@
         android:summary="@string/show_password_summary"
         settings:controller="com.android.settings.security.ShowPasswordPreferenceController"/>
 
-    <!-- On lock screen notifications -->
-    <com.android.settings.RestrictedListPreference
-        android:key="privacy_lock_screen_notifications"
-        android:icon="@drawable/ic_privacy_lock_screen_notifications"
-        android:title="@string/lock_screen_notifications_title"
-        android:summary="@string/summary_placeholder"
-        settings:searchable="false"/>
+    <!-- Permissions hub -->
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="permissions_hub_enabled"
+        android:icon="@drawable/rr_privacy_icon"
+        android:title="@string/show_permissions_hub"
+        android:summaryOn="@string/show_permissions_hub_summary_on"
+        android:summaryOff="@string/show_permissions_hub_summary_off"
+        android:defaultValue="false" />
 
     <!-- Privacy Service -->
     <PreferenceCategory

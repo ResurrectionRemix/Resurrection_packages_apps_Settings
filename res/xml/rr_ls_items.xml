@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Copyright (C) 2018 RR
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+          http://www.apache.org/licenses/LICENSE-2.0
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
+    android:key="rr_lock_items"
+    android:title="@string/rr_lock_items_title">
+
+    <com.android.settings.rr.preview.AboutSettingsPreview
+        android:key="preview"
+        android:layout="@layout/rr_dashboard_layout"
+        android:selectable="false"/>
+
+   <Preference
+        android:key="animation"
+        android:layout="@layout/rr_lock_animation_1" />
+
+    <PreferenceCategory
+        android:title="@string/rr_ui_title">
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+       android:key="lockscreen_hide_status_bar"
+       android:icon="@drawable/rr_statusbar_icon"
+       android:title="@string/hide_lockscreen_status_bar_title"
+       android:summary="@string/hide_lockscreen_status_bar_summary"
+       android:defaultValue="false" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+       android:key="double_tap_sleep_lockscreen"
+       android:icon="@drawable/rr_doubletap_icon"
+       android:title="@string/double_tap_sleep_lockscreen_title"
+       android:summary="@string/double_tap_sleep_lockscreen_summary"
+       android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.GlobalSettingSwitchPreference
+       android:key="lockscreen_enable_qs"
+       android:icon="@drawable/rr_disabled_icon"
+       android:title="@string/lockscreen_enable_qs_title"
+       android:summary="@string/lockscreen_enable_qs_summary"
+       android:defaultValue="true" />
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="lockscreen_pulse_enabled"
+        android:icon="@drawable/rr_visualizer_icon"
+        android:title="@string/music_visualizer_title"
+        android:summary="@string/music_visualizer_summary"
+        android:defaultValue="true" />
+
+
+    <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+       android:key="lockscreen_lock_icon"
+       android:icon="@drawable/rr_lock_icon"
+       android:title="@string/lockscreen_lock_icon_title"
+       android:summary="@string/lockscreen_lock_icon_summary"
+       android:defaultValue="true" />
+
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="lockscreen_timeout"
+        android:icon="@drawable/rr_clock_icon"
+        android:title="@string/lockscreen_timeout_title"
+        android:entries="@array/screen_timeout_entries"
+        android:entryValues="@array/screen_timeout_values"
+        android:defaultValue="15000" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
+

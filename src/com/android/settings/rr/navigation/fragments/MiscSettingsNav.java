@@ -82,6 +82,10 @@ public class MiscSettingsNav extends SettingsPreferenceFragment implements Index
             @Override
             public List<String> getNonIndexableKeys(Context context) {
                 List<String> keys = super.getNonIndexableKeys(context);
+                boolean available = context.getResources().getBoolean(
+                    com.android.internal.R.bool.config_smartChargingAvailable);
+                if (!available)
+                    keys.add("rr_charge");
                 return keys;
             }
         };

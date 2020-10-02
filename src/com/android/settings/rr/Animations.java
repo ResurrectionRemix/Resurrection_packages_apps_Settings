@@ -81,6 +81,7 @@ public class Animations extends SettingsPreferenceFragment implements
     private ListPreference mListViewInterpolator;
     ListPreference mListViewTabsEffect;
     private ListPreference mScrollingCachePref;
+    private int peakRate;
 
 
     @Override
@@ -89,6 +90,7 @@ public class Animations extends SettingsPreferenceFragment implements
         addPreferencesFromResource(R.xml.rr_animations);
 
         mContext = getActivity();
+        peakRate = getResources().getInteger(com.android.internal.R.integer.config_defaultPeakRefreshRate);
         ContentResolver resolver = getActivity().getContentResolver();
         PreferenceScreen prefs = getPreferenceScreen();
         mListViewAnimation = (ListPreference) prefs.findPreference(KEY_LISTVIEW_ANIMATION);
@@ -206,7 +208,7 @@ public class Animations extends SettingsPreferenceFragment implements
             case 0:
             default:
                 Settings.System.putInt(mContext.getContentResolver(),
-                        Settings.System.PEAK_REFRESH_RATE, 90);
+                        Settings.System.PEAK_REFRESH_RATE, peakRate);
                 Settings.System.putInt(mContext.getContentResolver(),
                         Settings.System.MIN_REFRESH_RATE, 60);
                 break;
@@ -221,6 +223,11 @@ public class Animations extends SettingsPreferenceFragment implements
                         Settings.System.PEAK_REFRESH_RATE, 90);
                 Settings.System.putInt(mContext.getContentResolver(),
                         Settings.System.MIN_REFRESH_RATE, 90);
+            case 3:
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.PEAK_REFRESH_RATE, 120);
+                Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.MIN_REFRESH_RATE, 120);
                 break;
         }
         updateRefreshRateSummary(refreshRate);
@@ -231,8 +238,14 @@ public class Animations extends SettingsPreferenceFragment implements
             mRefreshRate.setSummary(R.string.refresh_rate_summary_60);
         } else if (refreshRate == 2) {
             mRefreshRate.setSummary(R.string.refresh_rate_summary_90);
+        } else if (refreshRate == 3) {
+            mRefreshRate.setSummary(R.string.refresh_rate_summary_120);
         } else {
-            mRefreshRate.setSummary(R.string.refresh_rate_summary_auto);
+            if (peakRate > 90) {
+                mRefreshRate.setSummary(R.string.refresh_rate_summary_auto_120);
+            } else {
+                mRefreshRate.setSummary(R.string.refresh_rate_summary_auto);
+            }
         }
     }
 

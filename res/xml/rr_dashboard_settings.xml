@@ -56,6 +56,16 @@
     	android:summaryOff="@string/summary_dashboard_suggestions_disabled"
     	android:defaultValue="true"/>
 
+     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
+        android:key="settings_spacer_image_searchbar"
+        android:title="@string/settings_spacer_image_searchbar_title"
+        android:icon="@drawable/rr_search_icon"
+        android:summary="@string/settings_spacer_image_searchbar_summary"
+        android:defaultValue="false" />
+        </PreferenceCategory>
+     <PreferenceCategory
+            android:key="spacer"
+            android:title="@string/rr_spacer_cat">
 
      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="settings_spacer"
@@ -73,6 +83,36 @@
         android:dependency="settings_spacer"
         android:defaultValue="0"
         android:entryValues="@array/settings_spacer_style_values" />
+
+     <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="settings_spacer_image_style"
+        android:title="@string/settings_spacer_image_style_title"
+        android:icon="@drawable/rr_style_icon"
+        android:summary="%s"
+        android:entries="@array/settings_spacer_image_style_entries"
+        android:dependency="settings_spacer"
+        android:defaultValue="0"
+        android:entryValues="@array/settings_spacer_image_style_values" />
+
+       <Preference
+           android:key="file_spacer_select"
+           android:icon="@drawable/rr_package_icon"
+           android:dependency="settings_spacer"
+           android:title="@string/file_header_select_title"
+           android:summary="@string/file_spacer_select_summary_fill"
+           android:persistent="false" >
+       </Preference>
+
+     <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="settings_spacer_image_crop"
+        android:title="@string/settings_spacer_image_crop_title"
+        android:dialogTitle="@string/settings_spacer_image_crop_title"
+        android:icon="@drawable/rr_screenshot_icon"
+        android:entries="@array/settings_spacer_image_crop_entries"
+        android:entryValues="@array/settings_spacer_image_crop_values"
+        android:dependency="settings_spacer"
+        android:summary="%s"
+        android:defaultValue="1" />
 
      <com.android.settings.rr.Preferences.SystemSettingListPreference
         android:key="settings_spacer_font_style"

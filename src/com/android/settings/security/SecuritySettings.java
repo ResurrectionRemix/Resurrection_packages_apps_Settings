@@ -32,6 +32,7 @@ import com.android.settings.enterprise.EnterprisePrivacyPreferenceController;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settings.security.trustagent.ManageTrustAgentsPreferenceController;
 import com.android.settings.security.trustagent.TrustAgentListPreferenceController;
+import com.android.settings.security.applock.AppLockPreferenceController;
 import com.android.settings.widget.PreferenceCategoryController;
 import com.android.settingslib.core.AbstractPreferenceController;
 import com.android.settingslib.core.lifecycle.Lifecycle;
@@ -116,6 +117,7 @@ public class SecuritySettings extends DashboardFragment {
         securityPreferenceControllers.add(new FaceStatusPreferenceController(context, lifecycle));
         securityPreferenceControllers.add(new FingerprintStatusPreferenceController(context));
         securityPreferenceControllers.add(new ChangeScreenLockPreferenceController(context, host));
+        securityPreferenceControllers.add(new AppLockPreferenceController(context));
         controllers.add(new PreferenceCategoryController(context, SECURITY_CATEGORY)
                 .setChildren(securityPreferenceControllers));
         controllers.addAll(securityPreferenceControllers);

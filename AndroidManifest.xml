@@ -450,6 +450,19 @@
                        android:value="com.android.settings.biometrics.fingerprint.FingerprintSettings$FingerprintSettingsFragment" />
         </activity>
 
+        <activity android:name="Settings$AppLockSettingsActivity"
+                  android:label="@string/applock_title"
+                  android:icon="@drawable/ic_fingerprint_header">
+            <intent-filter>
+                <action android:name="android.settings.APPLOCK_SETTINGS" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                       android:value="com.android.settings.security.applock.AppLockSettings$AppLockSettingsFragment" />
+        </activity>
+
+        <activity android:name=".security.applock.AppLockSettings" android:exported="false"/>
+
         <activity android:name=".bluetooth.DevicePickerActivity"
                 android:label="@string/device_picker"
                 android:configChanges="orientation|keyboardHidden|screenSize"

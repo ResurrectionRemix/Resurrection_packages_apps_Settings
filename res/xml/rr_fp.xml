@@ -72,34 +72,18 @@
                 android:dependency="fod_recognizing_animation" />
 
             <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-                android:key="fod_anim_lockscreen"
-                android:icon="@drawable/rr_lock_icon"
-                android:title="@string/fod_anim_lockscreen_title"
-                android:summary="@string/fod_anim_lockscreen_summary"
-                android:dependency="fod_recognizing_animation" 
-                android:defaultValue="false" />
-
-            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
                 android:key="fod_icon_wallpaper_color"
                 android:icon="@drawable/rr_screenshot_icon"
                 android:title="@string/fod_wallpaper_color"
                 android:summary="@string/fod_wallpaper_color_summary"
                 android:defaultValue="false" />
 
-            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-                android:key="fod_bright_icon"
-                android:icon="@drawable/rr_brightness_icon"
-                android:title="@string/fod_bright_icon_title"
-                android:summary="@string/fod_bright_icon_summary"
-                android:defaultValue="false" />
-
-            <!-- FOD recognizing animation -->
-            <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
-                android:key="fod_night_light"
-                android:icon="@drawable/rr_condition_icon"
-                android:title="@string/fod_night_light_title"
-                android:summary="@string/fod_night_light_summary"
-                android:defaultValue="@*android:bool/disable_fod_night_light"  />
+            <Preference
+                android:key="fod_exp"
+                android:icon="@drawable/rr_exp_icon"
+                android:summary="@string/fod_experimental_summary"
+                android:fragment="com.android.settings.rr.fragments.FODExperimental"
+                android:title="@string/fod_experimental_title"/>
 
     </PreferenceCategory>
 

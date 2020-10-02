@@ -46,7 +46,7 @@ import java.util.List;
 import lineageos.preference.LineageSystemSettingSwitchPreference;
 import com.android.settings.gestures.SystemNavigationPreferenceController;
 import android.provider.Settings;
-
+import android.view.ViewConfiguration;
 
 @SearchIndexable
 public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
@@ -61,6 +61,7 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     private static final String KEY_ASPECT_RATIO_APPS_LIST = "aspect_ratio_apps_list";
     private static final String KEY_ASPECT_RATIO_CATEGORY = "aspect_ratio_category";
     private static final String KEY_ASPECT_RATIO_APPS_LIST_SCROLLER = "aspect_ratio_apps_list_scroller";
+    private static final String KEY_SCREENSHOT_DELAY = "screenshot_delay";
 
     private SystemSettingSwitchPreference mAod;
     private SystemSettingSwitchPreference mPixel;
@@ -68,6 +69,8 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     private LineageSystemSettingSwitchPreference mHighTouch;
     private AppMultiSelectListPreference mAspectRatioAppsSelect;
     private ScrollAppsViewPreference mAspectRatioApps;
+    private CustomSeekBarPreference mScreenshotDelay;
+
 
     @Override
     public int getMetricsCategory() {
@@ -95,6 +98,10 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         } else {
             mPixel.setEnabled(true);
         }
+
+        mScreenshotDelay = (CustomSeekBarPreference) findPreference(KEY_SCREENSHOT_DELAY);
+        int delay = (int) ViewConfiguration.get(getActivity()).getScreenshotChordKeyTimeout();
+        mScreenshotDelay.setDefaultValue(delay);
 
         boolean hasAlertSlider = getContext().getResources().getBoolean(
                 com.android.internal.R.bool.config_hasAlertSlider);

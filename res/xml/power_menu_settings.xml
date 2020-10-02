@@ -210,4 +210,20 @@
         android:defaultValue="true" />
      </PreferenceCategory>
 
+     <PreferenceCategory
+        android:key="screenshot"
+        android:dependency="screenshot_in_power_menu"
+        android:title="@string/power_global_actions_screenshot">
+
+    <com.android.settings.rr.Preferences.SystemSettingSeekBarPreference
+        android:key="global_screenshot_delay"
+        android:title="@string/screenshot_delay_global_title"
+        android:icon="@drawable/rr_clock_icon"
+        android:max="10"
+        android:min="0"
+        settings:units="sec"
+        android:defaultValue="0"/>
+     </PreferenceCategory>
+
+
 </PreferenceScreen>
