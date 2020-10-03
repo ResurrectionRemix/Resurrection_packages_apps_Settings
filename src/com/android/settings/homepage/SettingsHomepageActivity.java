@@ -333,7 +333,7 @@ public class SettingsHomepageActivity extends FragmentActivity {
                 output.write(buffer, 0, read);
             }
             output.flush();
-        } catch (IOException e) {
+        } catch (Exception e) {
         }
     }
 
