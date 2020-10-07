@@ -34,7 +34,7 @@
         android:title="@string/lockscreen_weather_title"
         android:icon="@drawable/rr_weather_main_icon"
         android:summary="@string/lockscreen_weather_summary"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
 
     <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="lockscreen_weather_style"
@@ -42,7 +42,7 @@
         android:summary="@string/lock_screen_weather_style_summary"
         android:icon="@drawable/rr_styles_icon"
         android:dependency="lockscreen_weather_enabled"
-        android:defaultValue="false" />
+        android:defaultValue="true" />
 
     <Preference
         android:title="@string/weather_prefs"
