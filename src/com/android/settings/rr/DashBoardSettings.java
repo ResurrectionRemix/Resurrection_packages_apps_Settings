@@ -110,6 +110,7 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         mSearchbarImage = (SystemSettingSwitchPreference) findPreference(SEARCHBAR);
 
         mAnim = (ListPreference) findPreference(ANIMATION);
+        mAnim.setOnPreferenceChangeListener(this);
         int style = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.SETTINGS_SPACER_STYLE, 0);
         mHomeStyle = (ListPreference) findPreference(STYLE);
@@ -173,7 +174,26 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
              int value = Integer.parseInt((String) objValue);
              updateSummaries(value);
             return true;
-         } 
+         }  else if (preference == mAnim) {
+             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+             alertDialog.setTitle(getString(R.string.rr_dashboard_ui));
+             alertDialog.setMessage(getString(R.string.rr_tools_message));
+             alertDialog.setButton(getString(R.string.rr_reset_yes), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                               Intent fabIntent = new Intent();
+                               fabIntent.setClassName("com.android.settings", 
+                                     "com.android.settings.Settings$MainSettingsLayoutActivity");
+                                startActivity(fabIntent);
+                       }
+                    });
+              alertDialog.setButton(Dialog.BUTTON_NEGATIVE ,getString(R.string.rr_reset_cancel), new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                            return;
+                         }
+                  });
+             alertDialog.show();
+            return true;
+         }
         return false;
     }
 
