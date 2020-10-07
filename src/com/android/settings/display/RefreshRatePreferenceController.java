@@ -56,8 +56,10 @@ public class RefreshRatePreferenceController extends AbstractPreferenceControlle
             return;
         }
         mRefreshRate = (ListPreference) screen.findPreference(KEY_REFRESH_RATE);
+        int defVarRateSetting = mContext.getResources().getInteger(
+                 com.android.internal.R.integer.config_defaultVariableRefreshRateSetting);
         int refreshRate = Settings.Global.getInt(mContext.getContentResolver(),
-                Settings.Global.REFRESH_RATE_SETTING, 0);
+                Settings.Global.REFRESH_RATE_SETTING, defVarRateSetting);
         mRefreshRate.setValue(String.valueOf(refreshRate));
         mRefreshRate.setOnPreferenceChangeListener(this);
         updateRefreshRate(refreshRate);

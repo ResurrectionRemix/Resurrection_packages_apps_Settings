@@ -128,7 +128,7 @@ public class SettingsHomepageActivity extends FragmentActivity {
     }
 
     private void recreateSpacer() {
-       homepageSpacer = findViewById(R.id.settings_homepage_spacer);
+        homepageSpacer = findViewById(R.id.settings_homepage_spacer);
         homepageMainLayout = findViewById(R.id.main_content_scrollable_container);
         LottieAnimationView view = homepageSpacer.findViewById(R.id.home_animation);
         TextView tv = homepageSpacer.findViewById(R.id.spacer_text);
@@ -138,6 +138,7 @@ public class SettingsHomepageActivity extends FragmentActivity {
         Drawable rrDrawable = context.getDrawable(R.drawable.rr_spacer_main_icon);
         Drawable rrDrawable2 = context.getDrawable(R.drawable.rr_main_conf_shortcut_icon_primay);
         Drawable rrDrawable3 = context.getDrawable(R.drawable.rr_main_conf_shortcut_icon);
+        final int spacermargin = getResources().getDimensionPixelSize(R.dimen.homepage_spacer_height);
 
         try {
             RRFontHelper.setFontType(tv, getFontStyle());
@@ -261,6 +262,9 @@ public class SettingsHomepageActivity extends FragmentActivity {
         if (!isHomepageSpacerEnabled() && homepageSpacer != null && homepageMainLayout != null) {
             homepageSpacer.setVisibility(View.GONE);
             setMargins(homepageMainLayout, 0,0,0,0);
+        } else if  (isHomepageSpacerEnabled() && homepageSpacer != null && homepageMainLayout != null) {
+            homepageSpacer.setVisibility(View.VISIBLE);
+            setMargins(homepageMainLayout, 0,spacermargin,0,0);
         }
     }
 

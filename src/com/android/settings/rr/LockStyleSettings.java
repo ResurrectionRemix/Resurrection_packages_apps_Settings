@@ -222,6 +222,12 @@ public class LockStyleSettings extends DashboardFragment implements
         boolean clock6 = currentClock == null ? false : (currentClock.contains("MNMLMinimalClockController"));
         boolean clock7 = currentClock == null ? false : (currentClock.contains("DividedLinesClockController"));
         boolean clock8 = currentClock == null ? false : (currentClock.contains("SfunyClockController"));
+        if (currentClock == null) {
+            mClockCat.setVisible(true);
+            mTypeCat.setVisible(false);
+            mAnalogCat.setVisible(false);
+            return;
+        }
 
         if (type1 || type2 || type3 || type4) {
             mClockCat.setVisible(false);
