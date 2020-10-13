@@ -24,6 +24,7 @@ import android.provider.Settings;
 public class VolumeSkipTrackPreferenceController extends GesturePreferenceController {
 
     private final String SYSTEM_KEY = VOLUME_BUTTON_MUSIC_CONTROL;
+    private static final String PREF_KEY_VIDEO = "volume_button_music_control_video";
     static final int ON = 1;
     static final int OFF = 0;
 
@@ -38,7 +39,7 @@ public class VolumeSkipTrackPreferenceController extends GesturePreferenceContro
 
     @Override
     protected String getVideoPrefKey() {
-        return "volume_skiptrack_video"; //null for now
+        return PREF_KEY_VIDEO;
     }
 
     @Override
