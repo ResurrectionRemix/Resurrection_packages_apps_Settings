@@ -78,6 +78,14 @@
         android:summaryOff="@string/show_permissions_hub_summary_off"
         android:defaultValue="false" />
 
+    <!-- On lock screen notifications -->
+    <com.android.settings.RestrictedListPreference
+        android:key="privacy_lock_screen_notifications"
+        android:icon="@drawable/rr_lock_icon"
+        android:title="@string/lock_screen_notifications_title"
+        android:summary="@string/summary_placeholder"
+        settings:searchable="false"/>
+
     <!-- Privacy Service -->
     <PreferenceCategory
         android:key="privacy_services"
