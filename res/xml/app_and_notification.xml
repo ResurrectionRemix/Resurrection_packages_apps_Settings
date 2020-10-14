@@ -54,10 +54,12 @@
     <!-- Notifications (appears before manage_perms), default apps (appears after) -->
     <PreferenceCategory
         android:key="dashboard_tile_placeholder"
+        android:icon="@drawable/rr_notif_3_icon"
         android:order="10"/>
 
     <Preference
         android:key="default_apps"
+        android:icon="@drawable/rr_app_icon"
         android:title="@string/app_default_dashboard_title"
         android:order="11"
         settings:controller="com.android.settings.applications.DefaultAppsPreferenceController">
@@ -66,6 +68,7 @@
 
     <Preference
         android:key="manage_perms"
+        android:icon="@drawable/rr_security_icon"
         android:title="@string/app_permissions"
         android:order="12"
         settings:keywords="@string/keywords_app_permissions"
@@ -75,6 +78,7 @@
 
     <com.android.settingslib.RestrictedPreference
         android:key="app_and_notif_cell_broadcast_settings"
+        android:icon="@drawable/rr_emergency_info"
         android:title="@string/cell_broadcast_settings"
         android:order="15"
         settings:useAdminDisabledSummary="true">
@@ -86,6 +90,7 @@
 
     <Preference
         android:key="special_access"
+        android:icon="@drawable/rr_custom_icon"
         android:fragment="com.android.settings.applications.specialaccess.SpecialAccessSettings"
         android:title="@string/special_access"
         android:order="20"

@@ -45,18 +45,21 @@
 
         <com.android.settings.widget.GearPreference
             android:key="unlock_set_or_change"
+            android:icon="@drawable/rr_lock_icon"
             android:title="@string/unlock_set_unlock_launch_picker_title"
             android:summary="@string/summary_placeholder"
             settings:keywords="@string/keywords_lockscreen" />
 
         <Preference
             android:key="fingerprint_settings"
+            android:icon="@drawable/rr_fingerprint_icon"
             android:title="@string/security_settings_fingerprint_preference_title"
             android:summary="@string/summary_placeholder"
             settings:keywords="@string/keywords_fingerprint_settings" />
 
         <Preference
             android:key="face_settings"
+            android:icon="@drawable/rr_face_icon"
             android:title="@string/security_settings_face_preference_title"
             android:summary="@string/summary_placeholder"
             settings:keywords="@string/keywords_face_settings" />
@@ -64,6 +67,7 @@
         <Preference
             android:key="app_lock_settings"
             android:title="@string/applock_title"
+            android:icon="@drawable/rr_app_icon"
             android:summary="@string/summary_placeholder"
             settings:keywords="@string/keywords_face_settings" />
     </PreferenceCategory>
@@ -77,29 +81,33 @@
         <!-- security_settings_unification -->
         <com.android.settingslib.RestrictedSwitchPreference
             android:key="unification"
+            android:icon="@drawable/rr_notif_3_icon"
             android:title="@string/lock_settings_profile_unification_title"
             android:summary="@string/lock_settings_profile_unification_summary"
             settings:keywords="@string/keywords_unification" />
 
         <com.android.settingslib.RestrictedPreference
             android:key="unlock_set_or_change_profile"
+            android:icon="@drawable/rr_notif_3_icon"
             android:title="@string/unlock_set_unlock_launch_picker_title_profile"
             android:summary="@string/unlock_set_unlock_mode_pattern"
             settings:keywords="@string/keywords_lockscreen" />
 
         <SwitchPreference
             android:key="visiblepattern_profile"
-            android:summary="@string/summary_placeholder"
+            android:icon="@drawable/rr_profiles_icon"
             android:title="@string/lockpattern_settings_enable_visible_pattern_title_profile"
             settings:controller="com.android.settings.security.VisiblePatternProfilePreferenceController" />
 
         <Preference
             android:key="fingerprint_settings_profile"
+            android:icon="@drawable/rr_fingerprint_icon"
             android:title="@string/security_settings_fingerprint_preference_title"
             android:summary="@string/summary_placeholder" />
 
         <Preference
             android:key="face_settings_profile"
+            android:icon="@drawable/rr_face_icon"
             android:title="@string/security_settings_face_preference_title"
             android:summary="@string/summary_placeholder" />
 
@@ -114,6 +122,7 @@
             android:key="manage_device_admin"
             android:title="@string/manage_device_admin"
             android:summary="@string/summary_placeholder"
+            android:icon="@drawable/rr_security_icon"
             android:fragment="com.android.settings.applications.specialaccess.deviceadmin.DeviceAdminSettings"
             settings:controller="com.android.settings.enterprise.ManageDeviceAdminPreferenceController" />
 
@@ -121,6 +130,7 @@
             android:key="enterprise_privacy"
             android:title="@string/enterprise_privacy_settings"
             android:summary="@string/summary_placeholder"
+            android:icon="@drawable/rr_privacy_icon"
             android:fragment="com.android.settings.enterprise.EnterprisePrivacySettings" />
 
     </PreferenceCategory>
@@ -128,6 +138,7 @@
     <Preference
         android:order="50"
         android:key="sim_lock_settings"
+        android:icon="@drawable/rr_sim_icon"
         android:title="@string/sim_lock_settings_category">
 
         <intent
@@ -140,6 +151,7 @@
     <Preference
         android:order="60"
         android:key="encryption_and_credential"
+        android:icon="@drawable/rr_lockdown_icon"
         android:title="@string/encryption_and_credential_settings_title"
         android:summary="@string/encryption_and_credential_settings_summary"
         android:fragment="com.android.settings.security.EncryptionAndCredential" />
@@ -147,6 +159,7 @@
     <Preference
         android:order="70"
         android:key="manage_trust_agents"
+        android:icon="@drawable/rr_security_icon"
         android:title="@string/manage_trust_agents"
         android:summary="@string/summary_placeholder"
         android:fragment="com.android.settings.security.trustagent.TrustAgentSettings" />
@@ -154,6 +167,7 @@
     <Preference
         android:order="80"
         android:key="screen_pinning_settings"
+        android:icon="@drawable/rr_pin_icon"
         android:title="@string/screen_pinning_title"
         android:summary="@string/summary_placeholder"
         android:fragment="com.android.settings.security.ScreenPinningSettings" />

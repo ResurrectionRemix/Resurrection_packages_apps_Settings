@@ -22,6 +22,7 @@
 
     <Preference
         android:key="battery_saver_schedule"
+        android:icon="@drawable/rr_clock_icon"
         android:fragment="com.android.settings.fuelgauge.batterysaver.BatterySaverScheduleSettings"
         android:title="@string/battery_saver_schedule_settings_title"
         settings:keywords="@string/keywords_battery_saver_schedule"
@@ -31,12 +32,14 @@
         android:key="battery_saver_sticky"
         android:title="@string/battery_saver_sticky_title_new"
         android:summary="@string/summary_placeholder"
+        android:icon="@drawable/rr_battery_3_icon"
         settings:keywords="@string/keywords_battery_saver_sticky"
         settings:controller="com.android.settings.fuelgauge.batterysaver.BatterySaverStickyPreferenceController"/>
 
     <com.android.settings.widget.TwoStateButtonPreference
         android:key="battery_saver"
         android:title="@string/battery_saver"
+        android:icon="@drawable/rr_battery_saver_icon"
         android:selectable="false"
         android:summary="@string/battery_saver_turn_on_summary"
         settings:textOn="@string/battery_saver_button_turn_on"

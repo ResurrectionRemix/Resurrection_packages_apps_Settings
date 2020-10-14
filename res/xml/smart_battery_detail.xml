@@ -25,6 +25,7 @@
     <com.android.settings.widget.VideoPreference
         android:key="auto_awesome_battery"
         android:title="@string/summary_placeholder"
+        android:icon="@drawable/rr_autoenable_icon"
         settings:animation="@raw/auto_awesome_battery"
         settings:preview="@drawable/auto_awesome_battery"
         settings:controller="com.android.settings.widget.VideoPreferenceController"/>
@@ -32,18 +33,21 @@
     <SwitchPreference
         android:key="smart_battery"
         android:title="@string/smart_battery_title"
+        android:icon="@drawable/rr_charging_icon"
         android:summary="@string/smart_battery_summary"
         settings:controller="com.android.settings.fuelgauge.SmartBatteryPreferenceController"
         settings:allowDividerAbove="true"/>
 
     <SwitchPreference
         android:key="auto_restriction"
+        android:icon="@drawable/rr_battery_tweaks_icon"
         android:title="@string/battery_auto_restriction_title"
         android:summary="@string/battery_auto_restriction_summary"
         settings:controller="com.android.settings.fuelgauge.AutoRestrictionPreferenceController"/>
 
     <Preference
         android:key="restricted_app"
+        android:icon="@drawable/rr_app_icon"
         android:title="@string/restricted_app_title"/>
 
 </PreferenceScreen>
