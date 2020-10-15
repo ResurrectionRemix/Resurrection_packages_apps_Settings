@@ -148,15 +148,62 @@
 
     <PreferenceCategory
         android:title="@string/rr_icons_base">
+
+    <Preference
+        android:icon="@drawable/rr_help_icon"
+        android:summary="@string/rr_adaptive_icon_text" />
+
     <ListPreference
         android:key="android.theme.customization.adaptive_icon_shape"
         android:icon="@drawable/rr_shape_icon"
         android:title="@string/theme_customization_icon_shape_title"/>
 
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/rr_sb_icons_base">
+
+    <Preference
+        android:icon="@drawable/rr_help_icon"
+        android:summary="@string/rr_statusbar_icon_text" />
+
     <ListPreference
         android:key="android.theme.customization.icon_pack.android"
         android:icon="@drawable/rr_statusbar_icons_icon"
         android:title="@string/theme_customization_sysui_icon_title"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_systemui_icons_base">
+
+    <Preference
+        android:icon="@drawable/rr_help_icon"
+        android:summary="@string/rr_systemui_icon_text" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="systemui_icon_pack"
+        android:title="@string/theme_customization_sysui_2_icon_title"
+        android:summary="%s"
+        android:icon="@drawable/rr_systemui_icon"
+        android:dialogTitle="@string/theme_customization_sysui_2_icon_title"
+        android:entries="@array/system_icon_pack_entries"
+        android:entryValues="@array/system_icon_pack_values"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/rr_settings_icons_base">
+
+    <Preference
+        android:icon="@drawable/rr_help_icon"
+        android:summary="@string/rr_settings_icon_text" />
+
+    <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="settings_icon_pack"
+        android:title="@string/theme_customization_settings_icon_title"
+        android:summary="%s"
+        android:icon="@drawable/rr_system_icon"
+        android:dialogTitle="@string/theme_customization_settings_icon_title"
+        android:entries="@array/system_icon_pack_entries"
+        android:entryValues="@array/system_icon_pack_values"/>
 
     <ListPreference
         android:key="android.theme.customization.rr_tools_icon"
