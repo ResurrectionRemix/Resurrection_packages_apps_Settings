@@ -73,6 +73,7 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
     private ScrollAppsViewPreference mAspectRatioApps;
     private CustomSeekBarPreference mScreenshotDelay;
     private PreferenceCategory mDisplay;
+    private int mScreenshotChordKeyTimeout;
 
 
     @Override
@@ -108,10 +109,10 @@ public class MiscInterfaceSettings extends SettingsPreferenceFragment implements
         } else {
             mPixel.setEnabled(true);
         }
-
+        mScreenshotChordKeyTimeout = getContext().getResources().getInteger(
+                com.android.internal.R.integer.config_screenshotChordKeyTimeout);
         mScreenshotDelay = (CustomSeekBarPreference) findPreference(KEY_SCREENSHOT_DELAY);
-        int delay = (int) ViewConfiguration.get(getActivity()).getScreenshotChordKeyTimeout();
-        mScreenshotDelay.setDefaultValue(delay);
+        mScreenshotDelay.setDefaultValue(mScreenshotChordKeyTimeout);
 
         boolean hasAlertSlider = getContext().getResources().getBoolean(
                 com.android.internal.R.bool.config_hasAlertSlider);
