@@ -45,6 +45,7 @@ import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.os.ServiceManager;
 import android.os.Process;
+import android.os.PowerManager;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settings.rr.Preferences.*;
 import com.android.settings.R;
@@ -101,6 +102,7 @@ public class ThemeSettings extends DashboardFragment implements
     private Runnable mCallback;
     private ListPreference mQsTileStyle;
     private PreferenceCategory mNavStyle;
+    PowerManager mPowerManager;
 
     private Preference mAnim;
     private AboutSettingsPreview mStatic;
@@ -123,6 +125,7 @@ public class ThemeSettings extends DashboardFragment implements
         mRRbg = (ListPreference) findPreference(KEY_RR_BG);
         mThemeSwitch.setOnPreferenceChangeListener(this);
         mDarkModeObserver = new DarkModeObserver(mContext);
+        mPowerManager = mContext.getSystemService(PowerManager.class);
         int systemTheme = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.SYSTEM_THEME, 0, UserHandle.USER_CURRENT);
         int valueIndex = mThemeSwitch.findIndexOfValue(String.valueOf(systemTheme));
@@ -147,6 +150,7 @@ public class ThemeSettings extends DashboardFragment implements
         mCallback = () -> {
             final boolean active = (getContext().getResources().getConfiguration().uiMode
                     & Configuration.UI_MODE_NIGHT_YES) != 0;
+            final boolean batterySaver = mPowerManager.isPowerSaveMode();
             if (active) {
                 mThemeSwitch.setEnabled(true);
             } else {
