@@ -23,14 +23,14 @@
         android:layout="@layout/rr_dashboard_layout"
         android:selectable="false"/>
 
- <Preference
+    <Preference
         android:key="animation"
         android:layout="@layout/rr_dashboard_animation" />
 
 
-         <PreferenceCategory
-            android:key="dashboard_category"
-            android:title="@string/dashboard_category">
+     <PreferenceCategory
+        android:key="dashboard_category"
+        android:title="@string/dashboard_category">
 
     <com.android.settings.rr.Preferences.SystemSettingIntListPreference
         android:key="theming_settings_dashboard_icons"
@@ -55,6 +55,12 @@
     	android:summaryOn="@string/summary_dashboard_suggestions_enabled"
     	android:summaryOff="@string/summary_dashboard_suggestions_disabled"
     	android:defaultValue="true"/>
+        </PreferenceCategory>
+
+     <PreferenceCategory
+        android:key="dashboard_category_search"
+        android:title="@string/dashboard_category_search">
+
 
      <com.android.settings.rr.Preferences.SystemSettingSwitchPreference
         android:key="settings_spacer_image_searchbar"
@@ -62,6 +68,26 @@
         android:icon="@drawable/rr_search_icon"
         android:summary="@string/settings_spacer_image_searchbar_summary"
         android:defaultValue="false" />
+
+     <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="settings_searchbar_radius"
+        android:title="@string/settings_searchbar_radius"
+        android:icon="@drawable/rr_radius_3_icon"
+        android:summary="%s"
+        android:entries="@array/searchbar_radius_entries"
+        android:defaultValue="0"
+        android:entryValues="@array/searchbar_radius_values" />
+
+
+     <com.android.settings.rr.Preferences.SystemSettingListPreference
+        android:key="settings_searchbar_color"
+        android:title="@string/settings_searchbar_color"
+        android:icon="@drawable/rr_color_icon"
+        android:summary="%s"
+        android:entries="@array/searchbar_color_entries"
+        android:defaultValue="0"
+        android:entryValues="@array/searchbar_color_values" />
+
         </PreferenceCategory>
      <PreferenceCategory
             android:key="spacer"
