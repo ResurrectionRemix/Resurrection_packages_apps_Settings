@@ -50,9 +50,13 @@
         android:icon="@drawable/rr_styles_icon"
         android:persistent="false"
         android:dialogTitle="@string/theme_type_summary"
-        android:dependency="dark_ui_mode"
         android:entries="@array/theme_type_titles"
         android:entryValues="@array/theme_type_values"/>
+
+    <Preference
+        android:icon="@drawable/rr_help_icon"
+        android:key="dark_ui_text"
+        android:summary="@string/rr_dark_theme_text" />
 
     </PreferenceCategory>
 

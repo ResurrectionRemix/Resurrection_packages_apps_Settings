@@ -86,6 +86,7 @@ public class ThemeSettings extends DashboardFragment implements
     private static final String STATIC = "preview";
     private static final String NAV_STYLE = "navbar_base";
     private static final String QS_TILE_STYLE = "qs_tile_style";
+    private static final String DARK_TEXT = "dark_ui_text";
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -95,6 +96,7 @@ public class ThemeSettings extends DashboardFragment implements
     private ListPreference mHeaderStyle;
     private ListPreference mRRbg;
     private Preference mReset;
+    private Preference mDarkUIText;
     protected Context mContext;
     private Preference mAccent;
     private boolean mEnabled;
@@ -123,6 +125,7 @@ public class ThemeSettings extends DashboardFragment implements
         mNavStyle = (PreferenceCategory) findPreference(NAV_STYLE);
         PreferenceScreen screen = getPreferenceScreen();
         mRRbg = (ListPreference) findPreference(KEY_RR_BG);
+        mDarkUIText = (Preference) findPreference(DARK_TEXT);
         mThemeSwitch.setOnPreferenceChangeListener(this);
         mDarkModeObserver = new DarkModeObserver(mContext);
         mPowerManager = mContext.getSystemService(PowerManager.class);
@@ -146,15 +149,17 @@ public class ThemeSettings extends DashboardFragment implements
             || SystemNavigationPreferenceController.isSwipeUpEnabled(mContext)) {
             mNavStyle.setVisible(false);
         }
+        boolean batterySaver = mPowerManager.isPowerSaveMode();
 
         mCallback = () -> {
             final boolean active = (getContext().getResources().getConfiguration().uiMode
                     & Configuration.UI_MODE_NIGHT_YES) != 0;
-            final boolean batterySaver = mPowerManager.isPowerSaveMode();
-            if (active) {
+            if (active || batterySaver) {
                 mThemeSwitch.setEnabled(true);
+                mDarkUIText.setEnabled(true);
             } else {
                 mThemeSwitch.setEnabled(false);
+                mDarkUIText.setEnabled(false);
                 mThemeSwitch.setSummary(R.string.dark_ui_warning);
             }
         };
@@ -163,7 +168,7 @@ public class ThemeSettings extends DashboardFragment implements
         mStatic = (AboutSettingsPreview) findPreference(STATIC);
         boolean enabled = Settings.System.getInt(getContext().getContentResolver(),
                 Settings.System.QS_HIDE_GRADIENT, 0) == 1;
-        if (enabled) {
+        if (enabled || batterySaver) {
             mHeaderStyle.setEnabled(false);
             mHeaderStyle.setSummary(R.string.gardient_enabled_summary);
         }
