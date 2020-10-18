@@ -482,6 +482,8 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
 
     public void stockitems() {
         ContentResolver resolver = getActivity().getContentResolver();
+        int screenshotChordKeyTimeout = getContext().getResources().getInteger(
+                com.android.internal.R.integer.config_screenshotChordKeyTimeout);
         Settings.System.putIntForUser(resolver,
                 Settings.System.SMART_PIXELS_ENABLE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
@@ -607,10 +609,12 @@ public class MainSettingsLayout extends SettingsPreferenceFragment {
                 Settings.System.ACCENT_COLOR, DEFAULT_ACCENT_COLOR,
                 UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
-                Settings.System.STATUS_BAR_CUSTOM_HEADER_HEIGHT, 5, UserHandle.USER_CURRENT);
+                Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER, 0, UserHandle.USER_CURRENT);
+        Settings.System.putIntForUser(resolver,
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_HEIGHT, 25, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.SCREENSHOT_DELAY,
-                (int) ViewConfiguration.get(mContext).getScreenshotChordKeyTimeout(), UserHandle.USER_CURRENT);
+                screenshotChordKeyTimeout, UserHandle.USER_CURRENT);
         CutoutSettings.reset(mContext);
     }
 
