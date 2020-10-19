@@ -134,6 +134,8 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
     private boolean mIsRGB;
     private boolean mIsImage;
     private boolean TintGradEnabled = false;
+    private int mDefaultGradientColor;
+    private int mDefaultAccentColor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -206,11 +208,25 @@ public class QSMainSettings extends SettingsPreferenceFragment implements
         mTileGradient = (SystemSettingSwitchPreference) findPreference(GRAD_TILE);
         mTileGradient.setOnPreferenceChangeListener(this);
         mInactiveTile = (SystemSettingSwitchPreference) findPreference(TILE_INACTIVE);
-        if (qsTileStyle == 0) { 
+        mDefaultAccentColor = getResources().getColor(
+                       com.android.internal.R.color.accent_device_default_light);
+        mDefaultGradientColor = getResources().getColor(
+                       com.android.internal.R.color.gradient_device_default);
+        int accentColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.ACCENT_COLOR, mDefaultGradientColor, UserHandle.USER_CURRENT);
+
+        int gradientColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.GRADIENT_COLOR_PROP, mDefaultGradientColor, UserHandle.USER_CURRENT);
+        boolean isSameColor = accentColor == gradientColor;
+        if (qsTileStyle == 0 && !isSameColor) { 
             mTileGradient.setEnabled(true);
         } else {
             mTileGradient.setEnabled(false);
-            mTileGradient.setSummary(R.string.qs_themes_warning);
+            if (isSameColor) {
+                mTileGradient.setSummary(R.string.qs_tile_grad_warning);
+            } else {
+                mTileGradient.setSummary(R.string.qs_themes_warning);
+            }
         }
         mFooterString = (SystemSettingEditTextPreference) findPreference(RR_FOOTER_TEXT_STRING);
         mFooterString.setOnPreferenceChangeListener(this);
