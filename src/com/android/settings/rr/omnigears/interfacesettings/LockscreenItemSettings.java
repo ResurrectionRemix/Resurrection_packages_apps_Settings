@@ -36,7 +36,7 @@ import com.android.settings.rr.Preferences.*;
 import com.android.settings.rr.utils.RRUtils;
 import com.android.settings.search.Indexable.SearchIndexProvider;
 import android.provider.SearchIndexableResource;
-
+import android.os.UserHandle;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ArrayList;
@@ -48,11 +48,15 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     static final String WEATHER_CAT = "weather";
     private static final String POSITION = "lockscreen_weather_alignment";
     private static final String WEATHER_PADDING = "lockscreen_weather_padding";
+    private static final String STYLE = "lockscreen_weather_selection";
 
     private SystemSettingListPreference mPos;
+    private SystemSettingListPreference mStyle;
     private SystemSettingSeekBarPreference mPadding;
     private PreferenceCategory mWeather;
     private SystemSettingSwitchPreference mWeatherStyle;
+    private int mDefaultGradientColor;
+    private int mDefaultAccentColor;
 
     @Override
     public int getMetricsCategory() {
@@ -77,6 +81,27 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
         updatePaddingPref(position);
         boolean customface1 = currentClock == null ? false : (currentClock.contains("MNMLBoxClockController"));
         boolean customface2 = currentClock == null ? false : (currentClock.contains("DividedLinesClockController"));
+        int accentColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.ACCENT_COLOR, mDefaultGradientColor, UserHandle.USER_CURRENT);
+
+        int gradientColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.GRADIENT_COLOR_PROP, mDefaultGradientColor, UserHandle.USER_CURRENT);
+        String[] defaultgrad = getResources().getStringArray(
+                R.array.lockscreen_date_selection_entries);
+        String[] defaultgradentries = getResources().getStringArray(
+                R.array.lockscreen_date_selection_values);
+        String[] systementries = getResources().getStringArray(
+                R.array.lockscreen_date_selection2_entries);
+        String[] systemvalues = getResources().getStringArray(
+                R.array.lockscreen_date_selection2_values);
+        mStyle = (SystemSettingListPreference) findPreference(STYLE);
+        if (accentColor == gradientColor) {
+            mStyle.setEntries(systementries);
+            mStyle.setEntryValues(systemvalues);
+        } else {
+            mStyle.setEntries(defaultgrad);
+            mStyle.setEntryValues(defaultgradentries);
+        }
         if (!isDateEnabled() || customface1 || customface2) {
             mWeatherStyle.setEnabled(false);
             if (customface1)

@@ -72,10 +72,12 @@ public class LockStyleSettings extends DashboardFragment implements
     private static final String ANALOG_CAT = "ls_analog";
     private static final String OWNER_INFO = "lock_ownerinfo_fonts";
     private static final String OWNER_INFO_SIZE = "lockowner_font_size";
+    private static final String DATE_STYLE = "lockscreen_date_selection";
 
     private SystemSettingListPreference mDatepos;
     private SystemSettingSeekBarPreference mDatePadding;
     private SystemSettingListPreference mOwnerPos;
+    private SystemSettingListPreference mDateStyle;
     private SystemSettingSeekBarPreference mOwnerPadding;
     private OwnerInfoPreferenceController mOwnerInfoPreferenceController;
 
@@ -86,6 +88,8 @@ public class LockStyleSettings extends DashboardFragment implements
     private Preference mOwnerInfoStyle;
     private Preference mOwnerInfoAlign;
     private Preference mOwnerInfoPadding;
+    private int mDefaultGradientColor;
+    private int mDefaultAccentColor;
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -100,9 +104,14 @@ public class LockStyleSettings extends DashboardFragment implements
         mClockCat = (PreferenceCategory) findPreference(CLOCK_CAT);
         mTypeCat = (PreferenceCategory) findPreference(TYPE_CAT);
         mAnalogCat = (PreferenceCategory) findPreference(ANALOG_CAT);
+        mDefaultAccentColor = getResources().getColor(
+                       com.android.internal.R.color.accent_device_default_light);
+        mDefaultGradientColor = getResources().getColor(
+                       com.android.internal.R.color.gradient_device_default);
 
         mOwnerInfoFont = (Preference) findPreference(OWNER_INFO);
         mOwnerInfoStyle = (Preference) findPreference(OWNER_INFO_SIZE);
+        mDateStyle = (SystemSettingListPreference) findPreference(DATE_STYLE);
 
         mDatepos = (SystemSettingListPreference) findPreference(DATE_POS);
         mOwnerPadding = (SystemSettingSeekBarPreference) findPreference(OWNER_PADDING);
@@ -110,6 +119,27 @@ public class LockStyleSettings extends DashboardFragment implements
         mOwnerPos = (SystemSettingListPreference) findPreference(OWNER_POS);
         mDatepos.setOnPreferenceChangeListener(this);
         mOwnerPos.setOnPreferenceChangeListener(this);
+        String[] defaultgrad = getResources().getStringArray(
+                R.array.lockscreen_date_selection_entries);
+        String[] defaultgradentries = getResources().getStringArray(
+                R.array.lockscreen_date_selection_values);
+        String[] systementries = getResources().getStringArray(
+                R.array.lockscreen_date_selection2_entries);
+        String[] systemvalues = getResources().getStringArray(
+                R.array.lockscreen_date_selection2_values);
+
+        int accentColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.ACCENT_COLOR, mDefaultGradientColor, UserHandle.USER_CURRENT);
+
+        int gradientColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.GRADIENT_COLOR_PROP, mDefaultGradientColor, UserHandle.USER_CURRENT);
+        if (accentColor == gradientColor) {
+            mDateStyle.setEntries(systementries);
+            mDateStyle.setEntryValues(systemvalues);
+        } else {
+            mDateStyle.setEntries(defaultgrad);
+            mDateStyle.setEntryValues(defaultgradentries);
+        }
 
         updateDatePref(datepos);
         updateOwnerPref(ownerpos);

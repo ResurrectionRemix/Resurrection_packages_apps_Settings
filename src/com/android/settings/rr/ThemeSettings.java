@@ -87,6 +87,7 @@ public class ThemeSettings extends DashboardFragment implements
     private static final String NAV_STYLE = "navbar_base";
     private static final String QS_TILE_STYLE = "qs_tile_style";
     private static final String DARK_TEXT = "dark_ui_text";
+    private static final String BRIGHTNESS = "brightness_slider_style";
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -105,6 +106,9 @@ public class ThemeSettings extends DashboardFragment implements
     private ListPreference mQsTileStyle;
     private PreferenceCategory mNavStyle;
     PowerManager mPowerManager;
+    private SystemSettingListPreference mBrightness;
+    private int mDefaultGradientColor;
+    private int mDefaultAccentColor;
 
     private Preference mAnim;
     private AboutSettingsPreview mStatic;
@@ -122,6 +126,7 @@ public class ThemeSettings extends DashboardFragment implements
 		ContentResolver resolver = getActivity().getContentResolver();
         mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
         mHeaderStyle = (ListPreference) findPreference(HEADER);
+        mBrightness = (SystemSettingListPreference) findPreference(BRIGHTNESS);
         mNavStyle = (PreferenceCategory) findPreference(NAV_STYLE);
         PreferenceScreen screen = getPreferenceScreen();
         mRRbg = (ListPreference) findPreference(KEY_RR_BG);
@@ -144,6 +149,28 @@ public class ThemeSettings extends DashboardFragment implements
         mQsTileStyle.setValueIndex(valueInd >= 0 ? valueInd : 0);
         mQsTileStyle.setSummary(mQsTileStyle.getEntry());
         mQsTileStyle.setOnPreferenceChangeListener(this);
+        String[] defaultgrad = getResources().getStringArray(
+                R.array.brightness_slider_style_selector_entries);
+        String[] defaultgradentries = getResources().getStringArray(
+                R.array.brightness_slider_style_selector_values);
+        String[] systementries = getResources().getStringArray(
+                R.array.brightness_slider_style_selector2_entries);
+        String[] systemvalues = getResources().getStringArray(
+                R.array.brightness_slider_style_selector2_values);
+
+        int accentColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.ACCENT_COLOR, mDefaultGradientColor, UserHandle.USER_CURRENT);
+
+        int gradientColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.GRADIENT_COLOR_PROP, mDefaultGradientColor, UserHandle.USER_CURRENT);
+
+        if (accentColor == gradientColor) {
+            mBrightness.setEntries(systementries);
+            mBrightness.setEntryValues(systemvalues);
+        } else {
+            mBrightness.setEntries(defaultgrad);
+            mBrightness.setEntryValues(defaultgradentries);
+        }
 
         if (SystemNavigationPreferenceController.isEdgeToEdgeEnabled(mContext) 
             || SystemNavigationPreferenceController.isSwipeUpEnabled(mContext)) {
