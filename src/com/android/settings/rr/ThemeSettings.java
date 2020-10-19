@@ -88,6 +88,7 @@ public class ThemeSettings extends DashboardFragment implements
     private static final String QS_TILE_STYLE = "qs_tile_style";
     private static final String DARK_TEXT = "dark_ui_text";
     private static final String BRIGHTNESS = "brightness_slider_style";
+    private static final String SWITCH = "berry_switch_style";
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
@@ -107,6 +108,7 @@ public class ThemeSettings extends DashboardFragment implements
     private PreferenceCategory mNavStyle;
     PowerManager mPowerManager;
     private SystemSettingListPreference mBrightness;
+    private SystemSettingListPreference mSwitch;
     private int mDefaultGradientColor;
     private int mDefaultAccentColor;
 
@@ -122,9 +124,22 @@ public class ThemeSettings extends DashboardFragment implements
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         mContext = getActivity();
+
+        mDefaultAccentColor = getResources().getColor(
+                       com.android.internal.R.color.accent_device_default_light);
+        mDefaultGradientColor = getResources().getColor(
+                       com.android.internal.R.color.gradient_device_default);
+
+        int accentColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.ACCENT_COLOR, mDefaultGradientColor, UserHandle.USER_CURRENT);
+
+        int gradientColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.GRADIENT_COLOR_PROP, mDefaultGradientColor, UserHandle.USER_CURRENT);
+
         mAccent = (Preference) findPreference(ACCENT);
 		ContentResolver resolver = getActivity().getContentResolver();
         mThemeSwitch = (ListPreference) findPreference(PREF_THEME_SWITCH);
+        mSwitch = (SystemSettingListPreference) findPreference(SWITCH);
         mHeaderStyle = (ListPreference) findPreference(HEADER);
         mBrightness = (SystemSettingListPreference) findPreference(BRIGHTNESS);
         mNavStyle = (PreferenceCategory) findPreference(NAV_STYLE);
@@ -140,6 +155,21 @@ public class ThemeSettings extends DashboardFragment implements
         mThemeSwitch.setValueIndex(valueIndex);
         mThemeSwitch.setSummary(mThemeSwitch.getEntry());
         mThemeSwitch.setOnPreferenceChangeListener(this);
+        String[] defaultgrad1 = getResources().getStringArray(
+                R.array.switch_style_entries);
+        String[] defaultgradentries1 = getResources().getStringArray(
+                R.array.switch_style_values);
+        String[] systementries1 = getResources().getStringArray(
+                R.array.switch_style_2_entries);
+        String[] systemvalues1 = getResources().getStringArray(
+                R.array.switch_style_2_values);
+        if (accentColor == gradientColor) {
+            mSwitch.setEntries(systementries1);
+            mSwitch.setEntryValues(systemvalues1);
+        } else {
+            mSwitch.setEntries(defaultgrad1);
+            mSwitch.setEntryValues(defaultgradentries1);
+        }
 
         mQsTileStyle = (ListPreference) findPreference(QS_TILE_STYLE);
         int qsTileStyle = Settings.System.getIntForUser(resolver,
@@ -157,12 +187,6 @@ public class ThemeSettings extends DashboardFragment implements
                 R.array.brightness_slider_style_selector2_entries);
         String[] systemvalues = getResources().getStringArray(
                 R.array.brightness_slider_style_selector2_values);
-
-        int accentColor = Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.ACCENT_COLOR, mDefaultGradientColor, UserHandle.USER_CURRENT);
-
-        int gradientColor = Settings.System.getIntForUser(getContext().getContentResolver(),
-                Settings.System.GRADIENT_COLOR_PROP, mDefaultGradientColor, UserHandle.USER_CURRENT);
 
         if (accentColor == gradientColor) {
             mBrightness.setEntries(systementries);
