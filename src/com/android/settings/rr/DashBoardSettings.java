@@ -65,10 +65,12 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
     private static final String SEARCHBAR = "settings_searchbar_color";
     private static final String FILE_SPACER_SELECT = "file_spacer_select";
     private static final String CROP = "settings_spacer_image_crop";
+    private static final String SEARCHBAR_TINT = "settings_searchbar_tint";
     private static final int REQUEST_PICK_IMAGE = 0;
 
     private ListPreference mConfig;
     private SystemSettingSwitchPreference mUI;
+    private SystemSettingSwitchPreference mSearchTint;
     private ListPreference mAnim;
     private ListPreference mHomeStyle;
     private ListPreference mHomeFont;
@@ -101,6 +103,7 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         mDefaultGradientColor = getResources().getColor(
                        com.android.internal.R.color.gradient_device_default);
         mUI = (SystemSettingSwitchPreference) findPreference(ONE_UI);
+        mSearchTint = (SystemSettingSwitchPreference) findPreference(SEARCHBAR_TINT);
 
         mSpacerImage = findPreference(FILE_SPACER_SELECT);
         int imagetype = Settings.System.getInt(getActivity().getContentResolver(),
@@ -126,8 +129,10 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
                 R.array.searchbar_color_2_entries);
         String[] systemvalues = getResources().getStringArray(
                 R.array.searchbar_color_2_values);
-
+        int searchcolor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.SETTINGS_SEARCHBAR_COLOR, 0, UserHandle.USER_CURRENT);
         mSearchbarColor = (SystemSettingListPreference) findPreference(SEARCHBAR);
+        mSearchbarColor.setOnPreferenceChangeListener(this);
         if (accentColor == gradientColor) {
             mSearchbarColor.setEntries(systementries);
             mSearchbarColor.setEntryValues(systemvalues);
@@ -147,6 +152,7 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         updatePrefs(style);
         updateImagePrefs(imagetype, style);
         updateSummaries(size);
+        updateSearchbar(searchcolor);
         int anim = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.RR_CONFIG_ANIM, 0);
         try {
@@ -194,7 +200,11 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
              int val = Integer.parseInt((String) objValue);
              updatePrefs(val);
              return true;
-         }  else if (preference == mImage) {
+         } else if (preference == mSearchbarColor) {
+             int val = Integer.parseInt((String) objValue);
+             updateSearchbar(val);
+             return true;
+         } else if (preference == mImage) {
              int value = Integer.parseInt((String) objValue);
              int spacer = Settings.System.getInt(getActivity().getContentResolver(),
                 Settings.System.SETTINGS_SPACER_STYLE, 0);
@@ -261,6 +271,15 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
             mSpacerImage.setSummary(R.string.file_spacer_select_summary);
         }
     }
+
+    private void updateSearchbar(int style) {
+        if (style == 0) {
+            mSearchTint.setEnabled(false);
+        } else {
+            mSearchTint.setEnabled(true);
+        }
+    }
+
 
     private void updateImagePrefs(int style, int spacer) {
         String imageUri = Settings.System.getStringForUser(getActivity().getContentResolver(),
