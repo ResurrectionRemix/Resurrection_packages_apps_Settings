@@ -62,7 +62,7 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
     private static final String FONT = "settings_spacer_font_style";
     private static final String SIZE = "settings_display_anim";
     private static final String IMAGE = "settings_spacer_image_style";
-    private static final String SEARCHBAR = "settings_spacer_image_searchbar";
+    private static final String SEARCHBAR = "settings_searchbar_color";
     private static final String FILE_SPACER_SELECT = "file_spacer_select";
     private static final String CROP = "settings_spacer_image_crop";
     private static final int REQUEST_PICK_IMAGE = 0;
@@ -75,8 +75,10 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
     private ListPreference mSize;
     private SystemSettingListPreference mImage;
     private SystemSettingListPreference mImageSize;
-    private SystemSettingSwitchPreference mSearchbarImage;
+    private SystemSettingListPreference mSearchbarColor;
     private Preference mSpacerImage;
+    private int mDefaultGradientColor;
+    private int mDefaultAccentColor;
 
     @Override
     public int getMetricsCategory() {
@@ -94,7 +96,10 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
                 getContentResolver(), Settings.System.RR_CONFIG_STYLE, 0)));
         mConfig.setSummary(mConfig.getEntry());
         mConfig.setOnPreferenceChangeListener(this);
-        
+        mDefaultAccentColor = getResources().getColor(
+                       com.android.internal.R.color.accent_device_default_light);
+        mDefaultGradientColor = getResources().getColor(
+                       com.android.internal.R.color.gradient_device_default);
         mUI = (SystemSettingSwitchPreference) findPreference(ONE_UI);
 
         mSpacerImage = findPreference(FILE_SPACER_SELECT);
@@ -108,7 +113,28 @@ public class DashBoardSettings extends SettingsPreferenceFragment implements
         mImageSize = (SystemSettingListPreference) findPreference(CROP);
         mImageSize.setOnPreferenceChangeListener(this);
 
-        mSearchbarImage = (SystemSettingSwitchPreference) findPreference(SEARCHBAR);
+        int accentColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.ACCENT_COLOR, mDefaultGradientColor, UserHandle.USER_CURRENT);
+
+        int gradientColor = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.GRADIENT_COLOR_PROP, mDefaultGradientColor, UserHandle.USER_CURRENT);
+        String[] defaultgrad = getResources().getStringArray(
+                R.array.searchbar_color_entries);
+        String[] defaultgradentries = getResources().getStringArray(
+                R.array.searchbar_color_values);
+        String[] systementries = getResources().getStringArray(
+                R.array.searchbar_color_2_entries);
+        String[] systemvalues = getResources().getStringArray(
+                R.array.searchbar_color_2_values);
+
+        mSearchbarColor = (SystemSettingListPreference) findPreference(SEARCHBAR);
+        if (accentColor == gradientColor) {
+            mSearchbarColor.setEntries(systementries);
+            mSearchbarColor.setEntryValues(systemvalues);
+        } else {
+            mSearchbarColor.setEntries(defaultgrad);
+            mSearchbarColor.setEntryValues(defaultgradentries);
+        }
 
         mAnim = (ListPreference) findPreference(ANIMATION);
         mAnim.setOnPreferenceChangeListener(this);
