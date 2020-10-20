@@ -296,8 +296,13 @@
     <string name="title_about">О Resurrection Remix OS</string>
     <string name="dev_categorie_title">Тэг разработчика</string>
     <string name="rr_lockscreen_title">Экран блокировки</string>
+    <string name="rr_lockscreen_shortcuts">Ярлыки на экране блокировки</string>
+    <string name="rr_lock_items_title">Элементы экрана блокировки</string>
     <string name="rr_ls_gestures">Жесты системы</string>
     <string name="rr_ls_ui">Блокировка интерфейса</string>
+    <string name="rr_ls_battery">Батарея на экране блокировки</string>
+    <string name="rr_ls_notif">Уведомления на заблокированном экране</string>
+    <string name="rr_ls_media">Мультимедиа на заблокированном экране</string>
     <string name="rr_ls_security">Безопасность</string>
     <string name="updater_title">Обновления</string>
     <string name="rr_themes_title">Темы</string>
@@ -497,6 +502,8 @@
     <string name="recents_clear_all_summary">Заменить стандартную кнопку \"Очистить всё\" плавающей кнопкой и настроить ее положение</string>
     <string name="omniswitch_summary">Заменить экран недавних приложений на Omni-recents</string>
     <string name="rr_buttons_summary">Настройка различных кнопок</string>
+    <string name="rr_ls_notif_sum">Настройки количества уведомлений на заблокированном экране/string>
+    <string name="rr_ls_media_sum">Настройки обложки мультимедийного альбома на заблокированном экране/string>
     <string name="rr_color_settings_summary">Выберите системный цвет акцента на свой вкус. Больше никаких ограничений</string>
     <string name="rr_qs_animation_summary">Включение/отключение/настройка анимации при нажатии на плитки быстрых настроек</string>
     <string name="rr_themes_sum">Проще, чем \"Стили и обои\". Настройте цвета, иконки и различные схемы системы</string>
@@ -507,6 +514,8 @@
     <string name="rr_ls_ui_summary">Включить, отключить и настроить различные элементы на экране блокировки</string>
     <string name="lockscreen_targets_summary">Настроить нижние левый и правый ярлыки на экране блокировки</string>
     <string name="lockscreen_weather_summary">Настроить расположение погоды на экране блокировки</string>
+    <string name="rr_lock_items_sum">Настройки различных элементов экрана блокировки</string>
+    <string name="rr_lockscreen_shortcuts_summary">Настройки ярлыков в нижней части экрана блокировки</string>
     <string name="sb_weather_summary">Настройка погоды в строке состояния</string>
     <string name="rr_ls_security_summary">Включение или отключение различных функций безопасности для экрана блокировки</string>
     <string name="gesture_anywhere_summary">Нарисуйте ваши жесты для запуска предпочтительных действий</string>
@@ -539,13 +548,13 @@
     <string name="date_cat">Настройка даты</string>
     <string name="rr_headsup_summary">Расширенные настройки всплывающих окон</string>
     <string name="slim_recents_summary">Настройки недавних</string>
-    <string name="navbar_not_active">This option will only work with the 3 button classic navbar or hardware keys (if available). Please enable navbar from navigation settings and come back here.</string>
-    <string name="navbar_not_active_edge">Looks like you have edge gestures navbar enabled.Consider using recents action in edge long swipe gesture to use this feature.</string>
-    <string name="navbar_not_active_pulse">This option will only work with the navbar. Please enable navbar from navigation settings and come back here.</string>
-    <string name="two_button_navbar_not_active">Looks like you have 2 button navbar enabled.Consider using recents action in home or back button double tap or long press to use this feature. Swiping up will trigger regular recents.</string>
-    <string name="navbar_long_active_edge">Looks like you have edge gesture navbar enabled.Slim recents can only be used with long swipe gestures.Swiping up will trigger regular recents.</string>
-    <string name="navbar_two_button_long_summary">Looks like you have 2 button navbar enabled.Slim recents can only be used with double tap or longpress actions for home or back button. Swiping up will trigger regular recents.</string>
-    <string name="slim_recents_full_disabled_summary">Looks like you have have no navigating options enabled. You need to enable atleast one of the system navigations to enable this option.</string>
+    <string name="navbar_not_active">Эта опция будет работать только с 3-х кнопочной классической навигационной панелью или аппаратными клавишами (если они доступны). Пожалуйста, включите навигационную панель в настройках навигации и вернитесь сюда.</string>
+    <string name="navbar_not_active_edge">Настройте длинный свайп от края экрана для вызова недавних, чтобы использовать эту настройку.</string>
+    <string name="navbar_not_active_pulse">Эта опция будет работать только с навигационной панелью. Пожалуйста, включите навигационную панель в настройках навигации и вернитесь сюда.</string>
+    <string name="two_button_navbar_not_active">Похоже, у вас активирована двухкнопочная навигационная панель. Рассмотрите возможность использования недавних действий на главном экране или кнопку возврата, двойное нажатие или долгое нажатие для использования этой функции. Смахивание вверх будет вызывать регулярные недавние.</string>
+    <string name="navbar_long_active_edge">Похоже, у вас включена панель навигации с жестами краев. Тонкие недавние переходы можно использовать только с помощью длинных жестов смахивания. Проведение вверх будет вызывать обычные.</string>
+    <string name="navbar_two_button_long_summary">Похоже, включена навигация 2 кнопками. Тонкие отступы можно использовать только с двойным касанием или длинным нажатием кнопки "Домой" или "Назад". Свайпинг вверх вызовет регулярные недавние.</string>
+    <string name="slim_recents_full_disabled_summary">Похоже, у вас не включены параметры навигации. Вам необходимо включить хотя бы одну из системной навигации, чтобы включить эту опцию.</string>
     <string name="system_animations">Анимации системы</string>
     <string name="rr_ui_title">Интерфейс</string>
     <string name="weather">Погода</string>
@@ -822,6 +831,9 @@
 
     <string name="notification_sound_vib_screen_on_title">Звук уведомления, если активен</string>
     <string name="notification_sound_vib_screen_on_summary">Воспроизводить звук и вибрировать при уведомлениях когда экран включен</string>
+	    
+    <string name="battery_saver_vib_title">Включить вибрацию во время энергосбережения</string>
+    <string name="battery_saver_vib_summary">Нажмите, чтобы включить вибрацию системы, когда активна функция экономии заряда</string>
 
     <!-- Lockscreen battery info indicator  -->
     <string name="lockscreen_battery_info_title">Информация о батарее</string>
@@ -1487,6 +1499,11 @@
     <string name="volume_panel_plugin_enable_title">Включить пользовательскую панель громкости</string>
     <string name="volume_panel_plugin_enable_summary">Выбирайте различные стили панели громкости. Это отключит настройки панели громкости системы по умолчанию</string>
     <string name="volume_panel_animation_title">Анимация расширения панели громкости</string>
+    <string name="volume_panel_icon_tint">Оттенок значка (стандартная панель громкости)</string>
+    <string name="volume_panel_icon_default">По умолчанию (цвет градиента)</string>
+    <string name="volume_panel_icon_primary">Основной</string>
+    <string name="volume_panel_icon_accent">Акцент</string>
+    <string name="volume_panel_slider_color">Ползунок с оттенком (стандартная панель громкости)</string>
 	
     <!-- AOKP custom system animations -->
     <string name="system_animation_title">Анимации системы</string>
@@ -1649,11 +1666,11 @@
     <string name="vibration_intensity_medium">Средний</string>
     <string name="vibration_intensity_strong">Высокий</string>
     <string name="vibration_intensity_custom">Пользовательский</string>
-    <string name="pattern_dzzz_dzzz">dzzz-dzzz</string>
-    <string name="pattern_dzzz_da">dzzz-da</string>
-    <string name="pattern_mm_mm_mm">mm-mm-mm</string>
-    <string name="pattern_da_da_dzzz">da-da-dzzz</string>
-    <string name="pattern_da_dzzz_da">da-dzzz-da</string>
+    <string name="pattern_dzzz_dzzz">дззз-дззз</string>
+    <string name="pattern_dzzz_da">дззз-да</string>
+    <string name="pattern_mm_mm_mm">мм-мм-мм/string>
+    <string name="pattern_da_da_dzzz">да-да-дззз</string>
+    <string name="pattern_da_dzzz_da">ла-дззз-да</string>
 
     <!-- Notification Vibration -->
     <string name="vibrate_on_notifications_title">Вибрация уведомлений</string>
@@ -2162,7 +2179,8 @@
     <string name="pixel_weather_warning">Включена погода в стиле Pixel. Пожалуйста, отключите её для настройки цветов погоды</string>
     <string name="date_disabled_summary">Дата на экране блокировки выключена. Для погоды выбран стиль Omni. Включите дату на экране блокировки, чтобы использовать этот параметр.</string>
     <string name="clock_ui_warning">Эти настройки не будут работать со всеми пользовательскими часами. Они предназначены для работы с системными часами по умолчанию</string>
-
+    <string name="rr_ls_battery_sum">Настройка стиля батареи на экране блокировки</string>
+	
     <!-- Battery health -->
     <string name="battery_health_title">Состояние батареи</string>
     <string name="battery_health_summary">Отслеживает состояние батареи вашего устройства</string>
@@ -2321,6 +2339,19 @@
     <string name="settings_spacer_image_style_summary">Переключите, чтобы отображать аватар пользователя, логотип RR или пользовательское изображение</string>
     <string name="settings_spacer_image_searchbar_title">Скрыть изображение панели поиска</string>
     <string name="settings_spacer_image_searchbar_summary">Переключите, чтобы скрыть аватар пользователя из панели поиска</string>
+    <string name="settings_searchbar_accent">Акцент</string>
+    <string name="settings_searchbar_gradient">Градиент</string>
+    <string name="settings_searchbar_gradient2">Градиент (инвертированный)</string>
+    <string name="settings_searchbar_gradient_system">Системный градиент</string>
+    <string name="settings_searchbar_gradient_system2">Системный градиент (инвертированный)</string>
+    <string name="settings_searchbar_radius_max">Сильно закругленный</string>
+    <string name="settings_searchbar_radius_rounded">Закругленный</string>
+    <string name="settings_searchbar_radius_square_rounded">Прямоугольник с закругленными углами</string>
+    <string name="settings_searchbar_radius_rectangle">Прямоугольник</string>
+    <string name="settings_searchbar_radius_corner">Следуйте угловому радиусу</string>
+    <string name="settings_searchbar_radius">Радиус поисковой строки</string>
+    <string name="settings_searchbar_tint">Параметры цветов поисковой строки</string>
+    <string name="settings_searchbar_tint_summary">Заставляет панель поиска внутри разных фрагментов настроек в приложении Настройки быть того же цвета, что и панель инструментов</string>
     <string name="rr_avatar_disabled">Сначала установите аватар в настройках пользователя.</string>
     <string name="settings_spacer_style_0">Image</string>
     <string name="settings_spacer_style_1">Анимация</string>
@@ -2853,6 +2884,49 @@
     <string name="permissions_hub_qs_summary">Отображать индикаторы конфиденциальности, такие как камера и микрофон в заголовке панели быстрых настроек при использовании.</string>
 
 </resources>пережение и вылет</string>
+	
+    <!-- Cycle through ringer modes gesture -->
+    <string name="prevent_ringing_option_cycle">Циклический переход между режимами</string>
+    <string name="prevent_ringing_option_cycle_summary">Вкл. (Переключение режимов)</string>
+	
+    <!-- Smart pulldown-->
+    <string name="smart_pulldown_title">Умное раскрытие</string>
+    <string name="smart_pulldown_off">Отклюено</string>
+    <string name="smart_pulldown_none">Без уведомлений</string>
+    <string name="smart_pulldown_dismissable">Нет уведомлений, которые можно закрыть</string>
+    <string name="smart_pulldown_ongoing">Нет текущих уведомлений</string>
+	
+    <!-- DC Dimming -->
+    <string name="rr_display">Дисплей</string>
+    <string name="dc_dimming_title">Уменьшение мерцания</string>
+    <string name="dc_dimming_info">Снижает нагрузку на глаза в условиях низкой освещенности, но может привести к снижению качества изображения и плохой цветопередаче.</string>
+    <string name="dc_dimming_auto_mode_title">График</string>
+    <string name="dc_dimming_mode_brightness">Включите, когда яркость ниже порога</string>
+    <string name="dc_dimming_mode_full">Зависит от времени и яркости</string>
+    <string name="dc_dimming_brightness_title">Порог яркости</string>
+    <string name="dc_dimming_brightness_disabled">Отключено</string>
+    <string name="dc_dimming_restore_auto_mode">Восстановить автоматический режим</string>
+    <string name="dc_dimming_brightness_info">Активируйте Уменьшение мерцания только тогда, когда средняя яркость ниже порогового значения.</string>
+    <string name="dc_dimming_off_auto_mode_auto">Включается автоматически</string>
+    <string name="dc_dimming_on_auto_mode_auto">Выключится автоматически</string>
+    <string name="keywords_display_dc_dimming">уменьшение мерцания, мерцание, глаз, напряжение</string>
+
+    <!-- System icons -->
+    <string name="theme_customization_settings_icon_title">Форма значков настроек</string>
+    <string name="theme_customization_sysui_2_icon_title">Форма значков системного интерфейса</string>
+    <string name="rr_sb_icons_base">Статусбарr</string>
+    <string name="rr_systemui_icons_base">Системный интерфейс </string>
+    <string name="rr_settings_icons_base">Панель настроек</string>
+    <string name="rr_adaptive_icon_text">Выберите любую форму для адаптивных значков. Они применяются к приложениям, программам запуска, панели настроек и быстрым настройкам (если не включены пользовательские плитки быстрых настроек)</string>
+    <string name="rr_statusbar_icon_text">Выберите любую форму значка в строке состояния. Это относится только к значкам в строке состояния, таким как Wi-Fi, мобильной сети, Bluetooth, батареи и т. д.</string>
+    <string name="rr_systemui_icon_text">Выберите любую форму значков системного интерфейса. Это относится к значкам, относящимся к панели громкости, и небольшим другим элементам системного интерфейса, таким как значки, связанные со звуком.</string>
+    <string name="rr_settings_icon_text">Выберите из различных форм значков настроек. Они применяются к значкам, относящимся к значкам панели «Настройки». Эти значки не влияют на инструменты RR.</string>
+    <string name="rr_dark_theme_text">Выбирайте из большого количества тем. Обязательно перезапустите настройки, чтобы избежать сбоев при применении четких тем. Обязательно перезапустите системный интерфейс, если у вас возникнут проблемы или замедление работы системы после применения многих тем.</string>
+    <string name="icon_pack_default">По умолчанию</string>
+    <string name="icon_pack_rounded">Закругленные</string>
+    <string name="icon_pack_multi">Мульти</string>
+    <string name="icon_pack_filled">Заполненные</string>
+    <string name="icon_pack_circular">Круглые</string>
 
     <!-- Option to enable/disable scrolling cache -->
     <string name="pref_scrollingcache_title">Кэш прокрутки</string>
