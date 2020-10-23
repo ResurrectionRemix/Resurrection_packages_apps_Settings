@@ -296,13 +296,13 @@
     <string name="title_about">О Resurrection Remix OS</string>
     <string name="dev_categorie_title">Тэг разработчика</string>
     <string name="rr_lockscreen_title">Экран блокировки</string>
-    <string name="rr_lockscreen_shortcuts">Нижние ярлыки</string>
+    <string name="rr_lockscreen_shortcuts">Ярлыки на экране блокировки</string>
     <string name="rr_lock_items_title">Элементы экрана блокировки</string>
     <string name="rr_ls_gestures">Жесты системы</string>
     <string name="rr_ls_ui">Блокировка интерфейса</string>
     <string name="rr_ls_battery">Батарея на заблокированном экране</string>
     <string name="rr_ls_notif">Уведомления на заблокированном экране</string>
-    <string name="rr_ls_media">Медиа на заблокированном экране</string>
+    <string name="rr_ls_media">Мультимедиа на заблокированном экране</string>
     <string name="rr_ls_security">Безопасность</string>
     <string name="updater_title">Обновления</string>
     <string name="rr_themes_title">Темы</string>
@@ -502,8 +502,8 @@
     <string name="recents_clear_all_summary">Заменить стандартную кнопку \"Очистить всё\" плавающей кнопкой и настроить ее положение</string>
     <string name="omniswitch_summary">Заменить экран недавних приложений на Omni-recents</string>
     <string name="rr_buttons_summary">Настройка различных кнопок</string>
-    <string name="rr_ls_notif_sum">Настроить количество уведомлений на заблокированном экране</string>
-    <string name="rr_ls_media_sum">Настроить обложку мультимедийного альбома на заблокированном экране</string>
+    <string name="rr_ls_notif_sum">Настройки количества уведомлений на заблокированном экране</string>
+    <string name="rr_ls_media_sum">Настройки обложки мультимедийного альбома на заблокированном экране</string>
     <string name="rr_color_settings_summary">Выберите системный цвет акцента на свой вкус. Больше никаких ограничений</string>
     <string name="rr_qs_animation_summary">Включение/отключение/настройка анимации при нажатии на плитки быстрых настроек</string>
     <string name="rr_themes_sum">Проще, чем \"Стили и обои\". Настройте цвета, иконки и различные схемы системы</string>
@@ -514,8 +514,8 @@
     <string name="rr_ls_ui_summary">Включить, отключить и настроить различные элементы на экране блокировки</string>
     <string name="lockscreen_targets_summary">Настроить нижние левый и правый ярлыки на экране блокировки</string>
     <string name="lockscreen_weather_summary">Настроить расположение погоды на экране блокировки</string>
-    <string name="rr_lock_items_sum">Настройте различные элементы экрана блокировки</string>
-    <string name="rr_lockscreen_shortcuts_summary">Настроить нижние ярлыки на заблокированном экране</string>
+    <string name="rr_lock_items_sum">Настройки различных элементов экрана блокировки</string>
+    <string name="rr_lockscreen_shortcuts_summary">Настройки ярлыков в нижней части экрана блокировки</string>
     <string name="sb_weather_summary">Настройка погоды в строке состояния</string>
     <string name="rr_ls_security_summary">Включение или отключение различных функций безопасности для экрана блокировки</string>
     <string name="gesture_anywhere_summary">Нарисуйте ваши жесты для запуска предпочтительных действий</string>
@@ -830,7 +830,10 @@
     <string name="default_text">По умолчанию</string>
 
     <string name="notification_sound_vib_screen_on_title">Звук уведомления, если активен</string>
-    <string name="notification_sound_vib_screen_on_summary">Воспроизводить звук и вибрировать при уведомлениях когда экран включен</string>
+    <string name="notification_sound_vib_screen_on_summary">Нажмите, чтобы включить вибрацию системы, когда активна функция экономии заряда</string>
+	
+	  <string name="battery_saver_vib_title">Включить вибрацию во время энергосбережения</string>
+    <string name="battery_saver_vib_summary">Переключите, чтобы включить вибрацию системы, когда активна функция экономии заряда</string>
 
     <!-- Lockscreen battery info indicator  -->
     <string name="lockscreen_battery_info_title">Информация о батарее</string>
@@ -1514,6 +1517,12 @@
     <string name="volume_panel_plugin_enable_title">Включить пользовательскую панель громкости</string>
     <string name="volume_panel_plugin_enable_summary">Выбирайте различные стили панели громкости. Это отключит настройки панели громкости системы по умолчанию</string>
     <string name="volume_panel_animation_title">Анимация расширения панели громкости</string>
+    <string name="volume_panel_icon_tint">Оттенок значка (стандартная панель громкости)</string>
+    <string name="volume_panel_icon_default">По умолчанию (цвет градиента)</string>
+    <string name="volume_panel_icon_primary">Основной</string>
+    <string name="volume_panel_icon_accent">Акцент</string>
+    <string name="volume_panel_slider_color">Ползунок с оттенком (стандартная панель громкости)</string>
+
 	
     <!-- AOKP custom system animations -->
     <string name="system_animation_title">Анимации системы</string>
@@ -1676,11 +1685,11 @@
     <string name="vibration_intensity_medium">Средний</string>
     <string name="vibration_intensity_strong">Высокий</string>
     <string name="vibration_intensity_custom">Пользовательский</string>
-    <string name="pattern_dzzz_dzzz">dzzz-dzzz</string>
-    <string name="pattern_dzzz_da">dzzz-da</string>
-    <string name="pattern_mm_mm_mm">mm-mm-mm</string>
-    <string name="pattern_da_da_dzzz">da-da-dzzz</string>
-    <string name="pattern_da_dzzz_da">da-dzzz-da</string>
+    <string name="pattern_dzzz_dzzz">дззз-дззз</string>
+    <string name="pattern_dzzz_da">дззз-да</string>
+    <string name="pattern_mm_mm_mm">мм-мм-мм</string>
+    <string name="pattern_da_da_dzzz">да-да-дззз</string>
+    <string name="pattern_da_dzzz_da">ла-дззз-да</string>
 
     <!-- Notification Vibration -->
     <string name="vibrate_on_notifications_title">Вибрация уведомлений</string>
@@ -2190,7 +2199,8 @@
     <string name="pixel_weather_warning">Включена погода в стиле Pixel. Пожалуйста, отключите её для настройки цветов погоды</string>
     <string name="rr_ls_battery_sum">Выбирайте и настраивайте параметры аккумулятора на заблокированном экране, например стиль зарядки</string>
     <string name="date_disabled_summary">Дата на экране блокировки выключена. Для погоды выбран стиль Omni. Включите дату на экране блокировки, чтобы использовать этот параметр.</string>
-    <string name="clock_ui_warning">Эти настройки не будут работать со всеми пользовательскими часами. Они предназначены для работы с системными часами по умолчанию</string>
+    <string name="rr_ls_battery_sum">Настройка стиля батареи на экране блокировки</string>
+	<string name="clock_ui_warning">Эти настройки не будут работать со всеми пользовательскими часами. Они предназначены для работы с системными часами по умолчанию</string>
 
     <!-- Battery health -->
     <string name="battery_health_title">Состояние батареи</string>
@@ -2350,6 +2360,19 @@
     <string name="settings_spacer_image_style_summary">Переключить, чтобы отображать аватар профиля, логотип rr или пользовательское изображение</string>
     <string name="settings_spacer_image_searchbar_title">Скрыть изображение панели поиска</string>
     <string name="settings_spacer_image_searchbar_summary">Переключите, чтобы скрыть аватар профиля с панели поиска</string>
+	<string name="settings_searchbar_accent">Акцент</string>
+    <string name="settings_searchbar_gradient">Градиент</string>
+    <string name="settings_searchbar_gradient2">Градиент (инвертированный)</string>
+    <string name="settings_searchbar_gradient_system">Системный градиент</string>
+    <string name="settings_searchbar_gradient_system2">Системный градиент (инвертированный)</string>
+    <string name="settings_searchbar_radius_max">Сильно закругленный</string>
+    <string name="settings_searchbar_radius_rounded">Закругленный</string>
+    <string name="settings_searchbar_radius_square_rounded">Прямоугольник с закругленными углами</string>
+    <string name="settings_searchbar_radius_rectangle">Прямоугольник</string>
+    <string name="settings_searchbar_radius_corner">Следуйте угловому радиусу</string>
+    <string name="settings_searchbar_radius">Радиус поисковой строки</string>
+    <string name="settings_searchbar_tint">Параметры цветов поисковой строки</string>
+    <string name="settings_searchbar_tint_summary">Заставляет панель поиска внутри разных фрагментов настроек в приложении Настройки быть того же цвета, что и панель инструментов</string>
     <string name="rr_avatar_disabled">Сначала установите аватар в пользовательских настройках.</string>
     <string name="settings_spacer_style_0">Изображение</string>
     <string name="settings_spacer_style_1">Анимация</string>
