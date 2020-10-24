@@ -2528,6 +2528,18 @@
                 android:value="com.android.settings.rr.fragments.PulseSettings" />
         </activity>
 
+        <activity android:name=".Settings$SmartSettingsActivity"
+            android:label="@string/smart_charging_title"
+            android:taskAffinity="com.android.settings"
+            android:parentActivityName="Settings">
+            <intent-filter android:priority="1">
+                <action android:name="android.settings.SMART_CHARGING" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="com.android.settings.rr.ChargeSettings" />
+        </activity>
+
         <activity android:name=".Settings$ButtonSettingsActivity"
             android:label="@string/navbar_tuner_title"
             android:taskAffinity="com.android.settings"

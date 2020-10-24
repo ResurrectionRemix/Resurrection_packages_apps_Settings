@@ -163,6 +163,7 @@ import com.android.settings.rr.fragments.GamingMode;
 import com.android.settings.rr.ThemeSettings;
 import com.android.settings.rr.fragments.Buttons;
 import com.android.settings.rr.fragments.PulseSettings;
+import com.android.settings.rr.ChargeSettings;
 import com.android.settings.rr.omnigears.interfacesettings.LockscreenItemSettings;
 
 public class SettingsGateway {
@@ -313,6 +314,7 @@ public class SettingsGateway {
             MainSettings.class.getName(),
             GestureAnywhereSettings.class.getName(),
             PulseSettings.class.getName(),
+            ChargeSettings.class.getName(),
             Buttons.class.getName(),
             ThemeSettings.class.getName(),
             SmartPixels.class.getName(),
@@ -359,6 +361,7 @@ public class SettingsGateway {
             Settings.AboutSettingsActivity.class.getName(),
             Settings.SmartPixelsActivity.class.getName(),
             Settings.PulseSettingsActivity.class.getName(),
+            Settings.SmartSettingsActivity.class.getName(),
             Settings.WeatherSettingsActivity.class.getName(),
             Settings.MainSettingsLayoutActivity.class.getName(),
             Settings.MainSettingsActivity.class.getName(),
