@@ -120,17 +120,22 @@ public class VolumePanelSettings extends SettingsPreferenceFragment implements
                 mApps.setVisible(true);
                 mAlarm.setVisible(true);
                 mRingerRow.setVisible(true);
-            } else  if (style.equals("co.potatoproject.plugin.volume.compact")){
+            } else if (style.equals("co.potatoproject.plugin.volume.compact")){
                 mLeft.setVisible(true);
                 mApps.setVisible(true);
                 mAlarm.setVisible(true);
                 mRingerRow.setVisible(false);
-            } else  if (style.equals("co.potatoproject.plugin.volume.tiled")){
+            } else if (style.equals("co.potatoproject.plugin.volume.tiled")){
                 mLeft.setVisible(true);
                 mApps.setVisible(false);
                 mAlarm.setVisible(true);
                 mRingerRow.setVisible(true);
-            } else  if (style.equals("co.potatoproject.plugin.volume.aosp")){
+            } else if (style.equals("co.potatoproject.plugin.volume.aosp")){
+                mLeft.setVisible(true);
+                mApps.setVisible(true);
+                mAlarm.setVisible(true);
+                mRingerRow.setVisible(false);
+            } else if (style.equals("com.rr.plugin.volume.miui")){
                 mLeft.setVisible(true);
                 mApps.setVisible(true);
                 mAlarm.setVisible(true);
