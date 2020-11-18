@@ -24,6 +24,8 @@ import android.os.UserHandle;
 import android.util.Log;
 import androidx.annotation.Nullable;
 
+import com.android.settings.R;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -38,12 +40,24 @@ class TransportHelper {
     private final IBackupManager mBackupManager = IBackupManager.Stub.asInterface(
         ServiceManager.getService(Context.BACKUP_SERVICE));
 
+    private Context mContext;
+
+    TransportHelper(Context context) {
+        mContext = context;
+    }
+
     List<Transport> getTransports() {
         String[] backupTransports = getBackupTransports();
         if (backupTransports == null) return Collections.emptyList();
         ArrayList<Transport> transports = new ArrayList<>(backupTransports.length);
+        String[] ignoredTransports = mContext.getResources().getStringArray(
+                R.array.config_ignored_backup_transports);
         for (String name : getBackupTransports()) {
-            if (name.endsWith("LocalTransport")) continue; // don't list debug-only LocalTransport
+            boolean ignored = false;
+            for (String ignoredTransport : ignoredTransports) {
+                if (name.equals(ignoredTransport)) ignored = true;
+            }
+            if (ignored) continue;
             CharSequence label = getLabelFromBackupTransport(name);
             if (label == null || label.length() == 0) label = name;
             Transport transport = new Transport(name, label, getSummaryFromBackupTransport(name));

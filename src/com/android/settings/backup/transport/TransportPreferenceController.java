@@ -28,11 +28,12 @@ public class TransportPreferenceController extends AbstractPreferenceController 
     }
 
     private final OnTransportChangedListener listener;
-    private final TransportHelper transportHelper = new TransportHelper();
+    private final TransportHelper transportHelper;
 
     public TransportPreferenceController(Context context, OnTransportChangedListener listener) {
         super(context);
         this.listener = listener;
+        transportHelper = new TransportHelper(context);
     }
 
     @Override
