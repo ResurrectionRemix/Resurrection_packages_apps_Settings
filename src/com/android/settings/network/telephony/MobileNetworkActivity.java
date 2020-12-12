@@ -222,7 +222,6 @@ public class MobileNetworkActivity extends SettingsBaseActivity {
             }
             navigation.setOnNavigationItemSelectedListener(item -> {
                 switchFragment(new MobileNetworkSettings(), item.getItemId());
-                getActionBar().setTitle(item.getTitle());
                 return true;
             });
         }
