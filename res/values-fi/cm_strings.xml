@@ -22,10 +22,13 @@
     </plurals>
     <string name="show_dev_on_cm">Kehittäjäasetukset ovat nyt käytössä!</string>
     <string name="show_dev_already_cm">Olet jo ottanut kehittäjäasetukset käyttöön.</string>
+    <string name="suggestion_button_close">Sulje</string>
     <string name="advanced_reboot_title">Edistynyt uudelleenkäynnistys</string>
     <string name="advanced_reboot_summary">Lisää mahdollisuuden käynnistää uudelleenkäynnistämisen yhteydessä recovery- tai bootloader-tilaan</string>
     <string name="adb_enable">Android-vianetsintä</string>
     <string name="adb_enable_summary">Ota Android Debug Bridge (ADB) käyttöön</string>
+    <string name="adb_enable_root">Vianetsintä root-tilassa</string>
+    <string name="adb_enable_summary_root">Sallii Androidin virheenkorjauksen root-tilassa</string>
     <string name="adb_notify">Virheenkorjauksen ilmoitus</string>
     <string name="adb_notify_summary">Näytä ilmoitus ADB-virheenkorjaustilan ollessa käytössä</string>
     <string name="adb_over_network">ADB verkon yli</string>
@@ -35,6 +38,8 @@
     <string name="kill_app_longpress_back">Tapa sovellus</string>
     <string name="kill_app_longpress_back_summary">Tapa etualalla oleva sovellus pitämällä takaisin-painiketta pohjassa</string>
     <string name="device_hostname">Laitteen verkkonimi</string>
+    <string name="tethering_allow_vpn_upstreams_title">Salli laitteiden käyttää VPN:ää</string>
+    <string name="tethering_allow_vpn_upstreams_summary">Salli hotspot-yhteyksien kayttää tämän laitteen VPN-yhteyksiä yhteyden muodostamiseen</string>
     <string name="increasing_ring_volume_option_title">Voimistuva soittoääni</string>
     <string name="increasing_ring_min_volume_title">Aloitusvoimakkuus</string>
     <string name="increasing_ring_ramp_up_time_title">Nousun aika</string>
@@ -43,6 +48,7 @@
     <string name="lock_settings_picker_pattern_size_message">Valitse ruudukon koko</string>
     <string name="lockpattern_settings_enable_error_path_title">Näytä kuvion virhe</string>
     <string name="lockpattern_settings_enable_dots_title">Näytä kuvion pisteet</string>
+    <string name="translucent_lockscreen_notifications_bg_title">Läpinäkyvät ilmoitusten taustat</string>
     <string name="app_notification_sound_timeout_title">Vähimmäisväli ilmoitusäänissä</string>
     <string name="app_notification_sound_timeout_summary_template">Sallii äänen tai värinän vain seuraavin välein: <xliff:g id="duration">%1$s</xliff:g></string>
     <string name="app_notification_sound_timeout_value_none">Ei rajoitusta</string>
@@ -68,8 +74,12 @@
     <string name="status_bar_double_tap_to_sleep_summary">Sulje laitteen näyttö tuplanapauttamalla tilapalkkia tai lukitusnäyttöä</string>
     <string name="touchscreen_gesture_settings_title">Kosketusnäytön eleet</string>
     <string name="touchscreen_gesture_settings_summary">Tee erilaisia kosketusnäytön eleitä käyttääksesi pikatoimintoja</string>
+    <string name="data_usage_app_restrict_all">Salli verkkoyhteys</string>
+    <string name="data_usage_app_restrict_all_summary">Ota verkkoyhteys käyttöön</string>
     <string name="data_usage_app_restrict_data">Mobiilidata</string>
     <string name="data_usage_app_restrict_data_summary">Ota mobiilidata käyttöön</string>
+    <string name="data_usage_app_restrict_vpn">VPN data</string>
+    <string name="data_usage_app_restrict_vpn_summary">Ota käyttöön VPN data</string>
     <string name="data_usage_app_restrict_wifi">Wi\u2011Fi data</string>
     <string name="data_usage_app_restrict_wifi_summary">Ota Wi\u2011Fi data käyttöön</string>
     <string name="proximity_wake_title">Estä herätys vahingossa</string>
@@ -84,6 +94,20 @@
     <string name="update_recovery_summary">Päivitä sisäänrakennettu recovery-tila järjestelmäpäivitysten yhteydessä</string>
     <string name="update_recovery_on_warning">HUOMAUTUS: Kun tämä toiminto on käytössä, asennettu Recovery-tila korvataan nykyisen käyttöjärjestelmän versiolla.\n\nRecovery-tila päivitetään yhdessä järjestelmäpäivitysten kanssa, varmistaaksemme yhteensopivuuden tulevien versioiden kanssa\n\nHaluatko ottaa toiminnon käyttöön?</string>
     <string name="update_recovery_off_warning">VAROITUS: Kun toiminto on poistettu käytöstä, asennettua Recovery-tilaa ei päivitetä järjestelmäpäivtysten kanssa.\n\nTulevat järjestelmäpäivitykset eivät välttämättä asennu vanhentuneissa tai mukautetuissa Recovery-tiloissa.\n\nHaluatko varmasti poistaa tämän toiminnon käytöstä?</string>
+    <string name="berry_black_theme_title">Kokonaan musta</string>
+    <string name="berry_black_theme_summary">Kokonaan musta tausta tummalle teemalle</string>
+    <string name="back_sensitivity_title">Takaisin-eleen herkkyys</string>
+    <string name="back_sensitivity_message">Korkeampi herkkyys voi olla ristiriidassa näytön reunan sovelluseleiden kanssa.</string>
+    <string name="back_exclusion_title">Takaisin-ele yläosassa</string>
+    <string name="back_exclusion_summary">Älä käytä takaisin-elettä näytön yläosassa</string>
+    <string name="min_label">Min</string>
+    <string name="max_label">Max</string>
+    <string name="show_navbar_hint_title">Alapalkki</string>
+    <string name="show_navbar_hint_summary">Näytä alapalkki näytön alareunassa</string>
+    <string name="keywords_notification_log">ilmoitukset, ilmoitusloki</string>
+    <string name="connected_tws_device_saved_title">Tallennetut kuulokkeet</string>
     <string name="heads_up_notifications_enabled_title">Leijuvat ilmoitukset</string>
     <string name="heads_up_notifications_enabled_summary">Näytä tärkeät ilmoitukset pienessä kelluvassa ikkunassa</string>
+    <string name="backup_transport_setting_label">Vaihda varmuuskopiopalvelua</string>
+    <string name="backup_transport_title">Valitse varmuuskopiopalvelu</string>
 </resources>
