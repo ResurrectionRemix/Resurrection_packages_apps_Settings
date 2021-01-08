@@ -22,6 +22,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.provider.SearchIndexableResource;
 
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceScreen;
+
 import com.android.settings.R;
 import com.android.settings.biometrics.face.FaceProfileStatusPreferenceController;
 import com.android.settings.biometrics.face.FaceStatusPreferenceController;
@@ -47,6 +50,7 @@ public class SecuritySettings extends DashboardFragment {
     private static final String TAG = "SecuritySettings";
     private static final String SECURITY_CATEGORY = "security_category";
     private static final String WORK_PROFILE_SECURITY_CATEGORY = "security_category_profile";
+    private static final String SECURITY_STATUS_CATEGORY = "security_status";
 
     public static final int CHANGE_TRUST_AGENT_SETTINGS = 126;
     public static final int UNIFY_LOCK_CONFIRM_DEVICE_REQUEST = 128;
@@ -135,6 +139,24 @@ public class SecuritySettings extends DashboardFragment {
         controllers.addAll(profileSecurityControllers);
 
         return controllers;
+    }
+
+    /* Remove empty categories */
+    @Override
+    public void updateCategoryVisibility() {
+        final PreferenceScreen screen = getPreferenceScreen();
+        if (screen == null) {
+            return;
+        }
+
+        PreferenceCategory category = findPreference(SECURITY_STATUS_CATEGORY);
+        if (category == null) {
+            return;
+        }
+        // This category only holds some google play tiles which don't exist without gapps
+        if (category.getPreferenceCount() == 0) {
+            screen.removePreference(category);
+        }
     }
 
     /**
