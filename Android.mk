@@ -56,7 +56,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
     zxing-core-1.7 \
     faceunlock_utils \
     org.lineageos.platform.internal \
-    airbnb-lottie
+    airbnb-lottie \
+    vendor.lineage.fastcharge-V1.0-java
 
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
 
