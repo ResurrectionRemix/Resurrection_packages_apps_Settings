@@ -62,6 +62,11 @@
         android:summary="@string/battery_percentage_description"
         settings:controller="com.android.settings.display.BatteryPercentagePreferenceController" />
 
+    <SwitchPreference
+        android:key="fast_charging"
+        android:title="@string/fast_charging_title"
+        android:summary="@string/fast_charging_summary"
+        settings:controller="com.android.settings.fuelgauge.FastChargingPreferenceController"/>
 
     <com.android.settings.fuelgauge.PowerGaugePreference
         android:key="last_full_charge"
